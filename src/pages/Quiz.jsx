@@ -13,10 +13,6 @@ export default function Quiz() {
   const [answers, setAnswers] = useState([])
   const [finished, setFinished] = useState(false)
 
-  useEffect(() => {
-    document.title = 'Constitution Quiz | Samvidhan'
-  }, [])
-
   const question = quizData[index]
   const isLast = index === quizData.length - 1
 

@@ -16,10 +16,6 @@ export default function Articles() {
   const [sort, setSort] = useState('asc')
 
   useEffect(() => {
-    document.title = 'Constitutional Articles | Samvidhan'
-  }, [])
-
-  useEffect(() => {
     setQuery(searchParams.get('q') || '')
     setCategory(searchParams.get('category') || 'all')
   }, [searchParams])

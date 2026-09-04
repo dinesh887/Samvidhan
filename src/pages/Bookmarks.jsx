@@ -9,10 +9,6 @@ export default function Bookmarks() {
   const { t, language } = useLanguage()
   const { bookmarks } = useBookmarks()
 
-  useEffect(() => {
-    document.title = 'My Saved Articles | Samvidhan'
-  }, [])
-
   const saved = articles.filter((a) => bookmarks.includes(a.id))
 
   return (

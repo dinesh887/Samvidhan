@@ -8,10 +8,6 @@ import { getArticleById } from '../data/articles'
 export default function FundamentalRights() {
   const { t, pick, language } = useLanguage()
 
-  useEffect(() => {
-    document.title = 'Fundamental Rights | Samvidhan'
-  }, [])
-
   return (
     <div className="mx-auto max-w-5xl px-4 sm:px-6 py-12 sm:py-16">
       <h1 lang={language} className="font-display text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl">

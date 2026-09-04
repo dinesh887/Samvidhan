@@ -5,10 +5,6 @@ import { directiveIntro, directiveExamples } from '../data/directivePrinciples'
 export default function DirectivePrinciples() {
   const { t, pick, language } = useLanguage()
 
-  useEffect(() => {
-    document.title = 'Directive Principles of State Policy | Samvidhan'
-  }, [])
-
   const blocks = [
     { key: 'what', label: { en: 'What are Directive Principles?', mr: 'मार्गदर्शक तत्त्वे म्हणजे काय?' } },
     { key: 'why', label: { en: 'Why are they important?', mr: 'ती महत्त्वाची का आहेत?' } },

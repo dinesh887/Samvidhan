@@ -18,10 +18,6 @@ export default function Home() {
   const { t, pick, language } = useLanguage()
   const fact = getTodaysFact()
 
-  useEffect(() => {
-    document.title = 'Samvidhan | Understand the Constitution of India'
-  }, [])
-
   const featured = FEATURED_IDS.map((id) => articles.find((a) => a.id === id)).filter(Boolean)
 
   return (

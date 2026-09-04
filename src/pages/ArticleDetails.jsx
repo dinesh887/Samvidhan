@@ -12,12 +12,6 @@ export default function ArticleDetails() {
   const { t, pick, language } = useLanguage()
   const article = getArticleById(id || '')
 
-  useEffect(() => {
-    if (article) {
-      document.title = `${article.articleNumber} — ${pick(article.title)} | Samvidhan`
-    }
-  }, [article, language]) // eslint-disable-line react-hooks/exhaustive-deps
-
   if (!article) {
     return (
       <div className="mx-auto max-w-3xl px-4 py-24 text-center">

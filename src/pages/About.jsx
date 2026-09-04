@@ -5,10 +5,6 @@ import { useLanguage } from '../context/LanguageContext'
 export default function About() {
   const { t, language } = useLanguage()
 
-  useEffect(() => {
-    document.title = `${t('about_title')} | Samvidhan`
-  }, [t, language])
-
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-6 py-16 sm:py-20">
       <ChakraMark className="h-10 w-10 text-navy dark:text-saffron" />

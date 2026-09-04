@@ -6,10 +6,6 @@ import { termsConditions } from '../data/termsConditions'
 export default function Terms() {
   const { language, pick } = useLanguage()
 
-  useEffect(() => {
-    document.title = `${pick(termsConditions.title)} | Samvidhan`
-  }, [language, pick])
-
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
       <ChakraMark className="h-10 w-10 text-navy dark:text-saffron" />

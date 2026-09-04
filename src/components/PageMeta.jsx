@@ -1,33 +1,55 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import { getSeoRoute, siteConfig } from '../data/seoConfig'
+import { getArticleById } from '../data/articles'
+import { useLanguage } from '../context/LanguageContext'
 
-const descriptions = {
-  '/': 'Explore the Constitution of India, its Articles, Rights, Duties and Amendments in simple language.',
-  '/articles': 'Search and understand the Constitutional Articles of India with clear explanations.',
-  '/fundamental-rights': 'Understand the Fundamental Rights guaranteed by the Constitution of India.',
-  '/fundamental-duties': 'Learn the Fundamental Duties of citizens of India in accessible language.',
-  '/directive-principles': 'Explore the Directive Principles that guide governance and public policy.',
-  '/amendments': 'Study important Constitutional Amendments and how India\'s Constitution has evolved.',
-  '/quiz': 'Test your knowledge of the Constitution of India with a free quiz.',
-  '/premium': 'Unlock structured constitutional revision, advanced practice and exam preparation.',
-  '/exam-preparation': 'Prepare for MPSC and UPSC Constitution and polity examinations.',
-  '/premium-quiz': 'Practise advanced Constitution questions by topic and difficulty.',
-  '/notes': 'Review structured premium notes for constitutional and competitive exam preparation.',
-  '/dashboard': 'Track saved Articles, quizzes and your Samvidhan learning plan.',
-  '/progress': 'Review your quiz practice, accuracy and constitutional learning progress.',
-  '/learn': 'Learn the Indian Constitution through guided Articles, Rights and exam preparation paths.',
-  '/contact': 'Contact Samvidhan with questions, suggestions, feedback, corrections or website-related enquiries.',
-  '/privacy': 'Read the Samvidhan Privacy Policy covering information, cookies, analytics, advertising and contact enquiries.',
-  '/terms': 'Read the Samvidhan Terms and Conditions covering website use, educational content, intellectual property and liability.',
+const SITE_URL = (import.meta.env.VITE_SITE_URL || window.location.origin).replace(/\/$/, '')
+
+function setMeta(attribute, value, content) {
+  let element = document.head.querySelector(`meta[${attribute}="${value}"]`)
+  if (!element) {
+    element = document.createElement('meta')
+    element.setAttribute(attribute, value)
+    document.head.appendChild(element)
+  }
+  element.content = content
+}
+
+function setLink(rel, href) {
+  let element = document.head.querySelector(`link[rel="${rel}"]`)
+  if (!element) {
+    element = document.createElement('link')
+    element.rel = rel
+    document.head.appendChild(element)
+  }
+  element.href = href
 }
 
 export default function PageMeta() {
   const { pathname } = useLocation()
+  const { language, pick } = useLanguage()
+
   useEffect(() => {
-    const description = descriptions[pathname] || 'Samvidhan is an independent educational platform for learning the Constitution of India.'
-    let tag = document.querySelector('meta[name="description"]')
-    if (!tag) { tag = document.createElement('meta'); tag.name = 'description'; document.head.appendChild(tag) }
-    tag.content = description
-  }, [pathname])
+    const config = getSeoRoute(pathname)
+    const article = pathname.startsWith('/article/') ? getArticleById(pathname.split('/').pop()) : null
+    const title = article ? `${article.articleNumber} — ${pick(article.title)} | Samvidhan` : pick(config.title)
+    const description = article ? pick(article.simpleExplanation) : pick(config.description)
+    const url = `${SITE_URL}${pathname}`
+
+    document.title = title
+    setMeta('name', 'description', description)
+    setMeta('property', 'og:title', title)
+    setMeta('property', 'og:description', description)
+    setMeta('property', 'og:type', 'website')
+    setMeta('property', 'og:url', url)
+    setMeta('property', 'og:site_name', siteConfig.name)
+    setMeta('name', 'twitter:card', 'summary')
+    setMeta('name', 'twitter:title', title)
+    setMeta('name', 'twitter:description', description)
+    setMeta('name', 'robots', config.indexable === false ? 'noindex, nofollow' : 'index, follow')
+    setLink('canonical', url)
+  }, [pathname, language, pick])
+
   return null
 }
