@@ -24,8 +24,8 @@ export default function Contact() {
         </h2>
         <p className="mt-3 text-sm text-ink/65 dark:text-ink-dark/65">
           <span lang={language}>{t('about_email')}</span>{' '}
-          <a href="mailto:contact@yourdomain.com" className="text-saffron hover:underline">
-            contact@yourdomain.com
+          <a href="mailto:info@mysamvidhan.in" className="text-saffron hover:underline">
+            info@mysamvidhan.in
           </a>
         </p>
         <p lang={language} className="mt-5 text-sm text-ink/65 dark:text-ink-dark/65">

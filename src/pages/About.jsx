@@ -38,7 +38,7 @@ export default function About() {
         <p lang={language} className="mt-2 text-sm leading-relaxed text-ink/65 dark:text-ink-dark/65">{t('about_commitment')}</p>
         <p lang={language} className="mt-3 text-sm leading-relaxed text-ink/65 dark:text-ink-dark/65">{t('about_independent')}</p>
         <p lang={language} className="mt-3 text-sm leading-relaxed text-ink/65 dark:text-ink-dark/65">{t('about_contact')}</p>
-        <p className="mt-3 text-sm text-ink/65 dark:text-ink-dark/65"><span lang={language}>{t('about_email')}</span> <a href="mailto:contact@yourdomain.com" className="text-saffron hover:underline">contact@yourdomain.com</a></p>
+        <p className="mt-3 text-sm text-ink/65 dark:text-ink-dark/65"><span lang={language}>{t('about_email')}</span> <a href="mailto:info@mysamvidhan.in" className="text-saffron hover:underline">info@mysamvidhan.in</a></p>
         <p lang={language} className="mt-5 text-sm leading-relaxed text-ink/65 dark:text-ink-dark/65">{t('about_thanks')}</p>
         <p lang={language} className="mt-2 font-display text-base font-semibold text-navy dark:text-ink-dark">{t('about_tagline')}</p>
       </div>

@@ -6,7 +6,7 @@ import { useLanguage } from '../context/LanguageContext'
 import { faqs } from '../data/faqs'
 
 const SCHEMA_ID = 'samvidhan-jsonld'
-const SITE_URL = (import.meta.env.VITE_SITE_URL || window.location.origin).replace(/\/$/, '')
+const SITE_URL = (import.meta.env.VITE_SITE_URL || siteConfig.url).replace(/\/$/, '')
 
 function upsertSchema(graph) {
   let script = document.head.querySelector(`#${SCHEMA_ID}`)

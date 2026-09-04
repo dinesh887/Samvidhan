@@ -4,7 +4,7 @@ import { getSeoRoute, siteConfig } from '../data/seoConfig'
 import { getArticleById } from '../data/articles'
 import { useLanguage } from '../context/LanguageContext'
 
-const SITE_URL = (import.meta.env.VITE_SITE_URL || window.location.origin).replace(/\/$/, '')
+const SITE_URL = (import.meta.env.VITE_SITE_URL || siteConfig.url).replace(/\/$/, '')
 
 function setMeta(attribute, value, content) {
   let element = document.head.querySelector(`meta[${attribute}="${value}"]`)

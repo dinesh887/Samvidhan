@@ -3,7 +3,7 @@ export const privacyPolicy = {
   lastUpdated: { en: 'Last Updated:', mr: 'शेवटचे अद्यतन:' },
   date: { en: 'September 4, 2026', mr: '4 सप्टेंबर 2026' },
   intro: {
-    en: 'At Samvidhan, accessible from [YOUR DOMAIN], we respect the privacy of our visitors. This Privacy Policy explains what information may be collected when you use our website and how that information may be used.',
+    en: 'At Samvidhan, accessible from https://www.mysamvidhan.in/, we respect the privacy of our visitors. This Privacy Policy explains what information may be collected when you use our website and how that information may be used.',
     mr: 'Samvidhan वर येणाऱ्या वापरकर्त्यांच्या गोपनीयतेचा आम्ही आदर करतो. या गोपनीयता धोरणामध्ये आमच्या वेबसाइटचा वापर करताना कोणती माहिती गोळा केली जाऊ शकते आणि तिचा वापर कशासाठी केला जाऊ शकतो याची माहिती दिली आहे.',
   },
   sections: [

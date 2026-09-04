@@ -23,7 +23,7 @@ export default function Terms() {
       <section className="mt-10 rounded-2xl border border-gold/30 bg-gold/[0.06] p-6">
         <h2 lang={language} className="font-display text-xl font-semibold text-navy dark:text-ink-dark">{pick(termsConditions.contact.title)}</h2>
         <p lang={language} className="mt-3 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70">{pick(termsConditions.contact.body)}</p>
-        <p className="mt-3 text-sm text-ink/70 dark:text-ink-dark/70"><span lang={language}>{pick(termsConditions.contact.email)}</span>{' '}<a href="mailto:contact@yourdomain.com" className="text-saffron hover:underline">contact@yourdomain.com</a></p>
+        <p className="mt-3 text-sm text-ink/70 dark:text-ink-dark/70"><span lang={language}>{pick(termsConditions.contact.email)}</span>{' '}<a href="mailto:info@mysamvidhan.in" className="text-saffron hover:underline">info@mysamvidhan.in</a></p>
       </section>
     </div>
   )

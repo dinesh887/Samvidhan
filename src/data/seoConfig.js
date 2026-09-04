@@ -1,5 +1,6 @@
 export const siteConfig = {
   name: 'Samvidhan',
+  url: 'https://www.mysamvidhan.in',
   defaultTitle: 'Samvidhan | Understand the Constitution of India',
   defaultDescription: 'Understand the Constitution of India with simple explanations in English and Marathi.',
 }
