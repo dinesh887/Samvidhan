@@ -1,0 +1,4 @@
+export const books = [
+  { id: 'book-constitution', title: { en: 'Introduction to the Constitution of India', mr: 'भारतीय संविधानाची ओळख' }, author: 'D. D. Basu', description: { en: 'A clear foundation for understanding constitutional structure and ideas.', mr: 'संविधानाची रचना आणि विचार समजून घेण्यासाठी स्पष्ट मार्गदर्शक.' }, image: '', affiliateUrl: '', category: 'Indian Constitution', language: 'English' },
+  { id: 'book-polity', title: { en: 'Indian Polity', mr: 'भारतीय राजव्यवस्था' }, author: 'M. Laxmikanth', description: { en: 'A structured reference for competitive exam preparation.', mr: 'स्पर्धा परीक्षांच्या तयारीसाठी संरचित संदर्भग्रंथ.' }, image: '', affiliateUrl: '', category: 'UPSC / MPSC', language: 'English' },
+]

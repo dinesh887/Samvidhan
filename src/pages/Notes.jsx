@@ -1,0 +1,6 @@
+import { useEffect, useState } from 'react'
+import NotesCard from '../components/NotesCard'
+import PremiumContent from '../components/PremiumContent'
+import { notes } from '../data/notes'
+import { useLanguage } from '../context/LanguageContext'
+export default function Notes() { const { t, pick } = useLanguage(); const [open, setOpen] = useState(null); useEffect(() => { document.title = `${t('notes_title')} | Samvidhan` }, [t]); return <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6"><p className="text-xs font-semibold uppercase tracking-[0.2em] text-saffron">{t('common_revision_library')}</p><h1 className="font-display mt-3 text-4xl font-semibold text-navy dark:text-ink-dark">{t('notes_title')}</h1><p className="mt-3 max-w-2xl text-ink/60 dark:text-ink-dark/60">{t('notes_sub')}</p><div className="mt-10 grid gap-5 md:grid-cols-3">{notes.map((note) => <NotesCard key={note.id} note={note} onOpen={() => setOpen(note)} />)}</div>{open && <div className="mt-8"><PremiumContent title={pick(open.title)}><div className="rounded-2xl border border-leaf/20 bg-leaf/[0.05] p-6"><h2 className="font-display text-xl font-semibold text-navy dark:text-ink-dark">{pick(open.title)}</h2><p className="mt-3 text-sm leading-relaxed text-ink/65 dark:text-ink-dark/65">{pick(open.description)}</p></div></PremiumContent></div>}</div> }
