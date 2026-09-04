@@ -4,6 +4,7 @@ import { articles } from '../src/data/articles.js'
 const routeLabels = {
   '/': 'Constitution of India',
   '/articles': 'Articles',
+  '/faq': 'Frequently Asked Questions about the Indian Constitution',
   '/fundamental-rights': 'Fundamental Rights',
   '/fundamental-duties': 'Fundamental Duties',
   '/directive-principles': 'Directive Principles of State Policy',

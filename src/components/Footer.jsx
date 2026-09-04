@@ -12,42 +12,43 @@ export default function Footer() {
     { to: '/fundamental-rights', label: t('nav_rights') },
     { to: '/fundamental-duties', label: t('nav_duties') },
     { to: '/amendments', label: t('nav_amendments') },
-    { to: '/quiz', label: t('nav_quiz') },
+    { to: '/learn', label: t('nav_preamble') },
+    { to: '/faq', label: t('nav_faq') },
     { to: '/about', label: t('nav_about') },
     { to: '/contact', label: t('contact_title') },
-    { to: '/privacy', label: language === 'mr' ? 'गोपनीयता धोरण' : 'Privacy Policy' },
-    { to: '/terms', label: language === 'mr' ? 'नियम आणि अटी' : 'Terms & Conditions' },
+    { to: '/privacy', label: t('footer_privacy') },
+    { to: '/terms', label: t('footer_terms') },
   ]
 
   return (
-    <footer className="mt-24 border-t border-navy/10 dark:border-ink-dark/10 bg-white/40 dark:bg-white/[0.03]">
+    <footer className="mt-16 border-t border-navy/10 dark:border-ink-dark/10 bg-white/40 dark:bg-white/[0.03]">
       <Advertisement placement="banner" />
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-14">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto max-w-7xl px-4 py-9 sm:px-6 sm:py-10">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
           <div>
             <div className="flex items-center gap-2">
               <ChakraMark className="h-6 w-6 text-navy dark:text-saffron" />
-              <span className="font-display text-lg font-semibold text-navy dark:text-ink-dark">
+              <span className="font-display text-2xl font-semibold text-navy dark:text-ink-dark">
                 SAMVIDHAN
               </span>
             </div>
-            <p lang={language} className="mt-3 max-w-xs text-sm text-ink/60 dark:text-ink-dark/60">
+            <p lang={language} className="mt-3 max-w-sm text-base leading-7 text-ink/70 dark:text-ink-dark/70">
               {t('footer_tagline')}
             </p>
-            <p lang={language} className="mt-3 max-w-xs text-xs text-ink/50 dark:text-ink-dark/50">{language === 'mr' ? 'संविधान हे स्वतंत्र शैक्षणिक व्यासपीठ आहे.' : 'Samvidhan is an independent educational platform.'}</p>
+            <p lang={language} className="mt-3 max-w-sm text-sm leading-6 text-ink/60 dark:text-ink-dark/60">{language === 'mr' ? 'संविधान हे स्वतंत्र शैक्षणिक व्यासपीठ आहे.' : 'Samvidhan is an independent educational platform.'}</p>
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-navy dark:text-ink-dark">
-              {t('nav_articles')}
+            <h3 className="text-lg font-semibold text-navy dark:text-ink-dark">
+              {t('footer_navigation')}
             </h3>
-            <ul className="mt-3 space-y-2">
+            <ul className="mt-3 grid gap-x-6 gap-y-2 sm:grid-cols-2">
               {links.map((l) => (
                 <li key={l.to}>
                   <Link
                     to={l.to}
                     lang={language}
-                    className="text-sm text-ink/60 dark:text-ink-dark/60 hover:text-saffron transition-colors"
+                    className="py-1 text-base leading-6 text-ink/70 dark:text-ink-dark/70 hover:text-saffron transition-colors"
                   >
                     {l.label}
                   </Link>
@@ -56,17 +57,18 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h3 lang={language} className="text-sm font-semibold text-navy dark:text-ink-dark">
-              {t('footer_disclaimer_title')}
-            </h3>
-            <p lang={language} className="mt-3 text-sm leading-relaxed text-ink/60 dark:text-ink-dark/60">
-              {t('footer_disclaimer')}
-            </p>
-          </div>
         </div>
 
-        <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-navy/10 dark:border-ink-dark/10 pt-6">
+        <section className="mt-8 border-t border-navy/10 pt-6 dark:border-ink-dark/10">
+          <h3 lang={language} className="text-base font-semibold text-navy dark:text-ink-dark">
+            {t('footer_disclaimer_title')}
+          </h3>
+          <p lang={language} className="mt-2 max-w-4xl text-sm leading-6 text-ink/70 dark:text-ink-dark/70">
+            {t('footer_disclaimer')}
+          </p>
+        </section>
+
+        <div className="mt-6 flex flex-col items-center justify-between gap-3 border-t border-navy/10 pt-5 sm:flex-row dark:border-ink-dark/10">
           <p lang={language} className="text-xs text-ink/45 dark:text-ink-dark/45">
             {t('footer_copyright')}
           </p>

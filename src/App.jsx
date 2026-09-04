@@ -24,6 +24,8 @@ import PageMeta from './components/PageMeta'
 import Contact from './pages/Contact'
 import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
+import FAQ from './pages/FAQ'
+import SchemaJsonLd from './components/SchemaJsonLd'
 
 export default function App() {
   return (
@@ -36,6 +38,7 @@ export default function App() {
       </a>
       <ScrollToTop />
       <PageMeta />
+      <SchemaJsonLd />
       <Navbar />
       <main id="main-content" className="flex-1">
         <Routes>
@@ -52,6 +55,7 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/faq" element={<FAQ />} />
           <Route path="/premium" element={<Premium />} />
           <Route path="/exam-preparation" element={<ExamPreparation />} />
           <Route path="/premium-quiz" element={<PremiumQuiz />} />
