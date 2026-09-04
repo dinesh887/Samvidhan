@@ -14,6 +14,9 @@ export default function Footer() {
     { to: '/amendments', label: t('nav_amendments') },
     { to: '/quiz', label: t('nav_quiz') },
     { to: '/about', label: t('nav_about') },
+    { to: '/contact', label: t('contact_title') },
+    { to: '/privacy', label: language === 'mr' ? 'गोपनीयता धोरण' : 'Privacy Policy' },
+    { to: '/terms', label: language === 'mr' ? 'नियम आणि अटी' : 'Terms & Conditions' },
   ]
 
   return (

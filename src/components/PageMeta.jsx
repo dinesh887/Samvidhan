@@ -16,6 +16,9 @@ const descriptions = {
   '/dashboard': 'Track saved Articles, quizzes and your Samvidhan learning plan.',
   '/progress': 'Review your quiz practice, accuracy and constitutional learning progress.',
   '/learn': 'Learn the Indian Constitution through guided Articles, Rights and exam preparation paths.',
+  '/contact': 'Contact Samvidhan with questions, suggestions, feedback, corrections or website-related enquiries.',
+  '/privacy': 'Read the Samvidhan Privacy Policy covering information, cookies, analytics, advertising and contact enquiries.',
+  '/terms': 'Read the Samvidhan Terms and Conditions covering website use, educational content, intellectual property and liability.',
 }
 
 export default function PageMeta() {

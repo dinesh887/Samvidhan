@@ -1,0 +1,32 @@
+export const privacyPolicy = {
+  title: { en: 'Privacy Policy', mr: 'गोपनीयता धोरण' },
+  lastUpdated: { en: 'Last Updated:', mr: 'शेवटचे अद्यतन:' },
+  date: { en: 'September 4, 2026', mr: '4 सप्टेंबर 2026' },
+  intro: {
+    en: 'At Samvidhan, accessible from [YOUR DOMAIN], we respect the privacy of our visitors. This Privacy Policy explains what information may be collected when you use our website and how that information may be used.',
+    mr: 'Samvidhan वर येणाऱ्या वापरकर्त्यांच्या गोपनीयतेचा आम्ही आदर करतो. या गोपनीयता धोरणामध्ये आमच्या वेबसाइटचा वापर करताना कोणती माहिती गोळा केली जाऊ शकते आणि तिचा वापर कशासाठी केला जाऊ शकतो याची माहिती दिली आहे.',
+  },
+  sections: [
+    {
+      title: { en: 'Information We Collect', mr: 'आम्ही कोणती माहिती गोळा करतो?' },
+      paragraphs: [
+        { en: 'We may collect information that you voluntarily provide to us, such as your name and email address, when you contact us through our website or email.', mr: 'तुम्ही वेबसाइट किंवा ईमेलद्वारे आमच्याशी संपर्क साधताना स्वेच्छेने दिलेली माहिती, जसे की तुमचे नाव आणि ईमेल पत्ता, आम्ही गोळा करू शकतो.' },
+        { en: 'We may also automatically collect certain non-personally identifiable information, such as browser type, device information, pages visited, approximate location and general website usage information.', mr: 'याशिवाय ब्राउझरचा प्रकार, डिव्हाइसची माहिती, भेट दिलेली पृष्ठे, अंदाजे स्थान आणि वेबसाइट वापरण्याशी संबंधित सामान्य माहिती यांसारखी काही वैयक्तिक ओळख न पटवणारी माहिती आपोआप गोळा केली जाऊ शकते.' },
+        { en: 'This information may be used to understand how visitors use our website and to improve our services and user experience.', mr: 'ही माहिती वेबसाइटचा वापर समजून घेण्यासाठी आणि आमच्या सेवा व वापरकर्त्यांचा अनुभव सुधारण्यासाठी वापरली जाऊ शकते.' },
+      ],
+    },
+    { title: { en: 'Cookies', mr: 'कुकीज' }, paragraphs: [{ en: 'Samvidhan may use cookies and similar technologies to improve website functionality, understand website traffic and provide a better user experience.', mr: 'Samvidhan वेबसाइटची कार्यक्षमता सुधारण्यासाठी, वेबसाइटवरील वाहतूक समजून घेण्यासाठी आणि चांगला वापरकर्ता अनुभव देण्यासाठी कुकीज आणि तत्सम तंत्रज्ञानाचा वापर करू शकते.' }, { en: 'Third-party services used on our website may also use cookies in accordance with their own privacy policies.', mr: 'वेबसाइटवर वापरल्या जाणाऱ्या तृतीय-पक्ष सेवाही त्यांच्या स्वतःच्या गोपनीयता धोरणानुसार कुकीजचा वापर करू शकतात.' }] },
+    { title: { en: 'Google Analytics', mr: 'Google Analytics' }, paragraphs: [{ en: 'We may use Google Analytics or similar analytics services to understand website traffic and user interactions.', mr: 'वेबसाइटवरील वाहतूक आणि वापरकर्त्यांच्या परस्परसंवादाचे विश्लेषण करण्यासाठी आम्ही Google Analytics किंवा तत्सम विश्लेषण सेवा वापरू शकतो.' }, { en: 'These services may collect information such as pages visited, approximate geographic location, device type and browser information.', mr: 'या सेवांद्वारे भेट दिलेली पृष्ठे, अंदाजे भौगोलिक स्थान, डिव्हाइसचा प्रकार आणि ब्राउझरची माहिती यांसारखी माहिती गोळा केली जाऊ शकते.' }] },
+    { title: { en: 'Google AdSense and Advertising', mr: 'Google AdSense आणि जाहिराती' }, paragraphs: [{ en: 'We may display advertisements through third-party advertising services, including Google AdSense.', mr: 'आमच्या वेबसाइटवर Google AdSense सारख्या तृतीय-पक्ष जाहिरात सेवांद्वारे जाहिराती प्रदर्शित केल्या जाऊ शकतात.' }, { en: 'Advertising providers may use cookies or similar technologies to display relevant advertisements and measure advertising performance.', mr: 'जाहिरात सेवा पुरवठादार संबंधित जाहिराती दाखवण्यासाठी आणि जाहिरातींच्या कार्यक्षमतेचे मोजमाप करण्यासाठी कुकीज किंवा तत्सम तंत्रज्ञानाचा वापर करू शकतात.' }, { en: "Google's use of advertising information is governed by its applicable policies and privacy practices.", mr: 'Google द्वारे जाहिरातींसाठी माहितीचा वापर त्याच्या लागू धोरणे आणि गोपनीयता पद्धतीनुसार केला जातो.' }] },
+    {
+      title: { en: 'How We Use Information', mr: 'माहितीचा वापर कशासाठी केला जातो?' },
+      list: [
+        { en: 'Operate and maintain the website', mr: 'वेबसाइट चालवणे आणि देखभाल करणे' }, { en: 'Improve website content and user experience', mr: 'वेबसाइटवरील सामग्री आणि वापरकर्ता अनुभव सुधारणे' }, { en: 'Understand website traffic and usage', mr: 'वेबसाइटवरील वाहतूक आणि वापर समजून घेणे' }, { en: 'Respond to enquiries and feedback', mr: 'प्रश्न आणि अभिप्रायांना उत्तर देणे' }, { en: 'Detect and prevent misuse or security issues', mr: 'गैरवापर किंवा सुरक्षा समस्या ओळखणे आणि प्रतिबंध करणे' }, { en: 'Display and measure relevant advertising', mr: 'संबंधित जाहिराती दाखवणे आणि त्यांच्या कार्यक्षमतेचे मोजमाप करणे' },
+      ],
+    },
+    { title: { en: 'Third-Party Links', mr: 'तृतीय-पक्ष वेबसाइटच्या लिंक' }, paragraphs: [{ en: 'Our website may contain links to third-party websites. We are not responsible for the privacy practices, content or policies of external websites.', mr: 'आमच्या वेबसाइटवर तृतीय-पक्ष वेबसाइटच्या लिंक असू शकतात. त्या वेबसाइटच्या गोपनीयता पद्धती, सामग्री किंवा धोरणांसाठी Samvidhan जबाबदार राहणार नाही.' }] },
+    { title: { en: 'Data Security', mr: 'माहितीची सुरक्षितता' }, paragraphs: [{ en: 'We take reasonable measures to protect information submitted through our website. However, no method of transmission or storage over the internet can be guaranteed to be completely secure.', mr: 'वेबसाइटद्वारे सादर केलेल्या माहितीचे संरक्षण करण्यासाठी आम्ही वाजवी सुरक्षा उपाययोजना करतो. मात्र इंटरनेटवर माहिती पाठवण्याची किंवा साठवण्याची कोणतीही पद्धत पूर्णपणे सुरक्षित असल्याची हमी देता येत नाही.' }] },
+    { title: { en: 'Changes to This Privacy Policy', mr: 'गोपनीयता धोरणातील बदल' }, paragraphs: [{ en: 'We may update this Privacy Policy from time to time. Any updates will be posted on this page with a revised "Last Updated" date.', mr: 'आमच्या वेबसाइट, सेवा किंवा लागू आवश्यकतांमध्ये बदल झाल्यास आम्ही हे गोपनीयता धोरण वेळोवेळी अपडेट करू शकतो. बदल झाल्यानंतर या पृष्ठावर सुधारित "शेवटचे अद्यतन" तारीख दिली जाईल.' }] },
+  ],
+  contact: { title: { en: 'Contact Us', mr: 'आमच्याशी संपर्क' }, body: { en: 'If you have questions about this Privacy Policy, please contact us:', mr: 'या गोपनीयता धोरणाबाबत काही प्रश्न असल्यास आमच्याशी संपर्क साधा:' }, email: { en: 'Email:', mr: 'ईमेल:' } },
+}
