@@ -281,6 +281,169 @@ export const articles = [
     source: { name: 'Ministry of Law and Justice, Government of India', url: '' },
     lastVerified: null,
   },
+  {
+  id: '15',
+  articleNumber: 'Article 15',
+  title: {
+    en: 'Prohibition of Discrimination',
+    mr: 'भेदभावास प्रतिबंध'
+  },
+  categoryKey: 'fundamental-rights',
+
+  officialText: {
+    en: 'The State shall not discriminate against any citizen on grounds only of religion, race, caste, sex, place of birth or any of them.',
+    mr: 'राज्य कोणत्याही नागरिकाविरुद्ध केवळ धर्म, वंश, जात, लिंग, जन्मस्थान किंवा यांपैकी कोणत्याही कारणावरून भेदभाव करणार नाही.',
+    verified: true
+  },
+
+  simpleExplanation: {
+    en: 'Article 15 prohibits the State from discriminating against citizens on specified grounds such as religion, race, caste, sex and place of birth. The Constitution also permits certain special provisions for disadvantaged groups.',
+    mr: 'कलम १५ राज्याला धर्म, वंश, जात, लिंग आणि जन्मस्थान यांसारख्या ठरावीक आधारांवर नागरिकांमध्ये भेदभाव करण्यास प्रतिबंध करते. संविधानाने परवानगी दिलेल्या परिस्थितीत वंचित किंवा मागास घटकांसाठी विशेष तरतुदी करण्याची मुभाही राज्याला आहे.'
+  },
+
+  verySimple: {
+    en: 'The government cannot discriminate against citizens simply because of their religion, race, caste, sex or place of birth.',
+    mr: 'केवळ धर्म, जात, वंश, लिंग किंवा जन्मस्थानाच्या आधारावर सरकार नागरिकांशी भेदभाव करू शकत नाही.'
+  },
+
+  example: {
+    en: 'If a government authority refuses a public benefit to an eligible citizen only because of their caste or religion, Article 15 may become relevant.',
+    mr: 'एखाद्या पात्र नागरिकाला केवळ त्याच्या जातीमुळे किंवा धर्मामुळे सरकारी सुविधा नाकारली गेल्यास कलम १५ संबंधित ठरू शकते.'
+  },
+
+  keywords: [
+    'article 15',
+    'prohibition of discrimination',
+    'discrimination in India',
+    'fundamental rights',
+    'equality',
+    'caste discrimination',
+    'religion',
+    'Indian Constitution',
+    'कलम १५',
+    'भेदभावास प्रतिबंध',
+    'समानता',
+    'मूलभूत अधिकार',
+    'भारतीय संविधान'
+  ],
+
+  relatedIds: ['16', '17'],
+
+  source: {
+    name: 'Ministry of Law and Justice, Government of India',
+    url: ''
+  },
+
+  lastVerified: null
+},
+{
+  id: '16',
+  articleNumber: 'Article 16',
+  title: {
+    en: 'Equality of Opportunity in Public Employment',
+    mr: 'सार्वजनिक नोकरीतील समान संधी'
+  },
+  categoryKey: 'fundamental-rights',
+
+  officialText: {
+    en: 'There shall be equality of opportunity for all citizens in matters relating to employment or appointment to any office under the State.',
+    mr: 'राज्याच्या अंतर्गत कोणत्याही पदावरील नोकरी किंवा नियुक्तीच्या बाबतीत सर्व नागरिकांना समान संधी असेल.',
+    verified: true
+  },
+
+  simpleExplanation: {
+    en: 'Article 16 guarantees equality of opportunity for citizens in matters relating to employment or appointment to offices under the State. The Constitution also provides for certain forms of reservation and special measures in public employment.',
+    mr: 'कलम १६ राज्याच्या अंतर्गत नोकरी किंवा पदावर नियुक्तीच्या बाबतीत नागरिकांना समान संधी देण्याची हमी देते. सार्वजनिक नोकरीमध्ये काही प्रकारच्या आरक्षणासाठी आणि विशेष तरतुदींसाठी संविधानात तरतूद करण्यात आली आहे.'
+  },
+
+  verySimple: {
+    en: 'Citizens should get equal opportunity when applying for government jobs, subject to the Constitution and laws.',
+    mr: 'सरकारी नोकरी मिळवताना नागरिकांना संविधान आणि कायद्याच्या चौकटीत समान संधी मिळाली पाहिजे.'
+  },
+
+  example: {
+    en: 'If a citizen applies for a government job, the selection process must provide equality of opportunity in accordance with constitutional and legal rules.',
+    mr: 'एखादा नागरिक सरकारी नोकरीसाठी अर्ज करत असल्यास, निवड प्रक्रिया संविधान आणि कायद्यानुसार समान संधीच्या तत्त्वावर आधारित असली पाहिजे.'
+  },
+
+  keywords: [
+    'article 16',
+    'equality of opportunity',
+    'government jobs',
+    'public employment',
+    'reservation',
+    'fundamental rights',
+    'Indian Constitution',
+    'कलम १६',
+    'समान संधी',
+    'सरकारी नोकरी',
+    'सार्वजनिक रोजगार',
+    'आरक्षण',
+    'मूलभूत अधिकार'
+  ],
+
+  relatedIds: ['15', '17'],
+
+  source: {
+    name: 'Ministry of Law and Justice, Government of India',
+    url: ''
+  },
+
+  lastVerified: null
+},
+{
+  id: '17',
+  articleNumber: 'Article 17',
+  title: {
+    en: 'Abolition of Untouchability',
+    mr: 'अस्पृश्यता निर्मूलन'
+  },
+  categoryKey: 'fundamental-rights',
+
+  officialText: {
+    en: 'Untouchability is abolished and its practice in any form is forbidden. The enforcement of any disability arising out of Untouchability shall be an offence punishable in accordance with law.',
+    mr: 'अस्पृश्यता नष्ट करण्यात आली आहे आणि तिचे कोणत्याही स्वरूपातील आचरण निषिद्ध आहे. अस्पृश्यतेमुळे उद्भवणारी कोणतीही अयोग्यता लादणे हा कायद्यानुसार शिक्षेस पात्र अपराध असेल.',
+    verified: true
+  },
+
+  simpleExplanation: {
+    en: 'Article 17 abolishes untouchability and prohibits its practice in any form. It also provides that enforcing any disability arising from untouchability is punishable according to law.',
+    mr: 'कलम १७ अस्पृश्यता नष्ट करते आणि कोणत्याही स्वरूपात तिच्या प्रथेवर बंदी घालते. अस्पृश्यतेमुळे निर्माण होणारी कोणतीही अयोग्यता लागू करणे कायद्यानुसार दंडनीय आहे.'
+  },
+
+  verySimple: {
+    en: 'Untouchability is abolished. No person can be denied rights or treated unfairly because of the practice of untouchability.',
+    mr: 'अस्पृश्यता पूर्णपणे रद्द करण्यात आली आहे. अस्पृश्यतेच्या आधारावर कोणालाही अधिकारांपासून वंचित करता किंवा अन्यायकारक वागणूक देता येत नाही.'
+  },
+
+  example: {
+    en: 'If a person is denied access to a public place because of the practice of untouchability, the matter may attract legal consequences under the Constitution and relevant law.',
+    mr: 'अस्पृश्यतेच्या प्रथेच्या आधारावर एखाद्या व्यक्तीला सार्वजनिक ठिकाणी प्रवेश नाकारला गेल्यास संविधान आणि संबंधित कायद्यानुसार कायदेशीर परिणाम होऊ शकतात.'
+  },
+
+  keywords: [
+    'article 17',
+    'abolition of untouchability',
+    'untouchability in India',
+    'fundamental rights',
+    'equality',
+    'Indian Constitution',
+    'कलम १७',
+    'अस्पृश्यता निर्मूलन',
+    'समानता',
+    'मूलभूत अधिकार',
+    'भारतीय संविधान'
+  ],
+
+  relatedIds: ['15', '16'],
+
+  source: {
+    name: 'Ministry of Law and Justice, Government of India',
+    url: ''
+  },
+
+  lastVerified: null
+},
 ]
 
 export function getArticleById(id) {
