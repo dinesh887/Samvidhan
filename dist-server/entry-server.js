@@ -4,7 +4,7 @@ import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server.mjs";
 import { useNavigate, Link, NavLink, useLocation, useSearchParams, useParams, Routes, Route } from "react-router-dom";
 import * as Icons from "lucide-react";
-import { Sun, Moon, Search, X, Menu, ArrowRight, Star, ExternalLink, Lightbulb, ArrowUpDown, ShieldAlert, ScrollText, BookOpen, Sparkles, HelpCircle, Link2, ChevronLeft, ChevronRight, Trophy, RotateCcw, Check, Lock, ChevronDown } from "lucide-react";
+import { Sun, Moon, Search, X, Menu, ArrowRight, Star, ExternalLink, Lightbulb, ArrowUpDown, BookOpen, ShieldAlert, ScrollText, Sparkles, HelpCircle, Link2, ChevronLeft, ChevronRight, Trophy, RotateCcw, Check, Lock, ChevronDown } from "lucide-react";
 function ChakraMark({ className = "", spokes = 24 }) {
   const lines = Array.from({ length: spokes }, (_, i) => {
     const angle = 360 / spokes * i;
@@ -1193,35 +1193,90 @@ function BookmarkButton({ articleId, size = "default" }) {
 function ArticleCard({ article }) {
   const { pick, t, language } = useLanguage();
   const category = getCategoryByKey(article.categoryKey);
-  const numeral = article.id.replace(/[a-z]/gi, (m) => m.toUpperCase());
-  return /* @__PURE__ */ jsxs("div", { className: "group flex rounded-2xl border border-navy/10 dark:border-ink-dark/10 bg-white/60 dark:bg-white/[0.04] overflow-hidden transition-colors hover:border-saffron/40", children: [
-    /* @__PURE__ */ jsxs("div", { className: "flex w-16 sm:w-20 shrink-0 flex-col items-center justify-center border-r border-navy/10 dark:border-ink-dark/10 bg-navy/[0.03] dark:bg-white/[0.02] px-2 py-4", children: [
-      /* @__PURE__ */ jsx("span", { className: "text-[10px] tracking-wide text-ink/40 dark:text-ink-dark/40", children: "Art." }),
-      /* @__PURE__ */ jsx("span", { className: "font-display text-xl font-semibold text-navy dark:text-saffron-light", children: numeral })
-    ] }),
-    /* @__PURE__ */ jsxs("div", { className: "flex flex-1 flex-col p-5", children: [
-      /* @__PURE__ */ jsxs("div", { className: "flex items-start justify-between gap-3", children: [
-        /* @__PURE__ */ jsxs("div", { children: [
-          /* @__PURE__ */ jsx("h3", { lang: language, className: "font-display text-base font-semibold text-navy dark:text-ink-dark sm:text-lg", children: pick(article.title) }),
-          category && /* @__PURE__ */ jsx("span", { lang: language, className: "mt-1 inline-block text-xs text-leaf dark:text-leaf-light", children: pick(category.title) })
+  const numeral = article.id.replace(
+    /[a-z]/gi,
+    (match) => match.toUpperCase()
+  );
+  const articleTitle = pick(article.title);
+  const articleNumber = article.articleNumber || `Article ${numeral}`;
+  return /* @__PURE__ */ jsxs(
+    "article",
+    {
+      className: "group flex rounded-2xl border border-navy/10 dark:border-ink-dark/10 bg-white/60 dark:bg-white/[0.04] overflow-hidden transition-colors hover:border-saffron/40",
+      children: [
+        /* @__PURE__ */ jsxs("div", { className: "flex w-16 sm:w-20 shrink-0 flex-col items-center justify-center border-r border-navy/10 dark:border-ink-dark/10 bg-navy/[0.03] dark:bg-white/[0.02] px-2 py-4", children: [
+          /* @__PURE__ */ jsx("span", { className: "text-[10px] tracking-wide text-ink/40 dark:text-ink-dark/40", children: "Art." }),
+          /* @__PURE__ */ jsx("span", { className: "font-display text-xl font-semibold text-navy dark:text-saffron-light", children: numeral })
         ] }),
-        /* @__PURE__ */ jsx(BookmarkButton, { articleId: article.id, size: "small" })
-      ] }),
-      /* @__PURE__ */ jsx("p", { lang: language, className: "mt-2 line-clamp-2 text-sm leading-relaxed text-ink/60 dark:text-ink-dark/60", children: pick(article.simpleExplanation) }),
-      /* @__PURE__ */ jsxs(
-        Link,
-        {
-          to: `/article/${article.id}`,
-          className: "mt-4 inline-flex w-fit items-center gap-1 text-sm font-medium text-saffron",
-          children: [
-            t("view_details"),
-            " ",
-            /* @__PURE__ */ jsx("span", { "aria-hidden": "true", children: "→" })
-          ]
-        }
-      )
-    ] })
-  ] });
+        /* @__PURE__ */ jsxs("div", { className: "flex flex-1 flex-col p-5", children: [
+          /* @__PURE__ */ jsxs("div", { className: "flex items-start justify-between gap-3", children: [
+            /* @__PURE__ */ jsxs("div", { className: "min-w-0", children: [
+              /* @__PURE__ */ jsx(
+                "h3",
+                {
+                  lang: language,
+                  className: "font-display text-base font-semibold text-navy dark:text-ink-dark sm:text-lg",
+                  children: /* @__PURE__ */ jsx(
+                    Link,
+                    {
+                      to: `/article/${article.id}`,
+                      "aria-label": `${articleNumber}: ${articleTitle}`,
+                      className: "transition-colors hover:text-saffron focus:outline-none focus:text-saffron",
+                      children: articleTitle
+                    }
+                  )
+                }
+              ),
+              /* @__PURE__ */ jsx(
+                Link,
+                {
+                  to: `/article/${article.id}`,
+                  lang: language,
+                  className: "mt-1 inline-block text-xs text-saffron hover:underline",
+                  children: articleNumber
+                }
+              ),
+              category && /* @__PURE__ */ jsx(
+                "span",
+                {
+                  lang: language,
+                  className: "ml-2 mt-1 inline-block text-xs text-leaf dark:text-leaf-light",
+                  children: pick(category.title)
+                }
+              )
+            ] }),
+            /* @__PURE__ */ jsx(
+              BookmarkButton,
+              {
+                articleId: article.id,
+                size: "small"
+              }
+            )
+          ] }),
+          /* @__PURE__ */ jsx(
+            "p",
+            {
+              lang: language,
+              className: "mt-2 line-clamp-2 text-sm leading-relaxed text-ink/60 dark:text-ink-dark/60",
+              children: pick(article.simpleExplanation)
+            }
+          ),
+          /* @__PURE__ */ jsxs(
+            Link,
+            {
+              to: `/article/${article.id}`,
+              "aria-label": `${t("view_details")}: ${articleTitle}`,
+              className: "mt-4 inline-flex w-fit items-center gap-1 text-sm font-medium text-saffron transition-colors hover:text-saffron/80 hover:underline focus:outline-none focus:underline",
+              children: [
+                t("view_details"),
+                /* @__PURE__ */ jsx("span", { "aria-hidden": "true", children: "→" })
+              ]
+            }
+          )
+        ] })
+      ]
+    }
+  );
 }
 const articles = [
   {
@@ -1827,143 +1882,6 @@ function Home() {
     ] }) })
   ] });
 }
-function searchArticles(query, list = articles) {
-  const q = (query || "").trim().toLowerCase();
-  if (!q) return list;
-  return list.filter((article) => {
-    const numberMatch = article.articleNumber.toLowerCase().includes(q);
-    const idMatch = article.id.toLowerCase() === q.replace(/^article\s*/i, "");
-    const titleEnMatch = article.title.en.toLowerCase().includes(q);
-    const titleMrMatch = article.title.mr.includes(query || "");
-    const keywordMatch = article.keywords.some((k) => k.toLowerCase().includes(q));
-    const category = getCategoryByKey(article.categoryKey);
-    const categoryMatch = category && (category.title.en.toLowerCase().includes(q) || category.title.mr.includes(query || ""));
-    return numberMatch || idMatch || titleEnMatch || titleMrMatch || keywordMatch || categoryMatch;
-  });
-}
-function filterByCategory(list, categoryKey) {
-  if (!categoryKey || categoryKey === "all") return list;
-  return list.filter((a) => a.categoryKey === categoryKey);
-}
-function sortArticles(list, direction = "asc") {
-  const parseNum = (a) => parseFloat(a.id.replace(/[^0-9.]/g, "")) || 0;
-  return [...list].sort(
-    (a, b) => direction === "asc" ? parseNum(a) - parseNum(b) : parseNum(b) - parseNum(a)
-  );
-}
-function Articles() {
-  const { t, pick, language } = useLanguage();
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [query, setQuery] = useState(searchParams.get("q") || "");
-  const [category, setCategory] = useState(searchParams.get("category") || "all");
-  const [sort, setSort] = useState("asc");
-  useEffect(() => {
-    setQuery(searchParams.get("q") || "");
-    setCategory(searchParams.get("category") || "all");
-  }, [searchParams]);
-  const results = useMemo(() => {
-    let list = searchArticles(query, articles);
-    list = filterByCategory(list, category);
-    list = sortArticles(list, sort);
-    return list;
-  }, [query, category, sort]);
-  const updateParams = (next) => {
-    const params = new URLSearchParams(searchParams);
-    Object.entries(next).forEach(([k, v]) => {
-      if (v && v !== "all") params.set(k, v);
-      else params.delete(k);
-    });
-    setSearchParams(params);
-  };
-  return /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16", children: [
-    /* @__PURE__ */ jsx("h1", { lang: language, className: "font-display text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl", children: t("articles_page_title") }),
-    /* @__PURE__ */ jsx("p", { lang: language, className: "mt-2 max-w-2xl text-ink/60 dark:text-ink-dark/60", children: t("articles_page_sub") }),
-    /* @__PURE__ */ jsxs("div", { className: "mt-8 flex flex-col gap-4", children: [
-      /* @__PURE__ */ jsxs("div", { className: "flex gap-2", children: [
-        /* @__PURE__ */ jsx(
-          "input",
-          {
-            type: "search",
-            value: query,
-            onChange: (e) => {
-              setQuery(e.target.value);
-              updateParams({ q: e.target.value });
-            },
-            placeholder: t("search_placeholder"),
-            lang: language,
-            className: "flex-1 rounded-full border border-navy/15 dark:border-ink-dark/20 bg-white dark:bg-white/5 px-4 py-2.5 text-sm text-ink dark:text-ink-dark placeholder:text-ink/40 dark:placeholder:text-ink-dark/40 focus:outline-none"
-          }
-        ),
-        query && /* @__PURE__ */ jsxs(
-          "button",
-          {
-            type: "button",
-            onClick: () => {
-              setQuery("");
-              updateParams({ q: "" });
-            },
-            className: "flex items-center gap-1 rounded-full border border-navy/15 dark:border-ink-dark/20 px-3 text-sm text-ink/60 dark:text-ink-dark/60",
-            children: [
-              /* @__PURE__ */ jsx(X, { size: 14 }),
-              " ",
-              t("clear_search")
-            ]
-          }
-        )
-      ] }),
-      /* @__PURE__ */ jsxs("div", { className: "flex flex-wrap items-center gap-2", children: [
-        /* @__PURE__ */ jsx(
-          "button",
-          {
-            type: "button",
-            onClick: () => {
-              setCategory("all");
-              updateParams({ category: "all" });
-            },
-            className: `rounded-full border px-3.5 py-1.5 text-xs font-medium transition-colors ${category === "all" ? "border-navy bg-navy text-paper dark:border-saffron dark:bg-saffron dark:text-ink" : "border-navy/15 dark:border-ink-dark/20 text-navy/70 dark:text-ink-dark/70"}`,
-            children: t("filter_all")
-          }
-        ),
-        categories.map((c) => /* @__PURE__ */ jsx(
-          "button",
-          {
-            type: "button",
-            onClick: () => {
-              setCategory(c.key);
-              updateParams({ category: c.key });
-            },
-            lang: language,
-            className: `rounded-full border px-3.5 py-1.5 text-xs font-medium transition-colors ${category === c.key ? "border-navy bg-navy text-paper dark:border-saffron dark:bg-saffron dark:text-ink" : "border-navy/15 dark:border-ink-dark/20 text-navy/70 dark:text-ink-dark/70"}`,
-            children: pick(c.title)
-          },
-          c.key
-        )),
-        /* @__PURE__ */ jsxs(
-          "button",
-          {
-            type: "button",
-            onClick: () => setSort((s) => s === "asc" ? "desc" : "asc"),
-            className: "ml-auto flex items-center gap-1.5 rounded-full border border-navy/15 dark:border-ink-dark/20 px-3.5 py-1.5 text-xs font-medium text-navy/70 dark:text-ink-dark/70",
-            children: [
-              /* @__PURE__ */ jsx(ArrowUpDown, { size: 13 }),
-              sort === "asc" ? t("sort_asc") : t("sort_desc")
-            ]
-          }
-        )
-      ] })
-    ] }),
-    query && /* @__PURE__ */ jsxs("p", { lang: language, className: "mt-6 text-sm text-ink/50 dark:text-ink-dark/50", children: [
-      t("search_results_for"),
-      ' "',
-      query,
-      '" — ',
-      results.length
-    ] }),
-    /* @__PURE__ */ jsx("div", { className: "mt-8 grid gap-5 sm:grid-cols-2", children: results.map((article) => /* @__PURE__ */ jsx(ArticleCard, { article }, article.id)) }),
-    results.length > 3 && /* @__PURE__ */ jsx(Advertisement, { placement: "article" }),
-    results.length === 0 && /* @__PURE__ */ jsx("p", { lang: language, className: "mt-16 text-center text-ink/50 dark:text-ink-dark/50", children: t("no_results") })
-  ] });
-}
 const siteConfig = {
   name: "Samvidhan",
   url: "https://www.mysamvidhan.in",
@@ -2052,6 +1970,255 @@ function PageMeta() {
     setLink("canonical", canonicalUrl);
   }, [pathname, language, pick]);
   return null;
+}
+function searchArticles(query, list = articles) {
+  const q = (query || "").trim().toLowerCase();
+  if (!q) return list;
+  return list.filter((article) => {
+    const numberMatch = article.articleNumber.toLowerCase().includes(q);
+    const idMatch = article.id.toLowerCase() === q.replace(/^article\s*/i, "");
+    const titleEnMatch = article.title.en.toLowerCase().includes(q);
+    const titleMrMatch = article.title.mr.includes(query || "");
+    const keywordMatch = article.keywords.some((k) => k.toLowerCase().includes(q));
+    const category = getCategoryByKey(article.categoryKey);
+    const categoryMatch = category && (category.title.en.toLowerCase().includes(q) || category.title.mr.includes(query || ""));
+    return numberMatch || idMatch || titleEnMatch || titleMrMatch || keywordMatch || categoryMatch;
+  });
+}
+function filterByCategory(list, categoryKey) {
+  if (!categoryKey || categoryKey === "all") return list;
+  return list.filter((a) => a.categoryKey === categoryKey);
+}
+function sortArticles(list, direction = "asc") {
+  const parseNum = (a) => parseFloat(a.id.replace(/[^0-9.]/g, "")) || 0;
+  return [...list].sort(
+    (a, b) => direction === "asc" ? parseNum(a) - parseNum(b) : parseNum(b) - parseNum(a)
+  );
+}
+function Articles() {
+  const { t, pick, language } = useLanguage();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [query, setQuery] = useState(searchParams.get("q") || "");
+  const [category, setCategory] = useState(
+    searchParams.get("category") || "all"
+  );
+  const [sort, setSort] = useState("asc");
+  useEffect(() => {
+    setQuery(searchParams.get("q") || "");
+    setCategory(searchParams.get("category") || "all");
+  }, [searchParams]);
+  const results = useMemo(() => {
+    let list = searchArticles(query, articles);
+    list = filterByCategory(list, category);
+    list = sortArticles(list, sort);
+    return list;
+  }, [query, category, sort]);
+  const updateParams = (next) => {
+    const params = new URLSearchParams(searchParams);
+    Object.entries(next).forEach(([key, value]) => {
+      if (value && value !== "all") {
+        params.set(key, value);
+      } else {
+        params.delete(key);
+      }
+    });
+    setSearchParams(params);
+  };
+  const isFiltered = Boolean(query || category !== "all");
+  const pageTitle = language === "mr" ? "भारतीय संविधानातील सर्व कलमे | MySamvidhan" : "Indian Constitution Articles | MySamvidhan";
+  const pageDescription = language === "mr" ? "भारतीय संविधानातील कलमे सोप्या मराठी आणि इंग्रजी भाषेत जाणून घ्या. मूलभूत अधिकार, नागरिकत्व, संसद, न्यायपालिका आणि इतर घटनात्मक तरतुदी समजून घ्या." : "Explore Articles of the Indian Constitution in simple English and Marathi. Learn about Fundamental Rights, citizenship, Parliament, judiciary and other constitutional provisions.";
+  return /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16", children: [
+    /* @__PURE__ */ jsx(
+      PageMeta,
+      {
+        title: pageTitle,
+        description: pageDescription,
+        canonical: "/articles",
+        robots: isFiltered ? "noindex, follow" : "index, follow"
+      }
+    ),
+    /* @__PURE__ */ jsxs("header", { children: [
+      /* @__PURE__ */ jsx(
+        "h1",
+        {
+          lang: language,
+          className: "font-display text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl",
+          children: t("articles_page_title")
+        }
+      ),
+      /* @__PURE__ */ jsx(
+        "p",
+        {
+          lang: language,
+          className: "mt-2 max-w-3xl text-ink/60 dark:text-ink-dark/60",
+          children: t("articles_page_sub")
+        }
+      ),
+      /* @__PURE__ */ jsx(
+        "div",
+        {
+          lang: language,
+          className: "mt-5 max-w-4xl text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70",
+          children: language === "mr" ? /* @__PURE__ */ jsx("p", { children: "भारतीय संविधानातील विविध कलमे नागरिकांचे अधिकार, कर्तव्ये, शासनव्यवस्था आणि देशाच्या घटनात्मक रचनेशी संबंधित महत्त्वाच्या तरतुदी स्पष्ट करतात. MySamvidhan वर ही कलमे सोप्या मराठी आणि इंग्रजी भाषेत समजून घेता येतात." }) : /* @__PURE__ */ jsx("p", { children: "The Articles of the Indian Constitution define important provisions relating to fundamental rights, citizenship, government, Parliament, judiciary and the constitutional framework of India. Explore these Articles in simple English and Marathi on MySamvidhan." })
+        }
+      )
+    ] }),
+    /* @__PURE__ */ jsxs("div", { className: "mt-8 flex flex-col gap-4", children: [
+      /* @__PURE__ */ jsxs("div", { className: "flex gap-2", children: [
+        /* @__PURE__ */ jsx(
+          "input",
+          {
+            type: "search",
+            value: query,
+            onChange: (e) => {
+              setQuery(e.target.value);
+              updateParams({ q: e.target.value });
+            },
+            placeholder: t("search_placeholder"),
+            lang: language,
+            className: "flex-1 rounded-full border border-navy/15 dark:border-ink-dark/20 bg-white dark:bg-white/5 px-4 py-2.5 text-sm text-ink dark:text-ink-dark placeholder:text-ink/40 dark:placeholder:text-ink-dark/40 focus:outline-none"
+          }
+        ),
+        query && /* @__PURE__ */ jsxs(
+          "button",
+          {
+            type: "button",
+            onClick: () => {
+              setQuery("");
+              updateParams({ q: "" });
+            },
+            className: "flex items-center gap-1 rounded-full border border-navy/15 dark:border-ink-dark/20 px-3 text-sm text-ink/60 dark:text-ink-dark/60",
+            children: [
+              /* @__PURE__ */ jsx(X, { size: 14 }),
+              t("clear_search")
+            ]
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: "flex flex-wrap items-center gap-2", children: [
+        /* @__PURE__ */ jsx(
+          "button",
+          {
+            type: "button",
+            onClick: () => {
+              setCategory("all");
+              updateParams({ category: "all" });
+            },
+            className: `rounded-full border px-3.5 py-1.5 text-xs font-medium transition-colors ${category === "all" ? "border-navy bg-navy text-paper dark:border-saffron dark:bg-saffron dark:text-ink" : "border-navy/15 dark:border-ink-dark/20 text-navy/70 dark:text-ink-dark/70"}`,
+            children: t("filter_all")
+          }
+        ),
+        categories.map((c) => /* @__PURE__ */ jsx(
+          "button",
+          {
+            type: "button",
+            onClick: () => {
+              setCategory(c.key);
+              updateParams({ category: c.key });
+            },
+            lang: language,
+            className: `rounded-full border px-3.5 py-1.5 text-xs font-medium transition-colors ${category === c.key ? "border-navy bg-navy text-paper dark:border-saffron dark:bg-saffron dark:text-ink" : "border-navy/15 dark:border-ink-dark/20 text-navy/70 dark:text-ink-dark/70"}`,
+            children: pick(c.title)
+          },
+          c.key
+        )),
+        /* @__PURE__ */ jsxs(
+          "button",
+          {
+            type: "button",
+            onClick: () => setSort(
+              (current) => current === "asc" ? "desc" : "asc"
+            ),
+            className: "ml-auto flex items-center gap-1.5 rounded-full border border-navy/15 dark:border-ink-dark/20 px-3.5 py-1.5 text-xs font-medium text-navy/70 dark:text-ink-dark/70",
+            children: [
+              /* @__PURE__ */ jsx(ArrowUpDown, { size: 13 }),
+              sort === "asc" ? t("sort_asc") : t("sort_desc")
+            ]
+          }
+        )
+      ] })
+    ] }),
+    query && /* @__PURE__ */ jsxs(
+      "p",
+      {
+        lang: language,
+        className: "mt-6 text-sm text-ink/50 dark:text-ink-dark/50",
+        children: [
+          t("search_results_for"),
+          ' "',
+          query,
+          '" — ',
+          results.length
+        ]
+      }
+    ),
+    results.length > 0 && /* @__PURE__ */ jsx(
+      "section",
+      {
+        "aria-label": language === "mr" ? "भारतीय संविधानाची कलमे" : "Articles of the Indian Constitution",
+        className: "mt-8",
+        children: /* @__PURE__ */ jsx("div", { className: "grid gap-5 sm:grid-cols-2", children: results.map((article) => /* @__PURE__ */ jsx(
+          ArticleCard,
+          {
+            article
+          },
+          article.id
+        )) })
+      }
+    ),
+    results.length > 3 && /* @__PURE__ */ jsx(Advertisement, { placement: "article" }),
+    !isFiltered && results.length > 0 && /* @__PURE__ */ jsxs("section", { className: "mt-12 border-t border-navy/10 dark:border-ink-dark/10 pt-8", children: [
+      /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2", children: [
+        /* @__PURE__ */ jsx(
+          BookOpen,
+          {
+            size: 18,
+            className: "text-saffron"
+          }
+        ),
+        /* @__PURE__ */ jsx(
+          "h2",
+          {
+            lang: language,
+            className: "font-display text-xl font-semibold text-navy dark:text-ink-dark",
+            children: language === "mr" ? "संविधानाची कलमे" : "Articles of the Indian Constitution"
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsx(
+        "p",
+        {
+          lang: language,
+          className: "mt-2 text-sm text-ink/60 dark:text-ink-dark/60",
+          children: language === "mr" ? "खालील कलमांवर क्लिक करून त्यांचे सविस्तर स्पष्टीकरण वाचा." : "Open an Article to read its detailed explanation in English and Marathi."
+        }
+      ),
+      /* @__PURE__ */ jsx(
+        "nav",
+        {
+          "aria-label": language === "mr" ? "संविधानातील कलमांचे दुवे" : "Constitution Article links",
+          className: "mt-5 flex flex-wrap gap-2",
+          children: articles.map((article) => /* @__PURE__ */ jsx(
+            Link,
+            {
+              to: `/article/${article.id}`,
+              className: "rounded-full border border-navy/10 dark:border-ink-dark/15 px-3 py-1.5 text-xs text-navy/75 dark:text-ink-dark/75 transition-colors hover:border-saffron/50 hover:text-saffron",
+              children: article.articleNumber
+            },
+            article.id
+          ))
+        }
+      )
+    ] }),
+    results.length === 0 && /* @__PURE__ */ jsx(
+      "p",
+      {
+        lang: language,
+        className: "mt-16 text-center text-ink/50 dark:text-ink-dark/50",
+        children: t("no_results")
+      }
+    )
+  ] });
 }
 const clean = (value = "") => String(value).replace(/\s+/g, " ").trim();
 const unique = (items) => [
