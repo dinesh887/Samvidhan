@@ -477,10 +477,103 @@ export const articles = [
 ]
 
 export function getArticleById(id) {
-  return articles.find((a) => a.id === id.toLowerCase())
+  if (!id) return undefined
+
+  return articles.find(
+    (a) => a.id.toLowerCase() === String(id).toLowerCase()
+  )
 }
 
-export function getRelatedArticles(article) {
-  if (!article?.relatedIds) return []
-  return article.relatedIds.map((id) => getArticleById(id)).filter(Boolean)
+/**
+ * Automatically finds related Articles.
+ *
+ * Priority:
+ * 1. Manually defined relatedIds
+ * 2. Same category
+ * 3. Matching keywords
+ * 4. Nearby Article numbers
+ *
+ * This means new Articles can automatically get internal links
+ * without manually updating every other Article.
+ */
+export function getRelatedArticles(article, limit = 6) {
+  if (!article) return []
+
+  const manualIds = Array.isArray(article.relatedIds)
+    ? article.relatedIds.map(String)
+    : []
+
+  const articleKeywords = new Set(
+    Array.isArray(article.keywords)
+      ? article.keywords.map((keyword) =>
+          String(keyword).toLowerCase().trim()
+        )
+      : []
+  )
+
+  const articleNumber = Number(
+    String(article.id).replace(/[^0-9]/g, '')
+  )
+
+  const scoredArticles = articles
+    .filter((candidate) => candidate.id !== article.id)
+    .map((candidate) => {
+      let score = 0
+
+      // Highest priority: manually selected related Articles
+      if (manualIds.includes(candidate.id)) {
+        score += 100
+      }
+
+      // Same constitutional category
+      if (
+        article.categoryKey &&
+        candidate.categoryKey === article.categoryKey
+      ) {
+        score += 30
+      }
+
+      // Shared keywords
+      const candidateKeywords = Array.isArray(candidate.keywords)
+        ? candidate.keywords.map((keyword) =>
+            String(keyword).toLowerCase().trim()
+          )
+        : []
+
+      const sharedKeywords = candidateKeywords.filter((keyword) =>
+        articleKeywords.has(keyword)
+      ).length
+
+      score += sharedKeywords * 10
+
+      // Article numbers that are close to each other
+      const candidateNumber = Number(
+        String(candidate.id).replace(/[^0-9]/g, '')
+      )
+
+      if (
+        Number.isFinite(articleNumber) &&
+        Number.isFinite(candidateNumber)
+      ) {
+        const difference = Math.abs(
+          articleNumber - candidateNumber
+        )
+
+        if (difference <= 3) {
+          score += 8
+        } else if (difference <= 10) {
+          score += 4
+        }
+      }
+
+      return {
+        article: candidate,
+        score,
+      }
+    })
+
+  return scoredArticles
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit)
+    .map(({ article: relatedArticle }) => relatedArticle)
 }

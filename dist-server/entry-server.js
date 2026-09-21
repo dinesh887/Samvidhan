@@ -1665,11 +1665,56 @@ const articles = [
   }
 ];
 function getArticleById(id) {
-  return articles.find((a) => a.id === id.toLowerCase());
+  if (!id) return void 0;
+  return articles.find(
+    (a) => a.id.toLowerCase() === String(id).toLowerCase()
+  );
 }
-function getRelatedArticles(article) {
-  if (!(article == null ? void 0 : article.relatedIds)) return [];
-  return article.relatedIds.map((id) => getArticleById(id)).filter(Boolean);
+function getRelatedArticles(article, limit = 6) {
+  if (!article) return [];
+  const manualIds = Array.isArray(article.relatedIds) ? article.relatedIds.map(String) : [];
+  const articleKeywords = new Set(
+    Array.isArray(article.keywords) ? article.keywords.map(
+      (keyword) => String(keyword).toLowerCase().trim()
+    ) : []
+  );
+  const articleNumber = Number(
+    String(article.id).replace(/[^0-9]/g, "")
+  );
+  const scoredArticles = articles.filter((candidate) => candidate.id !== article.id).map((candidate) => {
+    let score = 0;
+    if (manualIds.includes(candidate.id)) {
+      score += 100;
+    }
+    if (article.categoryKey && candidate.categoryKey === article.categoryKey) {
+      score += 30;
+    }
+    const candidateKeywords = Array.isArray(candidate.keywords) ? candidate.keywords.map(
+      (keyword) => String(keyword).toLowerCase().trim()
+    ) : [];
+    const sharedKeywords = candidateKeywords.filter(
+      (keyword) => articleKeywords.has(keyword)
+    ).length;
+    score += sharedKeywords * 10;
+    const candidateNumber = Number(
+      String(candidate.id).replace(/[^0-9]/g, "")
+    );
+    if (Number.isFinite(articleNumber) && Number.isFinite(candidateNumber)) {
+      const difference = Math.abs(
+        articleNumber - candidateNumber
+      );
+      if (difference <= 3) {
+        score += 8;
+      } else if (difference <= 10) {
+        score += 4;
+      }
+    }
+    return {
+      article: candidate,
+      score
+    };
+  });
+  return scoredArticles.sort((a, b) => b.score - a.score).slice(0, limit).map(({ article: relatedArticle }) => relatedArticle);
 }
 const facts = [
   {
