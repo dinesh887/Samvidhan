@@ -1,9 +1,6 @@
 function getSiteUrl(request) {
   const configured = process.env.SITE_URL || process.env.VITE_SITE_URL
-  if (configured) return configured.replace(/\/$/, '')
-  const host = request.headers['x-forwarded-host'] || request.headers.host
-  const protocol = request.headers['x-forwarded-proto'] || 'https'
-  return `${protocol}://${host}`
+  return (configured || 'https://www.mysamvidhan.in').replace(/\/$/, '')
 }
 
 export default function handler(request, response) {

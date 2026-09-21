@@ -33,7 +33,7 @@ function metadata(path) {
 
 for (const path of routes) {
   const html = template
-    .replace('<title>Samvidhan</title>', metadata(path))
+    .replace(/<title>.*?<\/title>/, metadata(path))
     .replace('<div id="root"></div>', `<div id="root">${render(path)}</div>`)
   const output = path === '/' ? join(root, 'dist/index.html') : join(root, `dist${path}/index.html`)
   await mkdir(dirname(output), { recursive: true })
