@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /progress
+Disallow: /bookmarks
+Disallow: /premium-quiz
+Disallow: /api/
+
+Sitemap: https://www.mysamvidhan.in/sitemap.xml

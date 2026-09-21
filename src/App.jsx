@@ -24,6 +24,7 @@ import PageMeta from './components/PageMeta'
 import Contact from './pages/Contact'
 import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
+import Disclaimer from './pages/Disclaimer'
 import FAQ from './pages/FAQ'
 import SchemaJsonLd from './components/SchemaJsonLd'
 
@@ -54,7 +55,9 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/privacy-policy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/disclaimer" element={<Disclaimer />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/premium" element={<Premium />} />
           <Route path="/exam-preparation" element={<ExamPreparation />} />

@@ -1,0 +1,2 @@
+# This matches the publisher ID already present in index.html.
+google.com, pub-9135851077311162, DIRECT, f08c47fec0942fa0

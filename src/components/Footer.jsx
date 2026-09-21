@@ -16,8 +16,9 @@ export default function Footer() {
     { to: '/faq', label: t('nav_faq') },
     { to: '/about', label: t('nav_about') },
     { to: '/contact', label: t('contact_title') },
-    { to: '/privacy', label: t('footer_privacy') },
+    { to: '/privacy-policy', label: t('footer_privacy') },
     { to: '/terms', label: t('footer_terms') },
+    { to: '/disclaimer', label: t('footer_disclaimer_title') },
   ]
 
   return (
