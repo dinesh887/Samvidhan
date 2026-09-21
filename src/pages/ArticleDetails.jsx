@@ -205,7 +205,61 @@ export default function ArticleDetails() {
       />
 
       <div className="mx-auto max-w-4xl px-4 sm:px-6 py-12 sm:py-16">
+        {/* =========================================
+            BREADCRUMBS
+        ========================================= */}
 
+        <nav
+          aria-label={
+            language === 'mr'
+              ? 'पृष्ठ मार्गक्रमण'
+              : 'Breadcrumb'
+          }
+          className="mb-8"
+        >
+          <ol className="flex flex-wrap items-center gap-1.5 text-sm text-ink/50 dark:text-ink-dark/50">
+
+            <li>
+              <Link
+                to="/"
+                className="transition-colors hover:text-saffron"
+              >
+                {language === 'mr'
+                  ? 'मुख्यपृष्ठ'
+                  : 'Home'}
+              </Link>
+            </li>
+
+            <li aria-hidden="true">
+              <span>/</span>
+            </li>
+
+            <li>
+              <Link
+                to="/articles"
+                className="transition-colors hover:text-saffron"
+              >
+                {language === 'mr'
+                  ? 'सर्व कलमे'
+                  : 'Articles'}
+              </Link>
+            </li>
+
+            <li aria-hidden="true">
+              <span>/</span>
+            </li>
+
+            <li
+              aria-current="page"
+              className="font-medium text-navy dark:text-ink-dark"
+            >
+              {language === 'mr'
+                ? marathiArticle
+                : englishArticle}
+            </li>
+
+          </ol>
+        </nav>
         {/* =========================================
             ARTICLE HEADER
         ========================================= */}

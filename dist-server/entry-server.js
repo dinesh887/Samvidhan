@@ -2383,6 +2383,41 @@ function ArticleDetails() {
       }
     ),
     /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-4xl px-4 sm:px-6 py-12 sm:py-16", children: [
+      /* @__PURE__ */ jsx(
+        "nav",
+        {
+          "aria-label": language === "mr" ? "पृष्ठ मार्गक्रमण" : "Breadcrumb",
+          className: "mb-8",
+          children: /* @__PURE__ */ jsxs("ol", { className: "flex flex-wrap items-center gap-1.5 text-sm text-ink/50 dark:text-ink-dark/50", children: [
+            /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
+              Link,
+              {
+                to: "/",
+                className: "transition-colors hover:text-saffron",
+                children: language === "mr" ? "मुख्यपृष्ठ" : "Home"
+              }
+            ) }),
+            /* @__PURE__ */ jsx("li", { "aria-hidden": "true", children: /* @__PURE__ */ jsx("span", { children: "/" }) }),
+            /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
+              Link,
+              {
+                to: "/articles",
+                className: "transition-colors hover:text-saffron",
+                children: language === "mr" ? "सर्व कलमे" : "Articles"
+              }
+            ) }),
+            /* @__PURE__ */ jsx("li", { "aria-hidden": "true", children: /* @__PURE__ */ jsx("span", { children: "/" }) }),
+            /* @__PURE__ */ jsx(
+              "li",
+              {
+                "aria-current": "page",
+                className: "font-medium text-navy dark:text-ink-dark",
+                children: language === "mr" ? marathiArticle : englishArticle
+              }
+            )
+          ] })
+        }
+      ),
       /* @__PURE__ */ jsxs("header", { children: [
         /* @__PURE__ */ jsx("span", { className: "text-sm font-medium text-saffron", children: language === "mr" ? marathiArticle : englishArticle }),
         /* @__PURE__ */ jsx(
