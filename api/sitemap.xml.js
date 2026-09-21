@@ -18,6 +18,6 @@ export default function handler(request, response) {
   const articleUrls = articles.map((article) => ({ path: `/article/${article.id}`, priority: '0.7', changefreq: 'monthly' }))
   const entries = [...urls, ...articleUrls].map(({ path, priority, changefreq }) => `  <url><loc>${escapeXml(`${siteUrl}${path}`)}</loc><lastmod>${lastmod}</lastmod><changefreq>${changefreq}</changefreq><priority>${priority}</priority></url>`).join('\n')
   response.setHeader('Content-Type', 'application/xml; charset=utf-8')
-  response.setHeader('Cache-Control', 'public, max-age=3600, s-maxage=86400')
+  response.setHeader('Cache-Control', 'public, max-age=0, s-maxage=300, must-revalidate')
   response.status(200).send(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>`)
 }
