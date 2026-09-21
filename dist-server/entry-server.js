@@ -4,7 +4,7 @@ import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server.mjs";
 import { useNavigate, Link, NavLink, useLocation, useSearchParams, useParams, Routes, Route } from "react-router-dom";
 import * as Icons from "lucide-react";
-import { Sun, Moon, Search, X, Menu, ArrowRight, Star, ExternalLink, Lightbulb, ArrowUpDown, ShieldAlert, ScrollText, BookOpen, Sparkles, Link2, Trophy, RotateCcw, Check, Lock, ChevronDown } from "lucide-react";
+import { Sun, Moon, Search, X, Menu, ArrowRight, Star, ExternalLink, Lightbulb, ArrowUpDown, ShieldAlert, ScrollText, BookOpen, Sparkles, HelpCircle, Link2, ChevronLeft, ChevronRight, Trophy, RotateCcw, Check, Lock, ChevronDown } from "lucide-react";
 function ChakraMark({ className = "", spokes = 24 }) {
   const lines = Array.from({ length: spokes }, (_, i) => {
     const angle = 360 / spokes * i;
@@ -2071,7 +2071,7 @@ function generateArticleSEO(article) {
   };
 }
 function ArticleDetails() {
-  var _a;
+  var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m;
   const { id } = useParams();
   const { t, pick, language } = useLanguage();
   const article = getArticleById(id || "");
@@ -2099,6 +2099,67 @@ function ArticleDetails() {
   const category = getCategoryByKey(article.categoryKey);
   const related = getRelatedArticles(article);
   const seo = generateArticleSEO(article);
+  const rawNumber = String(article.articleNumber || "");
+  const articleNumber = rawNumber.replace(/^article\s*/i, "").replace(/^कलम\s*/i, "").trim();
+  const englishArticle = `Article ${articleNumber}`;
+  const marathiArticle = `कलम ${articleNumber}`;
+  const englishFAQs = [
+    {
+      question: `What is ${englishArticle} of the Indian Constitution?`,
+      answer: ((_a = article.simpleExplanation) == null ? void 0 : _a.en) || ((_b = article.verySimple) == null ? void 0 : _b.en) || ""
+    },
+    {
+      question: `What does ${englishArticle} mean?`,
+      answer: ((_c = article.verySimple) == null ? void 0 : _c.en) || ((_d = article.simpleExplanation) == null ? void 0 : _d.en) || ""
+    },
+    {
+      question: `Why is ${englishArticle} important?`,
+      answer: ((_e = article.simpleExplanation) == null ? void 0 : _e.en) || ((_f = article.example) == null ? void 0 : _f.en) || ""
+    }
+  ];
+  const marathiFAQs = [
+    {
+      question: `${marathiArticle} म्हणजे काय?`,
+      answer: ((_g = article.simpleExplanation) == null ? void 0 : _g.mr) || ((_h = article.verySimple) == null ? void 0 : _h.mr) || ""
+    },
+    {
+      question: `${marathiArticle} चा अर्थ काय आहे?`,
+      answer: ((_i = article.verySimple) == null ? void 0 : _i.mr) || ((_j = article.simpleExplanation) == null ? void 0 : _j.mr) || ""
+    },
+    {
+      question: `${marathiArticle} चे महत्त्व काय आहे?`,
+      answer: ((_k = article.simpleExplanation) == null ? void 0 : _k.mr) || ((_l = article.example) == null ? void 0 : _l.mr) || ""
+    }
+  ];
+  const faqs2 = language === "mr" ? marathiFAQs : englishFAQs;
+  Number(
+    articleNumber.replace(/\D/g, "")
+  );
+  const allArticles = Array.isArray(
+    article.allArticles
+  ) ? article.allArticles : [];
+  let previousArticle = null;
+  let nextArticle = null;
+  if (allArticles.length > 0) {
+    const sortedArticles = [...allArticles].filter(Boolean).sort((a, b) => {
+      const aNum = Number(
+        String(a.articleNumber || "").replace(/\D/g, "")
+      );
+      const bNum = Number(
+        String(b.articleNumber || "").replace(/\D/g, "")
+      );
+      return aNum - bNum;
+    });
+    const currentIndex = sortedArticles.findIndex(
+      (item) => item.id === article.id
+    );
+    if (currentIndex > 0) {
+      previousArticle = sortedArticles[currentIndex - 1];
+    }
+    if (currentIndex >= 0 && currentIndex < sortedArticles.length - 1) {
+      nextArticle = sortedArticles[currentIndex + 1];
+    }
+  }
   return /* @__PURE__ */ jsxs(Fragment, { children: [
     /* @__PURE__ */ jsx(
       PageMeta,
@@ -2110,8 +2171,8 @@ function ArticleDetails() {
       }
     ),
     /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-4xl px-4 sm:px-6 py-12 sm:py-16", children: [
-      /* @__PURE__ */ jsx("div", { className: "flex items-start justify-between gap-4", children: /* @__PURE__ */ jsxs("div", { children: [
-        /* @__PURE__ */ jsx("span", { className: "text-sm font-medium text-saffron", children: article.articleNumber }),
+      /* @__PURE__ */ jsxs("header", { children: [
+        /* @__PURE__ */ jsx("span", { className: "text-sm font-medium text-saffron", children: language === "mr" ? marathiArticle : englishArticle }),
         /* @__PURE__ */ jsx(
           "h1",
           {
@@ -2132,7 +2193,25 @@ function ArticleDetails() {
             ]
           }
         )
-      ] }) }),
+      ] }),
+      /* @__PURE__ */ jsxs("section", { className: "mt-8", children: [
+        /* @__PURE__ */ jsx(
+          "h2",
+          {
+            lang: language,
+            className: "font-display text-xl font-semibold text-navy dark:text-ink-dark",
+            children: language === "mr" ? `${marathiArticle} म्हणजे काय?` : `What is ${englishArticle}?`
+          }
+        ),
+        /* @__PURE__ */ jsx(
+          "p",
+          {
+            lang: language,
+            className: "mt-3 text-base leading-relaxed text-ink/80 dark:text-ink-dark/80",
+            children: pick(article.simpleExplanation)
+          }
+        )
+      ] }),
       /* @__PURE__ */ jsxs("div", { className: "mt-6 flex items-start gap-2 rounded-xl border border-gold/30 bg-gold/[0.06] p-4 text-xs leading-relaxed text-ink/70 dark:text-ink-dark/70", children: [
         /* @__PURE__ */ jsx(
           ShieldAlert,
@@ -2185,7 +2264,7 @@ function ArticleDetails() {
                   className: "text-saffron"
                 }
               ),
-              language === "mr" ? t("marathi_explanation") : t("simple_explanation")
+              language === "mr" ? "सोप्या भाषेत स्पष्टीकरण" : `${englishArticle} Explained in Simple Words`
             ]
           }
         ),
@@ -2212,7 +2291,7 @@ function ArticleDetails() {
                   className: "text-saffron"
                 }
               ),
-              t("very_simple")
+              language === "mr" ? `${marathiArticle} सोप्या भाषेत` : `${englishArticle} in Simple Words`
             ]
           }
         ),
@@ -2239,7 +2318,7 @@ function ArticleDetails() {
                   className: "text-saffron"
                 }
               ),
-              t("easy_example")
+              language === "mr" ? `${marathiArticle} चे उदाहरण` : `${englishArticle} Example`
             ]
           }
         ),
@@ -2251,6 +2330,50 @@ function ArticleDetails() {
             children: pick(article.example)
           }
         )
+      ] }),
+      /* @__PURE__ */ jsxs("section", { className: "mt-10", children: [
+        /* @__PURE__ */ jsxs(
+          "h2",
+          {
+            lang: language,
+            className: "flex items-center gap-2 font-display text-xl font-semibold text-navy dark:text-ink-dark",
+            children: [
+              /* @__PURE__ */ jsx(
+                HelpCircle,
+                {
+                  size: 20,
+                  className: "text-saffron"
+                }
+              ),
+              language === "mr" ? "वारंवार विचारले जाणारे प्रश्न" : "Frequently Asked Questions"
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsx("div", { className: "mt-4 space-y-4", children: faqs2.map((faq, index) => /* @__PURE__ */ jsxs(
+          "div",
+          {
+            className: "rounded-xl border border-navy/10 dark:border-ink-dark/10 bg-white/60 dark:bg-white/[0.04] p-5",
+            children: [
+              /* @__PURE__ */ jsx(
+                "h3",
+                {
+                  lang: language,
+                  className: "font-semibold text-navy dark:text-ink-dark",
+                  children: faq.question
+                }
+              ),
+              faq.answer && /* @__PURE__ */ jsx(
+                "p",
+                {
+                  lang: language,
+                  className: "mt-2 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70",
+                  children: faq.answer
+                }
+              )
+            ]
+          },
+          index
+        )) })
       ] }),
       related.length > 0 && /* @__PURE__ */ jsxs("section", { className: "mt-10", children: [
         /* @__PURE__ */ jsxs(
@@ -2284,14 +2407,64 @@ function ArticleDetails() {
           r.id
         )) })
       ] }),
+      (previousArticle || nextArticle) && /* @__PURE__ */ jsxs(
+        "nav",
+        {
+          "aria-label": "Article navigation",
+          className: "mt-10 grid gap-4 sm:grid-cols-2",
+          children: [
+            previousArticle ? /* @__PURE__ */ jsxs(
+              Link,
+              {
+                to: `/article/${previousArticle.id}`,
+                className: "rounded-xl border border-navy/10 dark:border-ink-dark/10 p-4 transition hover:border-saffron/50",
+                children: [
+                  /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2 text-xs text-ink/50 dark:text-ink-dark/50", children: [
+                    /* @__PURE__ */ jsx(ChevronLeft, { size: 16 }),
+                    language === "mr" ? "मागील कलम" : "Previous Article"
+                  ] }),
+                  /* @__PURE__ */ jsxs("div", { className: "mt-1 font-medium text-navy dark:text-ink-dark", children: [
+                    previousArticle.articleNumber,
+                    " – ",
+                    pick(previousArticle.title)
+                  ] })
+                ]
+              }
+            ) : /* @__PURE__ */ jsx("div", {}),
+            nextArticle && /* @__PURE__ */ jsxs(
+              Link,
+              {
+                to: `/article/${nextArticle.id}`,
+                className: "rounded-xl border border-navy/10 dark:border-ink-dark/10 p-4 text-right transition hover:border-saffron/50",
+                children: [
+                  /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-end gap-2 text-xs text-ink/50 dark:text-ink-dark/50", children: [
+                    language === "mr" ? "पुढील कलम" : "Next Article",
+                    /* @__PURE__ */ jsx(ChevronRight, { size: 16 })
+                  ] }),
+                  /* @__PURE__ */ jsxs("div", { className: "mt-1 font-medium text-navy dark:text-ink-dark", children: [
+                    nextArticle.articleNumber,
+                    " – ",
+                    pick(nextArticle.title)
+                  ] })
+                ]
+              }
+            )
+          ]
+        }
+      ),
       /* @__PURE__ */ jsxs("div", { className: "mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-navy/10 dark:border-ink-dark/10 pt-6 text-xs text-ink/45 dark:text-ink-dark/45", children: [
         /* @__PURE__ */ jsxs("span", { children: [
           t("source_label"),
           ":",
           " ",
-          ((_a = article.source) == null ? void 0 : _a.name) || "—"
+          ((_m = article.source) == null ? void 0 : _m.name) || "—"
         ] }),
-        /* @__PURE__ */ jsx(BookmarkButton, { articleId: article.id })
+        /* @__PURE__ */ jsx(
+          BookmarkButton,
+          {
+            articleId: article.id
+          }
+        )
       ] }),
       /* @__PURE__ */ jsx(Advertisement, { placement: "article" })
     ] })
