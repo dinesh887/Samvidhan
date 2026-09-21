@@ -1919,6 +1919,157 @@ function Articles() {
     results.length === 0 && /* @__PURE__ */ jsx("p", { lang: language, className: "mt-16 text-center text-ink/50 dark:text-ink-dark/50", children: t("no_results") })
   ] });
 }
+const siteConfig = {
+  name: "Samvidhan",
+  url: "https://www.mysamvidhan.in",
+  defaultTitle: "Samvidhan | Understand the Constitution of India",
+  defaultDescription: "Understand the Constitution of India with simple explanations in English and Marathi."
+};
+const seoRoutes = {
+  "/": { title: { en: siteConfig.defaultTitle, mr: "संविधान | भारताचे संविधान समजून घ्या" }, description: { en: siteConfig.defaultDescription, mr: "भारतीय संविधान, कलमे, मूलभूत अधिकार, कर्तव्ये आणि दुरुस्त्या सोप्या भाषेत समजून घ्या." }, priority: "1.0", changefreq: "weekly" },
+  "/articles": { title: { en: "Constitutional Articles | Samvidhan", mr: "संवैधानिक कलमे | संविधान" }, description: { en: "Search and understand the Constitutional Articles of India with clear explanations.", mr: "भारतीय संविधानातील कलमे शोधा आणि स्पष्ट स्पष्टीकरणांसह समजून घ्या." }, priority: "0.9", changefreq: "weekly" },
+  "/fundamental-rights": { title: { en: "Fundamental Rights | Samvidhan", mr: "मूलभूत अधिकार | संविधान" }, description: { en: "Understand the Fundamental Rights guaranteed by the Constitution of India.", mr: "भारतीय संविधानाने दिलेले मूलभूत अधिकार समजून घ्या." }, priority: "0.8", changefreq: "monthly" },
+  "/fundamental-duties": { title: { en: "Fundamental Duties | Samvidhan", mr: "मूलभूत कर्तव्ये | संविधान" }, description: { en: "Learn the Fundamental Duties of citizens of India.", mr: "भारताच्या नागरिकांची मूलभूत कर्तव्ये जाणून घ्या." }, priority: "0.8", changefreq: "monthly" },
+  "/directive-principles": { title: { en: "Directive Principles of State Policy | Samvidhan", mr: "राज्याच्या धोरणाची मार्गदर्शक तत्त्वे | संविधान" }, description: { en: "Explore the Directive Principles that guide governance and public policy.", mr: "शासन आणि सार्वजनिक धोरणाला दिशा देणारी मार्गदर्शक तत्त्वे जाणून घ्या." }, priority: "0.8", changefreq: "monthly" },
+  "/amendments": { title: { en: "Constitutional Amendments | Samvidhan", mr: "संविधान दुरुस्त्या | संविधान" }, description: { en: "Study important Constitutional Amendments and how India's Constitution has evolved.", mr: "महत्त्वाच्या संविधान दुरुस्त्या आणि संविधानातील बदलांचा अभ्यास करा." }, priority: "0.8", changefreq: "monthly" },
+  "/quiz": { title: { en: "Constitution Quiz | Samvidhan", mr: "संविधान प्रश्नमंजुषा | संविधान" }, description: { en: "Test your knowledge of the Constitution of India with a free quiz.", mr: "मोफत प्रश्नमंजुषेद्वारे भारतीय संविधानाचे तुमचे ज्ञान तपासा." }, priority: "0.7", changefreq: "monthly" },
+  "/faq": { title: { en: "Indian Constitution FAQs | Frequently Asked Questions – Samvidhan", mr: "भारतीय संविधान FAQ | वारंवार विचारले जाणारे प्रश्न – Samvidhan" }, description: { en: "Find answers to frequently asked questions about the Constitution of India, Fundamental Rights, Duties, Articles, Amendments, Preamble and more.", mr: "भारतीय संविधान, मूलभूत अधिकार, कर्तव्ये, कलमे, उद्देशिका, घटनादुरुस्ती आणि इतर महत्त्वाच्या विषयांवरील वारंवार विचारले जाणारे प्रश्न व उत्तरे जाणून घ्या." }, priority: "0.8", changefreq: "monthly" },
+  "/about": { title: { en: "About Samvidhan", mr: "संविधान विषयी" }, description: { en: "Learn about Samvidhan, an independent educational platform for constitutional knowledge.", mr: "संविधान या स्वतंत्र शैक्षणिक व्यासपीठाविषयी जाणून घ्या." }, priority: "0.5", changefreq: "yearly" },
+  "/contact": { title: { en: "Contact Samvidhan", mr: "संविधानशी संपर्क साधा" }, description: { en: "Contact Samvidhan with questions, suggestions, feedback or corrections.", mr: "प्रश्न, सूचना, अभिप्राय किंवा दुरुस्त्यांसाठी संविधानशी संपर्क साधा." }, priority: "0.4", changefreq: "yearly" },
+  "/privacy": { title: { en: "Privacy Policy | Samvidhan", mr: "गोपनीयता धोरण | संविधान" }, description: { en: "Read the Samvidhan Privacy Policy covering information, cookies, analytics and advertising.", mr: "माहिती, कुकीज, विश्लेषण आणि जाहिरातींसंबंधी संविधानचे गोपनीयता धोरण वाचा." }, priority: "0.3", changefreq: "yearly" },
+  "/privacy-policy": { title: { en: "Privacy Policy | Samvidhan", mr: "गोपनीयता धोरण | संविधान" }, description: { en: "Read the Samvidhan Privacy Policy covering information, cookies, analytics and advertising.", mr: "माहिती, कुकीज, विश्लेषण आणि जाहिरातींसंबंधी संविधानचे गोपनीयता धोरण वाचा." }, priority: "0.3", changefreq: "yearly" },
+  "/terms": { title: { en: "Terms & Conditions | Samvidhan", mr: "नियम आणि अटी | संविधान" }, description: { en: "Read the Samvidhan Terms and Conditions for using this educational website.", mr: "या शैक्षणिक वेबसाइटच्या वापरासाठी संविधानचे नियम आणि अटी वाचा." }, priority: "0.3", changefreq: "yearly" },
+  "/disclaimer": { title: { en: "Disclaimer | Samvidhan", mr: "अस्वीकरण | संविधान" }, description: { en: "Read the Samvidhan educational and informational content disclaimer.", mr: "संविधानच्या शैक्षणिक आणि माहितीपर सामग्रीचे अस्वीकरण वाचा." }, priority: "0.3", changefreq: "yearly" },
+  "/learn": { title: { en: "Learn Indian Constitution | Samvidhan", mr: "भारतीय संविधान शिका | संविधान" }, description: { en: "Learn the Indian Constitution through guided Articles, Rights and exam preparation paths.", mr: "मार्गदर्शित कलमे, अधिकार आणि परीक्षा तयारीच्या माध्यमातून भारतीय संविधान शिका." }, priority: "0.8", changefreq: "monthly" },
+  "/exam-preparation": { title: { en: "Exam Preparation | Samvidhan", mr: "परीक्षा तयारी | संविधान" }, description: { en: "Prepare for MPSC and UPSC Constitution and polity examinations.", mr: "MPSC आणि UPSC संविधान व राज्यशास्त्र परीक्षांची तयारी करा." }, priority: "0.7", changefreq: "monthly" },
+  "/premium": { title: { en: "Samvidhan Premium | Learn Better", mr: "संविधान प्रीमियम | अधिक चांगले शिका" }, description: { en: "Explore structured constitutional revision, advanced practice and exam preparation.", mr: "संरचित संविधान उजळणी, प्रगत सराव आणि परीक्षा तयारीचा अनुभव घ्या." }, priority: "0.5", changefreq: "monthly" },
+  "/article/:id": { indexable: true, changefreq: "monthly", priority: "0.7" },
+  "/dashboard": { indexable: false },
+  "/progress": { indexable: false },
+  "/premium-quiz": { indexable: false },
+  "/notes": { indexable: false },
+  "/bookmarks": { indexable: false }
+};
+function getSeoRoute(pathname) {
+  if (seoRoutes[pathname]) return seoRoutes[pathname];
+  if (pathname.startsWith("/article/")) return seoRoutes["/article/:id"];
+  return { title: { en: siteConfig.defaultTitle, mr: "संविधान | भारताचे संविधान समजून घ्या" }, description: { en: siteConfig.defaultDescription, mr: "भारतीय संविधानाबद्दल सोप्या भाषेत जाणून घ्या." }, indexable: false };
+}
+const SITE_URL$1 = siteConfig.url.replace(/\/+$/, "");
+function setMeta(attribute, value, content) {
+  let element = document.head.querySelector(
+    `meta[${attribute}="${value}"]`
+  );
+  if (!element) {
+    element = document.createElement("meta");
+    element.setAttribute(attribute, value);
+    document.head.appendChild(element);
+  }
+  element.setAttribute("content", content);
+}
+function setLink(rel, href) {
+  let element = document.head.querySelector(
+    `link[rel="${rel}"]`
+  );
+  if (!element) {
+    element = document.createElement("link");
+    element.setAttribute("rel", rel);
+    document.head.appendChild(element);
+  }
+  element.setAttribute("href", href);
+}
+function PageMeta() {
+  const { pathname } = useLocation();
+  const { language, pick } = useLanguage();
+  useEffect(() => {
+    console.log("PageMeta running:", pathname);
+    const config = getSeoRoute(pathname);
+    const article = pathname.startsWith("/article/") ? getArticleById(pathname.split("/").pop()) : null;
+    const title = article ? `${article.articleNumber} — ${pick(article.title)} | Samvidhan` : pick(config.title);
+    const description = article ? pick(article.simpleExplanation) : pick(config.description);
+    const cleanPath = pathname === "/" ? "/" : pathname.replace(/\/+$/, "");
+    const canonicalUrl = cleanPath === "/" ? SITE_URL$1 : `${SITE_URL$1}${cleanPath}`;
+    document.title = title;
+    setMeta("name", "description", description);
+    setMeta("property", "og:title", title);
+    setMeta("property", "og:description", description);
+    setMeta("property", "og:type", "website");
+    setMeta("property", "og:url", canonicalUrl);
+    setMeta("property", "og:site_name", siteConfig.name);
+    setMeta("name", "twitter:card", "summary");
+    setMeta("name", "twitter:title", title);
+    setMeta("name", "twitter:description", description);
+    setMeta(
+      "name",
+      "robots",
+      config.indexable === false ? "noindex, nofollow" : "index, follow"
+    );
+    setLink("canonical", canonicalUrl);
+  }, [pathname, language, pick]);
+  return null;
+}
+const clean = (value = "") => String(value).replace(/\s+/g, " ").trim();
+const unique = (items) => [
+  ...new Set(
+    items.map(clean).filter(Boolean)
+  )
+];
+function generateArticleSEO(article) {
+  var _a, _b;
+  if (!article) return null;
+  const rawArticleNumber = clean(article.articleNumber || "");
+  const number = rawArticleNumber.replace(/^article\s*/i, "").replace(/^कलम\s*/i, "").trim();
+  const englishTitle = clean(
+    typeof article.title === "object" ? (_a = article.title) == null ? void 0 : _a.en : article.title
+  );
+  const marathiTitle = clean(
+    typeof article.title === "object" ? (_b = article.title) == null ? void 0 : _b.mr : ""
+  );
+  const articleKeyword = `Article ${number}`;
+  const marathiKeyword = `कलम ${number}`;
+  const keywords = unique([
+    // English keywords
+    articleKeyword,
+    `${articleKeyword} Indian Constitution`,
+    `${articleKeyword} of Indian Constitution`,
+    `${articleKeyword} explained`,
+    `What is ${articleKeyword}`,
+    `${articleKeyword} meaning`,
+    `${articleKeyword} in simple words`,
+    `${articleKeyword} explanation`,
+    `${articleKeyword} India`,
+    `${articleKeyword} constitution`,
+    // Marathi keywords
+    marathiKeyword,
+    `${marathiKeyword} भारतीय संविधान`,
+    `भारतीय संविधान ${marathiKeyword}`,
+    `${marathiKeyword} मराठीत`,
+    `${marathiKeyword} म्हणजे काय`,
+    `${marathiKeyword} माहिती`,
+    `${marathiKeyword} स्पष्टीकरण`,
+    // Article-specific title keywords
+    englishTitle,
+    marathiTitle,
+    // Existing keywords from article
+    ...Array.isArray(article.keywords) ? article.keywords : []
+  ]);
+  const titleEn = `${articleKeyword} – ${englishTitle || "Indian Constitution"}`;
+  const titleMr = `${marathiKeyword} – ${marathiTitle || "भारतीय संविधान"}`;
+  const descriptionEn = `${articleKeyword} of the Indian Constitution explained in simple English and Marathi. Learn its meaning, key provisions, importance and constitutional context.`;
+  const descriptionMr = `भारतीय संविधानातील ${marathiKeyword} सोप्या मराठी आणि इंग्रजी भाषेत समजून घ्या. ${marathiTitle || "या कलमाचा"} अर्थ, प्रमुख तरतुदी आणि महत्त्व जाणून घ्या.`;
+  return {
+    title: titleEn,
+    titleEn,
+    titleMr,
+    description: descriptionEn,
+    descriptionEn,
+    descriptionMr,
+    primaryKeyword: articleKeyword,
+    keywords,
+    canonicalPath: `/article/${article.id}`,
+    robots: "index, follow"
+  };
+}
 function ArticleDetails() {
   var _a;
   const { id } = useParams();
@@ -1926,88 +2077,224 @@ function ArticleDetails() {
   const article = getArticleById(id || "");
   if (!article) {
     return /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-3xl px-4 py-24 text-center", children: [
+      /* @__PURE__ */ jsx(
+        PageMeta,
+        {
+          title: "Article Not Found | MySamvidhan",
+          description: "The requested article could not be found on MySamvidhan.",
+          robots: "noindex, follow"
+        }
+      ),
       /* @__PURE__ */ jsx("h1", { className: "font-display text-2xl font-semibold text-navy dark:text-ink-dark", children: "Article not found" }),
-      /* @__PURE__ */ jsx(Link, { to: "/articles", className: "mt-4 inline-block text-saffron", children: "← Back to Articles" })
+      /* @__PURE__ */ jsx(
+        Link,
+        {
+          to: "/articles",
+          className: "mt-4 inline-block text-saffron",
+          children: "← Back to Articles"
+        }
+      )
     ] });
   }
   const category = getCategoryByKey(article.categoryKey);
   const related = getRelatedArticles(article);
-  return /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-4xl px-4 sm:px-6 py-12 sm:py-16", children: [
-    /* @__PURE__ */ jsx("div", { className: "flex items-start justify-between gap-4", children: /* @__PURE__ */ jsxs("div", { children: [
-      /* @__PURE__ */ jsx("span", { className: "text-sm font-medium text-saffron", children: article.articleNumber }),
-      /* @__PURE__ */ jsx("h1", { lang: language, className: "font-display mt-1 text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl", children: pick(article.title) }),
-      category && /* @__PURE__ */ jsxs("span", { lang: language, className: "mt-3 inline-block rounded-full bg-leaf/10 px-3 py-1 text-xs font-medium text-leaf dark:text-leaf-light", children: [
-        t("category"),
-        ": ",
-        pick(category.title)
-      ] })
-    ] }) }),
-    /* @__PURE__ */ jsxs("div", { className: "mt-6 flex items-start gap-2 rounded-xl border border-gold/30 bg-gold/[0.06] p-4 text-xs leading-relaxed text-ink/70 dark:text-ink-dark/70", children: [
-      /* @__PURE__ */ jsx(ShieldAlert, { size: 16, className: "mt-0.5 shrink-0 text-gold" }),
-      /* @__PURE__ */ jsx("p", { lang: language, children: t("verify_notice") })
-    ] }),
-    /* @__PURE__ */ jsx(Advertisement, { placement: "article" }),
-    /* @__PURE__ */ jsxs("section", { className: "mt-8", children: [
-      /* @__PURE__ */ jsxs("h2", { lang: language, className: "flex items-center gap-2 font-display text-lg font-semibold text-navy dark:text-ink-dark", children: [
-        /* @__PURE__ */ jsx(ScrollText, { size: 18, className: "text-saffron" }),
-        " ",
-        t("official_text")
+  const seo = generateArticleSEO(article);
+  return /* @__PURE__ */ jsxs(Fragment, { children: [
+    /* @__PURE__ */ jsx(
+      PageMeta,
+      {
+        title: language === "mr" ? seo.titleMr : seo.titleEn,
+        description: language === "mr" ? seo.descriptionMr : seo.descriptionEn,
+        canonical: seo.canonicalPath,
+        robots: seo.robots
+      }
+    ),
+    /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-4xl px-4 sm:px-6 py-12 sm:py-16", children: [
+      /* @__PURE__ */ jsx("div", { className: "flex items-start justify-between gap-4", children: /* @__PURE__ */ jsxs("div", { children: [
+        /* @__PURE__ */ jsx("span", { className: "text-sm font-medium text-saffron", children: article.articleNumber }),
+        /* @__PURE__ */ jsx(
+          "h1",
+          {
+            lang: language,
+            className: "font-display mt-1 text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl",
+            children: pick(article.title)
+          }
+        ),
+        category && /* @__PURE__ */ jsxs(
+          "span",
+          {
+            lang: language,
+            className: "mt-3 inline-block rounded-full bg-leaf/10 px-3 py-1 text-xs font-medium text-leaf dark:text-leaf-light",
+            children: [
+              t("category"),
+              ": ",
+              pick(category.title)
+            ]
+          }
+        )
+      ] }) }),
+      /* @__PURE__ */ jsxs("div", { className: "mt-6 flex items-start gap-2 rounded-xl border border-gold/30 bg-gold/[0.06] p-4 text-xs leading-relaxed text-ink/70 dark:text-ink-dark/70", children: [
+        /* @__PURE__ */ jsx(
+          ShieldAlert,
+          {
+            size: 16,
+            className: "mt-0.5 shrink-0 text-gold"
+          }
+        ),
+        /* @__PURE__ */ jsx("p", { lang: language, children: t("verify_notice") })
       ] }),
-      /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 rounded-xl border border-navy/10 dark:border-ink-dark/10 bg-white/60 dark:bg-white/[0.04] p-5 text-sm italic leading-relaxed text-ink/70 dark:text-ink-dark/70", children: pick(article.officialText) })
-    ] }),
-    /* @__PURE__ */ jsxs("section", { className: "mt-8", children: [
-      /* @__PURE__ */ jsxs("h2", { lang: language, className: "flex items-center gap-2 font-display text-lg font-semibold text-navy dark:text-ink-dark", children: [
-        /* @__PURE__ */ jsx(BookOpen, { size: 18, className: "text-saffron" }),
-        " ",
-        language === "mr" ? t("marathi_explanation") : t("simple_explanation")
+      /* @__PURE__ */ jsx(Advertisement, { placement: "article" }),
+      /* @__PURE__ */ jsxs("section", { className: "mt-8", children: [
+        /* @__PURE__ */ jsxs(
+          "h2",
+          {
+            lang: language,
+            className: "flex items-center gap-2 font-display text-lg font-semibold text-navy dark:text-ink-dark",
+            children: [
+              /* @__PURE__ */ jsx(
+                ScrollText,
+                {
+                  size: 18,
+                  className: "text-saffron"
+                }
+              ),
+              t("official_text")
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsx(
+          "p",
+          {
+            lang: language,
+            className: "mt-3 rounded-xl border border-navy/10 dark:border-ink-dark/10 bg-white/60 dark:bg-white/[0.04] p-5 text-sm italic leading-relaxed text-ink/70 dark:text-ink-dark/70",
+            children: pick(article.officialText)
+          }
+        )
       ] }),
-      /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 text-base leading-relaxed text-ink/80 dark:text-ink-dark/80", children: pick(article.simpleExplanation) })
-    ] }),
-    /* @__PURE__ */ jsxs("section", { className: "mt-8", children: [
-      /* @__PURE__ */ jsxs("h2", { lang: language, className: "flex items-center gap-2 font-display text-lg font-semibold text-navy dark:text-ink-dark", children: [
-        /* @__PURE__ */ jsx(Sparkles, { size: 18, className: "text-saffron" }),
-        " ",
-        t("very_simple")
+      /* @__PURE__ */ jsxs("section", { className: "mt-8", children: [
+        /* @__PURE__ */ jsxs(
+          "h2",
+          {
+            lang: language,
+            className: "flex items-center gap-2 font-display text-lg font-semibold text-navy dark:text-ink-dark",
+            children: [
+              /* @__PURE__ */ jsx(
+                BookOpen,
+                {
+                  size: 18,
+                  className: "text-saffron"
+                }
+              ),
+              language === "mr" ? t("marathi_explanation") : t("simple_explanation")
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsx(
+          "p",
+          {
+            lang: language,
+            className: "mt-3 text-base leading-relaxed text-ink/80 dark:text-ink-dark/80",
+            children: pick(article.simpleExplanation)
+          }
+        )
       ] }),
-      /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 rounded-xl bg-navy/[0.04] dark:bg-white/[0.05] p-5 text-base leading-relaxed text-navy dark:text-ink-dark", children: pick(article.verySimple) })
-    ] }),
-    /* @__PURE__ */ jsxs("section", { className: "mt-8", children: [
-      /* @__PURE__ */ jsxs("h2", { lang: language, className: "flex items-center gap-2 font-display text-lg font-semibold text-navy dark:text-ink-dark", children: [
-        /* @__PURE__ */ jsx(Lightbulb, { size: 18, className: "text-saffron" }),
-        " ",
-        t("easy_example")
+      /* @__PURE__ */ jsxs("section", { className: "mt-8", children: [
+        /* @__PURE__ */ jsxs(
+          "h2",
+          {
+            lang: language,
+            className: "flex items-center gap-2 font-display text-lg font-semibold text-navy dark:text-ink-dark",
+            children: [
+              /* @__PURE__ */ jsx(
+                Sparkles,
+                {
+                  size: 18,
+                  className: "text-saffron"
+                }
+              ),
+              t("very_simple")
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsx(
+          "p",
+          {
+            lang: language,
+            className: "mt-3 rounded-xl bg-navy/[0.04] dark:bg-white/[0.05] p-5 text-base leading-relaxed text-navy dark:text-ink-dark",
+            children: pick(article.verySimple)
+          }
+        )
       ] }),
-      /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70", children: pick(article.example) })
-    ] }),
-    related.length > 0 && /* @__PURE__ */ jsxs("section", { className: "mt-10", children: [
-      /* @__PURE__ */ jsxs("h2", { lang: language, className: "flex items-center gap-2 font-display text-lg font-semibold text-navy dark:text-ink-dark", children: [
-        /* @__PURE__ */ jsx(Link2, { size: 18, className: "text-saffron" }),
-        " ",
-        t("related_articles")
+      /* @__PURE__ */ jsxs("section", { className: "mt-8", children: [
+        /* @__PURE__ */ jsxs(
+          "h2",
+          {
+            lang: language,
+            className: "flex items-center gap-2 font-display text-lg font-semibold text-navy dark:text-ink-dark",
+            children: [
+              /* @__PURE__ */ jsx(
+                Lightbulb,
+                {
+                  size: 18,
+                  className: "text-saffron"
+                }
+              ),
+              t("easy_example")
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsx(
+          "p",
+          {
+            lang: language,
+            className: "mt-3 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70",
+            children: pick(article.example)
+          }
+        )
       ] }),
-      /* @__PURE__ */ jsx("div", { className: "mt-3 flex flex-wrap gap-2", children: related.map((r) => /* @__PURE__ */ jsxs(
-        Link,
-        {
-          to: `/article/${r.id}`,
-          className: "rounded-full border border-navy/15 dark:border-ink-dark/20 px-4 py-2 text-sm text-navy dark:text-ink-dark hover:border-saffron/50 hover:text-saffron transition-colors",
-          children: [
-            r.articleNumber,
-            " · ",
-            pick(r.title)
-          ]
-        },
-        r.id
-      )) })
-    ] }),
-    /* @__PURE__ */ jsxs("div", { className: "mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-navy/10 dark:border-ink-dark/10 pt-6 text-xs text-ink/45 dark:text-ink-dark/45", children: [
-      /* @__PURE__ */ jsxs("span", { children: [
-        t("source_label"),
-        ": ",
-        ((_a = article.source) == null ? void 0 : _a.name) || "—"
+      related.length > 0 && /* @__PURE__ */ jsxs("section", { className: "mt-10", children: [
+        /* @__PURE__ */ jsxs(
+          "h2",
+          {
+            lang: language,
+            className: "flex items-center gap-2 font-display text-lg font-semibold text-navy dark:text-ink-dark",
+            children: [
+              /* @__PURE__ */ jsx(
+                Link2,
+                {
+                  size: 18,
+                  className: "text-saffron"
+                }
+              ),
+              t("related_articles")
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsx("div", { className: "mt-3 flex flex-wrap gap-2", children: related.map((r) => /* @__PURE__ */ jsxs(
+          Link,
+          {
+            to: `/article/${r.id}`,
+            className: "rounded-full border border-navy/15 dark:border-ink-dark/20 px-4 py-2 text-sm text-navy dark:text-ink-dark hover:border-saffron/50 hover:text-saffron transition-colors",
+            children: [
+              r.articleNumber,
+              " · ",
+              pick(r.title)
+            ]
+          },
+          r.id
+        )) })
       ] }),
-      /* @__PURE__ */ jsx(BookmarkButton, { articleId: article.id })
-    ] }),
-    /* @__PURE__ */ jsx(Advertisement, { placement: "article" })
+      /* @__PURE__ */ jsxs("div", { className: "mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-navy/10 dark:border-ink-dark/10 pt-6 text-xs text-ink/45 dark:text-ink-dark/45", children: [
+        /* @__PURE__ */ jsxs("span", { children: [
+          t("source_label"),
+          ":",
+          " ",
+          ((_a = article.source) == null ? void 0 : _a.name) || "—"
+        ] }),
+        /* @__PURE__ */ jsx(BookmarkButton, { articleId: article.id })
+      ] }),
+      /* @__PURE__ */ jsx(Advertisement, { placement: "article" })
+    ] })
   ] });
 }
 const fundamentalRights = [
@@ -3012,95 +3299,6 @@ function Learn() {
       ] })
     ] }, titleKey)) })
   ] });
-}
-const siteConfig = {
-  name: "Samvidhan",
-  url: "https://www.mysamvidhan.in",
-  defaultTitle: "Samvidhan | Understand the Constitution of India",
-  defaultDescription: "Understand the Constitution of India with simple explanations in English and Marathi."
-};
-const seoRoutes = {
-  "/": { title: { en: siteConfig.defaultTitle, mr: "संविधान | भारताचे संविधान समजून घ्या" }, description: { en: siteConfig.defaultDescription, mr: "भारतीय संविधान, कलमे, मूलभूत अधिकार, कर्तव्ये आणि दुरुस्त्या सोप्या भाषेत समजून घ्या." }, priority: "1.0", changefreq: "weekly" },
-  "/articles": { title: { en: "Constitutional Articles | Samvidhan", mr: "संवैधानिक कलमे | संविधान" }, description: { en: "Search and understand the Constitutional Articles of India with clear explanations.", mr: "भारतीय संविधानातील कलमे शोधा आणि स्पष्ट स्पष्टीकरणांसह समजून घ्या." }, priority: "0.9", changefreq: "weekly" },
-  "/fundamental-rights": { title: { en: "Fundamental Rights | Samvidhan", mr: "मूलभूत अधिकार | संविधान" }, description: { en: "Understand the Fundamental Rights guaranteed by the Constitution of India.", mr: "भारतीय संविधानाने दिलेले मूलभूत अधिकार समजून घ्या." }, priority: "0.8", changefreq: "monthly" },
-  "/fundamental-duties": { title: { en: "Fundamental Duties | Samvidhan", mr: "मूलभूत कर्तव्ये | संविधान" }, description: { en: "Learn the Fundamental Duties of citizens of India.", mr: "भारताच्या नागरिकांची मूलभूत कर्तव्ये जाणून घ्या." }, priority: "0.8", changefreq: "monthly" },
-  "/directive-principles": { title: { en: "Directive Principles of State Policy | Samvidhan", mr: "राज्याच्या धोरणाची मार्गदर्शक तत्त्वे | संविधान" }, description: { en: "Explore the Directive Principles that guide governance and public policy.", mr: "शासन आणि सार्वजनिक धोरणाला दिशा देणारी मार्गदर्शक तत्त्वे जाणून घ्या." }, priority: "0.8", changefreq: "monthly" },
-  "/amendments": { title: { en: "Constitutional Amendments | Samvidhan", mr: "संविधान दुरुस्त्या | संविधान" }, description: { en: "Study important Constitutional Amendments and how India's Constitution has evolved.", mr: "महत्त्वाच्या संविधान दुरुस्त्या आणि संविधानातील बदलांचा अभ्यास करा." }, priority: "0.8", changefreq: "monthly" },
-  "/quiz": { title: { en: "Constitution Quiz | Samvidhan", mr: "संविधान प्रश्नमंजुषा | संविधान" }, description: { en: "Test your knowledge of the Constitution of India with a free quiz.", mr: "मोफत प्रश्नमंजुषेद्वारे भारतीय संविधानाचे तुमचे ज्ञान तपासा." }, priority: "0.7", changefreq: "monthly" },
-  "/faq": { title: { en: "Indian Constitution FAQs | Frequently Asked Questions – Samvidhan", mr: "भारतीय संविधान FAQ | वारंवार विचारले जाणारे प्रश्न – Samvidhan" }, description: { en: "Find answers to frequently asked questions about the Constitution of India, Fundamental Rights, Duties, Articles, Amendments, Preamble and more.", mr: "भारतीय संविधान, मूलभूत अधिकार, कर्तव्ये, कलमे, उद्देशिका, घटनादुरुस्ती आणि इतर महत्त्वाच्या विषयांवरील वारंवार विचारले जाणारे प्रश्न व उत्तरे जाणून घ्या." }, priority: "0.8", changefreq: "monthly" },
-  "/about": { title: { en: "About Samvidhan", mr: "संविधान विषयी" }, description: { en: "Learn about Samvidhan, an independent educational platform for constitutional knowledge.", mr: "संविधान या स्वतंत्र शैक्षणिक व्यासपीठाविषयी जाणून घ्या." }, priority: "0.5", changefreq: "yearly" },
-  "/contact": { title: { en: "Contact Samvidhan", mr: "संविधानशी संपर्क साधा" }, description: { en: "Contact Samvidhan with questions, suggestions, feedback or corrections.", mr: "प्रश्न, सूचना, अभिप्राय किंवा दुरुस्त्यांसाठी संविधानशी संपर्क साधा." }, priority: "0.4", changefreq: "yearly" },
-  "/privacy": { title: { en: "Privacy Policy | Samvidhan", mr: "गोपनीयता धोरण | संविधान" }, description: { en: "Read the Samvidhan Privacy Policy covering information, cookies, analytics and advertising.", mr: "माहिती, कुकीज, विश्लेषण आणि जाहिरातींसंबंधी संविधानचे गोपनीयता धोरण वाचा." }, priority: "0.3", changefreq: "yearly" },
-  "/privacy-policy": { title: { en: "Privacy Policy | Samvidhan", mr: "गोपनीयता धोरण | संविधान" }, description: { en: "Read the Samvidhan Privacy Policy covering information, cookies, analytics and advertising.", mr: "माहिती, कुकीज, विश्लेषण आणि जाहिरातींसंबंधी संविधानचे गोपनीयता धोरण वाचा." }, priority: "0.3", changefreq: "yearly" },
-  "/terms": { title: { en: "Terms & Conditions | Samvidhan", mr: "नियम आणि अटी | संविधान" }, description: { en: "Read the Samvidhan Terms and Conditions for using this educational website.", mr: "या शैक्षणिक वेबसाइटच्या वापरासाठी संविधानचे नियम आणि अटी वाचा." }, priority: "0.3", changefreq: "yearly" },
-  "/disclaimer": { title: { en: "Disclaimer | Samvidhan", mr: "अस्वीकरण | संविधान" }, description: { en: "Read the Samvidhan educational and informational content disclaimer.", mr: "संविधानच्या शैक्षणिक आणि माहितीपर सामग्रीचे अस्वीकरण वाचा." }, priority: "0.3", changefreq: "yearly" },
-  "/learn": { title: { en: "Learn Indian Constitution | Samvidhan", mr: "भारतीय संविधान शिका | संविधान" }, description: { en: "Learn the Indian Constitution through guided Articles, Rights and exam preparation paths.", mr: "मार्गदर्शित कलमे, अधिकार आणि परीक्षा तयारीच्या माध्यमातून भारतीय संविधान शिका." }, priority: "0.8", changefreq: "monthly" },
-  "/exam-preparation": { title: { en: "Exam Preparation | Samvidhan", mr: "परीक्षा तयारी | संविधान" }, description: { en: "Prepare for MPSC and UPSC Constitution and polity examinations.", mr: "MPSC आणि UPSC संविधान व राज्यशास्त्र परीक्षांची तयारी करा." }, priority: "0.7", changefreq: "monthly" },
-  "/premium": { title: { en: "Samvidhan Premium | Learn Better", mr: "संविधान प्रीमियम | अधिक चांगले शिका" }, description: { en: "Explore structured constitutional revision, advanced practice and exam preparation.", mr: "संरचित संविधान उजळणी, प्रगत सराव आणि परीक्षा तयारीचा अनुभव घ्या." }, priority: "0.5", changefreq: "monthly" },
-  "/article/:id": { indexable: true, changefreq: "monthly", priority: "0.7" },
-  "/dashboard": { indexable: false },
-  "/progress": { indexable: false },
-  "/premium-quiz": { indexable: false },
-  "/notes": { indexable: false },
-  "/bookmarks": { indexable: false }
-};
-function getSeoRoute(pathname) {
-  if (seoRoutes[pathname]) return seoRoutes[pathname];
-  if (pathname.startsWith("/article/")) return seoRoutes["/article/:id"];
-  return { title: { en: siteConfig.defaultTitle, mr: "संविधान | भारताचे संविधान समजून घ्या" }, description: { en: siteConfig.defaultDescription, mr: "भारतीय संविधानाबद्दल सोप्या भाषेत जाणून घ्या." }, indexable: false };
-}
-const SITE_URL$1 = siteConfig.url.replace(/\/+$/, "");
-function setMeta(attribute, value, content) {
-  let element = document.head.querySelector(
-    `meta[${attribute}="${value}"]`
-  );
-  if (!element) {
-    element = document.createElement("meta");
-    element.setAttribute(attribute, value);
-    document.head.appendChild(element);
-  }
-  element.setAttribute("content", content);
-}
-function setLink(rel, href) {
-  let element = document.head.querySelector(
-    `link[rel="${rel}"]`
-  );
-  if (!element) {
-    element = document.createElement("link");
-    element.setAttribute("rel", rel);
-    document.head.appendChild(element);
-  }
-  element.setAttribute("href", href);
-}
-function PageMeta() {
-  const { pathname } = useLocation();
-  const { language, pick } = useLanguage();
-  useEffect(() => {
-    console.log("PageMeta running:", pathname);
-    const config = getSeoRoute(pathname);
-    const article = pathname.startsWith("/article/") ? getArticleById(pathname.split("/").pop()) : null;
-    const title = article ? `${article.articleNumber} — ${pick(article.title)} | Samvidhan` : pick(config.title);
-    const description = article ? pick(article.simpleExplanation) : pick(config.description);
-    const cleanPath = pathname === "/" ? "/" : pathname.replace(/\/+$/, "");
-    const canonicalUrl = cleanPath === "/" ? SITE_URL$1 : `${SITE_URL$1}${cleanPath}`;
-    document.title = title;
-    setMeta("name", "description", description);
-    setMeta("property", "og:title", title);
-    setMeta("property", "og:description", description);
-    setMeta("property", "og:type", "website");
-    setMeta("property", "og:url", canonicalUrl);
-    setMeta("property", "og:site_name", siteConfig.name);
-    setMeta("name", "twitter:card", "summary");
-    setMeta("name", "twitter:title", title);
-    setMeta("name", "twitter:description", description);
-    setMeta(
-      "name",
-      "robots",
-      config.indexable === false ? "noindex, nofollow" : "index, follow"
-    );
-    setLink("canonical", canonicalUrl);
-  }, [pathname, language, pick]);
-  return null;
 }
 function Contact() {
   const { t, language } = useLanguage();

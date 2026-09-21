@@ -58,7 +58,7 @@ export default function ArticleDetails() {
             ? seo.descriptionMr
             : seo.descriptionEn
         }
-        canonical={`${window.location.origin}${seo.canonicalPath}`}
+        canonical={seo.canonicalPath}
         robots={seo.robots}
       />
 
