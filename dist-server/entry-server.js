@@ -1282,7 +1282,10 @@ const articles = [
   {
     id: "14",
     articleNumber: "Article 14",
-    title: { en: "Right to Equality", mr: "समानतेचा अधिकार" },
+    title: {
+      en: "Right to Equality",
+      mr: "समानतेचा अधिकार"
+    },
     categoryKey: "fundamental-rights",
     officialText: {
       en: "Verified official constitutional text should be inserted here from an authoritative source.",
@@ -1290,26 +1293,98 @@ const articles = [
       verified: false
     },
     simpleExplanation: {
-      en: "The State must treat everyone equally before the law and give everyone equal protection of the law, regardless of who they are.",
-      mr: "राज्याने कायद्यासमोर प्रत्येकाशी समान वागणूक दिली पाहिजे आणि कायद्याचे समान संरक्षण दिले पाहिजे."
+      en: "Article 14 guarantees equality before the law and equal protection of the laws to every person within India.",
+      mr: "कलम 14 भारतातील प्रत्येक व्यक्तीला कायद्यासमोर समानता आणि कायद्यांचे समान संरक्षण देण्याची हमी देते."
     },
     verySimple: {
-      en: "No one is above the law, and no one is left out of its protection.",
-      mr: "कोणीही कायद्यापेक्षा मोठा नाही आणि कोणालाही त्याच्या संरक्षणापासून वंचित ठेवले जात नाही."
+      en: "Everyone is equal before the law.",
+      mr: "कायद्यासमोर प्रत्येकजण समान आहे."
     },
     example: {
-      en: "If two people are treated differently by the government without a valid legal reason, Article 14 may be relevant.",
-      mr: "सरकारने दोन व्यक्तींना वैध कारणाशिवाय वेगळी वागणूक दिल्यास, कलम १४ लागू होऊ शकते."
+      en: "If a government authority treats similarly placed people differently without a valid constitutional or legal basis, Article 14 may become relevant.",
+      mr: "समान परिस्थितीत असलेल्या व्यक्तींना वैध घटनात्मक किंवा कायदेशीर आधाराशिवाय वेगळी वागणूक दिल्यास कलम 14 संबंधित ठरू शकते."
     },
-    keywords: ["equality", "equal protection", "rule of law", "समानता"],
-    relatedIds: ["19", "21", "32"],
-    source: { name: "Ministry of Law and Justice, Government of India", url: "" },
+    seoSections: {
+      en: [
+        {
+          heading: "What is Article 14 of the Indian Constitution?",
+          content: "Article 14 provides equality before the law and equal protection of the laws to every person within the territory of India."
+        },
+        {
+          heading: "What does Right to Equality mean?",
+          content: "The Right to Equality means that people are subject to the same legal framework and are entitled to equal protection of the law, subject to constitutionally permitted classifications and distinctions."
+        },
+        {
+          heading: "Article 14 and equality before law",
+          content: "Equality before law is an important part of Article 14. It means that legal protection is not based on a person receiving a higher or lower status before the law."
+        },
+        {
+          heading: "Article 14 and equal protection of laws",
+          content: "Equal protection of laws requires the law to provide equal protection to persons in comparable circumstances, while constitutionally valid classifications may be permitted."
+        },
+        {
+          heading: "Why is Article 14 important?",
+          content: "Article 14 is a key provision under the Fundamental Rights and forms an important constitutional guarantee of equality."
+        }
+      ],
+      mr: [
+        {
+          heading: "भारतीय संविधानातील कलम 14 म्हणजे काय?",
+          content: "कलम 14 भारताच्या हद्दीत प्रत्येक व्यक्तीला कायद्यासमोर समानता आणि कायद्यांचे समान संरक्षण देण्याची हमी देते."
+        },
+        {
+          heading: "समानतेचा अधिकार म्हणजे काय?",
+          content: "समानतेचा अधिकार म्हणजे समान परिस्थितीत असलेल्या व्यक्तींना कायद्याचे समान संरक्षण मिळणे. संविधानाच्या चौकटीत वैध वर्गीकरण किंवा फरक करण्यास काही परिस्थितीत परवानगी असू शकते."
+        },
+        {
+          heading: "कलम 14 आणि कायद्यासमोर समानता",
+          content: "कायद्यासमोर समानता हा कलम 14 चा महत्त्वाचा भाग आहे. व्यक्तीच्या सामाजिक किंवा इतर स्थितीच्या आधारावर कायद्यापुढे अनावश्यक विशेष दर्जा देण्यास या तत्त्वाचा विरोध आहे."
+        },
+        {
+          heading: "कलम 14 आणि कायद्यांचे समान संरक्षण",
+          content: "समान परिस्थितीत असलेल्या व्यक्तींना कायद्याचे समान संरक्षण मिळणे हे कलम 14 च्या मुख्य तत्त्वांपैकी एक आहे."
+        },
+        {
+          heading: "कलम 14 महत्त्वाचे का आहे?",
+          content: "कलम 14 हे मूलभूत अधिकारांमधील समानतेचे एक महत्त्वाचे घटनात्मक संरक्षण आहे."
+        }
+      ]
+    },
+    keywords: [
+      "Article 14",
+      "Article 14 of Indian Constitution",
+      "Article 14 Indian Constitution",
+      "Article 14 explained",
+      "What is Article 14",
+      "Article 14 right to equality",
+      "Right to Equality",
+      "equality before law",
+      "equal protection of laws",
+      "right to equality in which article",
+      "Article 14 in simple words",
+      "art 14",
+      "14 article",
+      "कलम 14",
+      "कलम 14 भारतीय संविधान",
+      "कलम 14 मराठीत",
+      "कलम 14 म्हणजे काय",
+      "समानतेचा अधिकार",
+      "कायद्यासमोर समानता"
+    ],
+    relatedIds: ["15", "16", "17", "19", "21", "32"],
+    source: {
+      name: "Legislative Department, Ministry of Law and Justice, Government of India",
+      url: "https://www.legislative.gov.in/constitution-of-india/"
+    },
     lastVerified: null
   },
   {
     id: "18",
     articleNumber: "Article 18",
-    title: { en: "Abolition of Titles", mr: "पदव्यांचे निर्मूलन" },
+    title: {
+      en: "Abolition of Titles",
+      mr: "पदव्यांचे निर्मूलन"
+    },
     categoryKey: "fundamental-rights",
     officialText: {
       en: "No title, not being a military or academic distinction, shall be conferred by the State. No citizen of India shall accept any title from any foreign State.",
@@ -1317,20 +1392,74 @@ const articles = [
       verified: true
     },
     simpleExplanation: {
-      en: "Article 18 abolishes titles that create artificial social distinctions. However, military and academic distinctions are excluded from this prohibition. The Article also places constitutional restrictions on accepting titles, presents, emoluments or offices from foreign States.",
-      mr: "कलम १८ सामाजिक भेद निर्माण करणाऱ्या पदव्यांच्या प्रथेला प्रतिबंध करते. मात्र लष्करी आणि शैक्षणिक विशेषणे याला अपवाद आहेत. तसेच परदेशी राज्यांकडून पदवी, भेटवस्तू, मानधन किंवा पद स्वीकारण्याबाबत संविधानात काही निर्बंध आहेत."
+      en: "Article 18 abolishes titles that create artificial social distinctions. Military and academic distinctions are excluded from this prohibition. The Article also contains restrictions concerning titles, presents, emoluments and offices from foreign States.",
+      mr: "कलम 18 सामाजिक भेद निर्माण करणाऱ्या पदव्यांच्या प्रथेला प्रतिबंध करते. लष्करी आणि शैक्षणिक विशेषणे याला अपवाद आहेत. परदेशी राज्यांकडून पदवी, भेटवस्तू, मानधन किंवा पद स्वीकारण्याबाबतही संविधानात निर्बंध आहेत."
     },
     verySimple: {
-      en: "The State cannot give titles that create social distinctions. Military and academic distinctions are exceptions.",
-      mr: "सामाजिक भेद निर्माण करणाऱ्या पदव्या राज्य देऊ शकत नाही. लष्करी आणि शैक्षणिक विशेषणे याला अपवाद आहेत."
+      en: "The State cannot confer titles that create artificial social distinctions, subject to the constitutional exceptions.",
+      mr: "घटनात्मक अपवाद वगळता सामाजिक भेद निर्माण करणाऱ्या पदव्या राज्य देऊ शकत नाही."
     },
     example: {
-      en: "A government cannot confer a title simply to create a special social status for a person. Academic and military distinctions are treated as exceptions under Article 18.",
-      mr: "एखाद्या व्यक्तीला विशेष सामाजिक दर्जा निर्माण करण्यासाठी सरकार पदवी देऊ शकत नाही. मात्र शैक्षणिक आणि लष्करी विशेषणे कलम १८ अंतर्गत अपवाद आहेत."
+      en: "A government cannot confer a title simply to create a special social status for a person. Academic and military distinctions are treated differently under Article 18.",
+      mr: "एखाद्या व्यक्तीला विशेष सामाजिक दर्जा देण्यासाठी सरकार पदवी देऊ शकत नाही. शैक्षणिक आणि लष्करी विशेषणे कलम 18 अंतर्गत वेगळ्या प्रकारे हाताळली जातात."
     },
-    keywords: ["article 18", "abolition of titles", "titles in India", "fundamental rights", "equality", "Indian Constitution", "कलम १८", "पदव्यांचे निर्मूलन", "समानता", "मूलभूत अधिकार", "भारतीय संविधान"],
+    seoSections: {
+      en: [
+        {
+          heading: "What is Article 18 of the Indian Constitution?",
+          content: "Article 18 deals with the abolition of titles and places constitutional restrictions on the conferment and acceptance of certain titles."
+        },
+        {
+          heading: "What does Article 18 prohibit?",
+          content: "Article 18 generally prevents the State from conferring titles, except for military or academic distinctions, and places additional constitutional restrictions concerning titles from foreign States."
+        },
+        {
+          heading: "Article 18 and military or academic distinctions",
+          content: "Military and academic distinctions are expressly treated as exceptions to the prohibition on titles under Article 18."
+        },
+        {
+          heading: "Why is Article 18 important?",
+          content: "Article 18 supports the constitutional principle that citizens should not be divided through State-created titles that create artificial social distinctions."
+        }
+      ],
+      mr: [
+        {
+          heading: "भारतीय संविधानातील कलम 18 म्हणजे काय?",
+          content: "कलम 18 पदव्यांच्या निर्मूलनाशी संबंधित आहे आणि काही प्रकारच्या पदव्या देणे किंवा स्वीकारणे यावर घटनात्मक निर्बंध घालते."
+        },
+        {
+          heading: "कलम 18 मध्ये कोणत्या पदव्यांना प्रतिबंध आहे?",
+          content: "कलम 18 नुसार राज्याकडून काही प्रकारच्या पदव्या देण्यास प्रतिबंध आहे. मात्र लष्करी आणि शैक्षणिक विशेषणे याला घटनात्मक अपवाद आहेत."
+        },
+        {
+          heading: "कलम 18 आणि लष्करी व शैक्षणिक विशेषणे",
+          content: "लष्करी आणि शैक्षणिक विशेषणे ही कलम 18 मधील पदव्यांवरील प्रतिबंधाच्या अपवादांमध्ये येतात."
+        },
+        {
+          heading: "कलम 18 महत्त्वाचे का आहे?",
+          content: "राज्यनिर्मित कृत्रिम सामाजिक भेद कमी करण्याच्या घटनात्मक तत्त्वात कलम 18 महत्त्वाची भूमिका बजावते."
+        }
+      ]
+    },
+    keywords: [
+      "Article 18",
+      "Article 18 of Indian Constitution",
+      "Article 18 explained",
+      "Abolition of Titles",
+      "titles in India",
+      "Article 18 Fundamental Rights",
+      "Article 18 Indian Constitution",
+      "कलम 18",
+      "कलम 18 भारतीय संविधान",
+      "कलम 18 मराठीत",
+      "पदव्यांचे निर्मूलन",
+      "मूलभूत अधिकार"
+    ],
     relatedIds: ["15", "16", "17", "19"],
-    source: { name: "Legislative Department, Ministry of Law and Justice, Government of India", url: "https://www.legislative.gov.in/" },
+    source: {
+      name: "Legislative Department, Ministry of Law and Justice, Government of India",
+      url: "https://www.legislative.gov.in/constitution-of-india/"
+    },
     lastVerified: "2026-09-21"
   },
   {
@@ -1347,26 +1476,96 @@ const articles = [
       verified: true
     },
     simpleExplanation: {
-      en: "Article 19 protects important freedoms of citizens. These include freedom of speech and expression, peaceful assembly, forming associations or unions or co-operative societies, moving freely throughout India, residing and settling anywhere in India, and practising a profession or carrying on an occupation, trade or business. These freedoms are subject to reasonable restrictions permitted by the Constitution.",
-      mr: "कलम १९ नागरिकांच्या काही महत्त्वाच्या स्वातंत्र्यांचे संरक्षण करते. यामध्ये भाषण व अभिव्यक्ती स्वातंत्र्य, शांततेने एकत्र जमणे, संघटना किंवा संघ किंवा सहकारी संस्था स्थापन करणे, भारतभर मुक्तपणे फिरणे, भारतात कुठेही राहणे व स्थायिक होणे आणि व्यवसाय, उपजीविका, व्यापार किंवा उद्योग करण्याचे स्वातंत्र्य यांचा समावेश होतो. ही स्वातंत्र्ये संविधानाने परवानगी दिलेल्या वाजवी निर्बंधांच्या अधीन आहेत."
+      en: "Article 19 protects important freedoms of citizens, including speech and expression, peaceful assembly, association, movement, residence and settlement, and profession, occupation, trade or business, subject to constitutional restrictions.",
+      mr: "कलम 19 नागरिकांच्या भाषण व अभिव्यक्ती, शांततेने एकत्र जमणे, संघटना स्थापन करणे, भारतात मुक्तपणे फिरणे, राहणे व स्थायिक होणे तसेच व्यवसाय किंवा व्यापार करण्याच्या स्वातंत्र्यांचे संरक्षण करते. ही स्वातंत्र्ये संविधानातील निर्बंधांच्या अधीन आहेत."
     },
     verySimple: {
-      en: "Citizens have important freedoms such as speaking, peacefully gathering, forming groups, moving around India, living anywhere in India and carrying on a profession, subject to constitutional restrictions.",
-      mr: "नागरिकांना बोलण्याचे, शांततेने एकत्र जमण्याचे, संघटना स्थापन करण्याचे, भारतात मुक्तपणे फिरण्याचे, कुठेही राहण्याचे आणि व्यवसाय करण्याचे महत्त्वाचे स्वातंत्र्य आहे; मात्र हे अधिकार संविधानातील निर्बंधांच्या अधीन आहेत."
+      en: "Article 19 protects several important freedoms of citizens, subject to constitutional restrictions.",
+      mr: "कलम 19 नागरिकांच्या अनेक महत्त्वाच्या स्वातंत्र्यांचे संरक्षण करते; मात्र ही स्वातंत्र्ये घटनात्मक निर्बंधांच्या अधीन आहेत."
     },
     example: {
-      en: "A citizen may express an opinion, peacefully assemble with others, form an association, travel to another part of India, settle there, or practise a profession, subject to applicable constitutional and legal restrictions.",
-      mr: "एखादा नागरिक आपले मत व्यक्त करू शकतो, शांततेने इतरांसोबत एकत्र जमू शकतो, संघटना स्थापन करू शकतो, भारतातील दुसऱ्या भागात प्रवास करू शकतो, तेथे स्थायिक होऊ शकतो किंवा व्यवसाय करू शकतो; मात्र लागू असलेल्या घटनात्मक आणि कायदेशीर निर्बंधांचे पालन करावे लागते."
+      en: "A citizen may express an opinion, peacefully assemble, form an association, move within India or practise a profession, subject to applicable constitutional and legal restrictions.",
+      mr: "एखादा नागरिक आपले मत व्यक्त करू शकतो, शांततेने एकत्र जमू शकतो, संघटना स्थापन करू शकतो, भारतात फिरू शकतो किंवा व्यवसाय करू शकतो; मात्र लागू घटनात्मक आणि कायदेशीर निर्बंधांचे पालन करावे लागते."
     },
-    keywords: ["article 19", "freedom of speech", "freedom of expression", "freedom of movement", "freedom of association", "right to profession", "fundamental rights", "Indian Constitution", "कलम १९", "भाषण स्वातंत्र्य", "अभिव्यक्ती स्वातंत्र्य", "हालचालीचे स्वातंत्र्य", "संघटना स्थापन करण्याचे स्वातंत्र्य", "मूलभूत अधिकार", "भारतीय संविधान"],
-    relatedIds: ["18", "20", "21"],
-    source: { name: "Legislative Department, Ministry of Law and Justice, Government of India", url: "https://www.legislative.gov.in/" },
+    seoSections: {
+      en: [
+        {
+          heading: "What is Article 19 of the Indian Constitution?",
+          content: "Article 19 protects specified freedoms of citizens, including freedom of speech and expression, peaceful assembly, association, movement, residence and settlement, and profession, occupation, trade or business."
+        },
+        {
+          heading: "What are the freedoms under Article 19?",
+          content: "Article 19 covers six important freedoms of citizens relating to speech and expression, peaceful assembly, associations or unions or co-operative societies, movement, residence and settlement, and profession, occupation, trade or business."
+        },
+        {
+          heading: "Article 19 and freedom of speech",
+          content: "Freedom of speech and expression is one of the freedoms protected under Article 19. The exercise of this freedom is subject to restrictions permitted by the Constitution."
+        },
+        {
+          heading: "Are Article 19 rights absolute?",
+          content: "The freedoms protected by Article 19 are not absolute. The Constitution permits specified restrictions subject to the conditions laid down in the relevant constitutional provisions."
+        },
+        {
+          heading: "Why is Article 19 important?",
+          content: "Article 19 is an important Fundamental Right because it protects several civic freedoms that are central to participation and expression in a constitutional democracy."
+        }
+      ],
+      mr: [
+        {
+          heading: "भारतीय संविधानातील कलम 19 म्हणजे काय?",
+          content: "कलम 19 नागरिकांच्या भाषण व अभिव्यक्ती, शांततेने एकत्र जमणे, संघटना किंवा संघ किंवा सहकारी संस्था स्थापन करणे, भारतात मुक्तपणे फिरणे, राहणे व स्थायिक होणे तसेच व्यवसाय, उपजीविका, व्यापार किंवा उद्योग करण्याच्या स्वातंत्र्यांचे संरक्षण करते."
+        },
+        {
+          heading: "कलम 19 अंतर्गत कोणती स्वातंत्र्ये आहेत?",
+          content: "कलम 19 मध्ये नागरिकांना भाषण व अभिव्यक्ती, शांततापूर्ण सभा, संघटना, भारतात मुक्त हालचाल, निवास व स्थायिक होणे आणि व्यवसाय किंवा व्यापार करण्याशी संबंधित स्वातंत्र्ये दिली आहेत."
+        },
+        {
+          heading: "कलम 19 आणि भाषण स्वातंत्र्य",
+          content: "भाषण आणि अभिव्यक्ती स्वातंत्र्य हे कलम 19 अंतर्गत संरक्षित स्वातंत्र्यांपैकी एक आहे. या स्वातंत्र्यावर संविधानाने परवानगी दिलेले काही निर्बंध लागू होऊ शकतात."
+        },
+        {
+          heading: "कलम 19 मधील अधिकार पूर्णपणे अमर्यादित आहेत का?",
+          content: "कलम 19 मधील स्वातंत्र्ये पूर्णपणे अमर्यादित नाहीत. संविधानाच्या संबंधित तरतुदींनुसार काही विशिष्ट निर्बंध लागू होऊ शकतात."
+        },
+        {
+          heading: "कलम 19 महत्त्वाचे का आहे?",
+          content: "कलम 19 नागरिकांच्या अनेक महत्त्वाच्या स्वातंत्र्यांचे घटनात्मक संरक्षण करते आणि त्यामुळे ते मूलभूत अधिकारांचा महत्त्वाचा भाग आहे."
+        }
+      ]
+    },
+    keywords: [
+      "Article 19",
+      "Article 19 of Indian Constitution",
+      "Article 19 explained",
+      "freedom of speech",
+      "freedom of expression",
+      "freedom of movement",
+      "freedom of association",
+      "Article 19 Fundamental Rights",
+      "Article 19 in simple words",
+      "art 19",
+      "19 article",
+      "कलम 19",
+      "कलम 19 भारतीय संविधान",
+      "कलम 19 मराठीत",
+      "भाषण स्वातंत्र्य",
+      "अभिव्यक्ती स्वातंत्र्य",
+      "हालचालीचे स्वातंत्र्य"
+    ],
+    relatedIds: ["14", "18", "20", "21"],
+    source: {
+      name: "Legislative Department, Ministry of Law and Justice, Government of India",
+      url: "https://www.legislative.gov.in/constitution-of-india/"
+    },
     lastVerified: "2026-09-21"
   },
   {
     id: "21",
     articleNumber: "Article 21",
-    title: { en: "Protection of Life and Personal Liberty", mr: "जीवन आणि वैयक्तिक स्वातंत्र्याचे संरक्षण" },
+    title: {
+      en: "Protection of Life and Personal Liberty",
+      mr: "जीवन आणि वैयक्तिक स्वातंत्र्याचे संरक्षण"
+    },
     categoryKey: "fundamental-rights",
     officialText: {
       en: "Verified official constitutional text should be inserted here from an authoritative source.",
@@ -1374,26 +1573,96 @@ const articles = [
       verified: false
     },
     simpleExplanation: {
-      en: "Every person has legal protection regarding life and personal liberty, subject to constitutional and legal provisions.",
-      mr: "प्रत्येक व्यक्तीच्या जीवन आणि वैयक्तिक स्वातंत्र्याला कायद्याने संरक्षण दिले जाते."
+      en: "Article 21 protects the life and personal liberty of every person except according to procedure established by law.",
+      mr: "कलम 21 प्रत्येक व्यक्तीच्या जीवन आणि वैयक्तिक स्वातंत्र्याचे कायद्याने स्थापित केलेल्या प्रक्रियेनुसार संरक्षण करते."
     },
     verySimple: {
-      en: "The government cannot take away your life or freedom except according to a lawful procedure.",
-      mr: "शासन कायदेशीर प्रक्रियेशिवाय तुमचे जीवन किंवा स्वातंत्र्य हिरावून घेऊ शकत नाही."
+      en: "A person cannot be deprived of life or personal liberty except according to a lawful procedure.",
+      mr: "कायद्याने स्थापित केलेल्या प्रक्रियेशिवाय कोणत्याही व्यक्तीचे जीवन किंवा वैयक्तिक स्वातंत्र्य हिरावून घेता येत नाही."
     },
     example: {
-      en: "Courts have interpreted this Article to cover matters like personal dignity and a clean environment, beyond just physical life.",
-      mr: "न्यायालयांनी हे कलम केवळ शारीरिक जीवनापुरते मर्यादित न ठेवता वैयक्तिक प्रतिष्ठा आणि स्वच्छ पर्यावरणासारख्या बाबींनाही लागू केले आहे."
+      en: "Article 21 is relevant when a State action affects a person’s life or personal liberty and the constitutional requirements governing such action need to be examined.",
+      mr: "राज्याच्या एखाद्या कृतीमुळे व्यक्तीच्या जीवनावर किंवा वैयक्तिक स्वातंत्र्यावर परिणाम होत असल्यास आणि त्या कृतीची घटनात्मक वैधता तपासायची असल्यास कलम 21 संबंधित ठरू शकते."
     },
-    keywords: ["life", "liberty", "personal freedom", "due process", "जीवन", "स्वातंत्र्य"],
-    relatedIds: ["14", "21a", "32"],
-    source: { name: "Ministry of Law and Justice, Government of India", url: "" },
+    seoSections: {
+      en: [
+        {
+          heading: "What is Article 21 of the Indian Constitution?",
+          content: "Article 21 provides that no person shall be deprived of life or personal liberty except according to procedure established by law."
+        },
+        {
+          heading: "What does Article 21 protect?",
+          content: "Article 21 directly protects life and personal liberty. Judicial decisions have also interpreted the provision in relation to several aspects of dignified life, subject to the Constitution and applicable law."
+        },
+        {
+          heading: "Article 21 and personal liberty",
+          content: "Personal liberty is a central part of Article 21. Any State action affecting personal liberty must operate within the constitutional and legal framework."
+        },
+        {
+          heading: "Article 21 and right to life",
+          content: "The constitutional protection of life under Article 21 is broader than merely physical existence and has been considered by courts in the context of living with dignity and related rights."
+        },
+        {
+          heading: "Why is Article 21 important?",
+          content: "Article 21 is one of the key Fundamental Rights because it protects life and personal liberty for every person."
+        }
+      ],
+      mr: [
+        {
+          heading: "भारतीय संविधानातील कलम 21 म्हणजे काय?",
+          content: "कलम 21 नुसार कायद्याने स्थापित केलेल्या प्रक्रियेशिवाय कोणत्याही व्यक्तीला तिच्या जीवनापासून किंवा वैयक्तिक स्वातंत्र्यापासून वंचित करता येत नाही."
+        },
+        {
+          heading: "कलम 21 कोणते अधिकार संरक्षित करते?",
+          content: "कलम 21 थेट जीवन आणि वैयक्तिक स्वातंत्र्याचे संरक्षण करते. न्यायालयीन निर्णयांमध्ये सन्मानाने जगणे आणि संबंधित अधिकारांच्या संदर्भात या तरतुदीचा विस्ताराने विचार करण्यात आला आहे."
+        },
+        {
+          heading: "कलम 21 आणि वैयक्तिक स्वातंत्र्य",
+          content: "वैयक्तिक स्वातंत्र्य हा कलम 21 चा महत्त्वाचा भाग आहे. व्यक्तीच्या स्वातंत्र्यावर परिणाम करणारी राज्याची कृती घटनात्मक आणि कायदेशीर चौकटीत असणे आवश्यक आहे."
+        },
+        {
+          heading: "कलम 21 आणि जीवनाचा अधिकार",
+          content: "कलम 21 मधील जीवनाचे घटनात्मक संरक्षण केवळ शारीरिक अस्तित्वापुरते मर्यादित मानले गेलेले नाही. न्यायालयीन व्याख्यांमध्ये सन्मानाने जगण्याशी संबंधित बाबींचाही विचार करण्यात आला आहे."
+        },
+        {
+          heading: "कलम 21 महत्त्वाचे का आहे?",
+          content: "कलम 21 प्रत्येक व्यक्तीच्या जीवन आणि वैयक्तिक स्वातंत्र्याचे संरक्षण करणारा मूलभूत अधिकार आहे."
+        }
+      ]
+    },
+    keywords: [
+      "Article 21",
+      "Article 21 of Indian Constitution",
+      "Article 21 explained",
+      "right to life",
+      "right to personal liberty",
+      "Article 21 right to life",
+      "Article 21 Fundamental Rights",
+      "Article 21 in simple words",
+      "life and personal liberty",
+      "art 21",
+      "21 article",
+      "कलम 21",
+      "कलम 21 भारतीय संविधान",
+      "कलम 21 मराठीत",
+      "जीवनाचा अधिकार",
+      "वैयक्तिक स्वातंत्र्य",
+      "जीवन आणि वैयक्तिक स्वातंत्र्याचे संरक्षण"
+    ],
+    relatedIds: ["14", "19", "21a", "32"],
+    source: {
+      name: "Legislative Department, Ministry of Law and Justice, Government of India",
+      url: "https://www.legislative.gov.in/constitution-of-india/"
+    },
     lastVerified: null
   },
   {
     id: "21a",
     articleNumber: "Article 21A",
-    title: { en: "Right to Education", mr: "शिक्षणाचा अधिकार" },
+    title: {
+      en: "Right to Education",
+      mr: "शिक्षणाचा अधिकार"
+    },
     categoryKey: "fundamental-rights",
     officialText: {
       en: "Verified official constitutional text should be inserted here from an authoritative source.",
@@ -1401,53 +1670,207 @@ const articles = [
       verified: false
     },
     simpleExplanation: {
-      en: "The State must provide free and compulsory education to children within an age range defined by law.",
-      mr: "कायद्याने ठरवलेल्या वयोगटातील मुलांना राज्याने मोफत आणि सक्तीचे शिक्षण दिले पाहिजे."
+      en: "Article 21A provides for free and compulsory education for children within the age group specified by the Constitution.",
+      mr: "कलम 21A संविधानात नमूद केलेल्या वयोगटातील मुलांना मोफत आणि सक्तीच्या शिक्षणाची तरतूद करते."
     },
     verySimple: {
-      en: "Every child has a right to go to school for free.",
-      mr: "प्रत्येक मुलाला मोफत शाळेत जाण्याचा अधिकार आहे."
+      en: "Children in the constitutionally specified age group have a right to free and compulsory education.",
+      mr: "संविधानात नमूद केलेल्या वयोगटातील मुलांना मोफत आणि सक्तीच्या शिक्षणाचा अधिकार आहे."
     },
     example: {
-      en: "A government school that refuses to admit an eligible child without valid reason may be acting against this Article.",
-      mr: "वैध कारणाशिवाय पात्र मुलाला प्रवेश नाकारणारी सरकारी शाळा या कलमाच्या विरोधात वागत असू शकते."
+      en: "The constitutional framework under Article 21A requires the State to provide free and compulsory education to children in the specified age group, subject to the applicable law.",
+      mr: "कलम 21A अंतर्गत संविधानाने नमूद केलेल्या वयोगटातील मुलांना लागू कायद्याच्या चौकटीत मोफत आणि सक्तीचे शिक्षण उपलब्ध करून देण्याची राज्याची जबाबदारी आहे."
     },
-    keywords: ["education", "children", "school", "शिक्षण"],
-    relatedIds: ["21", "14"],
-    source: { name: "Ministry of Law and Justice, Government of India", url: "" },
+    seoSections: {
+      en: [
+        {
+          heading: "What is Article 21A of the Indian Constitution?",
+          content: "Article 21A provides for free and compulsory education for children in the age group specified by the Constitution, in the manner determined by law."
+        },
+        {
+          heading: "What is the Right to Education under Article 21A?",
+          content: "Article 21A makes free and compulsory education a constitutional right for children within the specified age group."
+        },
+        {
+          heading: "What age group is covered by Article 21A?",
+          content: "Article 21A applies to children between six and fourteen years of age, with the manner of implementation determined by law."
+        },
+        {
+          heading: "Article 21A and free education",
+          content: "The constitutional provision requires the State to provide free and compulsory education to children covered by Article 21A."
+        },
+        {
+          heading: "Why is Article 21A important?",
+          content: "Article 21A places the Right to Education within the framework of Fundamental Rights and establishes a constitutional basis for free and compulsory education for the specified age group."
+        }
+      ],
+      mr: [
+        {
+          heading: "भारतीय संविधानातील कलम 21A म्हणजे काय?",
+          content: "कलम 21A संविधानाने नमूद केलेल्या वयोगटातील मुलांना कायद्याने ठरवलेल्या पद्धतीने मोफत आणि सक्तीचे शिक्षण देण्याची तरतूद करते."
+        },
+        {
+          heading: "कलम 21A अंतर्गत शिक्षणाचा अधिकार म्हणजे काय?",
+          content: "कलम 21A मुळे ठरावीक वयोगटातील मुलांसाठी मोफत आणि सक्तीचे शिक्षण हा घटनात्मक अधिकार बनतो."
+        },
+        {
+          heading: "कलम 21A कोणत्या वयोगटासाठी आहे?",
+          content: "कलम 21A सहा ते चौदा वर्षे वयोगटातील मुलांना लागू होते. त्याची अंमलबजावणी कायद्याने ठरवलेल्या पद्धतीनुसार केली जाते."
+        },
+        {
+          heading: "कलम 21A आणि मोफत शिक्षण",
+          content: "कलम 21A अंतर्गत संबंधित वयोगटातील मुलांना मोफत आणि सक्तीचे शिक्षण उपलब्ध करून देण्याची घटनात्मक तरतूद आहे."
+        },
+        {
+          heading: "कलम 21A महत्त्वाचे का आहे?",
+          content: "कलम 21A शिक्षणाच्या अधिकाराला मूलभूत अधिकारांच्या चौकटीत स्थान देते आणि संबंधित वयोगटातील मुलांच्या मोफत व सक्तीच्या शिक्षणासाठी घटनात्मक आधार देते."
+        }
+      ]
+    },
+    keywords: [
+      "Article 21A",
+      "Article 21A of Indian Constitution",
+      "Article 21A explained",
+      "What is Article 21A",
+      "Article 21A right to education",
+      "Right to Education Article",
+      "right to education in India",
+      "Article 21A age",
+      "Article 21A Fundamental Right",
+      "21A article",
+      "article 21 a of indian constitution",
+      "art 21a",
+      "कलम 21A",
+      "कलम 21A भारतीय संविधान",
+      "कलम 21A मराठीत",
+      "कलम 21A म्हणजे काय",
+      "शिक्षणाचा अधिकार"
+    ],
+    relatedIds: ["21", "14", "15", "32"],
+    source: {
+      name: "Legislative Department, Ministry of Law and Justice, Government of India",
+      url: "https://www.legislative.gov.in/constitution-of-india/"
+    },
     lastVerified: null
   },
   {
     id: "32",
     articleNumber: "Article 32",
-    title: { en: "Right to Constitutional Remedies", mr: "संवैधानिक उपायांचा अधिकार" },
+    title: {
+      en: "Right to Constitutional Remedies",
+      mr: "संवैधानिक उपायांचा अधिकार"
+    },
     categoryKey: "fundamental-rights",
     officialText: {
-      en: "Verified official constitutional text should be inserted here from an authoritative source.",
-      mr: "अधिकृत स्रोताकडून पडताळलेला अधिकृत मजकूर येथे समाविष्ट करावा.",
+      en: "The official constitutional text of Article 32 should be verified against the latest authoritative Constitution of India PDF before being presented as verbatim official text.",
+      mr: "कलम 32 चा अधिकृत घटनात्मक मजकूर शब्दशः दाखवण्यापूर्वी भारताच्या संविधानाच्या अद्ययावत अधिकृत PDF शी पडताळला जावा.",
       verified: false
     },
     simpleExplanation: {
-      en: "Citizens can approach the Supreme Court directly if their fundamental rights are violated, and the Court can issue appropriate orders or writs.",
-      mr: "मूलभूत अधिकारांचे उल्लंघन झाल्यास नागरिक थेट सर्वोच्च न्यायालयात दाद मागू शकतात, आणि न्यायालय योग्य आदेश किंवा रिट जारी करू शकते."
+      en: "Article 32 guarantees the right to approach the Supreme Court for the enforcement of Fundamental Rights contained in Part III of the Constitution. The Supreme Court can issue appropriate directions, orders and writs to enforce these rights.",
+      mr: "कलम 32 संविधानाच्या भाग III मध्ये दिलेल्या मूलभूत अधिकारांच्या अंमलबजावणीसाठी सर्वोच्च न्यायालयात जाण्याचा अधिकार हमीने देते. या अधिकारांच्या अंमलबजावणीसाठी सर्वोच्च न्यायालय योग्य निर्देश, आदेश आणि रिट जारी करू शकते."
     },
     verySimple: {
-      en: 'If your rights are violated, you can go straight to the Supreme Court for help. Dr. B. R. Ambedkar called this the "heart and soul" of the Constitution.',
-      mr: 'तुमच्या अधिकारांचे उल्लंघन झाल्यास तुम्ही थेट सर्वोच्च न्यायालयात मदतीसाठी जाऊ शकता. डॉ. बाबासाहेब आंबेडकरांनी याला संविधानाचा "आत्मा" म्हटले आहे.'
+      en: "If a Fundamental Right is violated, Article 32 provides a constitutional route to approach the Supreme Court for enforcement of that right.",
+      mr: "मूलभूत अधिकाराचे उल्लंघन झाल्यास त्या अधिकाराच्या अंमलबजावणीसाठी कलम 32 अंतर्गत सर्वोच्च न्यायालयात जाण्याचा घटनात्मक मार्ग उपलब्ध आहे."
     },
     example: {
-      en: "A person whose right to equality was violated can file a writ petition in the Supreme Court under this Article.",
-      mr: "ज्या व्यक्तीच्या समानतेच्या अधिकाराचे उल्लंघन झाले आहे ती या कलमाखाली सर्वोच्च न्यायालयात रिट याचिका दाखल करू शकते."
+      en: "If a person alleges that a Fundamental Right protected under Part III has been violated, they may approach the Supreme Court under Article 32 and seek an appropriate constitutional remedy.",
+      mr: "एखाद्या व्यक्तीच्या भाग III अंतर्गत संरक्षित मूलभूत अधिकाराचे उल्लंघन झाल्याचा दावा असल्यास, ती व्यक्ती कलम 32 अंतर्गत सर्वोच्च न्यायालयात जाऊन योग्य घटनात्मक उपाय मागू शकते."
     },
-    keywords: ["remedies", "writ", "supreme court", "enforcement", "उपाय", "रिट"],
-    relatedIds: ["14", "21"],
-    source: { name: "Ministry of Law and Justice, Government of India", url: "" },
+    seoSections: {
+      en: [
+        {
+          heading: "What is Article 32 of the Indian Constitution?",
+          content: "Article 32 guarantees the right to approach the Supreme Court for the enforcement of Fundamental Rights guaranteed by Part III of the Constitution. It is commonly known as the Right to Constitutional Remedies."
+        },
+        {
+          heading: "What is the Right to Constitutional Remedies?",
+          content: "The Right to Constitutional Remedies enables a person to approach the Supreme Court when a Fundamental Right protected by Part III is violated. Article 32 provides the constitutional mechanism for seeking enforcement of these rights."
+        },
+        {
+          heading: "Article 32 and Fundamental Rights",
+          content: "Article 32 is directly connected with the enforcement of Fundamental Rights contained in Part III of the Constitution. The Supreme Court can issue appropriate directions, orders or writs for enforcing these rights."
+        },
+        {
+          heading: "Which writs can be issued under Article 32?",
+          content: "Article 32 specifically refers to writs in the nature of habeas corpus, mandamus, prohibition, quo warranto and certiorari for enforcement of the rights conferred by Part III."
+        },
+        {
+          heading: "Can a person approach the Supreme Court under Article 32?",
+          content: "Article 32 guarantees the right to move the Supreme Court by appropriate proceedings for enforcement of the Fundamental Rights conferred by Part III of the Constitution."
+        },
+        {
+          heading: "Why is Article 32 important?",
+          content: "Article 32 provides a constitutional mechanism for enforcing Fundamental Rights and seeking appropriate remedies before the Supreme Court."
+        }
+      ],
+      mr: [
+        {
+          heading: "भारतीय संविधानातील कलम 32 म्हणजे काय?",
+          content: "कलम 32 संविधानाच्या भाग III मध्ये दिलेल्या मूलभूत अधिकारांच्या अंमलबजावणीसाठी सर्वोच्च न्यायालयात जाण्याचा अधिकार हमीने देते. याला संवैधानिक उपायांचा अधिकार असे म्हटले जाते."
+        },
+        {
+          heading: "संवैधानिक उपायांचा अधिकार म्हणजे काय?",
+          content: "भाग III मध्ये संरक्षित मूलभूत अधिकारांचे उल्लंघन झाल्यास सर्वोच्च न्यायालयात दाद मागण्याची घटनात्मक सुविधा म्हणजे संवैधानिक उपायांचा अधिकार."
+        },
+        {
+          heading: "कलम 32 आणि मूलभूत अधिकार",
+          content: "कलम 32 हे संविधानाच्या भाग III मधील मूलभूत अधिकारांच्या अंमलबजावणीशी थेट संबंधित आहे. या अधिकारांच्या अंमलबजावणीसाठी सर्वोच्च न्यायालय योग्य निर्देश, आदेश किंवा रिट जारी करू शकते."
+        },
+        {
+          heading: "कलम 32 अंतर्गत कोणत्या रिटचा उल्लेख आहे?",
+          content: "कलम 32 मध्ये हेबियस कॉर्पस, मँडेमस, प्रोहिबिशन, क्वो वॉरंटो आणि सर्टिओरारी या रिटचा उल्लेख आहे. भाग III मधील अधिकारांच्या अंमलबजावणीसाठी परिस्थितीनुसार त्यांचा वापर केला जाऊ शकतो."
+        },
+        {
+          heading: "कलम 32 अंतर्गत सर्वोच्च न्यायालयात जाता येते का?",
+          content: "संविधानाच्या भाग III मध्ये दिलेल्या मूलभूत अधिकारांच्या अंमलबजावणीसाठी योग्य कार्यवाहीद्वारे सर्वोच्च न्यायालयात जाण्याचा अधिकार कलम 32 हमीने देते."
+        },
+        {
+          heading: "कलम 32 महत्त्वाचे का आहे?",
+          content: "कलम 32 मूलभूत अधिकारांच्या अंमलबजावणीसाठी घटनात्मक उपाय उपलब्ध करून देते आणि सर्वोच्च न्यायालयासमोर दाद मागण्याचा घटनात्मक मार्ग प्रदान करते."
+        }
+      ]
+    },
+    keywords: [
+      "Article 32",
+      "Article 32 of Indian Constitution",
+      "Article 32 Indian Constitution",
+      "Article 32 explained",
+      "What is Article 32",
+      "Article 32 right to constitutional remedies",
+      "Right to Constitutional Remedies",
+      "Right to Constitutional Remedies Article",
+      "Article 32 Fundamental Rights",
+      "Article 32 writs",
+      "writ under Article 32",
+      "Supreme Court Article 32",
+      "Article 32 in simple words",
+      "Article 32 of Constitution",
+      "art 32",
+      "32 article",
+      "कलम 32",
+      "कलम 32 भारतीय संविधान",
+      "कलम 32 मराठीत",
+      "कलम 32 म्हणजे काय",
+      "संवैधानिक उपायांचा अधिकार",
+      "मूलभूत अधिकारांची अंमलबजावणी",
+      "सर्वोच्च न्यायालय"
+    ],
+    relatedIds: ["14", "21", "124"],
+    source: {
+      name: "Legislative Department, Ministry of Law and Justice, Government of India",
+      url: "https://www.legislative.gov.in/constitution-of-india/"
+    },
     lastVerified: null
   },
   {
     id: "5",
     articleNumber: "Article 5",
-    title: { en: "Citizenship at the Commencement of the Constitution", mr: "संविधान अंमलात येताना नागरिकत्व" },
+    title: {
+      en: "Citizenship at the Commencement of the Constitution",
+      mr: "संविधान अंमलात येताना नागरिकत्व"
+    },
     categoryKey: "citizenship",
     officialText: {
       en: "Verified official constitutional text should be inserted here from an authoritative source.",
@@ -1455,26 +1878,98 @@ const articles = [
       verified: false
     },
     simpleExplanation: {
-      en: "This Article laid out the rules for who was considered a citizen of India when the Constitution came into force.",
-      mr: "संविधान लागू झाले तेव्हा भारताचा नागरिक कोण मानला जाईल, याचे नियम या कलमात दिले आहेत."
+      en: "Article 5 dealt with citizenship at the commencement of the Constitution and specified the conditions under which a person could be regarded as a citizen of India at that time.",
+      mr: "कलम 5 संविधानाच्या प्रारंभी नागरिकत्वाशी संबंधित होते आणि त्या वेळी कोणत्या अटींवर एखादी व्यक्ती भारताची नागरिक मानली जाईल हे स्पष्ट करते."
     },
     verySimple: {
-      en: "It decided who automatically became an Indian citizen in 1950.",
-      mr: "इ.स. १९५० मध्ये आपोआप भारताचा नागरिक कोण बनला हे यात ठरवले गेले."
+      en: "Article 5 dealt with who was considered an Indian citizen when the Constitution commenced.",
+      mr: "संविधान लागू झाले तेव्हा कोणाला भारतीय नागरिक मानले जाईल यासंबंधी कलम 5 मध्ये तरतूद होती."
     },
     example: {
-      en: "Someone born in India and residing there at the time the Constitution began would generally fall under this Article.",
-      mr: "संविधान लागू झाले त्यावेळी भारतात जन्मलेली आणि वास्तव्यास असलेली व्यक्ती साधारणपणे या कलमाखाली येते."
+      en: "A person connected with India by birth, parentage or ordinary residence could fall within the citizenship framework described in Article 5, subject to its constitutional conditions.",
+      mr: "जन्म, पालकत्व किंवा सामान्य वास्तव्याशी संबंधित घटनात्मक अटी पूर्ण करणारी व्यक्ती कलम 5 मधील नागरिकत्वाच्या चौकटीत येऊ शकत होती."
     },
-    keywords: ["citizenship", "nationality", "नागरिकत्व"],
+    seoSections: {
+      en: [
+        {
+          heading: "What is Article 5 of the Indian Constitution?",
+          content: "Article 5 dealt with citizenship at the commencement of the Constitution and specified constitutional conditions for citizenship at that time."
+        },
+        {
+          heading: "Citizenship at the commencement of the Constitution",
+          content: "Article 5 formed part of the original constitutional provisions dealing with citizenship when the Constitution commenced."
+        },
+        {
+          heading: "Who was covered by Article 5?",
+          content: "Article 5 referred to persons domiciled in India and set out conditions relating to birth in India, parentage and ordinary residence for citizenship at the commencement of the Constitution."
+        },
+        {
+          heading: "Article 5 and Indian citizenship",
+          content: "Article 5 is part of the constitutional provisions on citizenship contained in Part II of the Constitution."
+        },
+        {
+          heading: "Why is Article 5 important?",
+          content: "Article 5 is important for understanding the constitutional framework that determined citizenship at the commencement of the Constitution."
+        }
+      ],
+      mr: [
+        {
+          heading: "भारतीय संविधानातील कलम 5 म्हणजे काय?",
+          content: "कलम 5 हे संविधानाच्या प्रारंभीच्या नागरिकत्वाशी संबंधित होते आणि त्या काळात नागरिकत्वासाठी आवश्यक घटनात्मक अटी स्पष्ट करते."
+        },
+        {
+          heading: "संविधान अंमलात येताना नागरिकत्व",
+          content: "संविधान लागू होताना कोणाला भारताचा नागरिक मानले जाईल यासंबंधीच्या मूळ घटनात्मक तरतुदींमध्ये कलम 5 चा समावेश आहे."
+        },
+        {
+          heading: "कलम 5 कोणाला लागू होते?",
+          content: "कलम 5 मध्ये भारतात अधिवास असलेल्या व्यक्तींच्या नागरिकत्वासाठी जन्म, पालकत्व आणि सामान्य वास्तव्याशी संबंधित अटी नमूद करण्यात आल्या होत्या."
+        },
+        {
+          heading: "कलम 5 आणि भारतीय नागरिकत्व",
+          content: "कलम 5 हे संविधानाच्या भाग II मधील नागरिकत्वाशी संबंधित घटनात्मक तरतुदींचा एक भाग आहे."
+        },
+        {
+          heading: "कलम 5 महत्त्वाचे का आहे?",
+          content: "संविधानाच्या प्रारंभी नागरिकत्व कसे ठरवले गेले हे समजण्यासाठी कलम 5 महत्त्वाचे आहे."
+        }
+      ]
+    },
+    keywords: [
+      "Article 5",
+      "Article 5 of Indian Constitution",
+      "Article 5 explained",
+      "What is Article 5",
+      "citizenship at commencement of constitution",
+      "citizenship Article 5",
+      "Article 5 citizenship",
+      "Indian citizenship Article 5",
+      "Article 5 in simple words",
+      "art 5",
+      "5 article",
+      "what is article 5 of indian constitution",
+      "citizenship at the commencement of the constitution",
+      "कलम 5",
+      "कलम 5 भारतीय संविधान",
+      "कलम 5 मराठीत",
+      "कलम 5 म्हणजे काय",
+      "संविधान अंमलात येताना नागरिकत्व",
+      "नागरिकत्व"
+    ],
     relatedIds: [],
-    source: { name: "Ministry of Law and Justice, Government of India", url: "" },
+    source: {
+      name: "Legislative Department, Ministry of Law and Justice, Government of India",
+      url: "https://www.legislative.gov.in/constitution-of-india/"
+    },
     lastVerified: null
   },
   {
     id: "79",
     articleNumber: "Article 79",
-    title: { en: "Constitution of Parliament", mr: "संसदेची रचना" },
+    title: {
+      en: "Constitution of Parliament",
+      mr: "संसदेची रचना"
+    },
     categoryKey: "union-government",
     officialText: {
       en: "Verified official constitutional text should be inserted here from an authoritative source.",
@@ -1482,26 +1977,88 @@ const articles = [
       verified: false
     },
     simpleExplanation: {
-      en: "This Article establishes Parliament, consisting of the President and the two Houses — the Lok Sabha and the Rajya Sabha.",
-      mr: "या कलमानुसार राष्ट्रपती आणि दोन सभागृहे — लोकसभा आणि राज्यसभा — मिळून संसद स्थापन केली जाते."
+      en: "Article 79 provides for Parliament of India consisting of the President and two Houses known as the Council of States and House of the People.",
+      mr: "कलम 79 नुसार भारताची संसद राष्ट्रपती आणि राज्यसभा व लोकसभा या दोन सभागृहांनी बनलेली असते."
     },
     verySimple: {
-      en: "India's Parliament has three parts: the President, the Lok Sabha, and the Rajya Sabha.",
-      mr: "भारताच्या संसदेत तीन भाग आहेत: राष्ट्रपती, लोकसभा आणि राज्यसभा."
+      en: "India has a Parliament consisting of the President, Rajya Sabha and Lok Sabha.",
+      mr: "भारताच्या संसदेत राष्ट्रपती, राज्यसभा आणि लोकसभा यांचा समावेश होतो."
     },
     example: {
-      en: "A new law generally needs to be passed by both the Lok Sabha and Rajya Sabha before it goes to the President.",
-      mr: "नवीन कायदा राष्ट्रपतींकडे जाण्यापूर्वी साधारणपणे लोकसभा आणि राज्यसभा या दोन्ही सभागृहांनी मंजूर करणे आवश्यक असते."
+      en: "When studying the constitutional structure of the Union Parliament, Article 79 provides the basic constitutional starting point for understanding its composition.",
+      mr: "केंद्राच्या संसदेची घटनात्मक रचना समजून घेताना कलम 79 हे तिच्या रचनेचा मूलभूत घटनात्मक आधार स्पष्ट करते."
     },
-    keywords: ["parliament", "lok sabha", "rajya sabha", "संसद"],
-    relatedIds: [],
-    source: { name: "Ministry of Law and Justice, Government of India", url: "" },
+    seoSections: {
+      en: [
+        {
+          heading: "What is Article 79 of the Indian Constitution?",
+          content: "Article 79 deals with the constitution of Parliament of India and provides that Parliament consists of the President and two Houses."
+        },
+        {
+          heading: "What are the two Houses of Parliament?",
+          content: "The two Houses of Parliament are the Council of States, known as the Rajya Sabha, and the House of the People, known as the Lok Sabha."
+        },
+        {
+          heading: "Article 79 and Parliament of India",
+          content: "Article 79 provides the constitutional basis for understanding the composition of the Parliament of India."
+        },
+        {
+          heading: "Why is Article 79 important?",
+          content: "Article 79 is important because it establishes the constitutional composition of Parliament at the Union level."
+        }
+      ],
+      mr: [
+        {
+          heading: "भारतीय संविधानातील कलम 79 म्हणजे काय?",
+          content: "कलम 79 भारताच्या संसदेच्या रचनेशी संबंधित आहे आणि संसद राष्ट्रपती आणि दोन सभागृहांनी बनलेली असल्याचे स्पष्ट करते."
+        },
+        {
+          heading: "संसदेची दोन सभागृहे कोणती?",
+          content: "संसदेची दोन सभागृहे म्हणजे राज्यसभा आणि लोकसभा. संविधानात त्यांना अनुक्रमे Council of States आणि House of the People असे संबोधले आहे."
+        },
+        {
+          heading: "कलम 79 आणि भारताची संसद",
+          content: "भारताच्या संसदेची घटनात्मक रचना समजून घेण्यासाठी कलम 79 हा मूलभूत आधार आहे."
+        },
+        {
+          heading: "कलम 79 महत्त्वाचे का आहे?",
+          content: "केंद्राच्या पातळीवरील संसदेची घटनात्मक रचना स्पष्ट करण्यासाठी कलम 79 महत्त्वाचे आहे."
+        }
+      ]
+    },
+    keywords: [
+      "Article 79",
+      "Article 79 of Indian Constitution",
+      "Article 79 explained",
+      "What is Article 79",
+      "Article 79 Parliament",
+      "Parliament of India Article 79",
+      "Lok Sabha Rajya Sabha Article 79",
+      "art 79",
+      "79 article",
+      "कलम 79",
+      "कलम 79 भारतीय संविधान",
+      "कलम 79 मराठीत",
+      "कलम 79 म्हणजे काय",
+      "संसदेची रचना",
+      "भारतीय संसद",
+      "लोकसभा",
+      "राज्यसभा"
+    ],
+    relatedIds: ["124", "153"],
+    source: {
+      name: "Legislative Department, Ministry of Law and Justice, Government of India",
+      url: "https://www.legislative.gov.in/constitution-of-india/"
+    },
     lastVerified: null
   },
   {
     id: "153",
     articleNumber: "Article 153",
-    title: { en: "Governors of States", mr: "राज्यांचे राज्यपाल" },
+    title: {
+      en: "Governors of States",
+      mr: "राज्यांचे राज्यपाल"
+    },
     categoryKey: "state-government",
     officialText: {
       en: "Verified official constitutional text should be inserted here from an authoritative source.",
@@ -1509,20 +2066,87 @@ const articles = [
       verified: false
     },
     simpleExplanation: {
-      en: "This Article requires that every State have a Governor, who acts as the head of the State executive.",
-      mr: "या कलमानुसार प्रत्येक राज्याला राज्यपाल असणे आवश्यक आहे, जो राज्याच्या कार्यकारी मंडळाचा प्रमुख असतो."
+      en: "Article 153 provides that there shall be a Governor for each State, subject to the constitutional provision allowing the same person to be appointed Governor of two or more States.",
+      mr: "कलम 153 नुसार प्रत्येक राज्यासाठी राज्यपाल असतो. संविधानातील तरतुदीनुसार एकाच व्यक्तीची दोन किंवा अधिक राज्यांसाठी राज्यपाल म्हणून नियुक्ती केली जाऊ शकते."
     },
     verySimple: {
-      en: "Each state has a Governor, similar to how the country has a President.",
-      mr: "देशाला राष्ट्रपती असतात त्याचप्रमाणे प्रत्येक राज्याला राज्यपाल असतात."
+      en: "Every State has a Governor under the Constitution.",
+      mr: "संविधानानुसार प्रत्येक राज्याला राज्यपाल असतो."
     },
     example: {
-      en: "A Governor giving assent to a state legislature bill is acting within the role described near this Article.",
-      mr: "राज्य विधानसभेच्या विधेयकाला संमती देणारे राज्यपाल या कलमाजवळ वर्णन केलेल्या भूमिकेत कार्य करत असतात."
+      en: "When studying the constitutional position of a State Governor, Article 153 provides the basic provision requiring a Governor for each State.",
+      mr: "राज्यपालांच्या घटनात्मक पदाचा अभ्यास करताना प्रत्येक राज्यासाठी राज्यपाल असण्याची मूलभूत तरतूद कलम 153 मध्ये आहे."
     },
-    keywords: ["governor", "state executive", "राज्यपाल"],
-    relatedIds: [],
-    source: { name: "Ministry of Law and Justice, Government of India", url: "" },
+    seoSections: {
+      en: [
+        {
+          heading: "What is Article 153 of the Indian Constitution?",
+          content: "Article 153 provides for a Governor for each State and also allows the same person to be appointed as Governor of two or more States, as provided by the Constitution."
+        },
+        {
+          heading: "Who is the Governor of a State?",
+          content: "The Governor is the constitutional head of the State under the framework of the State executive established by the Constitution."
+        },
+        {
+          heading: "Can one person be Governor of two States?",
+          content: "Yes. Article 153 permits the same person to be appointed Governor of two or more States."
+        },
+        {
+          heading: "Article 153 and State Government",
+          content: "Article 153 is one of the constitutional provisions dealing with the State executive and the office of the Governor."
+        },
+        {
+          heading: "Why is Article 153 important?",
+          content: "Article 153 establishes the constitutional requirement for the office of Governor in the States."
+        }
+      ],
+      mr: [
+        {
+          heading: "भारतीय संविधानातील कलम 153 म्हणजे काय?",
+          content: "कलम 153 नुसार प्रत्येक राज्यासाठी राज्यपाल असतो. संविधानानुसार एकाच व्यक्तीची दोन किंवा अधिक राज्यांसाठी राज्यपाल म्हणून नियुक्ती करता येते."
+        },
+        {
+          heading: "राज्यपाल कोण असतो?",
+          content: "राज्यपाल हे राज्याच्या घटनात्मक कार्यकारी व्यवस्थेतील महत्त्वाचे घटनात्मक पद आहे."
+        },
+        {
+          heading: "एक व्यक्ती दोन राज्यांचा राज्यपाल होऊ शकतो का?",
+          content: "होय. कलम 153 नुसार एकाच व्यक्तीची दोन किंवा अधिक राज्यांसाठी राज्यपाल म्हणून नियुक्ती करता येते."
+        },
+        {
+          heading: "कलम 153 आणि राज्य सरकार",
+          content: "कलम 153 हे राज्याच्या कार्यकारी व्यवस्थेशी आणि राज्यपालांच्या पदाशी संबंधित घटनात्मक तरतुदींचा एक भाग आहे."
+        },
+        {
+          heading: "कलम 153 महत्त्वाचे का आहे?",
+          content: "प्रत्येक राज्यात राज्यपालाचे घटनात्मक पद असण्याची मूलभूत तरतूद कलम 153 मध्ये आहे."
+        }
+      ]
+    },
+    keywords: [
+      "Article 153",
+      "Article 153 of Indian Constitution",
+      "Article 153 explained",
+      "What is Article 153",
+      "Article 153 Governor",
+      "Governor Article 153",
+      "Governor of States",
+      "State Governor Article 153",
+      "art 153",
+      "153 article",
+      "कलम 153",
+      "कलम 153 भारतीय संविधान",
+      "कलम 153 मराठीत",
+      "कलम 153 म्हणजे काय",
+      "राज्यांचे राज्यपाल",
+      "राज्यपाल",
+      "राज्य सरकार"
+    ],
+    relatedIds: ["79", "124"],
+    source: {
+      name: "Legislative Department, Ministry of Law and Justice, Government of India",
+      url: "https://www.legislative.gov.in/constitution-of-india/"
+    },
     lastVerified: null
   },
   {
@@ -1534,21 +2158,21 @@ const articles = [
     },
     categoryKey: "judiciary",
     officialText: {
-      en: "Article 124 of the Constitution of India provides for the establishment and constitution of the Supreme Court of India and contains provisions relating to the appointment and qualifications of its judges. The official constitutional text should be verified against the latest authoritative version before publication.",
-      mr: "भारतीय संविधानातील कलम 124 भारताच्या सर्वोच्च न्यायालयाची स्थापना आणि रचना याबाबत तरतुदी करते तसेच सर्वोच्च न्यायालयाच्या न्यायाधीशांच्या नियुक्ती आणि पात्रतेशी संबंधित तरतुदींचा समावेश करते. अधिकृत मजकूर प्रकाशित करण्यापूर्वी अद्ययावत अधिकृत संविधानाच्या प्रतीशी पडताळला जावा.",
+      en: "The official constitutional text of Article 124 should be verified against the latest authoritative Constitution of India PDF before being presented as verbatim official text.",
+      mr: "कलम 124 चा अधिकृत घटनात्मक मजकूर शब्दशः दाखवण्यापूर्वी भारताच्या संविधानाच्या अद्ययावत अधिकृत PDF शी पडताळला जावा.",
       verified: false
     },
     simpleExplanation: {
-      en: "Article 124 deals with the establishment and constitution of the Supreme Court of India. It provides the constitutional framework for the Court and contains provisions relating to the appointment, qualifications, tenure and removal of Supreme Court judges.",
-      mr: "कलम 124 भारताच्या सर्वोच्च न्यायालयाची स्थापना आणि रचना याबाबत तरतुदी करते. या कलमामध्ये सर्वोच्च न्यायालयाच्या न्यायाधीशांची नियुक्ती, पात्रता, कार्यकाळ आणि पदावरून हटविण्याशी संबंधित घटनात्मक तरतुदींचा समावेश आहे."
+      en: "Article 124 deals with the establishment and constitution of the Supreme Court of India and contains important constitutional provisions relating to its judges.",
+      mr: "कलम 124 भारताच्या सर्वोच्च न्यायालयाची स्थापना आणि रचना याबाबत तरतुदी करते तसेच त्याच्या न्यायाधीशांशी संबंधित महत्त्वाच्या घटनात्मक तरतुदी सांगते."
     },
     verySimple: {
-      en: "Article 124 is the constitutional provision that establishes the Supreme Court of India and sets out important rules concerning its judges.",
-      mr: "कलम 124 हे भारताच्या सर्वोच्च न्यायालयाच्या स्थापनेशी आणि त्याच्या न्यायाधीशांशी संबंधित महत्त्वाच्या घटनात्मक तरतुदी सांगणारे कलम आहे."
+      en: "Article 124 is the constitutional provision dealing with the establishment of the Supreme Court and important provisions concerning its judges.",
+      mr: "कलम 124 सर्वोच्च न्यायालयाची स्थापना आणि त्याच्या न्यायाधीशांशी संबंधित महत्त्वाच्या घटनात्मक तरतुदींशी संबंधित आहे."
     },
     example: {
-      en: "When studying how the Supreme Court is constitutionally established and how its judges are dealt with under the Constitution, Article 124 is one of the key provisions to understand.",
-      mr: "भारतीय संविधानानुसार सर्वोच्च न्यायालयाची स्थापना आणि त्याच्या न्यायाधीशांशी संबंधित घटनात्मक तरतुदी समजून घेताना कलम 124 हे महत्त्वाचे कलम आहे."
+      en: "When studying the constitutional establishment of the Supreme Court and provisions concerning its judges, Article 124 is one of the key provisions to understand.",
+      mr: "सर्वोच्च न्यायालयाची घटनात्मक स्थापना आणि त्याच्या न्यायाधीशांशी संबंधित तरतुदी समजून घेताना कलम 124 हे महत्त्वाचे कलम आहे."
     },
     seoSections: {
       en: [
@@ -1558,15 +2182,15 @@ const articles = [
         },
         {
           heading: "Article 124(1)",
-          content: "Article 124(1) provides for the establishment of the Supreme Court of India and specifies its constitutional composition."
+          content: "Article 124(1) provides for the establishment of the Supreme Court of India and its constitutional composition."
         },
         {
           heading: "Article 124(2)",
-          content: "Article 124(2) contains provisions relating to the appointment of judges of the Supreme Court and their tenure in office."
+          content: "Article 124(2) contains provisions concerning the appointment of judges of the Supreme Court and their tenure in office."
         },
         {
           heading: "Supreme Court and Articles 124 to 147",
-          content: "Articles 124 to 147 of the Constitution contain provisions relating to the Supreme Court of India, covering matters concerning its establishment, judges, jurisdiction, powers and related constitutional provisions."
+          content: "Articles 124 to 147 contain constitutional provisions concerning the Supreme Court of India, including provisions relating to its judges, jurisdiction and powers."
         },
         {
           heading: "Why is Article 124 important?",
@@ -1584,11 +2208,11 @@ const articles = [
         },
         {
           heading: "कलम 124(2)",
-          content: "कलम 124(2) सर्वोच्च न्यायालयाच्या न्यायाधीशांच्या नियुक्ती आणि त्यांच्या पदाशी संबंधित तरतुदी करते."
+          content: "कलम 124(2) सर्वोच्च न्यायालयाच्या न्यायाधीशांच्या नियुक्तीशी आणि त्यांच्या पदाशी संबंधित तरतुदी करते."
         },
         {
           heading: "कलम 124 ते 147 आणि सर्वोच्च न्यायालय",
-          content: "भारतीय संविधानातील कलम 124 ते 147 मध्ये सर्वोच्च न्यायालयाची स्थापना, न्यायाधीश, अधिकारक्षेत्र, अधिकार आणि संबंधित घटनात्मक तरतुदींचा समावेश आहे."
+          content: "भारतीय संविधानातील कलम 124 ते 147 मध्ये सर्वोच्च न्यायालय, त्याचे न्यायाधीश, अधिकारक्षेत्र आणि अधिकार यांच्याशी संबंधित घटनात्मक तरतुदींचा समावेश आहे."
         },
         {
           heading: "कलम 124 महत्त्वाचे का आहे?",
@@ -1607,16 +2231,22 @@ const articles = [
       "Supreme Court Article 124",
       "Supreme Court of India",
       "Articles 124 to 147",
+      "Article 124 judges",
+      "article 124 appointment of judges",
+      "art 124 of indian constitution",
+      "article 124 1",
+      "article 124 2",
+      "124 article",
       "कलम 124",
       "कलम 124 भारतीय संविधान",
       "कलम 124 मराठीत",
       "कलम 124 म्हणजे काय",
       "सर्वोच्च न्यायालय"
     ],
-    relatedIds: ["32"],
+    relatedIds: ["32", "79", "153"],
     source: {
       name: "Legislative Department, Ministry of Law and Justice, Government of India",
-      url: "https://legislative.gov.in/constitution-of-india/"
+      url: "https://www.legislative.gov.in/constitution-of-india/"
     },
     lastVerified: null
   },
@@ -1627,24 +2257,29 @@ const articles = [
       en: "Proclamation of Emergency",
       mr: "आणीबाणीची घोषणा"
     },
-    // तुमचे existing categoryKey, officialText इत्यादी fields ठेवायचे आहेत
+    categoryKey: "emergency-provisions",
+    officialText: {
+      en: "The official constitutional text of Article 352 should be verified against the latest authoritative Constitution of India PDF before being presented as verbatim official text.",
+      mr: "कलम 352 चा अधिकृत घटनात्मक मजकूर शब्दशः दाखवण्यापूर्वी भारताच्या संविधानाच्या अद्ययावत अधिकृत PDF शी पडताळला जावा.",
+      verified: false
+    },
     simpleExplanation: {
       en: "Article 352 deals with the proclamation of a National Emergency when the security of India or any part of its territory is threatened by war, external aggression or armed rebellion.",
       mr: "कलम 352 अंतर्गत युद्ध, बाह्य आक्रमण किंवा सशस्त्र बंडामुळे भारताच्या किंवा त्याच्या कोणत्याही भागाच्या सुरक्षेला धोका निर्माण झाल्यास राष्ट्रीय आणीबाणीची घोषणा करण्याची घटनात्मक तरतूद आहे."
     },
     verySimple: {
-      en: "Article 352 explains when and how a National Emergency can be proclaimed in India.",
-      mr: "कलम 352 भारतात राष्ट्रीय आणीबाणी कधी आणि कशी घोषित करता येते हे स्पष्ट करते."
+      en: "Article 352 explains the constitutional framework for proclaiming a National Emergency in India.",
+      mr: "कलम 352 भारतात राष्ट्रीय आणीबाणी घोषित करण्याची घटनात्मक चौकट स्पष्ट करते."
     },
     example: {
-      en: "If the security of India is threatened by war, external aggression or armed rebellion, the constitutional framework under Article 352 provides for a Proclamation of Emergency, subject to the conditions and parliamentary approval laid down in the Constitution.",
-      mr: "युद्ध, बाह्य आक्रमण किंवा सशस्त्र बंडामुळे भारताच्या सुरक्षेला धोका निर्माण झाल्यास, संविधानात दिलेल्या अटी आणि संसदीय मंजुरीच्या प्रक्रियेनुसार कलम 352 अंतर्गत आणीबाणीची घोषणा करता येते."
+      en: "If the constitutional conditions relating to war, external aggression or armed rebellion are satisfied, Article 352 provides the constitutional framework for a Proclamation of Emergency, subject to the required procedures and parliamentary approval.",
+      mr: "युद्ध, बाह्य आक्रमण किंवा सशस्त्र बंडाशी संबंधित घटनात्मक अटी पूर्ण झाल्यास, आवश्यक प्रक्रिया आणि संसदीय मंजुरीच्या अधीन राहून कलम 352 राष्ट्रीय आणीबाणीच्या घोषणेची घटनात्मक चौकट देते."
     },
     seoSections: {
       en: [
         {
           heading: "What is Article 352 of the Indian Constitution?",
-          content: "Article 352 deals with the Proclamation of Emergency in India. It applies when the security of India or any part of its territory is threatened by war, external aggression or armed rebellion."
+          content: "Article 352 deals with the Proclamation of Emergency in India when the security of India or any part of its territory is threatened by war, external aggression or armed rebellion."
         },
         {
           heading: "When can Article 352 be invoked?",
@@ -1652,7 +2287,7 @@ const articles = [
         },
         {
           heading: "Article 352 and National Emergency",
-          content: "Article 352 is the constitutional provision dealing with a National Emergency. The Proclamation may apply to the whole of India or to such part of the territory as may be specified in the Proclamation."
+          content: "Article 352 is the constitutional provision dealing with a National Emergency. The Proclamation may apply to the whole of India or to such part of the territory as may be specified."
         },
         {
           heading: "Who issues a Proclamation under Article 352?",
@@ -1660,7 +2295,7 @@ const articles = [
         },
         {
           heading: "Parliamentary approval under Article 352",
-          content: "A Proclamation issued under Article 352 must be laid before both Houses of Parliament and, subject to the constitutional conditions, requires approval within the period prescribed by the Constitution."
+          content: "A Proclamation issued under Article 352 must be laid before both Houses of Parliament and is subject to the approval process and time limits prescribed by the Constitution."
         },
         {
           heading: "Why is Article 352 important?",
@@ -1682,11 +2317,11 @@ const articles = [
         },
         {
           heading: "कलम 352 अंतर्गत घोषणा कोण करते?",
-          content: "घटनात्मक अटी पूर्ण झाल्यास राष्ट्रपती कलम 352 अंतर्गत आणीबाणीची घोषणा करू शकतात. अशी घोषणा करण्याचा केंद्रीय मंत्रिमंडळाचा निर्णय राष्ट्रपतींना लेखी स्वरूपात कळवणे आवश्यक आहे."
+          content: "घटनात्मक अटी पूर्ण झाल्यास राष्ट्रपती कलम 352 अंतर्गत आणीबाणीची घोषणा करू शकतात. केंद्रीय मंत्रिमंडळाचा संबंधित निर्णय राष्ट्रपतींना लेखी स्वरूपात कळवणे आवश्यक आहे."
         },
         {
           heading: "कलम 352 अंतर्गत संसदेची मंजुरी",
-          content: "कलम 352 अंतर्गत केलेली घोषणा संसदेच्या दोन्ही सभागृहांसमोर ठेवावी लागते आणि संविधानात दिलेल्या कालमर्यादा व प्रक्रियेनुसार संसदीय मंजुरी आवश्यक असते."
+          content: "कलम 352 अंतर्गत केलेली घोषणा संसदेच्या दोन्ही सभागृहांसमोर ठेवावी लागते आणि संविधानात दिलेल्या मंजुरीच्या प्रक्रिया व कालमर्यादांचे पालन करावे लागते."
         },
         {
           heading: "कलम 352 महत्त्वाचे का आहे?",
@@ -1707,6 +2342,7 @@ const articles = [
       "Article 352 of Constitution",
       "art 352",
       "352 article",
+      "Article 352 emergency provisions",
       "कलम 352",
       "कलम 352 भारतीय संविधान",
       "कलम 352 मराठीत",
@@ -1714,6 +2350,7 @@ const articles = [
       "राष्ट्रीय आणीबाणी",
       "आणीबाणीची घोषणा"
     ],
+    relatedIds: ["356", "360", "32"],
     source: {
       name: "Legislative Department, Ministry of Law and Justice, Government of India",
       url: "https://www.legislative.gov.in/constitution-of-india/"
@@ -1734,36 +2371,75 @@ const articles = [
       verified: true
     },
     simpleExplanation: {
-      en: "Article 15 prohibits the State from discriminating against citizens on specified grounds such as religion, race, caste, sex and place of birth. The Constitution also permits certain special provisions for disadvantaged groups.",
-      mr: "कलम १५ राज्याला धर्म, वंश, जात, लिंग आणि जन्मस्थान यांसारख्या ठरावीक आधारांवर नागरिकांमध्ये भेदभाव करण्यास प्रतिबंध करते. संविधानाने परवानगी दिलेल्या परिस्थितीत वंचित किंवा मागास घटकांसाठी विशेष तरतुदी करण्याची मुभाही राज्याला आहे."
+      en: "Article 15 prohibits the State from discriminating against citizens on specified grounds such as religion, race, caste, sex and place of birth. The Constitution also permits certain special provisions in specified circumstances.",
+      mr: "कलम 15 राज्याला धर्म, वंश, जात, लिंग आणि जन्मस्थान यांसारख्या ठरावीक आधारांवर नागरिकांमध्ये भेदभाव करण्यास प्रतिबंध करते. संविधानाने परवानगी दिलेल्या परिस्थितीत काही विशेष तरतुदी करण्याची मुभाही राज्याला आहे."
     },
     verySimple: {
-      en: "The government cannot discriminate against citizens simply because of their religion, race, caste, sex or place of birth.",
-      mr: "केवळ धर्म, जात, वंश, लिंग किंवा जन्मस्थानाच्या आधारावर सरकार नागरिकांशी भेदभाव करू शकत नाही."
+      en: "The government cannot discriminate against citizens only on specified constitutional grounds.",
+      mr: "संविधानात नमूद केलेल्या ठरावीक आधारांवर सरकार नागरिकांशी भेदभाव करू शकत नाही."
     },
     example: {
-      en: "If a government authority refuses a public benefit to an eligible citizen only because of their caste or religion, Article 15 may become relevant.",
-      mr: "एखाद्या पात्र नागरिकाला केवळ त्याच्या जातीमुळे किंवा धर्मामुळे सरकारी सुविधा नाकारली गेल्यास कलम १५ संबंधित ठरू शकते."
+      en: "If a government authority denies a public benefit to an eligible citizen only on a prohibited ground covered by Article 15, the constitutional provision may become relevant.",
+      mr: "एखाद्या पात्र नागरिकाला कलम 15 मध्ये नमूद केलेल्या प्रतिबंधित आधारावरच सरकारी सुविधा नाकारली गेल्यास हे कलम संबंधित ठरू शकते."
+    },
+    seoSections: {
+      en: [
+        {
+          heading: "What is Article 15 of the Indian Constitution?",
+          content: "Article 15 prohibits the State from discriminating against citizens on the specified grounds of religion, race, caste, sex or place of birth, subject to the other provisions of the Constitution."
+        },
+        {
+          heading: "Which discrimination is prohibited by Article 15?",
+          content: "Article 15 addresses discrimination by the State on specified constitutional grounds including religion, race, caste, sex and place of birth."
+        },
+        {
+          heading: "Article 15 and special provisions",
+          content: "The Constitution also contains provisions that permit certain special measures for specified groups and circumstances. These provisions must be understood together with the text of Article 15."
+        },
+        {
+          heading: "Why is Article 15 important?",
+          content: "Article 15 is an important Fundamental Right dealing with equality and protection against specified forms of discrimination by the State."
+        }
+      ],
+      mr: [
+        {
+          heading: "भारतीय संविधानातील कलम 15 म्हणजे काय?",
+          content: "कलम 15 राज्याला धर्म, वंश, जात, लिंग आणि जन्मस्थान या नमूद आधारांवर नागरिकांमध्ये भेदभाव करण्यास प्रतिबंध करते."
+        },
+        {
+          heading: "कलम 15 कोणत्या भेदभावाला प्रतिबंध करते?",
+          content: "धर्म, वंश, जात, लिंग आणि जन्मस्थान या संविधानात नमूद केलेल्या आधारांवर राज्याकडून होणाऱ्या भेदभावाशी कलम 15 संबंधित आहे."
+        },
+        {
+          heading: "कलम 15 आणि विशेष तरतुदी",
+          content: "संविधानात काही विशिष्ट गट आणि परिस्थितींसाठी विशेष उपाययोजना करण्यास परवानगी देणाऱ्या तरतुदीही आहेत. त्या तरतुदी कलम 15 सोबत समजून घेणे आवश्यक आहे."
+        },
+        {
+          heading: "कलम 15 महत्त्वाचे का आहे?",
+          content: "राज्याकडून होणाऱ्या विशिष्ट प्रकारच्या भेदभावापासून संरक्षण देणारा हा महत्त्वाचा मूलभूत अधिकार आहे."
+        }
+      ]
     },
     keywords: [
-      "article 15",
+      "Article 15",
+      "Article 15 of Indian Constitution",
+      "Article 15 explained",
       "prohibition of discrimination",
       "discrimination in India",
-      "fundamental rights",
-      "equality",
-      "caste discrimination",
-      "religion",
-      "Indian Constitution",
-      "कलम १५",
+      "Article 15 Fundamental Rights",
+      "caste discrimination Article 15",
+      "religion discrimination Article 15",
+      "कलम 15",
+      "कलम 15 भारतीय संविधान",
+      "कलम 15 मराठीत",
       "भेदभावास प्रतिबंध",
       "समानता",
-      "मूलभूत अधिकार",
-      "भारतीय संविधान"
+      "मूलभूत अधिकार"
     ],
-    relatedIds: ["16", "17"],
+    relatedIds: ["14", "16", "17", "18"],
     source: {
-      name: "Ministry of Law and Justice, Government of India",
-      url: ""
+      name: "Legislative Department, Ministry of Law and Justice, Government of India",
+      url: "https://www.legislative.gov.in/constitution-of-india/"
     },
     lastVerified: null
   },
@@ -1781,36 +2457,78 @@ const articles = [
       verified: true
     },
     simpleExplanation: {
-      en: "Article 16 guarantees equality of opportunity for citizens in matters relating to employment or appointment to offices under the State. The Constitution also provides for certain forms of reservation and special measures in public employment.",
-      mr: "कलम १६ राज्याच्या अंतर्गत नोकरी किंवा पदावर नियुक्तीच्या बाबतीत नागरिकांना समान संधी देण्याची हमी देते. सार्वजनिक नोकरीमध्ये काही प्रकारच्या आरक्षणासाठी आणि विशेष तरतुदींसाठी संविधानात तरतूद करण्यात आली आहे."
+      en: "Article 16 guarantees equality of opportunity for citizens in matters relating to employment or appointment to offices under the State. The Constitution also contains provisions for certain reservations and special measures.",
+      mr: "कलम 16 राज्याच्या अंतर्गत नोकरी किंवा पदावर नियुक्तीच्या बाबतीत नागरिकांना समान संधी देण्याची हमी देते. संविधानात काही प्रकारच्या आरक्षणासाठी आणि विशेष तरतुदींसाठीही तरतूद आहे."
     },
     verySimple: {
-      en: "Citizens should get equal opportunity when applying for government jobs, subject to the Constitution and laws.",
-      mr: "सरकारी नोकरी मिळवताना नागरिकांना संविधान आणि कायद्याच्या चौकटीत समान संधी मिळाली पाहिजे."
+      en: "Citizens should have equality of opportunity in public employment, subject to the Constitution and law.",
+      mr: "सार्वजनिक नोकरीमध्ये नागरिकांना संविधान आणि कायद्याच्या चौकटीत समान संधी मिळाली पाहिजे."
     },
     example: {
-      en: "If a citizen applies for a government job, the selection process must provide equality of opportunity in accordance with constitutional and legal rules.",
-      mr: "एखादा नागरिक सरकारी नोकरीसाठी अर्ज करत असल्यास, निवड प्रक्रिया संविधान आणि कायद्यानुसार समान संधीच्या तत्त्वावर आधारित असली पाहिजे."
+      en: "When a citizen applies for a public post, the recruitment process must operate within the constitutional framework governing equality of opportunity and applicable special provisions.",
+      mr: "एखादा नागरिक सार्वजनिक पदासाठी अर्ज करत असल्यास भरती प्रक्रिया समान संधीच्या घटनात्मक चौकटीत आणि लागू विशेष तरतुदींनुसार असली पाहिजे."
+    },
+    seoSections: {
+      en: [
+        {
+          heading: "What is Article 16 of the Indian Constitution?",
+          content: "Article 16 provides equality of opportunity for citizens in matters relating to employment or appointment to offices under the State."
+        },
+        {
+          heading: "Article 16 and government jobs",
+          content: "Article 16 is directly relevant to equality of opportunity in public employment and appointments to offices under the State."
+        },
+        {
+          heading: "Does Article 16 allow reservation?",
+          content: "The Constitution contains specific provisions within Article 16 concerning reservations and special measures in public employment. These provisions operate subject to their constitutional conditions."
+        },
+        {
+          heading: "Why is Article 16 important?",
+          content: "Article 16 is an important Fundamental Right because it establishes equality of opportunity in public employment."
+        }
+      ],
+      mr: [
+        {
+          heading: "भारतीय संविधानातील कलम 16 म्हणजे काय?",
+          content: "कलम 16 राज्याच्या अंतर्गत नोकरी किंवा कोणत्याही पदावरील नियुक्तीच्या बाबतीत नागरिकांना समान संधी देण्याची हमी देते."
+        },
+        {
+          heading: "कलम 16 आणि सरकारी नोकरी",
+          content: "सार्वजनिक रोजगार आणि राज्याच्या अंतर्गत पदांवरील नियुक्तींमध्ये समान संधीशी कलम 16 थेट संबंधित आहे."
+        },
+        {
+          heading: "कलम 16 मध्ये आरक्षणाची तरतूद आहे का?",
+          content: "सार्वजनिक रोजगारात आरक्षण आणि काही विशेष उपाययोजनांशी संबंधित विशिष्ट घटनात्मक तरतुदी कलम 16 मध्ये आहेत. त्या संबंधित घटनात्मक अटींच्या अधीन असतात."
+        },
+        {
+          heading: "कलम 16 महत्त्वाचे का आहे?",
+          content: "सार्वजनिक नोकरीतील समान संधीचे घटनात्मक संरक्षण देणारा कलम 16 हा महत्त्वाचा मूलभूत अधिकार आहे."
+        }
+      ]
     },
     keywords: [
-      "article 16",
+      "Article 16",
+      "Article 16 of Indian Constitution",
+      "Article 16 explained",
       "equality of opportunity",
-      "government jobs",
-      "public employment",
-      "reservation",
-      "fundamental rights",
-      "Indian Constitution",
-      "कलम १६",
+      "government jobs Article 16",
+      "public employment Article 16",
+      "reservation Article 16",
+      "Article 16 Fundamental Rights",
+      "art 16",
+      "16 article",
+      "कलम 16",
+      "कलम 16 भारतीय संविधान",
+      "कलम 16 मराठीत",
       "समान संधी",
       "सरकारी नोकरी",
       "सार्वजनिक रोजगार",
-      "आरक्षण",
-      "मूलभूत अधिकार"
+      "आरक्षण"
     ],
-    relatedIds: ["15", "17"],
+    relatedIds: ["14", "15", "17"],
     source: {
-      name: "Ministry of Law and Justice, Government of India",
-      url: ""
+      name: "Legislative Department, Ministry of Law and Justice, Government of India",
+      url: "https://www.legislative.gov.in/constitution-of-india/"
     },
     lastVerified: null
   },
@@ -1828,36 +2546,78 @@ const articles = [
       verified: true
     },
     simpleExplanation: {
-      en: "Article 17 abolishes untouchability and prohibits its practice in any form. It also provides that enforcing any disability arising from untouchability is punishable according to law.",
-      mr: "कलम १७ अस्पृश्यता नष्ट करते आणि कोणत्याही स्वरूपात तिच्या प्रथेवर बंदी घालते. अस्पृश्यतेमुळे निर्माण होणारी कोणतीही अयोग्यता लागू करणे कायद्यानुसार दंडनीय आहे."
+      en: "Article 17 abolishes untouchability and prohibits its practice in any form. Enforcement of any disability arising from untouchability is punishable according to law.",
+      mr: "कलम 17 अस्पृश्यता नष्ट करते आणि कोणत्याही स्वरूपात तिच्या प्रथेवर बंदी घालते. अस्पृश्यतेमुळे निर्माण होणारी कोणतीही अयोग्यता लागू करणे कायद्यानुसार दंडनीय आहे."
     },
     verySimple: {
-      en: "Untouchability is abolished. No person can be denied rights or treated unfairly because of the practice of untouchability.",
-      mr: "अस्पृश्यता पूर्णपणे रद्द करण्यात आली आहे. अस्पृश्यतेच्या आधारावर कोणालाही अधिकारांपासून वंचित करता किंवा अन्यायकारक वागणूक देता येत नाही."
+      en: "Untouchability is abolished and its practice in any form is prohibited.",
+      mr: "अस्पृश्यता नष्ट करण्यात आली असून तिचे कोणत्याही स्वरूपातील आचरण निषिद्ध आहे."
     },
     example: {
-      en: "If a person is denied access to a public place because of the practice of untouchability, the matter may attract legal consequences under the Constitution and relevant law.",
+      en: "If a person is denied access to a public place because of the practice of untouchability, the matter may attract constitutional and legal consequences.",
       mr: "अस्पृश्यतेच्या प्रथेच्या आधारावर एखाद्या व्यक्तीला सार्वजनिक ठिकाणी प्रवेश नाकारला गेल्यास संविधान आणि संबंधित कायद्यानुसार कायदेशीर परिणाम होऊ शकतात."
     },
+    seoSections: {
+      en: [
+        {
+          heading: "What is Article 17 of the Indian Constitution?",
+          content: "Article 17 abolishes untouchability and forbids its practice in any form. Enforcement of any disability arising from untouchability is punishable according to law."
+        },
+        {
+          heading: "What does Article 17 prohibit?",
+          content: "Article 17 prohibits the practice of untouchability in any form and provides constitutional protection against disabilities arising from such practice."
+        },
+        {
+          heading: "Article 17 and equality",
+          content: "Article 17 is part of the Fundamental Rights and supports the constitutional principle of equality and dignity by abolishing untouchability."
+        },
+        {
+          heading: "Why is Article 17 important?",
+          content: "Article 17 is a specific constitutional prohibition against untouchability and provides that its enforcement is punishable according to law."
+        }
+      ],
+      mr: [
+        {
+          heading: "भारतीय संविधानातील कलम 17 म्हणजे काय?",
+          content: "कलम 17 अस्पृश्यता नष्ट करते आणि तिचे कोणत्याही स्वरूपातील आचरण निषिद्ध करते. अस्पृश्यतेमुळे निर्माण होणारी कोणतीही अयोग्यता लागू करणे कायद्यानुसार दंडनीय आहे."
+        },
+        {
+          heading: "कलम 17 मध्ये कशाला प्रतिबंध आहे?",
+          content: "कलम 17 अस्पृश्यतेच्या कोणत्याही स्वरूपातील प्रथेला प्रतिबंध करते आणि त्यातून निर्माण होणाऱ्या अयोग्यतेच्या अंमलबजावणीवर दंडनीयतेची तरतूद करते."
+        },
+        {
+          heading: "कलम 17 आणि समानता",
+          content: "अस्पृश्यता नष्ट करून समानता आणि मानवी प्रतिष्ठेच्या घटनात्मक तत्त्वाला बळ देणाऱ्या मूलभूत अधिकारांमध्ये कलम 17 चा समावेश आहे."
+        },
+        {
+          heading: "कलम 17 महत्त्वाचे का आहे?",
+          content: "अस्पृश्यतेवर स्पष्ट घटनात्मक बंदी घालणारे आणि तिच्या अंमलबजावणीला कायद्यानुसार दंडनीय ठरवणारे कलम 17 महत्त्वाचे आहे."
+        }
+      ]
+    },
     keywords: [
-      "article 17",
-      "abolition of untouchability",
+      "Article 17",
+      "Article 17 of Indian Constitution",
+      "Article 17 explained",
+      "Abolition of Untouchability",
       "untouchability in India",
-      "fundamental rights",
-      "equality",
-      "Indian Constitution",
-      "कलम १७",
+      "Article 17 Fundamental Rights",
+      "Article 17 equality",
+      "art 17",
+      "17 article",
+      "कलम 17",
+      "कलम 17 भारतीय संविधान",
+      "कलम 17 मराठीत",
       "अस्पृश्यता निर्मूलन",
       "समानता",
-      "मूलभूत अधिकार",
-      "भारतीय संविधान"
+      "मूलभूत अधिकार"
     ],
-    relatedIds: ["15", "16"],
+    relatedIds: ["14", "15", "16", "18"],
     source: {
-      name: "Ministry of Law and Justice, Government of India",
-      url: ""
+      name: "Legislative Department, Ministry of Law and Justice, Government of India",
+      url: "https://www.legislative.gov.in/constitution-of-india/"
     },
-    lastVerified: null
+    lastVerified: "2026-09-21"
   }
 ];
 function getArticleById(id) {
