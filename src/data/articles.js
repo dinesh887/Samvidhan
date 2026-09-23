@@ -374,32 +374,127 @@ export const articles = [
   lastVerified: null,
 },
   {
-    id: '352',
-    articleNumber: 'Article 352',
-    title: { en: 'Proclamation of Emergency', mr: 'आणीबाणीची घोषणा' },
-    categoryKey: 'emergency-provisions',
-    officialText: {
-      en: 'Verified official constitutional text should be inserted here from an authoritative source.',
-      mr: 'अधिकृत स्रोताकडून पडताळलेला अधिकृत मजकूर येथे समाविष्ट करावा.',
-      verified: false,
-    },
-    simpleExplanation: {
-      en: 'This Article allows the President to proclaim a national Emergency if the security of India is threatened by war, external aggression, or armed rebellion.',
-      mr: 'युद्ध, बाह्य आक्रमण किंवा सशस्त्र बंडाळीमुळे भारताच्या सुरक्षेला धोका असल्यास राष्ट्रपती राष्ट्रीय आणीबाणी जाहीर करू शकतात, अशी तरतूद या कलमात आहे.',
-    },
-    verySimple: {
-      en: 'It gives the President special emergency powers during a serious national crisis.',
-      mr: 'गंभीर राष्ट्रीय संकटाच्या वेळी राष्ट्रपतींना विशेष आणीबाणी अधिकार देते.',
-    },
-    example: {
-      en: 'India has invoked provisions related to this Article in the past during periods of declared national emergency.',
-      mr: 'भारताने भूतकाळात जाहीर राष्ट्रीय आणीबाणीच्या काळात या कलमाशी संबंधित तरतुदींचा वापर केला आहे.',
-    },
-    keywords: ['emergency', 'proclamation', 'national security', 'आणीबाणी'],
-    relatedIds: [],
-    source: { name: 'Ministry of Law and Justice, Government of India', url: '' },
-    lastVerified: null,
+  id: '352',
+  articleNumber: 'Article 352',
+
+  title: {
+    en: 'Proclamation of Emergency',
+    mr: 'आणीबाणीची घोषणा'
   },
+
+  // तुमचे existing categoryKey, officialText इत्यादी fields ठेवायचे आहेत
+
+  simpleExplanation: {
+    en: 'Article 352 deals with the proclamation of a National Emergency when the security of India or any part of its territory is threatened by war, external aggression or armed rebellion.',
+    mr: 'कलम 352 अंतर्गत युद्ध, बाह्य आक्रमण किंवा सशस्त्र बंडामुळे भारताच्या किंवा त्याच्या कोणत्याही भागाच्या सुरक्षेला धोका निर्माण झाल्यास राष्ट्रीय आणीबाणीची घोषणा करण्याची घटनात्मक तरतूद आहे.'
+  },
+
+  verySimple: {
+    en: 'Article 352 explains when and how a National Emergency can be proclaimed in India.',
+    mr: 'कलम 352 भारतात राष्ट्रीय आणीबाणी कधी आणि कशी घोषित करता येते हे स्पष्ट करते.'
+  },
+
+  example: {
+    en: 'If the security of India is threatened by war, external aggression or armed rebellion, the constitutional framework under Article 352 provides for a Proclamation of Emergency, subject to the conditions and parliamentary approval laid down in the Constitution.',
+    mr: 'युद्ध, बाह्य आक्रमण किंवा सशस्त्र बंडामुळे भारताच्या सुरक्षेला धोका निर्माण झाल्यास, संविधानात दिलेल्या अटी आणि संसदीय मंजुरीच्या प्रक्रियेनुसार कलम 352 अंतर्गत आणीबाणीची घोषणा करता येते.'
+  },
+
+  seoSections: {
+    en: [
+      {
+        heading: 'What is Article 352 of the Indian Constitution?',
+        content:
+          'Article 352 deals with the Proclamation of Emergency in India. It applies when the security of India or any part of its territory is threatened by war, external aggression or armed rebellion.'
+      },
+      {
+        heading: 'When can Article 352 be invoked?',
+        content:
+          'Article 352 provides for a National Emergency when the constitutional conditions relating to war, external aggression or armed rebellion are satisfied.'
+      },
+      {
+        heading: 'Article 352 and National Emergency',
+        content:
+          'Article 352 is the constitutional provision dealing with a National Emergency. The Proclamation may apply to the whole of India or to such part of the territory as may be specified in the Proclamation.'
+      },
+      {
+        heading: 'Who issues a Proclamation under Article 352?',
+        content:
+          'The President may issue a Proclamation under Article 352 when the constitutional requirements are satisfied. The decision of the Union Cabinet to issue the Proclamation must be communicated to the President in writing.'
+      },
+      {
+        heading: 'Parliamentary approval under Article 352',
+        content:
+          'A Proclamation issued under Article 352 must be laid before both Houses of Parliament and, subject to the constitutional conditions, requires approval within the period prescribed by the Constitution.'
+      },
+      {
+        heading: 'Why is Article 352 important?',
+        content:
+          'Article 352 forms an important part of the Emergency Provisions in Part XVIII of the Constitution and establishes the constitutional framework for a National Emergency.'
+      }
+    ],
+
+    mr: [
+      {
+        heading: 'भारतीय संविधानातील कलम 352 म्हणजे काय?',
+        content:
+          'कलम 352 भारतातील आणीबाणीच्या घोषणेशी संबंधित आहे. युद्ध, बाह्य आक्रमण किंवा सशस्त्र बंडामुळे भारताच्या किंवा त्याच्या कोणत्याही भागाच्या सुरक्षेला धोका निर्माण झाल्यास या कलमाची तरतूद लागू होते.'
+      },
+      {
+        heading: 'कलम 352 कधी लागू केले जाऊ शकते?',
+        content:
+          'युद्ध, बाह्य आक्रमण किंवा सशस्त्र बंडाशी संबंधित घटनात्मक परिस्थिती निर्माण झाल्यास कलम 352 अंतर्गत राष्ट्रीय आणीबाणीची घोषणा करता येते.'
+      },
+      {
+        heading: 'कलम 352 आणि राष्ट्रीय आणीबाणी',
+        content:
+          'कलम 352 हे राष्ट्रीय आणीबाणीशी संबंधित घटनात्मक तरतूद आहे. आणीबाणीची घोषणा संपूर्ण भारतासाठी किंवा घोषणेत नमूद केलेल्या भारताच्या कोणत्याही भागासाठी केली जाऊ शकते.'
+      },
+      {
+        heading: 'कलम 352 अंतर्गत घोषणा कोण करते?',
+        content:
+          'घटनात्मक अटी पूर्ण झाल्यास राष्ट्रपती कलम 352 अंतर्गत आणीबाणीची घोषणा करू शकतात. अशी घोषणा करण्याचा केंद्रीय मंत्रिमंडळाचा निर्णय राष्ट्रपतींना लेखी स्वरूपात कळवणे आवश्यक आहे.'
+      },
+      {
+        heading: 'कलम 352 अंतर्गत संसदेची मंजुरी',
+        content:
+          'कलम 352 अंतर्गत केलेली घोषणा संसदेच्या दोन्ही सभागृहांसमोर ठेवावी लागते आणि संविधानात दिलेल्या कालमर्यादा व प्रक्रियेनुसार संसदीय मंजुरी आवश्यक असते.'
+      },
+      {
+        heading: 'कलम 352 महत्त्वाचे का आहे?',
+        content:
+          'कलम 352 हे संविधानाच्या भाग XVIII मधील आणीबाणीच्या तरतुदींचा महत्त्वाचा भाग असून राष्ट्रीय आणीबाणीची घटनात्मक चौकट निश्चित करते.'
+      }
+    ]
+  },
+
+  keywords: [
+    'Article 352',
+    'Article 352 of Indian Constitution',
+    'Article 352 Indian Constitution',
+    'Article 352 explained',
+    'What is Article 352',
+    'Article 352 Emergency',
+    'National Emergency in India',
+    'Proclamation of Emergency',
+    'Article 352 National Emergency',
+    'Article 352 of Constitution',
+    'art 352',
+    '352 article',
+    'कलम 352',
+    'कलम 352 भारतीय संविधान',
+    'कलम 352 मराठीत',
+    'कलम 352 म्हणजे काय',
+    'राष्ट्रीय आणीबाणी',
+    'आणीबाणीची घोषणा'
+  ],
+
+  source: {
+    name: 'Legislative Department, Ministry of Law and Justice, Government of India',
+    url: 'https://www.legislative.gov.in/constitution-of-india/'
+  },
+
+  lastVerified: null
+},
   {
   id: '15',
   articleNumber: 'Article 15',
