@@ -1528,28 +1528,96 @@ const articles = [
   {
     id: "124",
     articleNumber: "Article 124",
-    title: { en: "Establishment of the Supreme Court", mr: "सर्वोच्च न्यायालयाची स्थापना" },
+    title: {
+      en: "Establishment and Constitution of the Supreme Court",
+      mr: "सर्वोच्च न्यायालयाची स्थापना आणि रचना"
+    },
     categoryKey: "judiciary",
     officialText: {
-      en: "Verified official constitutional text should be inserted here from an authoritative source.",
-      mr: "अधिकृत स्रोताकडून पडताळलेला अधिकृत मजकूर येथे समाविष्ट करावा.",
+      en: "Article 124 of the Constitution of India provides for the establishment and constitution of the Supreme Court of India and contains provisions relating to the appointment and qualifications of its judges. The official constitutional text should be verified against the latest authoritative version before publication.",
+      mr: "भारतीय संविधानातील कलम 124 भारताच्या सर्वोच्च न्यायालयाची स्थापना आणि रचना याबाबत तरतुदी करते तसेच सर्वोच्च न्यायालयाच्या न्यायाधीशांच्या नियुक्ती आणि पात्रतेशी संबंधित तरतुदींचा समावेश करते. अधिकृत मजकूर प्रकाशित करण्यापूर्वी अद्ययावत अधिकृत संविधानाच्या प्रतीशी पडताळला जावा.",
       verified: false
     },
     simpleExplanation: {
-      en: "This Article establishes the Supreme Court of India as the apex court, along with rules for the appointment of judges.",
-      mr: "या कलमानुसार भारताचे सर्वोच्च न्यायालय हे सर्वोच्च न्यायसंस्था म्हणून स्थापन केले जाते, तसेच न्यायाधीशांच्या नियुक्तीचे नियमही यात दिले आहेत."
+      en: "Article 124 deals with the establishment and constitution of the Supreme Court of India. It provides the constitutional framework for the Court and contains provisions relating to the appointment, qualifications, tenure and removal of Supreme Court judges.",
+      mr: "कलम 124 भारताच्या सर्वोच्च न्यायालयाची स्थापना आणि रचना याबाबत तरतुदी करते. या कलमामध्ये सर्वोच्च न्यायालयाच्या न्यायाधीशांची नियुक्ती, पात्रता, कार्यकाळ आणि पदावरून हटविण्याशी संबंधित घटनात्मक तरतुदींचा समावेश आहे."
     },
     verySimple: {
-      en: "This is the Article that creates the Supreme Court, the highest court in the country.",
-      mr: "या कलमामुळेच देशातील सर्वोच्च न्यायालय अस्तित्वात आले आहे."
+      en: "Article 124 is the constitutional provision that establishes the Supreme Court of India and sets out important rules concerning its judges.",
+      mr: "कलम 124 हे भारताच्या सर्वोच्च न्यायालयाच्या स्थापनेशी आणि त्याच्या न्यायाधीशांशी संबंधित महत्त्वाच्या घटनात्मक तरतुदी सांगणारे कलम आहे."
     },
     example: {
-      en: "When the Supreme Court hears a final appeal in a major case, it is exercising authority rooted in this Article.",
-      mr: "सर्वोच्च न्यायालय एखाद्या मोठ्या खटल्यातील अंतिम अपील ऐकते तेव्हा ते या कलमात नमूद अधिकाराचा वापर करत असते."
+      en: "When studying how the Supreme Court is constitutionally established and how its judges are dealt with under the Constitution, Article 124 is one of the key provisions to understand.",
+      mr: "भारतीय संविधानानुसार सर्वोच्च न्यायालयाची स्थापना आणि त्याच्या न्यायाधीशांशी संबंधित घटनात्मक तरतुदी समजून घेताना कलम 124 हे महत्त्वाचे कलम आहे."
     },
-    keywords: ["supreme court", "judges", "judiciary", "न्यायालय"],
+    seoSections: {
+      en: [
+        {
+          heading: "What is Article 124 of the Indian Constitution?",
+          content: "Article 124 provides for the establishment and constitution of the Supreme Court of India and contains important provisions relating to its judges."
+        },
+        {
+          heading: "Article 124(1)",
+          content: "Article 124(1) provides for the establishment of the Supreme Court of India and specifies its constitutional composition."
+        },
+        {
+          heading: "Article 124(2)",
+          content: "Article 124(2) contains provisions relating to the appointment of judges of the Supreme Court and their tenure in office."
+        },
+        {
+          heading: "Supreme Court and Articles 124 to 147",
+          content: "Articles 124 to 147 of the Constitution contain provisions relating to the Supreme Court of India, covering matters concerning its establishment, judges, jurisdiction, powers and related constitutional provisions."
+        },
+        {
+          heading: "Why is Article 124 important?",
+          content: "Article 124 forms an important part of the constitutional framework governing the Supreme Court of India and its judges."
+        }
+      ],
+      mr: [
+        {
+          heading: "भारतीय संविधानातील कलम 124 म्हणजे काय?",
+          content: "कलम 124 भारताच्या सर्वोच्च न्यायालयाची स्थापना आणि रचना याबाबत तरतुदी करते तसेच त्याच्या न्यायाधीशांशी संबंधित महत्त्वाच्या घटनात्मक तरतुदी सांगते."
+        },
+        {
+          heading: "कलम 124(1)",
+          content: "कलम 124(1) भारताच्या सर्वोच्च न्यायालयाच्या स्थापनेची आणि त्याच्या घटनात्मक रचनेची तरतूद करते."
+        },
+        {
+          heading: "कलम 124(2)",
+          content: "कलम 124(2) सर्वोच्च न्यायालयाच्या न्यायाधीशांच्या नियुक्ती आणि त्यांच्या पदाशी संबंधित तरतुदी करते."
+        },
+        {
+          heading: "कलम 124 ते 147 आणि सर्वोच्च न्यायालय",
+          content: "भारतीय संविधानातील कलम 124 ते 147 मध्ये सर्वोच्च न्यायालयाची स्थापना, न्यायाधीश, अधिकारक्षेत्र, अधिकार आणि संबंधित घटनात्मक तरतुदींचा समावेश आहे."
+        },
+        {
+          heading: "कलम 124 महत्त्वाचे का आहे?",
+          content: "कलम 124 भारताच्या सर्वोच्च न्यायालयाच्या घटनात्मक रचनेचा आणि त्याच्या न्यायाधीशांशी संबंधित तरतुदींचा महत्त्वाचा आधार आहे."
+        }
+      ]
+    },
+    keywords: [
+      "Article 124",
+      "Article 124 of Indian Constitution",
+      "Article 124 Indian Constitution",
+      "Article 124 explained",
+      "What is Article 124",
+      "Article 124(1)",
+      "Article 124(2)",
+      "Supreme Court Article 124",
+      "Supreme Court of India",
+      "Articles 124 to 147",
+      "कलम 124",
+      "कलम 124 भारतीय संविधान",
+      "कलम 124 मराठीत",
+      "कलम 124 म्हणजे काय",
+      "सर्वोच्च न्यायालय"
+    ],
     relatedIds: ["32"],
-    source: { name: "Ministry of Law and Justice, Government of India", url: "" },
+    source: {
+      name: "Legislative Department, Ministry of Law and Justice, Government of India",
+      url: "https://legislative.gov.in/constitution-of-india/"
+    },
     lastVerified: null
   },
   {
@@ -2283,7 +2351,7 @@ function generateArticleSEO(article) {
   };
 }
 function ArticleDetails() {
-  var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m;
+  var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n;
   const { id } = useParams();
   const { t, pick, language } = useLanguage();
   const article = getArticleById(id || "");
@@ -2578,6 +2646,26 @@ function ArticleDetails() {
           }
         )
       ] }),
+      Array.isArray((_m = article.seoSections) == null ? void 0 : _m[language]) && article.seoSections[language].length > 0 && /* @__PURE__ */ jsx("section", { className: "mt-8", children: /* @__PURE__ */ jsx("div", { className: "space-y-6", children: article.seoSections[language].map(
+        (section, index) => /* @__PURE__ */ jsxs("div", { children: [
+          /* @__PURE__ */ jsx(
+            "h2",
+            {
+              lang: language,
+              className: "font-display text-lg font-semibold text-navy dark:text-ink-dark",
+              children: section.heading
+            }
+          ),
+          /* @__PURE__ */ jsx(
+            "p",
+            {
+              lang: language,
+              className: "mt-3 text-base leading-relaxed text-ink/80 dark:text-ink-dark/80",
+              children: section.content
+            }
+          )
+        ] }, index)
+      ) }) }),
       /* @__PURE__ */ jsxs("section", { className: "mt-10", children: [
         /* @__PURE__ */ jsxs(
           "h2",
@@ -2704,7 +2792,7 @@ function ArticleDetails() {
           t("source_label"),
           ":",
           " ",
-          ((_m = article.source) == null ? void 0 : _m.name) || "—"
+          ((_n = article.source) == null ? void 0 : _n.name) || "—"
         ] }),
         /* @__PURE__ */ jsx(
           BookmarkButton,

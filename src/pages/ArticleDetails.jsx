@@ -442,7 +442,41 @@ export default function ArticleDetails() {
           </p>
 
         </section>
+                {/* =========================================
+            DYNAMIC SEO CONTENT SECTIONS
+        ========================================= */}
 
+        {Array.isArray(article.seoSections?.[language]) &&
+          article.seoSections[language].length > 0 && (
+            <section className="mt-8">
+              <div className="space-y-6">
+
+                {article.seoSections[language].map(
+                  (section, index) => (
+                    <div key={index}>
+
+                      <h2
+                        lang={language}
+                        className="font-display text-lg font-semibold text-navy dark:text-ink-dark"
+                      >
+                        {section.heading}
+                      </h2>
+
+                      <p
+                        lang={language}
+                        className="mt-3 text-base leading-relaxed text-ink/80 dark:text-ink-dark/80"
+                      >
+                        {section.content}
+                      </p>
+
+                    </div>
+                  )
+                )}
+
+              </div>
+            </section>
+          )}
+   
         {/* =========================================
             FAQ
         ========================================= */}
