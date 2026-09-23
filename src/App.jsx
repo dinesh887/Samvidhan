@@ -27,6 +27,7 @@ import Terms from './pages/Terms'
 import Disclaimer from './pages/Disclaimer'
 import FAQ from './pages/FAQ'
 import SchemaJsonLd from './components/SchemaJsonLd'
+import CurrentAffairs, { CurrentAffairDetails } from './pages/CurrentAffairs'
 
 export default function App() {
   return (
@@ -45,6 +46,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/articles" element={<Articles />} />
+          <Route path="/current-affairs" element={<CurrentAffairs />} />
+          <Route path="/current-affairs/:slug" element={<CurrentAffairDetails />} />
           <Route path="/article/:id" element={<ArticleDetails />} />
           <Route path="/fundamental-rights" element={<FundamentalRights />} />
           <Route path="/fundamental-duties" element={<FundamentalDuties />} />

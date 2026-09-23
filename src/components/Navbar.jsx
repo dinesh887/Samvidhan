@@ -16,6 +16,7 @@ export default function Navbar() {
   const links = [
     { to: '/', label: t('nav_home') },
     { to: '/articles', label: t('nav_articles') },
+    { to: '/current-affairs', label: t('nav_current_affairs') },
     { to: '/fundamental-rights', label: t('nav_rights') },
     { to: '/amendments', label: t('nav_amendments') },
     { to: '/quiz', label: t('nav_quiz') },

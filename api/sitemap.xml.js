@@ -1,5 +1,6 @@
 import { seoRoutes } from '../src/data/seoConfig.js'
 import { articles } from '../src/data/articles.js'
+import { currentAffairs } from '../src/data/currentAffairs.js'
 
 function getSiteUrl(request) {
   const configured = process.env.SITE_URL || process.env.VITE_SITE_URL
@@ -16,7 +17,8 @@ export default function handler(request, response) {
   const staticUrls = Object.entries(seoRoutes).filter(([path, config]) => config.indexable !== false && !path.includes(':'))
   const urls = staticUrls.map(([path, config]) => ({ path, priority: config.priority || '0.5', changefreq: config.changefreq || 'monthly' }))
   const articleUrls = articles.map((article) => ({ path: `/article/${article.id}`, priority: '0.7', changefreq: 'monthly' }))
-  const entries = [...urls, ...articleUrls].map(({ path, priority, changefreq }) => `  <url><loc>${escapeXml(`${siteUrl}${path}`)}</loc><lastmod>${lastmod}</lastmod><changefreq>${changefreq}</changefreq><priority>${priority}</priority></url>`).join('\n')
+  const currentAffairUrls = currentAffairs.map((article) => ({ path: `/current-affairs/${article.slug}`, priority: '0.7', changefreq: 'daily' }))
+  const entries = [...urls, ...articleUrls, ...currentAffairUrls].map(({ path, priority, changefreq }) => `  <url><loc>${escapeXml(`${siteUrl}${path}`)}</loc><lastmod>${lastmod}</lastmod><changefreq>${changefreq}</changefreq><priority>${priority}</priority></url>`).join('\n')
   response.setHeader('Content-Type', 'application/xml; charset=utf-8')
   response.setHeader('Cache-Control', 'public, max-age=0, s-maxage=300, must-revalidate')
   response.status(200).send(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>`)

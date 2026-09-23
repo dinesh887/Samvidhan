@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { getSeoRoute, siteConfig } from '../data/seoConfig'
 import { getArticleById } from '../data/articles'
+import { getCurrentAffairBySlug } from '../data/currentAffairs'
 import { useLanguage } from '../context/LanguageContext'
 
 const SITE_URL = (
@@ -47,13 +48,20 @@ export default function PageMeta() {
     const article = pathname.startsWith('/article/')
       ? getArticleById(pathname.split('/').pop())
       : null
+    const currentAffair = pathname.startsWith('/current-affairs/')
+      ? getCurrentAffairBySlug(pathname.split('/').pop())
+      : null
 
     const title = article
       ? `${article.articleNumber} — ${pick(article.title)} | Samvidhan`
+      : currentAffair
+        ? pick(currentAffair.seoTitle || currentAffair.title)
       : pick(config.title)
 
     const description = article
       ? pick(article.simpleExplanation)
+      : currentAffair
+        ? pick(currentAffair.shortDescription)
       : pick(config.description)
 
     // Remove trailing slash except for homepage

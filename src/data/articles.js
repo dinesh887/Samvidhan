@@ -1626,6 +1626,7 @@ export const articles = [
 
     lastVerified: '2026-09-21',
   },
+  
 ]
 
 export function getArticleById(id) {

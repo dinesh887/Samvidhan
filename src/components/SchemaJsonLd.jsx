@@ -5,6 +5,7 @@ import {
   getArticleById,
   getRelatedArticles,
 } from '../data/articles'
+import { getCurrentAffairBySlug } from '../data/currentAffairs'
 
 import { getSeoRoute, siteConfig } from '../data/seoConfig'
 import { useLanguage } from '../context/LanguageContext'
@@ -46,10 +47,14 @@ export default function SchemaJsonLd() {
     const article = pathname.startsWith('/article/')
       ? getArticleById(pathname.split('/').pop())
       : null
+    const currentAffair = pathname.startsWith('/current-affairs/')
+      ? getCurrentAffairBySlug(pathname.split('/').pop())
+      : null
 
     if (
       config.indexable === false ||
-      (pathname.startsWith('/article/') && !article)
+      (pathname.startsWith('/article/') && !article) ||
+      (pathname.startsWith('/current-affairs/') && !currentAffair)
     ) {
       removeSchema()
       return
@@ -59,15 +64,20 @@ export default function SchemaJsonLd() {
 
     const pageTitle = article
       ? `${article.articleNumber} — ${pick(article.title)} | Samvidhan`
+      : currentAffair
+        ? pick(currentAffair.seoTitle || currentAffair.title)
       : pick(config.title)
 
     const pageDescription = article
       ? pick(article.simpleExplanation)
+      : currentAffair
+        ? pick(currentAffair.shortDescription)
       : pick(config.description)
 
     const pageId = `${canonical}#webpage`
     const breadcrumbId = `${canonical}#breadcrumb`
     const articleId = article ? `${canonical}#article` : null
+    const currentAffairId = currentAffair ? `${canonical}#current-affair` : null
     const faqPageId = `${canonical}#faq`
 
     const organizationDescription =
@@ -117,10 +127,10 @@ export default function SchemaJsonLd() {
           '@id': breadcrumbId,
         },
         inLanguage: language,
-        ...(article
+        ...(article || currentAffair
           ? {
               mainEntity: {
-                '@id': articleId,
+              '@id': articleId || currentAffairId,
               },
             }
           : {}),
@@ -157,7 +167,28 @@ export default function SchemaJsonLd() {
                 item: canonical,
               },
             ]
-          : [
+          : currentAffair
+            ? [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: language === 'mr' ? 'मुख्यपृष्ठ' : 'Home',
+                item: SITE_URL,
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: language === 'mr' ? 'चालू घडामोडी' : 'Current Affairs',
+                item: `${SITE_URL}/current-affairs`,
+              },
+              {
+                '@type': 'ListItem',
+                position: 3,
+                name: pick(currentAffair.title),
+                item: canonical,
+              },
+            ]
+            : [
               {
                 '@type': 'ListItem',
                 position: 1,
@@ -235,6 +266,24 @@ export default function SchemaJsonLd() {
       }
 
       graph.push(articleSchema)
+    }
+
+    if (currentAffair) {
+      graph.push({
+        '@type': 'NewsArticle',
+        '@id': currentAffairId,
+        headline: pick(currentAffair.title),
+        description: pageDescription,
+        datePublished: currentAffair.date,
+        dateModified: currentAffair.date,
+        mainEntityOfPage: { '@id': pageId },
+        url: canonical,
+        inLanguage: language,
+        articleSection: currentAffair.category,
+        keywords: currentAffair.keywords.join(', '),
+        isPartOf: { '@id': `${SITE_URL}#website` },
+        publisher: { '@id': `${SITE_URL}#organization` },
+      })
     }
 
     if (pathname === '/faq') {

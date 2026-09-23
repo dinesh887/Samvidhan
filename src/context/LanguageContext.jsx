@@ -8,6 +8,7 @@ const STRINGS = {
   en: {
     nav_home: 'Home',
     nav_articles: 'Articles',
+    nav_current_affairs: 'Current Affairs',
     nav_categories: 'Categories',
     nav_rights: 'Fundamental Rights',
     nav_amendments: 'Amendments',
@@ -100,6 +101,7 @@ const STRINGS = {
     read_time: 'min read',
     search_results_for: 'Search results for',
     clear_search: 'Clear search',
+    current_affairs_read_more: 'Read More',
     nav_premium: 'Premium', common_easy: 'Easy', common_medium: 'Medium', common_hard: 'Hard',
     nav_preamble: 'Preamble', nav_faq: 'FAQ', footer_navigation: 'Navigation', footer_privacy: 'Privacy Policy', footer_terms: 'Terms & Conditions',
     nav_dashboard: 'Dashboard',
@@ -113,6 +115,7 @@ const STRINGS = {
   mr: {
     nav_home: 'मुख्यपृष्ठ',
     nav_articles: 'कलमे',
+    nav_current_affairs: 'चालू घडामोडी',
     nav_categories: 'श्रेणी',
     nav_rights: 'मूलभूत अधिकार',
     nav_amendments: 'दुरुस्त्या',
@@ -204,6 +207,7 @@ const STRINGS = {
     read_time: 'मिनिट वाचन',
     search_results_for: 'यासाठी शोध निकाल',
     clear_search: 'शोध साफ करा',
+    current_affairs_read_more: 'अधिक वाचा',
     nav_premium: 'प्रीमियम', common_easy: 'सोपे', common_medium: 'मध्यम', common_hard: 'कठीण',
     nav_preamble: 'उद्देशिका', nav_faq: 'प्रश्नोत्तरे', footer_navigation: 'नेव्हिगेशन', footer_privacy: 'गोपनीयता धोरण', footer_terms: 'नियम आणि अटी',
     nav_dashboard: 'डॅशबोर्ड',

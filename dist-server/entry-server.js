@@ -34,6 +34,7 @@ const STRINGS = {
   en: {
     nav_home: "Home",
     nav_articles: "Articles",
+    nav_current_affairs: "Current Affairs",
     nav_categories: "Categories",
     nav_rights: "Fundamental Rights",
     nav_amendments: "Amendments",
@@ -149,6 +150,7 @@ const STRINGS = {
     read_time: "min read",
     search_results_for: "Search results for",
     clear_search: "Clear search",
+    current_affairs_read_more: "Read More",
     nav_premium: "Premium",
     common_easy: "Easy",
     common_medium: "Medium",
@@ -286,6 +288,7 @@ const STRINGS = {
   mr: {
     nav_home: "मुख्यपृष्ठ",
     nav_articles: "कलमे",
+    nav_current_affairs: "चालू घडामोडी",
     nav_categories: "श्रेणी",
     nav_rights: "मूलभूत अधिकार",
     nav_amendments: "दुरुस्त्या",
@@ -401,6 +404,7 @@ const STRINGS = {
     read_time: "मिनिट वाचन",
     search_results_for: "यासाठी शोध निकाल",
     clear_search: "शोध साफ करा",
+    current_affairs_read_more: "अधिक वाचा",
     nav_premium: "प्रीमियम",
     common_easy: "सोपे",
     common_medium: "मध्यम",
@@ -655,6 +659,7 @@ function Navbar() {
   const links = [
     { to: "/", label: t("nav_home") },
     { to: "/articles", label: t("nav_articles") },
+    { to: "/current-affairs", label: t("nav_current_affairs") },
     { to: "/fundamental-rights", label: t("nav_rights") },
     { to: "/amendments", label: t("nav_amendments") },
     { to: "/quiz", label: t("nav_quiz") },
@@ -2792,6 +2797,7 @@ const siteConfig = {
 const seoRoutes = {
   "/": { title: { en: siteConfig.defaultTitle, mr: "संविधान | भारताचे संविधान समजून घ्या" }, description: { en: siteConfig.defaultDescription, mr: "भारतीय संविधान, कलमे, मूलभूत अधिकार, कर्तव्ये आणि दुरुस्त्या सोप्या भाषेत समजून घ्या." }, priority: "1.0", changefreq: "weekly" },
   "/articles": { title: { en: "Constitutional Articles | Samvidhan", mr: "संवैधानिक कलमे | संविधान" }, description: { en: "Search and understand the Constitutional Articles of India with clear explanations.", mr: "भारतीय संविधानातील कलमे शोधा आणि स्पष्ट स्पष्टीकरणांसह समजून घ्या." }, priority: "0.9", changefreq: "weekly" },
+  "/current-affairs": { title: { en: "Current Affairs | Indian Constitution & Polity | MySamvidhan", mr: "चालू घडामोडी | भारतीय संविधान आणि राज्यशास्त्र | MySamvidhan" }, description: { en: "Read current affairs and important developments related to the Indian Constitution, polity and Supreme Court in simple language.", mr: "भारतीय संविधान, राज्यशास्त्र आणि सर्वोच्च न्यायालयाशी संबंधित चालू घडामोडी सोप्या भाषेत वाचा." }, priority: "0.9", changefreq: "daily" },
   "/fundamental-rights": { title: { en: "Fundamental Rights | Samvidhan", mr: "मूलभूत अधिकार | संविधान" }, description: { en: "Understand the Fundamental Rights guaranteed by the Constitution of India.", mr: "भारतीय संविधानाने दिलेले मूलभूत अधिकार समजून घ्या." }, priority: "0.8", changefreq: "monthly" },
   "/fundamental-duties": { title: { en: "Fundamental Duties | Samvidhan", mr: "मूलभूत कर्तव्ये | संविधान" }, description: { en: "Learn the Fundamental Duties of citizens of India.", mr: "भारताच्या नागरिकांची मूलभूत कर्तव्ये जाणून घ्या." }, priority: "0.8", changefreq: "monthly" },
   "/directive-principles": { title: { en: "Directive Principles of State Policy | Samvidhan", mr: "राज्याच्या धोरणाची मार्गदर्शक तत्त्वे | संविधान" }, description: { en: "Explore the Directive Principles that guide governance and public policy.", mr: "शासन आणि सार्वजनिक धोरणाला दिशा देणारी मार्गदर्शक तत्त्वे जाणून घ्या." }, priority: "0.8", changefreq: "monthly" },
@@ -2817,7 +2823,135 @@ const seoRoutes = {
 function getSeoRoute(pathname) {
   if (seoRoutes[pathname]) return seoRoutes[pathname];
   if (pathname.startsWith("/article/")) return seoRoutes["/article/:id"];
+  if (pathname.startsWith("/current-affairs/")) return { indexable: true, changefreq: "daily", priority: "0.7" };
   return { title: { en: siteConfig.defaultTitle, mr: "संविधान | भारताचे संविधान समजून घ्या" }, description: { en: siteConfig.defaultDescription, mr: "भारतीय संविधानाबद्दल सोप्या भाषेत जाणून घ्या." }, indexable: false };
+}
+const currentAffairs = [
+  {
+    id: "cec-appointment-law-2023",
+    articleNumber: "Current Affairs",
+    categoryKey: "current-affairs",
+    slug: "cec-appointment-law-2023-supreme-court",
+    title: {
+      en: "CEC Appointment Law 2023: Supreme Court Split Verdict Explained",
+      mr: "CEC नियुक्ती कायदा 2023: सर्वोच्च न्यायालयाच्या Split Verdict चे स्पष्टीकरण"
+    },
+    seoTitle: {
+      en: "CEC Appointment Law 2023: Supreme Court Split Verdict Explained | MySamvidhan",
+      mr: "CEC नियुक्ती कायदा 2023: सर्वोच्च न्यायालयाचा निर्णय | MySamvidhan"
+    },
+    shortDescription: {
+      en: "Understand the Supreme Court split verdict on the Chief Election Commissioner appointment law, Article 324 and the constitutional issues involved.",
+      mr: "मुख्य निवडणूक आयुक्तांच्या नियुक्ती कायद्यावरील सर्वोच्च न्यायालयाचा Split Verdict, कलम 324 आणि त्यातील घटनात्मक मुद्दे समजून घ्या."
+    },
+    category: "Supreme Court",
+    categoryMr: "सर्वोच्च न्यायालय",
+    date: "2026-09-23",
+    introduction: {
+      en: "The Chief Election Commissioner and Other Election Commissioners (Appointment, Conditions of Service and Term of Office) Act, 2023 changed the statutory framework for appointments to the Election Commission of India. The issue raised questions about the balance between executive authority and institutional independence.",
+      mr: "मुख्य निवडणूक आयुक्त आणि इतर निवडणूक आयुक्त (नियुक्ती, सेवाशर्ती आणि कार्यकाळ) कायदा, 2023 मुळे भारत निवडणूक आयोगातील नियुक्त्यांची वैधानिक चौकट बदलली. या प्रकरणामुळे कार्यकारी अधिकार आणि संस्थात्मक स्वायत्तता यांच्यातील संतुलनाबाबत प्रश्न उपस्थित झाले."
+    },
+    simpleExplanation: {
+      en: "The case concerns how Election Commissioners are appointed and whether the statutory appointment process adequately protects the independence of the Election Commission under Article 324 of the Constitution.",
+      mr: "या प्रकरणाचा संबंध निवडणूक आयुक्तांची नियुक्ती कशी केली जाते आणि संविधानाच्या कलम 324 अंतर्गत निवडणूक आयोगाच्या स्वायत्ततेचे पुरेसे संरक्षण नियुक्ती प्रक्रिया करते का, याच्याशी आहे."
+    },
+    verySimple: {
+      en: "The case is about who appoints Election Commissioners and how to protect the independence of the Election Commission.",
+      mr: "हे प्रकरण निवडणूक आयुक्तांची नियुक्ती कोण करते आणि निवडणूक आयोगाची स्वायत्तता कशी जपली जाते याबद्दल आहे."
+    },
+    example: {
+      en: "A change in the appointment committee can affect the balance of institutional oversight. That is why the appointment process is examined alongside Article 324 and constitutional independence.",
+      mr: "नियुक्ती समितीमध्ये बदल झाल्यास संस्थात्मक देखरेखीचे संतुलन प्रभावित होऊ शकते. म्हणूनच नियुक्ती प्रक्रियेचा विचार कलम 324 आणि घटनात्मक स्वायत्ततेसोबत केला जातो."
+    },
+    content: {
+      en: "The Chief Election Commissioner and Other Election Commissioners (Appointment, Conditions of Service and Term of Office) Act, 2023 changed the statutory framework for appointments to the Election Commission of India.",
+      mr: "मुख्य निवडणूक आयुक्त आणि इतर निवडणूक आयुक्त (नियुक्ती, सेवाशर्ती आणि कार्यकाळ) कायदा, 2023 मुळे भारत निवडणूक आयोगातील नियुक्त्यांची वैधानिक चौकट बदलली."
+    },
+    seoSections: {
+      en: [
+        {
+          heading: "What is the CEC Appointment Law 2023?",
+          content: "The law sets out the appointment, service conditions and term of office for the Chief Election Commissioner and other Election Commissioners."
+        },
+        {
+          heading: "Why is Article 324 important?",
+          content: "Article 324 establishes the Election Commission and gives it constitutional responsibility for supervising elections, making institutional independence an important constitutional concern."
+        }
+      ],
+      mr: [
+        {
+          heading: "CEC नियुक्ती कायदा 2023 म्हणजे काय?",
+          content: "या कायद्यात मुख्य निवडणूक आयुक्त आणि इतर निवडणूक आयुक्तांची नियुक्ती, सेवाशर्ती आणि कार्यकाळ याबाबत तरतुदी आहेत."
+        },
+        {
+          heading: "कलम 324 महत्त्वाचे का आहे?",
+          content: "कलम 324 निवडणूक आयोगाची स्थापना करते आणि निवडणुकांवर देखरेख ठेवण्याची घटनात्मक जबाबदारी देते. त्यामुळे संस्थात्मक स्वायत्तता महत्त्वाची ठरते."
+        }
+      ]
+    },
+    faq: {
+      en: [
+        {
+          question: "What is the CEC Appointment Law 2023?",
+          answer: "It is the law governing the appointment, service conditions and term of office of the Chief Election Commissioner and other Election Commissioners."
+        },
+        {
+          question: "Which constitutional provision is central to this issue?",
+          answer: "Article 324, which deals with the Election Commission of India, is central to the constitutional discussion."
+        }
+      ],
+      mr: [
+        {
+          question: "CEC नियुक्ती कायदा 2023 म्हणजे काय?",
+          answer: "मुख्य निवडणूक आयुक्त आणि इतर निवडणूक आयुक्तांची नियुक्ती, सेवाशर्ती आणि कार्यकाळ यांचे नियमन करणारा हा कायदा आहे."
+        },
+        {
+          question: "या विषयाशी कोणते घटनात्मक कलम संबंधित आहे?",
+          answer: "भारत निवडणूक आयोगाशी संबंधित कलम 324 या घटनात्मक चर्चेच्या केंद्रस्थानी आहे."
+        }
+      ]
+    },
+    mcqs: {
+      en: [
+        {
+          question: "Which Article of the Constitution deals with the Election Commission of India?",
+          options: ["Article 280", "Article 324", "Article 356", "Article 368"],
+          answer: "Article 324"
+        },
+        {
+          question: "The 2023 law primarily concerns the appointment of which officials?",
+          options: ["Judges", "Election Commissioners", "Governors", "Auditors"],
+          answer: "Election Commissioners"
+        }
+      ],
+      mr: [
+        {
+          question: "भारत निवडणूक आयोगाशी संविधानातील कोणते कलम संबंधित आहे?",
+          options: ["कलम 280", "कलम 324", "कलम 356", "कलम 368"],
+          answer: "कलम 324"
+        },
+        {
+          question: "2023 चा कायदा मुख्यतः कोणत्या अधिकाऱ्यांच्या नियुक्तीशी संबंधित आहे?",
+          options: ["न्यायाधीश", "निवडणूक आयुक्त", "राज्यपाल", "महालेखापरीक्षक"],
+          answer: "निवडणूक आयुक्त"
+        }
+      ]
+    },
+    source: {
+      name: "Supreme Court of India and Legislative Department, Ministry of Law and Justice",
+      url: "https://www.legislative.gov.in/"
+    },
+    relatedSlugs: [],
+    keywords: [
+      "CEC appointment law 2023",
+      "Article 324",
+      "Article 145(3)",
+      "Election Commission of India"
+    ]
+  }
+];
+function getCurrentAffairBySlug(slug) {
+  return currentAffairs.find((item) => item.slug === slug);
 }
 const SITE_URL$1 = siteConfig.url.replace(/\/+$/, "");
 function setMeta(attribute, value, content) {
@@ -2849,8 +2983,9 @@ function PageMeta() {
     console.log("PageMeta running:", pathname);
     const config = getSeoRoute(pathname);
     const article = pathname.startsWith("/article/") ? getArticleById(pathname.split("/").pop()) : null;
-    const title = article ? `${article.articleNumber} — ${pick(article.title)} | Samvidhan` : pick(config.title);
-    const description = article ? pick(article.simpleExplanation) : pick(config.description);
+    const currentAffair = pathname.startsWith("/current-affairs/") ? getCurrentAffairBySlug(pathname.split("/").pop()) : null;
+    const title = article ? `${article.articleNumber} — ${pick(article.title)} | Samvidhan` : currentAffair ? pick(currentAffair.seoTitle || currentAffair.title) : pick(config.title);
+    const description = article ? pick(article.simpleExplanation) : currentAffair ? pick(currentAffair.shortDescription) : pick(config.description);
     const cleanPath = pathname === "/" ? "/" : pathname.replace(/\/+$/, "");
     const canonicalUrl = cleanPath === "/" ? SITE_URL$1 : `${SITE_URL$1}${cleanPath}`;
     document.title = title;
@@ -4913,16 +5048,18 @@ function SchemaJsonLd() {
   useEffect(() => {
     const config = getSeoRoute(pathname);
     const article = pathname.startsWith("/article/") ? getArticleById(pathname.split("/").pop()) : null;
-    if (config.indexable === false || pathname.startsWith("/article/") && !article) {
+    const currentAffair = pathname.startsWith("/current-affairs/") ? getCurrentAffairBySlug(pathname.split("/").pop()) : null;
+    if (config.indexable === false || pathname.startsWith("/article/") && !article || pathname.startsWith("/current-affairs/") && !currentAffair) {
       removeSchema();
       return;
     }
     const canonical = `${SITE_URL}${pathname}`;
-    const pageTitle = article ? `${article.articleNumber} — ${pick(article.title)} | Samvidhan` : pick(config.title);
-    const pageDescription = article ? pick(article.simpleExplanation) : pick(config.description);
+    const pageTitle = article ? `${article.articleNumber} — ${pick(article.title)} | Samvidhan` : currentAffair ? pick(currentAffair.seoTitle || currentAffair.title) : pick(config.title);
+    const pageDescription = article ? pick(article.simpleExplanation) : currentAffair ? pick(currentAffair.shortDescription) : pick(config.description);
     const pageId = `${canonical}#webpage`;
     const breadcrumbId = `${canonical}#breadcrumb`;
     const articleId = article ? `${canonical}#article` : null;
+    const currentAffairId = currentAffair ? `${canonical}#current-affair` : null;
     const faqPageId = `${canonical}#faq`;
     const organizationDescription = language === "mr" ? "भारतीय संविधान समजून घेणे सोपे करणारे स्वतंत्र शैक्षणिक आणि माहितीपर व्यासपीठ." : "An independent educational and informational platform that makes the Constitution of India easy to understand.";
     const graph = [
@@ -4965,9 +5102,9 @@ function SchemaJsonLd() {
           "@id": breadcrumbId
         },
         inLanguage: language,
-        ...article ? {
+        ...article || currentAffair ? {
           mainEntity: {
-            "@id": articleId
+            "@id": articleId || currentAffairId
           }
         } : {},
         ...pathname === "/faq" ? {
@@ -4996,6 +5133,25 @@ function SchemaJsonLd() {
             "@type": "ListItem",
             position: 3,
             name: pick(article.title),
+            item: canonical
+          }
+        ] : currentAffair ? [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: language === "mr" ? "मुख्यपृष्ठ" : "Home",
+            item: SITE_URL
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: language === "mr" ? "चालू घडामोडी" : "Current Affairs",
+            item: `${SITE_URL}/current-affairs`
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: pick(currentAffair.title),
             item: canonical
           }
         ] : [
@@ -5054,6 +5210,23 @@ function SchemaJsonLd() {
       };
       graph.push(articleSchema);
     }
+    if (currentAffair) {
+      graph.push({
+        "@type": "NewsArticle",
+        "@id": currentAffairId,
+        headline: pick(currentAffair.title),
+        description: pageDescription,
+        datePublished: currentAffair.date,
+        dateModified: currentAffair.date,
+        mainEntityOfPage: { "@id": pageId },
+        url: canonical,
+        inLanguage: language,
+        articleSection: currentAffair.category,
+        keywords: currentAffair.keywords.join(", "),
+        isPartOf: { "@id": `${SITE_URL}#website` },
+        publisher: { "@id": `${SITE_URL}#organization` }
+      });
+    }
     if (pathname === "/faq") {
       graph.push({
         "@type": "FAQPage",
@@ -5075,6 +5248,193 @@ function SchemaJsonLd() {
   }, [pathname, language, pick]);
   return null;
 }
+function CurrentAffairsCard({ article }) {
+  const { language, pick, t } = useLanguage();
+  const title = pick(article.title);
+  const category = language === "mr" ? article.categoryMr : article.category;
+  return /* @__PURE__ */ jsxs("article", { className: "group flex flex-col rounded-2xl border border-navy/10 dark:border-ink-dark/10 bg-white/60 dark:bg-white/[0.04] p-5 transition-colors hover:border-saffron/40", children: [
+    /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between gap-3 text-xs text-ink/50 dark:text-ink-dark/50", children: [
+      /* @__PURE__ */ jsx("span", { className: "text-leaf dark:text-leaf-light", children: category }),
+      /* @__PURE__ */ jsx("time", { dateTime: article.date, children: (/* @__PURE__ */ new Date(`${article.date}T00:00:00`)).toLocaleDateString(
+        language === "mr" ? "mr-IN" : "en-IN",
+        { day: "numeric", month: "short", year: "numeric" }
+      ) })
+    ] }),
+    /* @__PURE__ */ jsx(
+      "h2",
+      {
+        lang: language,
+        className: "mt-3 font-display text-lg font-semibold text-navy dark:text-ink-dark",
+        children: /* @__PURE__ */ jsx(
+          Link,
+          {
+            to: `/current-affairs/${article.slug}`,
+            className: "transition-colors hover:text-saffron focus:outline-none focus:text-saffron",
+            children: title
+          }
+        )
+      }
+    ),
+    /* @__PURE__ */ jsx(
+      "p",
+      {
+        lang: language,
+        className: "mt-2 line-clamp-3 text-sm leading-relaxed text-ink/60 dark:text-ink-dark/60",
+        children: pick(article.shortDescription)
+      }
+    ),
+    /* @__PURE__ */ jsxs(
+      Link,
+      {
+        to: `/current-affairs/${article.slug}`,
+        "aria-label": `${t("current_affairs_read_more")}: ${title}`,
+        className: "mt-4 inline-flex w-fit items-center gap-1 text-sm font-medium text-saffron transition-colors hover:text-saffron/80 hover:underline focus:outline-none focus:underline",
+        children: [
+          t("current_affairs_read_more"),
+          /* @__PURE__ */ jsx("span", { "aria-hidden": "true", children: "→" })
+        ]
+      }
+    )
+  ] });
+}
+function formatDate(date, language) {
+  return (/* @__PURE__ */ new Date(`${date}T00:00:00`)).toLocaleDateString(
+    language === "mr" ? "mr-IN" : "en-IN",
+    { day: "numeric", month: "long", year: "numeric" }
+  );
+}
+function CurrentAffairsList() {
+  const { language } = useLanguage();
+  return /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16", children: [
+    /* @__PURE__ */ jsx(PageMeta, {}),
+    /* @__PURE__ */ jsxs("header", { children: [
+      /* @__PURE__ */ jsx(
+        "h1",
+        {
+          lang: language,
+          className: "font-display text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl",
+          children: language === "mr" ? "चालू घडामोडी" : "Current Affairs"
+        }
+      ),
+      /* @__PURE__ */ jsx(
+        "p",
+        {
+          lang: language,
+          className: "mt-2 max-w-3xl text-ink/60 dark:text-ink-dark/60",
+          children: language === "mr" ? "भारतीय संविधान आणि राज्यशास्त्राशी संबंधित महत्त्वाच्या चालू घडामोडी समजून घ्या." : "Understand important current affairs related to the Indian Constitution and polity."
+        }
+      )
+    ] }),
+    /* @__PURE__ */ jsx(
+      "section",
+      {
+        "aria-label": language === "mr" ? "चालू घडामोडी लेख" : "Current affairs articles",
+        className: "mt-8 grid gap-5 sm:grid-cols-2",
+        children: currentAffairs.map((article) => /* @__PURE__ */ jsx(CurrentAffairsCard, { article }, article.id))
+      }
+    )
+  ] });
+}
+function CurrentAffairDetails() {
+  var _a, _b, _c, _d, _e;
+  const { slug } = useParams();
+  const { language, pick } = useLanguage();
+  const article = getCurrentAffairBySlug(slug || "");
+  if (!article) {
+    return /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-3xl px-4 py-24 text-center", children: [
+      /* @__PURE__ */ jsx(PageMeta, {}),
+      /* @__PURE__ */ jsx("h1", { className: "font-display text-2xl font-semibold text-navy dark:text-ink-dark", children: language === "mr" ? "लेख सापडला नाही" : "Article not found" }),
+      /* @__PURE__ */ jsx(Link, { to: "/current-affairs", className: "mt-4 inline-block text-saffron", children: language === "mr" ? "चालू घडामोडींकडे परत जा" : "Back to Current Affairs" })
+    ] });
+  }
+  const category = language === "mr" ? article.categoryMr : article.category;
+  const seoSections = ((_a = article.seoSections) == null ? void 0 : _a[language]) || [];
+  const faqs2 = ((_b = article.faq) == null ? void 0 : _b[language]) || [];
+  const mcqs = ((_c = article.mcqs) == null ? void 0 : _c[language]) || [];
+  const related = (article.relatedSlugs || []).map((relatedSlug) => getCurrentAffairBySlug(relatedSlug)).filter(Boolean);
+  return /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16", children: [
+    /* @__PURE__ */ jsx(PageMeta, {}),
+    /* @__PURE__ */ jsx("nav", { "aria-label": language === "mr" ? "पृष्ठ मार्गक्रमण" : "Breadcrumb", className: "mb-8", children: /* @__PURE__ */ jsxs("ol", { className: "flex flex-wrap items-center gap-1.5 text-sm text-ink/50 dark:text-ink-dark/50", children: [
+      /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "/", className: "hover:text-saffron", children: language === "mr" ? "मुख्यपृष्ठ" : "Home" }) }),
+      /* @__PURE__ */ jsx("li", { "aria-hidden": "true", children: "/" }),
+      /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "/current-affairs", className: "hover:text-saffron", children: language === "mr" ? "चालू घडामोडी" : "Current Affairs" }) }),
+      /* @__PURE__ */ jsx("li", { "aria-hidden": "true", children: "/" }),
+      /* @__PURE__ */ jsx("li", { "aria-current": "page", className: "font-medium text-navy dark:text-ink-dark", children: pick(article.title) })
+    ] }) }),
+    /* @__PURE__ */ jsxs("header", { children: [
+      /* @__PURE__ */ jsx("time", { dateTime: article.date, className: "text-sm font-medium text-saffron", children: formatDate(article.date, language) }),
+      /* @__PURE__ */ jsx("h1", { lang: language, className: "mt-1 font-display text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl", children: pick(article.title) }),
+      /* @__PURE__ */ jsx("span", { lang: language, className: "mt-3 inline-block rounded-full bg-leaf/10 px-3 py-1 text-xs font-medium text-leaf dark:text-leaf-light", children: category })
+    ] }),
+    /* @__PURE__ */ jsxs("section", { className: "mt-8", children: [
+      /* @__PURE__ */ jsxs("h2", { lang: language, className: "flex items-center gap-2 font-display text-xl font-semibold text-navy dark:text-ink-dark", children: [
+        /* @__PURE__ */ jsx(BookOpen, { size: 20, className: "text-saffron" }),
+        language === "mr" ? "परिचय" : "Introduction"
+      ] }),
+      /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 text-base leading-relaxed text-ink/80 dark:text-ink-dark/80", children: pick(article.introduction || article.content) })
+    ] }),
+    /* @__PURE__ */ jsxs("section", { className: "mt-8", children: [
+      /* @__PURE__ */ jsxs("h2", { lang: language, className: "flex items-center gap-2 font-display text-lg font-semibold text-navy dark:text-ink-dark", children: [
+        /* @__PURE__ */ jsx(BookOpen, { size: 18, className: "text-saffron" }),
+        language === "mr" ? "सोप्या भाषेत स्पष्टीकरण" : "Simple Explanation"
+      ] }),
+      /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 text-base leading-relaxed text-ink/80 dark:text-ink-dark/80", children: pick(article.simpleExplanation) })
+    ] }),
+    /* @__PURE__ */ jsxs("section", { className: "mt-8", children: [
+      /* @__PURE__ */ jsxs("h2", { lang: language, className: "flex items-center gap-2 font-display text-lg font-semibold text-navy dark:text-ink-dark", children: [
+        /* @__PURE__ */ jsx(Sparkles, { size: 18, className: "text-saffron" }),
+        language === "mr" ? "अगदी सोपे स्पष्टीकरण" : "Very Simple Explanation"
+      ] }),
+      /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 rounded-xl bg-navy/[0.04] p-5 text-base leading-relaxed text-navy dark:bg-white/[0.05] dark:text-ink-dark", children: pick(article.verySimple) })
+    ] }),
+    /* @__PURE__ */ jsxs("section", { className: "mt-8", children: [
+      /* @__PURE__ */ jsxs("h2", { lang: language, className: "flex items-center gap-2 font-display text-lg font-semibold text-navy dark:text-ink-dark", children: [
+        /* @__PURE__ */ jsx(Lightbulb, { size: 18, className: "text-saffron" }),
+        language === "mr" ? "उदाहरण" : "Example"
+      ] }),
+      /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70", children: pick(article.example) })
+    ] }),
+    seoSections.length > 0 && /* @__PURE__ */ jsx("section", { className: "mt-8 space-y-6", children: seoSections.map((section, index) => /* @__PURE__ */ jsxs("div", { children: [
+      /* @__PURE__ */ jsx("h2", { lang: language, className: "font-display text-lg font-semibold text-navy dark:text-ink-dark", children: section.heading }),
+      /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 text-base leading-relaxed text-ink/80 dark:text-ink-dark/80", children: section.content })
+    ] }, index)) }),
+    faqs2.length > 0 && /* @__PURE__ */ jsxs("section", { className: "mt-10", children: [
+      /* @__PURE__ */ jsxs("h2", { lang: language, className: "flex items-center gap-2 font-display text-xl font-semibold text-navy dark:text-ink-dark", children: [
+        /* @__PURE__ */ jsx(HelpCircle, { size: 20, className: "text-saffron" }),
+        language === "mr" ? "वारंवार विचारले जाणारे प्रश्न" : "Frequently Asked Questions"
+      ] }),
+      /* @__PURE__ */ jsx("div", { className: "mt-4 space-y-4", children: faqs2.map((faq, index) => /* @__PURE__ */ jsxs("div", { className: "rounded-xl border border-navy/10 bg-white/60 p-5 dark:border-ink-dark/10 dark:bg-white/[0.04]", children: [
+        /* @__PURE__ */ jsx("h3", { lang: language, className: "font-semibold text-navy dark:text-ink-dark", children: faq.question }),
+        /* @__PURE__ */ jsx("p", { lang: language, className: "mt-2 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70", children: faq.answer })
+      ] }, index)) })
+    ] }),
+    mcqs.length > 0 && /* @__PURE__ */ jsxs("section", { className: "mt-10", children: [
+      /* @__PURE__ */ jsx("h2", { lang: language, className: "font-display text-xl font-semibold text-navy dark:text-ink-dark", children: language === "mr" ? "बहुपर्यायी प्रश्न" : "Multiple Choice Questions" }),
+      /* @__PURE__ */ jsx("div", { className: "mt-4 space-y-4", children: mcqs.map((mcq, index) => /* @__PURE__ */ jsxs("div", { className: "rounded-xl border border-navy/10 bg-white/60 p-5 dark:border-ink-dark/10 dark:bg-white/[0.04]", children: [
+        /* @__PURE__ */ jsx("h3", { lang: language, className: "font-semibold text-navy dark:text-ink-dark", children: mcq.question }),
+        /* @__PURE__ */ jsx("ul", { className: "mt-3 grid gap-2 text-sm text-ink/70 dark:text-ink-dark/70 sm:grid-cols-2", children: mcq.options.map((option) => /* @__PURE__ */ jsx("li", { children: option }, option)) }),
+        /* @__PURE__ */ jsxs("p", { lang: language, className: "mt-3 text-sm font-medium text-leaf dark:text-leaf-light", children: [
+          language === "mr" ? "योग्य उत्तर" : "Correct answer",
+          ": ",
+          mcq.answer
+        ] })
+      ] }, index)) })
+    ] }),
+    related.length > 0 && /* @__PURE__ */ jsxs("section", { className: "mt-10", children: [
+      /* @__PURE__ */ jsxs("h2", { lang: language, className: "flex items-center gap-2 font-display text-lg font-semibold text-navy dark:text-ink-dark", children: [
+        /* @__PURE__ */ jsx(Link2, { size: 18, className: "text-saffron" }),
+        language === "mr" ? "संबंधित चालू घडामोडी" : "Related Current Affairs"
+      ] }),
+      /* @__PURE__ */ jsx("div", { className: "mt-3 flex flex-wrap gap-2", children: related.map((relatedArticle) => /* @__PURE__ */ jsx(Link, { to: `/current-affairs/${relatedArticle.slug}`, className: "rounded-full border border-navy/15 px-4 py-2 text-sm text-navy transition-colors hover:border-saffron/50 hover:text-saffron dark:border-ink-dark/20 dark:text-ink-dark", children: pick(relatedArticle.title) }, relatedArticle.id)) })
+    ] }),
+    /* @__PURE__ */ jsx("div", { className: "mt-10 border-t border-navy/10 pt-6 text-xs text-ink/45 dark:border-ink-dark/10 dark:text-ink-dark/45", children: /* @__PURE__ */ jsxs("span", { children: [
+      language === "mr" ? "स्रोत" : "Source",
+      ":",
+      " ",
+      ((_d = article.source) == null ? void 0 : _d.url) ? /* @__PURE__ */ jsx("a", { href: article.source.url, className: "hover:text-saffron", children: article.source.name }) : ((_e = article.source) == null ? void 0 : _e.name) || "—"
+    ] }) })
+  ] });
+}
 function App() {
   return /* @__PURE__ */ jsxs("div", { className: "flex min-h-screen flex-col", children: [
     /* @__PURE__ */ jsx(
@@ -5092,6 +5452,8 @@ function App() {
     /* @__PURE__ */ jsx("main", { id: "main-content", className: "flex-1", children: /* @__PURE__ */ jsxs(Routes, { children: [
       /* @__PURE__ */ jsx(Route, { path: "/", element: /* @__PURE__ */ jsx(Home, {}) }),
       /* @__PURE__ */ jsx(Route, { path: "/articles", element: /* @__PURE__ */ jsx(Articles, {}) }),
+      /* @__PURE__ */ jsx(Route, { path: "/current-affairs", element: /* @__PURE__ */ jsx(CurrentAffairsList, {}) }),
+      /* @__PURE__ */ jsx(Route, { path: "/current-affairs/:slug", element: /* @__PURE__ */ jsx(CurrentAffairDetails, {}) }),
       /* @__PURE__ */ jsx(Route, { path: "/article/:id", element: /* @__PURE__ */ jsx(ArticleDetails, {}) }),
       /* @__PURE__ */ jsx(Route, { path: "/fundamental-rights", element: /* @__PURE__ */ jsx(FundamentalRights, {}) }),
       /* @__PURE__ */ jsx(Route, { path: "/fundamental-duties", element: /* @__PURE__ */ jsx(FundamentalDuties, {}) }),

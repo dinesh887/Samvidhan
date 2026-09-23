@@ -8,6 +8,7 @@ export const siteConfig = {
 export const seoRoutes = {
   '/': { title: { en: siteConfig.defaultTitle, mr: 'संविधान | भारताचे संविधान समजून घ्या' }, description: { en: siteConfig.defaultDescription, mr: 'भारतीय संविधान, कलमे, मूलभूत अधिकार, कर्तव्ये आणि दुरुस्त्या सोप्या भाषेत समजून घ्या.' }, priority: '1.0', changefreq: 'weekly' },
   '/articles': { title: { en: 'Constitutional Articles | Samvidhan', mr: 'संवैधानिक कलमे | संविधान' }, description: { en: 'Search and understand the Constitutional Articles of India with clear explanations.', mr: 'भारतीय संविधानातील कलमे शोधा आणि स्पष्ट स्पष्टीकरणांसह समजून घ्या.' }, priority: '0.9', changefreq: 'weekly' },
+  '/current-affairs': { title: { en: 'Current Affairs | Indian Constitution & Polity | MySamvidhan', mr: 'चालू घडामोडी | भारतीय संविधान आणि राज्यशास्त्र | MySamvidhan' }, description: { en: 'Read current affairs and important developments related to the Indian Constitution, polity and Supreme Court in simple language.', mr: 'भारतीय संविधान, राज्यशास्त्र आणि सर्वोच्च न्यायालयाशी संबंधित चालू घडामोडी सोप्या भाषेत वाचा.' }, priority: '0.9', changefreq: 'daily' },
   '/fundamental-rights': { title: { en: 'Fundamental Rights | Samvidhan', mr: 'मूलभूत अधिकार | संविधान' }, description: { en: 'Understand the Fundamental Rights guaranteed by the Constitution of India.', mr: 'भारतीय संविधानाने दिलेले मूलभूत अधिकार समजून घ्या.' }, priority: '0.8', changefreq: 'monthly' },
   '/fundamental-duties': { title: { en: 'Fundamental Duties | Samvidhan', mr: 'मूलभूत कर्तव्ये | संविधान' }, description: { en: 'Learn the Fundamental Duties of citizens of India.', mr: 'भारताच्या नागरिकांची मूलभूत कर्तव्ये जाणून घ्या.' }, priority: '0.8', changefreq: 'monthly' },
   '/directive-principles': { title: { en: 'Directive Principles of State Policy | Samvidhan', mr: 'राज्याच्या धोरणाची मार्गदर्शक तत्त्वे | संविधान' }, description: { en: 'Explore the Directive Principles that guide governance and public policy.', mr: 'शासन आणि सार्वजनिक धोरणाला दिशा देणारी मार्गदर्शक तत्त्वे जाणून घ्या.' }, priority: '0.8', changefreq: 'monthly' },
@@ -30,5 +31,6 @@ export const seoRoutes = {
 export function getSeoRoute(pathname) {
   if (seoRoutes[pathname]) return seoRoutes[pathname]
   if (pathname.startsWith('/article/')) return seoRoutes['/article/:id']
+  if (pathname.startsWith('/current-affairs/')) return { indexable: true, changefreq: 'daily', priority: '0.7' }
   return { title: { en: siteConfig.defaultTitle, mr: 'संविधान | भारताचे संविधान समजून घ्या' }, description: { en: siteConfig.defaultDescription, mr: 'भारतीय संविधानाबद्दल सोप्या भाषेत जाणून घ्या.' }, indexable: false }
 }
