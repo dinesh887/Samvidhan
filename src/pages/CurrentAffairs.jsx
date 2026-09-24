@@ -39,7 +39,9 @@ export function CurrentAffairsList() {
         aria-label={language === 'mr' ? 'चालू घडामोडी लेख' : 'Current affairs articles'}
         className="mt-8 grid gap-5 sm:grid-cols-2"
       >
-        {currentAffairs.map((article) => (
+        {[...currentAffairs]
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .map((article) => (
           <CurrentAffairsCard key={article.id} article={article} />
         ))}
       </section>
@@ -210,11 +212,22 @@ export function CurrentAffairDetails() {
       )}
 
       <div className="mt-10 border-t border-navy/10 pt-6 text-xs text-ink/45 dark:border-ink-dark/10 dark:text-ink-dark/45">
-        <span>
-          {language === 'mr' ? 'स्रोत' : 'Source'}:{' '}
-          {article.source?.url ? <a href={article.source.url} className="hover:text-saffron">{article.source.name}</a> : article.source?.name || '—'}
-        </span>
-      </div>
+  <span>
+    {language === 'mr' ? 'स्रोत' : 'Source'}:{' '}
+    {article.source?.url ? (
+      <a
+        href={article.source.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-saffron"
+      >
+        {article.source.title || 'The Indian Express'}
+      </a>
+    ) : (
+      article.source?.title || '—'
+    )}
+  </span>
+</div>
     </div>
   )
 }
