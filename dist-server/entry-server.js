@@ -3276,6 +3276,298 @@ In the present news development, the reported objections relate to several elect
     relatedIds: ["324", "352", "32"],
     createdAt: "2026-09-24",
     updatedAt: "2026-09-24"
+  },
+  {
+    id: "save-sahyadri-western-ghats-esa-2026",
+    articleNumber: "Current Affairs",
+    categoryKey: "current-affairs",
+    title: {
+      en: "Save Sahyadri: Western Ghats ESA Draft Notification 2026 Explained",
+      mr: "सह्याद्री वाचवा: Western Ghats ESA Draft Notification 2026 समजून घ्या"
+    },
+    slug: "save-sahyadri-western-ghats-esa-draft-notification-2026",
+    seoTitle: {
+      en: "Save Sahyadri: Western Ghats ESA Draft Notification 2026 | MySamvidhan",
+      mr: "सह्याद्री वाचवा: Western Ghats ESA Draft Notification 2026 | MySamvidhan"
+    },
+    seoDescription: {
+      en: "Understand the Save Sahyadri awareness campaign and the 2026 Western Ghats Ecologically Sensitive Area draft notification, including Maharashtra and public consultation.",
+      mr: "सह्याद्री वाचवा मोहिमेच्या पार्श्वभूमीवर 2026 Western Ghats Ecologically Sensitive Area draft notification, महाराष्ट्र आणि public consultation समजून घ्या."
+    },
+    shortDescription: {
+      en: "The Save Sahyadri awareness campaign has gained attention as the Ministry of Environment, Forest and Climate Change considers a draft notification for the Western Ghats Ecologically Sensitive Area.",
+      mr: "सह्याद्री वाचवा या जनजागृती मोहिमेच्या पार्श्वभूमीवर Western Ghats Ecologically Sensitive Area संदर्भातील 2026 च्या draft notification कडे लक्ष वेधले जात आहे."
+    },
+    keywords: [
+      "Save Sahyadri",
+      "Save Sahyadri campaign",
+      "Sahyadri conservation",
+      "Western Ghats ESA 2026",
+      "Western Ghats Ecologically Sensitive Area",
+      "Western Ghats draft notification 2026",
+      "Western Ghats ESA draft notification",
+      "S.O. 4106(E)",
+      "27 July 2026 Western Ghats notification",
+      "Maharashtra Western Ghats",
+      "Western Ghats Maharashtra",
+      "Western Ghats environmental protection",
+      "Western Ghats biodiversity",
+      "Western Ghats villages",
+      "Sahyadri Maharashtra",
+      "Western Ghats current affairs",
+      "environment current affairs",
+      "UPSC current affairs",
+      "MPSC current affairs",
+      "Police Bharti current affairs",
+      "सह्याद्री वाचवा",
+      "सह्याद्री संवर्धन",
+      "पश्चिम घाट",
+      "पश्चिम घाट पर्यावरण संवेदनशील क्षेत्र",
+      "सह्याद्री महाराष्ट्र",
+      "Western Ghats ESA महाराष्ट्र"
+    ],
+    language: "en",
+    date: "2026-09-25",
+    officialText: {
+      en: "",
+      mr: "",
+      verified: false
+    },
+    introduction: {
+      en: `The Save Sahyadri awareness campaign has gained attention in Maharashtra and on social platforms amid ongoing discussion around the protection of the Western Ghats.
+
+A key development is the Draft Notification of the Western Ghats Ecologically Sensitive Area issued by the Ministry of Environment, Forest and Climate Change on 27 July 2026.
+
+The draft notification proposes a framework for declaring the Western Ghats as an Ecologically Sensitive Area and provides an opportunity for affected persons and other interested stakeholders to submit objections or suggestions before the final notification is considered.`,
+      mr: `सह्याद्री वाचवा या जनजागृती मोहिमेमुळे सह्याद्री आणि Western Ghats च्या पर्यावरणीय संरक्षणाबाबत पुन्हा चर्चा सुरू झाली आहे.
+
+या पार्श्वभूमीवर Ministry of Environment, Forest and Climate Change ने 27 जुलै 2026 रोजी Western Ghats Ecologically Sensitive Area संदर्भात Draft Notification जारी केली आहे.
+
+या Draft Notification चा उद्देश Western Ghats साठी Ecologically Sensitive Area ची चौकट निश्चित करण्याशी संबंधित आहे. अंतिम notification करण्यापूर्वी संबंधित व्यक्ती आणि इतर interested stakeholders यांना objections किंवा suggestions मांडण्याची संधी देण्यात आली आहे.`
+    },
+    simpleExplanation: {
+      en: `The Western Ghats are a major mountain system along the western side of India and extend across Gujarat, Maharashtra, Goa, Karnataka, Kerala and Tamil Nadu.
+
+The Ministry's 27 July 2026 draft notification proposes an Ecologically Sensitive Area framework for the Western Ghats.
+
+The notification states that the Western Ghats are an important geological landform and a global biodiversity hotspot. It also highlights their role in river systems, forests, wildlife habitats and biological diversity.
+
+The draft is not the final notification. It is part of the consultation process through which objections and suggestions can be submitted for consideration before finalisation.`,
+      mr: `Western Ghats म्हणजे भारताच्या पश्चिम भागातील महत्त्वाची पर्वतरांग असून ती गुजरात, महाराष्ट्र, गोवा, कर्नाटक, केरळ आणि तामिळनाडू या सहा राज्यांत पसरलेली आहे.
+
+27 जुलै 2026 रोजीच्या Ministry च्या Draft Notification मध्ये Western Ghats साठी Ecologically Sensitive Area ची चौकट प्रस्तावित करण्यात आली आहे.
+
+या notification मध्ये Western Ghats ला महत्त्वपूर्ण geological landform आणि global biodiversity hotspot म्हणून नमूद करण्यात आले आहे. तसेच नद्या, जंगलं, wildlife habitats आणि जैवविविधतेतील त्यांची भूमिका अधोरेखित करण्यात आली आहे.
+
+ही Draft Notification अंतिम notification नाही. अंतिम notification करण्यापूर्वी objections आणि suggestions विचारात घेण्यासाठी ही consultation प्रक्रिया आहे.`
+    },
+    verySimple: {
+      en: `In simple words, the Save Sahyadri discussion is connected with the larger question of how the Western Ghats should be protected while considering the needs of local communities and development.
+
+The current 2026 draft notification is an important part of this discussion, but it should not be confused with a final notification.`,
+      mr: `सोप्या भाषेत सांगायचे तर, सह्याद्री वाचवा या चर्चेचा संबंध Western Ghats चे पर्यावरणीय संरक्षण, स्थानिक समुदायांच्या गरजा आणि विकास यांच्यातील समतोलाशी आहे.
+
+2026 ची Draft Notification या चर्चेतील महत्त्वाचा भाग आहे; मात्र ती अंतिम notification आहे असे समजणे योग्य नाही.`
+    },
+    example: {
+      en: `For example, if a village or area falls within a proposed Ecologically Sensitive Area, environmental rules and regulatory requirements may become relevant to certain activities depending on the final notification and applicable laws.
+
+This is why the draft stage is important: the government considers objections and suggestions before finalising the notification.`,
+      mr: `उदाहरणार्थ, एखादे गाव किंवा क्षेत्र प्रस्तावित Ecologically Sensitive Area मध्ये येत असल्यास, अंतिम notification आणि लागू असलेल्या कायद्यांनुसार काही activities साठी environmental rules आणि regulatory requirements लागू होऊ शकतात.
+
+म्हणूनच Draft Notification चा टप्पा महत्त्वाचा आहे. अंतिम notification करण्यापूर्वी objections आणि suggestions विचारात घेतले जातात.`
+    },
+    seoSections: {
+      en: [
+        {
+          heading: "What is the Save Sahyadri campaign?",
+          content: "Save Sahyadri is being used as an environmental awareness campaign theme encouraging discussion and public participation around conservation of the Sahyadri and Western Ghats landscape. Current social-media discussions include sharing information, local environmental concerns and comments related to the Western Ghats ESA consultation."
+        },
+        {
+          heading: "What is the Western Ghats ESA Draft Notification 2026?",
+          content: "The Ministry of Environment, Forest and Climate Change published a draft notification dated 27 July 2026 concerning the Western Ghats Ecologically Sensitive Area. The draft is intended to provide a framework for the final notification of the Western Ghats ESA."
+        },
+        {
+          heading: "Which states are covered by the Western Ghats?",
+          content: "The Western Ghats extend across six states: Gujarat, Maharashtra, Goa, Karnataka, Kerala and Tamil Nadu."
+        },
+        {
+          heading: "Why are the Western Ghats important?",
+          content: "The Ministry describes the Western Ghats as an important geological landform and a global biodiversity hotspot. The region contains diverse habitats and supports forests, wildlife, river systems and many endemic species."
+        },
+        {
+          heading: "Is the 2026 Western Ghats ESA notification final?",
+          content: "No. The 27 July 2026 document is a draft notification. The notification provides for objections and suggestions to be considered before the final notification is published."
+        },
+        {
+          heading: "What is the public consultation process?",
+          content: "The draft notification gives interested persons an opportunity to submit objections or suggestions to the Ministry within the specified period. The Ministry lists the consultation as part of the process before finalisation."
+        },
+        {
+          heading: "What is the connection with Maharashtra?",
+          content: "Maharashtra is one of the six states covered by the Western Ghats region. The draft ESA framework therefore has relevance for areas of Maharashtra that fall within the proposed Western Ghats ESA."
+        },
+        {
+          heading: "Why is Save Sahyadri a current affairs topic?",
+          content: "The topic connects environmental conservation, biodiversity, public consultation and government policy. It is therefore relevant to current-affairs preparation as well as environmental studies for competitive examinations."
+        }
+      ],
+      mr: [
+        {
+          heading: "सह्याद्री वाचवा मोहीम म्हणजे काय?",
+          content: "सह्याद्री वाचवा हा पर्यावरण संवर्धनाबाबत जनजागृती आणि सार्वजनिक चर्चेसाठी वापरला जाणारा campaign theme आहे. सध्याच्या चर्चेत सह्याद्री, Western Ghats आणि Ecologically Sensitive Area संदर्भातील माहिती व public participation यावर भर दिला जात आहे."
+        },
+        {
+          heading: "Western Ghats ESA Draft Notification 2026 म्हणजे काय?",
+          content: "Ministry of Environment, Forest and Climate Change ने 27 जुलै 2026 रोजी Western Ghats Ecologically Sensitive Area संदर्भात Draft Notification जारी केली. अंतिम notification करण्यापूर्वी या draft वर objections आणि suggestions विचारात घेण्याची प्रक्रिया आहे."
+        },
+        {
+          heading: "Western Ghats कोणत्या राज्यांत पसरले आहेत?",
+          content: "Western Ghats गुजरात, महाराष्ट्र, गोवा, कर्नाटक, केरळ आणि तामिळनाडू या सहा राज्यांत पसरले आहेत."
+        },
+        {
+          heading: "Western Ghats महत्त्वाचे का आहेत?",
+          content: "Ministry च्या Draft Notification मध्ये Western Ghats ला महत्त्वपूर्ण geological landform आणि global biodiversity hotspot म्हटले आहे. या प्रदेशात विविध habitats, जंगलं, wildlife, नद्या आणि अनेक endemic species आढळतात."
+        },
+        {
+          heading: "2026 ची Western Ghats ESA notification अंतिम आहे का?",
+          content: "नाही. 27 जुलै 2026 रोजी जारी केलेले document हे Draft Notification आहे. अंतिम notification करण्यापूर्वी objections आणि suggestions विचारात घेण्याची तरतूद आहे."
+        },
+        {
+          heading: "Public consultation म्हणजे काय?",
+          content: "Draft Notification मध्ये interested persons ना specified period मध्ये objections किंवा suggestions मांडण्याची संधी दिली जाते. अंतिम notification करण्यापूर्वी या सूचना विचारात घेतल्या जाऊ शकतात."
+        },
+        {
+          heading: "महाराष्ट्राशी याचा संबंध काय?",
+          content: "महाराष्ट्र हे Western Ghats असलेल्या सहा राज्यांपैकी एक आहे. त्यामुळे प्रस्तावित Western Ghats ESA मध्ये येणाऱ्या महाराष्ट्रातील क्षेत्रांसाठी या Draft Notification ला महत्त्व आहे."
+        },
+        {
+          heading: "सह्याद्री वाचवा हा Current Affairs विषय का आहे?",
+          content: "या विषयाचा संबंध पर्यावरण संवर्धन, जैवविविधता, public consultation आणि government policy यांच्याशी आहे. त्यामुळे competitive examinations साठीही हा current-affairs topic उपयुक्त आहे."
+        }
+      ]
+    },
+    faq: {
+      en: [
+        {
+          question: "What is Save Sahyadri?",
+          answer: "Save Sahyadri is an environmental awareness theme focused on conservation and public discussion around the Sahyadri and Western Ghats."
+        },
+        {
+          question: "What is the Western Ghats ESA?",
+          answer: "ESA stands for Ecologically Sensitive Area. The Western Ghats ESA framework concerns environmental protection and regulation in ecologically sensitive parts of the Western Ghats."
+        },
+        {
+          question: "When was the latest Western Ghats ESA draft notification issued?",
+          answer: "The Ministry of Environment, Forest and Climate Change issued the current draft notification dated 27 July 2026."
+        },
+        {
+          question: "Is the 2026 Western Ghats ESA notification final?",
+          answer: "No. It is a draft notification and forms part of the consultation process before finalisation."
+        },
+        {
+          question: "Does the Western Ghats ESA include Maharashtra?",
+          answer: "Yes. Maharashtra is one of the six states covered by the Western Ghats region."
+        }
+      ],
+      mr: [
+        {
+          question: "सह्याद्री वाचवा म्हणजे काय?",
+          answer: "सह्याद्री वाचवा हा सह्याद्री आणि Western Ghats च्या पर्यावरण संवर्धनाबाबत जनजागृती आणि सार्वजनिक चर्चेसाठी वापरला जाणारा campaign theme आहे."
+        },
+        {
+          question: "Western Ghats ESA म्हणजे काय?",
+          answer: "ESA म्हणजे Ecologically Sensitive Area. Western Ghats ESA चा संबंध पर्यावरणीयदृष्ट्या संवेदनशील क्षेत्रांच्या संरक्षण आणि नियमनाशी आहे."
+        },
+        {
+          question: "Western Ghats ESA ची नवीन Draft Notification कधी जारी झाली?",
+          answer: "Ministry of Environment, Forest and Climate Change ने 27 जुलै 2026 रोजी Draft Notification जारी केली."
+        },
+        {
+          question: "2026 ची Draft Notification अंतिम आहे का?",
+          answer: "नाही. ती Draft Notification आहे आणि अंतिम notification पूर्वी consultation process चा भाग आहे."
+        },
+        {
+          question: "Western Ghats ESA मध्ये महाराष्ट्राचा समावेश आहे का?",
+          answer: "होय. महाराष्ट्र हे Western Ghats असलेल्या सहा राज्यांपैकी एक आहे."
+        }
+      ]
+    },
+    mcqs: {
+      en: [
+        {
+          question: "What does ESA stand for?",
+          options: [
+            "Environmental Safety Area",
+            "Ecologically Sensitive Area",
+            "Ecological Survey Authority",
+            "Environmental Study Area"
+          ],
+          answer: "Ecologically Sensitive Area"
+        },
+        {
+          question: "When was the 2026 Western Ghats ESA draft notification issued?",
+          options: [
+            "27 July 2026",
+            "15 August 2026",
+            "5 September 2026",
+            "25 September 2026"
+          ],
+          answer: "27 July 2026"
+        },
+        {
+          question: "How many states does the Western Ghats traverse?",
+          options: ["4", "5", "6", "7"],
+          answer: "6"
+        },
+        {
+          question: "Which of these states is part of the Western Ghats region?",
+          options: ["Maharashtra", "Punjab", "Bihar", "Haryana"],
+          answer: "Maharashtra"
+        }
+      ],
+      mr: [
+        {
+          question: "ESA चे पूर्ण रूप काय आहे?",
+          options: [
+            "Environmental Safety Area",
+            "Ecologically Sensitive Area",
+            "Ecological Survey Authority",
+            "Environmental Study Area"
+          ],
+          answer: "Ecologically Sensitive Area"
+        },
+        {
+          question: "2026 ची Western Ghats ESA Draft Notification कधी जारी झाली?",
+          options: [
+            "27 जुलै 2026",
+            "15 ऑगस्ट 2026",
+            "5 सप्टेंबर 2026",
+            "25 सप्टेंबर 2026"
+          ],
+          answer: "27 जुलै 2026"
+        },
+        {
+          question: "Western Ghats किती राज्यांत पसरले आहेत?",
+          options: ["4", "5", "6", "7"],
+          answer: "6"
+        },
+        {
+          question: "खालीलपैकी कोणते राज्य Western Ghats region मध्ये आहे?",
+          options: ["महाराष्ट्र", "पंजाब", "बिहार", "हरियाणा"],
+          answer: "महाराष्ट्र"
+        }
+      ]
+    },
+    source: {
+      title: "Ministry of Environment, Forest and Climate Change — Draft Notification of Western Ghats Ecologically Sensitive Area dated 27 July 2026",
+      url: "https://moef.gov.in/index.php/orders/update"
+    },
+    lastVerified: "2026-09-25",
+    verified: false,
+    relatedIds: ["324", "32", "352"],
+    createdAt: "2026-09-25",
+    updatedAt: "2026-09-25"
   }
 ];
 function getCurrentAffairBySlug(slug) {
