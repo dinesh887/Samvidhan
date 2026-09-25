@@ -91,12 +91,14 @@ export default function PageMeta() {
     setMeta('name', 'twitter:description', description)
 
     setMeta(
-      'name',
-      'robots',
-      config.indexable === false
-        ? 'noindex, nofollow'
-        : 'index, follow'
-    )
+  'name',
+  'robots',
+  pathname === '/premium'
+    ? 'noindex, follow'
+    : config.indexable === false
+      ? 'noindex, nofollow'
+      : 'index, follow'
+)
 
     // Dynamic canonical
     setLink('canonical', canonicalUrl)

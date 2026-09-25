@@ -3329,7 +3329,7 @@ function PageMeta() {
     setMeta(
       "name",
       "robots",
-      config.indexable === false ? "noindex, nofollow" : "index, follow"
+      pathname === "/premium" ? "noindex, follow" : config.indexable === false ? "noindex, nofollow" : "index, follow"
     );
     setLink("canonical", canonicalUrl);
   }, [pathname, language, pick]);
