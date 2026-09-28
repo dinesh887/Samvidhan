@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import {
   ScrollText,
@@ -25,6 +26,8 @@ import { generateArticleSEO } from '../utils/seoUtils'
 export default function ArticleDetails() {
   const { id } = useParams()
   const { t, pick, language } = useLanguage()
+
+  const [openFAQ, setOpenFAQ] = useState(null)
 
   const article = getArticleById(id || '')
 
@@ -58,21 +61,87 @@ export default function ArticleDetails() {
   // GLOBAL SEO
   // -----------------------------------------
 
-  const seo = generateArticleSEO(article)
+ const seo = generateArticleSEO(article)
 
-  // -----------------------------------------
-  // ARTICLE NUMBER
-  // -----------------------------------------
+// -----------------------------------------
+// ARTICLE NUMBER
+// -----------------------------------------
 
-  const rawNumber = String(article.articleNumber || '')
+const rawNumber = String(article.articleNumber || '')
 
-  const articleNumber = rawNumber
-    .replace(/^article\s*/i, '')
-    .replace(/^कलम\s*/i, '')
-    .trim()
+const articleNumber = rawNumber
+  .replace(/^article\s*/i, '')
+  .replace(/^कलम\s*/i, '')
+  .trim()
 
-  const englishArticle = `Article ${articleNumber}`
-  const marathiArticle = `कलम ${articleNumber}`
+const englishArticle = `Article ${articleNumber}`
+const marathiArticle = `कलम ${articleNumber}`
+
+// -----------------------------------------
+// STRUCTURED DATA
+// -----------------------------------------
+
+const siteUrl = 'https://www.mysamvidhan.in'
+
+const articleUrl = `${siteUrl}/article/${article.id}`
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  '@id': `${articleUrl}#article`,
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': articleUrl,
+  },
+  headline: pick(article.title),
+  description:
+    language === 'mr'
+      ? seo.descriptionMr
+      : seo.descriptionEn,
+  inLanguage: language === 'mr' ? 'mr-IN' : 'en-IN',
+  author: {
+    '@type': 'Organization',
+    name: 'MySamvidhan',
+    url: siteUrl,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'MySamvidhan',
+    url: siteUrl,
+  },
+  dateModified: article.lastVerified || undefined,
+  url: articleUrl,
+}
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: language === 'mr' ? 'मुख्यपृष्ठ' : 'Home',
+      item: siteUrl,
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: language === 'mr' ? 'सर्व कलमे' : 'Articles',
+      item: `${siteUrl}/articles`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name:
+        language === 'mr'
+          ? marathiArticle
+          : englishArticle,
+      item: articleUrl,
+    },
+  ],
+}
+
+
 
   // -----------------------------------------
   // SEO FRIENDLY FAQ
@@ -185,10 +254,31 @@ export default function ArticleDetails() {
 
   return (
     <>
+    {/* =========================================
+        ARTICLE SCHEMA
+    ========================================= */}
+
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(articleSchema),
+      }}
+    />
+
+    {/* =========================================
+        BREADCRUMB SCHEMA
+    ========================================= */}
+
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(breadcrumbSchema),
+      }}
+    />
       {/* =========================================
           GLOBAL SEO
       ========================================= */}
-
+    
       <PageMeta
         title={
           language === 'mr'
@@ -481,52 +571,86 @@ export default function ArticleDetails() {
             FAQ
         ========================================= */}
 
-        <section className="mt-10">
+        {/* =========================================
+    FAQ ACCORDION
+========================================= */}
 
-          <h2
-            lang={language}
-            className="flex items-center gap-2 font-display text-xl font-semibold text-navy dark:text-ink-dark"
+<section className="mt-10">
+
+  <h2
+    lang={language}
+    className="flex items-center gap-2 font-display text-xl font-semibold text-navy dark:text-ink-dark"
+  >
+    <HelpCircle
+      size={20}
+      className="text-saffron"
+    />
+
+    {language === 'mr'
+      ? 'वारंवार विचारले जाणारे प्रश्न'
+      : 'Frequently Asked Questions'}
+  </h2>
+
+  <div className="mt-4 space-y-3">
+
+    {faqs.map((faq, index) => {
+      const isOpen = openFAQ === index
+
+      return (
+        <div
+          key={index}
+          className="overflow-hidden rounded-xl border border-navy/10 dark:border-ink-dark/10 bg-white/60 dark:bg-white/[0.04]"
+        >
+
+          {/* Question */}
+          <button
+            type="button"
+            onClick={() =>
+              setOpenFAQ(isOpen ? null : index)
+            }
+            aria-expanded={isOpen}
+            aria-controls={`faq-answer-${index}`}
+            className="flex w-full items-center justify-between gap-4 p-5 text-left transition-colors hover:bg-navy/[0.03] dark:hover:bg-white/[0.03]"
           >
-            <HelpCircle
-              size={20}
-              className="text-saffron"
-            />
 
-            {language === 'mr'
-              ? 'वारंवार विचारले जाणारे प्रश्न'
-              : 'Frequently Asked Questions'}
-          </h2>
+            <span
+              lang={language}
+              className="font-semibold text-navy dark:text-ink-dark"
+            >
+              {faq.question}
+            </span>
 
-          <div className="mt-4 space-y-4">
+            <span
+              aria-hidden="true"
+              className="shrink-0 text-xl font-medium text-saffron"
+            >
+              {isOpen ? '−' : '+'}
+            </span>
 
-            {faqs.map((faq, index) => (
-              <div
-                key={index}
-                className="rounded-xl border border-navy/10 dark:border-ink-dark/10 bg-white/60 dark:bg-white/[0.04] p-5"
+          </button>
+
+          {/* Answer */}
+          {isOpen && faq.answer && (
+            <div
+              id={`faq-answer-${index}`}
+              className="border-t border-navy/10 dark:border-ink-dark/10 px-5 pb-5 pt-4"
+            >
+              <p
+                lang={language}
+                className="text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70"
               >
+                {faq.answer}
+              </p>
+            </div>
+          )}
 
-                <h3
-                  lang={language}
-                  className="font-semibold text-navy dark:text-ink-dark"
-                >
-                  {faq.question}
-                </h3>
+        </div>
+      )
+    })}
 
-                {faq.answer && (
-                  <p
-                    lang={language}
-                    className="mt-2 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70"
-                  >
-                    {faq.answer}
-                  </p>
-                )}
+  </div>
 
-              </div>
-            ))}
-
-          </div>
-
-        </section>
+</section>
 
         {/* =========================================
             RELATED ARTICLES
