@@ -109,7 +109,9 @@ const articleSchema = {
     name: 'MySamvidhan',
     url: siteUrl,
   },
-  dateModified: article.lastVerified || undefined,
+  dateModified: article.lastVerified
+  ? `${article.lastVerified}T00:00:00+05:30`
+  : undefined,
   url: articleUrl,
 }
 
