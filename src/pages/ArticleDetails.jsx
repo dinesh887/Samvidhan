@@ -84,36 +84,57 @@ const marathiArticle = `कलम ${articleNumber}`
 const siteUrl = 'https://www.mysamvidhan.in'
 
 const articleUrl = `${siteUrl}/article/${article.id}`
+const articleImage = `/images/articles/article-${String(article.id).toLowerCase()}.webp`
 
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   '@id': `${articleUrl}#article`,
+
   mainEntityOfPage: {
     '@type': 'WebPage',
     '@id': articleUrl,
   },
+
   headline: pick(article.title),
+
   description:
     language === 'mr'
       ? seo.descriptionMr
       : seo.descriptionEn,
+
+  image: `${siteUrl}${articleImage}`,
+
   inLanguage: language === 'mr' ? 'mr-IN' : 'en-IN',
+
   author: {
-    '@type': 'Organization',
-    name: 'MySamvidhan',
-    url: siteUrl,
-  },
+  '@type': 'Organization',
+  '@id': `${siteUrl}#organization`,
+  name: 'MySamvidhan',
+  url: siteUrl,
+},
+
   publisher: {
     '@type': 'Organization',
+    '@id': `${siteUrl}#organization`,
     name: 'MySamvidhan',
     url: siteUrl,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${siteUrl}/images/mysamvidhan-logo.svg`,
+    },
   },
+
+  keywords: Array.isArray(article.keywords)
+    ? article.keywords.join(', ')
+    : '',
+
   dateModified: article.lastVerified
-  ? `${article.lastVerified}T00:00:00+05:30`
-  : undefined,
+    ? `${article.lastVerified}T00:00:00+05:30`
+    : undefined,
+
   url: articleUrl,
-}
+};
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
@@ -379,6 +400,25 @@ const breadcrumbSchema = {
             </span>
           )}
         </header>
+                {/* =========================================
+            ARTICLE BANNER IMAGE
+        ========================================= */}
+
+        <div className="mt-8 overflow-hidden rounded-2xl border border-navy/10 dark:border-ink-dark/10 bg-white/60 dark:bg-white/[0.04] shadow-sm">
+  <img
+    src={articleImage}
+    alt={
+      language === 'mr'
+        ? `${marathiArticle} - ${pick(article.title)}`
+        : `${englishArticle} - ${pick(article.title)}`
+    }
+    width="1200"
+    height="630"
+    loading="eager"
+    decoding="async"
+    className="h-auto w-full object-cover"
+  />
+</div>
 
         {/* =========================================
             INTRODUCTION

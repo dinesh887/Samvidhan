@@ -144,7 +144,33 @@ export default function PageMeta() {
       'description',
       description
     )
+      // =========================================
+      // Article Meta
+      // =========================================
 
+      if (article) {
+        const keywords = Array.isArray(article.keywords)
+          ? article.keywords.join(', ')
+          : ''
+
+        setMeta(
+          'name',
+          'keywords',
+          keywords
+        )
+
+        setMeta(
+          'name',
+          'author',
+          'MySamvidhan'
+        )
+
+        setMeta(
+          'name',
+          'publisher',
+          'MySamvidhan'
+        )
+      }
     /*
      * Open Graph
      */
