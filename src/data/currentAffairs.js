@@ -851,6 +851,406 @@ This is why the draft stage is important: the government considers objections an
   createdAt: '2026-09-25',
   updatedAt: '2026-09-25',
 },
+{
+  id: 'social-media-minors-supreme-court-2026',
+  articleNumber: 'Current Affairs',
+  categoryKey: 'current-affairs',
+
+  date: '2026-09-29',
+
+  title: {
+    en: 'Social Media Rules for Minors: Supreme Court and Centre Discussion Explained',
+    mr: 'अल्पवयीन मुलांसाठी सोशल मीडिया नियम: सर्वोच्च न्यायालय आणि केंद्राची चर्चा',
+  },
+
+  slug: 'social-media-rules-minors-india-supreme-court-2026',
+
+  seoTitle: {
+    en: 'Social Media Rules for Minors in India | Supreme Court 2026 | MySamvidhan',
+    mr: 'अल्पवयीनांसाठी सोशल मीडिया नियम | सर्वोच्च न्यायालय 2026 | MySamvidhan',
+  },
+
+  seoDescription: {
+    en: 'Supreme Court asks Centre to consider statutory safeguards for minors on social media, including an 18-year minimum and parental consent. Understand Articles 19 and 21.',
+    mr: 'अल्पवयीन मुलांच्या सोशल मीडिया वापराबाबत सर्वोच्च न्यायालयाने केंद्राला statutory safeguards विचारात घेण्यास सांगितले. कलम 19 आणि 21 चा संबंध समजून घ्या.',
+  },
+
+  shortDescription: {
+    en: 'The Supreme Court has asked the Centre to consider statutory safeguards for minors using social media, including rules concerning an 18-year minimum age and parental consent. Here is the constitutional context.',
+    mr: 'अल्पवयीन मुलांच्या सोशल मीडिया वापराबाबत सर्वोच्च न्यायालयाने केंद्राला statutory safeguards विचारात घेण्यास सांगितले आहे. 18 वर्षांची वयोमर्यादा, पालकांची संमती आणि कलम 19 व 21 यांचा संबंध समजून घ्या.',
+  },
+
+  keywords: [
+    'social media rules for minors India',
+    'social media under 18 India',
+    'Supreme Court social media minors',
+    'Supreme Court minors social media 2026',
+    'social media age limit India',
+    '18 years social media India',
+    'parental consent social media India',
+    'social media parental consent',
+    'minor social media accounts India',
+    'children social media India',
+    'digital rights India',
+    'online safety children India',
+    'Article 19 social media',
+    'Article 21 social media',
+    'Article 19 Indian Constitution',
+    'Article 21 Indian Constitution',
+    'Information Technology Rules 2021',
+    'IT Rules 2021 minors',
+    'Supreme Court current affairs',
+    'Indian Constitution current affairs',
+    'UPSC current affairs',
+    'MPSC current affairs',
+    'Police Bharti current affairs',
+    'अल्पवयीन सोशल मीडिया नियम',
+    'मुलांसाठी सोशल मीडिया नियम',
+    '18 वर्षे सोशल मीडिया',
+    'सोशल मीडिया वयोमर्यादा',
+    'पालकांची संमती सोशल मीडिया',
+    'कलम 19 सोशल मीडिया',
+    'कलम 21 सोशल मीडिया',
+    'भारतीय संविधान चालू घडामोडी',
+  ],
+
+  language: 'en',
+
+  officialText: {
+    en: '',
+    mr: '',
+    verified: false,
+  },
+
+  introduction: {
+    en: `The Supreme Court has asked the Central Government to consider statutory safeguards concerning the use of social media by minors.
+
+The development relates to a petition seeking stronger safeguards for children using social media and other digital platforms. During the hearing on 28 September 2026, the Supreme Court asked the Centre to examine whether children below 18 years should be prevented from independently creating social media accounts without parental consent.
+
+On 29 September 2026, reports stated that the Court asked the Centre to put in place statutory rules concerning the minimum age requirement for social-media membership.
+
+The issue involves child safety, privacy, parental consent and the legal framework applicable to digital platforms.
+
+Importantly, this should not be described as a blanket social-media ban for everyone below 18 that has already come into force. The matter concerns proposed or contemplated statutory safeguards and the ongoing legal and regulatory process.`,
+
+    mr: `अल्पवयीन मुलांच्या सोशल मीडिया वापराबाबत कायदेशीर safeguards तयार करण्याचा विचार करण्यास सर्वोच्च न्यायालयाने केंद्र सरकारला सांगितले आहे.
+
+हा विषय मुलांना सोशल मीडिया आणि इतर digital platforms वापरताना अधिक संरक्षण मिळावे यासाठी दाखल करण्यात आलेल्या याचिकेशी संबंधित आहे. 28 सप्टेंबर 2026 रोजीच्या सुनावणीदरम्यान सर्वोच्च न्यायालयाने 18 वर्षांखालील मुलांना पालकांच्या संमतीशिवाय स्वतंत्रपणे सोशल मीडिया account तयार करण्यास प्रतिबंध करण्याबाबत केंद्राने विचार करावा, असे सांगितले.
+
+29 सप्टेंबर 2026 रोजीच्या वृत्तांनुसार, सोशल मीडिया membership साठी 18 वर्षांची minimum age requirement करण्यासंबंधी statutory rules तयार करण्याबाबतही केंद्राला विचार करण्यास सांगण्यात आले.
+
+या विषयामध्ये बालसुरक्षा, privacy, पालकांची संमती आणि digital platforms साठीची कायदेशीर चौकट हे मुद्दे संबंधित आहेत.
+
+महत्त्वाचे म्हणजे, भारतात 18 वर्षांखालील प्रत्येक व्यक्तीसाठी सोशल मीडिया वापरावर पूर्ण बंदी आधीच लागू झाली आहे असे म्हणणे योग्य नाही. हा विषय प्रस्तावित किंवा विचाराधीन statutory safeguards आणि सुरू असलेल्या कायदेशीर व नियामक प्रक्रियेशी संबंधित आहे.`,
+  },
+
+  simpleExplanation: {
+    en: `The issue is about whether children below 18 should be allowed to independently create and maintain social-media accounts.
+
+The petition before the Supreme Court has raised concerns about online risks faced by children, including grooming, cyberbullying, misuse of personal data and exposure to age-inappropriate content.
+
+The Court has asked the Centre to examine stronger legal safeguards. One proposal under discussion is requiring parental or guardian consent for minors.
+
+The discussion also raises constitutional questions because social media is a platform for communication and expression, while children also require protection of their privacy, dignity and safety.`,
+
+    mr: `हा विषय 18 वर्षांखालील मुलांना स्वतंत्रपणे सोशल मीडिया account तयार करून वापरता यावा का, आणि त्यासाठी पालकांची संमती आवश्यक असावी का, याच्याशी संबंधित आहे.
+
+सर्वोच्च न्यायालयासमोरील याचिकेमध्ये online grooming, cyberbullying, personal data चा गैरवापर आणि वयानुसार अनुचित content यांसारख्या मुलांसमोरील जोखमींबाबत चिंता व्यक्त करण्यात आली आहे.
+
+या पार्श्वभूमीवर न्यायालयाने केंद्राला अधिक मजबूत कायदेशीर safeguards चा विचार करण्यास सांगितले आहे. यामध्ये अल्पवयीनांसाठी पालक किंवा guardian ची संमती आवश्यक करण्याचा मुद्दाही चर्चेत आहे.
+
+या चर्चेला घटनात्मक पैलूही आहेत, कारण सोशल मीडिया हे संवाद आणि अभिव्यक्तीचे माध्यम आहे; त्याच वेळी मुलांची privacy, dignity आणि safety यांचे संरक्षणही महत्त्वाचे आहे.`,
+  },
+
+  verySimple: {
+    en: `In simple words, the issue is about protecting children online while deciding how minors should access social-media platforms.
+
+The Supreme Court has asked the Centre to examine legal safeguards, including the possibility of parental consent and an 18-year minimum age requirement.
+
+No blanket ban should be assumed merely from the ongoing court proceedings. The legal and regulatory process is still developing.`,
+
+    mr: `सोप्या भाषेत सांगायचे तर, मुलांचे ऑनलाइन संरक्षण करताना अल्पवयीन मुलांनी सोशल मीडिया कसा वापरावा यासाठी कोणते नियम असावेत, हा मुख्य प्रश्न आहे.
+
+सर्वोच्च न्यायालयाने पालकांची संमती आणि 18 वर्षांची minimum age requirement यांसारख्या कायदेशीर safeguards चा विचार करण्यास केंद्राला सांगितले आहे.
+
+मात्र केवळ न्यायालयातील सुरू असलेल्या प्रक्रियेवरून 18 वर्षांखालील सर्वांसाठी सोशल मीडिया वापरावर पूर्ण बंदी लागू झाली आहे असे समजू नये.`,
+  },
+
+  example: {
+    en: `Suppose a 16-year-old wants to create an account on a social-media platform.
+
+Under a possible parental-consent framework, the platform may be required to obtain verified consent from a parent or legal guardian before allowing the account to be created.
+
+Such a framework would attempt to balance online child protection with access to digital platforms and constitutional considerations.`,
+
+    mr: `समजा 16 वर्षांच्या मुलाला सोशल मीडिया platform वर account तयार करायचे आहे.
+
+पालकांच्या संमतीची व्यवस्था लागू झाल्यास, account तयार करण्यापूर्वी platform ला पालक किंवा कायदेशीर guardian ची verified consent घेणे आवश्यक असू शकते.
+
+अशा प्रकारच्या व्यवस्थेचा उद्देश मुलांचे ऑनलाइन संरक्षण, digital platforms चा access आणि घटनात्मक बाबी यांच्यात समतोल साधणे हा असू शकतो.`,
+  },
+
+  content: {
+    en: `The Supreme Court's recent proceedings have brought the question of social-media access by minors into focus.
+
+The Court is considering a petition seeking safeguards for children using social media and other digital platforms. The petition has raised concerns regarding online grooming, cyberbullying, sexual exploitation, misuse of personal data and exposure to age-inappropriate content.
+
+The Centre has been asked to examine whether statutory safeguards should be introduced. One of the issues under discussion is whether children below 18 should be prevented from independently creating social-media accounts without parental or guardian consent.
+
+The discussion is relevant to the constitutional framework because social media provides a platform for communication and expression, while privacy, dignity and protection of children are also important legal considerations.
+
+The final regulatory framework, if introduced, would determine the precise requirements applicable to platforms and minors.`,
+
+    mr: `सर्वोच्च न्यायालयातील अलीकडील सुनावणीमुळे अल्पवयीन मुलांच्या सोशल मीडिया वापराबाबतचा प्रश्न चर्चेत आला आहे.
+
+मुलांना सोशल मीडिया आणि इतर digital platforms वापरताना safeguards मिळावेत यासाठी दाखल करण्यात आलेल्या याचिकेवर न्यायालयात सुनावणी सुरू आहे. या याचिकेमध्ये online grooming, cyberbullying, sexual exploitation, personal data चा गैरवापर आणि वयानुसार अनुचित content यांसारख्या जोखमींचा उल्लेख करण्यात आला आहे.
+
+कायदेशीर safeguards लागू करण्याबाबत केंद्राने विचार करावा, असे न्यायालयाने सांगितले आहे. त्यामध्ये 18 वर्षांखालील मुलांना पालक किंवा guardian च्या संमतीशिवाय स्वतंत्रपणे सोशल मीडिया account तयार करण्यास प्रतिबंध करण्याचा मुद्दाही आहे.
+
+या विषयाचा घटनात्मक चौकटीशी संबंध आहे, कारण सोशल मीडिया हे communication आणि expression चे माध्यम आहे. त्याचवेळी privacy, dignity आणि मुलांचे संरक्षण हे देखील महत्त्वाचे कायदेशीर मुद्दे आहेत.
+
+भविष्यात नियम लागू झाल्यास platforms आणि minors साठी नेमक्या कोणत्या requirements असतील हे त्या अंतिम regulatory framework वर अवलंबून असेल.`,
+  },
+
+  seoSections: {
+    en: [
+      {
+        heading: 'What is the Supreme Court social media minors issue?',
+        content:
+          'The Supreme Court is considering a petition seeking stronger safeguards for minors using social media and other digital platforms. The issue includes questions about parental consent, age verification and the legal framework governing minors online.',
+      },
+      {
+        heading: 'What did the Supreme Court ask the Centre to consider?',
+        content:
+          'The Court asked the Centre to consider statutory safeguards concerning minors using social media, including whether children below 18 should be prevented from independently creating accounts without parental consent.',
+      },
+      {
+        heading: 'Is social media banned for everyone below 18 in India?',
+        content:
+          'No blanket ban should be stated as already being in force based solely on the current proceedings. The matter concerns statutory safeguards and an ongoing legal and regulatory process.',
+      },
+      {
+        heading: 'Why is parental consent being discussed?',
+        content:
+          'The petition before the Court argues that minors require stronger protection when entering into relationships with digital platforms. Parental or guardian consent is one of the safeguards being considered.',
+      },
+      {
+        heading: 'How is Article 19 connected with social media?',
+        content:
+          'Article 19(1)(a) protects freedom of speech and expression for citizens. Social media is an important modern medium for communication and expression. Any regulation affecting such use may therefore raise Article 19 questions, subject to constitutional restrictions.',
+      },
+      {
+        heading: 'How is Article 21 connected with the issue?',
+        content:
+          'Article 21 protects life and personal liberty. Constitutional jurisprudence has also recognised privacy and dignity within the broader framework of personal liberty. These considerations are relevant when discussing the safety and privacy of children online.',
+      },
+      {
+        heading: 'What are the risks raised in the petition?',
+        content:
+          'The petition has raised concerns including online grooming, sexual exploitation, cyberbullying, misuse of personal data, trafficking and exposure to age-inappropriate content.',
+      },
+      {
+        heading: 'What is the role of the Information Technology Rules, 2021?',
+        content:
+          'The petition seeks changes to the existing Information Technology Rules or a suitable legal framework to introduce safeguards concerning minors and digital platforms.',
+      },
+      {
+        heading: 'Why is this topic important for competitive exams?',
+        content:
+          'The topic connects current affairs with constitutional rights, Article 19, Article 21, privacy, child protection, digital regulation and the Information Technology Rules. These areas may be relevant to UPSC, MPSC, Police Bharti and other competitive examinations.',
+      },
+    ],
+
+    mr: [
+      {
+        heading: 'अल्पवयीन मुलांच्या सोशल मीडिया वापराचा सर्वोच्च न्यायालयातील विषय काय आहे?',
+        content:
+          'सोशल मीडिया आणि इतर digital platforms वापरणाऱ्या अल्पवयीन मुलांसाठी अधिक मजबूत safeguards असावेत यासाठी दाखल करण्यात आलेल्या याचिकेवर सर्वोच्च न्यायालयात सुनावणी सुरू आहे. यामध्ये parental consent, age verification आणि minors साठी digital platforms ची कायदेशीर चौकट यांसारखे मुद्दे आहेत.',
+      },
+      {
+        heading: 'सर्वोच्च न्यायालयाने केंद्राला काय विचार करण्यास सांगितले?',
+        content:
+          'अल्पवयीन मुलांच्या सोशल मीडिया वापराबाबत statutory safeguards तयार करण्याचा विचार करण्यास केंद्राला सांगण्यात आले आहे. यामध्ये 18 वर्षांखालील मुलांना पालकांच्या संमतीशिवाय स्वतंत्र account तयार करण्यास प्रतिबंध करण्याचा मुद्दाही आहे.',
+      },
+      {
+        heading: 'भारतात 18 वर्षांखालील सर्वांसाठी सोशल मीडिया बंद झाला आहे का?',
+        content:
+          'नाही. सध्याच्या न्यायालयीन प्रक्रियेवरून 18 वर्षांखालील सर्वांसाठी सोशल मीडिया वापरावर पूर्ण बंदी लागू झाली आहे असे म्हणता येत नाही. सध्या statutory safeguards आणि regulatory framework बाबत प्रक्रिया सुरू आहे.',
+      },
+      {
+        heading: 'पालकांची संमती का चर्चेत आहे?',
+        content:
+          'अल्पवयीन मुलांचे digital platforms वरील संरक्षण मजबूत करण्यासाठी parental किंवा guardian consent हा एक संभाव्य safeguard म्हणून चर्चेत आहे.',
+      },
+      {
+        heading: 'सोशल मीडिया आणि कलम 19 चा संबंध काय?',
+        content:
+          'कलम 19(1)(अ) नागरिकांना भाषण आणि अभिव्यक्ती स्वातंत्र्य देते. सोशल मीडिया हे आधुनिक communication आणि expression चे माध्यम असल्याने त्यावरील नियमांचा कलम 19 शी संबंध येऊ शकतो. मात्र या अधिकारांवर संविधानानुसार काही वाजवी निर्बंध लागू होऊ शकतात.',
+      },
+      {
+        heading: 'कलम 21 चा या विषयाशी संबंध काय?',
+        content:
+          'कलम 21 जीवन आणि वैयक्तिक स्वातंत्र्याचे संरक्षण करते. घटनात्मक न्यायशास्त्रात privacy आणि dignity यांचाही वैयक्तिक स्वातंत्र्याच्या व्यापक चौकटीशी संबंध जोडला गेला आहे. त्यामुळे मुलांची online safety आणि privacy या चर्चेत महत्त्वाच्या ठरतात.',
+      },
+      {
+        heading: 'याचिकेमध्ये कोणत्या जोखमींचा उल्लेख आहे?',
+        content:
+          'याचिकेमध्ये online grooming, sexual exploitation, cyberbullying, personal data चा गैरवापर, trafficking आणि वयानुसार अनुचित content यांसारख्या जोखमींबाबत चिंता व्यक्त करण्यात आली आहे.',
+      },
+      {
+        heading: 'Information Technology Rules, 2021 चा संबंध काय?',
+        content:
+          'अल्पवयीन मुलांसाठी digital platforms वर safeguards लागू करण्यासाठी विद्यमान Information Technology Rules मध्ये बदल किंवा योग्य कायदेशीर framework तयार करण्याची मागणी याचिकेत करण्यात आली आहे.',
+      },
+      {
+        heading: 'स्पर्धा परीक्षांसाठी हा विषय महत्त्वाचा का आहे?',
+        content:
+          'या विषयाचा संबंध कलम 19, कलम 21, privacy, child protection, digital regulation आणि Information Technology Rules यांसारख्या घटनात्मक व चालू घडामोडींच्या विषयांशी आहे. त्यामुळे UPSC, MPSC, Police Bharti आणि इतर स्पर्धा परीक्षांसाठी हा विषय उपयुक्त आहे.',
+      },
+    ],
+  },
+
+  faq: {
+    en: [
+      {
+        question: 'What is the latest Supreme Court development on social media and minors?',
+        answer:
+          'The Supreme Court has asked the Centre to consider statutory safeguards concerning minors using social media, including issues relating to an 18-year minimum age and parental consent.',
+      },
+      {
+        question: 'Is social media completely banned for people below 18 in India?',
+        answer:
+          'No. The current development concerns proposed or contemplated statutory safeguards and an ongoing legal and regulatory process. It should not automatically be described as a blanket ban already in force.',
+      },
+      {
+        question: 'Why is parental consent being discussed?',
+        answer:
+          'Parental or guardian consent is being considered as a possible safeguard for minors using social-media platforms.',
+      },
+      {
+        question: 'Which constitutional Articles are relevant?',
+        answer:
+          'Article 19(1)(a), concerning freedom of speech and expression, and Article 21, concerning life and personal liberty, are among the constitutional provisions relevant to the discussion.',
+      },
+      {
+        question: 'What risks to children are mentioned in the case?',
+        answer:
+          'The petition has raised concerns including online grooming, cyberbullying, sexual exploitation, misuse of personal data, trafficking and age-inappropriate content.',
+      },
+      {
+        question: 'What is the current status of the issue?',
+        answer:
+          'The issue remains part of an ongoing legal and regulatory process. The final form of any statutory safeguards would depend on subsequent government action and legal proceedings.',
+      },
+    ],
+
+    mr: [
+      {
+        question: 'सोशल मीडिया आणि अल्पवयीन मुलांबाबत सर्वोच्च न्यायालयाचा नवीन विकास काय आहे?',
+        answer:
+          'अल्पवयीन मुलांच्या सोशल मीडिया वापराबाबत statutory safeguards चा विचार करण्यास सर्वोच्च न्यायालयाने केंद्राला सांगितले आहे. यामध्ये 18 वर्षांची minimum age आणि parental consent यांसारखे मुद्दे आहेत.',
+      },
+      {
+        question: 'भारतात 18 वर्षांखालील व्यक्तींसाठी सोशल मीडिया पूर्णपणे बंद झाला आहे का?',
+        answer:
+          'नाही. सध्याचा विषय प्रस्तावित किंवा विचाराधीन statutory safeguards आणि सुरू असलेल्या कायदेशीर व regulatory process शी संबंधित आहे. त्यामुळे याला आधीच लागू झालेली blanket ban म्हणणे योग्य नाही.',
+      },
+      {
+        question: 'पालकांची संमती का चर्चेत आहे?',
+        answer:
+          'अल्पवयीन मुलांच्या सोशल मीडिया वापरासाठी parental किंवा guardian consent हा एक संभाव्य safeguard म्हणून चर्चेत आहे.',
+      },
+      {
+        question: 'या विषयाशी कोणती घटनात्मक कलमे संबंधित आहेत?',
+        answer:
+          'कलम 19(1)(अ) मधील भाषण आणि अभिव्यक्ती स्वातंत्र्य तसेच कलम 21 मधील जीवन आणि वैयक्तिक स्वातंत्र्य हे या चर्चेशी संबंधित महत्त्वाचे घटनात्मक मुद्दे आहेत.',
+      },
+      {
+        question: 'मुलांसाठी कोणत्या online risks चा उल्लेख करण्यात आला आहे?',
+        answer:
+          'Online grooming, cyberbullying, sexual exploitation, personal data चा गैरवापर, trafficking आणि age-inappropriate content यांसारख्या जोखमींचा उल्लेख करण्यात आला आहे.',
+      },
+      {
+        question: 'या विषयाची सध्याची स्थिती काय आहे?',
+        answer:
+          'हा विषय सध्या सुरू असलेल्या कायदेशीर आणि regulatory process चा भाग आहे. भविष्यातील statutory safeguards चे अंतिम स्वरूप पुढील सरकारी कारवाई आणि न्यायालयीन प्रक्रियेवर अवलंबून असेल.',
+      },
+    ],
+  },
+
+  mcqs: {
+    en: [
+      {
+        question: 'Which Article protects freedom of speech and expression?',
+        options: ['Article 14', 'Article 19(1)(a)', 'Article 21', 'Article 32'],
+        answer: 'Article 19(1)(a)',
+      },
+      {
+        question: 'Which Article protects life and personal liberty?',
+        options: ['Article 15', 'Article 17', 'Article 21', 'Article 25'],
+        answer: 'Article 21',
+      },
+      {
+        question: 'What safeguard is being discussed for minors using social media?',
+        options: [
+          'Mandatory voting',
+          'Parental or guardian consent',
+          'Citizenship certificate',
+          'Driving licence',
+        ],
+        answer: 'Parental or guardian consent',
+      },
+      {
+        question: 'What age is central to the current discussion?',
+        options: ['13 years', '16 years', '18 years', '21 years'],
+        answer: '18 years',
+      },
+    ],
+
+    mr: [
+      {
+        question: 'भाषण आणि अभिव्यक्ती स्वातंत्र्य कोणत्या कलमाशी संबंधित आहे?',
+        options: ['कलम 14', 'कलम 19(1)(अ)', 'कलम 21', 'कलम 32'],
+        answer: 'कलम 19(1)(अ)',
+      },
+      {
+        question: 'जीवन आणि वैयक्तिक स्वातंत्र्य कोणते कलम संरक्षित करते?',
+        options: ['कलम 15', 'कलम 17', 'कलम 21', 'कलम 25'],
+        answer: 'कलम 21',
+      },
+      {
+        question: 'अल्पवयीन मुलांसाठी कोणता safeguard चर्चेत आहे?',
+        options: [
+          'मतदान अनिवार्य करणे',
+          'पालक किंवा guardian ची संमती',
+          'नागरिकत्व प्रमाणपत्र',
+          'Driving licence',
+        ],
+        answer: 'पालक किंवा guardian ची संमती',
+      },
+      {
+        question: 'सध्याच्या चर्चेतील प्रमुख वयोमर्यादा कोणती आहे?',
+        options: ['13 वर्षे', '16 वर्षे', '18 वर्षे', '21 वर्षे'],
+        answer: '18 वर्षे',
+      },
+    ],
+  },
+
+  source: {
+    title:
+      'Supreme Court social media minors proceedings — India Today and The Indian Express reports, 28–29 September 2026',
+    url:
+      'https://indianexpress.com/article/legal-news/supreme-court-social-media-minors-18-age-limit-10898235/',
+  },
+
+  lastVerified: '2026-09-29',
+  verified: false,
+
+  relatedIds: ['19', '21', '21A', '32'],
+
+  createdAt: '2026-09-29',
+  updatedAt: '2026-09-29',
+},
 ]
 
 export function getCurrentAffairBySlug(slug) {
