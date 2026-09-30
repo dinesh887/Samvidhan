@@ -39,7 +39,7 @@ const STRINGS = {
     footer_disclaimer_title: 'Disclaimer',
     footer_disclaimer:
       'This website is created for educational and informational purposes only. It does not provide legal advice. For legal matters, consult a qualified legal professional.',
-    footer_copyright: '© 2026 Samvidhan.',
+    footer_copyright: '© 2026 MySamvidhan. All rights reserved.',
     articles_page_title: 'Constitutional Articles',
     articles_page_sub: 'Search and explore the Articles of the Indian Constitution.',
     filter_all: 'All Articles',
@@ -145,7 +145,7 @@ const STRINGS = {
     footer_disclaimer_title: 'अस्वीकरण',
     footer_disclaimer:
       'ही वेबसाइट केवळ शैक्षणिक आणि माहितीच्या उद्देशाने तयार करण्यात आली आहे. ही कायदेशीर सल्ला सेवा नाही. कायदेशीर बाबींसाठी पात्र कायदे तज्ज्ञांचा सल्ला घ्या.',
-    footer_copyright: '© २०२६ संविधान.',
+    footer_copyright: '© २०२६ MySamvidhan. सर्व हक्क राखीव.',
     articles_page_title: 'संवैधानिक कलमे',
     articles_page_sub: 'भारतीय संविधानातील कलमे शोधा आणि जाणून घ्या.',
     filter_all: 'सर्व कलमे',

@@ -1,25 +1,25 @@
-import { Link } from 'react-router-dom'
-import ChakraMark from './ChakraMark'
-import { useLanguage } from '../context/LanguageContext'
-import Advertisement from './Advertisement'
+import { Link } from "react-router-dom";
+import ChakraMark from "./ChakraMark";
+import { useLanguage } from "../context/LanguageContext";
+import Advertisement from "./Advertisement";
 
 export default function Footer() {
-  const { t, language } = useLanguage()
+  const { t, language } = useLanguage();
 
   const links = [
-    { to: '/', label: t('nav_home') },
-    { to: '/articles', label: t('nav_articles') },
-    { to: '/fundamental-rights', label: t('nav_rights') },
-    { to: '/fundamental-duties', label: t('nav_duties') },
-    { to: '/amendments', label: t('nav_amendments') },
-    { to: '/learn', label: t('nav_preamble') },
-    { to: '/faq', label: t('nav_faq') },
-    { to: '/about', label: t('nav_about') },
-    { to: '/contact', label: t('contact_title') },
-    { to: '/privacy-policy', label: t('footer_privacy') },
-    { to: '/terms', label: t('footer_terms') },
-    { to: '/disclaimer', label: t('footer_disclaimer_title') },
-  ]
+    { to: "/", label: t("nav_home") },
+    { to: "/articles", label: t("nav_articles") },
+    { to: "/fundamental-rights", label: t("nav_rights") },
+    { to: "/fundamental-duties", label: t("nav_duties") },
+    { to: "/amendments", label: t("nav_amendments") },
+    { to: "/learn", label: t("nav_preamble") },
+    { to: "/faq", label: t("nav_faq") },
+    { to: "/about", label: t("nav_about") },
+    { to: "/contact", label: t("contact_title") },
+    { to: "/privacy-policy", label: t("footer_privacy") },
+    { to: "/terms", label: t("footer_terms") },
+    { to: "/disclaimer", label: t("footer_disclaimer_title") },
+  ];
 
   return (
     <footer className="mt-16 border-t border-navy/10 dark:border-ink-dark/10 bg-white/40 dark:bg-white/[0.03]">
@@ -33,15 +33,74 @@ export default function Footer() {
                 SAMVIDHAN
               </span>
             </div>
-            <p lang={language} className="mt-3 max-w-sm text-base leading-7 text-ink/70 dark:text-ink-dark/70">
-              {t('footer_tagline')}
+            <p
+              lang={language}
+              className="mt-3 max-w-sm text-base leading-7 text-ink/70 dark:text-ink-dark/70"
+            >
+              {t("footer_tagline")}
             </p>
-            <p lang={language} className="mt-3 max-w-sm text-sm leading-6 text-ink/60 dark:text-ink-dark/60">{language === 'mr' ? 'संविधान हे स्वतंत्र शैक्षणिक व्यासपीठ आहे.' : 'Samvidhan is an independent educational platform.'}</p>
+            <p
+              lang={language}
+              className="mt-3 max-w-sm text-sm leading-6 text-ink/60 dark:text-ink-dark/60"
+            >
+              {language === "mr"
+                ? "संविधान हे स्वतंत्र शैक्षणिक व्यासपीठ आहे."
+                : "Samvidhan is an independent educational platform."}
+            </p>
+            <div className="mt-5">
+              <p className="text-sm font-semibold text-navy dark:text-ink-dark">
+                {language === "mr" ? "आम्हाला फॉलो करा" : "Follow Us"}
+              </p>
+
+              <div className="mt-3 flex items-center gap-3">
+                {/* Facebook */}
+                <a
+                  href="https://www.facebook.com/profile.php?id=61593758717873"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-navy/10 text-navy transition-colors hover:border-saffron hover:text-saffron dark:border-ink-dark/10 dark:text-ink-dark"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-5 w-5 fill-current"
+                    aria-hidden="true"
+                  >
+                    <path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5h1.7V4a22 22 0 0 0-2.5-.1c-2.5 0-4.2 1.5-4.2 4.3V10H7.4v3h2.7v8h3.4Z" />
+                  </svg>
+                </a>
+
+                {/* Instagram */}
+                <a
+                  href="https://www.instagram.com/mysamvidhanofficial/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-navy/10 text-navy transition-colors hover:border-saffron hover:text-saffron dark:border-ink-dark/10 dark:text-ink-dark"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-5 w-5 fill-none stroke-current"
+                    strokeWidth="1.8"
+                    aria-hidden="true"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle
+                      cx="17.5"
+                      cy="6.5"
+                      r="1"
+                      className="fill-current stroke-none"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
           </div>
 
           <div>
             <h3 className="text-lg font-semibold text-navy dark:text-ink-dark">
-              {t('footer_navigation')}
+              {t("footer_navigation")}
             </h3>
             <ul className="mt-3 grid gap-x-6 gap-y-2 sm:grid-cols-2">
               {links.map((l) => (
@@ -57,25 +116,36 @@ export default function Footer() {
               ))}
             </ul>
           </div>
-
         </div>
 
         <section className="mt-8 border-t border-navy/10 pt-6 dark:border-ink-dark/10">
-          <h3 lang={language} className="text-base font-semibold text-navy dark:text-ink-dark">
-            {t('footer_disclaimer_title')}
+          <h3
+            lang={language}
+            className="text-base font-semibold text-navy dark:text-ink-dark"
+          >
+            {t("footer_disclaimer_title")}
           </h3>
-          <p lang={language} className="mt-2 max-w-4xl text-sm leading-6 text-ink/70 dark:text-ink-dark/70">
-            {t('footer_disclaimer')}
+          <p
+            lang={language}
+            className="mt-2 max-w-4xl text-sm leading-6 text-ink/70 dark:text-ink-dark/70"
+          >
+            {t("footer_disclaimer")}
           </p>
         </section>
 
         <div className="mt-6 flex flex-col items-center justify-between gap-3 border-t border-navy/10 pt-5 sm:flex-row dark:border-ink-dark/10">
-          <p lang={language} className="text-xs text-ink/45 dark:text-ink-dark/45">
-            {t('footer_copyright')}
+          <p
+            lang={language}
+            className="text-xs text-ink/45 dark:text-ink-dark/45"
+          >
+            {t("footer_copyright")}
           </p>
-          <ChakraMark className="h-5 w-5 text-navy/30 dark:text-ink-dark/25" spokes={24} />
+          <ChakraMark
+            className="h-5 w-5 text-navy/30 dark:text-ink-dark/25"
+            spokes={24}
+          />
         </div>
       </div>
     </footer>
-  )
+  );
 }

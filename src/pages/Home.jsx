@@ -10,6 +10,7 @@ import { articles } from '../data/articles'
 import { getTodaysFact } from '../data/facts'
 import Advertisement from '../components/Advertisement'
 import RecommendedBooks from '../components/RecommendedBooks'
+import FAQSection from "../components/FAQSection";
 import { books } from '../data/books'
 
 const FEATURED_IDS = ['14', '19', '21', '21a', '32']
@@ -38,6 +39,7 @@ export default function Home() {
         </div>
       </section>
       <RecommendedBooks books={books} />
+      
 
       <section className="border-y border-navy/10 dark:border-ink-dark/10 bg-white/40 dark:bg-white/[0.02]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-20">
@@ -60,8 +62,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-20">
+      <FAQSection />
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-20 dark:bg-white/[0.02]">
         <div className="flex flex-col gap-6 rounded-2xl border border-gold/30 bg-gold/[0.06] p-6 sm:flex-row sm:items-center sm:p-8">
           <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gold/15 text-gold">
             <Lightbulb size={22} />
