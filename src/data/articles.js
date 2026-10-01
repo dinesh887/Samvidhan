@@ -1057,6 +1057,460 @@ Thus, Article 21A can be understood as the constitutional guarantee, while the l
   lastVerified: '2026-09-28',
 },
 
+{
+  id: '22',
+  articleNumber: 'Article 22',
+  title: {
+    en: 'Protection against Arrest and Detention in Certain Cases',
+    mr: 'काही प्रकरणांमध्ये अटक आणि नजरकैदेपासून संरक्षण',
+  },
+  categoryKey: 'fundamental-rights',
+
+  officialText: {
+    en: `Protection against arrest and detention in certain cases
+
+(1) No person who is arrested shall be detained in custody without being informed, as soon as may be, of the grounds for such arrest nor shall he be denied the right to consult, and to be defended by, a legal practitioner of his choice.
+
+(2) Every person who is arrested and detained in custody shall be produced before the nearest magistrate within a period of twenty-four hours of such arrest excluding the time necessary for the journey from the place of arrest to the court of the magistrate and no such person shall be detained in custody beyond the said period without the authority of a magistrate.
+
+(3) Nothing in clauses (1) and (2) shall apply—
+
+(a) to any person who for the time being is an enemy alien; or
+
+(b) to any person who is arrested or detained under any law providing for preventive detention.
+
+(4) No law providing for preventive detention shall authorise the detention of a person for a longer period than three months unless—
+
+(a) an Advisory Board consisting of persons who are, or have been, or are qualified to be appointed as, Judges of a High Court has reported before the expiration of the said period of three months that there is in its opinion sufficient cause for such detention:
+
+Provided that nothing in this sub-clause shall authorise the detention of any person beyond the maximum period prescribed by any law made by Parliament under sub-clause (b) of clause (7); or
+
+(b) such person is detained in accordance with the provisions of any law made by Parliament under sub-clauses (a) and (b) of clause (7).
+
+(5) When any person is detained in pursuance of an order made under any law providing for preventive detention, the authority making the order shall, as soon as may be, communicate to such person the grounds on which the order has been made and shall afford him the earliest opportunity of making a representation against the order.
+
+(6) Nothing in clause (5) shall require the authority making any such order as is referred to in that clause to disclose facts which such authority considers to be against the public interest to disclose.
+
+(7) Parliament may by law prescribe—
+
+(a) the circumstances under which, and the class or classes of cases in which, a person may be detained for a period longer than three months under any law providing for preventive detention without obtaining the opinion of an Advisory Board in accordance with the provisions of sub-clause (a) of clause (4);
+
+(b) the maximum period for which any person may in any class or classes of cases be detained under any law providing for preventive detention; and
+
+(c) the procedure to be followed by an Advisory Board in an inquiry under sub-clause (a) of clause (4)).`,
+    
+    mr: `काही प्रकरणांमध्ये अटक आणि नजरकैदेपासून संरक्षण
+
+(1) अटक केलेल्या कोणत्याही व्यक्तीला अटकेची कारणे शक्य तितक्या लवकर कळविल्याशिवाय तिला ताब्यात ठेवता येणार नाही. तसेच, तिच्या पसंतीच्या कायदेविषयक व्यवसायिकाचा सल्ला घेण्याचा आणि त्याच्यामार्फत आपला बचाव करून घेण्याचा अधिकार तिला नाकारता येणार नाही.
+
+(2) अटक करून ताब्यात ठेवलेल्या प्रत्येक व्यक्तीला, अटकेच्या ठिकाणाहून दंडाधिकाऱ्याच्या न्यायालयापर्यंत जाण्यास लागणारा आवश्यक प्रवासाचा कालावधी वगळता, अटकेपासून चोवीस तासांच्या आत जवळच्या दंडाधिकाऱ्यासमोर हजर केले पाहिजे. तसेच, दंडाधिकाऱ्याच्या अधिकाराशिवाय कोणत्याही व्यक्तीला त्या कालावधीपुढे ताब्यात ठेवता येणार नाही.
+
+(3) खंड (1) आणि (2) मधील कोणतीही तरतूद पुढील व्यक्तींना लागू होणार नाही—
+
+(a) त्या वेळी शत्रू परदेशी असलेल्या व्यक्तीला; किंवा
+
+(b) प्रतिबंधात्मक नजरकैदेची तरतूद करणाऱ्या कोणत्याही कायद्याखाली अटक किंवा ताब्यात घेतलेल्या व्यक्तीला.
+
+(4) प्रतिबंधात्मक नजरकैदेची तरतूद करणारा कोणताही कायदा एखाद्या व्यक्तीला तीन महिन्यांपेक्षा जास्त काळ ताब्यात ठेवण्यास परवानगी देणार नाही, जोपर्यंत—
+
+(a) उच्च न्यायालयाचे न्यायाधीश म्हणून नियुक्त झालेले, नियुक्त होण्यास पात्र असलेले किंवा पूर्वी न्यायाधीश राहिलेले व्यक्ती असलेल्या सल्लागार मंडळाने त्या तीन महिन्यांचा कालावधी संपण्यापूर्वी, आपल्या मतानुसार अशा नजरकैदेसाठी पुरेसे कारण आहे, असा अहवाल दिलेला नसेल:
+
+परंतु, या उपखंडातील कोणतीही बाब संसदेकडून खंड (7) च्या उपखंड (b) अंतर्गत केलेल्या कोणत्याही कायद्यात विहित केलेल्या कमाल कालावधीपेक्षा जास्त काळ कोणत्याही व्यक्तीला ताब्यात ठेवण्यास परवानगी देणार नाही; किंवा
+
+(b) अशा व्यक्तीला खंड (7) च्या उपखंड (a) आणि (b) अंतर्गत संसदेकडून केलेल्या कोणत्याही कायद्याच्या तरतुदींनुसार ताब्यात ठेवलेले नसेल.
+
+(5) प्रतिबंधात्मक नजरकैदेची तरतूद करणाऱ्या कोणत्याही कायद्याअंतर्गत केलेल्या आदेशानुसार एखाद्या व्यक्तीला ताब्यात घेतले असल्यास, तो आदेश करणाऱ्या प्राधिकरणाने शक्य तितक्या लवकर त्या व्यक्तीला आदेश कोणत्या कारणांवर आधारित आहे, ती कारणे कळविली पाहिजेत आणि त्या आदेशाविरुद्ध प्रतिनिधित्व करण्याची सर्वात लवकर संधी तिला दिली पाहिजे.
+
+(6) खंड (5) मधील कोणतीही तरतूद अशा प्राधिकरणाला, सार्वजनिक हिताच्या दृष्टीने उघड करणे योग्य नाही असे त्याला वाटणारे तथ्य उघड करण्यास बाध्य करणार नाही.
+
+(7) संसद कायद्याद्वारे पुढील बाबी निश्चित करू शकते—
+
+(a) प्रतिबंधात्मक नजरकैदेची तरतूद करणाऱ्या कोणत्याही कायद्याअंतर्गत एखाद्या व्यक्तीला तीन महिन्यांपेक्षा जास्त काळ, खंड (4) च्या उपखंड (a) मधील तरतुदीनुसार सल्लागार मंडळाचे मत न घेता, कोणत्या परिस्थितीत आणि कोणत्या प्रकारच्या प्रकरणांमध्ये ताब्यात ठेवता येईल;
+
+(b) कोणत्याही व्यक्तीला कोणत्याही प्रकारच्या किंवा प्रकारांतील प्रकरणांमध्ये जास्तीत जास्त किती कालावधीसाठी प्रतिबंधात्मक नजरकैदेत ठेवता येईल; आणि
+
+(c) खंड (4) च्या उपखंड (a) अंतर्गत सल्लागार मंडळाने चौकशी करताना कोणती प्रक्रिया अवलंबावी.`,
+    verified: true,
+  },
+
+  simpleExplanation: {
+    en: `Article 22 is a Fundamental Right that provides constitutional safeguards against arbitrary arrest and detention in certain cases.
+
+For an ordinary arrest, Article 22 provides important protections. A person who is arrested must be informed of the grounds of arrest as soon as may be, and must not be denied the right to consult and be defended by a legal practitioner of their choice.
+
+A person who is arrested and detained in custody must generally be produced before the nearest magistrate within twenty-four hours of the arrest, excluding the time necessary for the journey to the magistrate's court. Continued detention beyond this period requires the authority of a magistrate.
+
+Article 22 also deals specifically with preventive detention. Preventive detention is different from ordinary punitive detention because it is intended to prevent certain future acts rather than to punish a person for an offence already committed.
+
+The protections in clauses (1) and (2) do not apply in the same manner to persons detained under a law providing for preventive detention. However, Article 22 contains separate constitutional safeguards for preventive detention, including requirements relating to communication of the grounds of detention and an opportunity to make a representation against the detention order.
+
+Article 22 therefore attempts to balance individual personal liberty with the State's authority to make laws dealing with arrest and preventive detention. The exact rights and procedures applicable in a particular case depend on the Constitution, the relevant law and the facts of that case.`,
+
+    mr: `कलम 22 हे काही प्रकरणांमध्ये मनमानी अटक आणि नजरकैदेपासून संरक्षण देणारे भारतीय संविधानातील महत्त्वाचे मूलभूत अधिकारांचे कलम आहे.
+
+सामान्य अटकेच्या बाबतीत कलम 22 काही महत्त्वाची घटनात्मक संरक्षणे देते. अटक केलेल्या व्यक्तीला अटकेची कारणे शक्य तितक्या लवकर कळवली पाहिजेत. तसेच तिला आपल्या पसंतीच्या कायदेविषयक व्यवसायिकाचा सल्ला घेण्याचा आणि त्याच्यामार्फत बचाव करून घेण्याचा अधिकार नाकारता येत नाही.
+
+अटक करून ताब्यात ठेवलेल्या व्यक्तीला सामान्यतः अटकेपासून चोवीस तासांच्या आत जवळच्या दंडाधिकाऱ्यासमोर हजर केले पाहिजे. मात्र अटकेच्या ठिकाणाहून दंडाधिकाऱ्याच्या न्यायालयापर्यंत जाण्यास लागणारा आवश्यक प्रवासाचा वेळ या कालावधीत मोजला जात नाही. त्यानंतर व्यक्तीला ताब्यात ठेवण्यासाठी दंडाधिकाऱ्याचा अधिकार आवश्यक असतो.
+
+कलम 22 मध्ये प्रतिबंधात्मक नजरकैदेबाबतही स्वतंत्र तरतुदी आहेत. प्रतिबंधात्मक नजरकैद ही सामान्य दंडात्मक कारवाईपेक्षा वेगळी आहे. तिचा उद्देश एखाद्या व्यक्तीने भविष्यात विशिष्ट प्रकारची हानिकारक कृती करू नये यासाठी प्रतिबंधात्मक उपाय करणे हा असतो.
+
+खंड (1) आणि (2) मधील संरक्षणे प्रतिबंधात्मक नजरकैदेअंतर्गत ताब्यात घेतलेल्या व्यक्तींना त्याच पद्धतीने लागू होत नाहीत. मात्र कलम 22 अशा नजरकैदेच्या बाबतीत स्वतंत्र घटनात्मक संरक्षण देते. त्यामध्ये नजरकैदेची कारणे कळविणे आणि त्या आदेशाविरुद्ध प्रतिनिधित्व करण्याची संधी देणे यांचा समावेश होतो.
+
+म्हणूनच कलम 22 हे व्यक्तीचे वैयक्तिक स्वातंत्र्य आणि अटक व प्रतिबंधात्मक नजरकैदेबाबत राज्याला असलेले कायदेशीर अधिकार यांच्यात घटनात्मक चौकट निर्माण करते. एखाद्या विशिष्ट प्रकरणात कोणते अधिकार आणि प्रक्रिया लागू होतात, हे संविधान, संबंधित कायदा आणि त्या प्रकरणातील तथ्यांवर अवलंबून असते.`,
+  },
+
+  verySimple: {
+    en: `Article 22 protects a person against arbitrary arrest and detention. It generally requires the reasons for arrest to be communicated, provides the right to consult a lawyer, and requires an arrested person to be produced before a magistrate within twenty-four hours, subject to constitutional exceptions.
+
+It also provides specific safeguards for persons detained under preventive detention laws.`,
+
+    mr: `कलम 22 व्यक्तीला मनमानी अटक आणि नजरकैदेपासून घटनात्मक संरक्षण देते. सामान्य अटकेच्या वेळी अटकेची कारणे सांगणे, वकिलाचा सल्ला घेण्याची संधी देणे आणि साधारणपणे चोवीस तासांच्या आत दंडाधिकाऱ्यासमोर हजर करणे यांसारखी संरक्षणे या कलमात आहेत.
+
+प्रतिबंधात्मक नजरकैदेअंतर्गत ताब्यात घेतलेल्या व्यक्तींसाठीही या कलमात स्वतंत्र घटनात्मक संरक्षणे दिली आहेत.`,
+  },
+
+  example: {
+    en: `Suppose a person is arrested by the police in connection with an alleged offence. The person cannot simply be kept in custody indefinitely without being informed of the grounds of arrest. Subject to the applicable law, the person must be informed of the grounds of arrest and has the right to consult and be defended by a legal practitioner of their choice.
+
+If the person is arrested and detained in custody, they must generally be produced before the nearest magistrate within twenty-four hours, excluding the necessary travel time. Continued custody beyond that period requires the authority of a magistrate.
+
+Now consider a different situation involving preventive detention. In such a case, the ordinary protections under clauses (1) and (2) operate differently. However, the Constitution provides separate safeguards, including communication of the grounds of preventive detention and an opportunity to make a representation against the detention order.
+
+These examples are intended to explain the basic constitutional framework of Article 22. The actual legality of an arrest or detention depends on the Constitution, the applicable law and the facts of the individual case.`,
+
+    mr: `समजा एखाद्या व्यक्तीला कथित गुन्ह्याच्या संदर्भात पोलिसांनी अटक केली. त्या व्यक्तीला अटकेची कारणे न सांगता अनिश्चित काळासाठी ताब्यात ठेवता येत नाही. लागू कायद्याच्या अधीन राहून तिला अटकेची कारणे कळवली पाहिजेत आणि आपल्या पसंतीच्या कायदेविषयक व्यवसायिकाचा सल्ला घेण्याचा व त्याच्यामार्फत बचाव करून घेण्याचा अधिकार असतो.
+
+अटक करून ताब्यात ठेवलेल्या व्यक्तीला सामान्यतः अटकेपासून चोवीस तासांच्या आत जवळच्या दंडाधिकाऱ्यासमोर हजर केले पाहिजे. या कालावधीत आवश्यक प्रवासाचा वेळ मोजला जात नाही. त्यानंतर ताब्यात ठेवण्यासाठी दंडाधिकाऱ्याचा अधिकार आवश्यक असतो.
+
+आता प्रतिबंधात्मक नजरकैदेचे उदाहरण पाहूया. अशा प्रकरणात खंड (1) आणि (2) मधील सामान्य संरक्षणे त्याच पद्धतीने लागू होत नाहीत. मात्र संविधान अशा व्यक्तीसाठी स्वतंत्र संरक्षण देते. त्यामध्ये नजरकैदेची कारणे कळवणे आणि त्या आदेशाविरुद्ध प्रतिनिधित्व करण्याची संधी देणे यांचा समावेश होतो.
+
+ही उदाहरणे कलम 22 ची मूलभूत घटनात्मक रचना समजावण्यासाठी आहेत. एखादी विशिष्ट अटक किंवा नजरकैद कायदेशीर आहे का, हे संविधान, लागू कायदा आणि त्या प्रकरणातील तथ्यांवर अवलंबून असते.`,
+  },
+
+  seoSections: {
+    en: [
+      {
+        heading: 'What is Article 22 of the Indian Constitution?',
+        content: `Article 22 of the Indian Constitution provides constitutional protection against arrest and detention in certain cases. It is part of the Fundamental Rights contained in Part III of the Constitution.
+
+The Article deals with important safeguards relating to arrest, including communication of the grounds of arrest, access to a legal practitioner and production before a magistrate within twenty-four hours, subject to the exceptions specified by the Constitution.
+
+Article 22 also contains separate provisions relating to preventive detention.`,
+      },
+
+      {
+        heading: 'What are the main protections under Article 22?',
+        content: `Article 22 provides several important constitutional safeguards. A person who is arrested must generally be informed of the grounds of arrest as soon as may be and cannot be denied the right to consult and be defended by a legal practitioner of their choice.
+
+A person arrested and detained in custody must generally be produced before the nearest magistrate within twenty-four hours, excluding the necessary journey time. Continued detention beyond this period requires the authority of a magistrate.`,
+      },
+
+      {
+        heading: 'What is the 24-hour rule under Article 22?',
+        content: `Article 22(2) provides that a person who is arrested and detained in custody must be produced before the nearest magistrate within twenty-four hours of the arrest, excluding the time necessary for the journey from the place of arrest to the magistrate's court.
+
+The person cannot ordinarily be detained beyond this period without the authority of a magistrate. The constitutional provision is therefore an important safeguard against prolonged detention without judicial oversight.`,
+      },
+
+      {
+        heading: 'Does Article 22 give an arrested person the right to a lawyer?',
+        content: `Yes. Article 22(1) provides that an arrested person shall not be denied the right to consult, and to be defended by, a legal practitioner of their choice.
+
+This is an important constitutional safeguard for an arrested person. The exact manner in which legal representation operates in a particular case is also governed by the applicable procedural and legal framework.`,
+      },
+
+      {
+        heading: 'What information must be given after arrest?',
+        content: `Article 22(1) provides that a person who is arrested must be informed, as soon as may be, of the grounds for the arrest.
+
+The purpose of this safeguard is to ensure that an arrested person is not kept in custody without being informed of the basis of the arrest, subject to the constitutional and statutory framework applicable to the case.`,
+      },
+
+      {
+        heading: 'What is preventive detention?',
+        content: `Preventive detention refers to detention intended to prevent certain future acts rather than to punish a person for an offence already committed.
+
+Article 22 specifically recognises preventive detention and provides a separate constitutional framework for it. The ordinary protections under clauses (1) and (2) do not apply in the same manner to persons arrested or detained under a law providing for preventive detention.
+
+At the same time, Article 22 contains specific safeguards relating to preventive detention, including communication of the grounds of detention and an opportunity to make a representation against the detention order.`,
+      },
+
+      {
+        heading: 'Does Article 22 completely prohibit preventive detention?',
+        content: `No. The Constitution does not completely prohibit preventive detention. Article 22 contains specific provisions dealing with preventive detention and lays down constitutional safeguards for persons detained under such laws.
+
+The validity of a particular preventive detention order depends on the Constitution, the relevant preventive detention law and the facts and circumstances of the individual case.`,
+      },
+
+      {
+        heading: 'What is the role of an Advisory Board under Article 22?',
+        content: `Article 22(4) deals with the constitutional framework relating to detention under preventive detention laws and refers to an Advisory Board consisting of persons who are, have been, or are qualified to be appointed as Judges of a High Court.
+
+The Constitution provides a framework concerning detention beyond three months, subject to the provisions of Article 22 and laws made by Parliament. The detailed operation of preventive detention depends on the applicable law.`,
+      },
+
+      {
+        heading: 'What rights does a person have under preventive detention?',
+        content: `Article 22(5) provides that when a person is detained under a preventive detention law, the authority making the detention order must, as soon as may be, communicate the grounds on which the order has been made and provide the earliest opportunity to make a representation against the order.
+
+Article 22(6) also provides an exception concerning facts that the authority considers to be against the public interest to disclose.`,
+      },
+
+      {
+        heading: 'Who is not covered by the ordinary protections in Article 22(1) and 22(2)?',
+        content: `Article 22(3) states that clauses (1) and (2) do not apply to a person who is for the time being an enemy alien or to a person who is arrested or detained under a law providing for preventive detention.
+
+These are constitutional exceptions expressly stated in Article 22.`,
+      },
+
+      {
+        heading: 'Article 22 and personal liberty',
+        content: `Article 22 is closely connected with the constitutional protection of personal liberty. Article 21 protects life and personal liberty, while Article 22 provides specific constitutional safeguards relating to arrest and detention.
+
+Together, these provisions form an important part of the constitutional framework governing individual liberty and State action.`,
+      },
+
+      {
+        heading: 'Article 22 and Article 21',
+        content: `Article 21 provides that no person shall be deprived of life or personal liberty except according to procedure established by law. Article 22 specifically addresses safeguards relating to arrest and detention in certain cases.
+
+Studying Articles 21 and 22 together helps explain the constitutional framework surrounding personal liberty, arrest, detention and procedural safeguards.`,
+      },
+
+      {
+        heading: 'Article 22 and Article 20',
+        content: `Article 20 provides specific protections in respect of conviction for offences, including protection against ex post facto criminal laws, double jeopardy and compelled self-incrimination.
+
+Article 22, on the other hand, specifically deals with safeguards relating to arrest and detention. These provisions are separate but can be studied together when understanding constitutional protections available to persons involved in criminal proceedings.`,
+      },
+
+      {
+        heading: 'Why is Article 22 important?',
+        content: `Article 22 is important because arrest and detention directly affect personal liberty. The Constitution therefore provides specific safeguards concerning information about the grounds of arrest, access to legal representation and judicial oversight through production before a magistrate.
+
+The Article also creates a separate constitutional framework for preventive detention, including safeguards relating to communication of grounds and representation against detention orders.`,
+      },
+
+      {
+        heading: 'Common misunderstandings about Article 22',
+        content: `One common misunderstanding is that Article 22 means every arrested person must be released within twenty-four hours. The Article instead requires an arrested person who is detained in custody to be produced before the nearest magistrate within twenty-four hours, excluding necessary travel time. Continued detention may be authorised by a magistrate.
+
+Another misunderstanding is that Article 22 completely prohibits preventive detention. The Constitution recognises preventive detention but provides specific constitutional safeguards for it.
+
+It is also important to distinguish the ordinary arrest safeguards under clauses (1) and (2) from the separate provisions dealing with preventive detention.`,
+      },
+
+      {
+        heading: 'Why should students study Article 22?',
+        content: `Article 22 is an important topic for students studying the Indian Constitution, Fundamental Rights, law and competitive examinations.
+
+For UPSC, MPSC, Police Bharti and other competitive examinations, students should understand the relationship between Article 20, Article 21 and Article 22, along with the distinction between ordinary arrest and preventive detention.
+
+Understanding the constitutional wording and its basic structure is more useful than memorising only a one-line definition.`,
+      },
+
+      {
+        heading: 'Key points to remember about Article 22',
+        content: `Article 22 provides constitutional safeguards against arrest and detention in certain cases.
+
+An arrested person must generally be informed of the grounds of arrest.
+
+An arrested person has the right to consult and be defended by a legal practitioner of their choice.
+
+A person arrested and detained in custody must generally be produced before the nearest magistrate within twenty-four hours, excluding necessary journey time.
+
+Article 22 contains separate provisions relating to preventive detention.
+
+A person detained under a preventive detention law must generally be informed of the grounds of detention and given the earliest opportunity to make a representation against the order.
+
+Article 22(3) specifies constitutional exceptions to the protections in clauses (1) and (2).`,
+      },
+    ],
+
+    mr: [
+      {
+        heading: 'भारतीय संविधानातील कलम 22 म्हणजे काय?',
+        content: `कलम 22 हे भारतीय संविधानातील काही प्रकरणांमध्ये अटक आणि नजरकैदेपासून संरक्षण देणारे महत्त्वाचे मूलभूत अधिकारांचे कलम आहे. हे संविधानाच्या भाग III मधील मूलभूत अधिकारांचा भाग आहे.
+
+या कलमात अटकेची कारणे कळवणे, कायदेविषयक व्यवसायिकाचा सल्ला घेण्याचा अधिकार आणि अटक केलेल्या व्यक्तीला चोवीस तासांच्या आत दंडाधिकाऱ्यासमोर हजर करण्यासंबंधी घटनात्मक संरक्षणे दिली आहेत.
+
+कलम 22 मध्ये प्रतिबंधात्मक नजरकैदेबाबत स्वतंत्र घटनात्मक तरतुदीही आहेत.`,
+      },
+
+      {
+        heading: 'कलम 22 अंतर्गत कोणती प्रमुख संरक्षणे आहेत?',
+        content: `कलम 22 मध्ये अटक केलेल्या व्यक्तीसाठी अनेक महत्त्वाची घटनात्मक संरक्षणे आहेत. अटकेची कारणे शक्य तितक्या लवकर कळवणे आणि आपल्या पसंतीच्या कायदेविषयक व्यवसायिकाचा सल्ला घेण्याचा व त्याच्यामार्फत बचाव करून घेण्याचा अधिकार यांचा त्यात समावेश आहे.
+
+अटक करून ताब्यात ठेवलेल्या व्यक्तीला सामान्यतः अटकेपासून चोवीस तासांच्या आत जवळच्या दंडाधिकाऱ्यासमोर हजर केले पाहिजे. या कालावधीत आवश्यक प्रवासाचा वेळ मोजला जात नाही.`,
+      },
+
+      {
+        heading: 'कलम 22 मधील 24 तासांचा नियम काय आहे?',
+        content: `कलम 22(2) नुसार अटक करून ताब्यात ठेवलेल्या व्यक्तीला अटकेपासून चोवीस तासांच्या आत जवळच्या दंडाधिकाऱ्यासमोर हजर केले पाहिजे. अटकेच्या ठिकाणाहून दंडाधिकाऱ्याच्या न्यायालयापर्यंत जाण्यास लागणारा आवश्यक प्रवासाचा वेळ या कालावधीत मोजला जात नाही.
+
+दंडाधिकाऱ्याच्या अधिकाराशिवाय व्यक्तीला या कालावधीपुढे ताब्यात ठेवता येत नाही. त्यामुळे दीर्घकाळ न्यायालयीन देखरेखीशिवाय ताब्यात ठेवण्यापासून संरक्षण देणारी ही महत्त्वाची घटनात्मक तरतूद आहे.`,
+      },
+
+      {
+        heading: 'कलम 22 अंतर्गत अटक केलेल्या व्यक्तीला वकिलाचा अधिकार आहे का?',
+        content: `होय. कलम 22(1) नुसार अटक केलेल्या व्यक्तीला आपल्या पसंतीच्या कायदेविषयक व्यवसायिकाचा सल्ला घेण्याचा आणि त्याच्यामार्फत बचाव करून घेण्याचा अधिकार नाकारता येत नाही.
+
+हे अटक केलेल्या व्यक्तीच्या घटनात्मक संरक्षणाचा महत्त्वाचा भाग आहे. एखाद्या विशिष्ट प्रकरणात कायदेशीर प्रतिनिधित्वाची प्रक्रिया संबंधित कायदे आणि प्रक्रियात्मक नियमांनुसार ठरते.`,
+      },
+
+      {
+        heading: 'अटकेनंतर कोणती माहिती देणे आवश्यक आहे?',
+        content: `कलम 22(1) नुसार अटक केलेल्या व्यक्तीला अटकेची कारणे शक्य तितक्या लवकर कळवली पाहिजेत.
+
+या संरक्षणाचा उद्देश असा आहे की एखाद्या व्यक्तीला अटकेचा आधार न सांगता ताब्यात ठेवले जाऊ नये. मात्र विशिष्ट प्रकरणात लागू असलेली घटनात्मक आणि कायदेशीर चौकटही विचारात घेतली जाते.`,
+      },
+
+      {
+        heading: 'प्रतिबंधात्मक नजरकैद म्हणजे काय?',
+        content: `प्रतिबंधात्मक नजरकैद म्हणजे एखाद्या व्यक्तीने भविष्यात विशिष्ट प्रकारची कृती करू नये किंवा संभाव्य धोका टाळता यावा या उद्देशाने कायद्यानुसार व्यक्तीला ताब्यात ठेवण्याची व्यवस्था.
+
+कलम 22 मध्ये प्रतिबंधात्मक नजरकैदेचा स्वतंत्र घटनात्मक विचार केला आहे. खंड (1) आणि (2) मधील सामान्य संरक्षणे प्रतिबंधात्मक नजरकैदेतील व्यक्तींना त्याच पद्धतीने लागू होत नाहीत.
+
+मात्र अशा व्यक्तींना नजरकैदेची कारणे कळवणे आणि त्या आदेशाविरुद्ध प्रतिनिधित्व करण्याची संधी देणे यांसारखी स्वतंत्र घटनात्मक संरक्षणे कलम 22 मध्ये आहेत.`,
+      },
+
+      {
+        heading: 'कलम 22 प्रतिबंधात्मक नजरकैद पूर्णपणे बंद करते का?',
+        content: `नाही. भारतीय संविधान प्रतिबंधात्मक नजरकैदेला पूर्णपणे प्रतिबंध करत नाही. कलम 22 मध्ये अशा नजरकैदेबाबत स्वतंत्र तरतुदी आणि घटनात्मक संरक्षणे दिली आहेत.
+
+एखाद्या विशिष्ट प्रतिबंधात्मक नजरकैदेचा आदेश कायदेशीर आहे का, हे संविधान, संबंधित प्रतिबंधात्मक नजरकैदेचा कायदा आणि त्या प्रकरणातील तथ्ये व परिस्थिती यावर अवलंबून असते.`,
+      },
+
+      {
+        heading: 'कलम 22 मध्ये सल्लागार मंडळाची भूमिका काय आहे?',
+        content: `कलम 22(4) मध्ये प्रतिबंधात्मक नजरकैदेच्या घटनात्मक चौकटीत सल्लागार मंडळाचा उल्लेख आहे. या मंडळात उच्च न्यायालयाचे न्यायाधीश म्हणून नियुक्त झालेले, पूर्वी न्यायाधीश राहिलेले किंवा उच्च न्यायालयाचे न्यायाधीश म्हणून नियुक्त होण्यास पात्र असलेले व्यक्ती असतात.
+
+तीन महिन्यांपेक्षा जास्त काळ प्रतिबंधात्मक नजरकैद ठेवण्याच्या घटनात्मक चौकटीशी या तरतुदीचा संबंध आहे. त्याची सविस्तर अंमलबजावणी संबंधित कायद्यावर अवलंबून असते.`,
+      },
+
+      {
+        heading: 'प्रतिबंधात्मक नजरकैदेत असलेल्या व्यक्तीला कोणते अधिकार आहेत?',
+        content: `कलम 22(5) नुसार प्रतिबंधात्मक नजरकैदेच्या कायद्याअंतर्गत एखाद्या व्यक्तीला ताब्यात घेतल्यास, त्या व्यक्तीला नजरकैदेचा आदेश कोणत्या कारणांवर आधारित आहे, ती कारणे शक्य तितक्या लवकर कळवली पाहिजेत.
+
+तसेच त्या व्यक्तीला त्या आदेशाविरुद्ध प्रतिनिधित्व करण्याची सर्वात लवकर संधी दिली पाहिजे.
+
+कलम 22(6) मध्ये सार्वजनिक हिताच्या दृष्टीने उघड करणे योग्य नाही असे प्राधिकरणाला वाटणाऱ्या काही तथ्यांबाबत अपवाद दिला आहे.`,
+      },
+
+      {
+        heading: 'कलम 22(1) आणि 22(2) मधील संरक्षणे कोणाला लागू होत नाहीत?',
+        content: `कलम 22(3) नुसार खंड (1) आणि (2) मधील संरक्षणे त्या वेळी शत्रू परदेशी असलेल्या व्यक्तीला किंवा प्रतिबंधात्मक नजरकैदेची तरतूद करणाऱ्या कायद्याअंतर्गत अटक किंवा ताब्यात घेतलेल्या व्यक्तीला लागू होत नाहीत.
+
+हे अपवाद संविधानाच्या कलम 22 मध्ये स्पष्टपणे नमूद केले आहेत.`,
+      },
+
+      {
+        heading: 'कलम 22 आणि वैयक्तिक स्वातंत्र्य',
+        content: `कलम 22 चा वैयक्तिक स्वातंत्र्याच्या घटनात्मक संरक्षणाशी जवळचा संबंध आहे. कलम 21 जीवन आणि वैयक्तिक स्वातंत्र्याचे संरक्षण करते, तर कलम 22 अटक आणि नजरकैदेबाबत विशिष्ट घटनात्मक संरक्षणे देते.
+
+ही दोन्ही कलमे एकत्रितपणे व्यक्तीचे स्वातंत्र्य आणि राज्याच्या अटक व नजरकैदेच्या अधिकारांमधील घटनात्मक चौकट समजून घेण्यासाठी महत्त्वाची आहेत.`,
+      },
+
+      {
+        heading: 'कलम 22 आणि कलम 21',
+        content: `कलम 21 नुसार कायद्याने स्थापित केलेल्या प्रक्रियेशिवाय कोणत्याही व्यक्तीला तिच्या जीवनापासून किंवा वैयक्तिक स्वातंत्र्यापासून वंचित करता येत नाही. कलम 22 अटक आणि नजरकैदेच्या संदर्भात विशिष्ट संरक्षणे सांगते.
+
+कलम 21 आणि कलम 22 यांचा एकत्र अभ्यास केल्यास वैयक्तिक स्वातंत्र्य, अटक, नजरकैद आणि प्रक्रियात्मक संरक्षणांची घटनात्मक चौकट अधिक स्पष्टपणे समजते.`,
+      },
+
+      {
+        heading: 'कलम 22 आणि कलम 20',
+        content: `कलम 20 मध्ये गुन्ह्यांसाठी दोषसिद्धीच्या संदर्भात विशिष्ट संरक्षणे दिली आहेत. त्यामध्ये पूर्वलक्षी दंडात्मक कायद्यापासून संरक्षण, एकाच गुन्ह्यासाठी पुन्हा शिक्षा होण्यापासून संरक्षण आणि स्वतःविरुद्ध साक्ष देण्यास सक्ती न करण्याचे संरक्षण यांचा समावेश होतो.
+
+कलम 22 मात्र मुख्यतः अटक आणि नजरकैदेबाबतच्या घटनात्मक संरक्षणांशी संबंधित आहे. व्यक्तीच्या घटनात्मक संरक्षणांचा अभ्यास करताना कलम 20, 21 आणि 22 यांचा एकत्र अभ्यास उपयुक्त ठरतो.`,
+      },
+
+      {
+        heading: 'कलम 22 महत्त्वाचे का आहे?',
+        content: `अटक आणि नजरकैद यांचा व्यक्तीच्या वैयक्तिक स्वातंत्र्यावर थेट परिणाम होतो. त्यामुळे अटकेची कारणे कळवणे, कायदेविषयक व्यवसायिकाचा सल्ला घेण्याचा अधिकार आणि दंडाधिकाऱ्यासमोर हजर करण्याची प्रक्रिया यांसारखी घटनात्मक संरक्षणे महत्त्वाची आहेत.
+
+कलम 22 प्रतिबंधात्मक नजरकैदेबाबतही स्वतंत्र घटनात्मक चौकट निर्माण करते. त्यामध्ये नजरकैदेची कारणे कळवणे आणि त्या आदेशाविरुद्ध प्रतिनिधित्व करण्याची संधी यांचा समावेश आहे.`,
+      },
+
+      {
+        heading: 'कलम 22 बाबत सामान्य गैरसमज',
+        content: `एक सामान्य गैरसमज असा आहे की कलम 22 मुळे अटक केलेल्या प्रत्येक व्यक्तीला चोवीस तासांच्या आत सोडावे लागते. प्रत्यक्षात कलम 22(2) नुसार अटक करून ताब्यात ठेवलेल्या व्यक्तीला चोवीस तासांच्या आत जवळच्या दंडाधिकाऱ्यासमोर हजर करणे आवश्यक आहे. आवश्यक प्रवासाचा वेळ या कालावधीत मोजला जात नाही. त्यानंतर दंडाधिकाऱ्याच्या अधिकाराने पुढील ताबा सुरू राहू शकतो.
+
+दुसरा गैरसमज असा आहे की संविधान प्रतिबंधात्मक नजरकैदेला पूर्णपणे प्रतिबंध करते. प्रत्यक्षात कलम 22 मध्ये प्रतिबंधात्मक नजरकैदेबाबत स्वतंत्र तरतुदी आहेत.
+
+तसेच सामान्य अटकेसाठी असलेली कलम 22(1) आणि 22(2) मधील संरक्षणे आणि प्रतिबंधात्मक नजरकैदेबाबतच्या स्वतंत्र तरतुदी यांच्यातील फरक समजून घेणे महत्त्वाचे आहे.`,
+      },
+
+      {
+        heading: 'विद्यार्थ्यांनी कलम 22 का अभ्यासावे?',
+        content: `भारतीय संविधान, मूलभूत अधिकार, कायदा आणि स्पर्धा परीक्षांचा अभ्यास करणाऱ्या विद्यार्थ्यांसाठी कलम 22 हा महत्त्वाचा विषय आहे.
+
+UPSC, MPSC, Police Bharti आणि इतर स्पर्धा परीक्षांसाठी कलम 20, 21 आणि 22 यांचा परस्पर संबंध समजून घेणे तसेच सामान्य अटक आणि प्रतिबंधात्मक नजरकैद यातील फरक समजणे उपयुक्त ठरते.
+
+केवळ एका ओळीतील व्याख्या पाठ करण्याऐवजी घटनात्मक मजकूर, त्याचा साधा अर्थ आणि संबंधित कलमांशी असलेला संबंध समजून घेणे अधिक उपयुक्त आहे.`,
+      },
+
+      {
+        heading: 'कलम 22 चे महत्त्वाचे मुद्दे',
+        content: `कलम 22 काही प्रकरणांमध्ये अटक आणि नजरकैदेपासून घटनात्मक संरक्षण देते.
+
+अटक केलेल्या व्यक्तीला सामान्यतः अटकेची कारणे कळवली पाहिजेत.
+
+अटक केलेल्या व्यक्तीला आपल्या पसंतीच्या कायदेविषयक व्यवसायिकाचा सल्ला घेण्याचा आणि त्याच्यामार्फत बचाव करून घेण्याचा अधिकार आहे.
+
+अटक करून ताब्यात ठेवलेल्या व्यक्तीला सामान्यतः चोवीस तासांच्या आत जवळच्या दंडाधिकाऱ्यासमोर हजर केले पाहिजे. आवश्यक प्रवासाचा वेळ या कालावधीत मोजला जात नाही.
+
+कलम 22 मध्ये प्रतिबंधात्मक नजरकैदेबाबत स्वतंत्र तरतुदी आहेत.
+
+प्रतिबंधात्मक नजरकैदेअंतर्गत ताब्यात घेतलेल्या व्यक्तीला सामान्यतः नजरकैदेची कारणे कळवली पाहिजेत आणि त्या आदेशाविरुद्ध प्रतिनिधित्व करण्याची सर्वात लवकर संधी दिली पाहिजे.
+
+कलम 22(3) मध्ये खंड (1) आणि (2) मधील संरक्षणांना लागू असलेले घटनात्मक अपवाद नमूद केले आहेत.`,
+      },
+    ],
+  },
+
+  keywords: [
+    'Article 22',
+    'Article 22 of Indian Constitution',
+    'Article 22 Indian Constitution',
+    'Article 22 explained',
+    'What is Article 22',
+    'Article 22 Fundamental Rights',
+    'Article 22 protection against arrest',
+    'Protection against arrest and detention',
+    'Article 22 24 hours',
+    'Article 22 right to lawyer',
+    'Article 22 preventive detention',
+    'Preventive Detention India',
+    'Article 22 and Article 21',
+    'Article 22 and Article 20',
+    'Article 22 in simple words',
+    'arrest and detention rights India',
+    '24 hours arrest rule India',
+    'Article 22 Advisory Board',
+    'कलम 22',
+    'कलम 22 भारतीय संविधान',
+    'कलम 22 मराठीत',
+    'कलम 22 म्हणजे काय',
+    'अटक आणि नजरकैदेपासून संरक्षण',
+    'अटकेपासून संरक्षण',
+    'नजरकैद',
+    'प्रतिबंधात्मक नजरकैद',
+    'अटकेनंतर 24 तास',
+    'अटक केलेल्या व्यक्तीचे अधिकार',
+    'वकिलाचा अधिकार',
+  ],
+
+  relatedIds: ['20', '21', '21A', '23'],
+
+  source: {
+    name: 'Legislative Department, Ministry of Law and Justice, Government of India',
+    url: 'https://www.legislative.gov.in/constitution-of-india/',
+  },
+
+  lastVerified: '2026-10-01',
+},
+
   {
   id: '32',
   articleNumber: 'Article 32',
