@@ -3545,6 +3545,377 @@ The exact legal consequences depend on the applicable legislation and facts of t
   },
   lastVerified: '2026-09-28',
 },
+{
+  id: '105',
+  articleNumber: 'Article 105',
+  title: {
+    en: 'Powers, Privileges and Immunities of Parliament and its Members',
+    mr: 'संसद आणि तिच्या सदस्यांचे अधिकार, विशेषाधिकार व उन्मुक्ती',
+  },
+  categoryKey: 'union-legislature',
+  officialText: {
+    en: `Powers, privileges and immunities of Parliament and its members.—
+(1) Subject to the provisions of this Constitution and to the rules and standing orders regulating the procedure of Parliament, there shall be freedom of speech in Parliament.
+
+(2) No member of Parliament shall be liable to any proceedings in any court in respect of anything said or any vote given by him in Parliament or any committee thereof, and no person shall be so liable in respect of the publication by or under the authority of either House of Parliament of any report, paper, votes or proceedings.
+
+(3) In other respects, the powers, privileges and immunities of each House of Parliament, and of the members and the committees of each House, shall be such as may from time to time be defined by Parliament by law, and, until so defined, shall be those of that House and of its members and committees immediately before the coming into force of section 15 of the Constitution (Forty-fourth Amendment) Act, 1978.
+
+(4) The provisions of clauses (1), (2) and (3) shall apply in relation to persons who by virtue of the Constitution have the right to speak in, and otherwise to take part in the proceedings of, a House of Parliament or any committee thereof as they apply in relation to members of Parliament.`,
+
+    mr: `संसद आणि तिच्या सदस्यांचे अधिकार, विशेषाधिकार व उन्मुक्ती.—
+(1) या संविधानाच्या तरतुदींना आणि संसदेच्या कार्यपद्धतीचे नियमन करणाऱ्या नियम व स्थायी आदेशांना अधीन राहून, संसदेत भाषणस्वातंत्र्य असेल.
+
+(2) संसदेत किंवा तिच्या कोणत्याही समितीत सदस्याने केलेल्या कोणत्याही वक्तव्याबद्दल किंवा दिलेल्या कोणत्याही मताबद्दल त्या सदस्याविरुद्ध कोणत्याही न्यायालयीन कार्यवाहीस तो जबाबदार राहणार नाही. तसेच संसदेच्या कोणत्याही सभागृहाच्या अधिकाराने किंवा त्याच्या वतीने केलेल्या कोणत्याही अहवाल, कागदपत्र, मत किंवा कार्यवाहीच्या प्रकाशनाबद्दल कोणतीही व्यक्ती अशा प्रकारे जबाबदार राहणार नाही.
+
+(3) इतर बाबतीत, संसदेच्या प्रत्येक सभागृहाचे आणि त्याच्या सदस्यांचे व समित्यांचे अधिकार, विशेषाधिकार आणि उन्मुक्ती संसद वेळोवेळी कायद्याद्वारे निश्चित करेल. तोपर्यंत, संविधान (चव्वेचाळीसावी घटनादुरुस्ती) अधिनियम, 1978 मधील कलम 15 लागू होण्यापूर्वी तत्काळ अस्तित्वात असलेले संबंधित अधिकार, विशेषाधिकार आणि उन्मुक्ती लागू राहतील.
+
+(4) खंड (1), (2) आणि (3) मधील तरतुदी संविधानामुळे संसदेत किंवा तिच्या कोणत्याही समितीच्या कार्यवाहीत बोलण्याचा आणि अन्य प्रकारे सहभागी होण्याचा अधिकार असलेल्या व्यक्तींनाही संसद सदस्यांप्रमाणे लागू होतील.`,
+  },
+  simpleExplanation: {
+    en: `Article 105 deals with the powers, privileges and immunities of Parliament, its Houses, members and committees.
+
+Clause (1) provides for freedom of speech in Parliament, subject to the Constitution and the rules and standing orders regulating parliamentary procedure.
+
+Clause (2) provides an important form of constitutional protection to members of Parliament. A member is not liable to proceedings in a court for anything said or any vote given in Parliament or in a parliamentary committee. The clause also protects certain authorised publications of parliamentary proceedings.
+
+Clause (3) deals with the other powers, privileges and immunities of each House of Parliament and its members and committees. Parliament may define these by law.
+
+Clause (4) extends the relevant protections to persons who have a constitutional right to speak in and participate in parliamentary proceedings even though they are not necessarily members of Parliament.
+
+Article 105 is the constitutional provision concerning parliamentary privileges. It is different from Article 194, which deals with the powers, privileges and immunities of State Legislatures and their members.
+
+Parliamentary privileges are intended to enable Parliament and its members to perform their constitutional functions effectively and without improper interference. These privileges operate within the constitutional framework and are not a general exemption from all laws or judicial processes.
+
+Therefore, Article 105 provides constitutional protection for parliamentary speech, voting and specified parliamentary functions while recognising the authority of Parliament to define its other privileges by law.`,
+    mr: `कलम 105 हे संसद, तिची सभागृहे, सदस्य आणि समित्यांचे अधिकार, विशेषाधिकार व उन्मुक्ती यांच्याशी संबंधित आहे.
+
+खंड (1) नुसार संविधान आणि संसदीय कार्यपद्धतीचे नियमन करणारे नियम व स्थायी आदेश यांच्या अधीन राहून संसदेत भाषणस्वातंत्र्य असते.
+
+खंड (2) संसद सदस्यांना महत्त्वाचे घटनात्मक संरक्षण देते. संसदेत किंवा संसदीय समितीत सदस्याने केलेल्या वक्तव्याबद्दल किंवा दिलेल्या मताबद्दल त्याच्यावर कोणत्याही न्यायालयात कार्यवाही करता येत नाही. तसेच संसदीय कार्यवाहीच्या काही अधिकृत प्रकाशनांनाही या तरतुदीनुसार संरक्षण मिळते.
+
+खंड (3) संसद आणि तिच्या सभागृहांचे, सदस्यांचे व समित्यांचे इतर अधिकार, विशेषाधिकार आणि उन्मुक्ती यांच्याशी संबंधित आहे. हे विशेषाधिकार संसद कायद्याद्वारे निश्चित करू शकते.
+
+खंड (4) संविधानामुळे संसदेत किंवा तिच्या समितीत बोलण्याचा व कार्यवाहीत सहभागी होण्याचा अधिकार असलेल्या काही व्यक्तींनाही संबंधित संरक्षण लागू करते.
+
+कलम 105 हे संसदेच्या विशेषाधिकारांशी संबंधित घटनात्मक तरतूद आहे. याउलट कलम 194 हे राज्य विधिमंडळ आणि त्याच्या सदस्यांच्या अधिकार, विशेषाधिकार व उन्मुक्तींशी संबंधित आहे.
+
+संसदीय विशेषाधिकारांचा उद्देश संसद आणि तिच्या सदस्यांना त्यांच्या घटनात्मक जबाबदाऱ्या प्रभावीपणे पार पाडता याव्यात आणि त्यांच्या कामकाजात अनुचित हस्तक्षेप होऊ नये हा आहे. मात्र याचा अर्थ सर्व कायदे किंवा न्यायालयीन प्रक्रियांपासून सर्वसाधारण सूट मिळते असा नाही.
+
+म्हणून कलम 105 संसदेत भाषण, मतदान आणि संसदीय कार्याशी संबंधित काही संरक्षणांना घटनात्मक आधार देते आणि इतर विशेषाधिकार कायद्याद्वारे निश्चित करण्याची तरतूद करते.`,
+  },
+  verySimple: {
+    en: 'Article 105 protects freedom of speech in Parliament and provides certain privileges and immunities to Parliament, its members and committees. It helps members perform their parliamentary functions effectively within the constitutional framework.',
+    mr: 'कलम 105 संसदेत भाषणस्वातंत्र्याचे संरक्षण करते आणि संसद, तिचे सदस्य व समित्यांना काही विशेषाधिकार व उन्मुक्ती देते. यामुळे घटनात्मक चौकटीत संसदीय कामकाज प्रभावीपणे पार पाडता येते.',
+  },
+  example: {
+    en: `Suppose a Member of Parliament makes a statement or casts a vote during parliamentary proceedings. Article 105(2) provides constitutional protection against court proceedings in respect of that speech or vote.
+
+For example, a parliamentary debate may involve strong criticism of a government policy. The constitutional protection under Article 105 concerns what the member says or votes in Parliament in the exercise of parliamentary functions.
+
+This protection is intended to preserve the independence and effective functioning of Parliament. It should not be understood as giving a member unlimited immunity for every act performed outside parliamentary proceedings.`,
+    mr: `समजा एखादा संसद सदस्य संसदेच्या कामकाजादरम्यान एखादे वक्तव्य करतो किंवा एखाद्या प्रस्तावावर मतदान करतो. कलम 105(2) नुसार त्या वक्तव्याबद्दल किंवा मतदानाबद्दल न्यायालयीन कार्यवाहीपासून संबंधित सदस्याला घटनात्मक संरक्षण मिळते.
+
+उदाहरणार्थ, संसदेतील चर्चेदरम्यान एखादा सदस्य सरकारी धोरणावर तीव्र टीका करू शकतो. संसदीय कार्यवाहीत सदस्याने केलेल्या अशा वक्तव्याशी संबंधित संरक्षण कलम 105 अंतर्गत दिलेले आहे.
+
+या संरक्षणाचा उद्देश संसदेचे स्वातंत्र्य आणि प्रभावी कामकाज राखणे हा आहे. मात्र याचा अर्थ संसद सदस्याने संसदेबाहेर केलेल्या प्रत्येक कृतीला अमर्यादित संरक्षण मिळते असा नाही.`,
+  },
+  seoSections: {
+    en: [
+      {
+        heading: 'What is Article 105 of the Indian Constitution?',
+        content: 'Article 105 deals with the powers, privileges and immunities of Parliament, its members and committees. It also provides for freedom of speech in Parliament.',
+      },
+      {
+        heading: 'What is parliamentary privilege under Article 105?',
+        content: 'Parliamentary privilege refers to constitutional protections and powers that enable Parliament and its members to perform their legislative functions effectively. Article 105 provides the constitutional framework for these privileges.',
+      },
+      {
+        heading: 'What does Article 105(1) provide?',
+        content: 'Article 105(1) provides for freedom of speech in Parliament, subject to the Constitution and the rules and standing orders regulating parliamentary procedure.',
+      },
+      {
+        heading: 'What does Article 105(2) provide?',
+        content: 'Article 105(2) protects Members of Parliament from court proceedings in respect of anything said or any vote given by them in Parliament or a parliamentary committee, subject to the constitutional provision.',
+      },
+      {
+        heading: 'What is the difference between Article 105 and Article 194?',
+        content: 'Article 105 deals with the powers, privileges and immunities of Parliament and its members, while Article 194 deals with the corresponding powers, privileges and immunities of State Legislatures and their members.',
+      },
+      {
+        heading: 'Does Article 105 give MPs unlimited immunity?',
+        content: 'No. Article 105 provides specific constitutional protections relating to parliamentary proceedings and privileges. It should not be understood as a general immunity from every law or judicial process.',
+      },
+      {
+        heading: 'Why are parliamentary privileges important?',
+        content: 'Parliamentary privileges help Parliament and its members perform their constitutional and legislative functions effectively and protect parliamentary proceedings from improper interference.',
+      },
+      {
+        heading: 'Article 105 and Freedom of Speech',
+        content: 'Article 105 provides freedom of speech in Parliament, while Article 19(1)(a) protects freedom of speech and expression for citizens. The two provisions operate in different constitutional contexts.',
+      },
+      {
+        heading: 'Article 105 in simple words',
+        content: 'In simple terms, Article 105 gives Parliament and its members constitutional protections and privileges necessary for effective parliamentary functioning, including freedom of speech in Parliament.',
+      },
+    ],
+    mr: [
+      {
+        heading: 'भारतीय संविधानातील कलम 105 म्हणजे काय?',
+        content: 'कलम 105 हे संसद, तिचे सदस्य आणि समित्यांचे अधिकार, विशेषाधिकार व उन्मुक्ती यांच्याशी संबंधित आहे. तसेच संसदेत भाषणस्वातंत्र्याची घटनात्मक तरतूद करते.',
+      },
+      {
+        heading: 'कलम 105 अंतर्गत संसदीय विशेषाधिकार म्हणजे काय?',
+        content: 'संसदीय विशेषाधिकार म्हणजे संसद आणि तिच्या सदस्यांना संसदीय व घटनात्मक कार्य प्रभावीपणे पार पाडण्यासाठी मिळणारे घटनात्मक संरक्षण व अधिकार. कलम 105 या विशेषाधिकारांना घटनात्मक आधार देते.',
+      },
+      {
+        heading: 'कलम 105(1) मध्ये काय आहे?',
+        content: 'कलम 105(1) नुसार संविधान आणि संसदेच्या कार्यपद्धतीचे नियमन करणारे नियम यांच्या अधीन राहून संसदेत भाषणस्वातंत्र्य आहे.',
+      },
+      {
+        heading: 'कलम 105(2) मध्ये काय आहे?',
+        content: 'कलम 105(2) नुसार संसदेत किंवा संसदीय समितीत सदस्याने केलेल्या वक्तव्याबद्दल किंवा दिलेल्या मताबद्दल त्याच्यावर न्यायालयीन कार्यवाही करता येत नाही.',
+      },
+      {
+        heading: 'कलम 105 आणि कलम 194 मध्ये काय फरक आहे?',
+        content: 'कलम 105 हे संसद आणि तिच्या सदस्यांच्या अधिकार, विशेषाधिकार व उन्मुक्तींशी संबंधित आहे, तर कलम 194 हे राज्य विधिमंडळ आणि त्याच्या सदस्यांच्या संबंधित अधिकार, विशेषाधिकार व उन्मुक्तींशी संबंधित आहे.',
+      },
+      {
+        heading: 'कलम 105 मुळे खासदारांना अमर्यादित संरक्षण मिळते का?',
+        content: 'नाही. कलम 105 संसदीय कार्यवाही आणि विशेषाधिकारांशी संबंधित विशिष्ट घटनात्मक संरक्षण देते. प्रत्येक कायदा किंवा न्यायालयीन प्रक्रियेपासून सर्वसाधारण सूट मिळते असे या कलमाचे स्वरूप नाही.',
+      },
+      {
+        heading: 'संसदीय विशेषाधिकार महत्त्वाचे का आहेत?',
+        content: 'संसदीय विशेषाधिकारांमुळे संसद आणि तिचे सदस्य घटनात्मक व विधिमंडळाशी संबंधित कामकाज प्रभावीपणे पार पाडू शकतात आणि संसदीय कार्यवाहीत अनुचित हस्तक्षेपापासून संरक्षण मिळते.',
+      },
+      {
+        heading: 'कलम 105 आणि भाषणस्वातंत्र्य',
+        content: 'कलम 105 संसदेत भाषणस्वातंत्र्याशी संबंधित आहे, तर कलम 19(1)(अ) नागरिकांच्या भाषण आणि अभिव्यक्ती स्वातंत्र्याचे संरक्षण करते. दोन्ही तरतुदींचा घटनात्मक संदर्भ वेगळा आहे.',
+      },
+      {
+        heading: 'सोप्या भाषेत कलम 105',
+        content: 'सोप्या भाषेत सांगायचे झाल्यास, संसद आणि तिच्या सदस्यांना संसदीय कामकाज प्रभावीपणे पार पाडण्यासाठी आवश्यक घटनात्मक संरक्षण आणि विशेषाधिकार कलम 105 अंतर्गत मिळतात.',
+      },
+    ],
+  },
+  keywords: [
+    'Article 105',
+    'Article 105 Indian Constitution',
+    'Parliamentary Privileges',
+    'Parliamentary Privileges in India',
+    'Privileges of Parliament',
+    'MP Privileges',
+    'Article 105 explained',
+    'Article 105 in Marathi',
+    'Freedom of Speech in Parliament',
+    'Parliamentary Immunity',
+    'कलम 105',
+    'कलम 105 भारतीय संविधान',
+    'संसदीय विशेषाधिकार',
+    'खासदारांचे विशेषाधिकार',
+    'संसद विशेषाधिकार',
+  ],
+  relatedIds: ['19', '194', '32', '122'],
+  source: {
+    name: 'Legislative Department, Ministry of Law and Justice, Government of India',
+    url: 'https://www.legislative.gov.in/constitution-of-india/',
+  },
+  lastVerified: '2026-10-05',
+},
+{
+  id: '194',
+  articleNumber: 'Article 194',
+  title: {
+    en: 'Powers, Privileges and Immunities of State Legislatures and their Members',
+    mr: 'राज्य विधिमंडळ आणि त्याच्या सदस्यांचे अधिकार, विशेषाधिकार व उन्मुक्ती',
+  },
+  categoryKey: 'state-legislature',
+  officialText: {
+    en: `Powers, privileges and immunities of Legislative Assemblies and Legislative Councils and of the members thereof.—
+(1) Subject to the provisions of this Constitution and to the rules and standing orders regulating the procedure of the Legislature, there shall be freedom of speech in the Legislature of every State.
+
+(2) No member of the Legislature of a State shall be liable to any proceedings in any court in respect of anything said or any vote given by him in the Legislature or any committee thereof, and no person shall be so liable in respect of the publication by or under the authority of a House of such a Legislature of any report, paper, votes or proceedings.
+
+(3) In other respects, the powers, privileges and immunities of a House of the Legislature of a State, and of the members and the committees of a House of such Legislature, shall be such as may from time to time be defined by the Legislature by law, and, until so defined, shall be those of that House and of its members and committees immediately before the coming into force of section 26 of the Constitution (Forty-fourth Amendment) Act, 1978.
+
+(4) The provisions of clauses (1), (2) and (3) shall apply in relation to persons who by virtue of this Constitution have the right to speak in, and otherwise to take part in the proceedings of, a House of the Legislature of a State or any committee thereof as they apply in relation to members of that Legislature.`,
+
+    mr: `राज्याच्या विधानसभेचे आणि विधानपरिषदेचे तसेच त्यांच्या सदस्यांचे अधिकार, विशेषाधिकार व उन्मुक्ती.—
+(1) या संविधानाच्या तरतुदींना आणि विधिमंडळाच्या कार्यपद्धतीचे नियमन करणाऱ्या नियम व स्थायी आदेशांना अधीन राहून, प्रत्येक राज्याच्या विधिमंडळात भाषणस्वातंत्र्य असेल.
+
+(2) राज्याच्या विधिमंडळाचा कोणताही सदस्य विधिमंडळात किंवा त्याच्या कोणत्याही समितीत त्याने केलेल्या कोणत्याही वक्तव्याबद्दल किंवा दिलेल्या कोणत्याही मताबद्दल कोणत्याही न्यायालयीन कार्यवाहीस जबाबदार राहणार नाही. तसेच अशा विधिमंडळाच्या कोणत्याही सभागृहाच्या अधिकाराने किंवा त्याच्या वतीने केलेल्या कोणत्याही अहवाल, कागदपत्र, मत किंवा कार्यवाहीच्या प्रकाशनाबद्दल कोणतीही व्यक्ती अशा प्रकारे जबाबदार राहणार नाही.
+
+(3) इतर बाबतीत, राज्याच्या विधिमंडळाच्या सभागृहाचे आणि त्याच्या सदस्यांचे व समित्यांचे अधिकार, विशेषाधिकार आणि उन्मुक्ती विधिमंडळ वेळोवेळी कायद्याद्वारे निश्चित करेल. तोपर्यंत, संविधान (चव्वेचाळीसावी घटनादुरुस्ती) अधिनियम, 1978 मधील कलम 26 लागू होण्यापूर्वी तत्काळ अस्तित्वात असलेले संबंधित अधिकार, विशेषाधिकार आणि उन्मुक्ती लागू राहतील.
+
+(4) खंड (1), (2) आणि (3) मधील तरतुदी संविधानामुळे राज्याच्या विधिमंडळाच्या सभागृहात किंवा त्याच्या कोणत्याही समितीत बोलण्याचा आणि अन्य प्रकारे कार्यवाहीत सहभागी होण्याचा अधिकार असलेल्या व्यक्तींनाही त्या विधिमंडळाच्या सदस्यांप्रमाणे लागू होतील.`,
+  },
+  simpleExplanation: {
+    en: `Article 194 deals with the powers, privileges and immunities of State Legislatures, including Legislative Assemblies and Legislative Councils, and their members and committees.
+
+Clause (1) provides for freedom of speech in the Legislature of every State, subject to the Constitution and the rules and standing orders regulating legislative procedure.
+
+Clause (2) provides constitutional protection to members of State Legislatures for anything said or any vote given by them in the Legislature or in a committee thereof. It also provides protection relating to authorised publication of legislative proceedings.
+
+Clause (3) deals with other powers, privileges and immunities of State Legislative Houses, their members and committees. These may be defined by the State Legislature by law.
+
+Clause (4) extends the relevant protections to persons who have a constitutional right to speak in and participate in proceedings of a State Legislature or its committees.
+
+Article 194 is therefore the principal constitutional provision dealing with State Legislative privileges. It corresponds broadly to Article 105, which deals with Parliament.
+
+Legislative privileges exist to enable State Legislatures and their members to perform their constitutional and legislative functions effectively. These privileges are part of the constitutional framework and should not automatically be understood as an unlimited immunity from judicial review or other constitutional limitations.
+
+Article 194 can become particularly important when questions arise concerning legislative speech, breach of privilege, publication of legislative proceedings, or the relationship between legislative privileges and other constitutional rights.
+
+Therefore, Article 194 provides the constitutional framework for freedom of speech within State Legislatures and for their powers, privileges and immunities.`,
+    mr: `कलम 194 हे राज्य विधिमंडळ, म्हणजेच विधानसभा आणि विधानपरिषद, तसेच त्यांचे सदस्य आणि समित्यांचे अधिकार, विशेषाधिकार व उन्मुक्तींशी संबंधित आहे.
+
+खंड (1) नुसार संविधान आणि विधिमंडळाच्या कार्यपद्धतीचे नियमन करणारे नियम व स्थायी आदेश यांच्या अधीन राहून प्रत्येक राज्याच्या विधिमंडळात भाषणस्वातंत्र्य असते.
+
+खंड (2) राज्य विधिमंडळाच्या सदस्यांना महत्त्वाचे घटनात्मक संरक्षण देते. विधिमंडळात किंवा त्याच्या समितीत सदस्याने केलेल्या वक्तव्याबद्दल किंवा दिलेल्या मताबद्दल त्याच्यावर न्यायालयीन कार्यवाही करता येत नाही. तसेच विधिमंडळाच्या अधिकृत कार्यवाहीच्या प्रकाशनाशी संबंधित काही संरक्षणही या तरतुदीत आहे.
+
+खंड (3) राज्य विधिमंडळाच्या सभागृहांचे, सदस्यांचे आणि समित्यांचे इतर अधिकार, विशेषाधिकार व उन्मुक्ती यांच्याशी संबंधित आहे. हे विशेषाधिकार राज्य विधिमंडळ कायद्याद्वारे निश्चित करू शकते.
+
+खंड (4) संविधानामुळे राज्य विधिमंडळाच्या सभागृहात किंवा समितीत बोलण्याचा व कार्यवाहीत सहभागी होण्याचा अधिकार असलेल्या व्यक्तींनाही संबंधित संरक्षण लागू करते.
+
+कलम 194 हे राज्य विधिमंडळाच्या विशेषाधिकारांशी संबंधित प्रमुख घटनात्मक तरतूद आहे. याची तुलना संसदेसाठी असलेल्या कलम 105 शी करता येते.
+
+विधिमंडळाचे विशेषाधिकार राज्य विधिमंडळ आणि त्याचे सदस्य आपली घटनात्मक व विधिमंडळाशी संबंधित कामे प्रभावीपणे पार पाडू शकतील यासाठी आहेत. हे विशेषाधिकार घटनात्मक चौकटीचा भाग आहेत आणि त्यांचा अर्थ न्यायालयीन पुनरावलोकन किंवा इतर घटनात्मक मर्यादांपासून अमर्यादित सूट असा होत नाही.
+
+विधिमंडळातील भाषण, विशेषाधिकारभंग, विधिमंडळाच्या कार्यवाहीचे प्रकाशन किंवा विधिमंडळाच्या विशेषाधिकारांचा इतर घटनात्मक अधिकारांशी संबंध यांसारखे प्रश्न उपस्थित झाल्यास कलम 194 महत्त्वाचे ठरते.
+
+म्हणून कलम 194 राज्य विधिमंडळातील भाषणस्वातंत्र्य तसेच राज्य विधिमंडळाचे अधिकार, विशेषाधिकार आणि उन्मुक्ती यांना घटनात्मक आधार देते.`,
+  },
+  verySimple: {
+    en: 'Article 194 gives State Legislatures and their members certain powers, privileges and immunities. It also protects freedom of speech in State Legislatures, subject to the Constitution and legislative rules.',
+    mr: 'कलम 194 राज्य विधिमंडळ आणि त्याच्या सदस्यांना काही अधिकार, विशेषाधिकार व उन्मुक्ती देते. तसेच संविधान आणि विधिमंडळाच्या नियमांच्या अधीन राहून राज्य विधिमंडळात भाषणस्वातंत्र्याचे संरक्षण करते.',
+  },
+  example: {
+    en: `Suppose a Member of a State Legislative Assembly makes a statement or casts a vote during legislative proceedings. Article 194(2) provides constitutional protection in respect of that speech or vote.
+
+For example, during a legislative debate, a member may express a view on a government policy. The constitutional protection under Article 194 applies to the member's speech and vote within the legislative proceedings, subject to the constitutional framework.
+
+Article 194 also becomes relevant when a question arises about whether an action amounts to a breach of legislative privilege. The specific issue must be examined in the context of the Constitution, applicable law and the relevant legislative proceedings.
+
+Thus, Article 194 provides the constitutional foundation for State Legislative privileges while supporting the effective functioning of State Legislatures.`,
+    mr: `समजा एखादा आमदार विधानसभेच्या कामकाजादरम्यान एखादे वक्तव्य करतो किंवा एखाद्या प्रस्तावावर मतदान करतो. कलम 194(2) त्या वक्तव्याबद्दल किंवा मतदानाबद्दल घटनात्मक संरक्षण देते.
+
+उदाहरणार्थ, विधिमंडळातील चर्चेदरम्यान एखादा आमदार सरकारी धोरणाबद्दल आपले मत मांडू शकतो. विधिमंडळाच्या कार्यवाहीदरम्यान केलेल्या अशा वक्तव्याला आणि मतदानाला कलम 194 अंतर्गत घटनात्मक संरक्षण मिळते.
+
+एखाद्या कृतीमुळे विधिमंडळाच्या विशेषाधिकाराचा भंग झाला आहे का, असा प्रश्न निर्माण झाल्यासही कलम 194 महत्त्वाचे ठरते. मात्र प्रत्येक प्रकरणाचा निर्णय संविधान, लागू कायदे आणि संबंधित विधिमंडळाच्या कार्यवाहीच्या संदर्भात घ्यावा लागतो.
+
+म्हणून कलम 194 हे राज्य विधिमंडळाच्या विशेषाधिकारांना घटनात्मक आधार देते आणि राज्य विधिमंडळाचे प्रभावी कामकाज सुनिश्चित करण्यास मदत करते.`,
+  },
+  seoSections: {
+    en: [
+      {
+        heading: 'What is Article 194 of the Indian Constitution?',
+        content: 'Article 194 deals with the powers, privileges and immunities of State Legislatures, their members and committees. It also provides for freedom of speech in State Legislatures.',
+      },
+      {
+        heading: 'What are Legislative Privileges under Article 194?',
+        content: 'Legislative privileges are constitutional powers, protections and immunities available to State Legislatures and their members to enable them to perform their legislative and constitutional functions effectively.',
+      },
+      {
+        heading: 'What does Article 194(1) provide?',
+        content: 'Article 194(1) provides for freedom of speech in the Legislature of every State, subject to the Constitution and the rules and standing orders regulating legislative procedure.',
+      },
+      {
+        heading: 'What does Article 194(2) provide?',
+        content: 'Article 194(2) provides protection from court proceedings for members of State Legislatures in respect of anything said or any vote given by them in the Legislature or its committees, subject to the constitutional provision.',
+      },
+      {
+        heading: 'What is the difference between Article 105 and Article 194?',
+        content: 'Article 105 deals with parliamentary privileges and immunities, while Article 194 deals with the corresponding powers, privileges and immunities of State Legislatures and their members.',
+      },
+      {
+        heading: 'Why are legislative privileges important?',
+        content: 'Legislative privileges help State Legislatures and their members perform their constitutional and legislative functions effectively and protect legislative proceedings from improper interference.',
+      },
+      {
+        heading: 'What is breach of privilege?',
+        content: 'A breach of privilege generally refers to conduct that violates or interferes with a privilege of a House, its members or its committees. The specific issue depends on the applicable constitutional framework, law and legislative rules.',
+      },
+      {
+        heading: 'Article 194 and Freedom of Speech',
+        content: 'Article 194 provides for freedom of speech in State Legislatures, while Article 19(1)(a) protects freedom of speech and expression for citizens. The two provisions operate in different constitutional contexts.',
+      },
+      {
+        heading: 'Article 194 and the Supreme Court',
+        content: 'Questions concerning the scope and limits of legislative privileges under Article 194 can involve constitutional interpretation and the relationship between legislative privileges, fundamental rights and judicial review.',
+      },
+      {
+        heading: 'Article 194 in simple words',
+        content: 'In simple terms, Article 194 provides State Legislatures and their members with constitutional protections and privileges needed to perform legislative functions effectively, including freedom of speech in the Legislature.',
+      },
+    ],
+    mr: [
+      {
+        heading: 'भारतीय संविधानातील कलम 194 म्हणजे काय?',
+        content: 'कलम 194 हे राज्य विधिमंडळ, त्याचे सदस्य आणि समित्यांचे अधिकार, विशेषाधिकार व उन्मुक्तींशी संबंधित आहे. तसेच राज्य विधिमंडळात भाषणस्वातंत्र्याची तरतूद करते.',
+      },
+      {
+        heading: 'कलम 194 अंतर्गत विधिमंडळाचे विशेषाधिकार म्हणजे काय?',
+        content: 'विधिमंडळाचे विशेषाधिकार म्हणजे राज्य विधिमंडळ आणि त्याच्या सदस्यांना घटनात्मक व विधिमंडळाशी संबंधित कामकाज प्रभावीपणे पार पाडण्यासाठी मिळणारे अधिकार, संरक्षण आणि उन्मुक्ती.',
+      },
+      {
+        heading: 'कलम 194(1) मध्ये काय आहे?',
+        content: 'कलम 194(1) नुसार संविधान आणि विधिमंडळाच्या कार्यपद्धतीचे नियमन करणारे नियम यांच्या अधीन राहून प्रत्येक राज्याच्या विधिमंडळात भाषणस्वातंत्र्य आहे.',
+      },
+      {
+        heading: 'कलम 194(2) मध्ये काय आहे?',
+        content: 'कलम 194(2) नुसार राज्य विधिमंडळाच्या सदस्याने विधिमंडळात किंवा त्याच्या समितीत केलेल्या वक्तव्याबद्दल किंवा दिलेल्या मताबद्दल त्याच्यावर न्यायालयीन कार्यवाही करता येत नाही.',
+      },
+      {
+        heading: 'कलम 105 आणि कलम 194 मध्ये काय फरक आहे?',
+        content: 'कलम 105 संसद आणि तिच्या सदस्यांच्या विशेषाधिकारांशी संबंधित आहे, तर कलम 194 राज्य विधिमंडळ आणि त्याच्या सदस्यांच्या अधिकार, विशेषाधिकार व उन्मुक्तींशी संबंधित आहे.',
+      },
+      {
+        heading: 'विधिमंडळाचे विशेषाधिकार महत्त्वाचे का आहेत?',
+        content: 'विधिमंडळाचे विशेषाधिकार राज्य विधिमंडळ आणि त्याचे सदस्य घटनात्मक व विधिमंडळाशी संबंधित कामकाज प्रभावीपणे पार पाडू शकतील आणि कार्यवाहीत अनुचित हस्तक्षेप होऊ नये यासाठी महत्त्वाचे आहेत.',
+      },
+      {
+        heading: 'विशेषाधिकारभंग म्हणजे काय?',
+        content: 'विधिमंडळाच्या सभागृहाचा, त्याच्या सदस्यांचा किंवा समित्यांचा एखादा विशेषाधिकार भंग करणे किंवा त्याच्या कार्यात अडथळा आणणे याला सामान्यतः विशेषाधिकारभंगाच्या संदर्भात पाहिले जाते. संबंधित प्रकरणाचा निर्णय संविधान, कायदा आणि विधिमंडळाच्या नियमांच्या चौकटीत केला जातो.',
+      },
+      {
+        heading: 'कलम 194 आणि भाषणस्वातंत्र्य',
+        content: 'कलम 194 राज्य विधिमंडळातील भाषणस्वातंत्र्याशी संबंधित आहे, तर कलम 19(1)(अ) नागरिकांच्या भाषण आणि अभिव्यक्ती स्वातंत्र्याचे संरक्षण करते. दोन्ही तरतुदींचा घटनात्मक संदर्भ वेगळा आहे.',
+      },
+      {
+        heading: 'कलम 194 आणि सर्वोच्च न्यायालय',
+        content: 'कलम 194 अंतर्गत विधिमंडळाच्या विशेषाधिकारांची व्याप्ती आणि मर्यादा याबाबतचे प्रश्न घटनात्मक अर्थ लावण्याशी संबंधित असू शकतात. अशा प्रश्नांमध्ये विशेषाधिकार, मूलभूत अधिकार आणि न्यायालयीन पुनरावलोकन यांचा संबंध महत्त्वाचा ठरतो.',
+      },
+      {
+        heading: 'सोप्या भाषेत कलम 194',
+        content: 'सोप्या भाषेत सांगायचे झाल्यास, राज्य विधिमंडळाचे कामकाज प्रभावीपणे चालावे यासाठी त्याला आणि त्याच्या सदस्यांना काही घटनात्मक अधिकार, विशेषाधिकार व संरक्षण कलम 194 अंतर्गत मिळते.',
+      },
+    ],
+  },
+  keywords: [
+    'Article 194',
+    'Article 194 Indian Constitution',
+    'Legislative Privileges',
+    'Legislative Privileges in India',
+    'State Legislature Privileges',
+    'MLA Privileges',
+    'Article 194 explained',
+    'Article 194 in Marathi',
+    'Breach of Privilege',
+    'State Legislative Assembly Privileges',
+    'कलम 194',
+    'कलम 194 भारतीय संविधान',
+    'विधिमंडळाचे विशेषाधिकार',
+    'आमदारांचे विशेषाधिकार',
+    'विधानसभेचे विशेषाधिकार',
+    'विशेषाधिकारभंग',
+  ],
+  relatedIds: ['19', '21', '105', '32'],
+  source: {
+    name: 'Legislative Department, Ministry of Law and Justice, Government of India',
+    url: 'https://www.legislative.gov.in/constitution-of-india/',
+  },
+  lastVerified: '2026-10-05',
+},
   
 ]
 
