@@ -3916,6 +3916,197 @@ Thus, Article 194 provides the constitutional foundation for State Legislative p
   },
   lastVerified: '2026-10-05',
 },
+{
+  id: '23',
+  articleNumber: 'Article 23',
+  title: {
+    en: 'Prohibition of Traffic in Human Beings and Forced Labour',
+    mr: 'मानवी तस्करी आणि सक्तीच्या मजुरीस प्रतिबंध',
+  },
+  categoryKey: 'right-against-exploitation',
+  officialText: {
+    en: `Prohibition of traffic in human beings and forced labour.—(1) Traffic in human beings and begar and other similar forms of forced labour are prohibited and any contravention of this provision shall be an offence punishable in accordance with law.
+
+(2) Nothing in this article shall prevent the State from imposing compulsory service for public purposes, and in imposing such service the State shall not make any discrimination on grounds only of religion, race, caste or class or any of them.`,
+    mr: `मानवी तस्करी आणि सक्तीच्या मजुरीस प्रतिबंध.—(१) मानवी तस्करी, बेगार आणि त्याचप्रमाणे सक्तीच्या मजुरीचे इतर प्रकार यांना प्रतिबंध करण्यात आला आहे आणि या तरतुदीचे उल्लंघन करणे कायद्यानुसार शिक्षापात्र अपराध असेल.
+
+(२) या अनुच्छेदातील कोणतीही गोष्ट राज्याला सार्वजनिक उद्देशासाठी सक्तीची सेवा लादण्यापासून प्रतिबंधित करणार नाही. अशी सेवा लादताना राज्य केवळ धर्म, वंश, जात किंवा वर्ग यांपैकी कोणत्याही आधारावर भेदभाव करणार नाही.`,
+    verified: true,
+  },
+  simpleExplanation: {
+    en: `Article 23 is a Fundamental Right under the Right against Exploitation. It protects people from human trafficking, begar and other similar forms of forced labour.
+
+Article 23(1) prohibits traffic in human beings and begar and other similar forms of forced labour. Any violation of this constitutional prohibition is an offence punishable according to law.
+
+Human trafficking refers to the unlawful trade or exploitation of persons. Forced labour refers to situations where a person is made to work against their will through force, coercion or other forms of compulsion.
+
+The Constitution also protects people against begar, which refers to forced labour where a person is required to work without proper payment or against their will.
+
+Article 23(2) provides a specific exception. The State may impose compulsory service for public purposes. However, while imposing such service, the State cannot discriminate solely on the grounds of religion, race, caste or class.
+
+Therefore, Article 23 aims to protect human dignity and prevent exploitation while recognising a limited constitutional provision for compulsory public service without discrimination on the specified grounds.`,
+    mr: `अनुच्छेद २३ हा शोषणाविरुद्धच्या अधिकाराचा भाग आहे. तो मानवी तस्करी, बेगार आणि त्याचप्रमाणे सक्तीच्या मजुरीच्या इतर प्रकारांपासून व्यक्तींचे संरक्षण करतो.
+
+अनुच्छेद २३(१) मानवी तस्करी, बेगार आणि सक्तीच्या मजुरीच्या इतर समान प्रकारांना प्रतिबंध करतो. या घटनात्मक तरतुदीचे उल्लंघन करणे कायद्यानुसार शिक्षापात्र अपराध आहे.
+
+मानवी तस्करी म्हणजे व्यक्तींची बेकायदेशीर खरेदी-विक्री किंवा शोषण करण्याच्या उद्देशाने त्यांची वाहतूक किंवा ताबा घेणे. सक्तीची मजुरी म्हणजे एखाद्या व्यक्तीच्या इच्छेविरुद्ध दबाव, जबरदस्ती किंवा इतर प्रकारच्या सक्तीने काम करून घेणे.
+
+अनुच्छेद २३ बेगारपासूनही संरक्षण देतो. बेगार म्हणजे एखाद्या व्यक्तीकडून त्याच्या इच्छेविरुद्ध किंवा योग्य मोबदल्याशिवाय सक्तीने काम करून घेणे.
+
+अनुच्छेद २३(२) मध्ये एक विशिष्ट तरतूद आहे. राज्य सार्वजनिक उद्देशासाठी सक्तीची सेवा लादू शकते. मात्र अशी सेवा लादताना राज्य केवळ धर्म, वंश, जात किंवा वर्ग या आधारांवर भेदभाव करू शकत नाही.
+
+म्हणून अनुच्छेद २३ मानवी प्रतिष्ठेचे संरक्षण करण्यासाठी आणि व्यक्तींचे शोषण रोखण्यासाठी महत्त्वाची घटनात्मक तरतूद आहे.`,
+  },
+  verySimple: {
+    en: 'Article 23 prohibits human trafficking, begar and other similar forms of forced labour, while allowing compulsory public service without discrimination on specified grounds.',
+    mr: 'अनुच्छेद २३ मानवी तस्करी, बेगार आणि सक्तीच्या मजुरीच्या इतर समान प्रकारांना प्रतिबंध करतो. तसेच सार्वजनिक उद्देशासाठी सक्तीची सेवा लादताना विशिष्ट आधारांवर भेदभाव करण्यास मनाई करतो.',
+  },
+  example: {
+    en: `Suppose a person is forced to work against their will and is not allowed to leave the work because of threats, coercion or other forms of compulsion. Such forced labour can fall within the protection provided by Article 23.
+
+Another example is human trafficking. If people are illegally recruited, transported or exploited for the purpose of forced labour or other exploitation, Article 23 provides constitutional protection against such practices.
+
+Article 23(2) also recognises that the State may require compulsory service for a public purpose. For example, a law may provide for certain compulsory public service. However, the State cannot impose such service by discriminating solely on the grounds of religion, race, caste or class.
+
+These examples show how Article 23 protects individuals from exploitation while recognising the limited constitutional provision for compulsory public service.`,
+    mr: `समजा एखाद्या व्यक्तीला धमकी, दबाव किंवा इतर प्रकारच्या जबरदस्तीने त्याच्या इच्छेविरुद्ध काम करण्यास भाग पाडले जाते आणि त्याला ते काम सोडण्याची मुभा दिली जात नाही. अशा प्रकारची सक्तीची मजुरी अनुच्छेद २३ अंतर्गत संरक्षणाच्या कक्षेत येऊ शकते.
+
+दुसरे उदाहरण मानवी तस्करीचे आहे. एखाद्या व्यक्तीची सक्तीची मजुरी किंवा इतर शोषण करण्याच्या उद्देशाने बेकायदेशीररीत्या भरती, वाहतूक किंवा शोषण केले जात असल्यास, अनुच्छेद २३ अशा प्रथांविरुद्ध घटनात्मक संरक्षण देतो.
+
+अनुच्छेद २३(२) नुसार राज्य सार्वजनिक उद्देशासाठी सक्तीची सेवा लादू शकते. उदाहरणार्थ, कायद्यानुसार काही विशिष्ट सार्वजनिक सेवा सक्तीची केली जाऊ शकते. मात्र अशी सेवा लादताना राज्य केवळ धर्म, वंश, जात किंवा वर्ग या आधारांवर भेदभाव करू शकत नाही.
+
+या उदाहरणांवरून स्पष्ट होते की अनुच्छेद २३ व्यक्तींचे शोषणापासून संरक्षण करतो आणि त्याच वेळी सार्वजनिक उद्देशासाठी सक्तीच्या सेवेची मर्यादित घटनात्मक तरतूद मान्य करतो.`,
+  },
+  seoSections: {
+    en: [
+      {
+        heading: 'What is Article 23 of the Indian Constitution?',
+        content: `Article 23 is a Fundamental Right under the Right against Exploitation. It prohibits traffic in human beings, begar and other similar forms of forced labour.`,
+      },
+      {
+        heading: 'What does Article 23 say?',
+        content: `Article 23 prohibits human trafficking, begar and other similar forms of forced labour. It also permits the State to impose compulsory service for public purposes, provided that there is no discrimination solely on the specified grounds.`,
+      },
+      {
+        heading: 'Which Fundamental Right includes Article 23?',
+        content: `Article 23 is part of the Right against Exploitation under Part III of the Constitution. It is followed by Article 24, which deals with the employment of children in factories, mines and other hazardous employment.`,
+      },
+      {
+        heading: 'What is prohibited under Article 23?',
+        content: `Article 23 prohibits traffic in human beings, begar and other similar forms of forced labour.`,
+      },
+      {
+        heading: 'What is human trafficking?',
+        content: `Human trafficking involves the unlawful recruitment, transportation, transfer or exploitation of people. Article 23 provides constitutional protection against traffic in human beings.`,
+      },
+      {
+        heading: 'What is forced labour?',
+        content: `Forced labour refers to work that a person is compelled to perform against their will through force, coercion or other forms of compulsion.`,
+      },
+      {
+        heading: 'What is Begar under Article 23?',
+        content: `Begar refers to forced labour where a person is compelled to work without proper payment or against their will. Article 23 expressly prohibits begar.`,
+      },
+      {
+        heading: 'Can the State impose compulsory service?',
+        content: `Article 23(2) permits the State to impose compulsory service for public purposes. However, while imposing such service, the State cannot discriminate solely on the grounds of religion, race, caste or class.`,
+      },
+      {
+        heading: 'Why is Article 23 important?',
+        content: `Article 23 protects individuals from exploitation through human trafficking, begar and forced labour. It is an important constitutional protection of human dignity and freedom from exploitation.`,
+      },
+      {
+        heading: 'What is Article 23 in simple words?',
+        content: `In simple words, Article 23 says that no person can be subjected to human trafficking, begar or similar forms of forced labour. The State may impose compulsory public service in accordance with law, but it cannot discriminate solely on the specified grounds.`,
+      },
+      {
+        heading: 'What is the difference between Article 23 and Article 24?',
+        content: `Article 23 deals with human trafficking, begar and forced labour. Article 24 specifically prohibits the employment of children below fourteen years in factories, mines or other hazardous employment.`,
+      },
+      {
+        heading: 'Article 23 and human dignity',
+        content: `Article 23 helps protect human dignity by prohibiting practices that exploit people through trafficking and forced labour. It forms part of the Fundamental Rights guaranteed under Part III of the Constitution.`,
+      },
+    ],
+    mr: [
+      {
+        heading: 'भारतीय संविधानातील अनुच्छेद २३ म्हणजे काय?',
+        content: `अनुच्छेद २३ हा शोषणाविरुद्धच्या अधिकाराचा भाग आहे. तो मानवी तस्करी, बेगार आणि सक्तीच्या मजुरीच्या इतर समान प्रकारांना प्रतिबंध करतो.`,
+      },
+      {
+        heading: 'अनुच्छेद २३ मध्ये काय सांगितले आहे?',
+        content: `अनुच्छेद २३ मानवी तस्करी, बेगार आणि सक्तीच्या मजुरीच्या इतर समान प्रकारांना प्रतिबंध करतो. तसेच सार्वजनिक उद्देशासाठी सक्तीची सेवा लादण्याची राज्याला परवानगी देतो, मात्र विशिष्ट आधारांवर भेदभाव करण्यास मनाई करतो.`,
+      },
+      {
+        heading: 'अनुच्छेद २३ कोणत्या मूलभूत अधिकाराचा भाग आहे?',
+        content: `अनुच्छेद २३ हा संविधानाच्या भाग III मधील शोषणाविरुद्धच्या अधिकाराचा भाग आहे. त्यानंतर अनुच्छेद २४ येतो, जो कारखाने, खाणी आणि इतर धोकादायक रोजगारामध्ये बालकांच्या रोजगारासंबंधी आहे.`,
+      },
+      {
+        heading: 'अनुच्छेद २३ अंतर्गत कोणत्या गोष्टींना प्रतिबंध आहे?',
+        content: `अनुच्छेद २३ मानवी तस्करी, बेगार आणि सक्तीच्या मजुरीच्या इतर समान प्रकारांना प्रतिबंध करतो.`,
+      },
+      {
+        heading: 'मानवी तस्करी म्हणजे काय?',
+        content: `मानवी तस्करीमध्ये व्यक्तींची बेकायदेशीर भरती, वाहतूक, हस्तांतरण किंवा शोषण यांचा समावेश होऊ शकतो. अनुच्छेद २३ मानवी तस्करीविरुद्ध घटनात्मक संरक्षण देतो.`,
+      },
+      {
+        heading: 'सक्तीची मजुरी म्हणजे काय?',
+        content: `सक्तीची मजुरी म्हणजे एखाद्या व्यक्तीला त्याच्या इच्छेविरुद्ध दबाव, जबरदस्ती किंवा इतर प्रकारच्या सक्तीने काम करण्यास भाग पाडणे.`,
+      },
+      {
+        heading: 'अनुच्छेद २३ अंतर्गत बेगार म्हणजे काय?',
+        content: `बेगार म्हणजे एखाद्या व्यक्तीकडून त्याच्या इच्छेविरुद्ध किंवा योग्य मोबदल्याशिवाय सक्तीने काम करून घेणे. अनुच्छेद २३ मध्ये बेगारला स्पष्टपणे प्रतिबंध करण्यात आला आहे.`,
+      },
+      {
+        heading: 'राज्य सक्तीची सेवा लादू शकते का?',
+        content: `अनुच्छेद २३(२) नुसार राज्य सार्वजनिक उद्देशासाठी सक्तीची सेवा लादू शकते. मात्र अशी सेवा लादताना केवळ धर्म, वंश, जात किंवा वर्ग या आधारांवर भेदभाव करता येत नाही.`,
+      },
+      {
+        heading: 'अनुच्छेद २३ महत्त्वाचा का आहे?',
+        content: `अनुच्छेद २३ मानवी तस्करी, बेगार आणि सक्तीच्या मजुरीद्वारे होणाऱ्या शोषणापासून व्यक्तींचे संरक्षण करतो. मानवी प्रतिष्ठा आणि शोषणापासून स्वातंत्र्याचे संरक्षण करण्यासाठी ही महत्त्वाची घटनात्मक तरतूद आहे.`,
+      },
+      {
+        heading: 'अनुच्छेद २३ सोप्या भाषेत',
+        content: `सोप्या भाषेत, अनुच्छेद २३ सांगतो की कोणत्याही व्यक्तीची मानवी तस्करी करता येणार नाही किंवा तिला बेगार किंवा त्यासारख्या सक्तीच्या मजुरीस भाग पाडता येणार नाही. कायद्यानुसार सार्वजनिक उद्देशासाठी सक्तीची सेवा लादता येऊ शकते, मात्र विशिष्ट आधारांवर भेदभाव करता येत नाही.`,
+      },
+      {
+        heading: 'अनुच्छेद २३ आणि अनुच्छेद २४ मध्ये काय फरक आहे?',
+        content: `अनुच्छेद २३ मानवी तस्करी, बेगार आणि सक्तीच्या मजुरीशी संबंधित आहे. अनुच्छेद २४ विशेषतः चौदा वर्षांखालील बालकांना कारखाने, खाणी किंवा इतर धोकादायक रोजगारामध्ये कामावर ठेवण्यास प्रतिबंध करतो.`,
+      },
+      {
+        heading: 'अनुच्छेद २३ आणि मानवी प्रतिष्ठा',
+        content: `अनुच्छेद २३ मानवी तस्करी आणि सक्तीच्या मजुरीद्वारे होणाऱ्या शोषणास प्रतिबंध करून मानवी प्रतिष्ठेचे संरक्षण करण्यास मदत करतो. हा संविधानाच्या भाग III मधील मूलभूत अधिकारांचा एक भाग आहे.`,
+      },
+    ],
+  },
+  keywords: [
+    'Article 23',
+    'Article 23 of Indian Constitution',
+    'Article 23 forced labour',
+    'Article 23 human trafficking',
+    'Article 23 begar',
+    'Right against Exploitation',
+    'Article 23(1)',
+    'Article 23(2)',
+    'forced labour in India',
+    'human trafficking in India',
+    'prohibition of forced labour',
+    'कलम 23',
+    'भारतीय संविधान कलम 23',
+    'कलम 23 मानवी तस्करी',
+    'कलम 23 सक्तीची मजुरी',
+    'शोषणाविरुद्धचा अधिकार',
+    'मानवी तस्करी',
+    'सक्तीची मजुरी',
+    'बेगार',
+  ],
+  relatedIds: ['21', '22', '24'],
+  source: {
+    name: 'Legislative Department, Ministry of Law and Justice, Government of India',
+    url: 'https://www.legislative.gov.in/constitution-of-india/',
+  },
+  lastVerified: '2026-10-08',
+},
   
 ]
 
