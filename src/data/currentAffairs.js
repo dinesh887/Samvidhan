@@ -1251,6 +1251,195 @@ The final regulatory framework, if introduced, would determine the precise requi
   createdAt: '2026-09-29',
   updatedAt: '2026-09-29',
 },
+{
+    id: 'supreme-court-voter-list-sir-2026',
+    articleNumber: 'Current Affairs',
+    categoryKey: 'current-affairs',
+    slug: 'supreme-court-voter-list-election-commission',
+    title: {
+  en: 'Voter List Irregularities: Supreme Court Notice to Election Commission',
+  mr: 'मतदार यादीतील कथित अनियमितता: सुप्रीम कोर्टाची निवडणूक आयोगाला नोटीस',
+},
+seoTitle: {
+  en: 'Voter List Irregularities: Supreme Court Notice | MySamvidhan',
+  mr: 'मतदार यादीतील अनियमितता: सुप्रीम कोर्टाची नोटीस | MySamvidhan',
+},
+shortDescription: {
+  en: 'The Supreme Court seeks responses from the Election Commission on petitions alleging irregularities in the Special Intensive Revision of electoral rolls.',
+  mr: 'मतदार यादीच्या विशेष सखोल पुनरिक्षणातील कथित अनियमिततांबाबत दाखल याचिकांवर सुप्रीम कोर्टाने निवडणूक आयोगाकडून उत्तर मागितले आहे.',
+},
+    category: 'Supreme Court',
+    categoryMr: 'सर्वोच्च न्यायालय',
+    date: '2026-10-15',
+    introduction: {
+      en: 'On October 15, 2026, the Supreme Court of India issued notices to the Election Commission of India, Chief Election Commissioner Gyanesh Kumar and Election Commissioners Sukhbir Singh Sandhu and Vivek Joshi. The notices followed petitions by opposition leaders raising allegations of large-scale voter deletions and irregularities during the Special Intensive Revision (SIR) of electoral rolls. The Court sought responses from the concerned authorities. The allegations remain subject to judicial consideration.',
+      mr: '15 ऑक्टोबर 2026 रोजी भारताच्या सर्वोच्च न्यायालयाने भारत निवडणूक आयोग, मुख्य निवडणूक आयुक्त ज्ञानेश कुमार आणि निवडणूक आयुक्त सुखबीर सिंह संधू व विवेक जोशी यांना नोटीस बजावली. मतदार यादीच्या विशेष सखोल पुनरिक्षणादरम्यान (SIR) मोठ्या प्रमाणात मतदारांची नावे वगळल्याचा आणि अनियमितता झाल्याचा आरोप करणाऱ्या विरोधी पक्षांच्या नेत्यांनी दाखल केलेल्या याचिकांनंतर ही नोटीस देण्यात आली. संबंधित प्राधिकरणांकडून न्यायालयाने उत्तर मागितले आहे. हे आरोप अद्याप न्यायालयीन विचाराधीन आहेत.',
+    },
+    simpleExplanation: {
+      en: 'The case concerns allegations about how voter lists are being revised under the Special Intensive Revision process. The petitioners have asked the Court to examine the Election Commission’s decision-making and the safeguards available to eligible voters. Issuing a notice means the Court is seeking a response; it does not mean the allegations have been proved.',
+      mr: 'या प्रकरणाचा संबंध विशेष सखोल पुनरिक्षण प्रक्रियेद्वारे मतदार याद्यांमध्ये केलेल्या बदलांबाबतच्या आरोपांशी आहे. निवडणूक आयोगाने घेतलेल्या निर्णयांची प्रक्रिया आणि पात्र मतदारांच्या नावांचे संरक्षण करण्यासाठी असलेल्या उपाययोजनांची तपासणी करण्याची मागणी याचिकाकर्त्यांनी केली आहे. न्यायालयाने नोटीस बजावणे म्हणजे संबंधित पक्षाचे उत्तर मागणे होय; त्यामुळे आरोप सिद्ध झाले आहेत असा अर्थ होत नाही.',
+    },
+    verySimple: {
+      en: 'The Supreme Court has asked the Election Commission to respond to concerns raised in court about voter list revision. The case is still under consideration.',
+      mr: 'मतदार यादीत बदल करण्याच्या प्रक्रियेबाबत उपस्थित केलेल्या प्रश्नांवर सुप्रीम कोर्टाने निवडणूक आयोगाकडून उत्तर मागितले आहे. हे प्रकरण अद्याप न्यायालयाच्या विचाराधीन आहे.',
+    },
+    example: {
+      en: 'If an eligible voter believes their name has been wrongly left out of an electoral roll, they can check their registration status and use the official election authorities’ prescribed process to raise the issue. The Supreme Court case concerns broader questions about the revision process and its safeguards.',
+      mr: 'एखाद्या पात्र मतदाराला मतदार यादीतून आपले नाव चुकीने वगळले गेल्याचे वाटत असल्यास, तो आपली नोंदणी तपासून निवडणूक प्राधिकरणाने ठरवलेल्या अधिकृत प्रक्रियेद्वारे तक्रार किंवा अर्ज करू शकतो. सुप्रीम कोर्टातील प्रकरणात मतदार यादी पुनरिक्षणाची व्यापक प्रक्रिया आणि त्यातील संरक्षणात्मक उपाय तपासण्याचा मुद्दा आहे.',
+    },
+    content: {
+      en: 'The Supreme Court’s notice brings the process of electoral roll revision and the concerns raised by petitioners before the Court. The Special Intensive Revision (SIR) is an exercise to revise electoral rolls. Petitioners have alleged irregularities and large-scale exclusion of voters, and the Court has sought responses from the Election Commission and the officials named in the petitions. The final outcome will depend on further proceedings and the Court’s consideration of the responses and records.',
+      mr: 'सुप्रीम कोर्टाने दिलेल्या नोटीसमुळे मतदार यादी पुनरिक्षणाची प्रक्रिया आणि याचिकाकर्त्यांनी उपस्थित केलेले प्रश्न न्यायालयासमोर आले आहेत. विशेष सखोल पुनरिक्षण (SIR) ही मतदार याद्या सुधारण्याची प्रक्रिया आहे. या प्रक्रियेत अनियमितता झाल्याचा आणि मोठ्या प्रमाणात मतदार वगळले गेल्याचा आरोप याचिकाकर्त्यांनी केला आहे. न्यायालयाने निवडणूक आयोग आणि याचिकांमध्ये नमूद केलेल्या अधिकाऱ्यांकडून उत्तर मागितले आहे. पुढील सुनावणी, सादर होणारी कागदपत्रे आणि उत्तरांचा विचार केल्यानंतरच या प्रकरणाचा पुढील निकाल स्पष्ट होईल.',
+    },
+    seoSections: {
+      en: [
+        {
+          heading: 'What happened in the Supreme Court on October 15, 2026?',
+          content: 'The Supreme Court issued notices to the Election Commission of India, the Chief Election Commissioner and two Election Commissioners on petitions alleging irregularities in the Special Intensive Revision of electoral rolls. The Court sought responses from the concerned authorities.',
+        },
+        {
+          heading: 'What is the Special Intensive Revision (SIR)?',
+          content: 'The Special Intensive Revision is a process for revising electoral rolls. Its implementation, verification procedures and the handling of eligible voters’ names are central to the issues raised in the petitions.',
+        },
+        {
+          heading: 'How is voter registration connected to the Constitution?',
+          content: 'Article 326 of the Constitution provides for elections to the Lok Sabha and State Legislative Assemblies on the basis of adult suffrage, subject to the constitutional conditions. Electoral registration laws and procedures determine how eligible citizens are included in electoral rolls.',
+        },
+        {
+          heading: 'Does the Supreme Court notice mean the allegations are proved?',
+          content: 'No. A notice asks the parties concerned to respond to the issues raised. It is not a final judgment establishing the allegations. The matter remains subject to further judicial proceedings.',
+        },
+      ],
+      mr: [
+        {
+          heading: '15 ऑक्टोबर 2026 रोजी सुप्रीम कोर्टात काय घडले?',
+          content: 'मतदार यादीच्या विशेष सखोल पुनरिक्षणात अनियमितता झाल्याचा आरोप करणाऱ्या याचिकांवर सुप्रीम कोर्टाने भारत निवडणूक आयोग, मुख्य निवडणूक आयुक्त आणि दोन निवडणूक आयुक्तांना नोटीस बजावली. संबंधित प्राधिकरणांकडून न्यायालयाने उत्तर मागितले.',
+        },
+        {
+          heading: 'विशेष सखोल पुनरिक्षण (SIR) म्हणजे काय?',
+          content: 'विशेष सखोल पुनरिक्षण ही मतदार याद्यांमध्ये सुधारणा करण्याची प्रक्रिया आहे. या प्रक्रियेची अंमलबजावणी, मतदारांची पडताळणी आणि पात्र नागरिकांची नावे यादीत समाविष्ट करण्याची पद्धत हे या याचिकांमधील महत्त्वाचे मुद्दे आहेत.',
+        },
+        {
+          heading: 'मतदार नोंदणीचा संविधानाशी काय संबंध आहे?',
+          content: 'संविधानाचे कलम 326 लोकसभा आणि राज्यांच्या विधानसभांच्या निवडणुकांसाठी प्रौढ मताधिकाराची तरतूद करते. पात्र नागरिकांची नावे मतदार यादीत समाविष्ट करण्याची प्रक्रिया संबंधित निवडणूक कायदे आणि नियमांनुसार चालते.',
+        },
+        {
+          heading: 'सुप्रीम कोर्टाने नोटीस दिली म्हणजे आरोप सिद्ध झाले का?',
+          content: 'नाही. नोटीस म्हणजे संबंधित पक्षांकडून उत्तर मागणे होय. ती आरोप सिद्ध करणारा अंतिम न्यायनिर्णय नसतो. या प्रकरणात पुढील न्यायालयीन कार्यवाही होणे बाकी आहे.',
+        },
+      ],
+    },
+    faq: {
+      en: [
+        {
+          question: 'Why did the Supreme Court issue notice to the Election Commission?',
+          answer: 'The Court sought responses to petitions raising allegations of irregularities and voter deletions during the Special Intensive Revision of electoral rolls.',
+        },
+        {
+          question: 'Which constitutional Article deals with adult suffrage?',
+          answer: 'Article 326 provides for elections to the Lok Sabha and State Legislative Assemblies on the basis of adult suffrage, subject to constitutional conditions.',
+        },
+        {
+          question: 'Where can voters check their registration details?',
+          answer: 'Voters can use the Election Commission of India’s official voter services portal at https://voters.eci.gov.in/.',
+        },
+        {
+          question: 'Has the Supreme Court delivered a final verdict in this matter?',
+          answer: 'The reported development on October 15, 2026, was the issuance of notices seeking responses. It should not be described as a final verdict on the allegations.',
+        },
+      ],
+      mr: [
+        {
+          question: 'सुप्रीम कोर्टाने निवडणूक आयोगाला नोटीस का बजावली?',
+          answer: 'मतदार यादीच्या विशेष सखोल पुनरिक्षणादरम्यान कथित अनियमितता आणि मतदारांची नावे वगळल्याबाबत दाखल याचिकांवर न्यायालयाने उत्तर मागितले.',
+        },
+        {
+          question: 'प्रौढ मताधिकाराशी कोणते घटनात्मक कलम संबंधित आहे?',
+          answer: 'संविधानाचे कलम 326 लोकसभा आणि राज्यांच्या विधानसभांच्या निवडणुकांसाठी प्रौढ मताधिकाराची तरतूद करते.',
+        },
+        {
+          question: 'मतदार आपली नोंदणी कुठे तपासू शकतात?',
+          answer: 'मतदार भारत निवडणूक आयोगाच्या अधिकृत पोर्टलवर https://voters.eci.gov.in/ जाऊन नोंदणीविषयक माहिती तपासू शकतात.',
+        },
+        {
+          question: 'या प्रकरणात सुप्रीम कोर्टाने अंतिम निर्णय दिला आहे का?',
+          answer: '15 ऑक्टोबर 2026 रोजी प्रसिद्ध झालेल्या वृत्तानुसार न्यायालयाने संबंधित पक्षांकडून उत्तर मागण्यासाठी नोटीस बजावली. याला आरोपांवरील अंतिम निर्णय समजू नये.',
+        },
+      ],
+    },
+    mcqs: {
+      en: [
+        {
+          question: 'Which Article of the Constitution provides for adult suffrage in Lok Sabha and State Assembly elections?',
+          options: ['Article 19', 'Article 32', 'Article 326', 'Article 368'],
+          answer: 'Article 326',
+        },
+        {
+          question: 'What does a court notice generally mean?',
+          options: [
+            'The allegations are proved',
+            'The court is seeking a response',
+            'The case is automatically dismissed',
+            'A final judgment has been delivered',
+          ],
+          answer: 'The court is seeking a response',
+        },
+        {
+          question: 'What does SIR stand for in this news?',
+          options: [
+            'Special Intensive Revision',
+            'State Investigation Report',
+            'Supreme Inquiry Record',
+            'Special Identity Registration',
+          ],
+          answer: 'Special Intensive Revision',
+        },
+      ],
+      mr: [
+        {
+          question: 'लोकसभा आणि राज्य विधानसभांच्या निवडणुकांतील प्रौढ मताधिकाराशी कोणते कलम संबंधित आहे?',
+          options: ['कलम 19', 'कलम 32', 'कलम 326', 'कलम 368'],
+          answer: 'कलम 326',
+        },
+        {
+          question: 'न्यायालयाने नोटीस बजावल्याचा सामान्य अर्थ काय?',
+          options: [
+            'आरोप सिद्ध झाले',
+            'न्यायालय संबंधित पक्षाचे उत्तर मागत आहे',
+            'खटला आपोआप फेटाळला गेला',
+            'अंतिम निर्णय दिला गेला',
+          ],
+          answer: 'न्यायालय संबंधित पक्षाचे उत्तर मागत आहे',
+        },
+        {
+          question: 'या बातमीतील SIR चे पूर्ण रूप काय आहे?',
+          options: [
+            'Special Intensive Revision',
+            'State Investigation Report',
+            'Supreme Inquiry Record',
+            'Special Identity Registration',
+          ],
+          answer: 'Special Intensive Revision',
+        },
+      ],
+    },
+    source: {
+      name: 'The Indian Express; The New Indian Express; Supreme Court of India',
+      url: 'https://indianexpress.com/article/legal-news/supreme-court-seeks-response-of-centre-delhi-police-on-plea-challenging-removal-of-jantar-mantar-as-protest-site-10922726/',
+    },
+    relatedSlugs: [],
+    keywords: [
+      'Supreme Court voter list news',
+      'Election Commission of India',
+      'Special Intensive Revision',
+      'SIR voter list revision',
+      'Article 326',
+      'मतदार यादी पुनरिक्षण',
+      'सुप्रीम कोर्ट बातमी',
+      'मतदारांचे अधिकार',
+      'भारतीय संविधान',
+    ],
+  },
 ]
 
 export function getCurrentAffairBySlug(slug) {
