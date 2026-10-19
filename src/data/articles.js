@@ -4107,7 +4107,375 @@ These examples show how Article 23 protects individuals from exploitation while 
   },
   lastVerified: '2026-10-08',
 },
+{
+  id: '20',
+  articleNumber: 'Article 20',
+  title: {
+    en: 'Protection in Respect of Conviction for Offences',
+    mr: 'गुन्ह्यांबाबत दोषसिद्धीच्या संदर्भातील संरक्षण',
+  },
+  categoryKey: 'fundamental-rights',
+  officialText: {
+    en: `Protection in respect of conviction for offences.—(1) No person shall be convicted of any offence except for violation of a law in force at the time of the commission of the act charged as an offence, nor be subjected to a penalty greater than that which might have been inflicted under the law in force at the time of the commission of the offence.
 
+(2) No person shall be prosecuted and punished for the same offence more than once.
+
+(3) No person accused of any offence shall be compelled to be a witness against himself.`,
+    mr: `गुन्ह्यांबाबत दोषसिद्धीच्या संदर्भातील संरक्षण.—(१) एखादी कृती गुन्हा म्हणून आरोपित करण्यात आली त्या वेळी अंमलात असलेल्या कायद्याचे उल्लंघन केल्याशिवाय कोणत्याही व्यक्तीला त्या गुन्ह्याबद्दल दोषी ठरवले जाणार नाही; तसेच गुन्हा घडला त्या वेळी लागू असलेल्या कायद्यानुसार देता आली असती त्यापेक्षा अधिक शिक्षा दिली जाणार नाही.
+
+(२) एकाच गुन्ह्यासाठी कोणत्याही व्यक्तीवर एकापेक्षा अधिक वेळा खटला चालवून शिक्षा केली जाणार नाही.
+
+(३) कोणत्याही गुन्ह्याचा आरोप असलेल्या व्यक्तीला स्वतःविरुद्ध साक्षीदार होण्यास भाग पाडले जाणार नाही.`,
+    verified: true,
+  },
+  simpleExplanation: {
+    en: `Article 20 provides three important protections in criminal law.
+
+First, a person cannot be convicted for an act that was not an offence under the law in force when it was committed, nor given a greater penalty retrospectively.
+
+Second, a person cannot be prosecuted and punished more than once for the same offence.
+
+Third, an accused person cannot be compelled to be a witness against themselves.
+
+These protections help prevent arbitrary criminal punishment and safeguard fairness in criminal proceedings.`,
+    mr: `अनुच्छेद २० गुन्हेगारी कायद्याच्या संदर्भात तीन महत्त्वाची संरक्षणे देतो.
+
+पहिले, एखादी कृती घडली त्या वेळी ती कायद्यानुसार गुन्हा नसेल, तर नंतरच्या कायद्याच्या आधारे त्या कृतीसाठी सामान्यतः दोषी ठरवता येत नाही. तसेच नंतरच्या कायद्याने अधिक कठोर शिक्षा मागील तारखेपासून लागू करता येत नाही.
+
+दुसरे, एकाच गुन्ह्यासाठी पुन्हा खटला चालवून शिक्षा करण्यास प्रतिबंध आहे.
+
+तिसरे, आरोपी व्यक्तीला स्वतःविरुद्ध साक्ष देण्यास भाग पाडता येत नाही.
+
+ही संरक्षणे मनमानी गुन्हेगारी शिक्षेला प्रतिबंध करण्यासाठी आणि न्याय्य प्रक्रियेचे रक्षण करण्यासाठी महत्त्वाची आहेत.`,
+  },
+  verySimple: {
+    en: 'Article 20 protects people from retrospective criminal punishment, being punished twice for the same offence, and being forced to testify against themselves.',
+    mr: 'अनुच्छेद २० मागील तारखेपासून गुन्हेगारी शिक्षा देणे, एकाच गुन्ह्यासाठी पुन्हा शिक्षा करणे आणि स्वतःविरुद्ध जबरदस्तीने साक्ष द्यायला लावणे यांपासून संरक्षण देतो.',
+  },
+  example: {
+    en: `Suppose a person performs an act that is not a criminal offence under the law in force at that time. A later law generally cannot be used to convict that person for the earlier act.
+
+Article 20 also protects against prosecution and punishment more than once for the same offence, and against being compelled to testify against oneself.`,
+    mr: `समजा, एखाद्या व्यक्तीने कृती केली त्या वेळी लागू असलेल्या कायद्यानुसार ती कृती गुन्हा नव्हती. नंतर तो गुन्हा ठरवणारा कायदा केला, तर त्या आधीच्या कृतीसाठी सामान्यतः त्या व्यक्तीला दोषी ठरवता येत नाही.
+
+त्याचप्रमाणे, एकाच गुन्ह्यासाठी पुन्हा खटला चालवून शिक्षा करणे किंवा आरोपीला स्वतःविरुद्ध साक्ष देण्यास भाग पाडणे यांपासूनही अनुच्छेद २० संरक्षण देतो.`,
+  },
+  seoSections: {
+    en: [
+      {
+        heading: 'What is Article 20 of the Indian Constitution?',
+        content: 'Article 20 provides protection in respect of conviction for offences. It protects against retrospective criminal punishment, double jeopardy and compelled self-incrimination.',
+      },
+      {
+        heading: 'What are the three protections under Article 20?',
+        content: 'Article 20 protects against retrospective criminal laws imposing greater punishment, prosecution and punishment more than once for the same offence, and being compelled to testify against oneself.',
+      },
+      {
+        heading: 'What is double jeopardy under Article 20?',
+        content: 'Article 20(2) states that no person shall be prosecuted and punished for the same offence more than once.',
+      },
+      {
+        heading: 'What is protection against self-incrimination?',
+        content: 'Article 20(3) states that a person accused of an offence cannot be compelled to be a witness against themselves.',
+      },
+      {
+        heading: 'Why is Article 20 important?',
+        content: 'Article 20 safeguards individuals against specified forms of unfair criminal punishment and helps protect fairness in criminal proceedings.',
+      },
+    ],
+    mr: [
+      {
+        heading: 'भारतीय संविधानातील अनुच्छेद २० म्हणजे काय?',
+        content: 'अनुच्छेद २० गुन्ह्यांबाबत दोषसिद्धीच्या संदर्भात संरक्षण देतो. मागील तारखेपासून कठोर गुन्हेगारी शिक्षा, एकाच गुन्ह्यासाठी पुन्हा शिक्षा आणि स्वतःविरुद्ध साक्ष देण्याची सक्ती यांपासून तो संरक्षण करतो.',
+      },
+      {
+        heading: 'अनुच्छेद २० अंतर्गत कोणती तीन संरक्षणे मिळतात?',
+        content: 'अनुच्छेद २० मागील तारखेपासून अधिक कठोर शिक्षा देणे, एकाच गुन्ह्यासाठी पुन्हा खटला चालवून शिक्षा करणे आणि स्वतःविरुद्ध साक्ष देण्यास भाग पाडणे यांपासून संरक्षण देतो.',
+      },
+      {
+        heading: 'अनुच्छेद २० अंतर्गत दुहेरी शिक्षेपासून संरक्षण म्हणजे काय?',
+        content: 'अनुच्छेद २०(२) नुसार, एकाच गुन्ह्यासाठी कोणत्याही व्यक्तीवर एकापेक्षा अधिक वेळा खटला चालवून शिक्षा केली जाऊ शकत नाही.',
+      },
+      {
+        heading: 'स्वतःविरुद्ध साक्ष देण्यापासून संरक्षण म्हणजे काय?',
+        content: 'अनुच्छेद २०(३) नुसार, गुन्ह्याचा आरोप असलेल्या व्यक्तीला स्वतःविरुद्ध साक्षीदार होण्यास भाग पाडता येत नाही.',
+      },
+      {
+        heading: 'अनुच्छेद २० महत्त्वाचा का आहे?',
+        content: 'अनुच्छेद २० अन्यायकारक गुन्हेगारी शिक्षेच्या काही प्रकारांपासून संरक्षण देतो आणि गुन्हेगारी न्यायप्रक्रियेतील न्याय्यतेचे रक्षण करण्यास मदत करतो.',
+      },
+    ],
+  },
+  keywords: [
+    'Article 20',
+    'Article 20 of Indian Constitution',
+    'Protection in Respect of Conviction for Offences',
+    'Double Jeopardy',
+    'Self Incrimination',
+    'Fundamental Rights',
+    'कलम 20',
+    'अनुच्छेद २०',
+    'दुहेरी शिक्षा',
+    'स्वतःविरुद्ध साक्ष',
+    'मूलभूत अधिकार',
+  ],
+  relatedIds: ['19', '21', '22', '32'],
+  source: {
+    name: 'Legislative Department, Ministry of Law and Justice, Government of India',
+    url: 'https://www.legislative.gov.in/constitution-of-india/',
+  },
+  lastVerified: '2026-10-19',
+},
+{
+  id: '24',
+  articleNumber: 'Article 24',
+  title: {
+    en: 'Prohibition of Employment of Children in Factories, etc.',
+    mr: 'कारखाने इत्यादींमध्ये बालकांच्या रोजगारावर बंदी',
+  },
+  categoryKey: 'right-against-exploitation',
+  officialText: {
+    en: `No child below the age of fourteen years shall be employed to work in any factory or mine or engaged in any other hazardous employment.`,
+    mr: `चौदा वर्षांखालील कोणत्याही बालकाला कोणत्याही कारखान्यात किंवा खाणीत काम करण्यासाठी किंवा इतर कोणत्याही धोकादायक रोजगारात काम करण्यासाठी नियुक्त केले जाणार नाही.`,
+    verified: true,
+  },
+  simpleExplanation: {
+    en: `Article 24 prohibits the employment of children below fourteen years of age in factories, mines and other hazardous employment.
+
+It is part of the Right against Exploitation under Part III of the Constitution. This provision aims to protect children from dangerous working conditions that may threaten their health, safety and development.
+
+Article 24 should be read alongside applicable child labour laws, which may provide additional protections and restrictions.`,
+    mr: `अनुच्छेद २४ नुसार चौदा वर्षांखालील बालकांना कारखाने, खाणी किंवा इतर धोकादायक रोजगारामध्ये कामावर ठेवण्यास प्रतिबंध आहे.
+
+हा अनुच्छेद संविधानाच्या भाग III मधील शोषणाविरुद्धच्या अधिकाराचा भाग आहे. धोकादायक कामामुळे बालकांच्या आरोग्याला, सुरक्षिततेला आणि विकासाला धोका निर्माण होऊ नये, हा या तरतुदीचा उद्देश आहे.
+
+अनुच्छेद २४ सोबत लागू असलेले बालमजुरीविषयक कायदेही लक्षात घेणे आवश्यक आहे. त्या कायद्यांमध्ये अतिरिक्त संरक्षणे आणि निर्बंध असू शकतात.`,
+  },
+  verySimple: {
+    en: 'Children below fourteen years cannot be employed in factories, mines or other hazardous work under Article 24.',
+    mr: 'अनुच्छेद २४ नुसार चौदा वर्षांखालील बालकांना कारखाने, खाणी किंवा इतर धोकादायक कामांमध्ये रोजगार देता येत नाही.',
+  },
+  example: {
+    en: `Suppose an employer wants to hire a thirteen-year-old child to work in a mine. Article 24 prohibits employing a child below fourteen years of age in a mine.
+
+The provision is intended to protect children from hazardous working conditions and exploitation.`,
+    mr: `समजा, एखाद्या मालकाला तेरा वर्षांच्या बालकाला खाणीत कामावर ठेवायचे आहे. अनुच्छेद २४ नुसार चौदा वर्षांखालील बालकाला खाणीत कामावर ठेवण्यास प्रतिबंध आहे.
+
+धोकादायक कामाच्या परिस्थितीपासून आणि शोषणापासून बालकांचे संरक्षण करणे हा या तरतुदीचा उद्देश आहे.`,
+  },
+  seoSections: {
+    en: [
+      {
+        heading: 'What is Article 24 of the Indian Constitution?',
+        content: 'Article 24 prohibits the employment of children below fourteen years of age in factories, mines and other hazardous employment.',
+      },
+      {
+        heading: 'What does Article 24 prohibit?',
+        content: 'Article 24 prohibits employing children below fourteen years of age in factories, mines or other hazardous employment.',
+      },
+      {
+        heading: 'Which Fundamental Right includes Article 24?',
+        content: 'Article 24 is part of the Right against Exploitation under Part III of the Indian Constitution.',
+      },
+      {
+        heading: 'Why is Article 24 important?',
+        content: 'Article 24 provides constitutional protection for children against specified hazardous employment and supports their health, safety and development.',
+      },
+      {
+        heading: 'What is the difference between Article 23 and Article 24?',
+        content: 'Article 23 prohibits human trafficking, begar and similar forms of forced labour. Article 24 specifically addresses employment of children below fourteen years in factories, mines and other hazardous employment.',
+      },
+    ],
+    mr: [
+      {
+        heading: 'भारतीय संविधानातील अनुच्छेद २४ म्हणजे काय?',
+        content: 'अनुच्छेद २४ चौदा वर्षांखालील बालकांना कारखाने, खाणी आणि इतर धोकादायक रोजगारामध्ये कामावर ठेवण्यास प्रतिबंध करतो.',
+      },
+      {
+        heading: 'अनुच्छेद २४ कशाला प्रतिबंध करतो?',
+        content: 'अनुच्छेद २४ नुसार चौदा वर्षांखालील बालकांना कारखाने, खाणी किंवा इतर धोकादायक रोजगारात कामावर ठेवता येत नाही.',
+      },
+      {
+        heading: 'अनुच्छेद २४ कोणत्या मूलभूत अधिकाराचा भाग आहे?',
+        content: 'अनुच्छेद २४ हा भारतीय संविधानाच्या भाग III मधील शोषणाविरुद्धच्या अधिकाराचा भाग आहे.',
+      },
+      {
+        heading: 'अनुच्छेद २४ महत्त्वाचा का आहे?',
+        content: 'अनुच्छेद २४ बालकांना विशिष्ट धोकादायक रोजगारापासून घटनात्मक संरक्षण देतो आणि त्यांच्या आरोग्य, सुरक्षितता व विकासाचे रक्षण करण्यास मदत करतो.',
+      },
+      {
+        heading: 'अनुच्छेद २३ आणि अनुच्छेद २४ मध्ये काय फरक आहे?',
+        content: 'अनुच्छेद २३ मानवी तस्करी, बेगार आणि सक्तीच्या मजुरीच्या समान प्रकारांना प्रतिबंध करतो. अनुच्छेद २४ चौदा वर्षांखालील बालकांना कारखाने, खाणी आणि इतर धोकादायक रोजगारात कामावर ठेवण्यास प्रतिबंध करतो.',
+      },
+    ],
+  },
+  keywords: [
+    'Article 24',
+    'Article 24 of Indian Constitution',
+    'Child Labour',
+    'Prohibition of Child Employment',
+    'Right against Exploitation',
+    'कलम 24',
+    'अनुच्छेद २४',
+    'बालमजुरी',
+    'शोषणाविरुद्धचा अधिकार',
+    'बालकांचे संरक्षण',
+  ],
+  relatedIds: ['21', '23', '21A'],
+  source: {
+    name: 'Legislative Department, Ministry of Law and Justice, Government of India',
+    url: 'https://www.legislative.gov.in/constitution-of-india/',
+  },
+  lastVerified: '2026-10-19',
+},
+{
+  id: '51A',
+  articleNumber: 'Article 51A',
+  title: {
+    en: 'Fundamental Duties',
+    mr: 'मूलभूत कर्तव्ये',
+  },
+  categoryKey: 'fundamental-duties',
+  officialText: {
+    en: `It shall be the duty of every citizen of India—
+
+(a) to abide by the Constitution and respect its ideals and institutions, the National Flag and the National Anthem;
+
+(b) to cherish and follow the noble ideals which inspired our national struggle for freedom;
+
+(c) to uphold and protect the sovereignty, unity and integrity of India;
+
+(d) to defend the country and render national service when called upon to do so;
+
+(e) to promote harmony and the spirit of common brotherhood amongst all the people of India transcending religious, linguistic and regional or sectional diversities; to renounce practices derogatory to the dignity of women;
+
+(f) to value and preserve the rich heritage of our composite culture;
+
+(g) to protect and improve the natural environment including forests, lakes, rivers and wild life, and to have compassion for living creatures;
+
+(h) to develop the scientific temper, humanism and the spirit of inquiry and reform;
+
+(i) to safeguard public property and to abjure violence;
+
+(j) to strive towards excellence in all spheres of individual and collective activity so that the nation constantly rises to higher levels of endeavour and achievement;
+
+(k) who is a parent or guardian to provide opportunities for education to his child or, as the case may be, ward between the age of six and fourteen years.`,
+    mr: `भारताच्या प्रत्येक नागरिकाचे हे कर्तव्य असेल की—
+
+(अ) संविधानाचे पालन करणे आणि त्याचे आदर्श व संस्था, राष्ट्रध्वज आणि राष्ट्रगीत यांचा आदर करणे;
+
+(आ) आपल्या स्वातंत्र्यलढ्याला प्रेरणा देणाऱ्या उदात्त आदर्शांचे जतन करणे व त्यांचे अनुसरण करणे;
+
+(इ) भारताचे सार्वभौमत्व, एकता आणि अखंडता जपणे व त्यांचे संरक्षण करणे;
+
+(ई) देशाचे संरक्षण करणे आणि आवाहन केले असता राष्ट्रीय सेवा बजावणे;
+
+(उ) धार्मिक, भाषिक, प्रादेशिक किंवा वर्गीय विविधतेच्या पलीकडे जाऊन भारतातील सर्व लोकांमध्ये सलोखा आणि बंधुभावाची भावना वाढवणे; तसेच महिलांच्या प्रतिष्ठेला कमीपणा आणणाऱ्या प्रथांचा त्याग करणे;
+
+(ऊ) आपल्या संमिश्र संस्कृतीच्या समृद्ध वारशाचे मूल्य जाणणे व त्याचे जतन करणे;
+
+(ए) वने, तलाव, नद्या आणि वन्यजीव यांसह नैसर्गिक पर्यावरणाचे संरक्षण व संवर्धन करणे आणि सजीवांबद्दल करुणा बाळगणे;
+
+(ऐ) वैज्ञानिक दृष्टिकोन, मानवतावाद आणि शोध व सुधारणेची भावना विकसित करणे;
+
+(ओ) सार्वजनिक मालमत्तेचे रक्षण करणे आणि हिंसेचा त्याग करणे;
+
+(औ) वैयक्तिक आणि सामूहिक कार्याच्या सर्व क्षेत्रांत उत्कृष्टतेसाठी प्रयत्न करणे, जेणेकरून राष्ट्र सतत उच्च स्तरावरील प्रयत्न आणि यशाकडे वाटचाल करेल;
+
+(अं) पालक किंवा संरक्षक म्हणून सहा ते चौदा वर्षे वयोगटातील आपल्या मुलाला किंवा पाल्याला शिक्षणाच्या संधी उपलब्ध करून देणे.`,
+    verified: true,
+  },
+  simpleExplanation: {
+    en: `Article 51A lists the Fundamental Duties of citizens of India. These duties encourage citizens to respect the Constitution, protect the country's unity, promote harmony, preserve cultural heritage, protect the environment, develop scientific temper, safeguard public property and support children's education.
+
+Fundamental Duties were added to the Constitution through the 42nd Constitutional Amendment in 1976. Clause (k), relating to providing educational opportunities for children between six and fourteen years, was added by the 86th Constitutional Amendment in 2002.
+
+These duties guide responsible citizenship. Their legal enforceability depends on the relevant constitutional provisions and applicable laws.`,
+    mr: `अनुच्छेद ५१A मध्ये भारताच्या नागरिकांची मूलभूत कर्तव्ये नमूद केली आहेत. संविधानाचा आदर करणे, देशाची एकता व अखंडता जपणे, सामाजिक सलोखा वाढवणे, सांस्कृतिक वारशाचे जतन करणे, पर्यावरणाचे संरक्षण करणे, वैज्ञानिक दृष्टिकोन विकसित करणे, सार्वजनिक मालमत्तेचे रक्षण करणे आणि मुलांच्या शिक्षणासाठी संधी उपलब्ध करून देणे यांचा त्यात समावेश होतो.
+
+मूलभूत कर्तव्ये १९७६ मध्ये ४२व्या घटनादुरुस्तीने संविधानात समाविष्ट करण्यात आली. सहा ते चौदा वर्षे वयोगटातील मुलांच्या शिक्षणासंबंधी खंड (k) हा २००२ मधील ८६व्या घटनादुरुस्तीने समाविष्ट करण्यात आला.
+
+ही कर्तव्ये जबाबदार नागरिकत्वासाठी मार्गदर्शन करतात. त्यांची कायदेशीर अंमलबजावणी संबंधित घटनात्मक तरतुदी आणि लागू कायद्यांवर अवलंबून असते.`,
+  },
+  verySimple: {
+    en: 'Article 51A explains the fundamental duties of Indian citizens, such as respecting the Constitution, protecting the environment, safeguarding public property and supporting children’s education.',
+    mr: 'अनुच्छेद ५१A भारतीय नागरिकांची मूलभूत कर्तव्ये सांगतो. संविधानाचा आदर करणे, पर्यावरणाचे संरक्षण करणे, सार्वजनिक मालमत्ता जपणे आणि मुलांच्या शिक्षणाला मदत करणे ही त्याची उदाहरणे आहेत.',
+  },
+  example: {
+    en: `A citizen who respects the National Flag, avoids damaging public property, helps protect rivers and forests, and promotes harmony is acting consistently with the values reflected in Article 51A.
+
+Parents and guardians also have a fundamental duty under clause (k) to provide opportunities for education to their children or wards between six and fourteen years of age.`,
+    mr: `राष्ट्रध्वजाचा आदर करणे, सार्वजनिक मालमत्तेचे नुकसान टाळणे, नद्या व जंगलांचे संरक्षण करणे आणि समाजात सलोखा वाढवणे ही अनुच्छेद ५१A मधील मूल्यांशी सुसंगत वर्तणुकीची उदाहरणे आहेत.
+
+तसेच, खंड (k) नुसार पालक किंवा संरक्षकांचे सहा ते चौदा वर्षे वयोगटातील मुलांना किंवा पाल्यांना शिक्षणाच्या संधी उपलब्ध करून देणे हे मूलभूत कर्तव्य आहे.`,
+  },
+  seoSections: {
+    en: [
+      {
+        heading: 'What is Article 51A of the Indian Constitution?',
+        content: 'Article 51A lists the Fundamental Duties of Indian citizens, including respect for the Constitution, national unity, environmental protection and safeguarding public property.',
+      },
+      {
+        heading: 'How many Fundamental Duties are listed in Article 51A?',
+        content: 'Article 51A contains eleven clauses describing the Fundamental Duties of citizens of India.',
+      },
+      {
+        heading: 'When were Fundamental Duties added to the Constitution?',
+        content: 'Fundamental Duties were added through the 42nd Constitutional Amendment in 1976. The duty concerning educational opportunities for children aged six to fourteen was added through the 86th Constitutional Amendment in 2002.',
+      },
+      {
+        heading: 'What are examples of Fundamental Duties?',
+        content: 'Examples include respecting the Constitution and National Flag, promoting harmony, protecting the environment, safeguarding public property and developing scientific temper.',
+      },
+      {
+        heading: 'Are Fundamental Duties important?',
+        content: 'Fundamental Duties encourage responsible citizenship and remind citizens of their responsibilities towards the Constitution, society and the environment.',
+      },
+    ],
+    mr: [
+      {
+        heading: 'भारतीय संविधानातील अनुच्छेद ५१A म्हणजे काय?',
+        content: 'अनुच्छेद ५१A मध्ये भारतीय नागरिकांची मूलभूत कर्तव्ये नमूद केली आहेत. त्यात संविधानाचा आदर, राष्ट्रीय एकता, पर्यावरणाचे संरक्षण आणि सार्वजनिक मालमत्तेचे रक्षण यांचा समावेश होतो.',
+      },
+      {
+        heading: 'अनुच्छेद ५१A मध्ये किती मूलभूत कर्तव्ये आहेत?',
+        content: 'अनुच्छेद ५१A मध्ये भारतीय नागरिकांच्या मूलभूत कर्तव्यांशी संबंधित अकरा खंड आहेत.',
+      },
+      {
+        heading: 'मूलभूत कर्तव्ये संविधानात कधी समाविष्ट झाली?',
+        content: 'मूलभूत कर्तव्ये १९७६ मध्ये ४२व्या घटनादुरुस्तीने समाविष्ट झाली. सहा ते चौदा वर्षे वयोगटातील मुलांच्या शिक्षणासंबंधी कर्तव्य २००२ मध्ये ८६व्या घटनादुरुस्तीने समाविष्ट झाले.',
+      },
+      {
+        heading: 'मूलभूत कर्तव्यांची उदाहरणे कोणती?',
+        content: 'संविधान व राष्ट्रध्वजाचा आदर करणे, सामाजिक सलोखा वाढवणे, पर्यावरणाचे संरक्षण करणे, सार्वजनिक मालमत्ता जपणे आणि वैज्ञानिक दृष्टिकोन विकसित करणे ही मूलभूत कर्तव्यांची उदाहरणे आहेत.',
+      },
+      {
+        heading: 'मूलभूत कर्तव्ये महत्त्वाची का आहेत?',
+        content: 'मूलभूत कर्तव्ये जबाबदार नागरिकत्वाला प्रोत्साहन देतात आणि संविधान, समाज व पर्यावरणाप्रती नागरिकांच्या जबाबदाऱ्यांची जाणीव करून देतात.',
+      },
+    ],
+  },
+  keywords: [
+    'Article 51A',
+    'Article 51A of Indian Constitution',
+    'Fundamental Duties',
+    'Duties of Indian Citizens',
+    '42nd Constitutional Amendment',
+    '86th Constitutional Amendment',
+    'Article 51A(k)',
+    'कलम 51A',
+    'अनुच्छेद ५१A',
+    'मूलभूत कर्तव्ये',
+    'भारतीय नागरिकांची कर्तव्ये',
+    'भारतीय संविधान',
+  ],
+  relatedIds: ['14', '19', '21', '32'],
+  source: {
+    name: 'Legislative Department, Ministry of Law and Justice, Government of India',
+    url: 'https://www.legislative.gov.in/constitution-of-india/',
+  },
+  lastVerified: '2026-10-19',
+},
   
 ]
 
