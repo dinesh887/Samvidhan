@@ -1440,6 +1440,260 @@ shortDescription: {
       'भारतीय संविधान',
     ],
   },
+  {
+  id: 'right-to-protest-public-order-2026',
+  articleNumber: 'Current Affairs',
+  categoryKey: 'current-affairs',
+  slug: 'right-to-protest-public-order-india',
+
+  title: {
+    en: 'Right to Protest in India: Supreme Court on Public Order',
+    mr: 'आंदोलनाचा अधिकार आणि सार्वजनिक सुव्यवस्था: संविधान काय सांगते?'
+  },
+
+  seoTitle: {
+    en: 'Right to Protest in India: Article 19 | MySamvidhan',
+    mr: 'आंदोलनाचा अधिकार: अनुच्छेद 19 | MySamvidhan'
+  },
+
+  shortDescription: {
+    en: 'Understand the constitutional right to peaceful protest under Article 19, reasonable restrictions for public order, and the Supreme Court proceedings concerning Jantar Mantar in October 2026.',
+    mr: 'भारतीय संविधानातील अनुच्छेद 19 अंतर्गत आंदोलनाचा अधिकार, सार्वजनिक सुव्यवस्थेसाठी वाजवी निर्बंध आणि ऑक्टोबर 2026 मधील जंतर-मंतर प्रकरणाविषयी जाणून घ्या.'
+  },
+
+  category: 'Supreme Court',
+  categoryMr: 'सर्वोच्च न्यायालय',
+  date: '2026-10-19',
+
+  introduction: {
+    en: 'The right to peaceful protest is an important part of democratic participation in India. Articles 19(1)(a) and 19(1)(b) of the Constitution protect freedom of speech and expression and the right to assemble peacefully and without arms. However, these rights are subject to reasonable restrictions permitted by the Constitution. In October 2026, the Supreme Court issued notices to the Union government and Delhi Police on a petition challenging the removal of Jantar Mantar from the list of designated protest sites. The proceedings have renewed attention on the balance between peaceful protest, public order and the rights of other citizens.',
+    mr: 'शांततेने आंदोलन करण्याचा अधिकार हा भारतातील लोकशाही सहभागाचा महत्त्वाचा भाग आहे. भारतीय संविधानातील अनुच्छेद 19(1)(a) अभिव्यक्तिस्वातंत्र्याचे, तर अनुच्छेद 19(1)(b) शांततेने आणि शस्त्रांशिवाय एकत्र येण्याच्या अधिकाराचे संरक्षण करतो. मात्र, या अधिकारांवर संविधानाने परवानगी दिलेल्या वाजवी निर्बंधांच्या अधीन राहून मर्यादा लागू होऊ शकतात. ऑक्टोबर 2026 मध्ये जंतर-मंतरला अधिकृत आंदोलनस्थळांच्या यादीतून वगळण्याच्या निर्णयाला आव्हान देणाऱ्या याचिकेवर सर्वोच्च न्यायालयाने केंद्र सरकार आणि दिल्ली पोलिसांना नोटीस बजावली. या प्रकरणामुळे शांततापूर्ण आंदोलन, सार्वजनिक सुव्यवस्था आणि इतर नागरिकांचे अधिकार यांच्यातील संतुलनाचा प्रश्न पुन्हा चर्चेत आला आहे.'
+  },
+
+  simpleExplanation: {
+    en: 'The Constitution protects citizens who peacefully express their views and assemble to raise public concerns. The right to protest is not unlimited: authorities may impose lawful and reasonable restrictions to protect public order, safety and the rights of others. On October 15, 2026, the Supreme Court sought responses from the Union government and Delhi Police regarding a challenge to the removal of Jantar Mantar as a designated protest site. The notice was a procedural step and did not constitute a final judgment on the dispute.',
+    mr: 'संविधान नागरिकांना शांततेने आपले विचार मांडण्याचा आणि सार्वजनिक प्रश्नांवर आवाज उठवण्यासाठी एकत्र येण्याचा अधिकार देते. मात्र, आंदोलनाचा अधिकार अमर्यादित नाही. सार्वजनिक सुव्यवस्था, सुरक्षितता आणि इतर नागरिकांचे अधिकार जपण्यासाठी प्रशासन कायदेशीर व वाजवी निर्बंध लागू करू शकते. 15 ऑक्टोबर 2026 रोजी सर्वोच्च न्यायालयाने जंतर-मंतरला अधिकृत आंदोलनस्थळांच्या यादीतून वगळण्याच्या निर्णयाला आव्हान देणाऱ्या याचिकेवर केंद्र सरकार आणि दिल्ली पोलिसांकडून उत्तर मागितले. ही न्यायालयीन प्रक्रियेतील एक पायरी होती; या वादावरील अंतिम निर्णय नव्हता.'
+  },
+
+  verySimple: {
+    en: 'Indian citizens have the right to express their opinions and hold peaceful protests. The government can regulate protests under the law to maintain public order and protect other people. In October 2026, the Supreme Court sought responses in a case concerning Jantar Mantar as a protest site.',
+    mr: 'भारतीय नागरिकांना आपले मत व्यक्त करण्याचा आणि शांततेने आंदोलन करण्याचा अधिकार आहे. सार्वजनिक सुव्यवस्था राखण्यासाठी कायद्यानुसार आंदोलनांवर काही निर्बंध लागू होऊ शकतात. ऑक्टोबर 2026 मध्ये जंतर-मंतर आंदोलनस्थळासंबंधीच्या प्रकरणात सर्वोच्च न्यायालयाने संबंधित प्राधिकरणांकडून उत्तर मागितले.'
+  },
+
+  example: {
+    en: 'Suppose residents organise a peaceful demonstration requesting better public transport. Their right to assemble and express their views is protected by the Constitution. However, they may have to follow applicable permission requirements and lawful directions about the venue, timing and management of the gathering. Any restriction must have a legal basis and satisfy the applicable constitutional requirements.',
+    mr: 'समजा, एखाद्या परिसरातील नागरिक सार्वजनिक वाहतूक सुधारण्याच्या मागणीसाठी शांततापूर्ण आंदोलन आयोजित करतात. त्यांना आपले मत मांडण्याचा आणि एकत्र येण्याचा घटनात्मक अधिकार आहे. मात्र, आंदोलनाचे ठिकाण, वेळ आणि व्यवस्थापन याबाबत लागू असलेल्या परवानगीच्या अटी व कायदेशीर निर्देशांचे पालन करावे लागू शकते. कोणत्याही निर्बंधाला कायदेशीर आधार असणे आणि लागू घटनात्मक अटी पूर्ण करणे आवश्यक आहे.'
+  },
+
+  content: {
+    en: 'The right to protest allows citizens to raise grievances, question public decisions and participate in democratic debate. The Constitution does not contain a separate provision expressly titled the right to protest; rather, peaceful protest is protected through constitutional freedoms, particularly Articles 19(1)(a) and 19(1)(b).\n\nArticle 19(1)(a) protects freedom of speech and expression. Article 19(1)(b) protects the right to assemble peaceably and without arms. Article 19(2) permits reasonable restrictions on freedom of speech and expression for specified constitutional purposes, while Article 19(3) permits reasonable restrictions on peaceful assembly in the interests of the sovereignty and integrity of India and public order.\n\nThe Supreme Court examined the relationship between peaceful demonstrations and public order in Mazdoor Kisan Shakti Sangathan v. Union of India (2018). The judgment recognised peaceful protest as a fundamental right while emphasising the need to regulate demonstrations and balance the rights of protesters with the interests of residents and the public.\n\nA recent development arose in October 2026, when Delhi Police removed Jantar Mantar from the list of designated protest sites and identified alternative locations. On October 15, the Supreme Court issued notices to the Union government and Delhi Police on a petition challenging that decision. The Court sought responses and indicated that the decision-making process concerning the protest site would be examined. The notice should not be interpreted as a final ruling on the validity of the decision.\n\nThe broader constitutional question is how authorities can maintain public order without imposing unreasonable restrictions on peaceful democratic expression. The answer depends on the applicable law, the circumstances of each case and judicial scrutiny where a restriction is challenged.',
+    mr: 'आंदोलनाचा अधिकार नागरिकांना आपल्या तक्रारी मांडण्याची, सार्वजनिक निर्णयांवर प्रश्न उपस्थित करण्याची आणि लोकशाही चर्चेत सहभागी होण्याची संधी देतो. भारतीय संविधानात स्वतंत्रपणे “आंदोलनाचा अधिकार” या नावाची तरतूद नाही. त्याऐवजी शांततापूर्ण आंदोलनाला प्रामुख्याने अनुच्छेद 19(1)(a) आणि 19(1)(b) मधील घटनात्मक स्वातंत्र्यांद्वारे संरक्षण मिळते.\n\nअनुच्छेद 19(1)(a) अभिव्यक्तिस्वातंत्र्याचे संरक्षण करतो. अनुच्छेद 19(1)(b) नागरिकांना शांततेने आणि शस्त्रांशिवाय एकत्र येण्याचा अधिकार देतो. अनुच्छेद 19(2) अंतर्गत अभिव्यक्तिस्वातंत्र्यावर संविधानात नमूद केलेल्या कारणांसाठी वाजवी निर्बंध लागू करता येतात. अनुच्छेद 19(3) नुसार भारताची सार्वभौमता व अखंडता आणि सार्वजनिक सुव्यवस्था यांच्या हितासाठी शांततापूर्ण एकत्र येण्याच्या अधिकारावर वाजवी निर्बंध लागू होऊ शकतात.\n\nMazdoor Kisan Shakti Sangathan v. Union of India (2018) या प्रकरणात सर्वोच्च न्यायालयाने शांततापूर्ण आंदोलन आणि सार्वजनिक सुव्यवस्था यांच्यातील संबंधाचा विचार केला. न्यायालयाने शांततापूर्ण आंदोलन हा मूलभूत अधिकार असल्याचे मान्य केले. त्याच वेळी, आंदोलनांचे योग्य नियमन करणे आणि आंदोलकांचे अधिकार, परिसरातील रहिवासी व सर्वसामान्य नागरिकांचे हित यांच्यात संतुलन राखणे आवश्यक असल्याचे स्पष्ट केले.\n\nऑक्टोबर 2026 मध्ये दिल्ली पोलिसांनी जंतर-मंतरला अधिकृत आंदोलनस्थळांच्या यादीतून वगळून पर्यायी जागा निश्चित केल्या. या निर्णयाला आव्हान देणाऱ्या याचिकेवर 15 ऑक्टोबर रोजी सर्वोच्च न्यायालयाने केंद्र सरकार आणि दिल्ली पोलिसांना नोटीस बजावली. न्यायालयाने संबंधित पक्षांकडून उत्तर मागितले आणि आंदोलनस्थळासंबंधी निर्णय घेताना प्रशासनाने केलेल्या विचारप्रक्रियेची तपासणी केली जाईल, असे सूचित केले. या नोटीसचा अर्थ संबंधित निर्णयाच्या वैधतेवर अंतिम निकाल दिला आहे असा होत नाही.\n\nया प्रकरणातून व्यापक घटनात्मक प्रश्न समोर येतो: सार्वजनिक सुव्यवस्था राखताना नागरिकांच्या शांततापूर्ण लोकशाही अभिव्यक्तीवर अवाजवी निर्बंध येणार नाहीत, याची खात्री कशी करावी? याचे उत्तर लागू कायदे, प्रत्येक प्रकरणातील परिस्थिती आणि निर्बंधांना आव्हान दिल्यास होणारी न्यायालयीन तपासणी यांवर अवलंबून असते.'
+  },
+
+  seoSections: {
+    en: [
+      {
+        heading: 'What is the right to protest in India?',
+        content: 'The right to protest is protected through constitutional freedoms, especially the right to freedom of speech and expression under Article 19(1)(a) and the right to assemble peaceably and without arms under Article 19(1)(b). These freedoms allow citizens to raise concerns and express dissent through peaceful democratic means.'
+      },
+      {
+        heading: 'What do Articles 19(1)(a) and 19(1)(b) provide?',
+        content: 'Article 19(1)(a) protects freedom of speech and expression. Article 19(1)(b) protects the right of citizens to assemble peaceably and without arms. Together, these provisions are important constitutional foundations for peaceful demonstrations and public meetings.'
+      },
+      {
+        heading: 'When can restrictions be imposed on protests?',
+        content: 'Article 19(2) permits reasonable restrictions on freedom of speech and expression for specified constitutional purposes. Article 19(3) permits reasonable restrictions on peaceful assembly in the interests of the sovereignty and integrity of India and public order. Restrictions must comply with the applicable law and constitutional requirements.'
+      },
+      {
+        heading: 'What did the Supreme Court say about peaceful protests?',
+        content: 'In Mazdoor Kisan Shakti Sangathan v. Union of India (2018), the Supreme Court recognised peaceful demonstrations as a fundamental right under Articles 19(1)(a) and 19(1)(b). The judgment also addressed the need to regulate protests and balance the rights of demonstrators with the interests of residents and the public.'
+      },
+      {
+        heading: 'Why is Jantar Mantar in the news in October 2026?',
+        content: 'Delhi Police removed Jantar Mantar from the list of designated protest sites and identified alternative venues. On October 15, 2026, the Supreme Court issued notices to the Union government and Delhi Police on a petition challenging the decision. The notice sought responses and was not a final judgment on the dispute.'
+      },
+      {
+        heading: 'Does a Supreme Court notice mean a decision has been made?',
+        content: 'No. A notice generally asks the concerned parties to respond to a petition or issue. It does not, by itself, mean that the court has accepted the allegations or delivered a final ruling.'
+      }
+    ],
+
+    mr: [
+      {
+        heading: 'भारतात आंदोलन करण्याचा अधिकार म्हणजे काय?',
+        content: 'आंदोलनाचा अधिकार हा प्रामुख्याने अनुच्छेद 19(1)(a) मधील अभिव्यक्तिस्वातंत्र्य आणि अनुच्छेद 19(1)(b) मधील शांततेने व शस्त्रांशिवाय एकत्र येण्याच्या अधिकारातून संरक्षित होतो. या तरतुदींमुळे नागरिकांना शांततापूर्ण लोकशाही मार्गाने आपल्या मागण्या आणि असहमती व्यक्त करता येते.'
+      },
+      {
+        heading: 'अनुच्छेद 19(1)(a) आणि 19(1)(b) काय सांगतात?',
+        content: 'अनुच्छेद 19(1)(a) अभिव्यक्तिस्वातंत्र्याचे संरक्षण करतो. अनुच्छेद 19(1)(b) नागरिकांना शांततेने आणि शस्त्रांशिवाय एकत्र येण्याचा अधिकार देतो. शांततापूर्ण निदर्शने आणि सार्वजनिक सभांसाठी या दोन्ही तरतुदी महत्त्वाच्या आहेत.'
+      },
+      {
+        heading: 'आंदोलनावर निर्बंध कधी लागू करता येतात?',
+        content: 'अनुच्छेद 19(2) नुसार अभिव्यक्तिस्वातंत्र्यावर संविधानात नमूद केलेल्या कारणांसाठी वाजवी निर्बंध लागू करता येतात. अनुच्छेद 19(3) नुसार भारताची सार्वभौमता व अखंडता आणि सार्वजनिक सुव्यवस्था यांच्या हितासाठी शांततापूर्ण एकत्र येण्याच्या अधिकारावर वाजवी निर्बंध लागू करता येतात. असे निर्बंध लागू कायदे आणि घटनात्मक अटींनुसार असणे आवश्यक आहे.'
+      },
+      {
+        heading: 'शांततापूर्ण आंदोलनाबाबत सर्वोच्च न्यायालयाने काय सांगितले?',
+        content: 'Mazdoor Kisan Shakti Sangathan v. Union of India (2018) या प्रकरणात सर्वोच्च न्यायालयाने अनुच्छेद 19(1)(a) आणि 19(1)(b) अंतर्गत शांततापूर्ण निदर्शनांना मूलभूत अधिकाराचे संरक्षण असल्याचे मान्य केले. त्याच वेळी आंदोलनांचे नियमन आणि आंदोलक, परिसरातील रहिवासी व सर्वसामान्य नागरिक यांच्या हितातील संतुलन यांचाही विचार केला.'
+      },
+      {
+        heading: 'ऑक्टोबर 2026 मध्ये जंतर-मंतर चर्चेत का आहे?',
+        content: 'दिल्ली पोलिसांनी जंतर-मंतरला अधिकृत आंदोलनस्थळांच्या यादीतून वगळून पर्यायी जागा निश्चित केल्या. 15 ऑक्टोबर 2026 रोजी या निर्णयाला आव्हान देणाऱ्या याचिकेवर सर्वोच्च न्यायालयाने केंद्र सरकार आणि दिल्ली पोलिसांना नोटीस बजावली. न्यायालयाने उत्तर मागितले; या नोटीसमुळे वादावर अंतिम निर्णय झालेला नाही.'
+      },
+      {
+        heading: 'सर्वोच्च न्यायालयाने नोटीस दिली म्हणजे निर्णय झाला का?',
+        content: 'नाही. न्यायालयीन नोटीस म्हणजे संबंधित पक्षाला याचिकेतील मुद्द्यांवर उत्तर देण्यास सांगणे होय. केवळ नोटीस बजावल्याने आरोप मान्य झाले किंवा अंतिम न्यायनिर्णय दिला गेला, असा अर्थ होत नाही.'
+      }
+    ]
+  },
+
+  faq: {
+    en: [
+      {
+        question: 'Is the right to protest a fundamental right in India?',
+        answer: 'Peaceful protest is protected through the fundamental rights under Article 19(1)(a), which covers freedom of speech and expression, and Article 19(1)(b), which covers peaceful assembly without arms. The rights are subject to constitutionally permitted reasonable restrictions.'
+      },
+      {
+        question: 'Which constitutional Articles are relevant to peaceful protests?',
+        answer: 'Articles 19(1)(a) and 19(1)(b) protect freedom of expression and peaceful assembly. Articles 19(2) and 19(3) provide for specified reasonable restrictions on these freedoms.'
+      },
+      {
+        question: 'Can police regulate a public protest?',
+        answer: 'Yes. Authorities may regulate protests under applicable laws to address public order and safety. The legal basis, circumstances and constitutional requirements are relevant when assessing a restriction.'
+      },
+      {
+        question: 'What is the Jantar Mantar case about in October 2026?',
+        answer: 'The case challenges the decision to remove Jantar Mantar from the list of designated protest sites. On October 15, 2026, the Supreme Court issued notices to the Union government and Delhi Police seeking responses.'
+      },
+      {
+        question: 'Does issuing a notice mean the Supreme Court has ruled in favour of the petitioner?',
+        answer: 'No. Issuing a notice is a procedural step that seeks a response from the other side. It does not establish the allegations or amount to a final judgment.'
+      },
+      {
+        question: 'Which Supreme Court case discussed the right to peaceful protest?',
+        answer: 'Mazdoor Kisan Shakti Sangathan v. Union of India, decided on July 23, 2018, addressed peaceful protests, public order and the need to balance the rights of demonstrators with the interests of residents.'
+      }
+    ],
+
+    mr: [
+      {
+        question: 'भारतात आंदोलन करण्याचा अधिकार हा मूलभूत अधिकार आहे का?',
+        answer: 'होय. शांततापूर्ण आंदोलनाला अनुच्छेद 19(1)(a) मधील अभिव्यक्तिस्वातंत्र्य आणि अनुच्छेद 19(1)(b) मधील शांततेने व शस्त्रांशिवाय एकत्र येण्याच्या अधिकारातून संरक्षण मिळते. हे अधिकार संविधानाने मान्य केलेल्या वाजवी निर्बंधांच्या अधीन आहेत.'
+      },
+      {
+        question: 'शांततापूर्ण आंदोलनासाठी संविधानातील कोणती कलमे महत्त्वाची आहेत?',
+        answer: 'अनुच्छेद 19(1)(a) आणि 19(1)(b) अनुक्रमे अभिव्यक्तिस्वातंत्र्य आणि शांततापूर्ण एकत्र येण्याच्या अधिकाराशी संबंधित आहेत. अनुच्छेद 19(2) आणि 19(3) या अधिकारांवरील विशिष्ट वाजवी निर्बंधांची तरतूद करतात.'
+      },
+      {
+        question: 'पोलीस सार्वजनिक आंदोलनाचे नियमन करू शकतात का?',
+        answer: 'होय. सार्वजनिक सुव्यवस्था आणि सुरक्षिततेसाठी लागू कायद्यांनुसार अधिकारी आंदोलनाचे नियमन करू शकतात. अशा निर्बंधांचे मूल्यमापन करताना त्यांचा कायदेशीर आधार, संबंधित परिस्थिती आणि घटनात्मक अटी विचारात घ्याव्या लागतात.'
+      },
+      {
+        question: 'ऑक्टोबर 2026 मधील जंतर-मंतर प्रकरण काय आहे?',
+        answer: 'जंतर-मंतरला अधिकृत आंदोलनस्थळांच्या यादीतून वगळण्याच्या निर्णयाला या प्रकरणात आव्हान देण्यात आले आहे. 15 ऑक्टोबर 2026 रोजी सर्वोच्च न्यायालयाने केंद्र सरकार आणि दिल्ली पोलिसांना उत्तर देण्यासाठी नोटीस बजावली.'
+      },
+      {
+        question: 'सर्वोच्च न्यायालयाने नोटीस दिली म्हणजे याचिकाकर्त्याच्या बाजूने निर्णय दिला का?',
+        answer: 'नाही. नोटीस बजावणे ही संबंधित पक्षाकडून उत्तर मागण्याची प्रक्रियात्मक पायरी आहे. त्यामुळे आरोप सिद्ध होत नाहीत आणि अंतिम न्यायनिर्णय दिला गेला असेही मानता येत नाही.'
+      },
+      {
+        question: 'शांततापूर्ण आंदोलनाच्या अधिकाराबाबत सर्वोच्च न्यायालयाचे कोणते प्रकरण महत्त्वाचे आहे?',
+        answer: 'Mazdoor Kisan Shakti Sangathan v. Union of India या 23 जुलै 2018 रोजी दिलेल्या निर्णयात शांततापूर्ण आंदोलन, सार्वजनिक सुव्यवस्था आणि आंदोलक व रहिवाशांच्या अधिकारांतील संतुलन यांचा विचार करण्यात आला.'
+      }
+    ]
+  },
+
+  mcqs: {
+    en: [
+      {
+        question: 'Which Article protects the right to assemble peacefully and without arms?',
+        options: ['Article 14', 'Article 19(1)(b)', 'Article 21', 'Article 32'],
+        answer: 'Article 19(1)(b)'
+      },
+      {
+        question: 'Which Article permits reasonable restrictions on peaceful assembly in the interests of public order?',
+        options: ['Article 19(1)(a)', 'Article 19(2)', 'Article 19(3)', 'Article 25'],
+        answer: 'Article 19(3)'
+      },
+      {
+        question: 'What did the Supreme Court do on October 15, 2026, in the Jantar Mantar dispute?',
+        options: [
+          'Delivered a final judgment restoring the site',
+          'Issued notices seeking responses',
+          'Amended Article 19',
+          'Cancelled all public demonstrations'
+        ],
+        answer: 'Issued notices seeking responses'
+      },
+      {
+        question: 'Which case discussed peaceful protest and public order in 2018?',
+        options: [
+          'Kesavananda Bharati v. State of Kerala',
+          'Maneka Gandhi v. Union of India',
+          'Mazdoor Kisan Shakti Sangathan v. Union of India',
+          'Golaknath v. State of Punjab'
+        ],
+        answer: 'Mazdoor Kisan Shakti Sangathan v. Union of India'
+      }
+    ],
+
+    mr: [
+      {
+        question: 'शांततेने आणि शस्त्रांशिवाय एकत्र येण्याचा अधिकार कोणत्या अनुच्छेदात आहे?',
+        options: ['अनुच्छेद 14', 'अनुच्छेद 19(1)(b)', 'अनुच्छेद 21', 'अनुच्छेद 32'],
+        answer: 'अनुच्छेद 19(1)(b)'
+      },
+      {
+        question: 'सार्वजनिक सुव्यवस्थेसाठी शांततापूर्ण एकत्र येण्याच्या अधिकारावर वाजवी निर्बंध कोणत्या अनुच्छेदानुसार लागू होऊ शकतात?',
+        options: ['अनुच्छेद 19(1)(a)', 'अनुच्छेद 19(2)', 'अनुच्छेद 19(3)', 'अनुच्छेद 25'],
+        answer: 'अनुच्छेद 19(3)'
+      },
+      {
+        question: 'जंतर-मंतर प्रकरणात 15 ऑक्टोबर 2026 रोजी सर्वोच्च न्यायालयाने काय केले?',
+        options: [
+          'आंदोलनस्थळ पूर्ववत करण्याचा अंतिम निर्णय दिला',
+          'उत्तर मागण्यासाठी नोटीस बजावली',
+          'अनुच्छेद 19 मध्ये बदल केला',
+          'सर्व सार्वजनिक आंदोलनांवर बंदी घातली'
+        ],
+        answer: 'उत्तर मागण्यासाठी नोटीस बजावली'
+      },
+      {
+        question: '2018 मध्ये शांततापूर्ण आंदोलन आणि सार्वजनिक सुव्यवस्थेचा विचार कोणत्या प्रकरणात झाला?',
+        options: [
+          'केशवानंद भारती विरुद्ध केरळ राज्य',
+          'मनेका गांधी विरुद्ध भारत संघ',
+          'Mazdoor Kisan Shakti Sangathan विरुद्ध भारत संघ',
+          'गोलकनाथ विरुद्ध पंजाब राज्य'
+        ],
+        answer: 'Mazdoor Kisan Shakti Sangathan विरुद्ध भारत संघ'
+      }
+    ]
+  },
+
+  source: {
+    name: 'The Indian Express; The Tribune; Supreme Court of India',
+    url: 'https://indianexpress.com/article/cities/delhi/jantar-mantar-denotified-protest-site-delhi-police-supreme-court-order-10920035/'
+  },
+
+  relatedSlugs: [],
+
+  keywords: [
+    'Right to Protest in India',
+    'Article 19 Indian Constitution',
+    'Right to Peaceful Assembly',
+    'Public Order India',
+    'Supreme Court Protest News',
+    'Jantar Mantar Protest Site',
+    'Mazdoor Kisan Shakti Sangathan Case',
+    'आंदोलन करण्याचा अधिकार',
+    'अनुच्छेद 19',
+    'शांततापूर्ण आंदोलन',
+    'सार्वजनिक सुव्यवस्था',
+    'जंतर मंतर प्रकरण',
+    'मूलभूत अधिकार',
+    'भारतीय संविधान'
+  ]
+},
 ]
 
 export function getCurrentAffairBySlug(slug) {
