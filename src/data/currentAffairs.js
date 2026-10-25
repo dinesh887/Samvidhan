@@ -1694,6 +1694,217 @@ shortDescription: {
     'भारतीय संविधान'
   ]
 },
+
+{
+  id: 'save-bhimashankar-saidongar-tree-felling-2026',
+  articleNumber: 'Current Affairs',
+  categoryKey: 'current-affairs',
+  slug: 'save-bhimashankar-saidongar-karjat-tree-felling-2026',
+  title: {
+    en: 'Save Bhimashankar: 32,490 Trees at the Centre of the Karjat Hydropower Project Debate',
+    mr: 'भीमाशंकर वाचवा: कर्जत जलविद्युत प्रकल्प आणि ३२,४९० झाडांचा मुद्दा',
+  },
+  seoTitle: {
+    en: 'Save Bhimashankar: Karjat Tree Felling Controversy 2026 | MySamvidhan',
+    mr: 'भीमाशंकर वाचवा: कर्जत वृक्षतोड प्रकरण २०२६ | MySamvidhan',
+  },
+  shortDescription: {
+    en: 'Learn about the proposed Saidongar-I Karjat pumped-storage project, the reported plan to fell 32,490 trees, environmental concerns and the Forest Department’s clarification.',
+    mr: 'साईडोंगर-१ कर्जत ऊर्जा-साठवण प्रकल्प, ३२,४९० झाडे तोडण्याचा मुद्दा, पर्यावरणविषयक चिंता आणि वन विभागाचे स्पष्टीकरण याबद्दल जाणून घ्या.',
+  },
+  category: 'Environment',
+  categoryMr: 'पर्यावरण',
+  date: '2026-10-25',
+
+  introduction: {
+    en: 'A debate over forest conservation has intensified in Maharashtra following reports that 32,490 trees are proposed to be felled for the Saidongar-I Karjat pumped-storage hydropower project in Raigad district. The proposed 3,000 MW project has raised concerns among local residents and environmental advocates about forest cover, wildlife habitats and biodiversity. The Forest Department has clarified that the reported tree felling is not taking place inside Bhimashankar Wildlife Sanctuary. The distinction between the protected sanctuary and the adjoining forest areas is important for understanding the issue accurately.',
+    mr: 'रायगड जिल्ह्यातील साईडोंगर-१ कर्जत पंप्ड-स्टोरेज जलविद्युत प्रकल्पासाठी ३२,४९० झाडे तोडण्याच्या वृत्तांनंतर महाराष्ट्रात वनसंवर्धनाबाबत चर्चा तीव्र झाली आहे. प्रस्तावित ३,००० मेगावॅट क्षमतेच्या या प्रकल्पामुळे जंगलाचे क्षेत्र, वन्यजीवांचे अधिवास आणि जैवविविधतेवर होणाऱ्या संभाव्य परिणामांबद्दल स्थानिक नागरिक आणि पर्यावरणप्रेमींनी चिंता व्यक्त केली आहे. वन विभागाने संबंधित वृक्षतोड भीमाशंकर वन्यजीव अभयारण्याच्या आत होत नसल्याचे स्पष्ट केले आहे. हा विषय समजून घेताना संरक्षित अभयारण्य आणि लगतच्या वनक्षेत्रातील फरक लक्षात घेणे महत्त्वाचे आहे.',
+  },
+
+  simpleExplanation: {
+    en: 'The issue concerns a proposed energy-storage project in the Karjat region and the reported removal of thousands of trees. Local residents and environmental advocates have raised questions about the possible effects on forests and wildlife. The Forest Department has separately clarified that the reported tree felling is not inside Bhimashankar Wildlife Sanctuary.',
+    mr: 'हा मुद्दा कर्जत परिसरातील प्रस्तावित ऊर्जा-साठवण प्रकल्प आणि हजारो झाडे तोडण्याच्या वृत्ताशी संबंधित आहे. जंगल आणि वन्यजीवांवर होणाऱ्या संभाव्य परिणामांबद्दल स्थानिक नागरिक व पर्यावरणप्रेमींनी प्रश्न उपस्थित केले आहेत. संबंधित वृक्षतोड भीमाशंकर वन्यजीव अभयारण्याच्या आत होत नसल्याचे वन विभागाने स्वतंत्रपणे स्पष्ट केले आहे.',
+  },
+
+  verySimple: {
+    en: 'A proposed power project in Karjat has raised concerns about the reported felling of 32,490 trees and its possible environmental impact.',
+    mr: 'कर्जतमधील प्रस्तावित ऊर्जा प्रकल्पासाठी ३२,४९० झाडे तोडण्याच्या वृत्तामुळे पर्यावरणावर होणाऱ्या संभाव्य परिणामांबद्दल चिंता निर्माण झाली आहे.',
+  },
+
+  example: {
+    en: 'Before a major infrastructure project proceeds, decision-makers must consider its energy benefits alongside forest conservation, wildlife protection, local community concerns and applicable environmental clearances.',
+    mr: 'मोठा पायाभूत सुविधा प्रकल्प राबवण्यापूर्वी त्यापासून मिळणाऱ्या ऊर्जा-लाभांसोबत वनसंवर्धन, वन्यजीवांचे संरक्षण, स्थानिक नागरिकांच्या चिंता आणि लागू पर्यावरणीय परवानग्यांचा विचार करणे आवश्यक असते.',
+  },
+
+  content: {
+    en: 'The controversy concerns the proposed Saidongar-I Karjat Off-Stream Open Loop Pumped Storage Project associated with Torrent Power. News reports published on 25 October 2026 stated that 32,490 trees were covered by the reported tree-felling permission for the project. The reports also referred to the proposed diversion of approximately 233 hectares of forest land. Local residents and environmental advocates have expressed concern about the potential effects on biodiversity and wildlife habitats. The Forest Department, however, has clarified that the reported tree felling is not occurring inside Bhimashankar Wildlife Sanctuary. The environmental concerns about adjoining forest areas and the official clarification about the sanctuary should therefore be understood separately. The project’s approvals, the precise areas affected and the implementation of environmental safeguards are important parts of the wider public discussion.',
+    mr: 'या वादाचा संबंध टोरंट पॉवरशी संबंधित प्रस्तावित साईडोंगर-१ कर्जत ऑफ-स्ट्रीम ओपन-लूप पंप्ड-स्टोरेज प्रकल्पाशी आहे. २५ ऑक्टोबर २०२६ रोजी प्रसिद्ध झालेल्या वृत्तांनुसार, या प्रकल्पासाठी ३२,४९० झाडांच्या वृक्षतोडीची परवानगी देण्यात आल्याचा उल्लेख आहे. या वृत्तांमध्ये सुमारे २३३ हेक्टर वनजमीन वळवण्याचाही उल्लेख करण्यात आला आहे. जैवविविधता आणि वन्यजीवांच्या अधिवासावर होणाऱ्या संभाव्य परिणामांबद्दल स्थानिक नागरिक आणि पर्यावरणप्रेमींनी चिंता व्यक्त केली आहे. मात्र, संबंधित वृक्षतोड भीमाशंकर वन्यजीव अभयारण्याच्या आत होत नसल्याचे वन विभागाने स्पष्ट केले आहे. त्यामुळे लगतच्या वनक्षेत्राबाबत व्यक्त होणाऱ्या पर्यावरणीय चिंता आणि अभयारण्याबाबतचे अधिकृत स्पष्टीकरण हे स्वतंत्रपणे समजून घेणे आवश्यक आहे. प्रकल्पाच्या परवानग्या, प्रत्यक्ष प्रभावित होणारे क्षेत्र आणि पर्यावरण संरक्षणाच्या उपाययोजनांची अंमलबजावणी हे या व्यापक सार्वजनिक चर्चेतील महत्त्वाचे मुद्दे आहेत.',
+  },
+
+  seoSections: {
+    en: [
+      {
+        heading: 'What is the Saidongar-I Karjat project?',
+        content: 'It is a proposed 3,000 MW pumped-storage hydropower project in the Karjat region of Raigad district. Pumped-storage facilities generally store energy by moving water between reservoirs at different elevations and generating electricity when needed.',
+      },
+      {
+        heading: 'Why are 32,490 trees being discussed?',
+        content: 'News reports published on 25 October 2026 referred to permission for the felling of 32,490 trees associated with the proposed project. The reported scale of tree removal has prompted concerns about forest cover, wildlife habitats and biodiversity.',
+      },
+      {
+        heading: 'What has the Forest Department clarified?',
+        content: 'The Forest Department has stated that the reported tree felling associated with the Karjat project is not taking place inside Bhimashankar Wildlife Sanctuary. The controversy also concerns adjoining forest areas, which should not be confused with the notified sanctuary itself.',
+      },
+      {
+        heading: 'Why does forest conservation matter?',
+        content: 'Forests support biodiversity, provide habitats for wildlife, help regulate water flows and contribute to ecological stability. Infrastructure projects should be assessed with due attention to environmental safeguards and the interests of local communities.',
+      },
+      {
+        heading: 'What should citizens look for?',
+        content: 'Citizens can follow official project documents, forest-clearance conditions, environmental assessments and updates from relevant authorities. Reliable reporting should distinguish confirmed official information from allegations, concerns and predictions about potential impacts.',
+      },
+    ],
+    mr: [
+      {
+        heading: 'साईडोंगर-१ कर्जत प्रकल्प काय आहे?',
+        content: 'हा रायगड जिल्ह्यातील कर्जत परिसरातील प्रस्तावित ३,००० मेगावॅट क्षमतेचा पंप्ड-स्टोरेज जलविद्युत प्रकल्प आहे. अशा प्रकल्पांमध्ये सामान्यतः वेगवेगळ्या उंचीवरील जलाशयांदरम्यान पाणी हलवून ऊर्जा साठवली जाते आणि गरजेनुसार वीज निर्माण केली जाते.',
+      },
+      {
+        heading: '३२,४९० झाडांचा मुद्दा का चर्चेत आहे?',
+        content: '२५ ऑक्टोबर २०२६ रोजी प्रसिद्ध झालेल्या वृत्तांमध्ये प्रस्तावित प्रकल्पाशी संबंधित ३२,४९० झाडे तोडण्याच्या परवानगीचा उल्लेख आहे. वृक्षतोडीच्या या प्रमाणामुळे जंगलाचे क्षेत्र, वन्यजीवांचे अधिवास आणि जैवविविधतेवर होणाऱ्या संभाव्य परिणामांबद्दल चिंता व्यक्त केली जात आहे.',
+      },
+      {
+        heading: 'वन विभागाने काय स्पष्टीकरण दिले?',
+        content: 'कर्जत प्रकल्पाशी संबंधित वृक्षतोड भीमाशंकर वन्यजीव अभयारण्याच्या आत होत नसल्याचे वन विभागाने स्पष्ट केले आहे. हा वाद लगतच्या वनक्षेत्राशीही संबंधित असल्याने त्या क्षेत्राची आणि अधिसूचित अभयारण्याची गल्लत करू नये.',
+      },
+      {
+        heading: 'वनसंवर्धन महत्त्वाचे का आहे?',
+        content: 'जंगले जैवविविधतेला आधार देतात, वन्यजीवांना अधिवास पुरवतात, नैसर्गिक जलप्रवाहांचे नियमन करण्यास मदत करतात आणि पर्यावरणीय स्थैर्य टिकवतात. पायाभूत सुविधा प्रकल्पांचे मूल्यमापन करताना पर्यावरण संरक्षणाच्या उपाययोजना आणि स्थानिक समुदायांच्या हितांचा विचार करणे आवश्यक आहे.',
+      },
+      {
+        heading: 'नागरिकांनी कोणत्या गोष्टींकडे लक्ष द्यावे?',
+        content: 'नागरिकांनी प्रकल्पाची अधिकृत कागदपत्रे, वनजमीन वळवण्याच्या मंजुरीतील अटी, पर्यावरणीय मूल्यमापन आणि संबंधित सरकारी विभागांच्या अद्ययावत माहितीकडे लक्ष द्यावे. बातम्यांमध्ये अधिकृतरीत्या पुष्टी झालेली माहिती, आरोप आणि संभाव्य परिणामांबाबतच्या चिंता यांतील फरक स्पष्ट असणे महत्त्वाचे आहे.',
+      },
+    ],
+  },
+
+  faq: {
+    en: [
+      {
+        question: 'Where is the proposed Saidongar-I Karjat project located?',
+        answer: 'It is associated with the Karjat region of Raigad district, Maharashtra.',
+      },
+      {
+        question: 'How many trees are mentioned in the reports?',
+        answer: 'Reports published on 25 October 2026 referred to 32,490 trees in connection with the proposed project.',
+      },
+      {
+        question: 'Is the reported tree felling taking place inside Bhimashankar Wildlife Sanctuary?',
+        answer: 'The Forest Department has clarified that the reported tree felling associated with the Karjat project is not taking place inside Bhimashankar Wildlife Sanctuary.',
+      },
+      {
+        question: 'What is a pumped-storage hydropower project?',
+        answer: 'It is an energy-storage system that generally uses electricity to pump water to an upper reservoir and later generates electricity as the water flows back down.',
+      },
+      {
+        question: 'Why is this issue important?',
+        answer: 'It raises questions about balancing energy infrastructure, forest conservation, biodiversity, wildlife habitats and the concerns of local communities.',
+      },
+    ],
+    mr: [
+      {
+        question: 'प्रस्तावित साईडोंगर-१ कर्जत प्रकल्प कुठे आहे?',
+        answer: 'हा प्रकल्प महाराष्ट्रातील रायगड जिल्ह्यातील कर्जत परिसराशी संबंधित आहे.',
+      },
+      {
+        question: 'वृत्तांमध्ये किती झाडांचा उल्लेख आहे?',
+        answer: '२५ ऑक्टोबर २०२६ रोजी प्रसिद्ध झालेल्या वृत्तांमध्ये प्रस्तावित प्रकल्पाशी संबंधित ३२,४९० झाडांचा उल्लेख करण्यात आला आहे.',
+      },
+      {
+        question: 'संबंधित वृक्षतोड भीमाशंकर वन्यजीव अभयारण्याच्या आत होत आहे का?',
+        answer: 'कर्जत प्रकल्पाशी संबंधित वृक्षतोड भीमाशंकर वन्यजीव अभयारण्याच्या आत होत नसल्याचे वन विभागाने स्पष्ट केले आहे.',
+      },
+      {
+        question: 'पंप्ड-स्टोरेज जलविद्युत प्रकल्प म्हणजे काय?',
+        answer: 'ही ऊर्जा साठवण्याची एक पद्धत आहे. सामान्यतः वीज वापरून पाणी वरच्या जलाशयात पंप केले जाते आणि नंतर ते खाली सोडून वीज निर्माण केली जाते.',
+      },
+      {
+        question: 'हा मुद्दा महत्त्वाचा का आहे?',
+        answer: 'ऊर्जा प्रकल्प, वनसंवर्धन, जैवविविधता, वन्यजीवांचे अधिवास आणि स्थानिक नागरिकांच्या चिंता यांच्यात संतुलन राखण्याचा प्रश्न या मुद्द्यातून समोर येतो.',
+      },
+    ],
+  },
+
+  mcqs: {
+    en: [
+      {
+        question: 'In which district is the proposed Saidongar-I Karjat project located?',
+        options: ['Pune', 'Raigad', 'Nashik', 'Satara'],
+        answer: 'Raigad',
+      },
+      {
+        question: 'What capacity is reported for the proposed project?',
+        options: ['300 MW', '1,000 MW', '3,000 MW', '5,000 MW'],
+        answer: '3,000 MW',
+      },
+      {
+        question: 'Which authority clarified that the reported tree felling was not inside Bhimashankar Wildlife Sanctuary?',
+        options: ['Election Commission', 'Forest Department', 'Reserve Bank of India', 'University Grants Commission'],
+        answer: 'Forest Department',
+      },
+      {
+        question: 'What is a main purpose of pumped-storage hydropower?',
+        options: ['Storing energy', 'Producing fertiliser', 'Purifying seawater only', 'Mining minerals'],
+        answer: 'Storing energy',
+      },
+    ],
+    mr: [
+      {
+        question: 'प्रस्तावित साईडोंगर-१ कर्जत प्रकल्प कोणत्या जिल्ह्यात आहे?',
+        options: ['पुणे', 'रायगड', 'नाशिक', 'सातारा'],
+        answer: 'रायगड',
+      },
+      {
+        question: 'प्रस्तावित प्रकल्पाची वृत्तांमध्ये नमूद केलेली क्षमता किती आहे?',
+        options: ['३०० मेगावॅट', '१,००० मेगावॅट', '३,००० मेगावॅट', '५,००० मेगावॅट'],
+        answer: '३,००० मेगावॅट',
+      },
+      {
+        question: 'संबंधित वृक्षतोड अभयारण्याच्या आत होत नसल्याचे स्पष्टीकरण कोणत्या विभागाने दिले?',
+        options: ['निवडणूक आयोग', 'वन विभाग', 'भारतीय रिझर्व्ह बँक', 'विद्यापीठ अनुदान आयोग'],
+        answer: 'वन विभाग',
+      },
+      {
+        question: 'पंप्ड-स्टोरेज जलविद्युत प्रकल्पाचा प्रमुख उद्देश कोणता?',
+        options: ['ऊर्जा साठवणे', 'खते तयार करणे', 'फक्त समुद्राचे पाणी शुद्ध करणे', 'खनिज उत्खनन'],
+        answer: 'ऊर्जा साठवणे',
+      },
+    ],
+  },
+
+  source: {
+    name: 'Mid-day and eSakal',
+    url: 'https://www.mid-day.com/amp/mumbai/mumbai-news/article/karjat-tree-felling-32490-trees-to-be-cut-for-3000-mw-pumped-storage-project-in-maharashtra-23656793',
+  },
+
+  relatedSlugs: [],
+
+  keywords: [
+    'Save Bhimashankar',
+    'भीमाशंकर वाचवा',
+    'Saidongar Karjat project',
+    'साईडोंगर कर्जत प्रकल्प',
+    'Karjat tree felling 2026',
+    '३२,४९० झाडे',
+    'Bhimashankar Wildlife Sanctuary',
+    'Forest conservation Maharashtra',
+    'Pumped storage hydropower',
+    'Environmental conservation',
+    'वनसंवर्धन',
+    'जैवविविधता',
+  ],
+},
+
 ]
 
 export function getCurrentAffairBySlug(slug) {
