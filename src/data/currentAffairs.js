@@ -1904,7 +1904,569 @@ shortDescription: {
     'जैवविविधता',
   ],
 },
+{
+  id: 'belapur-tree-damage-2026',
+  articleNumber: 'Current Affairs',
+  categoryKey: 'current-affairs',
+  slug: 'belapur-tree-damage-investigation',
 
+  title: {
+    en: 'Belapur Tree Damage: Maharashtra Asked to Investigate',
+    mr: 'बेलापूरमधील २५ हून अधिक झाडांच्या नुकसानीची चौकशी होणार'
+  },
+
+  seoTitle: {
+    en: 'Belapur Tree Damage Investigation | MySamvidhan',
+    mr: 'बेलापूर झाडांचे नुकसान: चौकशीचे निर्देश | MySamvidhan'
+  },
+
+  shortDescription: {
+    en: 'The Union Environment Ministry has directed Maharashtra’s Forest Department to investigate suspected damage to more than 25 mature trees in CBD Belapur, Navi Mumbai.',
+    mr: 'नवी मुंबईतील सीबीडी बेलापूर येथे २५ हून अधिक मोठ्या झाडांना संशयास्पदरीत्या नुकसान झाल्याच्या प्रकरणाची चौकशी करण्याचे निर्देश केंद्रीय पर्यावरण मंत्रालयाने महाराष्ट्राच्या वन विभागाला दिले आहेत.'
+  },
+
+  category: 'Environment',
+  categoryMr: 'पर्यावरण',
+  date: '2026-10-24',
+
+  introduction: {
+    en: 'More than 25 mature trees in Kille Gaothan, CBD Belapur, Navi Mumbai, have reportedly suffered suspicious damage. Environmental activists alleged that the trees were harmed through drilled holes, cuts to their bark and suspected chemical injections. The Union Ministry of Environment, Forest and Climate Change has directed the Maharashtra Forest Department to investigate the matter and submit an action-taken report. The actual cause of the damage remains to be established through investigation.',
+    mr: 'नवी मुंबईतील सीबीडी बेलापूरच्या किल्ले गावठाण परिसरातील २५ हून अधिक मोठ्या झाडांना संशयास्पद नुकसान झाल्याचे वृत्त आहे. पर्यावरण कार्यकर्त्यांनी झाडांच्या खोडांना छिद्रे पाडणे, साल कापणे आणि रसायने टोचल्याचा आरोप केला आहे. केंद्रीय पर्यावरण, वन आणि हवामान बदल मंत्रालयाने या प्रकरणाची चौकशी करून अहवाल सादर करण्याचे निर्देश महाराष्ट्राच्या वन विभागाला दिले आहेत. या नुकसानीचे नेमके कारण चौकशीतून स्पष्ट होईल.'
+  },
+
+  simpleExplanation: {
+    en: 'Trees provide shade, support biodiversity, absorb carbon dioxide and help improve urban environments. Damage to mature trees can affect local wildlife and reduce green cover. In the Belapur case, the central ministry has asked Maharashtra’s Forest Department to investigate allegations concerning more than 25 trees. The allegations are not the same as a proven finding; the investigation is expected to establish the facts and determine whether action is required under applicable laws.',
+    mr: 'झाडांमुळे सावली मिळते, जैवविविधतेला आधार मिळतो, कार्बन डायऑक्साइड शोषला जातो आणि शहरातील पर्यावरण सुधारण्यास मदत होते. मोठ्या झाडांचे नुकसान झाल्यास स्थानिक जीवसृष्टी आणि हिरवळ प्रभावित होऊ शकते. बेलापूर प्रकरणात २५ हून अधिक झाडांबाबत करण्यात आलेल्या आरोपांची चौकशी करण्यास केंद्राने महाराष्ट्राच्या वन विभागाला सांगितले आहे. आरोप म्हणजे सिद्ध झालेली बाब नव्हे. चौकशीत तथ्ये स्पष्ट होतील आणि लागू कायद्यांनुसार पुढील कारवाईची गरज आहे का, हे ठरवता येईल.'
+  },
+
+  verySimple: {
+    en: 'More than 25 trees in Belapur have reportedly been damaged. The Union Environment Ministry has asked Maharashtra’s Forest Department to investigate. The cause of the damage has not yet been established.',
+    mr: 'बेलापूरमध्ये २५ हून अधिक झाडांचे नुकसान झाल्याचे वृत्त आहे. केंद्रीय पर्यावरण मंत्रालयाने महाराष्ट्राच्या वन विभागाला चौकशी करण्यास सांगितले आहे. झाडांचे नुकसान नेमके कशामुळे झाले, हे अद्याप निश्चित झालेले नाही.'
+  },
+
+  example: {
+    en: 'If a resident notices a tree with unexplained holes or damaged bark, they can document the location and condition safely and report it to the relevant municipal body or forest authorities. Experts should assess the tree before any treatment is attempted. An investigation can help establish the cause and identify any action required under the law.',
+    mr: 'एखाद्या नागरिकाला झाडाच्या खोडावर अनोळखी छिद्रे किंवा साल खराब झालेली दिसल्यास तो सुरक्षितपणे ठिकाण आणि नुकसानीची नोंद करून संबंधित महापालिका किंवा वन विभागाला कळवू शकतो. कोणताही उपचार करण्यापूर्वी तज्ज्ञांनी झाडाची तपासणी करणे आवश्यक आहे. चौकशीमुळे नुकसानीचे कारण आणि कायद्यानुसार आवश्यक कारवाई निश्चित करण्यास मदत होऊ शकते.'
+  },
+
+  content: {
+    en: 'The suspected damage to more than 25 mature trees in Kille Gaothan, CBD Belapur, Navi Mumbai, has drawn attention to urban tree protection. According to a report published by The Times of India on October 24, 2026, the Union Ministry of Environment, Forest and Climate Change directed the Maharashtra Forest Department to investigate the matter and submit an action-taken report.\\n\\nEnvironmental activists alleged that some trees had holes drilled into them, cuts on their bark and suspected chemical injections. These are allegations that require investigation; the cause and responsibility have not been conclusively established in the reported information.\\n\\nThe ministry asked the state Forest Department to examine the matter under applicable laws and regulations. The request also called for a report to be sent to the ministry and the complainant.\\n\\nMature trees are important to urban ecosystems. They provide shade and habitat, help regulate local temperatures and contribute to the quality of public spaces. Protecting existing trees is important because newly planted saplings can take years to provide similar benefits.\\n\\nThe investigation will be important in establishing what happened and whether any legal action is warranted. The case also highlights the role of citizens, environmental groups and public authorities in reporting and addressing suspected damage to trees.',
+
+    mr: 'नवी मुंबईतील सीबीडी बेलापूरच्या किल्ले गावठाण परिसरातील २५ हून अधिक मोठ्या झाडांना संशयास्पद नुकसान झाल्याच्या प्रकरणामुळे शहरी झाडांच्या संरक्षणाचा प्रश्न पुन्हा चर्चेत आला आहे. २४ ऑक्टोबर २०२६ रोजी प्रसिद्ध झालेल्या द टाइम्स ऑफ इंडियाच्या वृत्तानुसार, केंद्रीय पर्यावरण, वन आणि हवामान बदल मंत्रालयाने महाराष्ट्राच्या वन विभागाला या प्रकरणाची चौकशी करून कारवाईचा अहवाल सादर करण्याचे निर्देश दिले.\\n\\nपर्यावरण कार्यकर्त्यांनी काही झाडांच्या खोडांना छिद्रे पाडण्यात आली, साल कापण्यात आली आणि रसायने टोचण्यात आल्याचा आरोप केला आहे. हे आरोप आहेत; उपलब्ध वृत्तानुसार नुकसानीचे कारण आणि त्यासाठी जबाबदार व्यक्ती याबाबत अंतिम निष्कर्ष निघालेला नाही.\\n\\nमंत्रालयाने राज्याच्या वन विभागाला लागू कायदे आणि नियमांनुसार या प्रकरणाची तपासणी करण्यास सांगितले आहे. चौकशीचा अहवाल मंत्रालयाला आणि तक्रारदाराला पाठवण्याचीही सूचना करण्यात आली आहे.\\n\\nमोठी झाडे शहरी पर्यावरणासाठी महत्त्वाची असतात. ती सावली देतात, पक्षी आणि इतर जीवांना अधिवास पुरवतात, स्थानिक तापमान नियंत्रित करण्यास मदत करतात आणि सार्वजनिक जागांचा दर्जा सुधारतात. अस्तित्वात असलेल्या झाडांचे संरक्षण महत्त्वाचे आहे, कारण नवीन रोपांना मोठ्या झाडांसारखे फायदे देण्यासाठी अनेक वर्षे लागू शकतात.\\n\\nया प्रकरणातील चौकशीमुळे नेमके काय घडले आणि कायदेशीर कारवाईची गरज आहे का, हे स्पष्ट होऊ शकते. झाडांचे नुकसान झाल्याचा संशय आल्यास नागरिक, पर्यावरण संस्था आणि संबंधित सरकारी यंत्रणा यांनी जबाबदारीने त्याची नोंद घेणे आणि योग्य अधिकाऱ्यांपर्यंत माहिती पोहोचवणे महत्त्वाचे आहे.'
+  },
+
+  seoSections: {
+    en: [
+      {
+        heading: 'What happened to the trees in Belapur?',
+        content: 'More than 25 mature trees in Kille Gaothan, CBD Belapur, were reported to have suffered suspicious damage. Activists alleged drilling, bark cuts and possible chemical injections. The cause remains subject to investigation.'
+      },
+      {
+        heading: 'Why has the Forest Department been asked to investigate?',
+        content: 'The Union Environment Ministry directed Maharashtra’s Forest Department to examine the complaint under applicable laws and submit an action-taken report.'
+      },
+      {
+        heading: 'Why are mature trees important in cities?',
+        content: 'Mature trees provide shade, habitat and environmental benefits. Protecting existing trees helps maintain urban green cover and supports local biodiversity.'
+      },
+      {
+        heading: 'What happens next in the Belapur tree case?',
+        content: 'The investigation is expected to examine the reported damage and establish the facts. Any further action will depend on the findings and applicable laws.'
+      }
+    ],
+    mr: [
+      {
+        heading: 'बेलापूरमधील झाडांचे काय झाले?',
+        content: 'सीबीडी बेलापूरच्या किल्ले गावठाण परिसरातील २५ हून अधिक मोठ्या झाडांना संशयास्पद नुकसान झाल्याचे वृत्त आहे. छिद्रे पाडणे, साल कापणे आणि रसायने टोचल्याचा आरोप करण्यात आला आहे. या प्रकरणाची चौकशी सुरू आहे.'
+      },
+      {
+        heading: 'वन विभागाला चौकशीचे निर्देश का देण्यात आले?',
+        content: 'केंद्रीय पर्यावरण मंत्रालयाने तक्रारीची लागू कायद्यांनुसार तपासणी करून कारवाईचा अहवाल सादर करण्याचे निर्देश महाराष्ट्राच्या वन विभागाला दिले आहेत.'
+      },
+      {
+        heading: 'शहरांमध्ये मोठी झाडे महत्त्वाची का आहेत?',
+        content: 'मोठी झाडे सावली, अधिवास आणि पर्यावरणीय फायदे देतात. अस्तित्वात असलेल्या झाडांचे संरक्षण केल्याने शहरी हिरवळ आणि स्थानिक जैवविविधता टिकवण्यास मदत होते.'
+      },
+      {
+        heading: 'बेलापूर झाडांच्या प्रकरणात पुढे काय होईल?',
+        content: 'चौकशीत झाडांचे नुकसान कसे झाले याचा तपास करून तथ्ये निश्चित केली जातील. पुढील कारवाई चौकशीतील निष्कर्ष आणि लागू कायद्यांवर अवलंबून असेल.'
+      }
+    ]
+  },
+
+  faq: {
+    en: [
+      {
+        question: 'Where were the trees reportedly damaged?',
+        answer: 'The reported incident concerns mature trees in Kille Gaothan, CBD Belapur, Navi Mumbai.'
+      },
+      {
+        question: 'How many trees were reportedly affected?',
+        answer: 'Reports refer to more than 25 mature trees.'
+      },
+      {
+        question: 'Has chemical poisoning been officially proven?',
+        answer: 'No final finding is established in the cited report. Chemical injection is an allegation, and the cause of the damage requires investigation.'
+      },
+      {
+        question: 'Which authority was asked to investigate?',
+        answer: 'The Union Environment Ministry directed the Maharashtra Forest Department to investigate and submit an action-taken report.'
+      }
+    ],
+    mr: [
+      {
+        question: 'झाडांचे नुकसान झाल्याचे ठिकाण कोणते?',
+        answer: 'नवी मुंबईतील सीबीडी बेलापूरच्या किल्ले गावठाण परिसरातील झाडांबाबत हे वृत्त आहे.'
+      },
+      {
+        question: 'किती झाडे प्रभावित झाल्याचे सांगितले आहे?',
+        answer: 'वृत्तानुसार २५ हून अधिक मोठ्या झाडांचे नुकसान झाल्याचा संशय आहे.'
+      },
+      {
+        question: 'झाडांना रासायनिक विषबाधा झाल्याचे सिद्ध झाले आहे का?',
+        answer: 'नाही. उद्धृत वृत्तात अंतिम निष्कर्ष दिलेला नाही. रसायने टोचल्याचा आरोप असून नुकसानीचे कारण चौकशीतून स्पष्ट होणे आवश्यक आहे.'
+      },
+      {
+        question: 'चौकशी करण्यास कोणत्या यंत्रणेला सांगितले आहे?',
+        answer: 'केंद्रीय पर्यावरण मंत्रालयाने महाराष्ट्राच्या वन विभागाला चौकशी करून कारवाईचा अहवाल सादर करण्यास सांगितले आहे.'
+      }
+    ]
+  },
+
+  mcqs: {
+    en: [
+      {
+        question: 'Where is the reported tree-damage case located?',
+        options: ['CBD Belapur', 'Nagpur', 'Nashik', 'Kolhapur'],
+        answer: 'CBD Belapur'
+      },
+      {
+        question: 'Which department was directed to investigate the case?',
+        options: ['Health Department', 'Maharashtra Forest Department', 'Education Department', 'Transport Department'],
+        answer: 'Maharashtra Forest Department'
+      },
+      {
+        question: 'Has the cause of the reported damage been conclusively established?',
+        options: ['Yes, conclusively', 'No, it requires investigation', 'The trees were not damaged', 'The investigation is unnecessary'],
+        answer: 'No, it requires investigation'
+      }
+    ],
+    mr: [
+      {
+        question: 'झाडांच्या नुकसानीचे प्रकरण कोणत्या ठिकाणाशी संबंधित आहे?',
+        options: ['सीबीडी बेलापूर', 'नागपूर', 'नाशिक', 'कोल्हापूर'],
+        answer: 'सीबीडी बेलापूर'
+      },
+      {
+        question: 'या प्रकरणाची चौकशी करण्याचे निर्देश कोणत्या विभागाला देण्यात आले?',
+        options: ['आरोग्य विभाग', 'महाराष्ट्र वन विभाग', 'शिक्षण विभाग', 'परिवहन विभाग'],
+        answer: 'महाराष्ट्र वन विभाग'
+      },
+      {
+        question: 'झाडांच्या नुकसानीचे कारण निश्चित झाले आहे का?',
+        options: ['होय, पूर्णपणे निश्चित झाले आहे', 'नाही, चौकशी आवश्यक आहे', 'झाडांचे नुकसान झालेले नाही', 'चौकशीची गरज नाही'],
+        answer: 'नाही, चौकशी आवश्यक आहे'
+      }
+    ]
+  },
+
+  source: {
+    name: 'The Times of India',
+    url: 'https://timesofindia.indiatimes.com/city/mumbai/centre-cracks-whip-on-belapur-tree-poisoning-directs-maharashtra-to-act/articleshow/135175951.cms'
+  },
+
+  relatedSlugs: [],
+
+  keywords: [
+    'Belapur tree damage',
+    'Navi Mumbai environment news',
+    'Maharashtra Forest Department',
+    'Tree protection India',
+    'Urban green cover',
+    'बेलापूर झाडांचे नुकसान',
+    'नवी मुंबई पर्यावरण बातमी',
+    'महाराष्ट्र वन विभाग',
+    'झाडांचे संरक्षण',
+    'शहरी हिरवळ',
+    'पर्यावरण बातम्या'
+  ]
+},
+
+{
+  id: 'maharashtra-weather-2026',
+  articleNumber: 'Current Affairs',
+  categoryKey: 'current-affairs',
+  slug: 'maharashtra-weather-water-availability',
+
+  title: {
+    en: 'Maharashtra Weather: Humidity, Heat and Water Concerns',
+    mr: 'महाराष्ट्रातील हवामान बदल: दमटपणा, उष्णता आणि पाण्याची चिंता'
+  },
+
+  seoTitle: {
+    en: 'Maharashtra Weather and Water Concerns | MySamvidhan',
+    mr: 'महाराष्ट्र हवामान आणि पाणीटंचाईची चिंता | MySamvidhan'
+  },
+
+  shortDescription: {
+    en: 'A report on Maharashtra’s varying weather conditions highlights humidity in Konkan, hotter and drier conditions in parts of Marathwada and western Vidarbha, and concerns about water availability.',
+    mr: 'महाराष्ट्रातील हवामान विभागानुसार बदलत असून कोकणातील दमटपणा, मराठवाडा व पश्चिम विदर्भातील उष्ण आणि कोरडे वातावरण तसेच पाण्याच्या उपलब्धतेबाबतची चिंता या मुद्द्यांकडे लक्ष वेधले गेले आहे.'
+  },
+
+  category: 'Climate & Environment',
+  categoryMr: 'हवामान आणि पर्यावरण',
+  date: '2026-10-24',
+
+  introduction: {
+    en: 'Weather conditions can differ significantly across Maharashtra because of regional geography and seasonal patterns. A Maharashtra Times report published on October 24, 2026, described increased humidity in Konkan and hotter, drier conditions in parts of Marathwada and western Vidarbha. The report also raised concerns about water availability. Weather conditions and water supply are related but are not determined by a single factor; local rainfall, reservoir levels, groundwater and demand all matter.',
+    mr: 'महाराष्ट्रातील भौगोलिक रचना आणि ऋतुमानामुळे वेगवेगळ्या भागांत हवामानात मोठा फरक दिसू शकतो. २४ ऑक्टोबर २०२६ रोजी प्रसिद्ध झालेल्या महाराष्ट्र टाइम्सच्या वृत्तात कोकणातील वाढलेला दमटपणा आणि मराठवाडा व पश्चिम विदर्भातील काही भागांतील अधिक उष्ण व कोरड्या परिस्थितीचा उल्लेख करण्यात आला. पाण्याच्या उपलब्धतेबाबतही चिंता व्यक्त करण्यात आली. हवामान आणि पाणीपुरवठा यांचा संबंध असला, तरी पावसाचे प्रमाण, धरणांतील साठा, भूजल आणि पाण्याची मागणी अशा अनेक घटकांचा त्यावर परिणाम होतो.'
+  },
+
+  simpleExplanation: {
+    en: 'Maharashtra does not experience the same weather everywhere. Coastal areas such as Konkan can feel humid, while inland areas may experience hotter and drier conditions. These differences can affect comfort, agriculture and water demand. However, a weather report alone cannot establish the amount of water available in a particular city or district. For that, official reservoir, rainfall and water-supply data should also be checked.',
+    mr: 'महाराष्ट्रातील सर्व भागांत एकसारखे हवामान नसते. कोकणासारख्या किनारपट्टीच्या भागात दमटपणा जाणवू शकतो, तर अंतर्गत भागांत अधिक उष्ण आणि कोरडे वातावरण असू शकते. या फरकांचा नागरिकांच्या दैनंदिन जीवनावर, शेतीवर आणि पाण्याच्या मागणीवर परिणाम होऊ शकतो. मात्र, केवळ हवामानाच्या वृत्तावरून एखाद्या शहरात किंवा जिल्ह्यात किती पाणी उपलब्ध आहे हे ठरवता येत नाही. त्यासाठी अधिकृत पर्जन्यमान, धरणसाठा आणि पाणीपुरवठ्याची माहिती तपासणे आवश्यक आहे.'
+  },
+
+  verySimple: {
+    en: 'Different parts of Maharashtra can experience different weather. Humidity may be higher in Konkan, while some inland areas may be hotter and drier. Water availability depends on rainfall, storage, groundwater and demand.',
+    mr: 'महाराष्ट्राच्या वेगवेगळ्या भागांत वेगवेगळे हवामान असू शकते. कोकणात दमटपणा जास्त जाणवू शकतो, तर काही अंतर्गत भाग अधिक उष्ण व कोरडे असू शकतात. पाण्याची उपलब्धता पाऊस, साठा, भूजल आणि मागणीवर अवलंबून असते.'
+  },
+
+  example: {
+    en: 'A household in a hot, dry area may need to use water carefully during periods of high demand. Residents can follow local authority updates, repair leaking taps and avoid unnecessary water use. Actual restrictions, if any, should be confirmed through official municipal or district announcements.',
+    mr: 'उष्ण आणि कोरड्या भागातील एखाद्या कुटुंबाला पाण्याची मागणी वाढलेल्या काळात पाणी जपून वापरण्याची गरज भासू शकते. नागरिक स्थानिक प्रशासनाच्या सूचना तपासू शकतात, गळणारे नळ दुरुस्त करू शकतात आणि अनावश्यक पाणीवापर टाळू शकतात. पाणीकपात लागू असल्यास तिची खात्री अधिकृत महापालिका किंवा जिल्हा प्रशासनाच्या घोषणेतून करावी.'
+  },
+
+  content: {
+    en: 'Maharashtra’s weather varies across its coastal, central and eastern regions. Geography, seasonal winds, humidity and rainfall patterns contribute to these differences. A Maharashtra Times report dated October 24, 2026, discussed increased humidity in Konkan and hotter, drier conditions in parts of Marathwada and western Vidarbha. It also raised concerns about the possible effect of dry conditions on water availability.\\n\\nHumidity describes the amount of water vapour in the air. High humidity can make warm weather feel more uncomfortable because sweat evaporates less efficiently. Hot and dry conditions can increase water demand and put pressure on local water resources, depending on the amount of water stored and the needs of the population.\\n\\nWater availability cannot be assessed through temperature or humidity alone. Rainfall over a season, reservoir storage, groundwater levels, water distribution systems and agricultural and household demand all influence local conditions. Different districts may therefore face different situations at the same time.\\n\\nResidents should rely on current information from the India Meteorological Department for weather forecasts and from relevant local authorities for reservoir levels, supply schedules or any water restrictions. Reports about possible shortages should be distinguished from formally announced restrictions.\\n\\nUsing water carefully, fixing leaks and following official updates are practical steps that households can take. Longer-term planning also requires reliable data, efficient distribution and protection of water resources.',
+
+    mr: 'महाराष्ट्रातील किनारपट्टी, मध्य भाग आणि पूर्वेकडील प्रदेशांत हवामान वेगवेगळे असते. भौगोलिक रचना, हंगामी वारे, हवेतील आर्द्रता आणि पावसाचे स्वरूप यांमुळे हे फरक दिसतात. २४ ऑक्टोबर २०२६ रोजीच्या महाराष्ट्र टाइम्सच्या वृत्तात कोकणातील वाढलेला दमटपणा आणि मराठवाडा व पश्चिम विदर्भातील काही भागांतील अधिक उष्ण व कोरड्या परिस्थितीचा उल्लेख करण्यात आला. कोरड्या हवामानाचा पाण्याच्या उपलब्धतेवर होऊ शकणारा परिणाम याबाबतही चिंता व्यक्त करण्यात आली.\\n\\nहवेतील आर्द्रता म्हणजे हवेत असलेल्या पाण्याच्या वाफेचे प्रमाण. आर्द्रता जास्त असल्यास घामाचे बाष्पीभवन कमी प्रभावीपणे होते, त्यामुळे उष्ण हवामान अधिक त्रासदायक वाटू शकते. उष्ण आणि कोरड्या परिस्थितीत पाण्याची मागणी वाढू शकते; मात्र स्थानिक जलसाठा आणि लोकसंख्येच्या गरजांवरही त्याचा परिणाम अवलंबून असतो.\\n\\nकेवळ तापमान किंवा आर्द्रतेवरून पाण्याची उपलब्धता ठरवता येत नाही. हंगामातील पाऊस, धरणांतील पाणीसाठा, भूजलाची पातळी, पाणी वितरण व्यवस्था आणि शेती व घरगुती वापरासाठीची मागणी हे सर्व घटक महत्त्वाचे आहेत. त्यामुळे एकाच वेळी वेगवेगळ्या जिल्ह्यांमध्ये परिस्थिती वेगळी असू शकते.\\n\\nहवामानाच्या अंदाजासाठी भारतीय हवामान विभागाची अद्ययावत माहिती पाहावी. धरणसाठा, पाणीपुरवठ्याचे वेळापत्रक किंवा पाणीकपात याबाबत संबंधित स्थानिक प्रशासनाच्या सूचनांवर अवलंबून राहावे. संभाव्य पाणीटंचाईबाबतचे वृत्त आणि अधिकृतरीत्या जाहीर केलेली पाणीकपात यांत फरक लक्षात घ्यावा.\\n\\nपाणी जपून वापरणे, गळती दुरुस्त करणे आणि अधिकृत सूचना तपासणे ही कुटुंबांना करता येण्यासारखी व्यावहारिक पावले आहेत. दीर्घकालीन नियोजनासाठी विश्वासार्ह माहिती, कार्यक्षम वितरण व्यवस्था आणि जलस्रोतांचे संरक्षण आवश्यक आहे.'
+  },
+
+  seoSections: {
+    en: [
+      {
+        heading: 'Why does weather differ across Maharashtra?',
+        content: 'Coastal geography, inland conditions, seasonal winds and rainfall patterns contribute to differences in humidity and temperature between regions.'
+      },
+      {
+        heading: 'How can hot and dry weather affect water demand?',
+        content: 'Hot conditions may increase water needs for households, people and agriculture. The actual impact depends on available supplies, storage and local demand.'
+      },
+      {
+        heading: 'Does high humidity mean there will be more rain?',
+        content: 'Not necessarily. Humidity alone does not determine whether rain will occur. Forecasts from the India Meteorological Department should be consulted for local conditions.'
+      },
+      {
+        heading: 'Where can residents check water-supply updates?',
+        content: 'Residents should check announcements from their municipal corporation, district administration or relevant water-supply authority for local schedules and restrictions.'
+      }
+    ],
+    mr: [
+      {
+        heading: 'महाराष्ट्रात वेगवेगळ्या भागांत हवामान वेगळे का असते?',
+        content: 'किनारपट्टीची भौगोलिक रचना, अंतर्गत भागातील परिस्थिती, हंगामी वारे आणि पावसाचे स्वरूप यांमुळे आर्द्रता व तापमानात फरक दिसतो.'
+      },
+      {
+        heading: 'उष्ण आणि कोरड्या हवामानाचा पाण्याच्या मागणीवर काय परिणाम होऊ शकतो?',
+        content: 'उष्णतेमुळे घरगुती वापरासाठी आणि शेतीसाठी पाण्याची गरज वाढू शकते. प्रत्यक्ष परिणाम उपलब्ध पाणी, साठा आणि स्थानिक मागणीवर अवलंबून असतो.'
+      },
+      {
+        heading: 'दमटपणा जास्त म्हणजे पाऊस पडणारच का?',
+        content: 'नाही. केवळ आर्द्रतेवरून पाऊस पडेल की नाही हे ठरवता येत नाही. स्थानिक हवामानाच्या अंदाजासाठी भारतीय हवामान विभागाची माहिती तपासावी.'
+      },
+      {
+        heading: 'पाणीपुरवठ्याची माहिती कुठे तपासावी?',
+        content: 'स्थानिक वेळापत्रक आणि निर्बंधांसाठी महापालिका, जिल्हा प्रशासन किंवा संबंधित पाणीपुरवठा प्राधिकरणाच्या अधिकृत सूचना तपासाव्यात.'
+      }
+    ]
+  },
+
+  faq: {
+    en: [
+      {
+        question: 'Which parts of Maharashtra were mentioned in the weather report?',
+        answer: 'The report highlighted humidity in Konkan and hotter, drier conditions in parts of Marathwada and western Vidarbha.'
+      },
+      {
+        question: 'Does hot weather automatically mean a water shortage?',
+        answer: 'No. Water availability depends on rainfall, reservoir storage, groundwater, distribution and demand. Local official data is needed to assess the situation.'
+      },
+      {
+        question: 'Where can I check official weather forecasts?',
+        answer: 'Check current forecasts and warnings issued by the India Meteorological Department.'
+      },
+      {
+        question: 'How can households conserve water?',
+        answer: 'Households can fix leaks, avoid unnecessary water use and follow local authority guidance on water supply.'
+      }
+    ],
+    mr: [
+      {
+        question: 'हवामानाच्या वृत्तात महाराष्ट्रातील कोणत्या भागांचा उल्लेख आहे?',
+        answer: 'वृत्तात कोकणातील दमटपणा आणि मराठवाडा व पश्चिम विदर्भातील काही भागांतील उष्ण व कोरड्या परिस्थितीचा उल्लेख आहे.'
+      },
+      {
+        question: 'उष्ण हवामान म्हणजे पाणीटंचाई निश्चित आहे का?',
+        answer: 'नाही. पाण्याची उपलब्धता पाऊस, धरणसाठा, भूजल, वितरण व्यवस्था आणि मागणीवर अवलंबून असते. परिस्थिती समजण्यासाठी स्थानिक अधिकृत माहिती आवश्यक आहे.'
+      },
+      {
+        question: 'अधिकृत हवामानाचा अंदाज कुठे पाहावा?',
+        answer: 'भारतीय हवामान विभागाने जारी केलेले अद्ययावत अंदाज आणि इशारे तपासावेत.'
+      },
+      {
+        question: 'घरगुती पाणी बचतीसाठी काय करता येईल?',
+        answer: 'गळणारे नळ दुरुस्त करणे, अनावश्यक पाणीवापर टाळणे आणि स्थानिक प्रशासनाच्या सूचनांचे पालन करणे उपयुक्त ठरते.'
+      }
+    ]
+  },
+
+  mcqs: {
+    en: [
+      {
+        question: 'Which region was described as experiencing increased humidity?',
+        options: ['Konkan', 'Marathwada only', 'Western Vidarbha only', 'No region'],
+        answer: 'Konkan'
+      },
+      {
+        question: 'Which organisation issues official weather forecasts in India?',
+        options: ['India Meteorological Department', 'Election Commission of India', 'NITI Aayog', 'Supreme Court of India'],
+        answer: 'India Meteorological Department'
+      },
+      {
+        question: 'Which factor affects water availability?',
+        options: ['Reservoir storage', 'Groundwater levels', 'Water demand', 'All of the above'],
+        answer: 'All of the above'
+      }
+    ],
+    mr: [
+      {
+        question: 'कोणत्या भागात वाढलेल्या दमटपणाचा उल्लेख करण्यात आला?',
+        options: ['कोकण', 'फक्त मराठवाडा', 'फक्त पश्चिम विदर्भ', 'कोणताही भाग नाही'],
+        answer: 'कोकण'
+      },
+      {
+        question: 'भारतात अधिकृत हवामानाचे अंदाज कोणती संस्था देते?',
+        options: ['भारतीय हवामान विभाग', 'भारतीय निवडणूक आयोग', 'नीती आयोग', 'भारताचे सर्वोच्च न्यायालय'],
+        answer: 'भारतीय हवामान विभाग'
+      },
+      {
+        question: 'पाण्याच्या उपलब्धतेवर कोणत्या घटकांचा परिणाम होतो?',
+        options: ['धरणांतील साठा', 'भूजलाची पातळी', 'पाण्याची मागणी', 'वरील सर्व'],
+        answer: 'वरील सर्व'
+      }
+    ]
+  },
+
+  source: {
+    name: 'Maharashtra Times',
+    url: 'https://maharashtratimes.com/maharashtra/mumbai-news/maharashtra-weather-update-24-october-konkan-humidity-increased-marathwada-western-vidarbha-hot-climate-water-shortage-in-pune/articleshow/135160814.cms'
+  },
+
+  relatedSlugs: [],
+
+  keywords: [
+    'Maharashtra weather October 2026',
+    'Konkan humidity',
+    'Marathwada hot weather',
+    'Western Vidarbha weather',
+    'Water availability Maharashtra',
+    'महाराष्ट्र हवामान',
+    'कोकणातील दमटपणा',
+    'मराठवाडा उष्ण हवामान',
+    'पश्चिम विदर्भ हवामान',
+    'महाराष्ट्र पाणी उपलब्धता',
+    'हवामान आणि पर्यावरण'
+  ]
+},
+
+{
+  id: 'mumbai-tree-conservation-2026',
+  articleNumber: 'Current Affairs',
+  categoryKey: 'current-affairs',
+  slug: 'mumbai-tree-removal-approvals-2026',
+
+  title: {
+    en: 'Mumbai Tree Removal: 7,633 Trees Approved for Removal or Transplantation',
+    mr: 'मुंबईत ५ महिन्यांत ७,६३३ झाडे हटवण्यास किंवा पुनर्लागवडीस मंजुरी'
+  },
+
+  seoTitle: {
+    en: 'Mumbai Tree Removal Approvals: 7,633 Trees | MySamvidhan',
+    mr: 'मुंबई झाडे हटवण्यास मंजुरी: ७,६३३ झाडे | MySamvidhan'
+  },
+
+  shortDescription: {
+    en: 'The Brihanmumbai Municipal Corporation reportedly approved removal or transplantation of 7,633 trees over five months, renewing questions about urban green cover and development.',
+    mr: 'बृहन्मुंबई महानगरपालिकेने पाच महिन्यांत ७,६३३ झाडे हटवणे किंवा पुनर्लागवड करण्यास मंजुरी दिल्याचे वृत्त आहे. या आकडेवारीमुळे शहरी हिरवळीचे संरक्षण आणि विकासकामांमधील समतोलाचा प्रश्न पुन्हा चर्चेत आला आहे.'
+  },
+
+  category: 'Environment',
+  categoryMr: 'पर्यावरण',
+  date: '2026-10-23',
+
+  introduction: {
+    en: 'A report published by The Indian Express states that Mumbai’s Brihanmumbai Municipal Corporation (BMC) approved the removal or transplantation of 7,633 trees over a five-month period. Of these, 3,502 were approved for permanent felling and 4,131 were listed for felling and transplantation. The permissions were linked to civic infrastructure and private redevelopment projects. The figures have prompted renewed discussion about how cities can accommodate development while protecting mature trees and urban green cover.',
+    mr: 'द इंडियन एक्सप्रेसच्या वृत्तानुसार, मुंबई महानगरपालिकेने पाच महिन्यांच्या कालावधीत ७,६३३ झाडे हटवणे किंवा पुनर्लागवड करण्यास मंजुरी दिली. त्यापैकी ३,५०२ झाडे कायमस्वरूपी तोडण्यासाठी, तर ४,१३१ झाडे हटवून पुनर्लागवड करण्यासाठी मंजूर करण्यात आली. या परवानग्या नागरी पायाभूत सुविधा आणि खासगी पुनर्विकास प्रकल्पांशी संबंधित होत्या. या आकडेवारीमुळे शहराचा विकास करताना मोठ्या झाडांचे आणि शहरी हिरवळीचे संरक्षण कसे करावे, यावर पुन्हा चर्चा सुरू झाली आहे.'
+  },
+
+  simpleExplanation: {
+    en: 'Cities need infrastructure, housing and redevelopment, but trees also provide important environmental benefits. The reported approvals distinguish between permanent felling and transplantation. Transplantation is not a guarantee that every tree will survive; the outcome depends on the tree, its condition, the method used and aftercare. Understanding the number of trees approved for removal, the reasons for each project and the survival of transplanted trees helps the public assess how development decisions affect urban greenery.',
+    mr: 'शहरांना पायाभूत सुविधा, घरे आणि पुनर्विकासाची गरज असते; परंतु झाडांमुळेही महत्त्वाचे पर्यावरणीय फायदे मिळतात. वृत्तातील आकडेवारीत कायमस्वरूपी वृक्षतोड आणि पुनर्लागवड यांत फरक करण्यात आला आहे. पुनर्लागवड केली म्हणजे प्रत्येक झाड जगेलच, याची हमी नसते. झाडाची स्थिती, पुनर्लागवडीची पद्धत आणि त्यानंतरची निगा यांवर त्याचे यश अवलंबून असते. कोणत्या प्रकल्पासाठी किती झाडांना मंजुरी दिली, त्यामागची कारणे आणि पुनर्लागवड केलेल्या झाडांचे जगण्याचे प्रमाण यांची माहिती घेतल्यास विकासाचा शहरी हिरवळीवर होणारा परिणाम समजण्यास मदत होते.'
+  },
+
+  verySimple: {
+    en: 'Mumbai reportedly approved the removal or transplantation of 7,633 trees over five months. The report lists 3,502 for permanent felling and 4,131 for transplantation-related work. The figures raise questions about how the city can protect green cover while developing infrastructure.',
+    mr: 'मुंबईत पाच महिन्यांत ७,६३३ झाडे हटवणे किंवा पुनर्लागवड करण्यास मंजुरी दिल्याचे वृत्त आहे. त्यापैकी ३,५०२ झाडे कायमस्वरूपी तोडण्यासाठी आणि ४,१३१ झाडे पुनर्लागवडीसाठी संबंधित प्रक्रियेत होती. विकासकामांसोबत शहरातील हिरवळ कशी जपायची, हा महत्त्वाचा प्रश्न आहे.'
+  },
+
+  example: {
+    en: 'Before a proposed road or building project affects trees, residents can review the publicly available permissions and project information, where available. They can also check whether transplantation is planned, what aftercare is proposed and whether progress reports are published. Questions should be directed to the relevant civic authority using the applicable public information and grievance channels.',
+    mr: 'एखाद्या प्रस्तावित रस्ता किंवा इमारत प्रकल्पामुळे झाडांवर परिणाम होणार असल्यास नागरिक उपलब्ध असलेली परवानगी आणि प्रकल्पाची माहिती तपासू शकतात. पुनर्लागवड प्रस्तावित आहे का, त्यानंतर झाडांची निगा कशी राखली जाणार आहे आणि प्रगतीचे अहवाल उपलब्ध आहेत का, हेही पाहता येते. याबाबतचे प्रश्न संबंधित नागरी प्रशासनाच्या अधिकृत माहिती किंवा तक्रार निवारण माध्यमातून विचारता येतात.'
+  },
+
+  content: {
+    en: 'Mumbai’s urban greenery has come under renewed attention following a report that the Brihanmumbai Municipal Corporation approved the removal or transplantation of 7,633 trees over five months. The Indian Express reported the figures in October 2026, noting that 3,502 trees were approved for permanent felling and 4,131 for felling and transplantation. The approvals were linked to civic infrastructure projects and private redevelopment works.\\n\\nThe BMC’s Tree Authority is responsible for considering permissions related to tree removal and transplantation under the applicable framework. Such permissions raise questions about the reasons for each proposal, the alternatives considered and the measures planned to protect trees.\\n\\nTrees provide shade, habitat for birds and other organisms, and help reduce the effects of heat in built-up areas. They also contribute to rainwater absorption and the quality of public spaces. Mature trees may take many years to replace, so preserving existing trees can be important for urban environmental planning.\\n\\nTransplantation is sometimes proposed as an alternative to permanent felling. However, moving a tree does not guarantee survival. Results depend on factors such as the species, size, root condition, season, transplantation method and ongoing care. Monitoring survival after transplantation is therefore important.\\n\\nThe reported figures do not, on their own, establish whether every permission was necessary or whether every transplantation will succeed. A fuller assessment would consider the reasons for each approval, the trees affected, alternatives evaluated, compliance with applicable rules and the survival of transplanted trees.\\n\\nThe wider challenge for Mumbai is to plan infrastructure and redevelopment while maintaining healthy urban green cover. Transparent information, careful project planning and follow-up monitoring can help the public understand how that balance is being managed.',
+
+    mr: 'मुंबईतील शहरी हिरवळीबाबत पुन्हा चर्चा सुरू झाली आहे. द इंडियन एक्सप्रेसच्या ऑक्टोबर २०२६ मधील वृत्तानुसार, बृहन्मुंबई महानगरपालिकेने पाच महिन्यांत ७,६३३ झाडे हटवणे किंवा पुनर्लागवड करण्यास मंजुरी दिली. त्यापैकी ३,५०२ झाडे कायमस्वरूपी तोडण्यासाठी आणि ४,१३१ झाडे तोडून पुनर्लागवड करण्याच्या प्रक्रियेसाठी मंजूर करण्यात आली. या परवानग्या नागरी पायाभूत सुविधा आणि खासगी पुनर्विकास प्रकल्पांशी संबंधित होत्या.\\n\\nलागू नियमांनुसार वृक्षतोड आणि पुनर्लागवडीशी संबंधित परवानग्यांचा विचार करण्याची जबाबदारी महापालिकेच्या वृक्ष प्राधिकरणाकडे असते. अशा परवानग्यांमुळे प्रत्येक प्रस्तावामागचे कारण, इतर पर्यायांचा विचार झाला का आणि झाडांचे संरक्षण करण्यासाठी कोणती उपाययोजना नियोजित आहे, असे प्रश्न महत्त्वाचे ठरतात.\\n\\nझाडे सावली देतात, पक्षी आणि इतर जीवांना अधिवास पुरवतात आणि बांधकामांनी व्यापलेल्या भागांत उष्णतेचा परिणाम कमी करण्यास मदत करतात. ती पावसाचे पाणी जमिनीत मुरण्यास आणि सार्वजनिक जागांचा दर्जा सुधारण्यासही हातभार लावतात. मोठ्या झाडांची जागा घेण्यासाठी अनेक वर्षे लागू शकतात, त्यामुळे अस्तित्वातील झाडांचे जतन शहरी पर्यावरण नियोजनासाठी महत्त्वाचे आहे.\\n\\nकायमस्वरूपी वृक्षतोडीऐवजी काही वेळा पुनर्लागवडीचा पर्याय सुचवला जातो. मात्र, झाड दुसरीकडे हलवले म्हणजे ते नक्की जगेल याची हमी नसते. झाडाची जात, आकार, मुळांची स्थिती, ऋतू, पुनर्लागवडीची पद्धत आणि पुढील काळातील निगा यांवर परिणाम अवलंबून असतो. त्यामुळे पुनर्लागवडीनंतर झाडे जगली की नाहीत, याचे निरीक्षण करणे महत्त्वाचे आहे.\\n\\nवृत्तातील आकडेवारीवरून प्रत्येक परवानगी आवश्यक होती किंवा प्रत्येक पुनर्लागवड यशस्वी होईल, असा निष्कर्ष काढता येत नाही. अधिक सखोल आढाव्यासाठी प्रत्येक परवानगीचे कारण, प्रभावित झाडे, तपासलेले पर्याय, लागू नियमांचे पालन आणि पुनर्लागवड केलेल्या झाडांचे जगण्याचे प्रमाण यांची माहिती आवश्यक आहे.\\n\\nमुंबईसमोरील व्यापक आव्हान म्हणजे पायाभूत सुविधा आणि पुनर्विकास करताना निरोगी शहरी हिरवळ टिकवणे. पारदर्शक माहिती, काळजीपूर्वक प्रकल्प नियोजन आणि कामानंतरचे निरीक्षण यांमुळे हा समतोल कसा राखला जात आहे, हे नागरिकांना समजू शकते.'
+  },
+
+  seoSections: {
+    en: [
+      {
+        heading: 'How many trees were approved for removal or transplantation in Mumbai?',
+        content: 'The Indian Express reported that 7,633 trees were approved for removal or transplantation over five months: 3,502 for permanent felling and 4,131 for felling and transplantation.'
+      },
+      {
+        heading: 'Why are trees important for Mumbai?',
+        content: 'Trees provide shade, support biodiversity, help moderate local temperatures and improve urban public spaces. Mature trees can take many years to replace.'
+      },
+      {
+        heading: 'Does transplantation guarantee that a tree will survive?',
+        content: 'No. Survival depends on the species, size, root condition, transplantation method and ongoing care. Monitoring after transplantation is important.'
+      },
+      {
+        heading: 'How can citizens follow tree-related permissions?',
+        content: 'Residents can look for available civic permissions, project information and monitoring updates, and raise questions through the relevant municipal authority.'
+      }
+    ],
+    mr: [
+      {
+        heading: 'मुंबईत किती झाडांना हटवणे किंवा पुनर्लागवडीसाठी मंजुरी मिळाली?',
+        content: 'द इंडियन एक्सप्रेसच्या वृत्तानुसार, पाच महिन्यांत ७,६३३ झाडांना मंजुरी मिळाली. त्यापैकी ३,५०२ झाडे कायमस्वरूपी तोडण्यासाठी आणि ४,१३१ झाडे पुनर्लागवडीशी संबंधित प्रक्रियेसाठी होती.'
+      },
+      {
+        heading: 'मुंबईसाठी झाडे महत्त्वाची का आहेत?',
+        content: 'झाडे सावली देतात, जैवविविधतेला आधार देतात, स्थानिक तापमान नियंत्रित करण्यास मदत करतात आणि सार्वजनिक जागांचा दर्जा सुधारतात. मोठ्या झाडांची जागा घेण्यासाठी अनेक वर्षे लागू शकतात.'
+      },
+      {
+        heading: 'पुनर्लागवड केल्याने झाड जगण्याची हमी मिळते का?',
+        content: 'नाही. झाडाची जात, आकार, मुळांची स्थिती, पुनर्लागवडीची पद्धत आणि पुढील निगा यांवर त्याचे जगणे अवलंबून असते. पुनर्लागवडीनंतर निरीक्षण करणे महत्त्वाचे आहे.'
+      },
+      {
+        heading: 'नागरिक झाडांशी संबंधित परवानग्यांची माहिती कशी घेऊ शकतात?',
+        content: 'उपलब्ध नागरी परवानग्या, प्रकल्पाची माहिती आणि निरीक्षणाचे अहवाल तपासता येतात. प्रश्न संबंधित महापालिका किंवा नागरी प्रशासनाकडे मांडता येतात.'
+      }
+    ]
+  },
+
+  faq: {
+    en: [
+      {
+        question: 'How many trees were included in the reported Mumbai approvals?',
+        answer: 'The report states that 7,633 trees were approved for removal or transplantation over five months.'
+      },
+      {
+        question: 'How many trees were approved for permanent felling?',
+        answer: 'The report lists 3,502 trees for permanent felling.'
+      },
+      {
+        question: 'Does transplantation mean a tree will definitely survive?',
+        answer: 'No. Survival depends on the tree and the transplantation process, including aftercare and monitoring.'
+      },
+      {
+        question: 'Why is urban tree cover important?',
+        answer: 'Urban trees provide shade, habitat, environmental benefits and help make built-up areas more comfortable.'
+      }
+    ],
+    mr: [
+      {
+        question: 'मुंबईतील किती झाडांना मंजुरी मिळाल्याचे वृत्त आहे?',
+        answer: 'वृत्तानुसार, पाच महिन्यांत ७,६३३ झाडे हटवणे किंवा पुनर्लागवड करण्यास मंजुरी देण्यात आली.'
+      },
+      {
+        question: 'किती झाडे कायमस्वरूपी तोडण्यासाठी मंजूर झाली?',
+        answer: 'वृत्तात ३,५०२ झाडे कायमस्वरूपी तोडण्यासाठी मंजूर झाल्याचे नमूद आहे.'
+      },
+      {
+        question: 'पुनर्लागवड म्हणजे झाड नक्की जगेल का?',
+        answer: 'नाही. झाडाचे जगणे त्याची स्थिती, पुनर्लागवडीची पद्धत, त्यानंतरची निगा आणि निरीक्षण यांवर अवलंबून असते.'
+      },
+      {
+        question: 'शहरातील हिरवळ महत्त्वाची का आहे?',
+        answer: 'शहरी झाडे सावली देतात, जीवांना अधिवास पुरवतात, पर्यावरणीय फायदे देतात आणि बांधकामांनी व्यापलेल्या भागांत राहण्याची परिस्थिती सुधारण्यास मदत करतात.'
+      }
+    ]
+  },
+
+  mcqs: {
+    en: [
+      {
+        question: 'How many trees were included in the reported approvals?',
+        options: ['3,502', '4,131', '7,633', '10,000'],
+        answer: '7,633'
+      },
+      {
+        question: 'How many trees were listed for permanent felling?',
+        options: ['3,502', '4,131', '7,633', '2,000'],
+        answer: '3,502'
+      },
+      {
+        question: 'Which statement about tree transplantation is correct?',
+        options: ['Every transplanted tree survives', 'Survival depends on several factors', 'Aftercare is never needed', 'Transplantation has no risks'],
+        answer: 'Survival depends on several factors'
+      }
+    ],
+    mr: [
+      {
+        question: 'वृत्तानुसार किती झाडांना मंजुरी देण्यात आली?',
+        options: ['३,५०२', '४,१३१', '७,६३३', '१०,०००'],
+        answer: '७,६३३'
+      },
+      {
+        question: 'किती झाडे कायमस्वरूपी तोडण्यासाठी मंजूर झाली?',
+        options: ['३,५०२', '४,१३१', '७,६३३', '२,०००'],
+        answer: '३,५०२'
+      },
+      {
+        question: 'झाडांच्या पुनर्लागवडीबाबत कोणते विधान योग्य आहे?',
+        options: ['प्रत्येक झाड जगते', 'झाडाचे जगणे अनेक घटकांवर अवलंबून असते', 'पुनर्लागवडीनंतर निगेची गरज नसते', 'पुनर्लागवडीमध्ये कोणताही धोका नसतो'],
+        answer: 'झाडाचे जगणे अनेक घटकांवर अवलंबून असते'
+      }
+    ]
+  },
+
+  source: {
+    name: 'The Indian Express',
+    url: 'https://indianexpress.com/article/cities/mumbai/smog-mumbai-removal-of-trees-five-months-10932866/'
+  },
+
+  relatedSlugs: [],
+
+  keywords: [
+    'Mumbai tree removal',
+    'BMC Tree Authority',
+    'Mumbai tree transplantation',
+    'Urban green cover Mumbai',
+    'Tree conservation India',
+    'मुंबई वृक्षतोड',
+    'मुंबई वृक्ष प्राधिकरण',
+    'झाडांची पुनर्लागवड',
+    'शहरी हिरवळ',
+    'झाडांचे संवर्धन',
+    'पर्यावरण बातम्या'
+  ]
+},
 ]
 
 export function getCurrentAffairBySlug(slug) {
