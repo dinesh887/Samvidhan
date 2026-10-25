@@ -15,7 +15,7 @@ body {
 main h1,
 main h2,
 main h3 {
-  text-wrap: balance;
+  /* text-wrap: balance; */
 }
 
 main p {
