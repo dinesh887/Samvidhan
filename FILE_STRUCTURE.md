@@ -31,7 +31,7 @@ Samvidhan/
 │   └── prerender.mjs             # तयार पानांचे prerendering
 ├── src/
 │   ├── components/               # पुन्हा वापरता येणारे UI घटक
-│   ├── context/                  # भाषा, थीम, लॉगिन आणि bookmarks state
+│   ├── context/                  # भाषा, लॉगिन आणि bookmarks state
 │   ├── data/                     # लेख, प्रश्नमंजुषा, योजना व इतर साइट मजकूर
 │   ├── pages/                    # वेबसाइटची स्वतंत्र पृष्ठे
 │   ├── services/                 # payment सारख्या बाह्य सेवा
@@ -54,7 +54,7 @@ Samvidhan/
 ## `src/` मधील महत्त्वाचे भाग
 
 - `components/` — Navbar, Footer, cards, search, FAQ, जाहिरात आणि इतर UI घटक.
-- `context/` — `AuthContext`, `BookmarkContext`, `LanguageContext` आणि `ThemeContext`.
+- `context/` — `AuthContext`, `BookmarkContext` आणि `LanguageContext`.
 - `data/` — `articles.js`, `currentAffairs.js`, `quizData.js`, `notes.js`, `plans.js` तसेच कायदेशीर आणि SEO मजकूर.
 - `pages/` — Home, Articles, Current Affairs, Quiz, Notes, Premium आणि इतर पृष्ठे.
 - `services/` — payment प्रक्रिया हाताळणारा `paymentService.js`.

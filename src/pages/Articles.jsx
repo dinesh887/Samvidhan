@@ -6,6 +6,7 @@ import PageMeta from '../components/PageMeta'
 import { useLanguage } from '../context/LanguageContext'
 import { articles } from '../data/articles'
 import { categories } from '../data/categories'
+import OfficialSourceLink from '../components/OfficialSourceLink'
 import {
   searchArticles,
   filterByCategory,
@@ -109,6 +110,11 @@ export default function Articles() {
             </p>
           )}
         </div>
+        <p lang={language} className="mt-3 max-w-4xl text-sm leading-relaxed text-ink/60 dark:text-ink-dark/60">
+          {language === 'mr'
+            ? 'या पृष्ठावर सध्या उपलब्ध असलेल्या निवडक कलमांची सोपी स्पष्टीकरणे आहेत; ही संविधानाची संपूर्ण किंवा अधिकृत शब्दशः प्रत नाही.'
+            : 'This page provides simplified explanations for a selection of Articles currently available here; it is not the complete or authoritative verbatim text of the Constitution.'}
+        </p>
       </header>
 
       {/* Search + filters */}
@@ -283,13 +289,27 @@ export default function Articles() {
 
       {/* No results */}
       {results.length === 0 && (
-        <p
-          lang={language}
-          className="mt-16 text-center text-ink/50 dark:text-ink-dark/50"
-        >
-          {t('no_results')}
-        </p>
+        <section className="mt-12 rounded-2xl border border-navy/10 bg-white/60 p-6 text-center dark:border-ink-dark/10 dark:bg-white/[0.04]">
+          <p lang={language} className="text-sm text-ink/65 dark:text-ink-dark/65">
+            {t('no_results')}
+          </p>
+          <p lang={language} className="mt-2 text-sm leading-relaxed text-ink/60 dark:text-ink-dark/60">
+            {language === 'mr'
+              ? 'शोधातील शब्द बदलून पाहा, सर्व उपलब्ध कलमे ब्राउझ करा किंवा विषयानुसार मूलभूत अधिकार वाचा.'
+              : 'Try different search terms, browse all available Article explanations, or explore the Fundamental Rights guide.'}
+          </p>
+          <div className="mt-4 flex flex-wrap justify-center gap-3">
+            <Link to="/articles" className="rounded-full bg-navy px-4 py-2 text-sm font-medium text-paper hover:bg-navy-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saffron">
+              {language === 'mr' ? 'सर्व उपलब्ध कलमे' : 'Browse available Articles'}
+            </Link>
+            <Link to="/fundamental-rights" className="rounded-full border border-navy/15 px-4 py-2 text-sm font-medium text-navy hover:border-saffron/60 hover:text-saffron focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saffron dark:border-ink-dark/20 dark:text-ink-dark">
+              {language === 'mr' ? 'मूलभूत अधिकार' : 'Fundamental Rights'}
+            </Link>
+          </div>
+        </section>
       )}
+
+      <OfficialSourceLink />
     </div>
   )
 }

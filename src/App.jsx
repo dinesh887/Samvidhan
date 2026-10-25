@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
+import Breadcrumbs from './components/Breadcrumbs'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
@@ -42,7 +43,8 @@ export default function App() {
       <PageMeta />
       <SchemaJsonLd />
       <Navbar />
-      <main id="main-content" className="flex-1">
+      <main id="main-content" className="app-main flex-1">
+        <Breadcrumbs />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/articles" element={<Articles />} />

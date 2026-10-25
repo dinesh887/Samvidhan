@@ -22,7 +22,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="mt-16 border-t border-navy/10 dark:border-ink-dark/10 bg-white/40 dark:bg-white/[0.03]">
+    <footer className="site-footer mt-16 border-t border-navy/10 dark:border-ink-dark/10 bg-white/40 dark:bg-white/[0.03]">
       <Advertisement placement="banner" />
       <div className="mx-auto max-w-7xl px-4 py-9 sm:px-6 sm:py-10">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">

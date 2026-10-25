@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useLanguage } from '../context/LanguageContext'
 import { directiveIntro, directiveExamples } from '../data/directivePrinciples'
+import OfficialSourceLink from '../components/OfficialSourceLink'
 
 export default function DirectivePrinciples() {
   const { t, pick, language } = useLanguage()
@@ -53,6 +54,32 @@ export default function DirectivePrinciples() {
           ))}
         </div>
       </section>
+      <section className="mt-10 rounded-2xl border border-navy/10 bg-white/60 p-6 dark:border-ink-dark/10 dark:bg-white/[0.04]">
+        <h2 lang={language} className="font-display text-lg font-semibold text-navy dark:text-ink-dark">
+          {language === 'mr' ? 'निवडक कलमांशी परिचय' : 'A guide to selected Articles'}
+        </h2>
+        <p lang={language} className="mt-2 text-sm leading-relaxed text-ink/65 dark:text-ink-dark/65">
+          {language === 'mr'
+            ? 'ही उदाहरणे भाग IV मधील काही विषय दाखवतात; ती संपूर्ण यादी नाही.'
+            : 'These examples point to a few themes in Part IV; they are not an exhaustive list.'}
+        </p>
+        <ul className="mt-4 grid gap-3 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70 sm:grid-cols-2">
+          {(language === 'mr'
+            ? [
+                'कलम ३८ — लोककल्याणासाठी सामाजिक व्यवस्था प्रस्थापित करण्याचा राज्याचा प्रयत्न.',
+                'कलम ३९अ — समान न्याय आणि मोफत कायदेशीर मदतीची तरतूद करण्याचे राज्याचे उद्दिष्ट.',
+                'कलम ४० — ग्रामपंचायतींचे संघटन आणि त्यांना स्वशासनाची आवश्यक सत्ता देण्याचा प्रयत्न.',
+                'कलम ४८अ — पर्यावरण, वने आणि वन्यजीवांचे संरक्षण व सुधारणा.',
+              ]
+            : [
+                'Article 38 — the State’s endeavour to promote a social order informed by the welfare of the people.',
+                'Article 39A — the State’s aim to provide equal justice and free legal aid.',
+                'Article 40 — the State’s endeavour to organise village panchayats and endow them with necessary powers.',
+                'Article 48A — protection and improvement of the environment, forests and wildlife.',
+              ]).map((item) => <li key={item} lang={language}>{item}</li>)}
+        </ul>
+      </section>
+      <OfficialSourceLink />
     </div>
   )
 }

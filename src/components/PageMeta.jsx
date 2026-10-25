@@ -1,21 +1,10 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-
-import { getSeoRoute, siteConfig } from '../data/seoConfig'
-import { getArticleById } from '../data/articles'
-import { getCurrentAffairBySlug } from '../data/currentAffairs'
 import { useLanguage } from '../context/LanguageContext'
-
-const SITE_URL = (
-  import.meta.env.VITE_SITE_URL ||
-  siteConfig.url ||
-  'https://www.mysamvidhan.in'
-).replace(/\/+$/, '')
+import { getSeoMetadata } from '../utils/seoMetadata'
 
 function setMeta(attribute, value, content) {
-  let element = document.head.querySelector(
-    `meta[${attribute}="${value}"]`
-  )
+  let element = document.head.querySelector(`meta[${attribute}="${value}"]`)
 
   if (!element) {
     element = document.createElement('meta')
@@ -27,9 +16,7 @@ function setMeta(attribute, value, content) {
 }
 
 function setLink(rel, href) {
-  let element = document.head.querySelector(
-    `link[rel="${rel}"]`
-  )
+  let element = document.head.querySelector(`link[rel="${rel}"]`)
 
   if (!element) {
     element = document.createElement('link')
@@ -40,212 +27,43 @@ function setLink(rel, href) {
   element.setAttribute('href', href)
 }
 
-export default function PageMeta() {
-  const { pathname } = useLocation()
-  const { language, pick } = useLanguage()
+export default function PageMeta(overrides = {}) {
+  const { pathname, search } = useLocation()
+  const { language } = useLanguage()
 
   useEffect(() => {
-    console.log('PageMeta running:', pathname)
+    const metadata = getSeoMetadata(pathname, language, { ...overrides, search })
+    const lang = language === 'mr' ? 'mr-IN' : 'en-IN'
 
-    const config = getSeoRoute(pathname)
+    document.title = metadata.title
+    document.documentElement.lang = lang
 
-    const article = pathname.startsWith('/article/')
-      ? getArticleById(pathname.split('/').pop())
-      : null
+    setMeta('name', 'description', metadata.description)
+    setMeta('name', 'robots', metadata.robots)
 
-    const currentAffair = pathname.startsWith('/current-affairs/')
-      ? getCurrentAffairBySlug(pathname.split('/').pop())
-      : null
+    setMeta('property', 'og:title', metadata.title)
+    setMeta('property', 'og:description', metadata.description)
+    setMeta('property', 'og:type', metadata.ogType)
+    setMeta('property', 'og:url', metadata.canonicalUrl)
+    setMeta('property', 'og:site_name', 'Samvidhan')
+    setMeta('property', 'og:image', metadata.image)
+    setMeta('property', 'og:image:alt', metadata.imageAlt)
+    setMeta('property', 'og:locale', lang.replace('-', '_'))
 
-    let title = ''
-    let description = ''
-    let ogType = 'website'
+    setMeta('name', 'twitter:card', metadata.ogType === 'article' ? 'summary_large_image' : 'summary')
+    setMeta('name', 'twitter:title', metadata.title)
+    setMeta('name', 'twitter:description', metadata.description)
+    setMeta('name', 'twitter:image', metadata.image)
+    setMeta('name', 'twitter:image:alt', metadata.imageAlt)
 
-    /*
-     * ARTICLE PAGE SEO
-     */
-    if (article) {
-      const rawNumber = String(article.articleNumber || '')
+    setLink('canonical', metadata.canonicalUrl)
 
-      const number = rawNumber
-        .replace(/^article\s*/i, '')
-        .replace(/^कलम\s*/i, '')
-        .trim()
-
-      const articleTitle = pick(article.title)
-
-      if (language === 'mr') {
-        title = `कलम ${number} – ${article.title?.mr || articleTitle} | MySamvidhan`
-
-        description =
-          `भारतीय संविधानातील कलम ${number} सोप्या मराठीत आणि इंग्रजीत समजून घ्या. ` +
-          `${article.title?.mr || 'कलमाचा'} अर्थ, प्रमुख तरतुदी, उदाहरणे आणि महत्त्व जाणून घ्या.`
-      } else {
-        title = `Article ${number} – ${article.title?.en || articleTitle} | MySamvidhan`
-
-        description =
-          `Learn about Article ${number} of the Indian Constitution in simple English and Marathi. ` +
-          `Understand its meaning, key provisions, examples and importance.`
-      }
-
-      ogType = 'article'
+    if (metadata.article?.keywords?.length) {
+      setMeta('name', 'keywords', metadata.article.keywords.join(', '))
+    } else {
+      document.head.querySelector('meta[name="keywords"]')?.remove()
     }
-
-    /*
-     * CURRENT AFFAIRS PAGE
-     */
-    else if (currentAffair) {
-      title = pick(
-        currentAffair.seoTitle || currentAffair.title
-      )
-
-      description = pick(
-        currentAffair.shortDescription
-      )
-
-      ogType = 'article'
-    }
-
-    /*
-     * OTHER WEBSITE PAGES
-     */
-    else {
-      title = pick(config.title)
-      description = pick(config.description)
-    }
-
-    /*
-     * Remove trailing slash except homepage
-     */
-    const cleanPath =
-      pathname === '/'
-        ? '/'
-        : pathname.replace(/\/+$/, '')
-
-    /*
-     * Canonical URL
-     * Query parameters and hash are excluded
-     */
-    const canonicalUrl =
-      cleanPath === '/'
-        ? SITE_URL
-        : `${SITE_URL}${cleanPath}`
-
-    /*
-     * Document title
-     */
-    document.title = title
-
-    /*
-     * Meta description
-     */
-    setMeta(
-      'name',
-      'description',
-      description
-    )
-      // =========================================
-      // Article Meta
-      // =========================================
-
-      if (article) {
-        const keywords = Array.isArray(article.keywords)
-          ? article.keywords.join(', ')
-          : ''
-
-        setMeta(
-          'name',
-          'keywords',
-          keywords
-        )
-
-        setMeta(
-          'name',
-          'author',
-          'MySamvidhan'
-        )
-
-        setMeta(
-          'name',
-          'publisher',
-          'MySamvidhan'
-        )
-      }
-    /*
-     * Open Graph
-     */
-    setMeta(
-      'property',
-      'og:title',
-      title
-    )
-
-    setMeta(
-      'property',
-      'og:description',
-      description
-    )
-
-    setMeta(
-      'property',
-      'og:type',
-      ogType
-    )
-
-    setMeta(
-      'property',
-      'og:url',
-      canonicalUrl
-    )
-
-    setMeta(
-      'property',
-      'og:site_name',
-      siteConfig.name
-    )
-
-    /*
-     * Twitter
-     */
-    setMeta(
-      'name',
-      'twitter:card',
-      'summary'
-    )
-
-    setMeta(
-      'name',
-      'twitter:title',
-      title
-    )
-
-    setMeta(
-      'name',
-      'twitter:description',
-      description
-    )
-
-    /*
-     * Robots
-     */
-    setMeta(
-      'name',
-      'robots',
-      pathname === '/premium'
-        ? 'noindex, follow'
-        : config.indexable === false
-          ? 'noindex, nofollow'
-          : 'index, follow'
-    )
-
-    /*
-     * Canonical
-     */
-    setLink(
-      'canonical',
-      canonicalUrl
-    )
-  }, [pathname, language, pick])
+  }, [pathname, search, language, overrides.title, overrides.description, overrides.canonical, overrides.robots])
 
   return null
 }

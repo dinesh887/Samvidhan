@@ -1,5 +1,6 @@
 import { seoRoutes, siteConfig } from '../src/data/seoConfig.js'
 import { articles } from '../src/data/articles.js'
+import { currentAffairs } from '../src/data/currentAffairs.js'
 
 const routeLabels = {
   '/': 'Constitution of India',
@@ -31,13 +32,19 @@ export function getPublicEntries(siteUrl) {
     .filter(([path, config]) => config.indexable !== false && !path.includes(':'))
     .map(([path, config]) => ({ path, title: config.title, description: config.description, label: routeLabels[path] || config.title.en }))
   const articlePages = articles.map((article) => ({ path: `/article/${article.id}`, label: article.articleNumber, title: article.title, description: article.simpleExplanation, article }))
-  return [...pages, ...articlePages].map((entry) => ({ ...entry, url: `${siteUrl}${entry.path}` }))
+  const currentAffairPages = currentAffairs.map((item) => ({
+    path: `/current-affairs/${item.slug}`,
+    label: item.title.en,
+    title: item.title,
+    description: item.shortDescription,
+  }))
+  return [...pages, ...articlePages, ...currentAffairPages].map((entry) => ({ ...entry, url: `${siteUrl}${entry.path}` }))
 }
 
 export function buildLlms(siteUrl) {
   const entries = getPublicEntries(siteUrl)
   const links = entries.map((entry) => `- ${entry.label}: ${entry.url}`).join('\n')
-  return `# ${siteConfig.name}\n\n> Samvidhan is an independent educational and informational platform about the Constitution of India. It provides accessible constitutional learning for citizens, students and exam aspirants.\n\n## Public pages\n\n${links}\n\n## Important coverage\n\n- Constitution of India: ${siteUrl}/\n- Articles and important Articles: ${siteUrl}/articles\n- Fundamental Rights: ${siteUrl}/fundamental-rights\n- Fundamental Duties: ${siteUrl}/fundamental-duties\n- Directive Principles of State Policy: ${siteUrl}/directive-principles\n- Schedules: covered within the Constitution of India educational material\n- Constitutional Amendments: ${siteUrl}/amendments\n- Educational content: ${siteUrl}/learn\n- About Us: ${siteUrl}/about\n- Contact Us: ${siteUrl}/contact\n\nThis file describes public, indexable content. Private, account, administrative, test and error routes are intentionally excluded. English and Marathi content are available on the same routes through the site language switcher.`
+  return `# ${siteConfig.name}\n\n> Samvidhan is an independent educational and informational platform about the Constitution of India. It provides accessible constitutional learning for citizens, students and exam aspirants.\n\n## Public pages\n\n${links}\n\n## Important coverage\n\n- Constitution of India: ${siteUrl}/\n- Articles and important Articles: ${siteUrl}/articles\n- Fundamental Rights: ${siteUrl}/fundamental-rights\n- Fundamental Duties: ${siteUrl}/fundamental-duties\n- Directive Principles of State Policy: ${siteUrl}/directive-principles\n\n- Constitutional Amendments: ${siteUrl}/amendments\n- Educational content: ${siteUrl}/learn\n- About Us: ${siteUrl}/about\n- Contact Us: ${siteUrl}/contact\n\nThis file describes public, indexable content. Private, account, administrative, test and error routes are intentionally excluded. English and Marathi content are available on the same routes through the site language switcher.`
 }
 
 export function buildLlmsFull(siteUrl) {

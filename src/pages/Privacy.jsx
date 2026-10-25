@@ -7,7 +7,7 @@ export default function Privacy() {
   const { language, pick } = useLanguage()
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
+    <div className="reading-page mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
       <ChakraMark className="h-10 w-10 text-navy dark:text-saffron" />
       <h1 lang={language} className="font-display mt-6 text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl">{pick(privacyPolicy.title)}</h1>
       <p className="mt-4 text-sm text-ink/55 dark:text-ink-dark/55"><span lang={language}>{pick(privacyPolicy.lastUpdated)}</span> {pick(privacyPolicy.date)}</p>
@@ -19,6 +19,19 @@ export default function Privacy() {
             <h2 lang={language} className="font-display text-xl font-semibold text-navy dark:text-ink-dark">{pick(section.title)}</h2>
             {section.paragraphs?.map((paragraph, index) => <p key={index} lang={language} className="mt-3 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70">{pick(paragraph)}</p>)}
             {section.list && <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70">{section.list.map((item) => <li key={item.en} lang={language}>{pick(item)}</li>)}</ul>}
+            {section.links && <ul className="mt-3 space-y-2 text-sm">{section.links.map((link) => (
+              <li key={link.url}>
+                <a
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  lang={language}
+                  className="text-navy underline decoration-gold/70 underline-offset-4 hover:text-saffron focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saffron dark:text-ink-dark"
+                >
+                  {pick(link.title)}
+                </a>
+              </li>
+            ))}</ul>}
           </section>
         ))}
       </div>

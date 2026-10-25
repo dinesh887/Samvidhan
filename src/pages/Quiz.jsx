@@ -4,6 +4,7 @@ import QuizCard from '../components/QuizCard'
 import { useLanguage } from '../context/LanguageContext'
 import { quizData } from '../data/quizData'
 import Advertisement from '../components/Advertisement'
+import { Link } from 'react-router-dom'
 
 export default function Quiz() {
   const { t, language } = useLanguage()
@@ -87,6 +88,13 @@ export default function Quiz() {
         >
           <RotateCcw size={16} /> {t('quiz_try_again')}
         </button>
+        <Link
+          to="/articles"
+          lang={language}
+          className="ml-3 inline-flex items-center rounded-full border border-navy/15 px-6 py-3 text-sm font-medium text-navy hover:border-saffron/60 hover:text-saffron focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saffron dark:border-ink-dark/20 dark:text-ink-dark"
+        >
+          {language === 'mr' ? 'कलमांचा अभ्यास करा' : 'Explore the Articles'}
+        </Link>
       </div>
     )
   }
@@ -96,6 +104,14 @@ export default function Quiz() {
       <h1 lang={language} className="font-display text-2xl font-semibold text-navy dark:text-ink-dark sm:text-3xl">
         {t('quiz_title')}
       </h1>
+      <p lang={language} className="mt-3 max-w-2xl text-sm leading-relaxed text-ink/65 dark:text-ink-dark/65">
+        {language === 'mr'
+          ? `या प्रश्नमंजुषेत ${quizData.length} प्रश्न एकावेळी एक दाखवले जातात. उत्तर निवडल्यानंतर लगेच अभिप्राय मिळतो; सर्व प्रश्न पूर्ण केल्यावर गुणांक पाहता येतो. प्रश्न या साधनात समाविष्ट केलेल्या निवडक विषयांवर आहेत.`
+          : `This quiz presents ${quizData.length} questions one at a time. Selecting an answer shows immediate feedback; complete the questions to see your score. Questions cover selected topics included in this quiz.`}
+      </p>
+      <Link to="/articles" lang={language} className="mt-3 inline-flex text-sm font-medium text-saffron underline underline-offset-4 hover:text-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saffron dark:hover:text-ink-dark">
+        {language === 'mr' ? 'कलमांचे स्पष्टीकरण वाचा' : 'Read the Article explanations'}
+      </Link>
 
       <div className="mt-8">
         <QuizCard

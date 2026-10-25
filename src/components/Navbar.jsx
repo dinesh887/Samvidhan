@@ -3,7 +3,6 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { Search, Menu, X } from 'lucide-react'
 import ChakraMark from './ChakraMark'
 import LanguageToggle from './LanguageToggle'
-import ThemeToggle from './ThemeToggle'
 import { useLanguage } from '../context/LanguageContext'
 
 export default function Navbar() {
@@ -41,7 +40,7 @@ export default function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b border-navy/10 dark:border-ink-dark/10 bg-paper/90 dark:bg-paper-dark/90 backdrop-blur">
+    <header className="site-header sticky top-0 z-40 border-b border-navy/10 dark:border-ink-dark/10 bg-paper/90 dark:bg-paper-dark/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
         <Link to="/" className="flex items-center gap-2 shrink-0" aria-label="Samvidhan home">
           <ChakraMark className="h-7 w-7 text-navy dark:text-saffron" />
@@ -50,7 +49,7 @@ export default function Navbar() {
           </span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-7" aria-label="Primary">
+        <nav className="hidden lg:flex items-center gap-3 xl:gap-5 2xl:gap-7" aria-label="Primary">
           {links.map((l) => (
             <NavLink key={l.to} to={l.to} className={linkClass} lang={language}>
               {l.label}
@@ -69,7 +68,6 @@ export default function Navbar() {
             <Search size={16} />
           </button>
           <LanguageToggle />
-          <ThemeToggle />
         </div>
 
         <button
@@ -158,9 +156,8 @@ export default function Navbar() {
               {t('search_button')}
             </button>
           </form>
-          <div className="mt-4 flex items-center justify-between">
+          <div className="mt-4 flex items-center">
             <LanguageToggle />
-            <ThemeToggle />
           </div>
         </div>
       )}

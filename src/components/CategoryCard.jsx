@@ -9,9 +9,9 @@ export default function CategoryCard({ icon, title, description, path }) {
   return (
     <Link
       to={path}
-      className="group relative flex flex-col rounded-2xl border border-navy/10 dark:border-ink-dark/10 bg-white/60 dark:bg-white/[0.04] p-6 transition-colors hover:border-saffron/40"
+      className="category-card group relative flex flex-col rounded-2xl border border-navy/10 dark:border-ink-dark/10 bg-white/60 dark:bg-white/[0.04] p-5 transition-colors hover:border-saffron/40"
     >
-      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-navy/5 dark:bg-white/10 text-navy dark:text-saffron-light">
+      <div className="category-card-icon flex h-12 w-12 items-center justify-center rounded-2xl bg-navy/5 dark:bg-white/10 text-navy dark:text-saffron-light">
         <DynamicIcon name={icon} size={20} />
       </div>
       <h3 lang={language} className="font-display mt-4 text-lg font-semibold text-navy dark:text-ink-dark">

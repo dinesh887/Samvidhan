@@ -1,10 +1,11 @@
+var _a, _b;
 import { jsx, jsxs, Fragment } from "react/jsx-runtime";
 import React, { createContext, useState, useEffect, useContext, useRef, useMemo } from "react";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server.mjs";
 import { useNavigate, Link, NavLink, useLocation, useSearchParams, useParams, Routes, Route } from "react-router-dom";
 import * as Icons from "lucide-react";
-import { Sun, Moon, Search, X, Menu, ArrowRight, Star, ExternalLink, Lightbulb, ArrowUpDown, BookOpen, ShieldAlert, ScrollText, Sparkles, HelpCircle, Link2, ChevronLeft, ChevronRight, Trophy, RotateCcw, Check, Lock, ChevronDown } from "lucide-react";
+import { Search, X, Menu, ArrowRight, Star, ExternalLink, ChevronDown, BookOpenCheck, Lightbulb, ArrowUpDown, BookOpen, ShieldAlert, ScrollText, Sparkles, HelpCircle, Link2, ChevronLeft, ChevronRight, Trophy, RotateCcw, Check, Lock } from "lucide-react";
 function ChakraMark({ className = "", spokes = 24 }) {
   const lines = Array.from({ length: spokes }, (_, i) => {
     const angle = 360 / spokes * i;
@@ -29,7 +30,7 @@ function ChakraMark({ className = "", spokes = 24 }) {
   ] });
 }
 const LanguageContext = createContext(null);
-const STORAGE_KEY$2 = "samvidhan_language";
+const STORAGE_KEY$1 = "samvidhan_language";
 const STRINGS = {
   en: {
     nav_home: "Home",
@@ -63,7 +64,7 @@ const STRINGS = {
     footer_tagline: "Know Your Constitution. Know Your Rights.",
     footer_disclaimer_title: "Disclaimer",
     footer_disclaimer: "This website is created for educational and informational purposes only. It does not provide legal advice. For legal matters, consult a qualified legal professional.",
-    footer_copyright: "© 2026 Samvidhan.",
+    footer_copyright: "© 2026 MySamvidhan. All rights reserved.",
     articles_page_title: "Constitutional Articles",
     articles_page_sub: "Search and explore the Articles of the Indian Constitution.",
     filter_all: "All Articles",
@@ -317,7 +318,7 @@ const STRINGS = {
     footer_tagline: "आपले संविधान जाणून घ्या. आपले अधिकार समजून घ्या.",
     footer_disclaimer_title: "अस्वीकरण",
     footer_disclaimer: "ही वेबसाइट केवळ शैक्षणिक आणि माहितीच्या उद्देशाने तयार करण्यात आली आहे. ही कायदेशीर सल्ला सेवा नाही. कायदेशीर बाबींसाठी पात्र कायदे तज्ज्ञांचा सल्ला घ्या.",
-    footer_copyright: "© २०२६ संविधान.",
+    footer_copyright: "© २०२६ MySamvidhan. सर्व हक्क राखीव.",
     articles_page_title: "संवैधानिक कलमे",
     articles_page_sub: "भारतीय संविधानातील कलमे शोधा आणि जाणून घ्या.",
     filter_all: "सर्व कलमे",
@@ -543,14 +544,14 @@ const STRINGS = {
 function LanguageProvider({ children }) {
   const [language, setLanguageState] = useState(() => {
     try {
-      return localStorage.getItem(STORAGE_KEY$2) || "en";
+      return localStorage.getItem(STORAGE_KEY$1) || "en";
     } catch {
       return "en";
     }
   });
   useEffect(() => {
     try {
-      localStorage.setItem(STORAGE_KEY$2, language);
+      localStorage.setItem(STORAGE_KEY$1, language);
     } catch {
     }
     document.documentElement.lang = language;
@@ -558,8 +559,8 @@ function LanguageProvider({ children }) {
   const setLanguage = (lang) => setLanguageState(lang);
   const toggleLanguage = () => setLanguageState((prev) => prev === "en" ? "mr" : "en");
   const t = (key) => {
-    var _a;
-    return ((_a = STRINGS[language]) == null ? void 0 : _a[key]) ?? STRINGS.en[key] ?? key;
+    var _a2;
+    return ((_a2 = STRINGS[language]) == null ? void 0 : _a2[key]) ?? STRINGS.en[key] ?? key;
   };
   const pick = (obj) => obj ? obj[language] ?? obj.en : "";
   return /* @__PURE__ */ jsx(LanguageContext.Provider, { value: { language, setLanguage, toggleLanguage, t, pick }, children });
@@ -603,53 +604,6 @@ function LanguageToggle({ compact = false }) {
     }
   );
 }
-const ThemeContext = createContext(null);
-const STORAGE_KEY$1 = "samvidhan_theme";
-function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY$1);
-      if (stored) return stored;
-      return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    } catch {
-      return "light";
-    }
-  });
-  useEffect(() => {
-    const root = document.documentElement;
-    if (theme === "dark") {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
-    try {
-      localStorage.setItem(STORAGE_KEY$1, theme);
-    } catch {
-    }
-  }, [theme]);
-  const toggleTheme = () => setTheme((prev) => prev === "dark" ? "light" : "dark");
-  return /* @__PURE__ */ jsx(ThemeContext.Provider, { value: { theme, toggleTheme, setTheme }, children });
-}
-function useTheme() {
-  const ctx = useContext(ThemeContext);
-  if (!ctx) throw new Error("useTheme must be used within ThemeProvider");
-  return ctx;
-}
-function ThemeToggle() {
-  const { theme, toggleTheme } = useTheme();
-  const isDark = theme === "dark";
-  return /* @__PURE__ */ jsx(
-    "button",
-    {
-      type: "button",
-      onClick: toggleTheme,
-      "aria-label": isDark ? "Switch to light mode" : "Switch to dark mode",
-      "aria-pressed": isDark,
-      className: "flex h-9 w-9 items-center justify-center rounded-full border border-navy/15 dark:border-ink-dark/20 text-navy dark:text-ink-dark hover:bg-navy/5 dark:hover:bg-white/10 transition-colors",
-      children: isDark ? /* @__PURE__ */ jsx(Sun, { size: 17 }) : /* @__PURE__ */ jsx(Moon, { size: 17 })
-    }
-  );
-}
 function Navbar() {
   const { t, language } = useLanguage();
   const [open, setOpen] = useState(false);
@@ -677,13 +631,13 @@ function Navbar() {
       setQuery("");
     }
   };
-  return /* @__PURE__ */ jsxs("header", { className: "sticky top-0 z-40 border-b border-navy/10 dark:border-ink-dark/10 bg-paper/90 dark:bg-paper-dark/90 backdrop-blur", children: [
+  return /* @__PURE__ */ jsxs("header", { className: "site-header sticky top-0 z-40 border-b border-navy/10 dark:border-ink-dark/10 bg-paper/90 dark:bg-paper-dark/90 backdrop-blur", children: [
     /* @__PURE__ */ jsxs("div", { className: "mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6", children: [
       /* @__PURE__ */ jsxs(Link, { to: "/", className: "flex items-center gap-2 shrink-0", "aria-label": "Samvidhan home", children: [
         /* @__PURE__ */ jsx(ChakraMark, { className: "h-7 w-7 text-navy dark:text-saffron" }),
         /* @__PURE__ */ jsx("span", { className: "font-display text-xl font-semibold tracking-tight text-navy dark:text-ink-dark", children: "SAMVIDHAN" })
       ] }),
-      /* @__PURE__ */ jsx("nav", { className: "hidden lg:flex items-center gap-7", "aria-label": "Primary", children: links.map((l) => /* @__PURE__ */ jsx(NavLink, { to: l.to, className: linkClass, lang: language, children: l.label }, l.to)) }),
+      /* @__PURE__ */ jsx("nav", { className: "hidden lg:flex items-center gap-3 xl:gap-5 2xl:gap-7", "aria-label": "Primary", children: links.map((l) => /* @__PURE__ */ jsx(NavLink, { to: l.to, className: linkClass, lang: language, children: l.label }, l.to)) }),
       /* @__PURE__ */ jsxs("div", { className: "hidden lg:flex items-center gap-3", children: [
         /* @__PURE__ */ jsx(
           "button",
@@ -696,8 +650,7 @@ function Navbar() {
             children: /* @__PURE__ */ jsx(Search, { size: 16 })
           }
         ),
-        /* @__PURE__ */ jsx(LanguageToggle, {}),
-        /* @__PURE__ */ jsx(ThemeToggle, {})
+        /* @__PURE__ */ jsx(LanguageToggle, {})
       ] }),
       /* @__PURE__ */ jsx(
         "button",
@@ -788,500 +741,9 @@ function Navbar() {
           }
         )
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "mt-4 flex items-center justify-between", children: [
-        /* @__PURE__ */ jsx(LanguageToggle, {}),
-        /* @__PURE__ */ jsx(ThemeToggle, {})
-      ] })
+      /* @__PURE__ */ jsx("div", { className: "mt-4 flex items-center", children: /* @__PURE__ */ jsx(LanguageToggle, {}) })
     ] })
   ] });
-}
-const AuthContext = createContext(null);
-const INITIAL_USER = { id: "demo-user", name: "Constitution learner", email: "demo@samvidhan.local", plan: "free" };
-function AuthProvider({ children }) {
-  const [user, setUser] = useState(INITIAL_USER);
-  const isPremium = (user == null ? void 0 : user.plan) === "premium";
-  const upgradeToPremium = () => setUser((current) => ({ ...current, plan: "premium" }));
-  return /* @__PURE__ */ jsx(AuthContext.Provider, { value: { user, isPremium, upgradeToPremium }, children });
-}
-function useAuth() {
-  const context = useContext(AuthContext);
-  if (!context) throw new Error("useAuth must be used within AuthProvider");
-  return context;
-}
-const monetizationConfig = {
-  ads: { enabled: false }
-};
-function Advertisement({ placement = "banner", className = "" }) {
-  const { isPremium } = useAuth();
-  useRef(null);
-  const configured = monetizationConfig.ads.enabled;
-  useEffect(() => {
-  }, [configured]);
-  return null;
-}
-function Footer() {
-  const { t, language } = useLanguage();
-  const links = [
-    { to: "/", label: t("nav_home") },
-    { to: "/articles", label: t("nav_articles") },
-    { to: "/fundamental-rights", label: t("nav_rights") },
-    { to: "/fundamental-duties", label: t("nav_duties") },
-    { to: "/amendments", label: t("nav_amendments") },
-    { to: "/learn", label: t("nav_preamble") },
-    { to: "/faq", label: t("nav_faq") },
-    { to: "/about", label: t("nav_about") },
-    { to: "/contact", label: t("contact_title") },
-    { to: "/privacy-policy", label: t("footer_privacy") },
-    { to: "/terms", label: t("footer_terms") },
-    { to: "/disclaimer", label: t("footer_disclaimer_title") }
-  ];
-  return /* @__PURE__ */ jsxs("footer", { className: "mt-16 border-t border-navy/10 dark:border-ink-dark/10 bg-white/40 dark:bg-white/[0.03]", children: [
-    /* @__PURE__ */ jsx(Advertisement, { placement: "banner" }),
-    /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-7xl px-4 py-9 sm:px-6 sm:py-10", children: [
-      /* @__PURE__ */ jsxs("div", { className: "grid gap-8 sm:grid-cols-2 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]", children: [
-        /* @__PURE__ */ jsxs("div", { children: [
-          /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2", children: [
-            /* @__PURE__ */ jsx(ChakraMark, { className: "h-6 w-6 text-navy dark:text-saffron" }),
-            /* @__PURE__ */ jsx("span", { className: "font-display text-2xl font-semibold text-navy dark:text-ink-dark", children: "SAMVIDHAN" })
-          ] }),
-          /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 max-w-sm text-base leading-7 text-ink/70 dark:text-ink-dark/70", children: t("footer_tagline") }),
-          /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 max-w-sm text-sm leading-6 text-ink/60 dark:text-ink-dark/60", children: language === "mr" ? "संविधान हे स्वतंत्र शैक्षणिक व्यासपीठ आहे." : "Samvidhan is an independent educational platform." })
-        ] }),
-        /* @__PURE__ */ jsxs("div", { children: [
-          /* @__PURE__ */ jsx("h3", { className: "text-lg font-semibold text-navy dark:text-ink-dark", children: t("footer_navigation") }),
-          /* @__PURE__ */ jsx("ul", { className: "mt-3 grid gap-x-6 gap-y-2 sm:grid-cols-2", children: links.map((l) => /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
-            Link,
-            {
-              to: l.to,
-              lang: language,
-              className: "py-1 text-base leading-6 text-ink/70 dark:text-ink-dark/70 hover:text-saffron transition-colors",
-              children: l.label
-            }
-          ) }, l.to)) })
-        ] })
-      ] }),
-      /* @__PURE__ */ jsxs("section", { className: "mt-8 border-t border-navy/10 pt-6 dark:border-ink-dark/10", children: [
-        /* @__PURE__ */ jsx("h3", { lang: language, className: "text-base font-semibold text-navy dark:text-ink-dark", children: t("footer_disclaimer_title") }),
-        /* @__PURE__ */ jsx("p", { lang: language, className: "mt-2 max-w-4xl text-sm leading-6 text-ink/70 dark:text-ink-dark/70", children: t("footer_disclaimer") })
-      ] }),
-      /* @__PURE__ */ jsxs("div", { className: "mt-6 flex flex-col items-center justify-between gap-3 border-t border-navy/10 pt-5 sm:flex-row dark:border-ink-dark/10", children: [
-        /* @__PURE__ */ jsx("p", { lang: language, className: "text-xs text-ink/45 dark:text-ink-dark/45", children: t("footer_copyright") }),
-        /* @__PURE__ */ jsx(ChakraMark, { className: "h-5 w-5 text-navy/30 dark:text-ink-dark/25", spokes: 24 })
-      ] })
-    ] })
-  ] });
-}
-function ScrollToTop() {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-  return null;
-}
-const popularKeys = ["Article 14", "Article 19", "Article 21", "Article 32"];
-function SearchBar({ large = false }) {
-  const { t, language } = useLanguage();
-  const [query, setQuery] = useState("");
-  const navigate = useNavigate();
-  const submit = (e) => {
-    e.preventDefault();
-    const q = query.trim();
-    if (q) navigate(`/articles?q=${encodeURIComponent(q)}`);
-  };
-  const runPopular = (term) => {
-    navigate(`/articles?q=${encodeURIComponent(term)}`);
-  };
-  return /* @__PURE__ */ jsxs("div", { className: "w-full", children: [
-    /* @__PURE__ */ jsxs(
-      "form",
-      {
-        onSubmit: submit,
-        className: `flex items-stretch gap-2 rounded-2xl border border-navy/15 dark:border-ink-dark/20 bg-white dark:bg-white/5 p-1.5 shadow-sm ${large ? "shadow-navy/5" : ""}`,
-        children: [
-          /* @__PURE__ */ jsxs("div", { className: "flex flex-1 items-center gap-2 pl-3", children: [
-            /* @__PURE__ */ jsx(Search, { size: 18, className: "shrink-0 text-navy/40 dark:text-ink-dark/40" }),
-            /* @__PURE__ */ jsx(
-              "input",
-              {
-                type: "search",
-                value: query,
-                onChange: (e) => setQuery(e.target.value),
-                placeholder: t("search_placeholder"),
-                lang: language,
-                className: "w-full bg-transparent py-3 text-sm sm:text-base text-ink dark:text-ink-dark placeholder:text-ink/40 dark:placeholder:text-ink-dark/40 focus:outline-none"
-              }
-            )
-          ] }),
-          /* @__PURE__ */ jsx(
-            "button",
-            {
-              type: "submit",
-              className: "shrink-0 rounded-xl bg-navy dark:bg-saffron px-5 sm:px-7 text-sm sm:text-base font-medium text-paper dark:text-ink transition-colors hover:bg-navy-light dark:hover:bg-saffron-light",
-              children: t("search_button")
-            }
-          )
-        ]
-      }
-    ),
-    /* @__PURE__ */ jsxs("div", { className: "mt-4 flex flex-wrap items-center gap-2", children: [
-      /* @__PURE__ */ jsxs("span", { lang: language, className: "text-xs text-ink/50 dark:text-ink-dark/50", children: [
-        t("popular_searches"),
-        ":"
-      ] }),
-      popularKeys.map((term) => /* @__PURE__ */ jsx(
-        "button",
-        {
-          type: "button",
-          onClick: () => runPopular(term),
-          className: "rounded-full border border-navy/15 dark:border-ink-dark/20 px-3 py-1 text-xs text-navy/70 dark:text-ink-dark/70 hover:border-saffron/50 hover:text-saffron transition-colors",
-          children: term
-        },
-        term
-      ))
-    ] })
-  ] });
-}
-const categories = [
-  {
-    key: "fundamental-rights",
-    icon: "Scale",
-    title: { en: "Fundamental Rights", mr: "मूलभूत अधिकार" },
-    description: {
-      en: "Understand your fundamental rights.",
-      mr: "तुमचे मूलभूत अधिकार समजून घ्या."
-    },
-    path: "/fundamental-rights"
-  },
-  {
-    key: "citizenship",
-    icon: "Users",
-    title: { en: "Citizenship", mr: "नागरिकत्व" },
-    description: {
-      en: "Who is a citizen of India, and how citizenship works.",
-      mr: "भारताचा नागरिक कोण आहे आणि नागरिकत्व कसे कार्य करते."
-    },
-    path: "/articles?category=citizenship"
-  },
-  {
-    key: "union-government",
-    icon: "Landmark",
-    title: { en: "Union Government", mr: "केंद्र सरकार" },
-    description: {
-      en: "Explore Articles Constitutional Articles and understand their meaning.",
-      mr: "केंद्र सरकारशी संबंधित कलमे आणि त्यांचा अर्थ जाणून घ्या."
-    },
-    path: "/articles?category=union-government"
-  },
-  {
-    key: "state-government",
-    icon: "Building2",
-    title: { en: "State Government", mr: "राज्य सरकार" },
-    description: {
-      en: "How state governments are structured and empowered.",
-      mr: "राज्य सरकारांची रचना आणि अधिकार कसे ठरतात."
-    },
-    path: "/articles?category=state-government"
-  },
-  {
-    key: "judiciary",
-    icon: "Gavel",
-    title: { en: "Judiciary", mr: "न्यायव्यवस्था" },
-    description: {
-      en: "Learn about landmark Supreme Court judgments.",
-      mr: "सर्वोच्च न्यायालयाच्या महत्त्वाच्या निकालांबद्दल जाणून घ्या."
-    },
-    path: "/articles?category=judiciary"
-  },
-  {
-    key: "emergency-provisions",
-    icon: "AlertTriangle",
-    title: { en: "Emergency Provisions", mr: "आणीबाणी तरतुदी" },
-    description: {
-      en: "What happens to governance during a declared emergency.",
-      mr: "आणीबाणी जाहीर झाल्यावर शासनव्यवस्थेत काय बदल होतात."
-    },
-    path: "/articles?category=emergency-provisions"
-  }
-];
-const exploreCards = [
-  {
-    icon: "ScrollText",
-    title: { en: "Articles", mr: "कलमे" },
-    description: {
-      en: "Explore Constitutional Articles and understand their meaning.",
-      mr: "संवैधानिक कलमे जाणून घ्या आणि त्यांचा अर्थ समजून घ्या."
-    },
-    path: "/articles"
-  },
-  {
-    icon: "Scale",
-    title: { en: "Fundamental Rights", mr: "मूलभूत अधिकार" },
-    description: { en: "Understand your fundamental rights.", mr: "तुमचे मूलभूत अधिकार समजून घ्या." },
-    path: "/fundamental-rights"
-  },
-  {
-    icon: "HeartHandshake",
-    title: { en: "Fundamental Duties", mr: "मूलभूत कर्तव्ये" },
-    description: { en: "Know your duties as a citizen.", mr: "नागरिक म्हणून तुमची कर्तव्ये जाणून घ्या." },
-    path: "/fundamental-duties"
-  },
-  {
-    icon: "Landmark",
-    title: { en: "Directive Principles", mr: "मार्गदर्शक तत्त्वे" },
-    description: {
-      en: "Learn about the principles guiding the government.",
-      mr: "शासनाला दिशा देणाऱ्या तत्त्वांबद्दल जाणून घ्या."
-    },
-    path: "/directive-principles"
-  },
-  {
-    icon: "PenLine",
-    title: { en: "Amendments", mr: "दुरुस्त्या" },
-    description: {
-      en: "Explore important Constitutional Amendments.",
-      mr: "महत्त्वाच्या संविधान दुरुस्त्यांबद्दल जाणून घ्या."
-    },
-    path: "/amendments"
-  },
-  {
-    icon: "Gavel",
-    title: { en: "Important Cases", mr: "महत्त्वाचे खटले" },
-    description: {
-      en: "Learn about landmark Supreme Court judgments.",
-      mr: "सर्वोच्च न्यायालयाच्या महत्त्वाच्या निकालांबद्दल जाणून घ्या."
-    },
-    path: "/articles?category=judiciary"
-  }
-];
-const heroStats = [
-  { key: "stat_articles", value: "470+", verified: false },
-  { key: "stat_parts", value: "25", verified: false },
-  { key: "stat_schedules", value: "12", verified: false },
-  { key: "stat_amendments", value: "106+", verified: false }
-];
-function getCategoryByKey(key) {
-  return categories.find((c) => c.key === key);
-}
-function Hero() {
-  const { t, language } = useLanguage();
-  return /* @__PURE__ */ jsxs("section", { className: "relative overflow-hidden border-b border-navy/10 dark:border-ink-dark/10", children: [
-    /* @__PURE__ */ jsx(
-      ChakraMark,
-      {
-        className: "pointer-events-none absolute -right-24 -top-24 h-[30rem] w-[30rem] text-navy/[0.05] dark:text-saffron/[0.06] sm:-right-16 sm:-top-16",
-        spokes: 24
-      }
-    ),
-    /* @__PURE__ */ jsxs("div", { className: "relative mx-auto max-w-7xl px-4 sm:px-6 pt-14 pb-16 sm:pt-20 sm:pb-24", children: [
-      /* @__PURE__ */ jsxs("div", { className: "max-w-3xl", children: [
-        /* @__PURE__ */ jsxs("span", { className: "inline-flex items-center gap-2 rounded-full border border-saffron/30 bg-saffron/10 px-3.5 py-1.5 text-xs font-medium text-saffron-dark dark:text-saffron-light", children: [
-          "🇮🇳 ",
-          t("hero_badge")
-        ] }),
-        /* @__PURE__ */ jsxs(
-          "h1",
-          {
-            lang: language,
-            className: "font-display mt-6 text-4xl font-semibold leading-[1.1] tracking-tight text-navy dark:text-ink-dark sm:text-5xl lg:text-6xl",
-            children: [
-              t("hero_heading_1"),
-              /* @__PURE__ */ jsx("br", {}),
-              /* @__PURE__ */ jsx("span", { className: "text-saffron", children: t("hero_heading_2") })
-            ]
-          }
-        ),
-        /* @__PURE__ */ jsx(
-          "p",
-          {
-            lang: language,
-            className: "mt-6 max-w-xl text-base leading-relaxed text-ink/70 dark:text-ink-dark/70 sm:text-lg",
-            children: t("hero_desc")
-          }
-        ),
-        /* @__PURE__ */ jsx("div", { className: "mt-8 max-w-2xl", children: /* @__PURE__ */ jsx(SearchBar, { large: true }) })
-      ] }),
-      /* @__PURE__ */ jsx("dl", { className: "relative mt-16 grid grid-cols-2 gap-4 sm:mt-20 sm:grid-cols-4 sm:gap-6", children: heroStats.map((stat) => /* @__PURE__ */ jsxs(
-        "div",
-        {
-          className: "rounded-2xl border border-navy/10 dark:border-ink-dark/10 bg-white/60 dark:bg-white/[0.04] px-5 py-6 text-center",
-          children: [
-            /* @__PURE__ */ jsx("dt", { lang: language, className: "text-sm font-medium text-ink/55 dark:text-ink-dark/55", children: t(stat.key) }),
-            /* @__PURE__ */ jsx("dd", { className: "font-display mt-2 text-3xl font-semibold text-navy dark:text-saffron sm:text-4xl", children: stat.value })
-          ]
-        },
-        stat.key
-      )) })
-    ] })
-  ] });
-}
-function DynamicIcon({ name, className, size, strokeWidth }) {
-  const IconComponent = Icons[name] || Icons.BookOpen;
-  return /* @__PURE__ */ jsx(IconComponent, { className, size, strokeWidth });
-}
-function CategoryCard({ icon, title, description, path }) {
-  const { pick, language } = useLanguage();
-  return /* @__PURE__ */ jsxs(
-    Link,
-    {
-      to: path,
-      className: "group relative flex flex-col rounded-2xl border border-navy/10 dark:border-ink-dark/10 bg-white/60 dark:bg-white/[0.04] p-6 transition-colors hover:border-saffron/40",
-      children: [
-        /* @__PURE__ */ jsx("div", { className: "flex h-11 w-11 items-center justify-center rounded-xl bg-navy/5 dark:bg-white/10 text-navy dark:text-saffron-light", children: /* @__PURE__ */ jsx(DynamicIcon, { name: icon, size: 20 }) }),
-        /* @__PURE__ */ jsx("h3", { lang: language, className: "font-display mt-4 text-lg font-semibold text-navy dark:text-ink-dark", children: pick(title) }),
-        /* @__PURE__ */ jsx("p", { lang: language, className: "mt-2 text-sm leading-relaxed text-ink/60 dark:text-ink-dark/60", children: pick(description) }),
-        /* @__PURE__ */ jsx("span", { className: "mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-saffron", children: /* @__PURE__ */ jsx(ArrowRight, { size: 15, className: "transition-transform group-hover:translate-x-1" }) }),
-        /* @__PURE__ */ jsx("div", { className: "absolute inset-x-6 bottom-0 h-px scale-x-0 bg-saffron transition-transform duration-300 group-hover:scale-x-100" })
-      ]
-    }
-  );
-}
-const BookmarkContext = createContext(null);
-const STORAGE_KEY = "samvidhan_bookmarks";
-function BookmarkProvider({ children }) {
-  const [bookmarks, setBookmarks] = useState(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      return stored ? JSON.parse(stored) : [];
-    } catch {
-      return [];
-    }
-  });
-  useEffect(() => {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(bookmarks));
-    } catch {
-    }
-  }, [bookmarks]);
-  const isBookmarked = (id) => bookmarks.includes(id);
-  const toggleBookmark = (id) => {
-    setBookmarks((prev) => prev.includes(id) ? prev.filter((b) => b !== id) : [...prev, id]);
-  };
-  return /* @__PURE__ */ jsx(BookmarkContext.Provider, { value: { bookmarks, isBookmarked, toggleBookmark }, children });
-}
-function useBookmarks() {
-  const ctx = useContext(BookmarkContext);
-  if (!ctx) throw new Error("useBookmarks must be used within BookmarkProvider");
-  return ctx;
-}
-function BookmarkButton({ articleId, size = "default" }) {
-  const { isBookmarked, toggleBookmark } = useBookmarks();
-  const { t } = useLanguage();
-  const saved = isBookmarked(articleId);
-  const base = size === "small" ? "h-8 w-8" : "gap-2 px-4 py-2 rounded-full";
-  if (size === "small") {
-    return /* @__PURE__ */ jsx(
-      "button",
-      {
-        type: "button",
-        onClick: () => toggleBookmark(articleId),
-        "aria-pressed": saved,
-        "aria-label": saved ? t("saved") : t("save_article"),
-        className: `flex items-center justify-center ${base} rounded-full border transition-colors ${saved ? "border-saffron bg-saffron/10 text-saffron" : "border-navy/15 dark:border-ink-dark/20 text-navy/60 dark:text-ink-dark/60 hover:text-saffron hover:border-saffron/40"}`,
-        children: /* @__PURE__ */ jsx(Star, { size: 16, fill: saved ? "currentColor" : "none" })
-      }
-    );
-  }
-  return /* @__PURE__ */ jsxs(
-    "button",
-    {
-      type: "button",
-      onClick: () => toggleBookmark(articleId),
-      "aria-pressed": saved,
-      className: `inline-flex items-center ${base} font-medium text-sm border transition-colors ${saved ? "border-saffron bg-saffron/10 text-saffron" : "border-navy/20 dark:border-ink-dark/25 text-navy dark:text-ink-dark hover:border-saffron/50 hover:text-saffron"}`,
-      children: [
-        /* @__PURE__ */ jsx(Star, { size: 16, fill: saved ? "currentColor" : "none" }),
-        saved ? t("saved") : t("save_article")
-      ]
-    }
-  );
-}
-function ArticleCard({ article }) {
-  const { pick, t, language } = useLanguage();
-  const category = getCategoryByKey(article.categoryKey);
-  const numeral = article.id.replace(
-    /[a-z]/gi,
-    (match) => match.toUpperCase()
-  );
-  const articleTitle = pick(article.title);
-  const articleNumber = article.articleNumber || `Article ${numeral}`;
-  return /* @__PURE__ */ jsxs(
-    "article",
-    {
-      className: "group flex rounded-2xl border border-navy/10 dark:border-ink-dark/10 bg-white/60 dark:bg-white/[0.04] overflow-hidden transition-colors hover:border-saffron/40",
-      children: [
-        /* @__PURE__ */ jsxs("div", { className: "flex w-16 sm:w-20 shrink-0 flex-col items-center justify-center border-r border-navy/10 dark:border-ink-dark/10 bg-navy/[0.03] dark:bg-white/[0.02] px-2 py-4", children: [
-          /* @__PURE__ */ jsx("span", { className: "text-[10px] tracking-wide text-ink/40 dark:text-ink-dark/40", children: "Art." }),
-          /* @__PURE__ */ jsx("span", { className: "font-display text-xl font-semibold text-navy dark:text-saffron-light", children: numeral })
-        ] }),
-        /* @__PURE__ */ jsxs("div", { className: "flex flex-1 flex-col p-5", children: [
-          /* @__PURE__ */ jsxs("div", { className: "flex items-start justify-between gap-3", children: [
-            /* @__PURE__ */ jsxs("div", { className: "min-w-0", children: [
-              /* @__PURE__ */ jsx(
-                "h3",
-                {
-                  lang: language,
-                  className: "font-display text-base font-semibold text-navy dark:text-ink-dark sm:text-lg",
-                  children: /* @__PURE__ */ jsx(
-                    Link,
-                    {
-                      to: `/article/${article.id}`,
-                      "aria-label": `${articleNumber}: ${articleTitle}`,
-                      className: "transition-colors hover:text-saffron focus:outline-none focus:text-saffron",
-                      children: articleTitle
-                    }
-                  )
-                }
-              ),
-              /* @__PURE__ */ jsx(
-                Link,
-                {
-                  to: `/article/${article.id}`,
-                  lang: language,
-                  className: "mt-1 inline-block text-xs text-saffron hover:underline",
-                  children: articleNumber
-                }
-              ),
-              category && /* @__PURE__ */ jsx(
-                "span",
-                {
-                  lang: language,
-                  className: "ml-2 mt-1 inline-block text-xs text-leaf dark:text-leaf-light",
-                  children: pick(category.title)
-                }
-              )
-            ] }),
-            /* @__PURE__ */ jsx(
-              BookmarkButton,
-              {
-                articleId: article.id,
-                size: "small"
-              }
-            )
-          ] }),
-          /* @__PURE__ */ jsx(
-            "p",
-            {
-              lang: language,
-              className: "mt-2 line-clamp-2 text-sm leading-relaxed text-ink/60 dark:text-ink-dark/60",
-              children: pick(article.simpleExplanation)
-            }
-          ),
-          /* @__PURE__ */ jsxs(
-            Link,
-            {
-              to: `/article/${article.id}`,
-              "aria-label": `${t("view_details")}: ${articleTitle}`,
-              className: "mt-4 inline-flex w-fit items-center gap-1 text-sm font-medium text-saffron transition-colors hover:text-saffron/80 hover:underline focus:outline-none focus:underline",
-              children: [
-                t("view_details"),
-                /* @__PURE__ */ jsx("span", { "aria-hidden": "true", children: "→" })
-              ]
-            }
-          )
-        ] })
-      ]
-    }
-  );
 }
 const articles = [
   {
@@ -2284,6 +1746,413 @@ Thus, Article 21A can be understood as the constitutional guarantee, while the l
       url: "https://www.legislative.gov.in/constitution-of-india/"
     },
     lastVerified: "2026-09-28"
+  },
+  {
+    id: "22",
+    articleNumber: "Article 22",
+    title: {
+      en: "Protection against Arrest and Detention in Certain Cases",
+      mr: "काही प्रकरणांमध्ये अटक आणि नजरकैदेपासून संरक्षण"
+    },
+    categoryKey: "fundamental-rights",
+    officialText: {
+      en: `Protection against arrest and detention in certain cases
+
+(1) No person who is arrested shall be detained in custody without being informed, as soon as may be, of the grounds for such arrest nor shall he be denied the right to consult, and to be defended by, a legal practitioner of his choice.
+
+(2) Every person who is arrested and detained in custody shall be produced before the nearest magistrate within a period of twenty-four hours of such arrest excluding the time necessary for the journey from the place of arrest to the court of the magistrate and no such person shall be detained in custody beyond the said period without the authority of a magistrate.
+
+(3) Nothing in clauses (1) and (2) shall apply—
+
+(a) to any person who for the time being is an enemy alien; or
+
+(b) to any person who is arrested or detained under any law providing for preventive detention.
+
+(4) No law providing for preventive detention shall authorise the detention of a person for a longer period than three months unless—
+
+(a) an Advisory Board consisting of persons who are, or have been, or are qualified to be appointed as, Judges of a High Court has reported before the expiration of the said period of three months that there is in its opinion sufficient cause for such detention:
+
+Provided that nothing in this sub-clause shall authorise the detention of any person beyond the maximum period prescribed by any law made by Parliament under sub-clause (b) of clause (7); or
+
+(b) such person is detained in accordance with the provisions of any law made by Parliament under sub-clauses (a) and (b) of clause (7).
+
+(5) When any person is detained in pursuance of an order made under any law providing for preventive detention, the authority making the order shall, as soon as may be, communicate to such person the grounds on which the order has been made and shall afford him the earliest opportunity of making a representation against the order.
+
+(6) Nothing in clause (5) shall require the authority making any such order as is referred to in that clause to disclose facts which such authority considers to be against the public interest to disclose.
+
+(7) Parliament may by law prescribe—
+
+(a) the circumstances under which, and the class or classes of cases in which, a person may be detained for a period longer than three months under any law providing for preventive detention without obtaining the opinion of an Advisory Board in accordance with the provisions of sub-clause (a) of clause (4);
+
+(b) the maximum period for which any person may in any class or classes of cases be detained under any law providing for preventive detention; and
+
+(c) the procedure to be followed by an Advisory Board in an inquiry under sub-clause (a) of clause (4)).`,
+      mr: `काही प्रकरणांमध्ये अटक आणि नजरकैदेपासून संरक्षण
+
+(1) अटक केलेल्या कोणत्याही व्यक्तीला अटकेची कारणे शक्य तितक्या लवकर कळविल्याशिवाय तिला ताब्यात ठेवता येणार नाही. तसेच, तिच्या पसंतीच्या कायदेविषयक व्यवसायिकाचा सल्ला घेण्याचा आणि त्याच्यामार्फत आपला बचाव करून घेण्याचा अधिकार तिला नाकारता येणार नाही.
+
+(2) अटक करून ताब्यात ठेवलेल्या प्रत्येक व्यक्तीला, अटकेच्या ठिकाणाहून दंडाधिकाऱ्याच्या न्यायालयापर्यंत जाण्यास लागणारा आवश्यक प्रवासाचा कालावधी वगळता, अटकेपासून चोवीस तासांच्या आत जवळच्या दंडाधिकाऱ्यासमोर हजर केले पाहिजे. तसेच, दंडाधिकाऱ्याच्या अधिकाराशिवाय कोणत्याही व्यक्तीला त्या कालावधीपुढे ताब्यात ठेवता येणार नाही.
+
+(3) खंड (1) आणि (2) मधील कोणतीही तरतूद पुढील व्यक्तींना लागू होणार नाही—
+
+(a) त्या वेळी शत्रू परदेशी असलेल्या व्यक्तीला; किंवा
+
+(b) प्रतिबंधात्मक नजरकैदेची तरतूद करणाऱ्या कोणत्याही कायद्याखाली अटक किंवा ताब्यात घेतलेल्या व्यक्तीला.
+
+(4) प्रतिबंधात्मक नजरकैदेची तरतूद करणारा कोणताही कायदा एखाद्या व्यक्तीला तीन महिन्यांपेक्षा जास्त काळ ताब्यात ठेवण्यास परवानगी देणार नाही, जोपर्यंत—
+
+(a) उच्च न्यायालयाचे न्यायाधीश म्हणून नियुक्त झालेले, नियुक्त होण्यास पात्र असलेले किंवा पूर्वी न्यायाधीश राहिलेले व्यक्ती असलेल्या सल्लागार मंडळाने त्या तीन महिन्यांचा कालावधी संपण्यापूर्वी, आपल्या मतानुसार अशा नजरकैदेसाठी पुरेसे कारण आहे, असा अहवाल दिलेला नसेल:
+
+परंतु, या उपखंडातील कोणतीही बाब संसदेकडून खंड (7) च्या उपखंड (b) अंतर्गत केलेल्या कोणत्याही कायद्यात विहित केलेल्या कमाल कालावधीपेक्षा जास्त काळ कोणत्याही व्यक्तीला ताब्यात ठेवण्यास परवानगी देणार नाही; किंवा
+
+(b) अशा व्यक्तीला खंड (7) च्या उपखंड (a) आणि (b) अंतर्गत संसदेकडून केलेल्या कोणत्याही कायद्याच्या तरतुदींनुसार ताब्यात ठेवलेले नसेल.
+
+(5) प्रतिबंधात्मक नजरकैदेची तरतूद करणाऱ्या कोणत्याही कायद्याअंतर्गत केलेल्या आदेशानुसार एखाद्या व्यक्तीला ताब्यात घेतले असल्यास, तो आदेश करणाऱ्या प्राधिकरणाने शक्य तितक्या लवकर त्या व्यक्तीला आदेश कोणत्या कारणांवर आधारित आहे, ती कारणे कळविली पाहिजेत आणि त्या आदेशाविरुद्ध प्रतिनिधित्व करण्याची सर्वात लवकर संधी तिला दिली पाहिजे.
+
+(6) खंड (5) मधील कोणतीही तरतूद अशा प्राधिकरणाला, सार्वजनिक हिताच्या दृष्टीने उघड करणे योग्य नाही असे त्याला वाटणारे तथ्य उघड करण्यास बाध्य करणार नाही.
+
+(7) संसद कायद्याद्वारे पुढील बाबी निश्चित करू शकते—
+
+(a) प्रतिबंधात्मक नजरकैदेची तरतूद करणाऱ्या कोणत्याही कायद्याअंतर्गत एखाद्या व्यक्तीला तीन महिन्यांपेक्षा जास्त काळ, खंड (4) च्या उपखंड (a) मधील तरतुदीनुसार सल्लागार मंडळाचे मत न घेता, कोणत्या परिस्थितीत आणि कोणत्या प्रकारच्या प्रकरणांमध्ये ताब्यात ठेवता येईल;
+
+(b) कोणत्याही व्यक्तीला कोणत्याही प्रकारच्या किंवा प्रकारांतील प्रकरणांमध्ये जास्तीत जास्त किती कालावधीसाठी प्रतिबंधात्मक नजरकैदेत ठेवता येईल; आणि
+
+(c) खंड (4) च्या उपखंड (a) अंतर्गत सल्लागार मंडळाने चौकशी करताना कोणती प्रक्रिया अवलंबावी.`,
+      verified: true
+    },
+    simpleExplanation: {
+      en: `Article 22 is a Fundamental Right that provides constitutional safeguards against arbitrary arrest and detention in certain cases.
+
+For an ordinary arrest, Article 22 provides important protections. A person who is arrested must be informed of the grounds of arrest as soon as may be, and must not be denied the right to consult and be defended by a legal practitioner of their choice.
+
+A person who is arrested and detained in custody must generally be produced before the nearest magistrate within twenty-four hours of the arrest, excluding the time necessary for the journey to the magistrate's court. Continued detention beyond this period requires the authority of a magistrate.
+
+Article 22 also deals specifically with preventive detention. Preventive detention is different from ordinary punitive detention because it is intended to prevent certain future acts rather than to punish a person for an offence already committed.
+
+The protections in clauses (1) and (2) do not apply in the same manner to persons detained under a law providing for preventive detention. However, Article 22 contains separate constitutional safeguards for preventive detention, including requirements relating to communication of the grounds of detention and an opportunity to make a representation against the detention order.
+
+Article 22 therefore attempts to balance individual personal liberty with the State's authority to make laws dealing with arrest and preventive detention. The exact rights and procedures applicable in a particular case depend on the Constitution, the relevant law and the facts of that case.`,
+      mr: `कलम 22 हे काही प्रकरणांमध्ये मनमानी अटक आणि नजरकैदेपासून संरक्षण देणारे भारतीय संविधानातील महत्त्वाचे मूलभूत अधिकारांचे कलम आहे.
+
+सामान्य अटकेच्या बाबतीत कलम 22 काही महत्त्वाची घटनात्मक संरक्षणे देते. अटक केलेल्या व्यक्तीला अटकेची कारणे शक्य तितक्या लवकर कळवली पाहिजेत. तसेच तिला आपल्या पसंतीच्या कायदेविषयक व्यवसायिकाचा सल्ला घेण्याचा आणि त्याच्यामार्फत बचाव करून घेण्याचा अधिकार नाकारता येत नाही.
+
+अटक करून ताब्यात ठेवलेल्या व्यक्तीला सामान्यतः अटकेपासून चोवीस तासांच्या आत जवळच्या दंडाधिकाऱ्यासमोर हजर केले पाहिजे. मात्र अटकेच्या ठिकाणाहून दंडाधिकाऱ्याच्या न्यायालयापर्यंत जाण्यास लागणारा आवश्यक प्रवासाचा वेळ या कालावधीत मोजला जात नाही. त्यानंतर व्यक्तीला ताब्यात ठेवण्यासाठी दंडाधिकाऱ्याचा अधिकार आवश्यक असतो.
+
+कलम 22 मध्ये प्रतिबंधात्मक नजरकैदेबाबतही स्वतंत्र तरतुदी आहेत. प्रतिबंधात्मक नजरकैद ही सामान्य दंडात्मक कारवाईपेक्षा वेगळी आहे. तिचा उद्देश एखाद्या व्यक्तीने भविष्यात विशिष्ट प्रकारची हानिकारक कृती करू नये यासाठी प्रतिबंधात्मक उपाय करणे हा असतो.
+
+खंड (1) आणि (2) मधील संरक्षणे प्रतिबंधात्मक नजरकैदेअंतर्गत ताब्यात घेतलेल्या व्यक्तींना त्याच पद्धतीने लागू होत नाहीत. मात्र कलम 22 अशा नजरकैदेच्या बाबतीत स्वतंत्र घटनात्मक संरक्षण देते. त्यामध्ये नजरकैदेची कारणे कळविणे आणि त्या आदेशाविरुद्ध प्रतिनिधित्व करण्याची संधी देणे यांचा समावेश होतो.
+
+म्हणूनच कलम 22 हे व्यक्तीचे वैयक्तिक स्वातंत्र्य आणि अटक व प्रतिबंधात्मक नजरकैदेबाबत राज्याला असलेले कायदेशीर अधिकार यांच्यात घटनात्मक चौकट निर्माण करते. एखाद्या विशिष्ट प्रकरणात कोणते अधिकार आणि प्रक्रिया लागू होतात, हे संविधान, संबंधित कायदा आणि त्या प्रकरणातील तथ्यांवर अवलंबून असते.`
+    },
+    verySimple: {
+      en: `Article 22 protects a person against arbitrary arrest and detention. It generally requires the reasons for arrest to be communicated, provides the right to consult a lawyer, and requires an arrested person to be produced before a magistrate within twenty-four hours, subject to constitutional exceptions.
+
+It also provides specific safeguards for persons detained under preventive detention laws.`,
+      mr: `कलम 22 व्यक्तीला मनमानी अटक आणि नजरकैदेपासून घटनात्मक संरक्षण देते. सामान्य अटकेच्या वेळी अटकेची कारणे सांगणे, वकिलाचा सल्ला घेण्याची संधी देणे आणि साधारणपणे चोवीस तासांच्या आत दंडाधिकाऱ्यासमोर हजर करणे यांसारखी संरक्षणे या कलमात आहेत.
+
+प्रतिबंधात्मक नजरकैदेअंतर्गत ताब्यात घेतलेल्या व्यक्तींसाठीही या कलमात स्वतंत्र घटनात्मक संरक्षणे दिली आहेत.`
+    },
+    example: {
+      en: `Suppose a person is arrested by the police in connection with an alleged offence. The person cannot simply be kept in custody indefinitely without being informed of the grounds of arrest. Subject to the applicable law, the person must be informed of the grounds of arrest and has the right to consult and be defended by a legal practitioner of their choice.
+
+If the person is arrested and detained in custody, they must generally be produced before the nearest magistrate within twenty-four hours, excluding the necessary travel time. Continued custody beyond that period requires the authority of a magistrate.
+
+Now consider a different situation involving preventive detention. In such a case, the ordinary protections under clauses (1) and (2) operate differently. However, the Constitution provides separate safeguards, including communication of the grounds of preventive detention and an opportunity to make a representation against the detention order.
+
+These examples are intended to explain the basic constitutional framework of Article 22. The actual legality of an arrest or detention depends on the Constitution, the applicable law and the facts of the individual case.`,
+      mr: `समजा एखाद्या व्यक्तीला कथित गुन्ह्याच्या संदर्भात पोलिसांनी अटक केली. त्या व्यक्तीला अटकेची कारणे न सांगता अनिश्चित काळासाठी ताब्यात ठेवता येत नाही. लागू कायद्याच्या अधीन राहून तिला अटकेची कारणे कळवली पाहिजेत आणि आपल्या पसंतीच्या कायदेविषयक व्यवसायिकाचा सल्ला घेण्याचा व त्याच्यामार्फत बचाव करून घेण्याचा अधिकार असतो.
+
+अटक करून ताब्यात ठेवलेल्या व्यक्तीला सामान्यतः अटकेपासून चोवीस तासांच्या आत जवळच्या दंडाधिकाऱ्यासमोर हजर केले पाहिजे. या कालावधीत आवश्यक प्रवासाचा वेळ मोजला जात नाही. त्यानंतर ताब्यात ठेवण्यासाठी दंडाधिकाऱ्याचा अधिकार आवश्यक असतो.
+
+आता प्रतिबंधात्मक नजरकैदेचे उदाहरण पाहूया. अशा प्रकरणात खंड (1) आणि (2) मधील सामान्य संरक्षणे त्याच पद्धतीने लागू होत नाहीत. मात्र संविधान अशा व्यक्तीसाठी स्वतंत्र संरक्षण देते. त्यामध्ये नजरकैदेची कारणे कळवणे आणि त्या आदेशाविरुद्ध प्रतिनिधित्व करण्याची संधी देणे यांचा समावेश होतो.
+
+ही उदाहरणे कलम 22 ची मूलभूत घटनात्मक रचना समजावण्यासाठी आहेत. एखादी विशिष्ट अटक किंवा नजरकैद कायदेशीर आहे का, हे संविधान, लागू कायदा आणि त्या प्रकरणातील तथ्यांवर अवलंबून असते.`
+    },
+    seoSections: {
+      en: [
+        {
+          heading: "What is Article 22 of the Indian Constitution?",
+          content: `Article 22 of the Indian Constitution provides constitutional protection against arrest and detention in certain cases. It is part of the Fundamental Rights contained in Part III of the Constitution.
+
+The Article deals with important safeguards relating to arrest, including communication of the grounds of arrest, access to a legal practitioner and production before a magistrate within twenty-four hours, subject to the exceptions specified by the Constitution.
+
+Article 22 also contains separate provisions relating to preventive detention.`
+        },
+        {
+          heading: "What are the main protections under Article 22?",
+          content: `Article 22 provides several important constitutional safeguards. A person who is arrested must generally be informed of the grounds of arrest as soon as may be and cannot be denied the right to consult and be defended by a legal practitioner of their choice.
+
+A person arrested and detained in custody must generally be produced before the nearest magistrate within twenty-four hours, excluding the necessary journey time. Continued detention beyond this period requires the authority of a magistrate.`
+        },
+        {
+          heading: "What is the 24-hour rule under Article 22?",
+          content: `Article 22(2) provides that a person who is arrested and detained in custody must be produced before the nearest magistrate within twenty-four hours of the arrest, excluding the time necessary for the journey from the place of arrest to the magistrate's court.
+
+The person cannot ordinarily be detained beyond this period without the authority of a magistrate. The constitutional provision is therefore an important safeguard against prolonged detention without judicial oversight.`
+        },
+        {
+          heading: "Does Article 22 give an arrested person the right to a lawyer?",
+          content: `Yes. Article 22(1) provides that an arrested person shall not be denied the right to consult, and to be defended by, a legal practitioner of their choice.
+
+This is an important constitutional safeguard for an arrested person. The exact manner in which legal representation operates in a particular case is also governed by the applicable procedural and legal framework.`
+        },
+        {
+          heading: "What information must be given after arrest?",
+          content: `Article 22(1) provides that a person who is arrested must be informed, as soon as may be, of the grounds for the arrest.
+
+The purpose of this safeguard is to ensure that an arrested person is not kept in custody without being informed of the basis of the arrest, subject to the constitutional and statutory framework applicable to the case.`
+        },
+        {
+          heading: "What is preventive detention?",
+          content: `Preventive detention refers to detention intended to prevent certain future acts rather than to punish a person for an offence already committed.
+
+Article 22 specifically recognises preventive detention and provides a separate constitutional framework for it. The ordinary protections under clauses (1) and (2) do not apply in the same manner to persons arrested or detained under a law providing for preventive detention.
+
+At the same time, Article 22 contains specific safeguards relating to preventive detention, including communication of the grounds of detention and an opportunity to make a representation against the detention order.`
+        },
+        {
+          heading: "Does Article 22 completely prohibit preventive detention?",
+          content: `No. The Constitution does not completely prohibit preventive detention. Article 22 contains specific provisions dealing with preventive detention and lays down constitutional safeguards for persons detained under such laws.
+
+The validity of a particular preventive detention order depends on the Constitution, the relevant preventive detention law and the facts and circumstances of the individual case.`
+        },
+        {
+          heading: "What is the role of an Advisory Board under Article 22?",
+          content: `Article 22(4) deals with the constitutional framework relating to detention under preventive detention laws and refers to an Advisory Board consisting of persons who are, have been, or are qualified to be appointed as Judges of a High Court.
+
+The Constitution provides a framework concerning detention beyond three months, subject to the provisions of Article 22 and laws made by Parliament. The detailed operation of preventive detention depends on the applicable law.`
+        },
+        {
+          heading: "What rights does a person have under preventive detention?",
+          content: `Article 22(5) provides that when a person is detained under a preventive detention law, the authority making the detention order must, as soon as may be, communicate the grounds on which the order has been made and provide the earliest opportunity to make a representation against the order.
+
+Article 22(6) also provides an exception concerning facts that the authority considers to be against the public interest to disclose.`
+        },
+        {
+          heading: "Who is not covered by the ordinary protections in Article 22(1) and 22(2)?",
+          content: `Article 22(3) states that clauses (1) and (2) do not apply to a person who is for the time being an enemy alien or to a person who is arrested or detained under a law providing for preventive detention.
+
+These are constitutional exceptions expressly stated in Article 22.`
+        },
+        {
+          heading: "Article 22 and personal liberty",
+          content: `Article 22 is closely connected with the constitutional protection of personal liberty. Article 21 protects life and personal liberty, while Article 22 provides specific constitutional safeguards relating to arrest and detention.
+
+Together, these provisions form an important part of the constitutional framework governing individual liberty and State action.`
+        },
+        {
+          heading: "Article 22 and Article 21",
+          content: `Article 21 provides that no person shall be deprived of life or personal liberty except according to procedure established by law. Article 22 specifically addresses safeguards relating to arrest and detention in certain cases.
+
+Studying Articles 21 and 22 together helps explain the constitutional framework surrounding personal liberty, arrest, detention and procedural safeguards.`
+        },
+        {
+          heading: "Article 22 and Article 20",
+          content: `Article 20 provides specific protections in respect of conviction for offences, including protection against ex post facto criminal laws, double jeopardy and compelled self-incrimination.
+
+Article 22, on the other hand, specifically deals with safeguards relating to arrest and detention. These provisions are separate but can be studied together when understanding constitutional protections available to persons involved in criminal proceedings.`
+        },
+        {
+          heading: "Why is Article 22 important?",
+          content: `Article 22 is important because arrest and detention directly affect personal liberty. The Constitution therefore provides specific safeguards concerning information about the grounds of arrest, access to legal representation and judicial oversight through production before a magistrate.
+
+The Article also creates a separate constitutional framework for preventive detention, including safeguards relating to communication of grounds and representation against detention orders.`
+        },
+        {
+          heading: "Common misunderstandings about Article 22",
+          content: `One common misunderstanding is that Article 22 means every arrested person must be released within twenty-four hours. The Article instead requires an arrested person who is detained in custody to be produced before the nearest magistrate within twenty-four hours, excluding necessary travel time. Continued detention may be authorised by a magistrate.
+
+Another misunderstanding is that Article 22 completely prohibits preventive detention. The Constitution recognises preventive detention but provides specific constitutional safeguards for it.
+
+It is also important to distinguish the ordinary arrest safeguards under clauses (1) and (2) from the separate provisions dealing with preventive detention.`
+        },
+        {
+          heading: "Why should students study Article 22?",
+          content: `Article 22 is an important topic for students studying the Indian Constitution, Fundamental Rights, law and competitive examinations.
+
+For UPSC, MPSC, Police Bharti and other competitive examinations, students should understand the relationship between Article 20, Article 21 and Article 22, along with the distinction between ordinary arrest and preventive detention.
+
+Understanding the constitutional wording and its basic structure is more useful than memorising only a one-line definition.`
+        },
+        {
+          heading: "Key points to remember about Article 22",
+          content: `Article 22 provides constitutional safeguards against arrest and detention in certain cases.
+
+An arrested person must generally be informed of the grounds of arrest.
+
+An arrested person has the right to consult and be defended by a legal practitioner of their choice.
+
+A person arrested and detained in custody must generally be produced before the nearest magistrate within twenty-four hours, excluding necessary journey time.
+
+Article 22 contains separate provisions relating to preventive detention.
+
+A person detained under a preventive detention law must generally be informed of the grounds of detention and given the earliest opportunity to make a representation against the order.
+
+Article 22(3) specifies constitutional exceptions to the protections in clauses (1) and (2).`
+        }
+      ],
+      mr: [
+        {
+          heading: "भारतीय संविधानातील कलम 22 म्हणजे काय?",
+          content: `कलम 22 हे भारतीय संविधानातील काही प्रकरणांमध्ये अटक आणि नजरकैदेपासून संरक्षण देणारे महत्त्वाचे मूलभूत अधिकारांचे कलम आहे. हे संविधानाच्या भाग III मधील मूलभूत अधिकारांचा भाग आहे.
+
+या कलमात अटकेची कारणे कळवणे, कायदेविषयक व्यवसायिकाचा सल्ला घेण्याचा अधिकार आणि अटक केलेल्या व्यक्तीला चोवीस तासांच्या आत दंडाधिकाऱ्यासमोर हजर करण्यासंबंधी घटनात्मक संरक्षणे दिली आहेत.
+
+कलम 22 मध्ये प्रतिबंधात्मक नजरकैदेबाबत स्वतंत्र घटनात्मक तरतुदीही आहेत.`
+        },
+        {
+          heading: "कलम 22 अंतर्गत कोणती प्रमुख संरक्षणे आहेत?",
+          content: `कलम 22 मध्ये अटक केलेल्या व्यक्तीसाठी अनेक महत्त्वाची घटनात्मक संरक्षणे आहेत. अटकेची कारणे शक्य तितक्या लवकर कळवणे आणि आपल्या पसंतीच्या कायदेविषयक व्यवसायिकाचा सल्ला घेण्याचा व त्याच्यामार्फत बचाव करून घेण्याचा अधिकार यांचा त्यात समावेश आहे.
+
+अटक करून ताब्यात ठेवलेल्या व्यक्तीला सामान्यतः अटकेपासून चोवीस तासांच्या आत जवळच्या दंडाधिकाऱ्यासमोर हजर केले पाहिजे. या कालावधीत आवश्यक प्रवासाचा वेळ मोजला जात नाही.`
+        },
+        {
+          heading: "कलम 22 मधील 24 तासांचा नियम काय आहे?",
+          content: `कलम 22(2) नुसार अटक करून ताब्यात ठेवलेल्या व्यक्तीला अटकेपासून चोवीस तासांच्या आत जवळच्या दंडाधिकाऱ्यासमोर हजर केले पाहिजे. अटकेच्या ठिकाणाहून दंडाधिकाऱ्याच्या न्यायालयापर्यंत जाण्यास लागणारा आवश्यक प्रवासाचा वेळ या कालावधीत मोजला जात नाही.
+
+दंडाधिकाऱ्याच्या अधिकाराशिवाय व्यक्तीला या कालावधीपुढे ताब्यात ठेवता येत नाही. त्यामुळे दीर्घकाळ न्यायालयीन देखरेखीशिवाय ताब्यात ठेवण्यापासून संरक्षण देणारी ही महत्त्वाची घटनात्मक तरतूद आहे.`
+        },
+        {
+          heading: "कलम 22 अंतर्गत अटक केलेल्या व्यक्तीला वकिलाचा अधिकार आहे का?",
+          content: `होय. कलम 22(1) नुसार अटक केलेल्या व्यक्तीला आपल्या पसंतीच्या कायदेविषयक व्यवसायिकाचा सल्ला घेण्याचा आणि त्याच्यामार्फत बचाव करून घेण्याचा अधिकार नाकारता येत नाही.
+
+हे अटक केलेल्या व्यक्तीच्या घटनात्मक संरक्षणाचा महत्त्वाचा भाग आहे. एखाद्या विशिष्ट प्रकरणात कायदेशीर प्रतिनिधित्वाची प्रक्रिया संबंधित कायदे आणि प्रक्रियात्मक नियमांनुसार ठरते.`
+        },
+        {
+          heading: "अटकेनंतर कोणती माहिती देणे आवश्यक आहे?",
+          content: `कलम 22(1) नुसार अटक केलेल्या व्यक्तीला अटकेची कारणे शक्य तितक्या लवकर कळवली पाहिजेत.
+
+या संरक्षणाचा उद्देश असा आहे की एखाद्या व्यक्तीला अटकेचा आधार न सांगता ताब्यात ठेवले जाऊ नये. मात्र विशिष्ट प्रकरणात लागू असलेली घटनात्मक आणि कायदेशीर चौकटही विचारात घेतली जाते.`
+        },
+        {
+          heading: "प्रतिबंधात्मक नजरकैद म्हणजे काय?",
+          content: `प्रतिबंधात्मक नजरकैद म्हणजे एखाद्या व्यक्तीने भविष्यात विशिष्ट प्रकारची कृती करू नये किंवा संभाव्य धोका टाळता यावा या उद्देशाने कायद्यानुसार व्यक्तीला ताब्यात ठेवण्याची व्यवस्था.
+
+कलम 22 मध्ये प्रतिबंधात्मक नजरकैदेचा स्वतंत्र घटनात्मक विचार केला आहे. खंड (1) आणि (2) मधील सामान्य संरक्षणे प्रतिबंधात्मक नजरकैदेतील व्यक्तींना त्याच पद्धतीने लागू होत नाहीत.
+
+मात्र अशा व्यक्तींना नजरकैदेची कारणे कळवणे आणि त्या आदेशाविरुद्ध प्रतिनिधित्व करण्याची संधी देणे यांसारखी स्वतंत्र घटनात्मक संरक्षणे कलम 22 मध्ये आहेत.`
+        },
+        {
+          heading: "कलम 22 प्रतिबंधात्मक नजरकैद पूर्णपणे बंद करते का?",
+          content: `नाही. भारतीय संविधान प्रतिबंधात्मक नजरकैदेला पूर्णपणे प्रतिबंध करत नाही. कलम 22 मध्ये अशा नजरकैदेबाबत स्वतंत्र तरतुदी आणि घटनात्मक संरक्षणे दिली आहेत.
+
+एखाद्या विशिष्ट प्रतिबंधात्मक नजरकैदेचा आदेश कायदेशीर आहे का, हे संविधान, संबंधित प्रतिबंधात्मक नजरकैदेचा कायदा आणि त्या प्रकरणातील तथ्ये व परिस्थिती यावर अवलंबून असते.`
+        },
+        {
+          heading: "कलम 22 मध्ये सल्लागार मंडळाची भूमिका काय आहे?",
+          content: `कलम 22(4) मध्ये प्रतिबंधात्मक नजरकैदेच्या घटनात्मक चौकटीत सल्लागार मंडळाचा उल्लेख आहे. या मंडळात उच्च न्यायालयाचे न्यायाधीश म्हणून नियुक्त झालेले, पूर्वी न्यायाधीश राहिलेले किंवा उच्च न्यायालयाचे न्यायाधीश म्हणून नियुक्त होण्यास पात्र असलेले व्यक्ती असतात.
+
+तीन महिन्यांपेक्षा जास्त काळ प्रतिबंधात्मक नजरकैद ठेवण्याच्या घटनात्मक चौकटीशी या तरतुदीचा संबंध आहे. त्याची सविस्तर अंमलबजावणी संबंधित कायद्यावर अवलंबून असते.`
+        },
+        {
+          heading: "प्रतिबंधात्मक नजरकैदेत असलेल्या व्यक्तीला कोणते अधिकार आहेत?",
+          content: `कलम 22(5) नुसार प्रतिबंधात्मक नजरकैदेच्या कायद्याअंतर्गत एखाद्या व्यक्तीला ताब्यात घेतल्यास, त्या व्यक्तीला नजरकैदेचा आदेश कोणत्या कारणांवर आधारित आहे, ती कारणे शक्य तितक्या लवकर कळवली पाहिजेत.
+
+तसेच त्या व्यक्तीला त्या आदेशाविरुद्ध प्रतिनिधित्व करण्याची सर्वात लवकर संधी दिली पाहिजे.
+
+कलम 22(6) मध्ये सार्वजनिक हिताच्या दृष्टीने उघड करणे योग्य नाही असे प्राधिकरणाला वाटणाऱ्या काही तथ्यांबाबत अपवाद दिला आहे.`
+        },
+        {
+          heading: "कलम 22(1) आणि 22(2) मधील संरक्षणे कोणाला लागू होत नाहीत?",
+          content: `कलम 22(3) नुसार खंड (1) आणि (2) मधील संरक्षणे त्या वेळी शत्रू परदेशी असलेल्या व्यक्तीला किंवा प्रतिबंधात्मक नजरकैदेची तरतूद करणाऱ्या कायद्याअंतर्गत अटक किंवा ताब्यात घेतलेल्या व्यक्तीला लागू होत नाहीत.
+
+हे अपवाद संविधानाच्या कलम 22 मध्ये स्पष्टपणे नमूद केले आहेत.`
+        },
+        {
+          heading: "कलम 22 आणि वैयक्तिक स्वातंत्र्य",
+          content: `कलम 22 चा वैयक्तिक स्वातंत्र्याच्या घटनात्मक संरक्षणाशी जवळचा संबंध आहे. कलम 21 जीवन आणि वैयक्तिक स्वातंत्र्याचे संरक्षण करते, तर कलम 22 अटक आणि नजरकैदेबाबत विशिष्ट घटनात्मक संरक्षणे देते.
+
+ही दोन्ही कलमे एकत्रितपणे व्यक्तीचे स्वातंत्र्य आणि राज्याच्या अटक व नजरकैदेच्या अधिकारांमधील घटनात्मक चौकट समजून घेण्यासाठी महत्त्वाची आहेत.`
+        },
+        {
+          heading: "कलम 22 आणि कलम 21",
+          content: `कलम 21 नुसार कायद्याने स्थापित केलेल्या प्रक्रियेशिवाय कोणत्याही व्यक्तीला तिच्या जीवनापासून किंवा वैयक्तिक स्वातंत्र्यापासून वंचित करता येत नाही. कलम 22 अटक आणि नजरकैदेच्या संदर्भात विशिष्ट संरक्षणे सांगते.
+
+कलम 21 आणि कलम 22 यांचा एकत्र अभ्यास केल्यास वैयक्तिक स्वातंत्र्य, अटक, नजरकैद आणि प्रक्रियात्मक संरक्षणांची घटनात्मक चौकट अधिक स्पष्टपणे समजते.`
+        },
+        {
+          heading: "कलम 22 आणि कलम 20",
+          content: `कलम 20 मध्ये गुन्ह्यांसाठी दोषसिद्धीच्या संदर्भात विशिष्ट संरक्षणे दिली आहेत. त्यामध्ये पूर्वलक्षी दंडात्मक कायद्यापासून संरक्षण, एकाच गुन्ह्यासाठी पुन्हा शिक्षा होण्यापासून संरक्षण आणि स्वतःविरुद्ध साक्ष देण्यास सक्ती न करण्याचे संरक्षण यांचा समावेश होतो.
+
+कलम 22 मात्र मुख्यतः अटक आणि नजरकैदेबाबतच्या घटनात्मक संरक्षणांशी संबंधित आहे. व्यक्तीच्या घटनात्मक संरक्षणांचा अभ्यास करताना कलम 20, 21 आणि 22 यांचा एकत्र अभ्यास उपयुक्त ठरतो.`
+        },
+        {
+          heading: "कलम 22 महत्त्वाचे का आहे?",
+          content: `अटक आणि नजरकैद यांचा व्यक्तीच्या वैयक्तिक स्वातंत्र्यावर थेट परिणाम होतो. त्यामुळे अटकेची कारणे कळवणे, कायदेविषयक व्यवसायिकाचा सल्ला घेण्याचा अधिकार आणि दंडाधिकाऱ्यासमोर हजर करण्याची प्रक्रिया यांसारखी घटनात्मक संरक्षणे महत्त्वाची आहेत.
+
+कलम 22 प्रतिबंधात्मक नजरकैदेबाबतही स्वतंत्र घटनात्मक चौकट निर्माण करते. त्यामध्ये नजरकैदेची कारणे कळवणे आणि त्या आदेशाविरुद्ध प्रतिनिधित्व करण्याची संधी यांचा समावेश आहे.`
+        },
+        {
+          heading: "कलम 22 बाबत सामान्य गैरसमज",
+          content: `एक सामान्य गैरसमज असा आहे की कलम 22 मुळे अटक केलेल्या प्रत्येक व्यक्तीला चोवीस तासांच्या आत सोडावे लागते. प्रत्यक्षात कलम 22(2) नुसार अटक करून ताब्यात ठेवलेल्या व्यक्तीला चोवीस तासांच्या आत जवळच्या दंडाधिकाऱ्यासमोर हजर करणे आवश्यक आहे. आवश्यक प्रवासाचा वेळ या कालावधीत मोजला जात नाही. त्यानंतर दंडाधिकाऱ्याच्या अधिकाराने पुढील ताबा सुरू राहू शकतो.
+
+दुसरा गैरसमज असा आहे की संविधान प्रतिबंधात्मक नजरकैदेला पूर्णपणे प्रतिबंध करते. प्रत्यक्षात कलम 22 मध्ये प्रतिबंधात्मक नजरकैदेबाबत स्वतंत्र तरतुदी आहेत.
+
+तसेच सामान्य अटकेसाठी असलेली कलम 22(1) आणि 22(2) मधील संरक्षणे आणि प्रतिबंधात्मक नजरकैदेबाबतच्या स्वतंत्र तरतुदी यांच्यातील फरक समजून घेणे महत्त्वाचे आहे.`
+        },
+        {
+          heading: "विद्यार्थ्यांनी कलम 22 का अभ्यासावे?",
+          content: `भारतीय संविधान, मूलभूत अधिकार, कायदा आणि स्पर्धा परीक्षांचा अभ्यास करणाऱ्या विद्यार्थ्यांसाठी कलम 22 हा महत्त्वाचा विषय आहे.
+
+UPSC, MPSC, Police Bharti आणि इतर स्पर्धा परीक्षांसाठी कलम 20, 21 आणि 22 यांचा परस्पर संबंध समजून घेणे तसेच सामान्य अटक आणि प्रतिबंधात्मक नजरकैद यातील फरक समजणे उपयुक्त ठरते.
+
+केवळ एका ओळीतील व्याख्या पाठ करण्याऐवजी घटनात्मक मजकूर, त्याचा साधा अर्थ आणि संबंधित कलमांशी असलेला संबंध समजून घेणे अधिक उपयुक्त आहे.`
+        },
+        {
+          heading: "कलम 22 चे महत्त्वाचे मुद्दे",
+          content: `कलम 22 काही प्रकरणांमध्ये अटक आणि नजरकैदेपासून घटनात्मक संरक्षण देते.
+
+अटक केलेल्या व्यक्तीला सामान्यतः अटकेची कारणे कळवली पाहिजेत.
+
+अटक केलेल्या व्यक्तीला आपल्या पसंतीच्या कायदेविषयक व्यवसायिकाचा सल्ला घेण्याचा आणि त्याच्यामार्फत बचाव करून घेण्याचा अधिकार आहे.
+
+अटक करून ताब्यात ठेवलेल्या व्यक्तीला सामान्यतः चोवीस तासांच्या आत जवळच्या दंडाधिकाऱ्यासमोर हजर केले पाहिजे. आवश्यक प्रवासाचा वेळ या कालावधीत मोजला जात नाही.
+
+कलम 22 मध्ये प्रतिबंधात्मक नजरकैदेबाबत स्वतंत्र तरतुदी आहेत.
+
+प्रतिबंधात्मक नजरकैदेअंतर्गत ताब्यात घेतलेल्या व्यक्तीला सामान्यतः नजरकैदेची कारणे कळवली पाहिजेत आणि त्या आदेशाविरुद्ध प्रतिनिधित्व करण्याची सर्वात लवकर संधी दिली पाहिजे.
+
+कलम 22(3) मध्ये खंड (1) आणि (2) मधील संरक्षणांना लागू असलेले घटनात्मक अपवाद नमूद केले आहेत.`
+        }
+      ]
+    },
+    keywords: [
+      "Article 22",
+      "Article 22 of Indian Constitution",
+      "Article 22 Indian Constitution",
+      "Article 22 explained",
+      "What is Article 22",
+      "Article 22 Fundamental Rights",
+      "Article 22 protection against arrest",
+      "Protection against arrest and detention",
+      "Article 22 24 hours",
+      "Article 22 right to lawyer",
+      "Article 22 preventive detention",
+      "Preventive Detention India",
+      "Article 22 and Article 21",
+      "Article 22 and Article 20",
+      "Article 22 in simple words",
+      "arrest and detention rights India",
+      "24 hours arrest rule India",
+      "Article 22 Advisory Board",
+      "कलम 22",
+      "कलम 22 भारतीय संविधान",
+      "कलम 22 मराठीत",
+      "कलम 22 म्हणजे काय",
+      "अटक आणि नजरकैदेपासून संरक्षण",
+      "अटकेपासून संरक्षण",
+      "नजरकैद",
+      "प्रतिबंधात्मक नजरकैद",
+      "अटकेनंतर 24 तास",
+      "अटक केलेल्या व्यक्तीचे अधिकार",
+      "वकिलाचा अधिकार"
+    ],
+    relatedIds: ["20", "21", "21A", "23"],
+    source: {
+      name: "Legislative Department, Ministry of Law and Justice, Government of India",
+      url: "https://www.legislative.gov.in/constitution-of-india/"
+    },
+    lastVerified: "2026-10-01"
   },
   {
     id: "32",
@@ -4310,6 +4179,935 @@ The exact legal consequences depend on the applicable legislation and facts of t
       url: "https://www.legislative.gov.in/constitution-of-india/"
     },
     lastVerified: "2026-09-28"
+  },
+  {
+    id: "105",
+    articleNumber: "Article 105",
+    title: {
+      en: "Powers, Privileges and Immunities of Parliament and its Members",
+      mr: "संसद आणि तिच्या सदस्यांचे अधिकार, विशेषाधिकार व उन्मुक्ती"
+    },
+    categoryKey: "union-legislature",
+    officialText: {
+      en: `Powers, privileges and immunities of Parliament and its members.—
+(1) Subject to the provisions of this Constitution and to the rules and standing orders regulating the procedure of Parliament, there shall be freedom of speech in Parliament.
+
+(2) No member of Parliament shall be liable to any proceedings in any court in respect of anything said or any vote given by him in Parliament or any committee thereof, and no person shall be so liable in respect of the publication by or under the authority of either House of Parliament of any report, paper, votes or proceedings.
+
+(3) In other respects, the powers, privileges and immunities of each House of Parliament, and of the members and the committees of each House, shall be such as may from time to time be defined by Parliament by law, and, until so defined, shall be those of that House and of its members and committees immediately before the coming into force of section 15 of the Constitution (Forty-fourth Amendment) Act, 1978.
+
+(4) The provisions of clauses (1), (2) and (3) shall apply in relation to persons who by virtue of the Constitution have the right to speak in, and otherwise to take part in the proceedings of, a House of Parliament or any committee thereof as they apply in relation to members of Parliament.`,
+      mr: `संसद आणि तिच्या सदस्यांचे अधिकार, विशेषाधिकार व उन्मुक्ती.—
+(1) या संविधानाच्या तरतुदींना आणि संसदेच्या कार्यपद्धतीचे नियमन करणाऱ्या नियम व स्थायी आदेशांना अधीन राहून, संसदेत भाषणस्वातंत्र्य असेल.
+
+(2) संसदेत किंवा तिच्या कोणत्याही समितीत सदस्याने केलेल्या कोणत्याही वक्तव्याबद्दल किंवा दिलेल्या कोणत्याही मताबद्दल त्या सदस्याविरुद्ध कोणत्याही न्यायालयीन कार्यवाहीस तो जबाबदार राहणार नाही. तसेच संसदेच्या कोणत्याही सभागृहाच्या अधिकाराने किंवा त्याच्या वतीने केलेल्या कोणत्याही अहवाल, कागदपत्र, मत किंवा कार्यवाहीच्या प्रकाशनाबद्दल कोणतीही व्यक्ती अशा प्रकारे जबाबदार राहणार नाही.
+
+(3) इतर बाबतीत, संसदेच्या प्रत्येक सभागृहाचे आणि त्याच्या सदस्यांचे व समित्यांचे अधिकार, विशेषाधिकार आणि उन्मुक्ती संसद वेळोवेळी कायद्याद्वारे निश्चित करेल. तोपर्यंत, संविधान (चव्वेचाळीसावी घटनादुरुस्ती) अधिनियम, 1978 मधील कलम 15 लागू होण्यापूर्वी तत्काळ अस्तित्वात असलेले संबंधित अधिकार, विशेषाधिकार आणि उन्मुक्ती लागू राहतील.
+
+(4) खंड (1), (2) आणि (3) मधील तरतुदी संविधानामुळे संसदेत किंवा तिच्या कोणत्याही समितीच्या कार्यवाहीत बोलण्याचा आणि अन्य प्रकारे सहभागी होण्याचा अधिकार असलेल्या व्यक्तींनाही संसद सदस्यांप्रमाणे लागू होतील.`
+    },
+    simpleExplanation: {
+      en: `Article 105 deals with the powers, privileges and immunities of Parliament, its Houses, members and committees.
+
+Clause (1) provides for freedom of speech in Parliament, subject to the Constitution and the rules and standing orders regulating parliamentary procedure.
+
+Clause (2) provides an important form of constitutional protection to members of Parliament. A member is not liable to proceedings in a court for anything said or any vote given in Parliament or in a parliamentary committee. The clause also protects certain authorised publications of parliamentary proceedings.
+
+Clause (3) deals with the other powers, privileges and immunities of each House of Parliament and its members and committees. Parliament may define these by law.
+
+Clause (4) extends the relevant protections to persons who have a constitutional right to speak in and participate in parliamentary proceedings even though they are not necessarily members of Parliament.
+
+Article 105 is the constitutional provision concerning parliamentary privileges. It is different from Article 194, which deals with the powers, privileges and immunities of State Legislatures and their members.
+
+Parliamentary privileges are intended to enable Parliament and its members to perform their constitutional functions effectively and without improper interference. These privileges operate within the constitutional framework and are not a general exemption from all laws or judicial processes.
+
+Therefore, Article 105 provides constitutional protection for parliamentary speech, voting and specified parliamentary functions while recognising the authority of Parliament to define its other privileges by law.`,
+      mr: `कलम 105 हे संसद, तिची सभागृहे, सदस्य आणि समित्यांचे अधिकार, विशेषाधिकार व उन्मुक्ती यांच्याशी संबंधित आहे.
+
+खंड (1) नुसार संविधान आणि संसदीय कार्यपद्धतीचे नियमन करणारे नियम व स्थायी आदेश यांच्या अधीन राहून संसदेत भाषणस्वातंत्र्य असते.
+
+खंड (2) संसद सदस्यांना महत्त्वाचे घटनात्मक संरक्षण देते. संसदेत किंवा संसदीय समितीत सदस्याने केलेल्या वक्तव्याबद्दल किंवा दिलेल्या मताबद्दल त्याच्यावर कोणत्याही न्यायालयात कार्यवाही करता येत नाही. तसेच संसदीय कार्यवाहीच्या काही अधिकृत प्रकाशनांनाही या तरतुदीनुसार संरक्षण मिळते.
+
+खंड (3) संसद आणि तिच्या सभागृहांचे, सदस्यांचे व समित्यांचे इतर अधिकार, विशेषाधिकार आणि उन्मुक्ती यांच्याशी संबंधित आहे. हे विशेषाधिकार संसद कायद्याद्वारे निश्चित करू शकते.
+
+खंड (4) संविधानामुळे संसदेत किंवा तिच्या समितीत बोलण्याचा व कार्यवाहीत सहभागी होण्याचा अधिकार असलेल्या काही व्यक्तींनाही संबंधित संरक्षण लागू करते.
+
+कलम 105 हे संसदेच्या विशेषाधिकारांशी संबंधित घटनात्मक तरतूद आहे. याउलट कलम 194 हे राज्य विधिमंडळ आणि त्याच्या सदस्यांच्या अधिकार, विशेषाधिकार व उन्मुक्तींशी संबंधित आहे.
+
+संसदीय विशेषाधिकारांचा उद्देश संसद आणि तिच्या सदस्यांना त्यांच्या घटनात्मक जबाबदाऱ्या प्रभावीपणे पार पाडता याव्यात आणि त्यांच्या कामकाजात अनुचित हस्तक्षेप होऊ नये हा आहे. मात्र याचा अर्थ सर्व कायदे किंवा न्यायालयीन प्रक्रियांपासून सर्वसाधारण सूट मिळते असा नाही.
+
+म्हणून कलम 105 संसदेत भाषण, मतदान आणि संसदीय कार्याशी संबंधित काही संरक्षणांना घटनात्मक आधार देते आणि इतर विशेषाधिकार कायद्याद्वारे निश्चित करण्याची तरतूद करते.`
+    },
+    verySimple: {
+      en: "Article 105 protects freedom of speech in Parliament and provides certain privileges and immunities to Parliament, its members and committees. It helps members perform their parliamentary functions effectively within the constitutional framework.",
+      mr: "कलम 105 संसदेत भाषणस्वातंत्र्याचे संरक्षण करते आणि संसद, तिचे सदस्य व समित्यांना काही विशेषाधिकार व उन्मुक्ती देते. यामुळे घटनात्मक चौकटीत संसदीय कामकाज प्रभावीपणे पार पाडता येते."
+    },
+    example: {
+      en: `Suppose a Member of Parliament makes a statement or casts a vote during parliamentary proceedings. Article 105(2) provides constitutional protection against court proceedings in respect of that speech or vote.
+
+For example, a parliamentary debate may involve strong criticism of a government policy. The constitutional protection under Article 105 concerns what the member says or votes in Parliament in the exercise of parliamentary functions.
+
+This protection is intended to preserve the independence and effective functioning of Parliament. It should not be understood as giving a member unlimited immunity for every act performed outside parliamentary proceedings.`,
+      mr: `समजा एखादा संसद सदस्य संसदेच्या कामकाजादरम्यान एखादे वक्तव्य करतो किंवा एखाद्या प्रस्तावावर मतदान करतो. कलम 105(2) नुसार त्या वक्तव्याबद्दल किंवा मतदानाबद्दल न्यायालयीन कार्यवाहीपासून संबंधित सदस्याला घटनात्मक संरक्षण मिळते.
+
+उदाहरणार्थ, संसदेतील चर्चेदरम्यान एखादा सदस्य सरकारी धोरणावर तीव्र टीका करू शकतो. संसदीय कार्यवाहीत सदस्याने केलेल्या अशा वक्तव्याशी संबंधित संरक्षण कलम 105 अंतर्गत दिलेले आहे.
+
+या संरक्षणाचा उद्देश संसदेचे स्वातंत्र्य आणि प्रभावी कामकाज राखणे हा आहे. मात्र याचा अर्थ संसद सदस्याने संसदेबाहेर केलेल्या प्रत्येक कृतीला अमर्यादित संरक्षण मिळते असा नाही.`
+    },
+    seoSections: {
+      en: [
+        {
+          heading: "What is Article 105 of the Indian Constitution?",
+          content: "Article 105 deals with the powers, privileges and immunities of Parliament, its members and committees. It also provides for freedom of speech in Parliament."
+        },
+        {
+          heading: "What is parliamentary privilege under Article 105?",
+          content: "Parliamentary privilege refers to constitutional protections and powers that enable Parliament and its members to perform their legislative functions effectively. Article 105 provides the constitutional framework for these privileges."
+        },
+        {
+          heading: "What does Article 105(1) provide?",
+          content: "Article 105(1) provides for freedom of speech in Parliament, subject to the Constitution and the rules and standing orders regulating parliamentary procedure."
+        },
+        {
+          heading: "What does Article 105(2) provide?",
+          content: "Article 105(2) protects Members of Parliament from court proceedings in respect of anything said or any vote given by them in Parliament or a parliamentary committee, subject to the constitutional provision."
+        },
+        {
+          heading: "What is the difference between Article 105 and Article 194?",
+          content: "Article 105 deals with the powers, privileges and immunities of Parliament and its members, while Article 194 deals with the corresponding powers, privileges and immunities of State Legislatures and their members."
+        },
+        {
+          heading: "Does Article 105 give MPs unlimited immunity?",
+          content: "No. Article 105 provides specific constitutional protections relating to parliamentary proceedings and privileges. It should not be understood as a general immunity from every law or judicial process."
+        },
+        {
+          heading: "Why are parliamentary privileges important?",
+          content: "Parliamentary privileges help Parliament and its members perform their constitutional and legislative functions effectively and protect parliamentary proceedings from improper interference."
+        },
+        {
+          heading: "Article 105 and Freedom of Speech",
+          content: "Article 105 provides freedom of speech in Parliament, while Article 19(1)(a) protects freedom of speech and expression for citizens. The two provisions operate in different constitutional contexts."
+        },
+        {
+          heading: "Article 105 in simple words",
+          content: "In simple terms, Article 105 gives Parliament and its members constitutional protections and privileges necessary for effective parliamentary functioning, including freedom of speech in Parliament."
+        }
+      ],
+      mr: [
+        {
+          heading: "भारतीय संविधानातील कलम 105 म्हणजे काय?",
+          content: "कलम 105 हे संसद, तिचे सदस्य आणि समित्यांचे अधिकार, विशेषाधिकार व उन्मुक्ती यांच्याशी संबंधित आहे. तसेच संसदेत भाषणस्वातंत्र्याची घटनात्मक तरतूद करते."
+        },
+        {
+          heading: "कलम 105 अंतर्गत संसदीय विशेषाधिकार म्हणजे काय?",
+          content: "संसदीय विशेषाधिकार म्हणजे संसद आणि तिच्या सदस्यांना संसदीय व घटनात्मक कार्य प्रभावीपणे पार पाडण्यासाठी मिळणारे घटनात्मक संरक्षण व अधिकार. कलम 105 या विशेषाधिकारांना घटनात्मक आधार देते."
+        },
+        {
+          heading: "कलम 105(1) मध्ये काय आहे?",
+          content: "कलम 105(1) नुसार संविधान आणि संसदेच्या कार्यपद्धतीचे नियमन करणारे नियम यांच्या अधीन राहून संसदेत भाषणस्वातंत्र्य आहे."
+        },
+        {
+          heading: "कलम 105(2) मध्ये काय आहे?",
+          content: "कलम 105(2) नुसार संसदेत किंवा संसदीय समितीत सदस्याने केलेल्या वक्तव्याबद्दल किंवा दिलेल्या मताबद्दल त्याच्यावर न्यायालयीन कार्यवाही करता येत नाही."
+        },
+        {
+          heading: "कलम 105 आणि कलम 194 मध्ये काय फरक आहे?",
+          content: "कलम 105 हे संसद आणि तिच्या सदस्यांच्या अधिकार, विशेषाधिकार व उन्मुक्तींशी संबंधित आहे, तर कलम 194 हे राज्य विधिमंडळ आणि त्याच्या सदस्यांच्या संबंधित अधिकार, विशेषाधिकार व उन्मुक्तींशी संबंधित आहे."
+        },
+        {
+          heading: "कलम 105 मुळे खासदारांना अमर्यादित संरक्षण मिळते का?",
+          content: "नाही. कलम 105 संसदीय कार्यवाही आणि विशेषाधिकारांशी संबंधित विशिष्ट घटनात्मक संरक्षण देते. प्रत्येक कायदा किंवा न्यायालयीन प्रक्रियेपासून सर्वसाधारण सूट मिळते असे या कलमाचे स्वरूप नाही."
+        },
+        {
+          heading: "संसदीय विशेषाधिकार महत्त्वाचे का आहेत?",
+          content: "संसदीय विशेषाधिकारांमुळे संसद आणि तिचे सदस्य घटनात्मक व विधिमंडळाशी संबंधित कामकाज प्रभावीपणे पार पाडू शकतात आणि संसदीय कार्यवाहीत अनुचित हस्तक्षेपापासून संरक्षण मिळते."
+        },
+        {
+          heading: "कलम 105 आणि भाषणस्वातंत्र्य",
+          content: "कलम 105 संसदेत भाषणस्वातंत्र्याशी संबंधित आहे, तर कलम 19(1)(अ) नागरिकांच्या भाषण आणि अभिव्यक्ती स्वातंत्र्याचे संरक्षण करते. दोन्ही तरतुदींचा घटनात्मक संदर्भ वेगळा आहे."
+        },
+        {
+          heading: "सोप्या भाषेत कलम 105",
+          content: "सोप्या भाषेत सांगायचे झाल्यास, संसद आणि तिच्या सदस्यांना संसदीय कामकाज प्रभावीपणे पार पाडण्यासाठी आवश्यक घटनात्मक संरक्षण आणि विशेषाधिकार कलम 105 अंतर्गत मिळतात."
+        }
+      ]
+    },
+    keywords: [
+      "Article 105",
+      "Article 105 Indian Constitution",
+      "Parliamentary Privileges",
+      "Parliamentary Privileges in India",
+      "Privileges of Parliament",
+      "MP Privileges",
+      "Article 105 explained",
+      "Article 105 in Marathi",
+      "Freedom of Speech in Parliament",
+      "Parliamentary Immunity",
+      "कलम 105",
+      "कलम 105 भारतीय संविधान",
+      "संसदीय विशेषाधिकार",
+      "खासदारांचे विशेषाधिकार",
+      "संसद विशेषाधिकार"
+    ],
+    relatedIds: ["19", "194", "32", "122"],
+    source: {
+      name: "Legislative Department, Ministry of Law and Justice, Government of India",
+      url: "https://www.legislative.gov.in/constitution-of-india/"
+    },
+    lastVerified: "2026-10-05"
+  },
+  {
+    id: "194",
+    articleNumber: "Article 194",
+    title: {
+      en: "Powers, Privileges and Immunities of State Legislatures and their Members",
+      mr: "राज्य विधिमंडळ आणि त्याच्या सदस्यांचे अधिकार, विशेषाधिकार व उन्मुक्ती"
+    },
+    categoryKey: "state-legislature",
+    officialText: {
+      en: `Powers, privileges and immunities of Legislative Assemblies and Legislative Councils and of the members thereof.—
+(1) Subject to the provisions of this Constitution and to the rules and standing orders regulating the procedure of the Legislature, there shall be freedom of speech in the Legislature of every State.
+
+(2) No member of the Legislature of a State shall be liable to any proceedings in any court in respect of anything said or any vote given by him in the Legislature or any committee thereof, and no person shall be so liable in respect of the publication by or under the authority of a House of such a Legislature of any report, paper, votes or proceedings.
+
+(3) In other respects, the powers, privileges and immunities of a House of the Legislature of a State, and of the members and the committees of a House of such Legislature, shall be such as may from time to time be defined by the Legislature by law, and, until so defined, shall be those of that House and of its members and committees immediately before the coming into force of section 26 of the Constitution (Forty-fourth Amendment) Act, 1978.
+
+(4) The provisions of clauses (1), (2) and (3) shall apply in relation to persons who by virtue of this Constitution have the right to speak in, and otherwise to take part in the proceedings of, a House of the Legislature of a State or any committee thereof as they apply in relation to members of that Legislature.`,
+      mr: `राज्याच्या विधानसभेचे आणि विधानपरिषदेचे तसेच त्यांच्या सदस्यांचे अधिकार, विशेषाधिकार व उन्मुक्ती.—
+(1) या संविधानाच्या तरतुदींना आणि विधिमंडळाच्या कार्यपद्धतीचे नियमन करणाऱ्या नियम व स्थायी आदेशांना अधीन राहून, प्रत्येक राज्याच्या विधिमंडळात भाषणस्वातंत्र्य असेल.
+
+(2) राज्याच्या विधिमंडळाचा कोणताही सदस्य विधिमंडळात किंवा त्याच्या कोणत्याही समितीत त्याने केलेल्या कोणत्याही वक्तव्याबद्दल किंवा दिलेल्या कोणत्याही मताबद्दल कोणत्याही न्यायालयीन कार्यवाहीस जबाबदार राहणार नाही. तसेच अशा विधिमंडळाच्या कोणत्याही सभागृहाच्या अधिकाराने किंवा त्याच्या वतीने केलेल्या कोणत्याही अहवाल, कागदपत्र, मत किंवा कार्यवाहीच्या प्रकाशनाबद्दल कोणतीही व्यक्ती अशा प्रकारे जबाबदार राहणार नाही.
+
+(3) इतर बाबतीत, राज्याच्या विधिमंडळाच्या सभागृहाचे आणि त्याच्या सदस्यांचे व समित्यांचे अधिकार, विशेषाधिकार आणि उन्मुक्ती विधिमंडळ वेळोवेळी कायद्याद्वारे निश्चित करेल. तोपर्यंत, संविधान (चव्वेचाळीसावी घटनादुरुस्ती) अधिनियम, 1978 मधील कलम 26 लागू होण्यापूर्वी तत्काळ अस्तित्वात असलेले संबंधित अधिकार, विशेषाधिकार आणि उन्मुक्ती लागू राहतील.
+
+(4) खंड (1), (2) आणि (3) मधील तरतुदी संविधानामुळे राज्याच्या विधिमंडळाच्या सभागृहात किंवा त्याच्या कोणत्याही समितीत बोलण्याचा आणि अन्य प्रकारे कार्यवाहीत सहभागी होण्याचा अधिकार असलेल्या व्यक्तींनाही त्या विधिमंडळाच्या सदस्यांप्रमाणे लागू होतील.`
+    },
+    simpleExplanation: {
+      en: `Article 194 deals with the powers, privileges and immunities of State Legislatures, including Legislative Assemblies and Legislative Councils, and their members and committees.
+
+Clause (1) provides for freedom of speech in the Legislature of every State, subject to the Constitution and the rules and standing orders regulating legislative procedure.
+
+Clause (2) provides constitutional protection to members of State Legislatures for anything said or any vote given by them in the Legislature or in a committee thereof. It also provides protection relating to authorised publication of legislative proceedings.
+
+Clause (3) deals with other powers, privileges and immunities of State Legislative Houses, their members and committees. These may be defined by the State Legislature by law.
+
+Clause (4) extends the relevant protections to persons who have a constitutional right to speak in and participate in proceedings of a State Legislature or its committees.
+
+Article 194 is therefore the principal constitutional provision dealing with State Legislative privileges. It corresponds broadly to Article 105, which deals with Parliament.
+
+Legislative privileges exist to enable State Legislatures and their members to perform their constitutional and legislative functions effectively. These privileges are part of the constitutional framework and should not automatically be understood as an unlimited immunity from judicial review or other constitutional limitations.
+
+Article 194 can become particularly important when questions arise concerning legislative speech, breach of privilege, publication of legislative proceedings, or the relationship between legislative privileges and other constitutional rights.
+
+Therefore, Article 194 provides the constitutional framework for freedom of speech within State Legislatures and for their powers, privileges and immunities.`,
+      mr: `कलम 194 हे राज्य विधिमंडळ, म्हणजेच विधानसभा आणि विधानपरिषद, तसेच त्यांचे सदस्य आणि समित्यांचे अधिकार, विशेषाधिकार व उन्मुक्तींशी संबंधित आहे.
+
+खंड (1) नुसार संविधान आणि विधिमंडळाच्या कार्यपद्धतीचे नियमन करणारे नियम व स्थायी आदेश यांच्या अधीन राहून प्रत्येक राज्याच्या विधिमंडळात भाषणस्वातंत्र्य असते.
+
+खंड (2) राज्य विधिमंडळाच्या सदस्यांना महत्त्वाचे घटनात्मक संरक्षण देते. विधिमंडळात किंवा त्याच्या समितीत सदस्याने केलेल्या वक्तव्याबद्दल किंवा दिलेल्या मताबद्दल त्याच्यावर न्यायालयीन कार्यवाही करता येत नाही. तसेच विधिमंडळाच्या अधिकृत कार्यवाहीच्या प्रकाशनाशी संबंधित काही संरक्षणही या तरतुदीत आहे.
+
+खंड (3) राज्य विधिमंडळाच्या सभागृहांचे, सदस्यांचे आणि समित्यांचे इतर अधिकार, विशेषाधिकार व उन्मुक्ती यांच्याशी संबंधित आहे. हे विशेषाधिकार राज्य विधिमंडळ कायद्याद्वारे निश्चित करू शकते.
+
+खंड (4) संविधानामुळे राज्य विधिमंडळाच्या सभागृहात किंवा समितीत बोलण्याचा व कार्यवाहीत सहभागी होण्याचा अधिकार असलेल्या व्यक्तींनाही संबंधित संरक्षण लागू करते.
+
+कलम 194 हे राज्य विधिमंडळाच्या विशेषाधिकारांशी संबंधित प्रमुख घटनात्मक तरतूद आहे. याची तुलना संसदेसाठी असलेल्या कलम 105 शी करता येते.
+
+विधिमंडळाचे विशेषाधिकार राज्य विधिमंडळ आणि त्याचे सदस्य आपली घटनात्मक व विधिमंडळाशी संबंधित कामे प्रभावीपणे पार पाडू शकतील यासाठी आहेत. हे विशेषाधिकार घटनात्मक चौकटीचा भाग आहेत आणि त्यांचा अर्थ न्यायालयीन पुनरावलोकन किंवा इतर घटनात्मक मर्यादांपासून अमर्यादित सूट असा होत नाही.
+
+विधिमंडळातील भाषण, विशेषाधिकारभंग, विधिमंडळाच्या कार्यवाहीचे प्रकाशन किंवा विधिमंडळाच्या विशेषाधिकारांचा इतर घटनात्मक अधिकारांशी संबंध यांसारखे प्रश्न उपस्थित झाल्यास कलम 194 महत्त्वाचे ठरते.
+
+म्हणून कलम 194 राज्य विधिमंडळातील भाषणस्वातंत्र्य तसेच राज्य विधिमंडळाचे अधिकार, विशेषाधिकार आणि उन्मुक्ती यांना घटनात्मक आधार देते.`
+    },
+    verySimple: {
+      en: "Article 194 gives State Legislatures and their members certain powers, privileges and immunities. It also protects freedom of speech in State Legislatures, subject to the Constitution and legislative rules.",
+      mr: "कलम 194 राज्य विधिमंडळ आणि त्याच्या सदस्यांना काही अधिकार, विशेषाधिकार व उन्मुक्ती देते. तसेच संविधान आणि विधिमंडळाच्या नियमांच्या अधीन राहून राज्य विधिमंडळात भाषणस्वातंत्र्याचे संरक्षण करते."
+    },
+    example: {
+      en: `Suppose a Member of a State Legislative Assembly makes a statement or casts a vote during legislative proceedings. Article 194(2) provides constitutional protection in respect of that speech or vote.
+
+For example, during a legislative debate, a member may express a view on a government policy. The constitutional protection under Article 194 applies to the member's speech and vote within the legislative proceedings, subject to the constitutional framework.
+
+Article 194 also becomes relevant when a question arises about whether an action amounts to a breach of legislative privilege. The specific issue must be examined in the context of the Constitution, applicable law and the relevant legislative proceedings.
+
+Thus, Article 194 provides the constitutional foundation for State Legislative privileges while supporting the effective functioning of State Legislatures.`,
+      mr: `समजा एखादा आमदार विधानसभेच्या कामकाजादरम्यान एखादे वक्तव्य करतो किंवा एखाद्या प्रस्तावावर मतदान करतो. कलम 194(2) त्या वक्तव्याबद्दल किंवा मतदानाबद्दल घटनात्मक संरक्षण देते.
+
+उदाहरणार्थ, विधिमंडळातील चर्चेदरम्यान एखादा आमदार सरकारी धोरणाबद्दल आपले मत मांडू शकतो. विधिमंडळाच्या कार्यवाहीदरम्यान केलेल्या अशा वक्तव्याला आणि मतदानाला कलम 194 अंतर्गत घटनात्मक संरक्षण मिळते.
+
+एखाद्या कृतीमुळे विधिमंडळाच्या विशेषाधिकाराचा भंग झाला आहे का, असा प्रश्न निर्माण झाल्यासही कलम 194 महत्त्वाचे ठरते. मात्र प्रत्येक प्रकरणाचा निर्णय संविधान, लागू कायदे आणि संबंधित विधिमंडळाच्या कार्यवाहीच्या संदर्भात घ्यावा लागतो.
+
+म्हणून कलम 194 हे राज्य विधिमंडळाच्या विशेषाधिकारांना घटनात्मक आधार देते आणि राज्य विधिमंडळाचे प्रभावी कामकाज सुनिश्चित करण्यास मदत करते.`
+    },
+    seoSections: {
+      en: [
+        {
+          heading: "What is Article 194 of the Indian Constitution?",
+          content: "Article 194 deals with the powers, privileges and immunities of State Legislatures, their members and committees. It also provides for freedom of speech in State Legislatures."
+        },
+        {
+          heading: "What are Legislative Privileges under Article 194?",
+          content: "Legislative privileges are constitutional powers, protections and immunities available to State Legislatures and their members to enable them to perform their legislative and constitutional functions effectively."
+        },
+        {
+          heading: "What does Article 194(1) provide?",
+          content: "Article 194(1) provides for freedom of speech in the Legislature of every State, subject to the Constitution and the rules and standing orders regulating legislative procedure."
+        },
+        {
+          heading: "What does Article 194(2) provide?",
+          content: "Article 194(2) provides protection from court proceedings for members of State Legislatures in respect of anything said or any vote given by them in the Legislature or its committees, subject to the constitutional provision."
+        },
+        {
+          heading: "What is the difference between Article 105 and Article 194?",
+          content: "Article 105 deals with parliamentary privileges and immunities, while Article 194 deals with the corresponding powers, privileges and immunities of State Legislatures and their members."
+        },
+        {
+          heading: "Why are legislative privileges important?",
+          content: "Legislative privileges help State Legislatures and their members perform their constitutional and legislative functions effectively and protect legislative proceedings from improper interference."
+        },
+        {
+          heading: "What is breach of privilege?",
+          content: "A breach of privilege generally refers to conduct that violates or interferes with a privilege of a House, its members or its committees. The specific issue depends on the applicable constitutional framework, law and legislative rules."
+        },
+        {
+          heading: "Article 194 and Freedom of Speech",
+          content: "Article 194 provides for freedom of speech in State Legislatures, while Article 19(1)(a) protects freedom of speech and expression for citizens. The two provisions operate in different constitutional contexts."
+        },
+        {
+          heading: "Article 194 and the Supreme Court",
+          content: "Questions concerning the scope and limits of legislative privileges under Article 194 can involve constitutional interpretation and the relationship between legislative privileges, fundamental rights and judicial review."
+        },
+        {
+          heading: "Article 194 in simple words",
+          content: "In simple terms, Article 194 provides State Legislatures and their members with constitutional protections and privileges needed to perform legislative functions effectively, including freedom of speech in the Legislature."
+        }
+      ],
+      mr: [
+        {
+          heading: "भारतीय संविधानातील कलम 194 म्हणजे काय?",
+          content: "कलम 194 हे राज्य विधिमंडळ, त्याचे सदस्य आणि समित्यांचे अधिकार, विशेषाधिकार व उन्मुक्तींशी संबंधित आहे. तसेच राज्य विधिमंडळात भाषणस्वातंत्र्याची तरतूद करते."
+        },
+        {
+          heading: "कलम 194 अंतर्गत विधिमंडळाचे विशेषाधिकार म्हणजे काय?",
+          content: "विधिमंडळाचे विशेषाधिकार म्हणजे राज्य विधिमंडळ आणि त्याच्या सदस्यांना घटनात्मक व विधिमंडळाशी संबंधित कामकाज प्रभावीपणे पार पाडण्यासाठी मिळणारे अधिकार, संरक्षण आणि उन्मुक्ती."
+        },
+        {
+          heading: "कलम 194(1) मध्ये काय आहे?",
+          content: "कलम 194(1) नुसार संविधान आणि विधिमंडळाच्या कार्यपद्धतीचे नियमन करणारे नियम यांच्या अधीन राहून प्रत्येक राज्याच्या विधिमंडळात भाषणस्वातंत्र्य आहे."
+        },
+        {
+          heading: "कलम 194(2) मध्ये काय आहे?",
+          content: "कलम 194(2) नुसार राज्य विधिमंडळाच्या सदस्याने विधिमंडळात किंवा त्याच्या समितीत केलेल्या वक्तव्याबद्दल किंवा दिलेल्या मताबद्दल त्याच्यावर न्यायालयीन कार्यवाही करता येत नाही."
+        },
+        {
+          heading: "कलम 105 आणि कलम 194 मध्ये काय फरक आहे?",
+          content: "कलम 105 संसद आणि तिच्या सदस्यांच्या विशेषाधिकारांशी संबंधित आहे, तर कलम 194 राज्य विधिमंडळ आणि त्याच्या सदस्यांच्या अधिकार, विशेषाधिकार व उन्मुक्तींशी संबंधित आहे."
+        },
+        {
+          heading: "विधिमंडळाचे विशेषाधिकार महत्त्वाचे का आहेत?",
+          content: "विधिमंडळाचे विशेषाधिकार राज्य विधिमंडळ आणि त्याचे सदस्य घटनात्मक व विधिमंडळाशी संबंधित कामकाज प्रभावीपणे पार पाडू शकतील आणि कार्यवाहीत अनुचित हस्तक्षेप होऊ नये यासाठी महत्त्वाचे आहेत."
+        },
+        {
+          heading: "विशेषाधिकारभंग म्हणजे काय?",
+          content: "विधिमंडळाच्या सभागृहाचा, त्याच्या सदस्यांचा किंवा समित्यांचा एखादा विशेषाधिकार भंग करणे किंवा त्याच्या कार्यात अडथळा आणणे याला सामान्यतः विशेषाधिकारभंगाच्या संदर्भात पाहिले जाते. संबंधित प्रकरणाचा निर्णय संविधान, कायदा आणि विधिमंडळाच्या नियमांच्या चौकटीत केला जातो."
+        },
+        {
+          heading: "कलम 194 आणि भाषणस्वातंत्र्य",
+          content: "कलम 194 राज्य विधिमंडळातील भाषणस्वातंत्र्याशी संबंधित आहे, तर कलम 19(1)(अ) नागरिकांच्या भाषण आणि अभिव्यक्ती स्वातंत्र्याचे संरक्षण करते. दोन्ही तरतुदींचा घटनात्मक संदर्भ वेगळा आहे."
+        },
+        {
+          heading: "कलम 194 आणि सर्वोच्च न्यायालय",
+          content: "कलम 194 अंतर्गत विधिमंडळाच्या विशेषाधिकारांची व्याप्ती आणि मर्यादा याबाबतचे प्रश्न घटनात्मक अर्थ लावण्याशी संबंधित असू शकतात. अशा प्रश्नांमध्ये विशेषाधिकार, मूलभूत अधिकार आणि न्यायालयीन पुनरावलोकन यांचा संबंध महत्त्वाचा ठरतो."
+        },
+        {
+          heading: "सोप्या भाषेत कलम 194",
+          content: "सोप्या भाषेत सांगायचे झाल्यास, राज्य विधिमंडळाचे कामकाज प्रभावीपणे चालावे यासाठी त्याला आणि त्याच्या सदस्यांना काही घटनात्मक अधिकार, विशेषाधिकार व संरक्षण कलम 194 अंतर्गत मिळते."
+        }
+      ]
+    },
+    keywords: [
+      "Article 194",
+      "Article 194 Indian Constitution",
+      "Legislative Privileges",
+      "Legislative Privileges in India",
+      "State Legislature Privileges",
+      "MLA Privileges",
+      "Article 194 explained",
+      "Article 194 in Marathi",
+      "Breach of Privilege",
+      "State Legislative Assembly Privileges",
+      "कलम 194",
+      "कलम 194 भारतीय संविधान",
+      "विधिमंडळाचे विशेषाधिकार",
+      "आमदारांचे विशेषाधिकार",
+      "विधानसभेचे विशेषाधिकार",
+      "विशेषाधिकारभंग"
+    ],
+    relatedIds: ["19", "21", "105", "32"],
+    source: {
+      name: "Legislative Department, Ministry of Law and Justice, Government of India",
+      url: "https://www.legislative.gov.in/constitution-of-india/"
+    },
+    lastVerified: "2026-10-05"
+  },
+  {
+    id: "23",
+    articleNumber: "Article 23",
+    title: {
+      en: "Prohibition of Traffic in Human Beings and Forced Labour",
+      mr: "मानवी तस्करी आणि सक्तीच्या मजुरीस प्रतिबंध"
+    },
+    categoryKey: "right-against-exploitation",
+    officialText: {
+      en: `Prohibition of traffic in human beings and forced labour.—(1) Traffic in human beings and begar and other similar forms of forced labour are prohibited and any contravention of this provision shall be an offence punishable in accordance with law.
+
+(2) Nothing in this article shall prevent the State from imposing compulsory service for public purposes, and in imposing such service the State shall not make any discrimination on grounds only of religion, race, caste or class or any of them.`,
+      mr: `मानवी तस्करी आणि सक्तीच्या मजुरीस प्रतिबंध.—(१) मानवी तस्करी, बेगार आणि त्याचप्रमाणे सक्तीच्या मजुरीचे इतर प्रकार यांना प्रतिबंध करण्यात आला आहे आणि या तरतुदीचे उल्लंघन करणे कायद्यानुसार शिक्षापात्र अपराध असेल.
+
+(२) या अनुच्छेदातील कोणतीही गोष्ट राज्याला सार्वजनिक उद्देशासाठी सक्तीची सेवा लादण्यापासून प्रतिबंधित करणार नाही. अशी सेवा लादताना राज्य केवळ धर्म, वंश, जात किंवा वर्ग यांपैकी कोणत्याही आधारावर भेदभाव करणार नाही.`,
+      verified: true
+    },
+    simpleExplanation: {
+      en: `Article 23 is a Fundamental Right under the Right against Exploitation. It protects people from human trafficking, begar and other similar forms of forced labour.
+
+Article 23(1) prohibits traffic in human beings and begar and other similar forms of forced labour. Any violation of this constitutional prohibition is an offence punishable according to law.
+
+Human trafficking refers to the unlawful trade or exploitation of persons. Forced labour refers to situations where a person is made to work against their will through force, coercion or other forms of compulsion.
+
+The Constitution also protects people against begar, which refers to forced labour where a person is required to work without proper payment or against their will.
+
+Article 23(2) provides a specific exception. The State may impose compulsory service for public purposes. However, while imposing such service, the State cannot discriminate solely on the grounds of religion, race, caste or class.
+
+Therefore, Article 23 aims to protect human dignity and prevent exploitation while recognising a limited constitutional provision for compulsory public service without discrimination on the specified grounds.`,
+      mr: `अनुच्छेद २३ हा शोषणाविरुद्धच्या अधिकाराचा भाग आहे. तो मानवी तस्करी, बेगार आणि त्याचप्रमाणे सक्तीच्या मजुरीच्या इतर प्रकारांपासून व्यक्तींचे संरक्षण करतो.
+
+अनुच्छेद २३(१) मानवी तस्करी, बेगार आणि सक्तीच्या मजुरीच्या इतर समान प्रकारांना प्रतिबंध करतो. या घटनात्मक तरतुदीचे उल्लंघन करणे कायद्यानुसार शिक्षापात्र अपराध आहे.
+
+मानवी तस्करी म्हणजे व्यक्तींची बेकायदेशीर खरेदी-विक्री किंवा शोषण करण्याच्या उद्देशाने त्यांची वाहतूक किंवा ताबा घेणे. सक्तीची मजुरी म्हणजे एखाद्या व्यक्तीच्या इच्छेविरुद्ध दबाव, जबरदस्ती किंवा इतर प्रकारच्या सक्तीने काम करून घेणे.
+
+अनुच्छेद २३ बेगारपासूनही संरक्षण देतो. बेगार म्हणजे एखाद्या व्यक्तीकडून त्याच्या इच्छेविरुद्ध किंवा योग्य मोबदल्याशिवाय सक्तीने काम करून घेणे.
+
+अनुच्छेद २३(२) मध्ये एक विशिष्ट तरतूद आहे. राज्य सार्वजनिक उद्देशासाठी सक्तीची सेवा लादू शकते. मात्र अशी सेवा लादताना राज्य केवळ धर्म, वंश, जात किंवा वर्ग या आधारांवर भेदभाव करू शकत नाही.
+
+म्हणून अनुच्छेद २३ मानवी प्रतिष्ठेचे संरक्षण करण्यासाठी आणि व्यक्तींचे शोषण रोखण्यासाठी महत्त्वाची घटनात्मक तरतूद आहे.`
+    },
+    verySimple: {
+      en: "Article 23 prohibits human trafficking, begar and other similar forms of forced labour, while allowing compulsory public service without discrimination on specified grounds.",
+      mr: "अनुच्छेद २३ मानवी तस्करी, बेगार आणि सक्तीच्या मजुरीच्या इतर समान प्रकारांना प्रतिबंध करतो. तसेच सार्वजनिक उद्देशासाठी सक्तीची सेवा लादताना विशिष्ट आधारांवर भेदभाव करण्यास मनाई करतो."
+    },
+    example: {
+      en: `Suppose a person is forced to work against their will and is not allowed to leave the work because of threats, coercion or other forms of compulsion. Such forced labour can fall within the protection provided by Article 23.
+
+Another example is human trafficking. If people are illegally recruited, transported or exploited for the purpose of forced labour or other exploitation, Article 23 provides constitutional protection against such practices.
+
+Article 23(2) also recognises that the State may require compulsory service for a public purpose. For example, a law may provide for certain compulsory public service. However, the State cannot impose such service by discriminating solely on the grounds of religion, race, caste or class.
+
+These examples show how Article 23 protects individuals from exploitation while recognising the limited constitutional provision for compulsory public service.`,
+      mr: `समजा एखाद्या व्यक्तीला धमकी, दबाव किंवा इतर प्रकारच्या जबरदस्तीने त्याच्या इच्छेविरुद्ध काम करण्यास भाग पाडले जाते आणि त्याला ते काम सोडण्याची मुभा दिली जात नाही. अशा प्रकारची सक्तीची मजुरी अनुच्छेद २३ अंतर्गत संरक्षणाच्या कक्षेत येऊ शकते.
+
+दुसरे उदाहरण मानवी तस्करीचे आहे. एखाद्या व्यक्तीची सक्तीची मजुरी किंवा इतर शोषण करण्याच्या उद्देशाने बेकायदेशीररीत्या भरती, वाहतूक किंवा शोषण केले जात असल्यास, अनुच्छेद २३ अशा प्रथांविरुद्ध घटनात्मक संरक्षण देतो.
+
+अनुच्छेद २३(२) नुसार राज्य सार्वजनिक उद्देशासाठी सक्तीची सेवा लादू शकते. उदाहरणार्थ, कायद्यानुसार काही विशिष्ट सार्वजनिक सेवा सक्तीची केली जाऊ शकते. मात्र अशी सेवा लादताना राज्य केवळ धर्म, वंश, जात किंवा वर्ग या आधारांवर भेदभाव करू शकत नाही.
+
+या उदाहरणांवरून स्पष्ट होते की अनुच्छेद २३ व्यक्तींचे शोषणापासून संरक्षण करतो आणि त्याच वेळी सार्वजनिक उद्देशासाठी सक्तीच्या सेवेची मर्यादित घटनात्मक तरतूद मान्य करतो.`
+    },
+    seoSections: {
+      en: [
+        {
+          heading: "What is Article 23 of the Indian Constitution?",
+          content: `Article 23 is a Fundamental Right under the Right against Exploitation. It prohibits traffic in human beings, begar and other similar forms of forced labour.`
+        },
+        {
+          heading: "What does Article 23 say?",
+          content: `Article 23 prohibits human trafficking, begar and other similar forms of forced labour. It also permits the State to impose compulsory service for public purposes, provided that there is no discrimination solely on the specified grounds.`
+        },
+        {
+          heading: "Which Fundamental Right includes Article 23?",
+          content: `Article 23 is part of the Right against Exploitation under Part III of the Constitution. It is followed by Article 24, which deals with the employment of children in factories, mines and other hazardous employment.`
+        },
+        {
+          heading: "What is prohibited under Article 23?",
+          content: `Article 23 prohibits traffic in human beings, begar and other similar forms of forced labour.`
+        },
+        {
+          heading: "What is human trafficking?",
+          content: `Human trafficking involves the unlawful recruitment, transportation, transfer or exploitation of people. Article 23 provides constitutional protection against traffic in human beings.`
+        },
+        {
+          heading: "What is forced labour?",
+          content: `Forced labour refers to work that a person is compelled to perform against their will through force, coercion or other forms of compulsion.`
+        },
+        {
+          heading: "What is Begar under Article 23?",
+          content: `Begar refers to forced labour where a person is compelled to work without proper payment or against their will. Article 23 expressly prohibits begar.`
+        },
+        {
+          heading: "Can the State impose compulsory service?",
+          content: `Article 23(2) permits the State to impose compulsory service for public purposes. However, while imposing such service, the State cannot discriminate solely on the grounds of religion, race, caste or class.`
+        },
+        {
+          heading: "Why is Article 23 important?",
+          content: `Article 23 protects individuals from exploitation through human trafficking, begar and forced labour. It is an important constitutional protection of human dignity and freedom from exploitation.`
+        },
+        {
+          heading: "What is Article 23 in simple words?",
+          content: `In simple words, Article 23 says that no person can be subjected to human trafficking, begar or similar forms of forced labour. The State may impose compulsory public service in accordance with law, but it cannot discriminate solely on the specified grounds.`
+        },
+        {
+          heading: "What is the difference between Article 23 and Article 24?",
+          content: `Article 23 deals with human trafficking, begar and forced labour. Article 24 specifically prohibits the employment of children below fourteen years in factories, mines or other hazardous employment.`
+        },
+        {
+          heading: "Article 23 and human dignity",
+          content: `Article 23 helps protect human dignity by prohibiting practices that exploit people through trafficking and forced labour. It forms part of the Fundamental Rights guaranteed under Part III of the Constitution.`
+        }
+      ],
+      mr: [
+        {
+          heading: "भारतीय संविधानातील अनुच्छेद २३ म्हणजे काय?",
+          content: `अनुच्छेद २३ हा शोषणाविरुद्धच्या अधिकाराचा भाग आहे. तो मानवी तस्करी, बेगार आणि सक्तीच्या मजुरीच्या इतर समान प्रकारांना प्रतिबंध करतो.`
+        },
+        {
+          heading: "अनुच्छेद २३ मध्ये काय सांगितले आहे?",
+          content: `अनुच्छेद २३ मानवी तस्करी, बेगार आणि सक्तीच्या मजुरीच्या इतर समान प्रकारांना प्रतिबंध करतो. तसेच सार्वजनिक उद्देशासाठी सक्तीची सेवा लादण्याची राज्याला परवानगी देतो, मात्र विशिष्ट आधारांवर भेदभाव करण्यास मनाई करतो.`
+        },
+        {
+          heading: "अनुच्छेद २३ कोणत्या मूलभूत अधिकाराचा भाग आहे?",
+          content: `अनुच्छेद २३ हा संविधानाच्या भाग III मधील शोषणाविरुद्धच्या अधिकाराचा भाग आहे. त्यानंतर अनुच्छेद २४ येतो, जो कारखाने, खाणी आणि इतर धोकादायक रोजगारामध्ये बालकांच्या रोजगारासंबंधी आहे.`
+        },
+        {
+          heading: "अनुच्छेद २३ अंतर्गत कोणत्या गोष्टींना प्रतिबंध आहे?",
+          content: `अनुच्छेद २३ मानवी तस्करी, बेगार आणि सक्तीच्या मजुरीच्या इतर समान प्रकारांना प्रतिबंध करतो.`
+        },
+        {
+          heading: "मानवी तस्करी म्हणजे काय?",
+          content: `मानवी तस्करीमध्ये व्यक्तींची बेकायदेशीर भरती, वाहतूक, हस्तांतरण किंवा शोषण यांचा समावेश होऊ शकतो. अनुच्छेद २३ मानवी तस्करीविरुद्ध घटनात्मक संरक्षण देतो.`
+        },
+        {
+          heading: "सक्तीची मजुरी म्हणजे काय?",
+          content: `सक्तीची मजुरी म्हणजे एखाद्या व्यक्तीला त्याच्या इच्छेविरुद्ध दबाव, जबरदस्ती किंवा इतर प्रकारच्या सक्तीने काम करण्यास भाग पाडणे.`
+        },
+        {
+          heading: "अनुच्छेद २३ अंतर्गत बेगार म्हणजे काय?",
+          content: `बेगार म्हणजे एखाद्या व्यक्तीकडून त्याच्या इच्छेविरुद्ध किंवा योग्य मोबदल्याशिवाय सक्तीने काम करून घेणे. अनुच्छेद २३ मध्ये बेगारला स्पष्टपणे प्रतिबंध करण्यात आला आहे.`
+        },
+        {
+          heading: "राज्य सक्तीची सेवा लादू शकते का?",
+          content: `अनुच्छेद २३(२) नुसार राज्य सार्वजनिक उद्देशासाठी सक्तीची सेवा लादू शकते. मात्र अशी सेवा लादताना केवळ धर्म, वंश, जात किंवा वर्ग या आधारांवर भेदभाव करता येत नाही.`
+        },
+        {
+          heading: "अनुच्छेद २३ महत्त्वाचा का आहे?",
+          content: `अनुच्छेद २३ मानवी तस्करी, बेगार आणि सक्तीच्या मजुरीद्वारे होणाऱ्या शोषणापासून व्यक्तींचे संरक्षण करतो. मानवी प्रतिष्ठा आणि शोषणापासून स्वातंत्र्याचे संरक्षण करण्यासाठी ही महत्त्वाची घटनात्मक तरतूद आहे.`
+        },
+        {
+          heading: "अनुच्छेद २३ सोप्या भाषेत",
+          content: `सोप्या भाषेत, अनुच्छेद २३ सांगतो की कोणत्याही व्यक्तीची मानवी तस्करी करता येणार नाही किंवा तिला बेगार किंवा त्यासारख्या सक्तीच्या मजुरीस भाग पाडता येणार नाही. कायद्यानुसार सार्वजनिक उद्देशासाठी सक्तीची सेवा लादता येऊ शकते, मात्र विशिष्ट आधारांवर भेदभाव करता येत नाही.`
+        },
+        {
+          heading: "अनुच्छेद २३ आणि अनुच्छेद २४ मध्ये काय फरक आहे?",
+          content: `अनुच्छेद २३ मानवी तस्करी, बेगार आणि सक्तीच्या मजुरीशी संबंधित आहे. अनुच्छेद २४ विशेषतः चौदा वर्षांखालील बालकांना कारखाने, खाणी किंवा इतर धोकादायक रोजगारामध्ये कामावर ठेवण्यास प्रतिबंध करतो.`
+        },
+        {
+          heading: "अनुच्छेद २३ आणि मानवी प्रतिष्ठा",
+          content: `अनुच्छेद २३ मानवी तस्करी आणि सक्तीच्या मजुरीद्वारे होणाऱ्या शोषणास प्रतिबंध करून मानवी प्रतिष्ठेचे संरक्षण करण्यास मदत करतो. हा संविधानाच्या भाग III मधील मूलभूत अधिकारांचा एक भाग आहे.`
+        }
+      ]
+    },
+    keywords: [
+      "Article 23",
+      "Article 23 of Indian Constitution",
+      "Article 23 forced labour",
+      "Article 23 human trafficking",
+      "Article 23 begar",
+      "Right against Exploitation",
+      "Article 23(1)",
+      "Article 23(2)",
+      "forced labour in India",
+      "human trafficking in India",
+      "prohibition of forced labour",
+      "कलम 23",
+      "भारतीय संविधान कलम 23",
+      "कलम 23 मानवी तस्करी",
+      "कलम 23 सक्तीची मजुरी",
+      "शोषणाविरुद्धचा अधिकार",
+      "मानवी तस्करी",
+      "सक्तीची मजुरी",
+      "बेगार"
+    ],
+    relatedIds: ["21", "22", "24"],
+    source: {
+      name: "Legislative Department, Ministry of Law and Justice, Government of India",
+      url: "https://www.legislative.gov.in/constitution-of-india/"
+    },
+    lastVerified: "2026-10-08"
+  },
+  {
+    id: "20",
+    articleNumber: "Article 20",
+    title: {
+      en: "Protection in Respect of Conviction for Offences",
+      mr: "गुन्ह्यांबाबत दोषसिद्धीच्या संदर्भातील संरक्षण"
+    },
+    categoryKey: "fundamental-rights",
+    officialText: {
+      en: `Protection in respect of conviction for offences.—(1) No person shall be convicted of any offence except for violation of a law in force at the time of the commission of the act charged as an offence, nor be subjected to a penalty greater than that which might have been inflicted under the law in force at the time of the commission of the offence.
+
+(2) No person shall be prosecuted and punished for the same offence more than once.
+
+(3) No person accused of any offence shall be compelled to be a witness against himself.`,
+      mr: `गुन्ह्यांबाबत दोषसिद्धीच्या संदर्भातील संरक्षण.—(१) एखादी कृती गुन्हा म्हणून आरोपित करण्यात आली त्या वेळी अंमलात असलेल्या कायद्याचे उल्लंघन केल्याशिवाय कोणत्याही व्यक्तीला त्या गुन्ह्याबद्दल दोषी ठरवले जाणार नाही; तसेच गुन्हा घडला त्या वेळी लागू असलेल्या कायद्यानुसार देता आली असती त्यापेक्षा अधिक शिक्षा दिली जाणार नाही.
+
+(२) एकाच गुन्ह्यासाठी कोणत्याही व्यक्तीवर एकापेक्षा अधिक वेळा खटला चालवून शिक्षा केली जाणार नाही.
+
+(३) कोणत्याही गुन्ह्याचा आरोप असलेल्या व्यक्तीला स्वतःविरुद्ध साक्षीदार होण्यास भाग पाडले जाणार नाही.`,
+      verified: true
+    },
+    simpleExplanation: {
+      en: `Article 20 provides three important protections in criminal law.
+
+First, a person cannot be convicted for an act that was not an offence under the law in force when it was committed, nor given a greater penalty retrospectively.
+
+Second, a person cannot be prosecuted and punished more than once for the same offence.
+
+Third, an accused person cannot be compelled to be a witness against themselves.
+
+These protections help prevent arbitrary criminal punishment and safeguard fairness in criminal proceedings.`,
+      mr: `अनुच्छेद २० गुन्हेगारी कायद्याच्या संदर्भात तीन महत्त्वाची संरक्षणे देतो.
+
+पहिले, एखादी कृती घडली त्या वेळी ती कायद्यानुसार गुन्हा नसेल, तर नंतरच्या कायद्याच्या आधारे त्या कृतीसाठी सामान्यतः दोषी ठरवता येत नाही. तसेच नंतरच्या कायद्याने अधिक कठोर शिक्षा मागील तारखेपासून लागू करता येत नाही.
+
+दुसरे, एकाच गुन्ह्यासाठी पुन्हा खटला चालवून शिक्षा करण्यास प्रतिबंध आहे.
+
+तिसरे, आरोपी व्यक्तीला स्वतःविरुद्ध साक्ष देण्यास भाग पाडता येत नाही.
+
+ही संरक्षणे मनमानी गुन्हेगारी शिक्षेला प्रतिबंध करण्यासाठी आणि न्याय्य प्रक्रियेचे रक्षण करण्यासाठी महत्त्वाची आहेत.`
+    },
+    verySimple: {
+      en: "Article 20 protects people from retrospective criminal punishment, being punished twice for the same offence, and being forced to testify against themselves.",
+      mr: "अनुच्छेद २० मागील तारखेपासून गुन्हेगारी शिक्षा देणे, एकाच गुन्ह्यासाठी पुन्हा शिक्षा करणे आणि स्वतःविरुद्ध जबरदस्तीने साक्ष द्यायला लावणे यांपासून संरक्षण देतो."
+    },
+    example: {
+      en: `Suppose a person performs an act that is not a criminal offence under the law in force at that time. A later law generally cannot be used to convict that person for the earlier act.
+
+Article 20 also protects against prosecution and punishment more than once for the same offence, and against being compelled to testify against oneself.`,
+      mr: `समजा, एखाद्या व्यक्तीने कृती केली त्या वेळी लागू असलेल्या कायद्यानुसार ती कृती गुन्हा नव्हती. नंतर तो गुन्हा ठरवणारा कायदा केला, तर त्या आधीच्या कृतीसाठी सामान्यतः त्या व्यक्तीला दोषी ठरवता येत नाही.
+
+त्याचप्रमाणे, एकाच गुन्ह्यासाठी पुन्हा खटला चालवून शिक्षा करणे किंवा आरोपीला स्वतःविरुद्ध साक्ष देण्यास भाग पाडणे यांपासूनही अनुच्छेद २० संरक्षण देतो.`
+    },
+    seoSections: {
+      en: [
+        {
+          heading: "What is Article 20 of the Indian Constitution?",
+          content: "Article 20 provides protection in respect of conviction for offences. It protects against retrospective criminal punishment, double jeopardy and compelled self-incrimination."
+        },
+        {
+          heading: "What are the three protections under Article 20?",
+          content: "Article 20 protects against retrospective criminal laws imposing greater punishment, prosecution and punishment more than once for the same offence, and being compelled to testify against oneself."
+        },
+        {
+          heading: "What is double jeopardy under Article 20?",
+          content: "Article 20(2) states that no person shall be prosecuted and punished for the same offence more than once."
+        },
+        {
+          heading: "What is protection against self-incrimination?",
+          content: "Article 20(3) states that a person accused of an offence cannot be compelled to be a witness against themselves."
+        },
+        {
+          heading: "Why is Article 20 important?",
+          content: "Article 20 safeguards individuals against specified forms of unfair criminal punishment and helps protect fairness in criminal proceedings."
+        }
+      ],
+      mr: [
+        {
+          heading: "भारतीय संविधानातील अनुच्छेद २० म्हणजे काय?",
+          content: "अनुच्छेद २० गुन्ह्यांबाबत दोषसिद्धीच्या संदर्भात संरक्षण देतो. मागील तारखेपासून कठोर गुन्हेगारी शिक्षा, एकाच गुन्ह्यासाठी पुन्हा शिक्षा आणि स्वतःविरुद्ध साक्ष देण्याची सक्ती यांपासून तो संरक्षण करतो."
+        },
+        {
+          heading: "अनुच्छेद २० अंतर्गत कोणती तीन संरक्षणे मिळतात?",
+          content: "अनुच्छेद २० मागील तारखेपासून अधिक कठोर शिक्षा देणे, एकाच गुन्ह्यासाठी पुन्हा खटला चालवून शिक्षा करणे आणि स्वतःविरुद्ध साक्ष देण्यास भाग पाडणे यांपासून संरक्षण देतो."
+        },
+        {
+          heading: "अनुच्छेद २० अंतर्गत दुहेरी शिक्षेपासून संरक्षण म्हणजे काय?",
+          content: "अनुच्छेद २०(२) नुसार, एकाच गुन्ह्यासाठी कोणत्याही व्यक्तीवर एकापेक्षा अधिक वेळा खटला चालवून शिक्षा केली जाऊ शकत नाही."
+        },
+        {
+          heading: "स्वतःविरुद्ध साक्ष देण्यापासून संरक्षण म्हणजे काय?",
+          content: "अनुच्छेद २०(३) नुसार, गुन्ह्याचा आरोप असलेल्या व्यक्तीला स्वतःविरुद्ध साक्षीदार होण्यास भाग पाडता येत नाही."
+        },
+        {
+          heading: "अनुच्छेद २० महत्त्वाचा का आहे?",
+          content: "अनुच्छेद २० अन्यायकारक गुन्हेगारी शिक्षेच्या काही प्रकारांपासून संरक्षण देतो आणि गुन्हेगारी न्यायप्रक्रियेतील न्याय्यतेचे रक्षण करण्यास मदत करतो."
+        }
+      ]
+    },
+    keywords: [
+      "Article 20",
+      "Article 20 of Indian Constitution",
+      "Protection in Respect of Conviction for Offences",
+      "Double Jeopardy",
+      "Self Incrimination",
+      "Fundamental Rights",
+      "कलम 20",
+      "अनुच्छेद २०",
+      "दुहेरी शिक्षा",
+      "स्वतःविरुद्ध साक्ष",
+      "मूलभूत अधिकार"
+    ],
+    relatedIds: ["19", "21", "22", "32"],
+    source: {
+      name: "Legislative Department, Ministry of Law and Justice, Government of India",
+      url: "https://www.legislative.gov.in/constitution-of-india/"
+    },
+    lastVerified: "2026-10-19"
+  },
+  {
+    id: "24",
+    articleNumber: "Article 24",
+    title: {
+      en: "Prohibition of Employment of Children in Factories, etc.",
+      mr: "कारखाने इत्यादींमध्ये बालकांच्या रोजगारावर बंदी"
+    },
+    categoryKey: "right-against-exploitation",
+    officialText: {
+      en: `No child below the age of fourteen years shall be employed to work in any factory or mine or engaged in any other hazardous employment.`,
+      mr: `चौदा वर्षांखालील कोणत्याही बालकाला कोणत्याही कारखान्यात किंवा खाणीत काम करण्यासाठी किंवा इतर कोणत्याही धोकादायक रोजगारात काम करण्यासाठी नियुक्त केले जाणार नाही.`,
+      verified: true
+    },
+    simpleExplanation: {
+      en: `Article 24 prohibits the employment of children below fourteen years of age in factories, mines and other hazardous employment.
+
+It is part of the Right against Exploitation under Part III of the Constitution. This provision aims to protect children from dangerous working conditions that may threaten their health, safety and development.
+
+Article 24 should be read alongside applicable child labour laws, which may provide additional protections and restrictions.`,
+      mr: `अनुच्छेद २४ नुसार चौदा वर्षांखालील बालकांना कारखाने, खाणी किंवा इतर धोकादायक रोजगारामध्ये कामावर ठेवण्यास प्रतिबंध आहे.
+
+हा अनुच्छेद संविधानाच्या भाग III मधील शोषणाविरुद्धच्या अधिकाराचा भाग आहे. धोकादायक कामामुळे बालकांच्या आरोग्याला, सुरक्षिततेला आणि विकासाला धोका निर्माण होऊ नये, हा या तरतुदीचा उद्देश आहे.
+
+अनुच्छेद २४ सोबत लागू असलेले बालमजुरीविषयक कायदेही लक्षात घेणे आवश्यक आहे. त्या कायद्यांमध्ये अतिरिक्त संरक्षणे आणि निर्बंध असू शकतात.`
+    },
+    verySimple: {
+      en: "Children below fourteen years cannot be employed in factories, mines or other hazardous work under Article 24.",
+      mr: "अनुच्छेद २४ नुसार चौदा वर्षांखालील बालकांना कारखाने, खाणी किंवा इतर धोकादायक कामांमध्ये रोजगार देता येत नाही."
+    },
+    example: {
+      en: `Suppose an employer wants to hire a thirteen-year-old child to work in a mine. Article 24 prohibits employing a child below fourteen years of age in a mine.
+
+The provision is intended to protect children from hazardous working conditions and exploitation.`,
+      mr: `समजा, एखाद्या मालकाला तेरा वर्षांच्या बालकाला खाणीत कामावर ठेवायचे आहे. अनुच्छेद २४ नुसार चौदा वर्षांखालील बालकाला खाणीत कामावर ठेवण्यास प्रतिबंध आहे.
+
+धोकादायक कामाच्या परिस्थितीपासून आणि शोषणापासून बालकांचे संरक्षण करणे हा या तरतुदीचा उद्देश आहे.`
+    },
+    seoSections: {
+      en: [
+        {
+          heading: "What is Article 24 of the Indian Constitution?",
+          content: "Article 24 prohibits the employment of children below fourteen years of age in factories, mines and other hazardous employment."
+        },
+        {
+          heading: "What does Article 24 prohibit?",
+          content: "Article 24 prohibits employing children below fourteen years of age in factories, mines or other hazardous employment."
+        },
+        {
+          heading: "Which Fundamental Right includes Article 24?",
+          content: "Article 24 is part of the Right against Exploitation under Part III of the Indian Constitution."
+        },
+        {
+          heading: "Why is Article 24 important?",
+          content: "Article 24 provides constitutional protection for children against specified hazardous employment and supports their health, safety and development."
+        },
+        {
+          heading: "What is the difference between Article 23 and Article 24?",
+          content: "Article 23 prohibits human trafficking, begar and similar forms of forced labour. Article 24 specifically addresses employment of children below fourteen years in factories, mines and other hazardous employment."
+        }
+      ],
+      mr: [
+        {
+          heading: "भारतीय संविधानातील अनुच्छेद २४ म्हणजे काय?",
+          content: "अनुच्छेद २४ चौदा वर्षांखालील बालकांना कारखाने, खाणी आणि इतर धोकादायक रोजगारामध्ये कामावर ठेवण्यास प्रतिबंध करतो."
+        },
+        {
+          heading: "अनुच्छेद २४ कशाला प्रतिबंध करतो?",
+          content: "अनुच्छेद २४ नुसार चौदा वर्षांखालील बालकांना कारखाने, खाणी किंवा इतर धोकादायक रोजगारात कामावर ठेवता येत नाही."
+        },
+        {
+          heading: "अनुच्छेद २४ कोणत्या मूलभूत अधिकाराचा भाग आहे?",
+          content: "अनुच्छेद २४ हा भारतीय संविधानाच्या भाग III मधील शोषणाविरुद्धच्या अधिकाराचा भाग आहे."
+        },
+        {
+          heading: "अनुच्छेद २४ महत्त्वाचा का आहे?",
+          content: "अनुच्छेद २४ बालकांना विशिष्ट धोकादायक रोजगारापासून घटनात्मक संरक्षण देतो आणि त्यांच्या आरोग्य, सुरक्षितता व विकासाचे रक्षण करण्यास मदत करतो."
+        },
+        {
+          heading: "अनुच्छेद २३ आणि अनुच्छेद २४ मध्ये काय फरक आहे?",
+          content: "अनुच्छेद २३ मानवी तस्करी, बेगार आणि सक्तीच्या मजुरीच्या समान प्रकारांना प्रतिबंध करतो. अनुच्छेद २४ चौदा वर्षांखालील बालकांना कारखाने, खाणी आणि इतर धोकादायक रोजगारात कामावर ठेवण्यास प्रतिबंध करतो."
+        }
+      ]
+    },
+    keywords: [
+      "Article 24",
+      "Article 24 of Indian Constitution",
+      "Child Labour",
+      "Prohibition of Child Employment",
+      "Right against Exploitation",
+      "कलम 24",
+      "अनुच्छेद २४",
+      "बालमजुरी",
+      "शोषणाविरुद्धचा अधिकार",
+      "बालकांचे संरक्षण"
+    ],
+    relatedIds: ["21", "23", "21A"],
+    source: {
+      name: "Legislative Department, Ministry of Law and Justice, Government of India",
+      url: "https://www.legislative.gov.in/constitution-of-india/"
+    },
+    lastVerified: "2026-10-19"
+  },
+  {
+    id: "51A",
+    articleNumber: "Article 51A",
+    title: {
+      en: "Fundamental Duties",
+      mr: "मूलभूत कर्तव्ये"
+    },
+    categoryKey: "fundamental-duties",
+    officialText: {
+      en: `It shall be the duty of every citizen of India—
+
+(a) to abide by the Constitution and respect its ideals and institutions, the National Flag and the National Anthem;
+
+(b) to cherish and follow the noble ideals which inspired our national struggle for freedom;
+
+(c) to uphold and protect the sovereignty, unity and integrity of India;
+
+(d) to defend the country and render national service when called upon to do so;
+
+(e) to promote harmony and the spirit of common brotherhood amongst all the people of India transcending religious, linguistic and regional or sectional diversities; to renounce practices derogatory to the dignity of women;
+
+(f) to value and preserve the rich heritage of our composite culture;
+
+(g) to protect and improve the natural environment including forests, lakes, rivers and wild life, and to have compassion for living creatures;
+
+(h) to develop the scientific temper, humanism and the spirit of inquiry and reform;
+
+(i) to safeguard public property and to abjure violence;
+
+(j) to strive towards excellence in all spheres of individual and collective activity so that the nation constantly rises to higher levels of endeavour and achievement;
+
+(k) who is a parent or guardian to provide opportunities for education to his child or, as the case may be, ward between the age of six and fourteen years.`,
+      mr: `भारताच्या प्रत्येक नागरिकाचे हे कर्तव्य असेल की—
+
+(अ) संविधानाचे पालन करणे आणि त्याचे आदर्श व संस्था, राष्ट्रध्वज आणि राष्ट्रगीत यांचा आदर करणे;
+
+(आ) आपल्या स्वातंत्र्यलढ्याला प्रेरणा देणाऱ्या उदात्त आदर्शांचे जतन करणे व त्यांचे अनुसरण करणे;
+
+(इ) भारताचे सार्वभौमत्व, एकता आणि अखंडता जपणे व त्यांचे संरक्षण करणे;
+
+(ई) देशाचे संरक्षण करणे आणि आवाहन केले असता राष्ट्रीय सेवा बजावणे;
+
+(उ) धार्मिक, भाषिक, प्रादेशिक किंवा वर्गीय विविधतेच्या पलीकडे जाऊन भारतातील सर्व लोकांमध्ये सलोखा आणि बंधुभावाची भावना वाढवणे; तसेच महिलांच्या प्रतिष्ठेला कमीपणा आणणाऱ्या प्रथांचा त्याग करणे;
+
+(ऊ) आपल्या संमिश्र संस्कृतीच्या समृद्ध वारशाचे मूल्य जाणणे व त्याचे जतन करणे;
+
+(ए) वने, तलाव, नद्या आणि वन्यजीव यांसह नैसर्गिक पर्यावरणाचे संरक्षण व संवर्धन करणे आणि सजीवांबद्दल करुणा बाळगणे;
+
+(ऐ) वैज्ञानिक दृष्टिकोन, मानवतावाद आणि शोध व सुधारणेची भावना विकसित करणे;
+
+(ओ) सार्वजनिक मालमत्तेचे रक्षण करणे आणि हिंसेचा त्याग करणे;
+
+(औ) वैयक्तिक आणि सामूहिक कार्याच्या सर्व क्षेत्रांत उत्कृष्टतेसाठी प्रयत्न करणे, जेणेकरून राष्ट्र सतत उच्च स्तरावरील प्रयत्न आणि यशाकडे वाटचाल करेल;
+
+(अं) पालक किंवा संरक्षक म्हणून सहा ते चौदा वर्षे वयोगटातील आपल्या मुलाला किंवा पाल्याला शिक्षणाच्या संधी उपलब्ध करून देणे.`,
+      verified: true
+    },
+    simpleExplanation: {
+      en: `Article 51A lists the Fundamental Duties of citizens of India. These duties encourage citizens to respect the Constitution, protect the country's unity, promote harmony, preserve cultural heritage, protect the environment, develop scientific temper, safeguard public property and support children's education.
+
+Fundamental Duties were added to the Constitution through the 42nd Constitutional Amendment in 1976. Clause (k), relating to providing educational opportunities for children between six and fourteen years, was added by the 86th Constitutional Amendment in 2002.
+
+These duties guide responsible citizenship. Their legal enforceability depends on the relevant constitutional provisions and applicable laws.`,
+      mr: `अनुच्छेद ५१A मध्ये भारताच्या नागरिकांची मूलभूत कर्तव्ये नमूद केली आहेत. संविधानाचा आदर करणे, देशाची एकता व अखंडता जपणे, सामाजिक सलोखा वाढवणे, सांस्कृतिक वारशाचे जतन करणे, पर्यावरणाचे संरक्षण करणे, वैज्ञानिक दृष्टिकोन विकसित करणे, सार्वजनिक मालमत्तेचे रक्षण करणे आणि मुलांच्या शिक्षणासाठी संधी उपलब्ध करून देणे यांचा त्यात समावेश होतो.
+
+मूलभूत कर्तव्ये १९७६ मध्ये ४२व्या घटनादुरुस्तीने संविधानात समाविष्ट करण्यात आली. सहा ते चौदा वर्षे वयोगटातील मुलांच्या शिक्षणासंबंधी खंड (k) हा २००२ मधील ८६व्या घटनादुरुस्तीने समाविष्ट करण्यात आला.
+
+ही कर्तव्ये जबाबदार नागरिकत्वासाठी मार्गदर्शन करतात. त्यांची कायदेशीर अंमलबजावणी संबंधित घटनात्मक तरतुदी आणि लागू कायद्यांवर अवलंबून असते.`
+    },
+    verySimple: {
+      en: "Article 51A explains the fundamental duties of Indian citizens, such as respecting the Constitution, protecting the environment, safeguarding public property and supporting children’s education.",
+      mr: "अनुच्छेद ५१A भारतीय नागरिकांची मूलभूत कर्तव्ये सांगतो. संविधानाचा आदर करणे, पर्यावरणाचे संरक्षण करणे, सार्वजनिक मालमत्ता जपणे आणि मुलांच्या शिक्षणाला मदत करणे ही त्याची उदाहरणे आहेत."
+    },
+    example: {
+      en: `A citizen who respects the National Flag, avoids damaging public property, helps protect rivers and forests, and promotes harmony is acting consistently with the values reflected in Article 51A.
+
+Parents and guardians also have a fundamental duty under clause (k) to provide opportunities for education to their children or wards between six and fourteen years of age.`,
+      mr: `राष्ट्रध्वजाचा आदर करणे, सार्वजनिक मालमत्तेचे नुकसान टाळणे, नद्या व जंगलांचे संरक्षण करणे आणि समाजात सलोखा वाढवणे ही अनुच्छेद ५१A मधील मूल्यांशी सुसंगत वर्तणुकीची उदाहरणे आहेत.
+
+तसेच, खंड (k) नुसार पालक किंवा संरक्षकांचे सहा ते चौदा वर्षे वयोगटातील मुलांना किंवा पाल्यांना शिक्षणाच्या संधी उपलब्ध करून देणे हे मूलभूत कर्तव्य आहे.`
+    },
+    seoSections: {
+      en: [
+        {
+          heading: "What is Article 51A of the Indian Constitution?",
+          content: "Article 51A lists the Fundamental Duties of Indian citizens, including respect for the Constitution, national unity, environmental protection and safeguarding public property."
+        },
+        {
+          heading: "How many Fundamental Duties are listed in Article 51A?",
+          content: "Article 51A contains eleven clauses describing the Fundamental Duties of citizens of India."
+        },
+        {
+          heading: "When were Fundamental Duties added to the Constitution?",
+          content: "Fundamental Duties were added through the 42nd Constitutional Amendment in 1976. The duty concerning educational opportunities for children aged six to fourteen was added through the 86th Constitutional Amendment in 2002."
+        },
+        {
+          heading: "What are examples of Fundamental Duties?",
+          content: "Examples include respecting the Constitution and National Flag, promoting harmony, protecting the environment, safeguarding public property and developing scientific temper."
+        },
+        {
+          heading: "Are Fundamental Duties important?",
+          content: "Fundamental Duties encourage responsible citizenship and remind citizens of their responsibilities towards the Constitution, society and the environment."
+        }
+      ],
+      mr: [
+        {
+          heading: "भारतीय संविधानातील अनुच्छेद ५१A म्हणजे काय?",
+          content: "अनुच्छेद ५१A मध्ये भारतीय नागरिकांची मूलभूत कर्तव्ये नमूद केली आहेत. त्यात संविधानाचा आदर, राष्ट्रीय एकता, पर्यावरणाचे संरक्षण आणि सार्वजनिक मालमत्तेचे रक्षण यांचा समावेश होतो."
+        },
+        {
+          heading: "अनुच्छेद ५१A मध्ये किती मूलभूत कर्तव्ये आहेत?",
+          content: "अनुच्छेद ५१A मध्ये भारतीय नागरिकांच्या मूलभूत कर्तव्यांशी संबंधित अकरा खंड आहेत."
+        },
+        {
+          heading: "मूलभूत कर्तव्ये संविधानात कधी समाविष्ट झाली?",
+          content: "मूलभूत कर्तव्ये १९७६ मध्ये ४२व्या घटनादुरुस्तीने समाविष्ट झाली. सहा ते चौदा वर्षे वयोगटातील मुलांच्या शिक्षणासंबंधी कर्तव्य २००२ मध्ये ८६व्या घटनादुरुस्तीने समाविष्ट झाले."
+        },
+        {
+          heading: "मूलभूत कर्तव्यांची उदाहरणे कोणती?",
+          content: "संविधान व राष्ट्रध्वजाचा आदर करणे, सामाजिक सलोखा वाढवणे, पर्यावरणाचे संरक्षण करणे, सार्वजनिक मालमत्ता जपणे आणि वैज्ञानिक दृष्टिकोन विकसित करणे ही मूलभूत कर्तव्यांची उदाहरणे आहेत."
+        },
+        {
+          heading: "मूलभूत कर्तव्ये महत्त्वाची का आहेत?",
+          content: "मूलभूत कर्तव्ये जबाबदार नागरिकत्वाला प्रोत्साहन देतात आणि संविधान, समाज व पर्यावरणाप्रती नागरिकांच्या जबाबदाऱ्यांची जाणीव करून देतात."
+        }
+      ]
+    },
+    keywords: [
+      "Article 51A",
+      "Article 51A of Indian Constitution",
+      "Fundamental Duties",
+      "Duties of Indian Citizens",
+      "42nd Constitutional Amendment",
+      "86th Constitutional Amendment",
+      "Article 51A(k)",
+      "कलम 51A",
+      "अनुच्छेद ५१A",
+      "मूलभूत कर्तव्ये",
+      "भारतीय नागरिकांची कर्तव्ये",
+      "भारतीय संविधान"
+    ],
+    relatedIds: ["14", "19", "21", "32"],
+    source: {
+      name: "Legislative Department, Ministry of Law and Justice, Government of India",
+      url: "https://www.legislative.gov.in/constitution-of-india/"
+    },
+    lastVerified: "2026-10-19"
   }
 ];
 function getArticleById(id) {
@@ -4363,216 +5161,6 @@ function getRelatedArticles(article, limit = 6) {
     };
   });
   return scoredArticles.sort((a, b) => b.score - a.score).slice(0, limit).map(({ article: relatedArticle }) => relatedArticle);
-}
-const facts = [
-  {
-    en: "The original Constitution of India was handwritten and calligraphed, not typed or printed.",
-    mr: "भारतीय संविधानाची मूळ प्रत टंकलिखित किंवा मुद्रित नसून हस्तलिखित व सुलेखन केलेली आहे."
-  },
-  {
-    en: "The Constituent Assembly took nearly three years to draft the Constitution.",
-    mr: "संविधान तयार करण्यासाठी संविधान सभेला जवळपास तीन वर्षे लागली."
-  },
-  {
-    en: "India is often described as having one of the longest written constitutions of any sovereign country.",
-    mr: "भारताचे संविधान जगातील सार्वभौम देशांच्या सर्वात लांब लिखित संविधानांपैकी एक मानले जाते."
-  },
-  {
-    en: "The Preamble was amended once, by the 42nd Amendment in 1976.",
-    mr: "प्रस्तावनेत केवळ एकदाच, १९७६ मधील ४२व्या दुरुस्तीने बदल करण्यात आला."
-  },
-  {
-    en: "B. R. Ambedkar chaired the Drafting Committee of the Constituent Assembly.",
-    mr: "डॉ. बाबासाहेब आंबेडकर हे संविधान सभेच्या मसुदा समितीचे अध्यक्ष होते."
-  },
-  {
-    en: "The Constitution recognises 22 languages in its Eighth Schedule.",
-    mr: "संविधानाच्या आठव्या परिशिष्टात २२ भाषांना मान्यता दिली आहे."
-  },
-  {
-    en: "Fundamental Duties, added in 1976, were inspired in part by the constitution of the erstwhile Soviet Union.",
-    mr: "१९७६ मध्ये जोडलेली मूलभूत कर्तव्ये अंशतः पूर्वीच्या सोव्हिएत संघाच्या संविधानापासून प्रेरित होती."
-  }
-];
-function getTodaysFact() {
-  const start = new Date((/* @__PURE__ */ new Date()).getFullYear(), 0, 0);
-  const diff = /* @__PURE__ */ new Date() - start;
-  const dayOfYear = Math.floor(diff / (1e3 * 60 * 60 * 24));
-  return facts[dayOfYear % facts.length];
-}
-function RecommendedBooks({ books: books2 }) {
-  const { pick } = useLanguage();
-  return /* @__PURE__ */ jsxs("section", { className: "mx-auto max-w-7xl px-4 py-12 sm:px-6", children: [
-    /* @__PURE__ */ jsx("div", { className: "flex items-end justify-between gap-4", children: /* @__PURE__ */ jsxs("div", { children: [
-      /* @__PURE__ */ jsx("p", { className: "text-xs font-semibold uppercase tracking-[0.2em] text-saffron", children: "Reading list" }),
-      /* @__PURE__ */ jsx("h2", { className: "font-display mt-2 text-3xl font-semibold text-navy dark:text-ink-dark", children: pick({
-        en: "Recommended Books",
-        mr: "शिफारस केलेली पुस्तके"
-      }) })
-    ] }) }),
-    /* @__PURE__ */ jsx("div", { className: "mt-6 grid gap-5 md:grid-cols-2", children: books2.map((book) => /* @__PURE__ */ jsxs(
-      "article",
-      {
-        className: "flex gap-5 rounded-2xl border border-navy/10 bg-white/60 p-5 shadow-sm transition hover:shadow-md dark:border-ink-dark/10 dark:bg-white/[0.04]",
-        children: [
-          /* @__PURE__ */ jsx("div", { className: "h-40 w-28 shrink-0 overflow-hidden rounded-lg bg-navy/[0.06] dark:bg-white/10", children: book.image ? /* @__PURE__ */ jsx(
-            "img",
-            {
-              src: book.image,
-              alt: pick(book.title),
-              className: "h-full w-full object-cover",
-              loading: "lazy"
-            }
-          ) : /* @__PURE__ */ jsx("div", { className: "flex h-full w-full items-center justify-center text-center text-[10px] text-ink/40 dark:text-ink-dark/40", children: "Book cover" }) }),
-          /* @__PURE__ */ jsxs("div", { className: "flex min-w-0 flex-1 flex-col", children: [
-            /* @__PURE__ */ jsxs("p", { className: "text-xs text-saffron", children: [
-              book.category,
-              " · ",
-              book.language
-            ] }),
-            /* @__PURE__ */ jsx("h3", { className: "font-display mt-1 font-semibold leading-snug text-navy dark:text-ink-dark", children: pick(book.title) }),
-            book.author && /* @__PURE__ */ jsx("p", { className: "mt-1 text-xs text-ink/50 dark:text-ink-dark/50", children: book.author }),
-            /* @__PURE__ */ jsx("p", { className: "mt-2 line-clamp-2 text-sm leading-relaxed text-ink/60 dark:text-ink-dark/60", children: pick(book.description) }),
-            /* @__PURE__ */ jsxs("div", { className: "mt-auto flex items-center justify-between gap-3 pt-4", children: [
-              book.price && /* @__PURE__ */ jsxs("p", { className: "text-lg font-bold text-navy dark:text-ink-dark", children: [
-                "₹",
-                book.price
-              ] }),
-              /* @__PURE__ */ jsx(
-                "a",
-                {
-                  href: book.affiliateUrl || void 0,
-                  target: "_blank",
-                  rel: "nofollow sponsored noopener noreferrer",
-                  "aria-disabled": !book.affiliateUrl,
-                  className: `inline-flex items-center justify-center gap-1.5 rounded-lg px-4 py-2 text-sm font-semibold transition ${book.affiliateUrl ? "bg-saffron text-white hover:opacity-90" : "pointer-events-none bg-ink/10 text-ink/35"}`,
-                  children: book.affiliateUrl ? /* @__PURE__ */ jsxs(Fragment, { children: [
-                    "Buy Now",
-                    /* @__PURE__ */ jsx(ExternalLink, { size: 14 })
-                  ] }) : "Link coming soon"
-                }
-              )
-            ] })
-          ] })
-        ]
-      },
-      book.id
-    )) })
-  ] });
-}
-const books = [
-  {
-    id: "book-constitution-marathi",
-    title: {
-      en: "The Constitution of India",
-      mr: "भारताचे संविधान"
-    },
-    author: "Dr. Babasaheb Ambedkar",
-    description: {
-      en: "The Constitution of India in Marathi, updated up to the 106th Constitutional Amendment, including the amendment related to Article 370.",
-      mr: "भारताचे संविधान — 106व्या घटनादुरुस्तीपर्यंत अद्ययावत आवृत्ती, अनुच्छेद 370 संदर्भातील सुधारणेसह."
-    },
-    image: "/images/books/bharatache-sanvidhan.jpg",
-    price: 430,
-    affiliateUrl: "https://link.amazon/B0c3E6ZnQ",
-    category: "Indian Constitution",
-    language: "Marathi"
-  },
-  {
-    id: "book-polity-marathi",
-    title: {
-      en: "Indian Polity — 8th Edition",
-      mr: "भारतीय राजव्यवस्था — 8वी आवृत्ती"
-    },
-    author: "M. Laxmikanth",
-    description: {
-      en: "Marathi edition for UPSC and MPSC exams, featuring 95 well-structured chapters, 40+ conceptual videos, 18 appendices and solved MPSC PYQs.",
-      mr: "UPSC आणि MPSC परीक्षांसाठी मराठी आवृत्ती. 95 सुव्यवस्थित प्रकरणे, 40+ संकल्पनात्मक व्हिडिओ, 18 परिशिष्टे आणि सोडवलेले MPSC PYQs यांचा समावेश."
-    },
-    image: "/images/books/upsc.jpg",
-    price: 641,
-    affiliateUrl: "https://link.amazon/B06aGhdJp",
-    category: "UPSC / MPSC",
-    language: "Marathi"
-  }
-];
-const FEATURED_IDS = ["14", "19", "21", "21a", "32"];
-function Home() {
-  const { t, pick, language } = useLanguage();
-  const fact = getTodaysFact();
-  const featured = FEATURED_IDS.map((id) => articles.find((a) => a.id === id)).filter(Boolean);
-  return /* @__PURE__ */ jsxs("div", { children: [
-    /* @__PURE__ */ jsx(Hero, {}),
-    /* @__PURE__ */ jsx(Advertisement, { placement: "banner" }),
-    /* @__PURE__ */ jsxs("section", { className: "mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-20", children: [
-      /* @__PURE__ */ jsx("div", { className: "max-w-2xl", children: /* @__PURE__ */ jsx("h2", { lang: language, className: "font-display text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl", children: t("explore_heading") }) }),
-      /* @__PURE__ */ jsx("div", { className: "mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3", children: exploreCards.map((card) => /* @__PURE__ */ jsx(CategoryCard, { ...card }, card.path)) })
-    ] }),
-    /* @__PURE__ */ jsx(RecommendedBooks, { books }),
-    /* @__PURE__ */ jsx("section", { className: "border-y border-navy/10 dark:border-ink-dark/10 bg-white/40 dark:bg-white/[0.02]", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-20", children: [
-      /* @__PURE__ */ jsxs("div", { className: "flex flex-wrap items-end justify-between gap-4", children: [
-        /* @__PURE__ */ jsx("h2", { lang: language, className: "font-display text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl", children: t("important_articles") }),
-        /* @__PURE__ */ jsxs(
-          Link,
-          {
-            to: "/articles",
-            className: "inline-flex items-center gap-1.5 text-sm font-medium text-saffron",
-            children: [
-              t("view_all_articles"),
-              " ",
-              /* @__PURE__ */ jsx(ArrowRight, { size: 15 })
-            ]
-          }
-        )
-      ] }),
-      /* @__PURE__ */ jsx("div", { className: "mt-10 grid gap-5 sm:grid-cols-2", children: featured.map((article) => /* @__PURE__ */ jsx(ArticleCard, { article }, article.id)) })
-    ] }) }),
-    /* @__PURE__ */ jsx("section", { className: "mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-20", children: /* @__PURE__ */ jsxs("div", { className: "flex flex-col gap-6 rounded-2xl border border-gold/30 bg-gold/[0.06] p-6 sm:flex-row sm:items-center sm:p-8", children: [
-      /* @__PURE__ */ jsx("div", { className: "flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gold/15 text-gold", children: /* @__PURE__ */ jsx(Lightbulb, { size: 22 }) }),
-      /* @__PURE__ */ jsxs("div", { children: [
-        /* @__PURE__ */ jsx("h3", { lang: language, className: "font-display text-lg font-semibold text-navy dark:text-ink-dark", children: t("did_you_know") }),
-        /* @__PURE__ */ jsx("p", { lang: language, className: "mt-1.5 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70", children: pick(fact) })
-      ] })
-    ] }) })
-  ] });
-}
-const siteConfig = {
-  name: "Samvidhan",
-  url: "https://www.mysamvidhan.in",
-  defaultTitle: "Samvidhan | Understand the Constitution of India",
-  defaultDescription: "Understand the Constitution of India with simple explanations in English and Marathi."
-};
-const seoRoutes = {
-  "/": { title: { en: siteConfig.defaultTitle, mr: "संविधान | भारताचे संविधान समजून घ्या" }, description: { en: siteConfig.defaultDescription, mr: "भारतीय संविधान, कलमे, मूलभूत अधिकार, कर्तव्ये आणि दुरुस्त्या सोप्या भाषेत समजून घ्या." }, priority: "1.0", changefreq: "weekly" },
-  "/articles": { title: { en: "Constitutional Articles | Samvidhan", mr: "संवैधानिक कलमे | संविधान" }, description: { en: "Search and understand the Constitutional Articles of India with clear explanations.", mr: "भारतीय संविधानातील कलमे शोधा आणि स्पष्ट स्पष्टीकरणांसह समजून घ्या." }, priority: "0.9", changefreq: "weekly" },
-  "/current-affairs": { title: { en: "Current Affairs | Indian Constitution & Polity | MySamvidhan", mr: "चालू घडामोडी | भारतीय संविधान आणि राज्यशास्त्र | MySamvidhan" }, description: { en: "Read current affairs and important developments related to the Indian Constitution, polity and Supreme Court in simple language.", mr: "भारतीय संविधान, राज्यशास्त्र आणि सर्वोच्च न्यायालयाशी संबंधित चालू घडामोडी सोप्या भाषेत वाचा." }, priority: "0.9", changefreq: "daily" },
-  "/fundamental-rights": { title: { en: "Fundamental Rights | Samvidhan", mr: "मूलभूत अधिकार | संविधान" }, description: { en: "Understand the Fundamental Rights guaranteed by the Constitution of India.", mr: "भारतीय संविधानाने दिलेले मूलभूत अधिकार समजून घ्या." }, priority: "0.8", changefreq: "monthly" },
-  "/fundamental-duties": { title: { en: "Fundamental Duties | Samvidhan", mr: "मूलभूत कर्तव्ये | संविधान" }, description: { en: "Learn the Fundamental Duties of citizens of India.", mr: "भारताच्या नागरिकांची मूलभूत कर्तव्ये जाणून घ्या." }, priority: "0.8", changefreq: "monthly" },
-  "/directive-principles": { title: { en: "Directive Principles of State Policy | Samvidhan", mr: "राज्याच्या धोरणाची मार्गदर्शक तत्त्वे | संविधान" }, description: { en: "Explore the Directive Principles that guide governance and public policy.", mr: "शासन आणि सार्वजनिक धोरणाला दिशा देणारी मार्गदर्शक तत्त्वे जाणून घ्या." }, priority: "0.8", changefreq: "monthly" },
-  "/amendments": { title: { en: "Constitutional Amendments | Samvidhan", mr: "संविधान दुरुस्त्या | संविधान" }, description: { en: "Study important Constitutional Amendments and how India's Constitution has evolved.", mr: "महत्त्वाच्या संविधान दुरुस्त्या आणि संविधानातील बदलांचा अभ्यास करा." }, priority: "0.8", changefreq: "monthly" },
-  "/quiz": { title: { en: "Constitution Quiz | Samvidhan", mr: "संविधान प्रश्नमंजुषा | संविधान" }, description: { en: "Test your knowledge of the Constitution of India with a free quiz.", mr: "मोफत प्रश्नमंजुषेद्वारे भारतीय संविधानाचे तुमचे ज्ञान तपासा." }, priority: "0.7", changefreq: "monthly" },
-  "/faq": { title: { en: "Indian Constitution FAQs | Frequently Asked Questions – Samvidhan", mr: "भारतीय संविधान FAQ | वारंवार विचारले जाणारे प्रश्न – Samvidhan" }, description: { en: "Find answers to frequently asked questions about the Constitution of India, Fundamental Rights, Duties, Articles, Amendments, Preamble and more.", mr: "भारतीय संविधान, मूलभूत अधिकार, कर्तव्ये, कलमे, उद्देशिका, घटनादुरुस्ती आणि इतर महत्त्वाच्या विषयांवरील वारंवार विचारले जाणारे प्रश्न व उत्तरे जाणून घ्या." }, priority: "0.8", changefreq: "monthly" },
-  "/about": { title: { en: "About Samvidhan", mr: "संविधान विषयी" }, description: { en: "Learn about Samvidhan, an independent educational platform for constitutional knowledge.", mr: "संविधान या स्वतंत्र शैक्षणिक व्यासपीठाविषयी जाणून घ्या." }, priority: "0.5", changefreq: "yearly" },
-  "/contact": { title: { en: "Contact Samvidhan", mr: "संविधानशी संपर्क साधा" }, description: { en: "Contact Samvidhan with questions, suggestions, feedback or corrections.", mr: "प्रश्न, सूचना, अभिप्राय किंवा दुरुस्त्यांसाठी संविधानशी संपर्क साधा." }, priority: "0.4", changefreq: "yearly" },
-  "/privacy": { title: { en: "Privacy Policy | Samvidhan", mr: "गोपनीयता धोरण | संविधान" }, description: { en: "Read the Samvidhan Privacy Policy covering information, cookies, analytics and advertising.", mr: "माहिती, कुकीज, विश्लेषण आणि जाहिरातींसंबंधी संविधानचे गोपनीयता धोरण वाचा." }, priority: "0.3", changefreq: "yearly" },
-  "/privacy-policy": { title: { en: "Privacy Policy | Samvidhan", mr: "गोपनीयता धोरण | संविधान" }, description: { en: "Read the Samvidhan Privacy Policy covering information, cookies, analytics and advertising.", mr: "माहिती, कुकीज, विश्लेषण आणि जाहिरातींसंबंधी संविधानचे गोपनीयता धोरण वाचा." }, priority: "0.3", changefreq: "yearly" },
-  "/terms": { title: { en: "Terms & Conditions | Samvidhan", mr: "नियम आणि अटी | संविधान" }, description: { en: "Read the Samvidhan Terms and Conditions for using this educational website.", mr: "या शैक्षणिक वेबसाइटच्या वापरासाठी संविधानचे नियम आणि अटी वाचा." }, priority: "0.3", changefreq: "yearly" },
-  "/disclaimer": { title: { en: "Disclaimer | Samvidhan", mr: "अस्वीकरण | संविधान" }, description: { en: "Read the Samvidhan educational and informational content disclaimer.", mr: "संविधानच्या शैक्षणिक आणि माहितीपर सामग्रीचे अस्वीकरण वाचा." }, priority: "0.3", changefreq: "yearly" },
-  "/learn": { title: { en: "Learn Indian Constitution | Samvidhan", mr: "भारतीय संविधान शिका | संविधान" }, description: { en: "Learn the Indian Constitution through guided Articles, Rights and exam preparation paths.", mr: "मार्गदर्शित कलमे, अधिकार आणि परीक्षा तयारीच्या माध्यमातून भारतीय संविधान शिका." }, priority: "0.8", changefreq: "monthly" },
-  "/exam-preparation": { title: { en: "Exam Preparation | Samvidhan", mr: "परीक्षा तयारी | संविधान" }, description: { en: "Prepare for MPSC and UPSC Constitution and polity examinations.", mr: "MPSC आणि UPSC संविधान व राज्यशास्त्र परीक्षांची तयारी करा." }, priority: "0.7", changefreq: "monthly" },
-  "/premium": { title: { en: "Samvidhan Premium | Learn Better", mr: "संविधान प्रीमियम | अधिक चांगले शिका" }, description: { en: "Explore structured constitutional revision, advanced practice and exam preparation.", mr: "संरचित संविधान उजळणी, प्रगत सराव आणि परीक्षा तयारीचा अनुभव घ्या." }, priority: "0.5", changefreq: "monthly" },
-  "/article/:id": { indexable: true, changefreq: "monthly", priority: "0.7" },
-  "/dashboard": { indexable: false },
-  "/progress": { indexable: false },
-  "/premium-quiz": { indexable: false },
-  "/notes": { indexable: false },
-  "/bookmarks": { indexable: false }
-};
-function getSeoRoute(pathname) {
-  if (seoRoutes[pathname]) return seoRoutes[pathname];
-  if (pathname.startsWith("/article/")) return seoRoutes["/article/:id"];
-  if (pathname.startsWith("/current-affairs/")) return { indexable: true, changefreq: "daily", priority: "0.7" };
-  return { title: { en: siteConfig.defaultTitle, mr: "संविधान | भारताचे संविधान समजून घ्या" }, description: { en: siteConfig.defaultDescription, mr: "भारतीय संविधानाबद्दल सोप्या भाषेत जाणून घ्या." }, indexable: false };
 }
 const currentAffairs = [
   {
@@ -5655,16 +6243,1824 @@ The final regulatory framework, if introduced, would determine the precise requi
     relatedIds: ["19", "21", "21A", "32"],
     createdAt: "2026-09-29",
     updatedAt: "2026-09-29"
+  },
+  {
+    id: "supreme-court-voter-list-sir-2026",
+    articleNumber: "Current Affairs",
+    categoryKey: "current-affairs",
+    slug: "supreme-court-voter-list-election-commission",
+    title: {
+      en: "Voter List Irregularities: Supreme Court Notice to Election Commission",
+      mr: "मतदार यादीतील कथित अनियमितता: सुप्रीम कोर्टाची निवडणूक आयोगाला नोटीस"
+    },
+    seoTitle: {
+      en: "Voter List Irregularities: Supreme Court Notice | MySamvidhan",
+      mr: "मतदार यादीतील अनियमितता: सुप्रीम कोर्टाची नोटीस | MySamvidhan"
+    },
+    shortDescription: {
+      en: "The Supreme Court seeks responses from the Election Commission on petitions alleging irregularities in the Special Intensive Revision of electoral rolls.",
+      mr: "मतदार यादीच्या विशेष सखोल पुनरिक्षणातील कथित अनियमिततांबाबत दाखल याचिकांवर सुप्रीम कोर्टाने निवडणूक आयोगाकडून उत्तर मागितले आहे."
+    },
+    category: "Supreme Court",
+    categoryMr: "सर्वोच्च न्यायालय",
+    date: "2026-10-15",
+    introduction: {
+      en: "On October 15, 2026, the Supreme Court of India issued notices to the Election Commission of India, Chief Election Commissioner Gyanesh Kumar and Election Commissioners Sukhbir Singh Sandhu and Vivek Joshi. The notices followed petitions by opposition leaders raising allegations of large-scale voter deletions and irregularities during the Special Intensive Revision (SIR) of electoral rolls. The Court sought responses from the concerned authorities. The allegations remain subject to judicial consideration.",
+      mr: "15 ऑक्टोबर 2026 रोजी भारताच्या सर्वोच्च न्यायालयाने भारत निवडणूक आयोग, मुख्य निवडणूक आयुक्त ज्ञानेश कुमार आणि निवडणूक आयुक्त सुखबीर सिंह संधू व विवेक जोशी यांना नोटीस बजावली. मतदार यादीच्या विशेष सखोल पुनरिक्षणादरम्यान (SIR) मोठ्या प्रमाणात मतदारांची नावे वगळल्याचा आणि अनियमितता झाल्याचा आरोप करणाऱ्या विरोधी पक्षांच्या नेत्यांनी दाखल केलेल्या याचिकांनंतर ही नोटीस देण्यात आली. संबंधित प्राधिकरणांकडून न्यायालयाने उत्तर मागितले आहे. हे आरोप अद्याप न्यायालयीन विचाराधीन आहेत."
+    },
+    simpleExplanation: {
+      en: "The case concerns allegations about how voter lists are being revised under the Special Intensive Revision process. The petitioners have asked the Court to examine the Election Commission’s decision-making and the safeguards available to eligible voters. Issuing a notice means the Court is seeking a response; it does not mean the allegations have been proved.",
+      mr: "या प्रकरणाचा संबंध विशेष सखोल पुनरिक्षण प्रक्रियेद्वारे मतदार याद्यांमध्ये केलेल्या बदलांबाबतच्या आरोपांशी आहे. निवडणूक आयोगाने घेतलेल्या निर्णयांची प्रक्रिया आणि पात्र मतदारांच्या नावांचे संरक्षण करण्यासाठी असलेल्या उपाययोजनांची तपासणी करण्याची मागणी याचिकाकर्त्यांनी केली आहे. न्यायालयाने नोटीस बजावणे म्हणजे संबंधित पक्षाचे उत्तर मागणे होय; त्यामुळे आरोप सिद्ध झाले आहेत असा अर्थ होत नाही."
+    },
+    verySimple: {
+      en: "The Supreme Court has asked the Election Commission to respond to concerns raised in court about voter list revision. The case is still under consideration.",
+      mr: "मतदार यादीत बदल करण्याच्या प्रक्रियेबाबत उपस्थित केलेल्या प्रश्नांवर सुप्रीम कोर्टाने निवडणूक आयोगाकडून उत्तर मागितले आहे. हे प्रकरण अद्याप न्यायालयाच्या विचाराधीन आहे."
+    },
+    example: {
+      en: "If an eligible voter believes their name has been wrongly left out of an electoral roll, they can check their registration status and use the official election authorities’ prescribed process to raise the issue. The Supreme Court case concerns broader questions about the revision process and its safeguards.",
+      mr: "एखाद्या पात्र मतदाराला मतदार यादीतून आपले नाव चुकीने वगळले गेल्याचे वाटत असल्यास, तो आपली नोंदणी तपासून निवडणूक प्राधिकरणाने ठरवलेल्या अधिकृत प्रक्रियेद्वारे तक्रार किंवा अर्ज करू शकतो. सुप्रीम कोर्टातील प्रकरणात मतदार यादी पुनरिक्षणाची व्यापक प्रक्रिया आणि त्यातील संरक्षणात्मक उपाय तपासण्याचा मुद्दा आहे."
+    },
+    content: {
+      en: "The Supreme Court’s notice brings the process of electoral roll revision and the concerns raised by petitioners before the Court. The Special Intensive Revision (SIR) is an exercise to revise electoral rolls. Petitioners have alleged irregularities and large-scale exclusion of voters, and the Court has sought responses from the Election Commission and the officials named in the petitions. The final outcome will depend on further proceedings and the Court’s consideration of the responses and records.",
+      mr: "सुप्रीम कोर्टाने दिलेल्या नोटीसमुळे मतदार यादी पुनरिक्षणाची प्रक्रिया आणि याचिकाकर्त्यांनी उपस्थित केलेले प्रश्न न्यायालयासमोर आले आहेत. विशेष सखोल पुनरिक्षण (SIR) ही मतदार याद्या सुधारण्याची प्रक्रिया आहे. या प्रक्रियेत अनियमितता झाल्याचा आणि मोठ्या प्रमाणात मतदार वगळले गेल्याचा आरोप याचिकाकर्त्यांनी केला आहे. न्यायालयाने निवडणूक आयोग आणि याचिकांमध्ये नमूद केलेल्या अधिकाऱ्यांकडून उत्तर मागितले आहे. पुढील सुनावणी, सादर होणारी कागदपत्रे आणि उत्तरांचा विचार केल्यानंतरच या प्रकरणाचा पुढील निकाल स्पष्ट होईल."
+    },
+    seoSections: {
+      en: [
+        {
+          heading: "What happened in the Supreme Court on October 15, 2026?",
+          content: "The Supreme Court issued notices to the Election Commission of India, the Chief Election Commissioner and two Election Commissioners on petitions alleging irregularities in the Special Intensive Revision of electoral rolls. The Court sought responses from the concerned authorities."
+        },
+        {
+          heading: "What is the Special Intensive Revision (SIR)?",
+          content: "The Special Intensive Revision is a process for revising electoral rolls. Its implementation, verification procedures and the handling of eligible voters’ names are central to the issues raised in the petitions."
+        },
+        {
+          heading: "How is voter registration connected to the Constitution?",
+          content: "Article 326 of the Constitution provides for elections to the Lok Sabha and State Legislative Assemblies on the basis of adult suffrage, subject to the constitutional conditions. Electoral registration laws and procedures determine how eligible citizens are included in electoral rolls."
+        },
+        {
+          heading: "Does the Supreme Court notice mean the allegations are proved?",
+          content: "No. A notice asks the parties concerned to respond to the issues raised. It is not a final judgment establishing the allegations. The matter remains subject to further judicial proceedings."
+        }
+      ],
+      mr: [
+        {
+          heading: "15 ऑक्टोबर 2026 रोजी सुप्रीम कोर्टात काय घडले?",
+          content: "मतदार यादीच्या विशेष सखोल पुनरिक्षणात अनियमितता झाल्याचा आरोप करणाऱ्या याचिकांवर सुप्रीम कोर्टाने भारत निवडणूक आयोग, मुख्य निवडणूक आयुक्त आणि दोन निवडणूक आयुक्तांना नोटीस बजावली. संबंधित प्राधिकरणांकडून न्यायालयाने उत्तर मागितले."
+        },
+        {
+          heading: "विशेष सखोल पुनरिक्षण (SIR) म्हणजे काय?",
+          content: "विशेष सखोल पुनरिक्षण ही मतदार याद्यांमध्ये सुधारणा करण्याची प्रक्रिया आहे. या प्रक्रियेची अंमलबजावणी, मतदारांची पडताळणी आणि पात्र नागरिकांची नावे यादीत समाविष्ट करण्याची पद्धत हे या याचिकांमधील महत्त्वाचे मुद्दे आहेत."
+        },
+        {
+          heading: "मतदार नोंदणीचा संविधानाशी काय संबंध आहे?",
+          content: "संविधानाचे कलम 326 लोकसभा आणि राज्यांच्या विधानसभांच्या निवडणुकांसाठी प्रौढ मताधिकाराची तरतूद करते. पात्र नागरिकांची नावे मतदार यादीत समाविष्ट करण्याची प्रक्रिया संबंधित निवडणूक कायदे आणि नियमांनुसार चालते."
+        },
+        {
+          heading: "सुप्रीम कोर्टाने नोटीस दिली म्हणजे आरोप सिद्ध झाले का?",
+          content: "नाही. नोटीस म्हणजे संबंधित पक्षांकडून उत्तर मागणे होय. ती आरोप सिद्ध करणारा अंतिम न्यायनिर्णय नसतो. या प्रकरणात पुढील न्यायालयीन कार्यवाही होणे बाकी आहे."
+        }
+      ]
+    },
+    faq: {
+      en: [
+        {
+          question: "Why did the Supreme Court issue notice to the Election Commission?",
+          answer: "The Court sought responses to petitions raising allegations of irregularities and voter deletions during the Special Intensive Revision of electoral rolls."
+        },
+        {
+          question: "Which constitutional Article deals with adult suffrage?",
+          answer: "Article 326 provides for elections to the Lok Sabha and State Legislative Assemblies on the basis of adult suffrage, subject to constitutional conditions."
+        },
+        {
+          question: "Where can voters check their registration details?",
+          answer: "Voters can use the Election Commission of India’s official voter services portal at https://voters.eci.gov.in/."
+        },
+        {
+          question: "Has the Supreme Court delivered a final verdict in this matter?",
+          answer: "The reported development on October 15, 2026, was the issuance of notices seeking responses. It should not be described as a final verdict on the allegations."
+        }
+      ],
+      mr: [
+        {
+          question: "सुप्रीम कोर्टाने निवडणूक आयोगाला नोटीस का बजावली?",
+          answer: "मतदार यादीच्या विशेष सखोल पुनरिक्षणादरम्यान कथित अनियमितता आणि मतदारांची नावे वगळल्याबाबत दाखल याचिकांवर न्यायालयाने उत्तर मागितले."
+        },
+        {
+          question: "प्रौढ मताधिकाराशी कोणते घटनात्मक कलम संबंधित आहे?",
+          answer: "संविधानाचे कलम 326 लोकसभा आणि राज्यांच्या विधानसभांच्या निवडणुकांसाठी प्रौढ मताधिकाराची तरतूद करते."
+        },
+        {
+          question: "मतदार आपली नोंदणी कुठे तपासू शकतात?",
+          answer: "मतदार भारत निवडणूक आयोगाच्या अधिकृत पोर्टलवर https://voters.eci.gov.in/ जाऊन नोंदणीविषयक माहिती तपासू शकतात."
+        },
+        {
+          question: "या प्रकरणात सुप्रीम कोर्टाने अंतिम निर्णय दिला आहे का?",
+          answer: "15 ऑक्टोबर 2026 रोजी प्रसिद्ध झालेल्या वृत्तानुसार न्यायालयाने संबंधित पक्षांकडून उत्तर मागण्यासाठी नोटीस बजावली. याला आरोपांवरील अंतिम निर्णय समजू नये."
+        }
+      ]
+    },
+    mcqs: {
+      en: [
+        {
+          question: "Which Article of the Constitution provides for adult suffrage in Lok Sabha and State Assembly elections?",
+          options: ["Article 19", "Article 32", "Article 326", "Article 368"],
+          answer: "Article 326"
+        },
+        {
+          question: "What does a court notice generally mean?",
+          options: [
+            "The allegations are proved",
+            "The court is seeking a response",
+            "The case is automatically dismissed",
+            "A final judgment has been delivered"
+          ],
+          answer: "The court is seeking a response"
+        },
+        {
+          question: "What does SIR stand for in this news?",
+          options: [
+            "Special Intensive Revision",
+            "State Investigation Report",
+            "Supreme Inquiry Record",
+            "Special Identity Registration"
+          ],
+          answer: "Special Intensive Revision"
+        }
+      ],
+      mr: [
+        {
+          question: "लोकसभा आणि राज्य विधानसभांच्या निवडणुकांतील प्रौढ मताधिकाराशी कोणते कलम संबंधित आहे?",
+          options: ["कलम 19", "कलम 32", "कलम 326", "कलम 368"],
+          answer: "कलम 326"
+        },
+        {
+          question: "न्यायालयाने नोटीस बजावल्याचा सामान्य अर्थ काय?",
+          options: [
+            "आरोप सिद्ध झाले",
+            "न्यायालय संबंधित पक्षाचे उत्तर मागत आहे",
+            "खटला आपोआप फेटाळला गेला",
+            "अंतिम निर्णय दिला गेला"
+          ],
+          answer: "न्यायालय संबंधित पक्षाचे उत्तर मागत आहे"
+        },
+        {
+          question: "या बातमीतील SIR चे पूर्ण रूप काय आहे?",
+          options: [
+            "Special Intensive Revision",
+            "State Investigation Report",
+            "Supreme Inquiry Record",
+            "Special Identity Registration"
+          ],
+          answer: "Special Intensive Revision"
+        }
+      ]
+    },
+    source: {
+      name: "The Indian Express; The New Indian Express; Supreme Court of India",
+      url: "https://indianexpress.com/article/legal-news/supreme-court-seeks-response-of-centre-delhi-police-on-plea-challenging-removal-of-jantar-mantar-as-protest-site-10922726/"
+    },
+    relatedSlugs: [],
+    keywords: [
+      "Supreme Court voter list news",
+      "Election Commission of India",
+      "Special Intensive Revision",
+      "SIR voter list revision",
+      "Article 326",
+      "मतदार यादी पुनरिक्षण",
+      "सुप्रीम कोर्ट बातमी",
+      "मतदारांचे अधिकार",
+      "भारतीय संविधान"
+    ]
+  },
+  {
+    id: "right-to-protest-public-order-2026",
+    articleNumber: "Current Affairs",
+    categoryKey: "current-affairs",
+    slug: "right-to-protest-public-order-india",
+    title: {
+      en: "Right to Protest in India: Supreme Court on Public Order",
+      mr: "आंदोलनाचा अधिकार आणि सार्वजनिक सुव्यवस्था: संविधान काय सांगते?"
+    },
+    seoTitle: {
+      en: "Right to Protest in India: Article 19 | MySamvidhan",
+      mr: "आंदोलनाचा अधिकार: अनुच्छेद 19 | MySamvidhan"
+    },
+    shortDescription: {
+      en: "Understand the constitutional right to peaceful protest under Article 19, reasonable restrictions for public order, and the Supreme Court proceedings concerning Jantar Mantar in October 2026.",
+      mr: "भारतीय संविधानातील अनुच्छेद 19 अंतर्गत आंदोलनाचा अधिकार, सार्वजनिक सुव्यवस्थेसाठी वाजवी निर्बंध आणि ऑक्टोबर 2026 मधील जंतर-मंतर प्रकरणाविषयी जाणून घ्या."
+    },
+    category: "Supreme Court",
+    categoryMr: "सर्वोच्च न्यायालय",
+    date: "2026-10-19",
+    introduction: {
+      en: "The right to peaceful protest is an important part of democratic participation in India. Articles 19(1)(a) and 19(1)(b) of the Constitution protect freedom of speech and expression and the right to assemble peacefully and without arms. However, these rights are subject to reasonable restrictions permitted by the Constitution. In October 2026, the Supreme Court issued notices to the Union government and Delhi Police on a petition challenging the removal of Jantar Mantar from the list of designated protest sites. The proceedings have renewed attention on the balance between peaceful protest, public order and the rights of other citizens.",
+      mr: "शांततेने आंदोलन करण्याचा अधिकार हा भारतातील लोकशाही सहभागाचा महत्त्वाचा भाग आहे. भारतीय संविधानातील अनुच्छेद 19(1)(a) अभिव्यक्तिस्वातंत्र्याचे, तर अनुच्छेद 19(1)(b) शांततेने आणि शस्त्रांशिवाय एकत्र येण्याच्या अधिकाराचे संरक्षण करतो. मात्र, या अधिकारांवर संविधानाने परवानगी दिलेल्या वाजवी निर्बंधांच्या अधीन राहून मर्यादा लागू होऊ शकतात. ऑक्टोबर 2026 मध्ये जंतर-मंतरला अधिकृत आंदोलनस्थळांच्या यादीतून वगळण्याच्या निर्णयाला आव्हान देणाऱ्या याचिकेवर सर्वोच्च न्यायालयाने केंद्र सरकार आणि दिल्ली पोलिसांना नोटीस बजावली. या प्रकरणामुळे शांततापूर्ण आंदोलन, सार्वजनिक सुव्यवस्था आणि इतर नागरिकांचे अधिकार यांच्यातील संतुलनाचा प्रश्न पुन्हा चर्चेत आला आहे."
+    },
+    simpleExplanation: {
+      en: "The Constitution protects citizens who peacefully express their views and assemble to raise public concerns. The right to protest is not unlimited: authorities may impose lawful and reasonable restrictions to protect public order, safety and the rights of others. On October 15, 2026, the Supreme Court sought responses from the Union government and Delhi Police regarding a challenge to the removal of Jantar Mantar as a designated protest site. The notice was a procedural step and did not constitute a final judgment on the dispute.",
+      mr: "संविधान नागरिकांना शांततेने आपले विचार मांडण्याचा आणि सार्वजनिक प्रश्नांवर आवाज उठवण्यासाठी एकत्र येण्याचा अधिकार देते. मात्र, आंदोलनाचा अधिकार अमर्यादित नाही. सार्वजनिक सुव्यवस्था, सुरक्षितता आणि इतर नागरिकांचे अधिकार जपण्यासाठी प्रशासन कायदेशीर व वाजवी निर्बंध लागू करू शकते. 15 ऑक्टोबर 2026 रोजी सर्वोच्च न्यायालयाने जंतर-मंतरला अधिकृत आंदोलनस्थळांच्या यादीतून वगळण्याच्या निर्णयाला आव्हान देणाऱ्या याचिकेवर केंद्र सरकार आणि दिल्ली पोलिसांकडून उत्तर मागितले. ही न्यायालयीन प्रक्रियेतील एक पायरी होती; या वादावरील अंतिम निर्णय नव्हता."
+    },
+    verySimple: {
+      en: "Indian citizens have the right to express their opinions and hold peaceful protests. The government can regulate protests under the law to maintain public order and protect other people. In October 2026, the Supreme Court sought responses in a case concerning Jantar Mantar as a protest site.",
+      mr: "भारतीय नागरिकांना आपले मत व्यक्त करण्याचा आणि शांततेने आंदोलन करण्याचा अधिकार आहे. सार्वजनिक सुव्यवस्था राखण्यासाठी कायद्यानुसार आंदोलनांवर काही निर्बंध लागू होऊ शकतात. ऑक्टोबर 2026 मध्ये जंतर-मंतर आंदोलनस्थळासंबंधीच्या प्रकरणात सर्वोच्च न्यायालयाने संबंधित प्राधिकरणांकडून उत्तर मागितले."
+    },
+    example: {
+      en: "Suppose residents organise a peaceful demonstration requesting better public transport. Their right to assemble and express their views is protected by the Constitution. However, they may have to follow applicable permission requirements and lawful directions about the venue, timing and management of the gathering. Any restriction must have a legal basis and satisfy the applicable constitutional requirements.",
+      mr: "समजा, एखाद्या परिसरातील नागरिक सार्वजनिक वाहतूक सुधारण्याच्या मागणीसाठी शांततापूर्ण आंदोलन आयोजित करतात. त्यांना आपले मत मांडण्याचा आणि एकत्र येण्याचा घटनात्मक अधिकार आहे. मात्र, आंदोलनाचे ठिकाण, वेळ आणि व्यवस्थापन याबाबत लागू असलेल्या परवानगीच्या अटी व कायदेशीर निर्देशांचे पालन करावे लागू शकते. कोणत्याही निर्बंधाला कायदेशीर आधार असणे आणि लागू घटनात्मक अटी पूर्ण करणे आवश्यक आहे."
+    },
+    content: {
+      en: "The right to protest allows citizens to raise grievances, question public decisions and participate in democratic debate. The Constitution does not contain a separate provision expressly titled the right to protest; rather, peaceful protest is protected through constitutional freedoms, particularly Articles 19(1)(a) and 19(1)(b).\n\nArticle 19(1)(a) protects freedom of speech and expression. Article 19(1)(b) protects the right to assemble peaceably and without arms. Article 19(2) permits reasonable restrictions on freedom of speech and expression for specified constitutional purposes, while Article 19(3) permits reasonable restrictions on peaceful assembly in the interests of the sovereignty and integrity of India and public order.\n\nThe Supreme Court examined the relationship between peaceful demonstrations and public order in Mazdoor Kisan Shakti Sangathan v. Union of India (2018). The judgment recognised peaceful protest as a fundamental right while emphasising the need to regulate demonstrations and balance the rights of protesters with the interests of residents and the public.\n\nA recent development arose in October 2026, when Delhi Police removed Jantar Mantar from the list of designated protest sites and identified alternative locations. On October 15, the Supreme Court issued notices to the Union government and Delhi Police on a petition challenging that decision. The Court sought responses and indicated that the decision-making process concerning the protest site would be examined. The notice should not be interpreted as a final ruling on the validity of the decision.\n\nThe broader constitutional question is how authorities can maintain public order without imposing unreasonable restrictions on peaceful democratic expression. The answer depends on the applicable law, the circumstances of each case and judicial scrutiny where a restriction is challenged.",
+      mr: "आंदोलनाचा अधिकार नागरिकांना आपल्या तक्रारी मांडण्याची, सार्वजनिक निर्णयांवर प्रश्न उपस्थित करण्याची आणि लोकशाही चर्चेत सहभागी होण्याची संधी देतो. भारतीय संविधानात स्वतंत्रपणे “आंदोलनाचा अधिकार” या नावाची तरतूद नाही. त्याऐवजी शांततापूर्ण आंदोलनाला प्रामुख्याने अनुच्छेद 19(1)(a) आणि 19(1)(b) मधील घटनात्मक स्वातंत्र्यांद्वारे संरक्षण मिळते.\n\nअनुच्छेद 19(1)(a) अभिव्यक्तिस्वातंत्र्याचे संरक्षण करतो. अनुच्छेद 19(1)(b) नागरिकांना शांततेने आणि शस्त्रांशिवाय एकत्र येण्याचा अधिकार देतो. अनुच्छेद 19(2) अंतर्गत अभिव्यक्तिस्वातंत्र्यावर संविधानात नमूद केलेल्या कारणांसाठी वाजवी निर्बंध लागू करता येतात. अनुच्छेद 19(3) नुसार भारताची सार्वभौमता व अखंडता आणि सार्वजनिक सुव्यवस्था यांच्या हितासाठी शांततापूर्ण एकत्र येण्याच्या अधिकारावर वाजवी निर्बंध लागू होऊ शकतात.\n\nMazdoor Kisan Shakti Sangathan v. Union of India (2018) या प्रकरणात सर्वोच्च न्यायालयाने शांततापूर्ण आंदोलन आणि सार्वजनिक सुव्यवस्था यांच्यातील संबंधाचा विचार केला. न्यायालयाने शांततापूर्ण आंदोलन हा मूलभूत अधिकार असल्याचे मान्य केले. त्याच वेळी, आंदोलनांचे योग्य नियमन करणे आणि आंदोलकांचे अधिकार, परिसरातील रहिवासी व सर्वसामान्य नागरिकांचे हित यांच्यात संतुलन राखणे आवश्यक असल्याचे स्पष्ट केले.\n\nऑक्टोबर 2026 मध्ये दिल्ली पोलिसांनी जंतर-मंतरला अधिकृत आंदोलनस्थळांच्या यादीतून वगळून पर्यायी जागा निश्चित केल्या. या निर्णयाला आव्हान देणाऱ्या याचिकेवर 15 ऑक्टोबर रोजी सर्वोच्च न्यायालयाने केंद्र सरकार आणि दिल्ली पोलिसांना नोटीस बजावली. न्यायालयाने संबंधित पक्षांकडून उत्तर मागितले आणि आंदोलनस्थळासंबंधी निर्णय घेताना प्रशासनाने केलेल्या विचारप्रक्रियेची तपासणी केली जाईल, असे सूचित केले. या नोटीसचा अर्थ संबंधित निर्णयाच्या वैधतेवर अंतिम निकाल दिला आहे असा होत नाही.\n\nया प्रकरणातून व्यापक घटनात्मक प्रश्न समोर येतो: सार्वजनिक सुव्यवस्था राखताना नागरिकांच्या शांततापूर्ण लोकशाही अभिव्यक्तीवर अवाजवी निर्बंध येणार नाहीत, याची खात्री कशी करावी? याचे उत्तर लागू कायदे, प्रत्येक प्रकरणातील परिस्थिती आणि निर्बंधांना आव्हान दिल्यास होणारी न्यायालयीन तपासणी यांवर अवलंबून असते."
+    },
+    seoSections: {
+      en: [
+        {
+          heading: "What is the right to protest in India?",
+          content: "The right to protest is protected through constitutional freedoms, especially the right to freedom of speech and expression under Article 19(1)(a) and the right to assemble peaceably and without arms under Article 19(1)(b). These freedoms allow citizens to raise concerns and express dissent through peaceful democratic means."
+        },
+        {
+          heading: "What do Articles 19(1)(a) and 19(1)(b) provide?",
+          content: "Article 19(1)(a) protects freedom of speech and expression. Article 19(1)(b) protects the right of citizens to assemble peaceably and without arms. Together, these provisions are important constitutional foundations for peaceful demonstrations and public meetings."
+        },
+        {
+          heading: "When can restrictions be imposed on protests?",
+          content: "Article 19(2) permits reasonable restrictions on freedom of speech and expression for specified constitutional purposes. Article 19(3) permits reasonable restrictions on peaceful assembly in the interests of the sovereignty and integrity of India and public order. Restrictions must comply with the applicable law and constitutional requirements."
+        },
+        {
+          heading: "What did the Supreme Court say about peaceful protests?",
+          content: "In Mazdoor Kisan Shakti Sangathan v. Union of India (2018), the Supreme Court recognised peaceful demonstrations as a fundamental right under Articles 19(1)(a) and 19(1)(b). The judgment also addressed the need to regulate protests and balance the rights of demonstrators with the interests of residents and the public."
+        },
+        {
+          heading: "Why is Jantar Mantar in the news in October 2026?",
+          content: "Delhi Police removed Jantar Mantar from the list of designated protest sites and identified alternative venues. On October 15, 2026, the Supreme Court issued notices to the Union government and Delhi Police on a petition challenging the decision. The notice sought responses and was not a final judgment on the dispute."
+        },
+        {
+          heading: "Does a Supreme Court notice mean a decision has been made?",
+          content: "No. A notice generally asks the concerned parties to respond to a petition or issue. It does not, by itself, mean that the court has accepted the allegations or delivered a final ruling."
+        }
+      ],
+      mr: [
+        {
+          heading: "भारतात आंदोलन करण्याचा अधिकार म्हणजे काय?",
+          content: "आंदोलनाचा अधिकार हा प्रामुख्याने अनुच्छेद 19(1)(a) मधील अभिव्यक्तिस्वातंत्र्य आणि अनुच्छेद 19(1)(b) मधील शांततेने व शस्त्रांशिवाय एकत्र येण्याच्या अधिकारातून संरक्षित होतो. या तरतुदींमुळे नागरिकांना शांततापूर्ण लोकशाही मार्गाने आपल्या मागण्या आणि असहमती व्यक्त करता येते."
+        },
+        {
+          heading: "अनुच्छेद 19(1)(a) आणि 19(1)(b) काय सांगतात?",
+          content: "अनुच्छेद 19(1)(a) अभिव्यक्तिस्वातंत्र्याचे संरक्षण करतो. अनुच्छेद 19(1)(b) नागरिकांना शांततेने आणि शस्त्रांशिवाय एकत्र येण्याचा अधिकार देतो. शांततापूर्ण निदर्शने आणि सार्वजनिक सभांसाठी या दोन्ही तरतुदी महत्त्वाच्या आहेत."
+        },
+        {
+          heading: "आंदोलनावर निर्बंध कधी लागू करता येतात?",
+          content: "अनुच्छेद 19(2) नुसार अभिव्यक्तिस्वातंत्र्यावर संविधानात नमूद केलेल्या कारणांसाठी वाजवी निर्बंध लागू करता येतात. अनुच्छेद 19(3) नुसार भारताची सार्वभौमता व अखंडता आणि सार्वजनिक सुव्यवस्था यांच्या हितासाठी शांततापूर्ण एकत्र येण्याच्या अधिकारावर वाजवी निर्बंध लागू करता येतात. असे निर्बंध लागू कायदे आणि घटनात्मक अटींनुसार असणे आवश्यक आहे."
+        },
+        {
+          heading: "शांततापूर्ण आंदोलनाबाबत सर्वोच्च न्यायालयाने काय सांगितले?",
+          content: "Mazdoor Kisan Shakti Sangathan v. Union of India (2018) या प्रकरणात सर्वोच्च न्यायालयाने अनुच्छेद 19(1)(a) आणि 19(1)(b) अंतर्गत शांततापूर्ण निदर्शनांना मूलभूत अधिकाराचे संरक्षण असल्याचे मान्य केले. त्याच वेळी आंदोलनांचे नियमन आणि आंदोलक, परिसरातील रहिवासी व सर्वसामान्य नागरिक यांच्या हितातील संतुलन यांचाही विचार केला."
+        },
+        {
+          heading: "ऑक्टोबर 2026 मध्ये जंतर-मंतर चर्चेत का आहे?",
+          content: "दिल्ली पोलिसांनी जंतर-मंतरला अधिकृत आंदोलनस्थळांच्या यादीतून वगळून पर्यायी जागा निश्चित केल्या. 15 ऑक्टोबर 2026 रोजी या निर्णयाला आव्हान देणाऱ्या याचिकेवर सर्वोच्च न्यायालयाने केंद्र सरकार आणि दिल्ली पोलिसांना नोटीस बजावली. न्यायालयाने उत्तर मागितले; या नोटीसमुळे वादावर अंतिम निर्णय झालेला नाही."
+        },
+        {
+          heading: "सर्वोच्च न्यायालयाने नोटीस दिली म्हणजे निर्णय झाला का?",
+          content: "नाही. न्यायालयीन नोटीस म्हणजे संबंधित पक्षाला याचिकेतील मुद्द्यांवर उत्तर देण्यास सांगणे होय. केवळ नोटीस बजावल्याने आरोप मान्य झाले किंवा अंतिम न्यायनिर्णय दिला गेला, असा अर्थ होत नाही."
+        }
+      ]
+    },
+    faq: {
+      en: [
+        {
+          question: "Is the right to protest a fundamental right in India?",
+          answer: "Peaceful protest is protected through the fundamental rights under Article 19(1)(a), which covers freedom of speech and expression, and Article 19(1)(b), which covers peaceful assembly without arms. The rights are subject to constitutionally permitted reasonable restrictions."
+        },
+        {
+          question: "Which constitutional Articles are relevant to peaceful protests?",
+          answer: "Articles 19(1)(a) and 19(1)(b) protect freedom of expression and peaceful assembly. Articles 19(2) and 19(3) provide for specified reasonable restrictions on these freedoms."
+        },
+        {
+          question: "Can police regulate a public protest?",
+          answer: "Yes. Authorities may regulate protests under applicable laws to address public order and safety. The legal basis, circumstances and constitutional requirements are relevant when assessing a restriction."
+        },
+        {
+          question: "What is the Jantar Mantar case about in October 2026?",
+          answer: "The case challenges the decision to remove Jantar Mantar from the list of designated protest sites. On October 15, 2026, the Supreme Court issued notices to the Union government and Delhi Police seeking responses."
+        },
+        {
+          question: "Does issuing a notice mean the Supreme Court has ruled in favour of the petitioner?",
+          answer: "No. Issuing a notice is a procedural step that seeks a response from the other side. It does not establish the allegations or amount to a final judgment."
+        },
+        {
+          question: "Which Supreme Court case discussed the right to peaceful protest?",
+          answer: "Mazdoor Kisan Shakti Sangathan v. Union of India, decided on July 23, 2018, addressed peaceful protests, public order and the need to balance the rights of demonstrators with the interests of residents."
+        }
+      ],
+      mr: [
+        {
+          question: "भारतात आंदोलन करण्याचा अधिकार हा मूलभूत अधिकार आहे का?",
+          answer: "होय. शांततापूर्ण आंदोलनाला अनुच्छेद 19(1)(a) मधील अभिव्यक्तिस्वातंत्र्य आणि अनुच्छेद 19(1)(b) मधील शांततेने व शस्त्रांशिवाय एकत्र येण्याच्या अधिकारातून संरक्षण मिळते. हे अधिकार संविधानाने मान्य केलेल्या वाजवी निर्बंधांच्या अधीन आहेत."
+        },
+        {
+          question: "शांततापूर्ण आंदोलनासाठी संविधानातील कोणती कलमे महत्त्वाची आहेत?",
+          answer: "अनुच्छेद 19(1)(a) आणि 19(1)(b) अनुक्रमे अभिव्यक्तिस्वातंत्र्य आणि शांततापूर्ण एकत्र येण्याच्या अधिकाराशी संबंधित आहेत. अनुच्छेद 19(2) आणि 19(3) या अधिकारांवरील विशिष्ट वाजवी निर्बंधांची तरतूद करतात."
+        },
+        {
+          question: "पोलीस सार्वजनिक आंदोलनाचे नियमन करू शकतात का?",
+          answer: "होय. सार्वजनिक सुव्यवस्था आणि सुरक्षिततेसाठी लागू कायद्यांनुसार अधिकारी आंदोलनाचे नियमन करू शकतात. अशा निर्बंधांचे मूल्यमापन करताना त्यांचा कायदेशीर आधार, संबंधित परिस्थिती आणि घटनात्मक अटी विचारात घ्याव्या लागतात."
+        },
+        {
+          question: "ऑक्टोबर 2026 मधील जंतर-मंतर प्रकरण काय आहे?",
+          answer: "जंतर-मंतरला अधिकृत आंदोलनस्थळांच्या यादीतून वगळण्याच्या निर्णयाला या प्रकरणात आव्हान देण्यात आले आहे. 15 ऑक्टोबर 2026 रोजी सर्वोच्च न्यायालयाने केंद्र सरकार आणि दिल्ली पोलिसांना उत्तर देण्यासाठी नोटीस बजावली."
+        },
+        {
+          question: "सर्वोच्च न्यायालयाने नोटीस दिली म्हणजे याचिकाकर्त्याच्या बाजूने निर्णय दिला का?",
+          answer: "नाही. नोटीस बजावणे ही संबंधित पक्षाकडून उत्तर मागण्याची प्रक्रियात्मक पायरी आहे. त्यामुळे आरोप सिद्ध होत नाहीत आणि अंतिम न्यायनिर्णय दिला गेला असेही मानता येत नाही."
+        },
+        {
+          question: "शांततापूर्ण आंदोलनाच्या अधिकाराबाबत सर्वोच्च न्यायालयाचे कोणते प्रकरण महत्त्वाचे आहे?",
+          answer: "Mazdoor Kisan Shakti Sangathan v. Union of India या 23 जुलै 2018 रोजी दिलेल्या निर्णयात शांततापूर्ण आंदोलन, सार्वजनिक सुव्यवस्था आणि आंदोलक व रहिवाशांच्या अधिकारांतील संतुलन यांचा विचार करण्यात आला."
+        }
+      ]
+    },
+    mcqs: {
+      en: [
+        {
+          question: "Which Article protects the right to assemble peacefully and without arms?",
+          options: ["Article 14", "Article 19(1)(b)", "Article 21", "Article 32"],
+          answer: "Article 19(1)(b)"
+        },
+        {
+          question: "Which Article permits reasonable restrictions on peaceful assembly in the interests of public order?",
+          options: ["Article 19(1)(a)", "Article 19(2)", "Article 19(3)", "Article 25"],
+          answer: "Article 19(3)"
+        },
+        {
+          question: "What did the Supreme Court do on October 15, 2026, in the Jantar Mantar dispute?",
+          options: [
+            "Delivered a final judgment restoring the site",
+            "Issued notices seeking responses",
+            "Amended Article 19",
+            "Cancelled all public demonstrations"
+          ],
+          answer: "Issued notices seeking responses"
+        },
+        {
+          question: "Which case discussed peaceful protest and public order in 2018?",
+          options: [
+            "Kesavananda Bharati v. State of Kerala",
+            "Maneka Gandhi v. Union of India",
+            "Mazdoor Kisan Shakti Sangathan v. Union of India",
+            "Golaknath v. State of Punjab"
+          ],
+          answer: "Mazdoor Kisan Shakti Sangathan v. Union of India"
+        }
+      ],
+      mr: [
+        {
+          question: "शांततेने आणि शस्त्रांशिवाय एकत्र येण्याचा अधिकार कोणत्या अनुच्छेदात आहे?",
+          options: ["अनुच्छेद 14", "अनुच्छेद 19(1)(b)", "अनुच्छेद 21", "अनुच्छेद 32"],
+          answer: "अनुच्छेद 19(1)(b)"
+        },
+        {
+          question: "सार्वजनिक सुव्यवस्थेसाठी शांततापूर्ण एकत्र येण्याच्या अधिकारावर वाजवी निर्बंध कोणत्या अनुच्छेदानुसार लागू होऊ शकतात?",
+          options: ["अनुच्छेद 19(1)(a)", "अनुच्छेद 19(2)", "अनुच्छेद 19(3)", "अनुच्छेद 25"],
+          answer: "अनुच्छेद 19(3)"
+        },
+        {
+          question: "जंतर-मंतर प्रकरणात 15 ऑक्टोबर 2026 रोजी सर्वोच्च न्यायालयाने काय केले?",
+          options: [
+            "आंदोलनस्थळ पूर्ववत करण्याचा अंतिम निर्णय दिला",
+            "उत्तर मागण्यासाठी नोटीस बजावली",
+            "अनुच्छेद 19 मध्ये बदल केला",
+            "सर्व सार्वजनिक आंदोलनांवर बंदी घातली"
+          ],
+          answer: "उत्तर मागण्यासाठी नोटीस बजावली"
+        },
+        {
+          question: "2018 मध्ये शांततापूर्ण आंदोलन आणि सार्वजनिक सुव्यवस्थेचा विचार कोणत्या प्रकरणात झाला?",
+          options: [
+            "केशवानंद भारती विरुद्ध केरळ राज्य",
+            "मनेका गांधी विरुद्ध भारत संघ",
+            "Mazdoor Kisan Shakti Sangathan विरुद्ध भारत संघ",
+            "गोलकनाथ विरुद्ध पंजाब राज्य"
+          ],
+          answer: "Mazdoor Kisan Shakti Sangathan विरुद्ध भारत संघ"
+        }
+      ]
+    },
+    source: {
+      name: "The Indian Express; The Tribune; Supreme Court of India",
+      url: "https://indianexpress.com/article/cities/delhi/jantar-mantar-denotified-protest-site-delhi-police-supreme-court-order-10920035/"
+    },
+    relatedSlugs: [],
+    keywords: [
+      "Right to Protest in India",
+      "Article 19 Indian Constitution",
+      "Right to Peaceful Assembly",
+      "Public Order India",
+      "Supreme Court Protest News",
+      "Jantar Mantar Protest Site",
+      "Mazdoor Kisan Shakti Sangathan Case",
+      "आंदोलन करण्याचा अधिकार",
+      "अनुच्छेद 19",
+      "शांततापूर्ण आंदोलन",
+      "सार्वजनिक सुव्यवस्था",
+      "जंतर मंतर प्रकरण",
+      "मूलभूत अधिकार",
+      "भारतीय संविधान"
+    ]
   }
 ];
 function getCurrentAffairBySlug(slug) {
   return currentAffairs.find((item) => item.slug === slug);
 }
-const SITE_URL$1 = siteConfig.url.replace(/\/+$/, "");
-function setMeta(attribute, value, content) {
-  let element = document.head.querySelector(
-    `meta[${attribute}="${value}"]`
+const BREADCRUMB_TRANSLATIONS = {
+  en: {
+    nav_home: "Home",
+    nav_articles: "Articles",
+    nav_current_affairs: "Current Affairs",
+    nav_rights: "Fundamental Rights",
+    nav_duties: "Fundamental Duties",
+    nav_directive: "Directive Principles",
+    nav_amendments: "Amendments",
+    nav_quiz: "Quiz",
+    nav_bookmarks: "Saved Articles",
+    about_title: "About Samvidhan",
+    contact_title: "Contact Us",
+    footer_privacy: "Privacy Policy",
+    footer_terms: "Terms & Conditions",
+    footer_disclaimer_title: "Disclaimer",
+    nav_faq: "FAQ",
+    nav_premium: "Premium",
+    exam_title: "Exam Preparation",
+    advanced_title: "Advanced Quiz",
+    notes_title: "Premium Notes",
+    dashboard_title: "Dashboard",
+    progress_title: "My Progress",
+    learn_title: "Learn Indian Constitution",
+    search_button: "Search"
+  },
+  mr: {
+    nav_home: "मुख्यपृष्ठ",
+    nav_articles: "कलमे",
+    nav_current_affairs: "चालू घडामोडी",
+    nav_rights: "मूलभूत अधिकार",
+    nav_duties: "मूलभूत कर्तव्ये",
+    nav_directive: "मार्गदर्शक तत्त्वे",
+    nav_amendments: "दुरुस्त्या",
+    nav_quiz: "प्रश्नमंजुषा",
+    nav_bookmarks: "जतन केलेली कलमे",
+    about_title: "संविधान विषयी",
+    contact_title: "आमच्याशी संपर्क साधा",
+    footer_privacy: "गोपनीयता धोरण",
+    footer_terms: "नियम आणि अटी",
+    footer_disclaimer_title: "अस्वीकरण",
+    nav_faq: "प्रश्नोत्तरे",
+    nav_premium: "प्रीमियम",
+    exam_title: "परीक्षा तयारी",
+    advanced_title: "प्रगत प्रश्नमंजुषा",
+    notes_title: "प्रीमियम नोंदी",
+    dashboard_title: "डॅशबोर्ड",
+    progress_title: "माझी प्रगती",
+    learn_title: "भारतीय संविधान शिका",
+    search_button: "शोधा"
+  }
+};
+function translateBreadcrumb(key, language) {
+  var _a2;
+  return ((_a2 = BREADCRUMB_TRANSLATIONS[language]) == null ? void 0 : _a2[key]) || BREADCRUMB_TRANSLATIONS.en[key] || key;
+}
+const ROUTE_LABEL_KEYS = {
+  "/articles": "nav_articles",
+  "/current-affairs": "nav_current_affairs",
+  "/fundamental-rights": "nav_rights",
+  "/fundamental-duties": "nav_duties",
+  "/directive-principles": "nav_directive",
+  "/amendments": "nav_amendments",
+  "/quiz": "nav_quiz",
+  "/bookmarks": "nav_bookmarks",
+  "/about": "about_title",
+  "/contact": "contact_title",
+  "/privacy": "footer_privacy",
+  "/privacy-policy": "footer_privacy",
+  "/terms": "footer_terms",
+  "/disclaimer": "footer_disclaimer_title",
+  "/faq": "nav_faq",
+  "/premium": "nav_premium",
+  "/exam-preparation": "exam_title",
+  "/premium-quiz": "advanced_title",
+  "/notes": "notes_title",
+  "/dashboard": "dashboard_title",
+  "/progress": "progress_title",
+  "/learn": "learn_title"
+};
+const ROUTE_PARENT_KEYS = {
+  "/exam-preparation": [["learn_title", "/learn"]],
+  "/premium-quiz": [["nav_quiz", "/quiz"]],
+  "/progress": [["dashboard_title", "/dashboard"]]
+};
+function getBreadcrumbItems(pathname, search, { language, t, pick }) {
+  const translate = t || ((key) => translateBreadcrumb(key, language));
+  if (pathname === "/") return [];
+  const home = { label: translate("nav_home"), to: "/" };
+  const articleMatch = pathname.match(/^\/article\/([^/]+)\/?$/);
+  const affairMatch = pathname.match(/^\/current-affairs\/([^/]+)\/?$/);
+  const article = articleMatch ? getArticleById(articleMatch[1]) : null;
+  const currentAffair = affairMatch ? getCurrentAffairBySlug(affairMatch[1]) : null;
+  const searchParams = new URLSearchParams(search);
+  if (articleMatch) {
+    return [
+      home,
+      { label: translate("nav_articles"), to: "/articles" },
+      { label: article ? pick(article.title) : language === "mr" ? "कलम सापडले नाही" : "Article not found" }
+    ];
+  }
+  if (affairMatch) {
+    return [
+      home,
+      { label: translate("nav_current_affairs"), to: "/current-affairs" },
+      { label: currentAffair ? pick(currentAffair.title) : language === "mr" ? "लेख सापडला नाही" : "Article not found" }
+    ];
+  }
+  if (pathname === "/articles" && searchParams.has("q")) {
+    return [home, { label: translate("search_button") }];
+  }
+  const labelKey = ROUTE_LABEL_KEYS[pathname];
+  const parentItems = (ROUTE_PARENT_KEYS[pathname] || []).map(([key, to]) => ({
+    label: translate(key),
+    to
+  }));
+  return labelKey ? [home, ...parentItems, { label: translate(labelKey) }] : [home, { label: language === "mr" ? "पृष्ठ सापडले नाही" : "Page not found" }];
+}
+function Breadcrumbs() {
+  const { pathname, search } = useLocation();
+  const { language, pick, t } = useLanguage();
+  if (pathname === "/") return null;
+  const items = getBreadcrumbItems(pathname, search, { language, pick, t });
+  return /* @__PURE__ */ jsx("nav", { "aria-label": "Breadcrumb", className: "page-breadcrumbs", children: /* @__PURE__ */ jsx("ol", { className: "mx-auto flex max-w-7xl flex-wrap items-center gap-x-2 gap-y-1 px-4 sm:px-6", children: items.map((item, index) => {
+    const isCurrent = index === items.length - 1;
+    return /* @__PURE__ */ jsxs(
+      "li",
+      {
+        className: "flex min-w-0 max-w-full items-center gap-2",
+        children: [
+          index > 0 && /* @__PURE__ */ jsx("span", { "aria-hidden": "true", className: "shrink-0 text-navy/35", children: "›" }),
+          item.to && !isCurrent ? /* @__PURE__ */ jsx(Link, { lang: language, to: item.to, className: "breadcrumb-link truncate", children: item.label }) : /* @__PURE__ */ jsx(
+            "span",
+            {
+              lang: language,
+              "aria-current": isCurrent ? "page" : void 0,
+              className: `breadcrumb-current truncate${isCurrent ? " font-medium" : ""}`,
+              title: item.label,
+              children: item.label
+            }
+          )
+        ]
+      },
+      `${item.to || item.label}-${index}`
+    );
+  }) }) });
+}
+const AuthContext = createContext(null);
+const INITIAL_USER = { id: "demo-user", name: "Constitution learner", email: "demo@samvidhan.local", plan: "free" };
+function AuthProvider({ children }) {
+  const [user, setUser] = useState(INITIAL_USER);
+  const isPremium = (user == null ? void 0 : user.plan) === "premium";
+  const upgradeToPremium = () => setUser((current) => ({ ...current, plan: "premium" }));
+  return /* @__PURE__ */ jsx(AuthContext.Provider, { value: { user, isPremium, upgradeToPremium }, children });
+}
+function useAuth() {
+  const context = useContext(AuthContext);
+  if (!context) throw new Error("useAuth must be used within AuthProvider");
+  return context;
+}
+const monetizationConfig = {
+  ads: { enabled: false }
+};
+function Advertisement({ placement = "banner", className = "" }) {
+  const { isPremium } = useAuth();
+  useRef(null);
+  const configured = monetizationConfig.ads.enabled;
+  useEffect(() => {
+  }, [configured]);
+  return null;
+}
+function Footer() {
+  const { t, language } = useLanguage();
+  const links = [
+    { to: "/", label: t("nav_home") },
+    { to: "/articles", label: t("nav_articles") },
+    { to: "/fundamental-rights", label: t("nav_rights") },
+    { to: "/fundamental-duties", label: t("nav_duties") },
+    { to: "/amendments", label: t("nav_amendments") },
+    { to: "/learn", label: t("nav_preamble") },
+    { to: "/faq", label: t("nav_faq") },
+    { to: "/about", label: t("nav_about") },
+    { to: "/contact", label: t("contact_title") },
+    { to: "/privacy-policy", label: t("footer_privacy") },
+    { to: "/terms", label: t("footer_terms") },
+    { to: "/disclaimer", label: t("footer_disclaimer_title") }
+  ];
+  return /* @__PURE__ */ jsxs("footer", { className: "site-footer mt-16 border-t border-navy/10 dark:border-ink-dark/10 bg-white/40 dark:bg-white/[0.03]", children: [
+    /* @__PURE__ */ jsx(Advertisement, { placement: "banner" }),
+    /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-7xl px-4 py-9 sm:px-6 sm:py-10", children: [
+      /* @__PURE__ */ jsxs("div", { className: "grid gap-8 sm:grid-cols-2 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]", children: [
+        /* @__PURE__ */ jsxs("div", { children: [
+          /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2", children: [
+            /* @__PURE__ */ jsx(ChakraMark, { className: "h-6 w-6 text-navy dark:text-saffron" }),
+            /* @__PURE__ */ jsx("span", { className: "font-display text-2xl font-semibold text-navy dark:text-ink-dark", children: "SAMVIDHAN" })
+          ] }),
+          /* @__PURE__ */ jsx(
+            "p",
+            {
+              lang: language,
+              className: "mt-3 max-w-sm text-base leading-7 text-ink/70 dark:text-ink-dark/70",
+              children: t("footer_tagline")
+            }
+          ),
+          /* @__PURE__ */ jsx(
+            "p",
+            {
+              lang: language,
+              className: "mt-3 max-w-sm text-sm leading-6 text-ink/60 dark:text-ink-dark/60",
+              children: language === "mr" ? "संविधान हे स्वतंत्र शैक्षणिक व्यासपीठ आहे." : "Samvidhan is an independent educational platform."
+            }
+          ),
+          /* @__PURE__ */ jsxs("div", { className: "mt-5", children: [
+            /* @__PURE__ */ jsx("p", { className: "text-sm font-semibold text-navy dark:text-ink-dark", children: language === "mr" ? "आम्हाला फॉलो करा" : "Follow Us" }),
+            /* @__PURE__ */ jsxs("div", { className: "mt-3 flex items-center gap-3", children: [
+              /* @__PURE__ */ jsx(
+                "a",
+                {
+                  href: "https://www.facebook.com/profile.php?id=61593758717873",
+                  target: "_blank",
+                  rel: "noopener noreferrer",
+                  "aria-label": "Facebook",
+                  className: "flex h-9 w-9 items-center justify-center rounded-full border border-navy/10 text-navy transition-colors hover:border-saffron hover:text-saffron dark:border-ink-dark/10 dark:text-ink-dark",
+                  children: /* @__PURE__ */ jsx(
+                    "svg",
+                    {
+                      viewBox: "0 0 24 24",
+                      className: "h-5 w-5 fill-current",
+                      "aria-hidden": "true",
+                      children: /* @__PURE__ */ jsx("path", { d: "M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5h1.7V4a22 22 0 0 0-2.5-.1c-2.5 0-4.2 1.5-4.2 4.3V10H7.4v3h2.7v8h3.4Z" })
+                    }
+                  )
+                }
+              ),
+              /* @__PURE__ */ jsx(
+                "a",
+                {
+                  href: "https://www.instagram.com/mysamvidhanofficial/",
+                  target: "_blank",
+                  rel: "noopener noreferrer",
+                  "aria-label": "Instagram",
+                  className: "flex h-9 w-9 items-center justify-center rounded-full border border-navy/10 text-navy transition-colors hover:border-saffron hover:text-saffron dark:border-ink-dark/10 dark:text-ink-dark",
+                  children: /* @__PURE__ */ jsxs(
+                    "svg",
+                    {
+                      viewBox: "0 0 24 24",
+                      className: "h-5 w-5 fill-none stroke-current",
+                      strokeWidth: "1.8",
+                      "aria-hidden": "true",
+                      children: [
+                        /* @__PURE__ */ jsx("rect", { x: "3", y: "3", width: "18", height: "18", rx: "5" }),
+                        /* @__PURE__ */ jsx("circle", { cx: "12", cy: "12", r: "4" }),
+                        /* @__PURE__ */ jsx(
+                          "circle",
+                          {
+                            cx: "17.5",
+                            cy: "6.5",
+                            r: "1",
+                            className: "fill-current stroke-none"
+                          }
+                        )
+                      ]
+                    }
+                  )
+                }
+              )
+            ] })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { children: [
+          /* @__PURE__ */ jsx("h3", { className: "text-lg font-semibold text-navy dark:text-ink-dark", children: t("footer_navigation") }),
+          /* @__PURE__ */ jsx("ul", { className: "mt-3 grid gap-x-6 gap-y-2 sm:grid-cols-2", children: links.map((l) => /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
+            Link,
+            {
+              to: l.to,
+              lang: language,
+              className: "py-1 text-base leading-6 text-ink/70 dark:text-ink-dark/70 hover:text-saffron transition-colors",
+              children: l.label
+            }
+          ) }, l.to)) })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxs("section", { className: "mt-8 border-t border-navy/10 pt-6 dark:border-ink-dark/10", children: [
+        /* @__PURE__ */ jsx(
+          "h3",
+          {
+            lang: language,
+            className: "text-base font-semibold text-navy dark:text-ink-dark",
+            children: t("footer_disclaimer_title")
+          }
+        ),
+        /* @__PURE__ */ jsx(
+          "p",
+          {
+            lang: language,
+            className: "mt-2 max-w-4xl text-sm leading-6 text-ink/70 dark:text-ink-dark/70",
+            children: t("footer_disclaimer")
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: "mt-6 flex flex-col items-center justify-between gap-3 border-t border-navy/10 pt-5 sm:flex-row dark:border-ink-dark/10", children: [
+        /* @__PURE__ */ jsx(
+          "p",
+          {
+            lang: language,
+            className: "text-xs text-ink/45 dark:text-ink-dark/45",
+            children: t("footer_copyright")
+          }
+        ),
+        /* @__PURE__ */ jsx(
+          ChakraMark,
+          {
+            className: "h-5 w-5 text-navy/30 dark:text-ink-dark/25",
+            spokes: 24
+          }
+        )
+      ] })
+    ] })
+  ] });
+}
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+const popularKeys = ["Article 14", "Article 19", "Article 21", "Article 32"];
+function SearchBar({ large = false }) {
+  const { t, language } = useLanguage();
+  const [query, setQuery] = useState("");
+  const navigate = useNavigate();
+  const submit = (e) => {
+    e.preventDefault();
+    const q = query.trim();
+    if (q) navigate(`/articles?q=${encodeURIComponent(q)}`);
+  };
+  const runPopular = (term) => {
+    navigate(`/articles?q=${encodeURIComponent(term)}`);
+  };
+  return /* @__PURE__ */ jsxs("div", { className: "w-full", children: [
+    /* @__PURE__ */ jsxs(
+      "form",
+      {
+        onSubmit: submit,
+        className: `flex items-stretch gap-2 rounded-2xl border border-navy/15 dark:border-ink-dark/20 bg-white dark:bg-white/5 p-1.5 shadow-sm ${large ? "shadow-navy/5" : ""}`,
+        children: [
+          /* @__PURE__ */ jsxs("div", { className: "flex flex-1 items-center gap-2 pl-3", children: [
+            /* @__PURE__ */ jsx(Search, { size: 18, className: "shrink-0 text-navy/40 dark:text-ink-dark/40" }),
+            /* @__PURE__ */ jsx(
+              "input",
+              {
+                type: "search",
+                value: query,
+                onChange: (e) => setQuery(e.target.value),
+                placeholder: t("search_placeholder"),
+                lang: language,
+                className: "w-full bg-transparent py-3 text-sm sm:text-base text-ink dark:text-ink-dark placeholder:text-ink/40 dark:placeholder:text-ink-dark/40 focus:outline-none"
+              }
+            )
+          ] }),
+          /* @__PURE__ */ jsx(
+            "button",
+            {
+              type: "submit",
+              className: "shrink-0 rounded-xl bg-navy dark:bg-saffron px-5 sm:px-7 text-sm sm:text-base font-medium text-paper dark:text-ink transition-colors hover:bg-navy-light dark:hover:bg-saffron-light",
+              children: t("search_button")
+            }
+          )
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsxs("div", { className: "mt-4 flex flex-wrap items-center gap-2", children: [
+      /* @__PURE__ */ jsxs("span", { lang: language, className: "text-xs text-ink/50 dark:text-ink-dark/50", children: [
+        t("popular_searches"),
+        ":"
+      ] }),
+      popularKeys.map((term) => /* @__PURE__ */ jsx(
+        "button",
+        {
+          type: "button",
+          onClick: () => runPopular(term),
+          className: "rounded-full border border-navy/15 dark:border-ink-dark/20 px-3 py-1 text-xs text-navy/70 dark:text-ink-dark/70 hover:border-saffron/50 hover:text-saffron transition-colors",
+          children: term
+        },
+        term
+      ))
+    ] })
+  ] });
+}
+function Hero() {
+  const { t, language } = useLanguage();
+  const sectionRef = useRef(null);
+  useEffect(() => {
+    const section = sectionRef.current;
+    const artwork = section == null ? void 0 : section.querySelector(".hero-art");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+    if (!section || !artwork || reducedMotion.matches || !finePointer.matches) return;
+    let frame = 0;
+    const layers = [
+      ...artwork.querySelectorAll(".parliament-building, .hero-flag, .hero-book-stack, .constitution-book, .hero-ribbon")
+    ];
+    const reset = () => {
+      layers.forEach((layer) => {
+        layer.style.removeProperty("--parallax-x");
+        layer.style.removeProperty("--parallax-y");
+      });
+    };
+    const handlePointerMove = (event) => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(() => {
+        frame = 0;
+        const bounds = section.getBoundingClientRect();
+        const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+        const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+        layers.forEach((layer, index) => {
+          const depth = index === 3 ? 14 : index < 3 ? 5 : 2;
+          layer.style.setProperty("--parallax-x", `${x * depth}px`);
+          layer.style.setProperty("--parallax-y", `${y * depth}px`);
+        });
+      });
+    };
+    section.addEventListener("pointermove", handlePointerMove, { passive: true });
+    section.addEventListener("pointerleave", reset);
+    return () => {
+      section.removeEventListener("pointermove", handlePointerMove);
+      section.removeEventListener("pointerleave", reset);
+      if (frame) window.cancelAnimationFrame(frame);
+      reset();
+    };
+  }, []);
+  return /* @__PURE__ */ jsxs("section", { ref: sectionRef, className: "hero-section relative overflow-hidden border-b border-navy/10 dark:border-ink-dark/10", children: [
+    /* @__PURE__ */ jsx(
+      ChakraMark,
+      {
+        className: "hero-chakra pointer-events-none absolute -right-24 -top-24 h-[30rem] w-[30rem] text-navy/[0.05] dark:text-saffron/[0.06] sm:-right-16 sm:-top-16",
+        spokes: 24
+      }
+    ),
+    /* @__PURE__ */ jsx("div", { className: "relative mx-auto max-w-7xl px-4 pb-14 pt-14 sm:px-6 sm:pb-16 sm:pt-20", children: /* @__PURE__ */ jsxs("div", { className: "hero-layout", children: [
+      /* @__PURE__ */ jsxs("div", { className: "hero-copy", children: [
+        /* @__PURE__ */ jsxs("span", { className: "hero-badge inline-flex items-center gap-2 rounded-full border border-saffron/30 bg-saffron/10 px-3.5 py-1.5 text-xs font-medium text-saffron-dark dark:text-saffron-light", children: [
+          "🇮🇳 ",
+          t("hero_badge")
+        ] }),
+        /* @__PURE__ */ jsxs(
+          "h1",
+          {
+            lang: language,
+            className: "hero-heading font-display mt-6 text-4xl font-semibold leading-[1.1] tracking-tight text-navy dark:text-ink-dark sm:text-5xl lg:text-6xl",
+            children: [
+              t("hero_heading_1"),
+              /* @__PURE__ */ jsx("br", {}),
+              /* @__PURE__ */ jsx("span", { className: "text-saffron", children: t("hero_heading_2") })
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsx(
+          "p",
+          {
+            lang: language,
+            className: "hero-description mt-6 max-w-xl text-base leading-relaxed text-ink/70 dark:text-ink-dark/70 sm:text-lg",
+            children: t("hero_desc")
+          }
+        ),
+        /* @__PURE__ */ jsxs(
+          Link,
+          {
+            to: "/learn",
+            lang: language,
+            className: "hero-cta mt-5 inline-flex items-center gap-2 rounded-full bg-saffron px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-saffron-dark",
+            children: [
+              t("learn_more"),
+              " ",
+              /* @__PURE__ */ jsx("span", { "aria-hidden": "true", children: "→" })
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsx("div", { className: "hero-search mt-8 max-w-2xl", children: /* @__PURE__ */ jsx(SearchBar, { large: true }) })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: "hero-art", "aria-hidden": "true", children: [
+        /* @__PURE__ */ jsx("div", { className: "hero-art-glow" }),
+        /* @__PURE__ */ jsx("div", { className: "hero-ribbon hero-ribbon-saffron" }),
+        /* @__PURE__ */ jsx("div", { className: "hero-ribbon hero-ribbon-white" }),
+        /* @__PURE__ */ jsx("div", { className: "hero-ribbon hero-ribbon-green" }),
+        /* @__PURE__ */ jsx("div", { className: "hero-hill hero-hill-back" }),
+        /* @__PURE__ */ jsx("div", { className: "hero-hill hero-hill-front" }),
+        /* @__PURE__ */ jsxs("div", { className: "parliament-building", children: [
+          /* @__PURE__ */ jsx("div", { className: "parliament-dome" }),
+          /* @__PURE__ */ jsx("div", { className: "parliament-roof" }),
+          /* @__PURE__ */ jsx("div", { className: "parliament-columns", children: Array.from({ length: 9 }, (_, index) => /* @__PURE__ */ jsx("span", {}, index)) }),
+          /* @__PURE__ */ jsx("div", { className: "parliament-base" })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "hero-flag", children: [
+          /* @__PURE__ */ jsx("span", {}),
+          /* @__PURE__ */ jsx("i", {}),
+          /* @__PURE__ */ jsx("b", {})
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "hero-book-stack", children: [
+          /* @__PURE__ */ jsx("span", {}),
+          /* @__PURE__ */ jsx("span", {}),
+          /* @__PURE__ */ jsx("span", {})
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "constitution-book", children: [
+          /* @__PURE__ */ jsx("div", { className: "book-pages" }),
+          /* @__PURE__ */ jsxs("div", { className: "book-cover", children: [
+            /* @__PURE__ */ jsx("div", { className: "book-emblem", children: /* @__PURE__ */ jsx("span", {}) }),
+            /* @__PURE__ */ jsxs("div", { className: "book-title-lines", children: [
+              /* @__PURE__ */ jsx("span", {}),
+              /* @__PURE__ */ jsx("span", {}),
+              /* @__PURE__ */ jsx("span", {})
+            ] }),
+            /* @__PURE__ */ jsx("div", { className: "book-rule" })
+          ] })
+        ] })
+      ] })
+    ] }) })
+  ] });
+}
+function DynamicIcon({ name, className, size, strokeWidth }) {
+  const IconComponent = Icons[name] || Icons.BookOpen;
+  return /* @__PURE__ */ jsx(IconComponent, { className, size, strokeWidth });
+}
+function CategoryCard({ icon, title, description, path }) {
+  const { pick, language } = useLanguage();
+  return /* @__PURE__ */ jsxs(
+    Link,
+    {
+      to: path,
+      className: "category-card group relative flex flex-col rounded-2xl border border-navy/10 dark:border-ink-dark/10 bg-white/60 dark:bg-white/[0.04] p-5 transition-colors hover:border-saffron/40",
+      children: [
+        /* @__PURE__ */ jsx("div", { className: "category-card-icon flex h-12 w-12 items-center justify-center rounded-2xl bg-navy/5 dark:bg-white/10 text-navy dark:text-saffron-light", children: /* @__PURE__ */ jsx(DynamicIcon, { name: icon, size: 20 }) }),
+        /* @__PURE__ */ jsx("h3", { lang: language, className: "font-display mt-4 text-lg font-semibold text-navy dark:text-ink-dark", children: pick(title) }),
+        /* @__PURE__ */ jsx("p", { lang: language, className: "mt-2 text-sm leading-relaxed text-ink/60 dark:text-ink-dark/60", children: pick(description) }),
+        /* @__PURE__ */ jsx("span", { className: "mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-saffron", children: /* @__PURE__ */ jsx(ArrowRight, { size: 15, className: "transition-transform group-hover:translate-x-1" }) }),
+        /* @__PURE__ */ jsx("div", { className: "absolute inset-x-6 bottom-0 h-px scale-x-0 bg-saffron transition-transform duration-300 group-hover:scale-x-100" })
+      ]
+    }
   );
+}
+const categories = [
+  {
+    key: "fundamental-rights",
+    icon: "Scale",
+    title: { en: "Fundamental Rights", mr: "मूलभूत अधिकार" },
+    description: {
+      en: "Explore the selected Fundamental Rights provisions available on this site.",
+      mr: "तुमचे मूलभूत अधिकार समजून घ्या."
+    },
+    path: "/articles?category=fundamental-rights"
+  },
+  {
+    key: "citizenship",
+    icon: "Users",
+    title: { en: "Citizenship", mr: "नागरिकत्व" },
+    description: {
+      en: "Read the selected constitutional provision on citizenship.",
+      mr: "भारताचा नागरिक कोण आहे आणि नागरिकत्व कसे कार्य करते."
+    },
+    path: "/articles?category=citizenship"
+  },
+  {
+    key: "parliament",
+    icon: "Landmark",
+    title: { en: "Union Executive", mr: "केंद्राची कार्यपालिका" },
+    description: {
+      en: "Explore the selected Articles about the Union executive.",
+      mr: "केंद्राच्या कार्यपालिकेशी संबंधित निवडक कलमे वाचा."
+    },
+    path: "/articles?category=parliament"
+  },
+  {
+    key: "state-executive",
+    icon: "Building2",
+    title: { en: "State Executive", mr: "राज्याची कार्यपालिका" },
+    description: {
+      en: "Read selected constitutional provisions about State executive offices.",
+      mr: "राज्याच्या कार्यकारी पदांशी संबंधित निवडक घटनात्मक तरतुदी वाचा."
+    },
+    path: "/articles?category=state-executive"
+  },
+  {
+    key: "union-judiciary",
+    icon: "Gavel",
+    title: { en: "Union Judiciary", mr: "केंद्राची न्यायव्यवस्था" },
+    description: {
+      en: "Explore selected constitutional provisions about the Union judiciary.",
+      mr: "केंद्राच्या न्यायव्यवस्थेशी संबंधित निवडक घटनात्मक तरतुदी वाचा."
+    },
+    path: "/articles?category=union-judiciary"
+  },
+  {
+    key: "union-legislature",
+    icon: "Landmark",
+    title: { en: "Union Legislature", mr: "केंद्राची विधिमंडळ व्यवस्था" },
+    description: {
+      en: "Read selected Articles about Parliament and the Union Legislature.",
+      mr: "संसद आणि केंद्राच्या विधिमंडळाशी संबंधित निवडक कलमे वाचा."
+    },
+    path: "/articles?category=union-legislature"
+  },
+  {
+    key: "state-legislature",
+    icon: "Building2",
+    title: { en: "State Legislature", mr: "राज्य विधिमंडळ" },
+    description: {
+      en: "Explore the selected constitutional provisions about State Legislatures.",
+      mr: "राज्य विधिमंडळाशी संबंधित निवडक घटनात्मक तरतुदी वाचा."
+    },
+    path: "/articles?category=state-legislature"
+  },
+  {
+    key: "right-against-exploitation",
+    icon: "ShieldOff",
+    title: { en: "Right against Exploitation", mr: "शोषणाविरुद्धचा अधिकार" },
+    description: {
+      en: "Read the selected provisions concerning exploitation.",
+      mr: "शोषणासंबंधी निवडक घटनात्मक तरतुदी वाचा."
+    },
+    path: "/articles?category=right-against-exploitation"
+  },
+  {
+    key: "emergency-provisions",
+    icon: "AlertTriangle",
+    title: { en: "Emergency Provisions", mr: "आणीबाणी तरतुदी" },
+    description: {
+      en: "Explore the selected constitutional provisions on emergencies.",
+      mr: "आणीबाणीविषयक निवडक घटनात्मक तरतुदी वाचा."
+    },
+    path: "/articles?category=emergency-provisions"
+  },
+  {
+    key: "fundamental-duties",
+    icon: "HeartHandshake",
+    title: { en: "Fundamental Duties", mr: "मूलभूत कर्तव्ये" },
+    description: {
+      en: "Read the selected constitutional provision on Fundamental Duties.",
+      mr: "मूलभूत कर्तव्यांवरील निवडक घटनात्मक तरतूद वाचा."
+    },
+    path: "/articles?category=fundamental-duties"
+  }
+];
+const exploreCards = [
+  {
+    icon: "ScrollText",
+    title: { en: "Articles", mr: "कलमे" },
+    description: {
+      en: "Explore Constitutional Articles and understand their meaning.",
+      mr: "संवैधानिक कलमे जाणून घ्या आणि त्यांचा अर्थ समजून घ्या."
+    },
+    path: "/articles"
+  },
+  {
+    icon: "Scale",
+    title: { en: "Fundamental Rights", mr: "मूलभूत अधिकार" },
+    description: { en: "Understand your fundamental rights.", mr: "तुमचे मूलभूत अधिकार समजून घ्या." },
+    path: "/fundamental-rights"
+  },
+  {
+    icon: "HeartHandshake",
+    title: { en: "Fundamental Duties", mr: "मूलभूत कर्तव्ये" },
+    description: { en: "Know your duties as a citizen.", mr: "नागरिक म्हणून तुमची कर्तव्ये जाणून घ्या." },
+    path: "/fundamental-duties"
+  },
+  {
+    icon: "Landmark",
+    title: { en: "Directive Principles", mr: "मार्गदर्शक तत्त्वे" },
+    description: {
+      en: "Learn about the principles guiding the government.",
+      mr: "शासनाला दिशा देणाऱ्या तत्त्वांबद्दल जाणून घ्या."
+    },
+    path: "/directive-principles"
+  },
+  {
+    icon: "PenLine",
+    title: { en: "Amendments", mr: "दुरुस्त्या" },
+    description: {
+      en: "Explore important Constitutional Amendments.",
+      mr: "महत्त्वाच्या संविधान दुरुस्त्यांबद्दल जाणून घ्या."
+    },
+    path: "/amendments"
+  },
+  {
+    icon: "Newspaper",
+    title: { en: "Current Affairs", mr: "चालू घडामोडी" },
+    description: {
+      en: "Browse the updates published in the Current Affairs section.",
+      mr: "चालू घडामोडी विभागात प्रकाशित केलेल्या बातम्या वाचा."
+    },
+    path: "/current-affairs"
+  }
+];
+function getCategoryByKey(key) {
+  return categories.find((c) => c.key === key);
+}
+const BookmarkContext = createContext(null);
+const STORAGE_KEY = "samvidhan_bookmarks";
+function BookmarkProvider({ children }) {
+  const [bookmarks, setBookmarks] = useState(() => {
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      return stored ? JSON.parse(stored) : [];
+    } catch {
+      return [];
+    }
+  });
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(bookmarks));
+    } catch {
+    }
+  }, [bookmarks]);
+  const isBookmarked = (id) => bookmarks.includes(id);
+  const toggleBookmark = (id) => {
+    setBookmarks((prev) => prev.includes(id) ? prev.filter((b) => b !== id) : [...prev, id]);
+  };
+  return /* @__PURE__ */ jsx(BookmarkContext.Provider, { value: { bookmarks, isBookmarked, toggleBookmark }, children });
+}
+function useBookmarks() {
+  const ctx = useContext(BookmarkContext);
+  if (!ctx) throw new Error("useBookmarks must be used within BookmarkProvider");
+  return ctx;
+}
+function BookmarkButton({ articleId, size = "default" }) {
+  const { isBookmarked, toggleBookmark } = useBookmarks();
+  const { t } = useLanguage();
+  const saved = isBookmarked(articleId);
+  const base = size === "small" ? "h-8 w-8" : "gap-2 px-4 py-2 rounded-full";
+  if (size === "small") {
+    return /* @__PURE__ */ jsx(
+      "button",
+      {
+        type: "button",
+        onClick: () => toggleBookmark(articleId),
+        "aria-pressed": saved,
+        "aria-label": saved ? t("saved") : t("save_article"),
+        className: `flex items-center justify-center ${base} rounded-full border transition-colors ${saved ? "border-saffron bg-saffron/10 text-saffron" : "border-navy/15 dark:border-ink-dark/20 text-navy/60 dark:text-ink-dark/60 hover:text-saffron hover:border-saffron/40"}`,
+        children: /* @__PURE__ */ jsx(Star, { size: 16, fill: saved ? "currentColor" : "none" })
+      }
+    );
+  }
+  return /* @__PURE__ */ jsxs(
+    "button",
+    {
+      type: "button",
+      onClick: () => toggleBookmark(articleId),
+      "aria-pressed": saved,
+      className: `inline-flex items-center ${base} font-medium text-sm border transition-colors ${saved ? "border-saffron bg-saffron/10 text-saffron" : "border-navy/20 dark:border-ink-dark/25 text-navy dark:text-ink-dark hover:border-saffron/50 hover:text-saffron"}`,
+      children: [
+        /* @__PURE__ */ jsx(Star, { size: 16, fill: saved ? "currentColor" : "none" }),
+        saved ? t("saved") : t("save_article")
+      ]
+    }
+  );
+}
+function ArticleCard({ article }) {
+  const { pick, t, language } = useLanguage();
+  const category = getCategoryByKey(article.categoryKey);
+  const numeral = article.id.replace(
+    /[a-z]/gi,
+    (match) => match.toUpperCase()
+  );
+  const articleTitle = pick(article.title);
+  const articleNumber = article.articleNumber || `Article ${numeral}`;
+  return /* @__PURE__ */ jsxs(
+    "article",
+    {
+      className: "article-card group flex rounded-2xl border border-navy/10 dark:border-ink-dark/10 bg-white/60 dark:bg-white/[0.04] overflow-hidden transition-colors hover:border-saffron/40",
+      children: [
+        /* @__PURE__ */ jsx(
+          Link,
+          {
+            to: `/article/${article.id}`,
+            tabIndex: -1,
+            "aria-hidden": "true",
+            className: "article-card-image hidden shrink-0 sm:block",
+            children: /* @__PURE__ */ jsx(
+              "img",
+              {
+                src: `/images/articles/article-${article.id.toLowerCase()}.webp`,
+                alt: "",
+                width: "1200",
+                height: "630",
+                loading: "lazy",
+                decoding: "async",
+                className: "h-full w-full object-cover"
+              }
+            )
+          }
+        ),
+        /* @__PURE__ */ jsxs("div", { className: "flex w-16 sm:w-20 shrink-0 flex-col items-center justify-center border-r border-navy/10 dark:border-ink-dark/10 bg-navy/[0.03] dark:bg-white/[0.02] px-2 py-4", children: [
+          /* @__PURE__ */ jsx("span", { className: "text-[10px] tracking-wide text-ink/40 dark:text-ink-dark/40", children: "Art." }),
+          /* @__PURE__ */ jsx("span", { className: "font-display text-xl font-semibold text-navy dark:text-saffron-light", children: numeral })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "flex flex-1 flex-col p-5", children: [
+          /* @__PURE__ */ jsxs("div", { className: "flex items-start justify-between gap-3", children: [
+            /* @__PURE__ */ jsxs("div", { className: "min-w-0", children: [
+              /* @__PURE__ */ jsx(
+                "h3",
+                {
+                  lang: language,
+                  className: "font-display text-base font-semibold text-navy dark:text-ink-dark sm:text-lg",
+                  children: /* @__PURE__ */ jsx(
+                    Link,
+                    {
+                      to: `/article/${article.id}`,
+                      "aria-label": `${articleNumber}: ${articleTitle}`,
+                      className: "transition-colors hover:text-saffron focus:outline-none focus:text-saffron",
+                      children: articleTitle
+                    }
+                  )
+                }
+              ),
+              /* @__PURE__ */ jsx(
+                Link,
+                {
+                  to: `/article/${article.id}`,
+                  lang: language,
+                  className: "mt-1 inline-block text-xs text-saffron hover:underline",
+                  children: articleNumber
+                }
+              ),
+              category && /* @__PURE__ */ jsx(
+                "span",
+                {
+                  lang: language,
+                  className: "ml-2 mt-1 inline-block text-xs text-leaf dark:text-leaf-light",
+                  children: pick(category.title)
+                }
+              )
+            ] }),
+            /* @__PURE__ */ jsx(
+              BookmarkButton,
+              {
+                articleId: article.id,
+                size: "small"
+              }
+            )
+          ] }),
+          /* @__PURE__ */ jsx(
+            "p",
+            {
+              lang: language,
+              className: "mt-2 line-clamp-2 text-sm leading-relaxed text-ink/60 dark:text-ink-dark/60",
+              children: pick(article.simpleExplanation)
+            }
+          ),
+          /* @__PURE__ */ jsxs(
+            Link,
+            {
+              to: `/article/${article.id}`,
+              "aria-label": `${t("view_details")}: ${articleTitle}`,
+              className: "mt-4 inline-flex w-fit items-center gap-1 text-sm font-medium text-saffron transition-colors hover:text-saffron/80 hover:underline focus:outline-none focus:underline",
+              children: [
+                t("view_details"),
+                /* @__PURE__ */ jsx("span", { "aria-hidden": "true", children: "→" })
+              ]
+            }
+          )
+        ] })
+      ]
+    }
+  );
+}
+function CurrentAffairsCard({ article }) {
+  const { language, pick, t } = useLanguage();
+  const title = pick(article.title);
+  const category = language === "mr" ? article.categoryMr : article.category;
+  return /* @__PURE__ */ jsxs("article", { className: "group flex flex-col rounded-2xl border border-navy/10 dark:border-ink-dark/10 bg-white/60 dark:bg-white/[0.04] p-5 transition-colors hover:border-saffron/40", children: [
+    /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between gap-3 text-xs text-ink/50 dark:text-ink-dark/50", children: [
+      /* @__PURE__ */ jsx("span", { className: "text-leaf dark:text-leaf-light", children: category }),
+      /* @__PURE__ */ jsx("time", { dateTime: article.date, children: (/* @__PURE__ */ new Date(`${article.date}T00:00:00`)).toLocaleDateString(
+        language === "mr" ? "mr-IN" : "en-IN",
+        { day: "numeric", month: "short", year: "numeric" }
+      ) })
+    ] }),
+    /* @__PURE__ */ jsx(
+      "h2",
+      {
+        lang: language,
+        className: "mt-3 font-display text-lg font-semibold text-navy dark:text-ink-dark",
+        children: /* @__PURE__ */ jsx(
+          Link,
+          {
+            to: `/current-affairs/${article.slug}`,
+            className: "transition-colors hover:text-saffron focus:outline-none focus:text-saffron",
+            children: title
+          }
+        )
+      }
+    ),
+    /* @__PURE__ */ jsx(
+      "p",
+      {
+        lang: language,
+        className: "mt-2 line-clamp-3 text-sm leading-relaxed text-ink/60 dark:text-ink-dark/60",
+        children: pick(article.shortDescription)
+      }
+    ),
+    /* @__PURE__ */ jsxs(
+      Link,
+      {
+        to: `/current-affairs/${article.slug}`,
+        "aria-label": `${t("current_affairs_read_more")}: ${title}`,
+        className: "mt-4 inline-flex w-fit items-center gap-1 text-sm font-medium text-saffron transition-colors hover:text-saffron/80 hover:underline focus:outline-none focus:underline",
+        children: [
+          t("current_affairs_read_more"),
+          /* @__PURE__ */ jsx("span", { "aria-hidden": "true", children: "→" })
+        ]
+      }
+    )
+  ] });
+}
+const facts = [
+  {
+    en: "The original Constitution of India was handwritten and calligraphed, not typed or printed.",
+    mr: "भारतीय संविधानाची मूळ प्रत टंकलिखित किंवा मुद्रित नसून हस्तलिखित व सुलेखन केलेली आहे."
+  },
+  {
+    en: "The Constituent Assembly took nearly three years to draft the Constitution.",
+    mr: "संविधान तयार करण्यासाठी संविधान सभेला जवळपास तीन वर्षे लागली."
+  },
+  {
+    en: "India is often described as having one of the longest written constitutions of any sovereign country.",
+    mr: "भारताचे संविधान जगातील सार्वभौम देशांच्या सर्वात लांब लिखित संविधानांपैकी एक मानले जाते."
+  },
+  {
+    en: "The Preamble was amended once, by the 42nd Amendment in 1976.",
+    mr: "प्रस्तावनेत केवळ एकदाच, १९७६ मधील ४२व्या दुरुस्तीने बदल करण्यात आला."
+  },
+  {
+    en: "B. R. Ambedkar chaired the Drafting Committee of the Constituent Assembly.",
+    mr: "डॉ. बाबासाहेब आंबेडकर हे संविधान सभेच्या मसुदा समितीचे अध्यक्ष होते."
+  },
+  {
+    en: "The Constitution recognises 22 languages in its Eighth Schedule.",
+    mr: "संविधानाच्या आठव्या परिशिष्टात २२ भाषांना मान्यता दिली आहे."
+  },
+  {
+    en: "Fundamental Duties, added in 1976, were inspired in part by the constitution of the erstwhile Soviet Union.",
+    mr: "१९७६ मध्ये जोडलेली मूलभूत कर्तव्ये अंशतः पूर्वीच्या सोव्हिएत संघाच्या संविधानापासून प्रेरित होती."
+  }
+];
+function getTodaysFact() {
+  const start = new Date((/* @__PURE__ */ new Date()).getFullYear(), 0, 0);
+  const diff = /* @__PURE__ */ new Date() - start;
+  const dayOfYear = Math.floor(diff / (1e3 * 60 * 60 * 24));
+  return facts[dayOfYear % facts.length];
+}
+function RecommendedBooks({ books: books2 }) {
+  const { pick } = useLanguage();
+  return /* @__PURE__ */ jsxs("section", { className: "mx-auto max-w-7xl px-4 py-12 sm:px-6", children: [
+    /* @__PURE__ */ jsx("div", { className: "flex items-end justify-between gap-4", children: /* @__PURE__ */ jsxs("div", { children: [
+      /* @__PURE__ */ jsx("p", { className: "text-xs font-semibold uppercase tracking-[0.2em] text-saffron", children: "Reading list" }),
+      /* @__PURE__ */ jsx("h2", { className: "font-display mt-2 text-3xl font-semibold text-navy dark:text-ink-dark", children: pick({
+        en: "Recommended Books",
+        mr: "शिफारस केलेली पुस्तके"
+      }) })
+    ] }) }),
+    /* @__PURE__ */ jsx("div", { className: "mt-6 grid gap-5 md:grid-cols-2", children: books2.map((book) => /* @__PURE__ */ jsxs(
+      "article",
+      {
+        className: "flex gap-5 rounded-2xl border border-navy/10 bg-white/60 p-5 shadow-sm transition hover:shadow-md dark:border-ink-dark/10 dark:bg-white/[0.04]",
+        children: [
+          /* @__PURE__ */ jsx("div", { className: "h-40 w-28 shrink-0 overflow-hidden rounded-lg bg-navy/[0.06] dark:bg-white/10", children: book.image ? /* @__PURE__ */ jsx(
+            "img",
+            {
+              src: book.image,
+              alt: pick(book.title),
+              className: "h-full w-full object-cover",
+              loading: "lazy"
+            }
+          ) : /* @__PURE__ */ jsx("div", { className: "flex h-full w-full items-center justify-center text-center text-[10px] text-ink/40 dark:text-ink-dark/40", children: "Book cover" }) }),
+          /* @__PURE__ */ jsxs("div", { className: "flex min-w-0 flex-1 flex-col", children: [
+            /* @__PURE__ */ jsxs("p", { className: "text-xs text-saffron", children: [
+              book.category,
+              " · ",
+              book.language
+            ] }),
+            /* @__PURE__ */ jsx("h3", { className: "font-display mt-1 font-semibold leading-snug text-navy dark:text-ink-dark", children: pick(book.title) }),
+            book.author && /* @__PURE__ */ jsx("p", { className: "mt-1 text-xs text-ink/50 dark:text-ink-dark/50", children: book.author }),
+            /* @__PURE__ */ jsx("p", { className: "mt-2 line-clamp-2 text-sm leading-relaxed text-ink/60 dark:text-ink-dark/60", children: pick(book.description) }),
+            /* @__PURE__ */ jsxs("div", { className: "mt-auto flex items-center justify-between gap-3 pt-4", children: [
+              book.price && /* @__PURE__ */ jsxs("p", { className: "text-lg font-bold text-navy dark:text-ink-dark", children: [
+                "₹",
+                book.price
+              ] }),
+              /* @__PURE__ */ jsx(
+                "a",
+                {
+                  href: book.affiliateUrl || void 0,
+                  target: "_blank",
+                  rel: "nofollow sponsored noopener noreferrer",
+                  "aria-disabled": !book.affiliateUrl,
+                  className: `inline-flex items-center justify-center gap-1.5 rounded-lg px-4 py-2 text-sm font-semibold transition ${book.affiliateUrl ? "bg-saffron text-white hover:opacity-90" : "pointer-events-none bg-ink/10 text-ink/35"}`,
+                  children: book.affiliateUrl ? /* @__PURE__ */ jsxs(Fragment, { children: [
+                    "Buy Now",
+                    /* @__PURE__ */ jsx(ExternalLink, { size: 14 })
+                  ] }) : "Link coming soon"
+                }
+              )
+            ] })
+          ] })
+        ]
+      },
+      book.id
+    )) })
+  ] });
+}
+const faqs$1 = [
+  {
+    id: 1,
+    question: {
+      en: "What is the Constitution?",
+      mr: "संविधान म्हणजे काय?"
+    },
+    answer: {
+      en: "The Constitution of India is the supreme legal framework that defines the structure of government, powers of institutions, and rights and duties of citizens.",
+      mr: "भारतीय संविधान हे भारताच्या शासनव्यवस्थेची रचना, संस्थांचे अधिकार तसेच नागरिकांचे अधिकार आणि कर्तव्ये निश्चित करणारे सर्वोच्च कायदेशीर दस्तऐवज आहे."
+    }
+  },
+  {
+    id: 2,
+    question: {
+      en: "When did the Constitution of India come into effect?",
+      mr: "भारतीय संविधान कधी लागू झाले?"
+    },
+    answer: {
+      en: "The Constitution was adopted on 26 November 1949 and came into effect on 26 January 1950.",
+      mr: "भारतीय संविधान 26 नोव्हेंबर 1949 रोजी स्वीकारले गेले आणि 26 जानेवारी 1950 रोजी लागू झाले."
+    }
+  },
+  {
+    id: 3,
+    question: {
+      en: "How many Fundamental Rights are there?",
+      mr: "मूलभूत अधिकार किती आहेत?"
+    },
+    answer: {
+      en: "The Constitution currently provides six broad categories of Fundamental Rights under Part III.",
+      mr: "भारतीय संविधानाच्या भाग III मध्ये सध्या मूलभूत अधिकारांच्या सहा प्रमुख श्रेणींची तरतूद आहे."
+    }
+  },
+  {
+    id: 4,
+    question: {
+      en: "What is the difference between an Article and an Amendment?",
+      mr: "अनुच्छेद आणि घटनादुरुस्तीमध्ये काय फरक आहे?"
+    },
+    answer: {
+      en: "An Article is a specific provision of the Constitution. An Amendment is a formal change made to the Constitution through the constitutional amendment process.",
+      mr: "अनुच्छेद हा संविधानातील विशिष्ट तरतूद आहे. घटनादुरुस्ती म्हणजे संविधानातील तरतुदीत घटनात्मक प्रक्रियेद्वारे केलेला अधिकृत बदल."
+    }
+  },
+  {
+    id: 5,
+    question: {
+      en: "How is the Constitution of India structured?",
+      mr: "भारतीय संविधानाची रचना कशी आहे?"
+    },
+    answer: {
+      en: "The Constitution is organised into Parts, Articles and Schedules covering different aspects of India's constitutional and governance system.",
+      mr: "भारतीय संविधानाची रचना विविध भाग, अनुच्छेद आणि अनुसूचींमध्ये करण्यात आली आहे. यामध्ये भारताच्या घटनात्मक आणि शासनव्यवस्थेशी संबंधित विविध विषयांचा समावेश आहे."
+    }
+  },
+  {
+    id: 6,
+    question: {
+      en: "Who drafted the Constitution of India?",
+      mr: "भारतीय संविधान कोणी तयार केले?"
+    },
+    answer: {
+      en: "The Constitution was framed by the Constituent Assembly. Dr. B. R. Ambedkar chaired the Drafting Committee.",
+      mr: "भारतीय संविधानाची निर्मिती संविधान सभेने केली. डॉ. बाबासाहेब आंबेडकर हे मसुदा समितीचे अध्यक्ष होते."
+    }
+  }
+];
+function FAQSection() {
+  const { pick } = useLanguage();
+  const [openId, setOpenId] = useState(null);
+  const toggleFAQ = (id) => {
+    setOpenId((current) => current === id ? null : id);
+  };
+  return /* @__PURE__ */ jsxs("section", { className: "mx-auto max-w-7xl px-4 py-12 sm:px-6", children: [
+    /* @__PURE__ */ jsxs("div", { className: "text-left", children: [
+      /* @__PURE__ */ jsx("p", { className: "text-xs font-semibold uppercase tracking-[0.2em] text-saffron", children: pick({
+        en: "Common Questions",
+        mr: "सामान्य प्रश्न"
+      }) }),
+      /* @__PURE__ */ jsx("h2", { className: "font-display mt-2 text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl", children: pick({
+        en: "Frequently Asked Questions",
+        mr: "वारंवार विचारले जाणारे प्रश्न"
+      }) }),
+      /* @__PURE__ */ jsx("p", { className: "mt-3 max-w-2xl text-sm leading-relaxed text-ink/60 dark:text-ink-dark/60", children: pick({
+        en: "Quick answers to common questions about the Constitution of India.",
+        mr: "भारतीय संविधानाबद्दलच्या सामान्य प्रश्नांची सोप्या भाषेत उत्तरे."
+      }) })
+    ] }),
+    /* @__PURE__ */ jsx("div", { className: "mt-8 space-y-3", children: faqs$1.map((faq) => {
+      const isOpen = openId === faq.id;
+      return /* @__PURE__ */ jsxs(
+        "div",
+        {
+          className: "overflow-hidden rounded-2xl border border-navy/10 bg-white/60 dark:border-ink-dark/10 dark:bg-white/[0.04]",
+          children: [
+            /* @__PURE__ */ jsxs(
+              "button",
+              {
+                type: "button",
+                onClick: () => toggleFAQ(faq.id),
+                "aria-expanded": isOpen,
+                className: "flex w-full items-center justify-between gap-4 px-5 py-4 text-left",
+                children: [
+                  /* @__PURE__ */ jsx("span", { className: "font-medium text-navy dark:text-ink-dark", children: pick(faq.question) }),
+                  /* @__PURE__ */ jsx(
+                    ChevronDown,
+                    {
+                      size: 20,
+                      className: `shrink-0 text-saffron transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`
+                    }
+                  )
+                ]
+              }
+            ),
+            isOpen && /* @__PURE__ */ jsx("div", { className: "border-t border-navy/10 px-5 py-4 dark:border-ink-dark/10", children: /* @__PURE__ */ jsx("p", { className: "text-sm leading-7 text-ink/65 dark:text-ink-dark/65", children: pick(faq.answer) }) })
+          ]
+        },
+        faq.id
+      );
+    }) })
+  ] });
+}
+const books = [
+  {
+    id: "book-constitution-marathi",
+    title: {
+      en: "The Constitution of India",
+      mr: "भारताचे संविधान"
+    },
+    author: "Dr. Babasaheb Ambedkar",
+    description: {
+      en: "The Constitution of India in Marathi, updated up to the 106th Constitutional Amendment, including the amendment related to Article 370.",
+      mr: "भारताचे संविधान — 106व्या घटनादुरुस्तीपर्यंत अद्ययावत आवृत्ती, अनुच्छेद 370 संदर्भातील सुधारणेसह."
+    },
+    image: "/images/books/bharatache-sanvidhan.jpg",
+    price: 430,
+    affiliateUrl: "https://link.amazon/B0c3E6ZnQ",
+    category: "Indian Constitution",
+    language: "Marathi"
+  },
+  {
+    id: "book-polity-marathi",
+    title: {
+      en: "Indian Polity — 8th Edition",
+      mr: "भारतीय राजव्यवस्था — 8वी आवृत्ती"
+    },
+    author: "M. Laxmikanth",
+    description: {
+      en: "Marathi edition for UPSC and MPSC exams, featuring 95 well-structured chapters, 40+ conceptual videos, 18 appendices and solved MPSC PYQs.",
+      mr: "UPSC आणि MPSC परीक्षांसाठी मराठी आवृत्ती. 95 सुव्यवस्थित प्रकरणे, 40+ संकल्पनात्मक व्हिडिओ, 18 परिशिष्टे आणि सोडवलेले MPSC PYQs यांचा समावेश."
+    },
+    image: "/images/books/upsc.jpg",
+    price: 641,
+    affiliateUrl: "https://link.amazon/B06aGhdJp",
+    category: "UPSC / MPSC",
+    language: "Marathi"
+  }
+];
+const FEATURED_IDS = ["14", "19", "21", "21A", "32"];
+function Home() {
+  const { t, pick, language } = useLanguage();
+  const fact = getTodaysFact();
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
+    const sections = document.querySelectorAll("[data-reveal]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -32px 0px" }
+    );
+    sections.forEach((section) => observer.observe(section));
+    document.documentElement.classList.add("motion-ready");
+    return () => {
+      observer.disconnect();
+      document.documentElement.classList.remove("motion-ready");
+    };
+  }, []);
+  const featured = FEATURED_IDS.map((id) => articles.find((a) => a.id === id)).filter(Boolean);
+  const recentAffairs = [...currentAffairs].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 3);
+  return /* @__PURE__ */ jsxs("div", { children: [
+    /* @__PURE__ */ jsx(Hero, {}),
+    /* @__PURE__ */ jsx(Advertisement, { placement: "banner" }),
+    /* @__PURE__ */ jsxs("section", { "data-reveal": true, className: "scroll-reveal mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-20", children: [
+      /* @__PURE__ */ jsx("div", { className: "max-w-2xl", children: /* @__PURE__ */ jsx("h2", { lang: language, className: "font-display text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl", children: t("explore_heading") }) }),
+      /* @__PURE__ */ jsx("div", { className: "mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6", children: exploreCards.map((card) => /* @__PURE__ */ jsx(CategoryCard, { ...card }, card.path)) })
+    ] }),
+    /* @__PURE__ */ jsxs("section", { "data-reveal": true, className: "scroll-reveal mx-auto max-w-7xl px-4 sm:px-6 pb-14", children: [
+      /* @__PURE__ */ jsx("h2", { lang: language, className: "font-display text-2xl font-semibold text-navy dark:text-ink-dark sm:text-3xl", children: language === "mr" ? "अभ्यासाची सुरुवात कशी कराल?" : "A simple way to get started" }),
+      /* @__PURE__ */ jsx("p", { lang: language, className: "mt-2 max-w-2xl text-sm leading-relaxed text-ink/65 dark:text-ink-dark/65", children: language === "mr" ? "उपलब्ध शैक्षणिक साधनांमधून विषय निवडा, संबंधित कलमांचे स्पष्टीकरण वाचा आणि शेवटी प्रश्नमंजुषेतून स्वतःची उजळणी करा." : "Choose a topic from the available study guides, read the related Article explanations, and use the quiz to review what you have learned." }),
+      /* @__PURE__ */ jsx("div", { className: "mt-5 grid gap-3 sm:grid-cols-3", children: [
+        {
+          path: "/fundamental-rights",
+          title: { en: "1. Start with a topic", mr: "१. विषय निवडा" },
+          text: { en: "Begin with Fundamental Rights, Duties or Directive Principles.", mr: "मूलभूत अधिकार, कर्तव्ये किंवा मार्गदर्शक तत्त्वांपासून सुरुवात करा." }
+        },
+        {
+          path: "/articles",
+          title: { en: "2. Read selected Articles", mr: "२. निवडक कलमे वाचा" },
+          text: { en: "Use the Article list to open the explanations currently available on the site.", mr: "संकेतस्थळावर सध्या उपलब्ध असलेली कलमांची स्पष्टीकरणे वाचण्यासाठी यादी वापरा." }
+        },
+        {
+          path: "/quiz",
+          title: { en: "3. Review with the quiz", mr: "३. प्रश्नमंजुषेतून उजळणी करा" },
+          text: { en: "Answer the quiz questions and check your score at the end.", mr: "प्रश्नमंजुषेतील प्रश्न सोडवा आणि शेवटी आपला गुणांक पाहा." }
+        }
+      ].map((step) => /* @__PURE__ */ jsxs(
+        Link,
+        {
+          to: step.path,
+          className: "rounded-2xl border border-navy/10 bg-white/60 p-5 transition-colors hover:border-gold/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saffron dark:border-ink-dark/10 dark:bg-white/[0.04]",
+          children: [
+            /* @__PURE__ */ jsx("h3", { lang: language, className: "font-display text-base font-semibold text-navy dark:text-ink-dark", children: pick(step.title) }),
+            /* @__PURE__ */ jsx("p", { lang: language, className: "mt-2 text-sm leading-relaxed text-ink/65 dark:text-ink-dark/65", children: pick(step.text) })
+          ]
+        },
+        step.path
+      )) })
+    ] }),
+    /* @__PURE__ */ jsx(RecommendedBooks, { books }),
+    /* @__PURE__ */ jsx("section", { "data-reveal": true, className: "scroll-reveal border-y border-navy/10 dark:border-ink-dark/10 bg-white/40 dark:bg-white/[0.02]", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-20", children: [
+      /* @__PURE__ */ jsxs("div", { className: "flex flex-wrap items-end justify-between gap-4", children: [
+        /* @__PURE__ */ jsx("h2", { lang: language, className: "font-display text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl", children: t("important_articles") }),
+        /* @__PURE__ */ jsxs(
+          Link,
+          {
+            to: "/articles",
+            className: "inline-flex items-center gap-1.5 text-sm font-medium text-saffron",
+            children: [
+              t("view_all_articles"),
+              " ",
+              /* @__PURE__ */ jsx(ArrowRight, { size: 15 })
+            ]
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsx("div", { className: "mt-10 grid gap-5 sm:grid-cols-2", children: featured.map((article) => /* @__PURE__ */ jsx(ArticleCard, { article }, article.id)) })
+    ] }) }),
+    recentAffairs.length > 0 && /* @__PURE__ */ jsxs("section", { "data-reveal": true, className: "scroll-reveal mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16", children: [
+      /* @__PURE__ */ jsxs("div", { className: "flex flex-wrap items-end justify-between gap-4", children: [
+        /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("h2", { lang: language, className: "font-display text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl", children: t("nav_current_affairs") }) }),
+        /* @__PURE__ */ jsxs(Link, { to: "/current-affairs", className: "inline-flex items-center gap-1.5 text-sm font-medium text-saffron", children: [
+          t("view_all_articles"),
+          " ",
+          /* @__PURE__ */ jsx(ArrowRight, { size: 15 })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsx("div", { className: "mt-7 grid gap-4 md:grid-cols-3", children: recentAffairs.map((article) => /* @__PURE__ */ jsx(CurrentAffairsCard, { article }, article.id)) })
+    ] }),
+    /* @__PURE__ */ jsx("section", { "data-reveal": true, className: "scroll-reveal mx-auto max-w-7xl px-4 sm:px-6", children: /* @__PURE__ */ jsxs("div", { className: "quiz-invitation flex flex-col gap-5 rounded-2xl border border-gold/30 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8", children: [
+      /* @__PURE__ */ jsxs("div", { className: "flex items-start gap-4", children: [
+        /* @__PURE__ */ jsx("div", { className: "flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gold/15 text-gold", children: /* @__PURE__ */ jsx(BookOpenCheck, { size: 22 }) }),
+        /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("h2", { lang: language, className: "font-display text-xl font-semibold text-navy dark:text-ink-dark sm:text-2xl", children: t("quiz_title") }) })
+      ] }),
+      /* @__PURE__ */ jsxs(
+        Link,
+        {
+          to: "/quiz",
+          lang: language,
+          className: "inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-navy px-5 py-3 text-sm font-medium text-paper transition-colors hover:bg-navy-light",
+          children: [
+            t("quiz_start"),
+            " ",
+            /* @__PURE__ */ jsx(ArrowRight, { size: 15 })
+          ]
+        }
+      )
+    ] }) }),
+    /* @__PURE__ */ jsx(FAQSection, {}),
+    /* @__PURE__ */ jsx("section", { "data-reveal": true, className: "scroll-reveal mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-20 dark:bg-white/[0.02]", children: /* @__PURE__ */ jsxs("div", { className: "flex flex-col gap-6 rounded-2xl border border-gold/30 bg-gold/[0.06] p-6 sm:flex-row sm:items-center sm:p-8", children: [
+      /* @__PURE__ */ jsx("div", { className: "flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gold/15 text-gold", children: /* @__PURE__ */ jsx(Lightbulb, { size: 22 }) }),
+      /* @__PURE__ */ jsxs("div", { children: [
+        /* @__PURE__ */ jsx("h3", { lang: language, className: "font-display text-lg font-semibold text-navy dark:text-ink-dark", children: t("did_you_know") }),
+        /* @__PURE__ */ jsx("p", { lang: language, className: "mt-1.5 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70", children: pick(fact) })
+      ] })
+    ] }) })
+  ] });
+}
+const siteConfig = {
+  name: "Samvidhan",
+  url: "https://www.mysamvidhan.in",
+  defaultTitle: "Samvidhan | Understand the Constitution of India",
+  defaultDescription: "Understand the Constitution of India with simple explanations in English and Marathi."
+};
+const seoRoutes = {
+  "/": { title: { en: siteConfig.defaultTitle, mr: "संविधान | भारताचे संविधान समजून घ्या" }, description: { en: siteConfig.defaultDescription, mr: "भारतीय संविधान, कलमे, मूलभूत अधिकार, कर्तव्ये आणि दुरुस्त्या सोप्या भाषेत समजून घ्या." }, priority: "1.0", changefreq: "weekly" },
+  "/articles": { title: { en: "Selected Constitutional Article Explanations | Samvidhan", mr: "निवडक संवैधानिक कलमांची स्पष्टीकरणे | संविधान" }, description: { en: "Search a selection of Indian Constitution Articles and read clear, simplified explanations in English and Marathi.", mr: "भारतीय संविधानातील निवडक कलमे शोधा आणि मराठी व इंग्रजीत सोपी स्पष्टीकरणे वाचा." }, priority: "0.9", changefreq: "weekly" },
+  "/current-affairs": { title: { en: "Current Affairs | Indian Constitution & Polity | MySamvidhan", mr: "चालू घडामोडी | भारतीय संविधान आणि राज्यशास्त्र | MySamvidhan" }, description: { en: "Read current affairs and important developments related to the Indian Constitution, polity and Supreme Court in simple language.", mr: "भारतीय संविधान, राज्यशास्त्र आणि सर्वोच्च न्यायालयाशी संबंधित चालू घडामोडी सोप्या भाषेत वाचा." }, priority: "0.9", changefreq: "daily" },
+  "/fundamental-rights": { title: { en: "Fundamental Rights | Samvidhan", mr: "मूलभूत अधिकार | संविधान" }, description: { en: "Understand the Fundamental Rights guaranteed by the Constitution of India.", mr: "भारतीय संविधानाने दिलेले मूलभूत अधिकार समजून घ्या." }, priority: "0.8", changefreq: "monthly" },
+  "/fundamental-duties": { title: { en: "Fundamental Duties | Samvidhan", mr: "मूलभूत कर्तव्ये | संविधान" }, description: { en: "Learn the Fundamental Duties of citizens of India.", mr: "भारताच्या नागरिकांची मूलभूत कर्तव्ये जाणून घ्या." }, priority: "0.8", changefreq: "monthly" },
+  "/directive-principles": { title: { en: "Directive Principles of State Policy | Samvidhan", mr: "राज्याच्या धोरणाची मार्गदर्शक तत्त्वे | संविधान" }, description: { en: "Explore the Directive Principles that guide governance and public policy.", mr: "शासन आणि सार्वजनिक धोरणाला दिशा देणारी मार्गदर्शक तत्त्वे जाणून घ्या." }, priority: "0.8", changefreq: "monthly" },
+  "/amendments": { title: { en: "Constitutional Amendments | Samvidhan", mr: "संविधान दुरुस्त्या | संविधान" }, description: { en: "Study important Constitutional Amendments and how India's Constitution has evolved.", mr: "महत्त्वाच्या संविधान दुरुस्त्या आणि संविधानातील बदलांचा अभ्यास करा." }, priority: "0.8", changefreq: "monthly" },
+  "/quiz": { title: { en: "Constitution Quiz | Samvidhan", mr: "संविधान प्रश्नमंजुषा | संविधान" }, description: { en: "Test your knowledge of the Constitution of India with a free quiz.", mr: "मोफत प्रश्नमंजुषेद्वारे भारतीय संविधानाचे तुमचे ज्ञान तपासा." }, priority: "0.7", changefreq: "monthly" },
+  "/faq": { title: { en: "Indian Constitution FAQs | Frequently Asked Questions – Samvidhan", mr: "भारतीय संविधान FAQ | वारंवार विचारले जाणारे प्रश्न – Samvidhan" }, description: { en: "Find answers to frequently asked questions about the Constitution of India, Fundamental Rights, Duties, Articles, Amendments, Preamble and more.", mr: "भारतीय संविधान, मूलभूत अधिकार, कर्तव्ये, कलमे, उद्देशिका, घटनादुरुस्ती आणि इतर महत्त्वाच्या विषयांवरील वारंवार विचारले जाणारे प्रश्न व उत्तरे जाणून घ्या." }, priority: "0.8", changefreq: "monthly" },
+  "/about": { title: { en: "About Samvidhan", mr: "संविधान विषयी" }, description: { en: "Learn about Samvidhan, an independent educational platform for constitutional knowledge.", mr: "संविधान या स्वतंत्र शैक्षणिक व्यासपीठाविषयी जाणून घ्या." }, priority: "0.5", changefreq: "yearly" },
+  "/contact": { title: { en: "Contact Samvidhan", mr: "संविधानशी संपर्क साधा" }, description: { en: "Contact Samvidhan with questions, suggestions, feedback or corrections.", mr: "प्रश्न, सूचना, अभिप्राय किंवा दुरुस्त्यांसाठी संविधानशी संपर्क साधा." }, priority: "0.4", changefreq: "yearly" },
+  "/privacy": { title: { en: "Privacy Policy | Samvidhan", mr: "गोपनीयता धोरण | संविधान" }, description: { en: "Read the Samvidhan Privacy Policy covering information, cookies, analytics and advertising.", mr: "माहिती, कुकीज, विश्लेषण आणि जाहिरातींसंबंधी संविधानचे गोपनीयता धोरण वाचा." }, priority: "0.3", changefreq: "yearly" },
+  "/privacy-policy": { title: { en: "Privacy Policy | Samvidhan", mr: "गोपनीयता धोरण | संविधान" }, description: { en: "Read the Samvidhan Privacy Policy covering information, cookies, analytics and advertising.", mr: "माहिती, कुकीज, विश्लेषण आणि जाहिरातींसंबंधी संविधानचे गोपनीयता धोरण वाचा." }, indexable: false },
+  "/terms": { title: { en: "Terms & Conditions | Samvidhan", mr: "नियम आणि अटी | संविधान" }, description: { en: "Read the Samvidhan Terms and Conditions for using this educational website.", mr: "या शैक्षणिक वेबसाइटच्या वापरासाठी संविधानचे नियम आणि अटी वाचा." }, priority: "0.3", changefreq: "yearly" },
+  "/disclaimer": { title: { en: "Disclaimer | Samvidhan", mr: "अस्वीकरण | संविधान" }, description: { en: "Read the Samvidhan educational and informational content disclaimer.", mr: "संविधानच्या शैक्षणिक आणि माहितीपर सामग्रीचे अस्वीकरण वाचा." }, priority: "0.3", changefreq: "yearly" },
+  "/learn": { title: { en: "Learn Indian Constitution | Samvidhan", mr: "भारतीय संविधान शिका | संविधान" }, description: { en: "Learn the Indian Constitution through guided Articles, Rights and exam preparation paths.", mr: "मार्गदर्शित कलमे, अधिकार आणि परीक्षा तयारीच्या माध्यमातून भारतीय संविधान शिका." }, priority: "0.8", changefreq: "monthly" },
+  "/exam-preparation": { title: { en: "Exam Preparation | Samvidhan", mr: "परीक्षा तयारी | संविधान" }, description: { en: "Prepare for MPSC and UPSC Constitution and polity examinations.", mr: "MPSC आणि UPSC संविधान व राज्यशास्त्र परीक्षांची तयारी करा." }, priority: "0.7", changefreq: "monthly" },
+  "/premium": { title: { en: "Samvidhan Premium | Learn Better", mr: "संविधान प्रीमियम | अधिक चांगले शिका" }, description: { en: "Explore structured constitutional revision, advanced practice and exam preparation.", mr: "संरचित संविधान उजळणी, प्रगत सराव आणि परीक्षा तयारीचा अनुभव घ्या." }, indexable: false },
+  "/article/:id": { indexable: true, changefreq: "monthly", priority: "0.7" },
+  "/dashboard": { title: { en: "Learning Dashboard | Samvidhan", mr: "अध्ययन डॅशबोर्ड | संविधान" }, description: { en: "Review saved Articles and the learning dashboard features available on Samvidhan.", mr: "Samvidhan वरील जतन केलेली कलमे आणि अध्ययन डॅशबोर्डची उपलब्ध वैशिष्ट्ये पाहा." }, indexable: false },
+  "/progress": { title: { en: "Learning Progress | Samvidhan", mr: "अध्ययन प्रगती | संविधान" }, description: { en: "View the learning progress indicators and practice summaries available on Samvidhan.", mr: "Samvidhan वरील अध्ययन प्रगती निर्देशक आणि सराव सारांश पाहा." }, indexable: false },
+  "/premium-quiz": { title: { en: "Advanced Quiz | Samvidhan", mr: "प्रगत प्रश्नमंजुषा | संविधान" }, description: { en: "Explore the advanced quiz interface and its topic and difficulty controls.", mr: "प्रगत प्रश्नमंजुषेचा इंटरफेस आणि विषय व कठीणता निवडीचे पर्याय पाहा." }, indexable: false },
+  "/notes": { title: { en: "Revision Notes | Samvidhan", mr: "उजळणीच्या नोंदी | संविधान" }, description: { en: "Browse the revision note cards currently available on Samvidhan.", mr: "Samvidhan वर सध्या उपलब्ध असलेल्या उजळणीच्या नोंदी पहा." }, indexable: false },
+  "/bookmarks": { title: { en: "Saved Articles | Samvidhan", mr: "जतन केलेली कलमे | संविधान" }, description: { en: "View the Constitution Articles saved in this browser.", mr: "या ब्राउझरमध्ये जतन केलेली संविधानातील कलमे पाहा." }, indexable: false }
+};
+function getSeoRoute(pathname) {
+  if (seoRoutes[pathname]) return seoRoutes[pathname];
+  if (pathname.startsWith("/article/")) return seoRoutes["/article/:id"];
+  if (pathname.startsWith("/current-affairs/")) return { indexable: true, changefreq: "daily", priority: "0.7" };
+  return { title: { en: siteConfig.defaultTitle, mr: "संविधान | भारताचे संविधान समजून घ्या" }, description: { en: siteConfig.defaultDescription, mr: "भारतीय संविधानाबद्दल सोप्या भाषेत जाणून घ्या." }, indexable: false };
+}
+const __vite_import_meta_env__$1 = {};
+const SITE_URL$1 = ((__vite_import_meta_env__$1 == null ? void 0 : __vite_import_meta_env__$1.VITE_SITE_URL) || (typeof process !== "undefined" ? (_a = process.env) == null ? void 0 : _a.VITE_SITE_URL : "") || siteConfig.url).replace(/\/+$/, "");
+function getCanonicalUrl(pathname) {
+  const cleanPath = pathname === "/" ? "/" : pathname.replace(/\/+$/, "");
+  return `${SITE_URL$1}${cleanPath}`;
+}
+function getSeoMetadata(pathname, language, overrides = {}) {
+  var _a2, _b2, _c, _d;
+  const route = getSeoRoute(pathname);
+  const article = pathname.startsWith("/article/") ? getArticleById(pathname.split("/").pop()) : null;
+  const currentAffair = pathname.startsWith("/current-affairs/") ? getCurrentAffairBySlug(pathname.split("/").pop()) : null;
+  const cleanPath = pathname === "/" ? "/" : pathname.replace(/\/+$/, "");
+  const isFilteredArticleList = cleanPath === "/articles" && Boolean(overrides.search);
+  let title = "";
+  let description = "";
+  let ogType = "website";
+  let image = `${SITE_URL$1}/images/mysamvidhan-logo.svg`;
+  let imageAlt = siteConfig.name;
+  if (article) {
+    const number = String(article.articleNumber || "").replace(/^article\s*/i, "").replace(/^कलम\s*/i, "").trim();
+    const articleTitle = language === "mr" ? article.title.mr : article.title.en;
+    title = language === "mr" ? `कलम ${number} – ${articleTitle} | MySamvidhan` : `Article ${number} – ${articleTitle} | MySamvidhan`;
+    description = language === "mr" ? `भारतीय संविधानातील कलम ${number} सोप्या मराठीत आणि इंग्रजीत समजून घ्या. ${articleTitle}चा अर्थ, प्रमुख तरतुदी, उदाहरणे आणि महत्त्व जाणून घ्या.` : `Learn about Article ${number} of the Indian Constitution in simple English and Marathi. Understand its meaning, key provisions, examples and importance.`;
+    image = `${SITE_URL$1}/images/articles/article-${String(article.id).toLowerCase()}.webp`;
+    imageAlt = `${article.articleNumber} — ${articleTitle}`;
+    ogType = "article";
+  } else if (currentAffair) {
+    title = language === "mr" ? ((_a2 = currentAffair.seoTitle) == null ? void 0 : _a2.mr) || currentAffair.title.mr : ((_b2 = currentAffair.seoTitle) == null ? void 0 : _b2.en) || currentAffair.title.en;
+    description = language === "mr" ? currentAffair.shortDescription.mr : currentAffair.shortDescription.en;
+    ogType = "article";
+  } else if (((_c = seoRoutes[cleanPath]) == null ? void 0 : _c.title) && ((_d = seoRoutes[cleanPath]) == null ? void 0 : _d.description)) {
+    title = language === "mr" ? route.title.mr : route.title.en;
+    description = language === "mr" ? route.description.mr : route.description.en;
+  } else {
+    title = language === "mr" ? "पृष्ठ सापडले नाही | MySamvidhan" : "Page Not Found | MySamvidhan";
+    description = language === "mr" ? "विनंती केलेले पृष्ठ सापडले नाही." : "The requested page could not be found.";
+  }
+  const canonicalUrl = getCanonicalUrl(pathname);
+  const isUnknownDetail = pathname.startsWith("/article/") && !article || pathname.startsWith("/current-affairs/") && !currentAffair;
+  const robots = overrides.robots || (isUnknownDetail || route.indexable === false || isFilteredArticleList ? "noindex, follow" : "index, follow");
+  return {
+    title: overrides.title || title,
+    description: overrides.description || description,
+    canonicalUrl: overrides.canonical ? getCanonicalUrl(overrides.canonical) : canonicalUrl,
+    robots,
+    ogType,
+    image,
+    imageAlt,
+    language,
+    indexable: robots.startsWith("index"),
+    article,
+    currentAffair
+  };
+}
+function setMeta(attribute, value, content) {
+  let element = document.head.querySelector(`meta[${attribute}="${value}"]`);
   if (!element) {
     element = document.createElement("meta");
     element.setAttribute(attribute, value);
@@ -5673,9 +8069,7 @@ function setMeta(attribute, value, content) {
   element.setAttribute("content", content);
 }
 function setLink(rel, href) {
-  let element = document.head.querySelector(
-    `link[rel="${rel}"]`
-  );
+  let element = document.head.querySelector(`link[rel="${rel}"]`);
   if (!element) {
     element = document.createElement("link");
     element.setAttribute("rel", rel);
@@ -5683,119 +8077,69 @@ function setLink(rel, href) {
   }
   element.setAttribute("href", href);
 }
-function PageMeta() {
-  const { pathname } = useLocation();
-  const { language, pick } = useLanguage();
+function PageMeta(overrides = {}) {
+  const { pathname, search } = useLocation();
+  const { language } = useLanguage();
   useEffect(() => {
-    var _a, _b, _c;
-    console.log("PageMeta running:", pathname);
-    const config = getSeoRoute(pathname);
-    const article = pathname.startsWith("/article/") ? getArticleById(pathname.split("/").pop()) : null;
-    const currentAffair = pathname.startsWith("/current-affairs/") ? getCurrentAffairBySlug(pathname.split("/").pop()) : null;
-    let title = "";
-    let description = "";
-    let ogType = "website";
-    if (article) {
-      const rawNumber = String(article.articleNumber || "");
-      const number = rawNumber.replace(/^article\s*/i, "").replace(/^कलम\s*/i, "").trim();
-      const articleTitle = pick(article.title);
-      if (language === "mr") {
-        title = `कलम ${number} – ${((_a = article.title) == null ? void 0 : _a.mr) || articleTitle} | MySamvidhan`;
-        description = `भारतीय संविधानातील कलम ${number} सोप्या मराठीत आणि इंग्रजीत समजून घ्या. ${((_b = article.title) == null ? void 0 : _b.mr) || "कलमाचा"} अर्थ, प्रमुख तरतुदी, उदाहरणे आणि महत्त्व जाणून घ्या.`;
-      } else {
-        title = `Article ${number} – ${((_c = article.title) == null ? void 0 : _c.en) || articleTitle} | MySamvidhan`;
-        description = `Learn about Article ${number} of the Indian Constitution in simple English and Marathi. Understand its meaning, key provisions, examples and importance.`;
-      }
-      ogType = "article";
-    } else if (currentAffair) {
-      title = pick(
-        currentAffair.seoTitle || currentAffair.title
-      );
-      description = pick(
-        currentAffair.shortDescription
-      );
-      ogType = "article";
+    var _a2, _b2, _c;
+    const metadata = getSeoMetadata(pathname, language, { ...overrides, search });
+    const lang = language === "mr" ? "mr-IN" : "en-IN";
+    document.title = metadata.title;
+    document.documentElement.lang = lang;
+    setMeta("name", "description", metadata.description);
+    setMeta("name", "robots", metadata.robots);
+    setMeta("property", "og:title", metadata.title);
+    setMeta("property", "og:description", metadata.description);
+    setMeta("property", "og:type", metadata.ogType);
+    setMeta("property", "og:url", metadata.canonicalUrl);
+    setMeta("property", "og:site_name", "Samvidhan");
+    setMeta("property", "og:image", metadata.image);
+    setMeta("property", "og:image:alt", metadata.imageAlt);
+    setMeta("property", "og:locale", lang.replace("-", "_"));
+    setMeta("name", "twitter:card", metadata.ogType === "article" ? "summary_large_image" : "summary");
+    setMeta("name", "twitter:title", metadata.title);
+    setMeta("name", "twitter:description", metadata.description);
+    setMeta("name", "twitter:image", metadata.image);
+    setMeta("name", "twitter:image:alt", metadata.imageAlt);
+    setLink("canonical", metadata.canonicalUrl);
+    if ((_b2 = (_a2 = metadata.article) == null ? void 0 : _a2.keywords) == null ? void 0 : _b2.length) {
+      setMeta("name", "keywords", metadata.article.keywords.join(", "));
     } else {
-      title = pick(config.title);
-      description = pick(config.description);
+      (_c = document.head.querySelector('meta[name="keywords"]')) == null ? void 0 : _c.remove();
     }
-    const cleanPath = pathname === "/" ? "/" : pathname.replace(/\/+$/, "");
-    const canonicalUrl = cleanPath === "/" ? SITE_URL$1 : `${SITE_URL$1}${cleanPath}`;
-    document.title = title;
-    setMeta(
-      "name",
-      "description",
-      description
-    );
-    if (article) {
-      const keywords = Array.isArray(article.keywords) ? article.keywords.join(", ") : "";
-      setMeta(
-        "name",
-        "keywords",
-        keywords
-      );
-      setMeta(
-        "name",
-        "author",
-        "MySamvidhan"
-      );
-      setMeta(
-        "name",
-        "publisher",
-        "MySamvidhan"
-      );
-    }
-    setMeta(
-      "property",
-      "og:title",
-      title
-    );
-    setMeta(
-      "property",
-      "og:description",
-      description
-    );
-    setMeta(
-      "property",
-      "og:type",
-      ogType
-    );
-    setMeta(
-      "property",
-      "og:url",
-      canonicalUrl
-    );
-    setMeta(
-      "property",
-      "og:site_name",
-      siteConfig.name
-    );
-    setMeta(
-      "name",
-      "twitter:card",
-      "summary"
-    );
-    setMeta(
-      "name",
-      "twitter:title",
-      title
-    );
-    setMeta(
-      "name",
-      "twitter:description",
-      description
-    );
-    setMeta(
-      "name",
-      "robots",
-      pathname === "/premium" ? "noindex, follow" : config.indexable === false ? "noindex, nofollow" : "index, follow"
-    );
-    setLink(
-      "canonical",
-      canonicalUrl
-    );
-  }, [pathname, language, pick]);
+  }, [pathname, search, language, overrides.title, overrides.description, overrides.canonical, overrides.robots]);
   return null;
+}
+const constitutionSource = {
+  url: "https://www.legislative.gov.in/documents",
+  title: {
+    en: "Constitution of India and Amendment Acts — Legislative Department, Government of India",
+    mr: "भारताचे संविधान आणि दुरुस्ती अधिनियम — विधायी विभाग, भारत सरकार"
+  },
+  note: {
+    en: "Use the official documents for the authoritative text; the explanations on this site are educational summaries.",
+    mr: "अधिकृत मजकुरासाठी सरकारी दस्तऐवज पाहा; या संकेतस्थळावरील स्पष्टीकरणे शैक्षणिक सारांश आहेत."
+  }
+};
+function OfficialSourceLink() {
+  const { language, pick } = useLanguage();
+  return /* @__PURE__ */ jsxs("aside", { className: "mt-10 rounded-2xl border border-gold/30 bg-gold/[0.06] p-5", children: [
+    /* @__PURE__ */ jsx("p", { lang: language, className: "text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70", children: pick(constitutionSource.note) }),
+    /* @__PURE__ */ jsxs(
+      "a",
+      {
+        href: constitutionSource.url,
+        target: "_blank",
+        rel: "noopener noreferrer",
+        lang: language,
+        className: "mt-3 inline-flex items-start gap-2 text-sm font-medium text-navy underline decoration-gold/70 underline-offset-4 hover:text-saffron focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-saffron dark:text-ink-dark",
+        children: [
+          /* @__PURE__ */ jsx("span", { children: pick(constitutionSource.title) }),
+          /* @__PURE__ */ jsx(ExternalLink, { size: 15, "aria-hidden": "true", className: "mt-0.5 shrink-0" })
+        ]
+      }
+    )
+  ] });
 }
 function searchArticles(query, list = articles) {
   const q = (query || "").trim().toLowerCase();
@@ -5887,7 +8231,8 @@ function Articles() {
           className: "mt-5 max-w-4xl text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70",
           children: language === "mr" ? /* @__PURE__ */ jsx("p", { children: "भारतीय संविधानातील विविध कलमे नागरिकांचे अधिकार, कर्तव्ये, शासनव्यवस्था आणि देशाच्या घटनात्मक रचनेशी संबंधित महत्त्वाच्या तरतुदी स्पष्ट करतात. MySamvidhan वर ही कलमे सोप्या मराठी आणि इंग्रजी भाषेत समजून घेता येतात." }) : /* @__PURE__ */ jsx("p", { children: "The Articles of the Indian Constitution define important provisions relating to fundamental rights, citizenship, government, Parliament, judiciary and the constitutional framework of India. Explore these Articles in simple English and Marathi on MySamvidhan." })
         }
-      )
+      ),
+      /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 max-w-4xl text-sm leading-relaxed text-ink/60 dark:text-ink-dark/60", children: language === "mr" ? "या पृष्ठावर सध्या उपलब्ध असलेल्या निवडक कलमांची सोपी स्पष्टीकरणे आहेत; ही संविधानाची संपूर्ण किंवा अधिकृत शब्दशः प्रत नाही." : "This page provides simplified explanations for a selection of Articles currently available here; it is not the complete or authoritative verbatim text of the Constitution." })
     ] }),
     /* @__PURE__ */ jsxs("div", { className: "mt-8 flex flex-col gap-4", children: [
       /* @__PURE__ */ jsxs("div", { className: "flex gap-2", children: [
@@ -6036,14 +8381,15 @@ function Articles() {
         }
       )
     ] }),
-    results.length === 0 && /* @__PURE__ */ jsx(
-      "p",
-      {
-        lang: language,
-        className: "mt-16 text-center text-ink/50 dark:text-ink-dark/50",
-        children: t("no_results")
-      }
-    )
+    results.length === 0 && /* @__PURE__ */ jsxs("section", { className: "mt-12 rounded-2xl border border-navy/10 bg-white/60 p-6 text-center dark:border-ink-dark/10 dark:bg-white/[0.04]", children: [
+      /* @__PURE__ */ jsx("p", { lang: language, className: "text-sm text-ink/65 dark:text-ink-dark/65", children: t("no_results") }),
+      /* @__PURE__ */ jsx("p", { lang: language, className: "mt-2 text-sm leading-relaxed text-ink/60 dark:text-ink-dark/60", children: language === "mr" ? "शोधातील शब्द बदलून पाहा, सर्व उपलब्ध कलमे ब्राउझ करा किंवा विषयानुसार मूलभूत अधिकार वाचा." : "Try different search terms, browse all available Article explanations, or explore the Fundamental Rights guide." }),
+      /* @__PURE__ */ jsxs("div", { className: "mt-4 flex flex-wrap justify-center gap-3", children: [
+        /* @__PURE__ */ jsx(Link, { to: "/articles", className: "rounded-full bg-navy px-4 py-2 text-sm font-medium text-paper hover:bg-navy-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saffron", children: language === "mr" ? "सर्व उपलब्ध कलमे" : "Browse available Articles" }),
+        /* @__PURE__ */ jsx(Link, { to: "/fundamental-rights", className: "rounded-full border border-navy/15 px-4 py-2 text-sm font-medium text-navy hover:border-saffron/60 hover:text-saffron focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saffron dark:border-ink-dark/20 dark:text-ink-dark", children: language === "mr" ? "मूलभूत अधिकार" : "Fundamental Rights" })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsx(OfficialSourceLink, {})
   ] });
 }
 const clean = (value = "") => String(value).replace(/\s+/g, " ").trim();
@@ -6053,15 +8399,15 @@ const unique = (items) => [
   )
 ];
 function generateArticleSEO(article) {
-  var _a, _b;
+  var _a2, _b2;
   if (!article) return null;
   const rawArticleNumber = clean(article.articleNumber || "");
   const number = rawArticleNumber.replace(/^article\s*/i, "").replace(/^कलम\s*/i, "").trim();
   const englishTitle = clean(
-    typeof article.title === "object" ? (_a = article.title) == null ? void 0 : _a.en : article.title
+    typeof article.title === "object" ? (_a2 = article.title) == null ? void 0 : _a2.en : article.title
   );
   const marathiTitle = clean(
-    typeof article.title === "object" ? (_b = article.title) == null ? void 0 : _b.mr : ""
+    typeof article.title === "object" ? (_b2 = article.title) == null ? void 0 : _b2.mr : ""
   );
   const articleKeyword = `Article ${number}`;
   const marathiKeyword = `कलम ${number}`;
@@ -6109,7 +8455,7 @@ function generateArticleSEO(article) {
   };
 }
 function ArticleDetails() {
-  var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n;
+  var _a2, _b2, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n;
   const { id } = useParams();
   const { t, pick, language } = useLanguage();
   const [openFAQ, setOpenFAQ] = useState(null);
@@ -6142,69 +8488,11 @@ function ArticleDetails() {
   const articleNumber = rawNumber.replace(/^article\s*/i, "").replace(/^कलम\s*/i, "").trim();
   const englishArticle = `Article ${articleNumber}`;
   const marathiArticle = `कलम ${articleNumber}`;
-  const siteUrl = "https://www.mysamvidhan.in";
-  const articleUrl = `${siteUrl}/article/${article.id}`;
   const articleImage = `/images/articles/article-${String(article.id).toLowerCase()}.webp`;
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "@id": `${articleUrl}#article`,
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": articleUrl
-    },
-    headline: pick(article.title),
-    description: language === "mr" ? seo.descriptionMr : seo.descriptionEn,
-    image: `${siteUrl}${articleImage}`,
-    inLanguage: language === "mr" ? "mr-IN" : "en-IN",
-    author: {
-      "@type": "Organization",
-      "@id": `${siteUrl}#organization`,
-      name: "MySamvidhan",
-      url: siteUrl
-    },
-    publisher: {
-      "@type": "Organization",
-      "@id": `${siteUrl}#organization`,
-      name: "MySamvidhan",
-      url: siteUrl,
-      logo: {
-        "@type": "ImageObject",
-        url: `${siteUrl}/images/mysamvidhan-logo.svg`
-      }
-    },
-    keywords: Array.isArray(article.keywords) ? article.keywords.join(", ") : "",
-    dateModified: article.lastVerified ? `${article.lastVerified}T00:00:00+05:30` : void 0,
-    url: articleUrl
-  };
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: language === "mr" ? "मुख्यपृष्ठ" : "Home",
-        item: siteUrl
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: language === "mr" ? "सर्व कलमे" : "Articles",
-        item: `${siteUrl}/articles`
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: language === "mr" ? marathiArticle : englishArticle,
-        item: articleUrl
-      }
-    ]
-  };
   const englishFAQs = [
     {
       question: `What is ${englishArticle} of the Indian Constitution?`,
-      answer: ((_a = article.simpleExplanation) == null ? void 0 : _a.en) || ((_b = article.verySimple) == null ? void 0 : _b.en) || ""
+      answer: ((_a2 = article.simpleExplanation) == null ? void 0 : _a2.en) || ((_b2 = article.verySimple) == null ? void 0 : _b2.en) || ""
     },
     {
       question: `What does ${englishArticle} mean?`,
@@ -6260,24 +8548,6 @@ function ArticleDetails() {
   }
   return /* @__PURE__ */ jsxs(Fragment, { children: [
     /* @__PURE__ */ jsx(
-      "script",
-      {
-        type: "application/ld+json",
-        dangerouslySetInnerHTML: {
-          __html: JSON.stringify(articleSchema)
-        }
-      }
-    ),
-    /* @__PURE__ */ jsx(
-      "script",
-      {
-        type: "application/ld+json",
-        dangerouslySetInnerHTML: {
-          __html: JSON.stringify(breadcrumbSchema)
-        }
-      }
-    ),
-    /* @__PURE__ */ jsx(
       PageMeta,
       {
         title: language === "mr" ? seo.titleMr : seo.titleEn,
@@ -6286,42 +8556,7 @@ function ArticleDetails() {
         robots: seo.robots
       }
     ),
-    /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-4xl px-4 sm:px-6 py-12 sm:py-16", children: [
-      /* @__PURE__ */ jsx(
-        "nav",
-        {
-          "aria-label": language === "mr" ? "पृष्ठ मार्गक्रमण" : "Breadcrumb",
-          className: "mb-8",
-          children: /* @__PURE__ */ jsxs("ol", { className: "flex flex-wrap items-center gap-1.5 text-sm text-ink/50 dark:text-ink-dark/50", children: [
-            /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
-              Link,
-              {
-                to: "/",
-                className: "transition-colors hover:text-saffron",
-                children: language === "mr" ? "मुख्यपृष्ठ" : "Home"
-              }
-            ) }),
-            /* @__PURE__ */ jsx("li", { "aria-hidden": "true", children: /* @__PURE__ */ jsx("span", { children: "/" }) }),
-            /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
-              Link,
-              {
-                to: "/articles",
-                className: "transition-colors hover:text-saffron",
-                children: language === "mr" ? "सर्व कलमे" : "Articles"
-              }
-            ) }),
-            /* @__PURE__ */ jsx("li", { "aria-hidden": "true", children: /* @__PURE__ */ jsx("span", { children: "/" }) }),
-            /* @__PURE__ */ jsx(
-              "li",
-              {
-                "aria-current": "page",
-                className: "font-medium text-navy dark:text-ink-dark",
-                children: language === "mr" ? marathiArticle : englishArticle
-              }
-            )
-          ] })
-        }
-      ),
+    /* @__PURE__ */ jsxs("div", { className: "article-reading mx-auto max-w-4xl px-4 sm:px-6 py-12 sm:py-16", children: [
       /* @__PURE__ */ jsxs("header", { children: [
         /* @__PURE__ */ jsx("span", { className: "text-sm font-medium text-saffron", children: language === "mr" ? marathiArticle : englishArticle }),
         /* @__PURE__ */ jsx(
@@ -6699,10 +8934,10 @@ const fundamentalRights = [
     icon: "Wind",
     title: { en: "Right to Freedom", mr: "स्वातंत्र्याचा अधिकार" },
     explanation: {
-      en: "Covers freedoms such as speech and expression, peaceful assembly, movement, and the right to practise any profession, subject to reasonable restrictions.",
-      mr: "भाषण व अभिव्यक्ती स्वातंत्र्य, शांततापूर्ण संमेलन, संचार आणि कोणताही व्यवसाय करण्याचा अधिकार यांचा समावेश करते, वाजवी निर्बंधांच्या अधीन राहून."
+      en: "Covers freedoms such as speech and expression, peaceful assembly, movement, and the right to practise any profession, subject to reasonable restrictions. Article 21A, also included among the selected provisions here, concerns free and compulsory education for children aged six to fourteen.",
+      mr: "भाषण व अभिव्यक्ती स्वातंत्र्य, शांततापूर्ण संमेलन, संचार आणि कोणताही व्यवसाय करण्याचा अधिकार यांचा समावेश करते, वाजवी निर्बंधांच्या अधीन राहून. येथे समाविष्ट केलेले कलम २१अ सहा ते चौदा वर्षे वयोगटातील मुलांच्या मोफत व सक्तीच्या शिक्षणाशी संबंधित आहे."
     },
-    articleIds: ["19", "21", "21a"]
+    articleIds: ["19", "21", "21A"]
   },
   {
     id: "right-against-exploitation",
@@ -6712,7 +8947,7 @@ const fundamentalRights = [
       en: "Prohibits human trafficking, forced labour, and the employment of children in hazardous work.",
       mr: "मानवी तस्करी, वेठबिगारी आणि बालकांना धोकादायक कामांवर नियुक्त करण्यास प्रतिबंध करते."
     },
-    articleIds: []
+    articleIds: ["23", "24"]
   },
   {
     id: "right-to-freedom-of-religion",
@@ -6732,7 +8967,7 @@ const fundamentalRights = [
       en: "Protects the right of communities to preserve their language, script and culture, and to establish and administer educational institutions.",
       mr: "समुदायांना त्यांची भाषा, लिपी आणि संस्कृती जपण्याचा तसेच शैक्षणिक संस्था स्थापन करून चालवण्याचा अधिकार देते."
     },
-    articleIds: ["21a"]
+    articleIds: []
   },
   {
     id: "right-to-constitutional-remedies",
@@ -6750,7 +8985,8 @@ function FundamentalRights() {
   return /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-5xl px-4 sm:px-6 py-12 sm:py-16", children: [
     /* @__PURE__ */ jsx("h1", { lang: language, className: "font-display text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl", children: t("rights_title") }),
     /* @__PURE__ */ jsx("p", { lang: language, className: "mt-2 max-w-2xl text-ink/60 dark:text-ink-dark/60", children: t("rights_sub") }),
-    /* @__PURE__ */ jsx("div", { className: "mt-10 space-y-4", children: fundamentalRights.map((right) => {
+    /* @__PURE__ */ jsx("p", { lang: language, className: "mt-5 max-w-3xl text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70", children: language === "mr" ? "खालील सहा गटांतील स्पष्टीकरणे निवडक कलमांचा अभ्यास करण्यासाठीची संक्षिप्त माहिती आहेत; ती संविधानाचा संपूर्ण किंवा शब्दशः मजकूर नाहीत. प्रत्येक अधिकाराची व्याप्ती आणि लागू अटी संबंधित कलमांनुसार बदलतात." : "The six groups below are concise study guides to selected provisions, not the complete or verbatim text of the Constitution. The scope and applicable conditions of each right depend on the relevant Articles." }),
+    /* @__PURE__ */ jsx("div", { className: "mt-8 space-y-4", children: fundamentalRights.map((right) => {
       const relatedArticles = right.articleIds.map((id) => getArticleById(id)).filter(Boolean);
       return /* @__PURE__ */ jsxs(
         "div",
@@ -6775,7 +9011,8 @@ function FundamentalRights() {
         },
         right.id
       );
-    }) })
+    }) }),
+    /* @__PURE__ */ jsx(OfficialSourceLink, {})
   ] });
 }
 const fundamentalDuties = [
@@ -6884,7 +9121,8 @@ function FundamentalDuties() {
   return /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-5xl px-4 sm:px-6 py-12 sm:py-16", children: [
     /* @__PURE__ */ jsx("h1", { lang: language, className: "font-display text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl", children: t("duties_title") }),
     /* @__PURE__ */ jsx("p", { lang: language, className: "mt-2 max-w-2xl text-ink/60 dark:text-ink-dark/60", children: t("duties_sub") }),
-    /* @__PURE__ */ jsx("div", { className: "mt-10 grid gap-4 sm:grid-cols-2", children: fundamentalDuties.map((duty) => /* @__PURE__ */ jsxs(
+    /* @__PURE__ */ jsx("p", { lang: language, className: "mt-5 max-w-3xl text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70", children: language === "mr" ? "मूलभूत कर्तव्ये संविधानाच्या भाग IV-अ मधील कलम ५१अ मध्ये नमूद आहेत. खालील मांडणी अभ्यासासाठी सोप्या शब्दांत आहे; ती अधिकृत मजकुराची शब्दशः प्रत नाही. भाग IV-अ ४२व्या घटनादुरुस्तीने समाविष्ट झाला; शिक्षणाच्या संधीशी संबंधित खंड (k) ८६व्या घटनादुरुस्तीने जोडला." : "Fundamental Duties are set out in Article 51A in Part IV-A of the Constitution. The wording below is a simplified study aid, not a verbatim reproduction. Part IV-A was added by the 42nd Amendment; clause (k), concerning educational opportunities, was added by the 86th Amendment." }),
+    /* @__PURE__ */ jsx("div", { className: "mt-8 grid gap-4 sm:grid-cols-2", children: fundamentalDuties.map((duty) => /* @__PURE__ */ jsxs(
       "div",
       {
         className: "flex gap-4 rounded-2xl border border-navy/10 dark:border-ink-dark/10 bg-white/60 dark:bg-white/[0.04] p-5",
@@ -6897,7 +9135,8 @@ function FundamentalDuties() {
         ]
       },
       duty.number
-    )) })
+    )) }),
+    /* @__PURE__ */ jsx(OfficialSourceLink, {})
   ] });
 }
 const directiveIntro = {
@@ -6964,7 +9203,23 @@ function DirectivePrinciples() {
         },
         i
       )) })
-    ] })
+    ] }),
+    /* @__PURE__ */ jsxs("section", { className: "mt-10 rounded-2xl border border-navy/10 bg-white/60 p-6 dark:border-ink-dark/10 dark:bg-white/[0.04]", children: [
+      /* @__PURE__ */ jsx("h2", { lang: language, className: "font-display text-lg font-semibold text-navy dark:text-ink-dark", children: language === "mr" ? "निवडक कलमांशी परिचय" : "A guide to selected Articles" }),
+      /* @__PURE__ */ jsx("p", { lang: language, className: "mt-2 text-sm leading-relaxed text-ink/65 dark:text-ink-dark/65", children: language === "mr" ? "ही उदाहरणे भाग IV मधील काही विषय दाखवतात; ती संपूर्ण यादी नाही." : "These examples point to a few themes in Part IV; they are not an exhaustive list." }),
+      /* @__PURE__ */ jsx("ul", { className: "mt-4 grid gap-3 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70 sm:grid-cols-2", children: (language === "mr" ? [
+        "कलम ३८ — लोककल्याणासाठी सामाजिक व्यवस्था प्रस्थापित करण्याचा राज्याचा प्रयत्न.",
+        "कलम ३९अ — समान न्याय आणि मोफत कायदेशीर मदतीची तरतूद करण्याचे राज्याचे उद्दिष्ट.",
+        "कलम ४० — ग्रामपंचायतींचे संघटन आणि त्यांना स्वशासनाची आवश्यक सत्ता देण्याचा प्रयत्न.",
+        "कलम ४८अ — पर्यावरण, वने आणि वन्यजीवांचे संरक्षण व सुधारणा."
+      ] : [
+        "Article 38 — the State’s endeavour to promote a social order informed by the welfare of the people.",
+        "Article 39A — the State’s aim to provide equal justice and free legal aid.",
+        "Article 40 — the State’s endeavour to organise village panchayats and endow them with necessary powers.",
+        "Article 48A — protection and improvement of the environment, forests and wildlife."
+      ]).map((item) => /* @__PURE__ */ jsx("li", { lang: language, children: item }, item)) })
+    ] }),
+    /* @__PURE__ */ jsx(OfficialSourceLink, {})
   ] });
 }
 const amendments = [
@@ -7040,6 +9295,7 @@ function Amendments() {
   return /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-5xl px-4 sm:px-6 py-12 sm:py-16", children: [
     /* @__PURE__ */ jsx("h1", { lang: language, className: "font-display text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl", children: t("amendments_title") }),
     /* @__PURE__ */ jsx("p", { lang: language, className: "mt-2 max-w-2xl text-ink/60 dark:text-ink-dark/60", children: t("amendments_sub") }),
+    /* @__PURE__ */ jsx("p", { lang: language, className: "mt-5 max-w-3xl text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70", children: language === "mr" ? "खाली काही निवडक घटनादुरुस्त्यांचा परिचय दिला आहे; ही संपूर्ण यादी नाही. येथे दिलेली संक्षिप्त माहिती प्राथमिक अभ्यासासाठी असून, अचूक कायदेशीर मजकूर आणि परिणामांसाठी अधिकृत दुरुस्ती अधिनियम तपासा." : "This page introduces a selection of constitutional amendments; it is not a complete list. These brief summaries are for initial study. Consult the official Amendment Acts for authoritative text and legal effect." }),
     /* @__PURE__ */ jsx("div", { className: "mt-10 space-y-4", children: amendments.map((a) => /* @__PURE__ */ jsxs(
       "div",
       {
@@ -7056,7 +9312,8 @@ function Amendments() {
         ]
       },
       a.id
-    )) })
+    )) }),
+    /* @__PURE__ */ jsx(OfficialSourceLink, {})
   ] });
 }
 function QuizCard({ question, index, total, selected, onSelect, showResult }) {
@@ -7288,11 +9545,22 @@ function Quiz() {
             t("quiz_try_again")
           ]
         }
+      ),
+      /* @__PURE__ */ jsx(
+        Link,
+        {
+          to: "/articles",
+          lang: language,
+          className: "ml-3 inline-flex items-center rounded-full border border-navy/15 px-6 py-3 text-sm font-medium text-navy hover:border-saffron/60 hover:text-saffron focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saffron dark:border-ink-dark/20 dark:text-ink-dark",
+          children: language === "mr" ? "कलमांचा अभ्यास करा" : "Explore the Articles"
+        }
       )
     ] });
   }
   return /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-2xl px-4 sm:px-6 py-12 sm:py-16", children: [
     /* @__PURE__ */ jsx("h1", { lang: language, className: "font-display text-2xl font-semibold text-navy dark:text-ink-dark sm:text-3xl", children: t("quiz_title") }),
+    /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 max-w-2xl text-sm leading-relaxed text-ink/65 dark:text-ink-dark/65", children: language === "mr" ? `या प्रश्नमंजुषेत ${quizData.length} प्रश्न एकावेळी एक दाखवले जातात. उत्तर निवडल्यानंतर लगेच अभिप्राय मिळतो; सर्व प्रश्न पूर्ण केल्यावर गुणांक पाहता येतो. प्रश्न या साधनात समाविष्ट केलेल्या निवडक विषयांवर आहेत.` : `This quiz presents ${quizData.length} questions one at a time. Selecting an answer shows immediate feedback; complete the questions to see your score. Questions cover selected topics included in this quiz.` }),
+    /* @__PURE__ */ jsx(Link, { to: "/articles", lang: language, className: "mt-3 inline-flex text-sm font-medium text-saffron underline underline-offset-4 hover:text-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saffron dark:hover:text-ink-dark", children: language === "mr" ? "कलमांचे स्पष्टीकरण वाचा" : "Read the Article explanations" }),
     /* @__PURE__ */ jsx("div", { className: "mt-8", children: /* @__PURE__ */ jsx(
       QuizCard,
       {
@@ -7329,39 +9597,404 @@ function Bookmarks() {
     ] }) : /* @__PURE__ */ jsx("div", { className: "mt-10 grid gap-5 sm:grid-cols-2", children: saved.map((article) => /* @__PURE__ */ jsx(ArticleCard, { article }, article.id)) })
   ] });
 }
+const aboutContent = {
+  title: { en: "About Samvidhan", mr: "संविधानाविषयी" },
+  sections: [
+    {
+      id: "welcome",
+      paragraphs: [
+        {
+          en: "Welcome to Samvidhan — an independent educational platform dedicated to making the Constitution of India simple, accessible, and easy to understand for everyone.",
+          mr: "Samvidhan मध्ये तुमचे स्वागत आहे! भारतीय संविधान सोप्या, सुलभ आणि समजण्यास सोप्या भाषेत सर्वांपर्यंत पोहोचवण्याच्या उद्देशाने तयार केलेले हे एक स्वतंत्र शैक्षणिक व्यासपीठ आहे."
+        },
+        {
+          en: "The Constitution of India provides the framework for the country’s democratic system, establishes the structure of government, and defines important rights, duties, and principles. Understanding the Constitution helps citizens learn about their rights, understand public institutions, and participate more thoughtfully in civic life.",
+          mr: "भारतीय संविधान हे देशाच्या लोकशाही व्यवस्थेचा पाया आहे. ते शासनव्यवस्थेची रचना निश्चित करते आणि महत्त्वाचे हक्क, कर्तव्ये व तत्त्वे स्पष्ट करते. संविधान समजून घेतल्यामुळे नागरिकांना आपल्या हक्कांची माहिती मिळू शकते, सार्वजनिक संस्थांची भूमिका समजते आणि नागरी जीवनात अधिक जागरूकपणे सहभागी होता येते."
+        },
+        {
+          en: "Our goal is to present constitutional information in a clear, structured, and approachable format so that learners can explore the Constitution without feeling overwhelmed by complex legal language.",
+          mr: "कठीण कायदेशीर भाषा समजून घेण्यात अडचण येऊ नये, यासाठी घटनात्मक माहिती स्पष्ट, व्यवस्थित आणि समजण्यास सोप्या स्वरूपात सादर करणे हा आमचा उद्देश आहे."
+        },
+        {
+          en: "Whether you are a student, a competitive examination aspirant, a teacher, or a curious citizen, Samvidhan aims to help you build a better understanding of India’s constitutional framework.",
+          mr: "तुम्ही विद्यार्थी असाल, स्पर्धा परीक्षेची तयारी करत असाल, शिक्षक असाल किंवा संविधानाबद्दल जाणून घेण्याची इच्छा असलेले नागरिक असाल, तर भारतीय संविधानाची अधिक चांगली समज विकसित करण्यासाठी Samvidhan मदत करण्याचा प्रयत्न करते."
+        }
+      ]
+    },
+    {
+      id: "mission",
+      title: { en: "Our Mission", mr: "आमचे ध्येय" },
+      paragraphs: [
+        {
+          en: "The Constitution is a fundamental part of India’s democracy and governance. However, constitutional provisions and legal terminology can sometimes be difficult for beginners to understand.",
+          mr: "भारतीय संविधान हे देशाच्या लोकशाही आणि शासनव्यवस्थेचा महत्त्वाचा आधार आहे. मात्र, घटनात्मक तरतुदी आणि कायदेशीर संज्ञा सुरुवातीला समजून घेणे अनेकदा कठीण वाटू शकते."
+        },
+        {
+          en: "Our mission is to make constitutional learning easier by presenting information in simple language, organising topics into meaningful sections, and helping readers explore important constitutional concepts step by step.",
+          mr: "संविधानातील माहिती सोप्या भाषेत मांडणे, विषयांची योग्य विभागणी करणे आणि महत्त्वाच्या घटनात्मक संकल्पना टप्प्याटप्प्याने समजावून सांगणे, हे आमचे ध्येय आहे."
+        },
+        {
+          en: "We aim to encourage informed learning, constitutional awareness, and a better understanding of the rights and responsibilities associated with citizenship.",
+          mr: "नागरिकांमध्ये संविधानाविषयी जागरूकता वाढावी, माहितीपूर्ण शिक्षणाला प्रोत्साहन मिळावे आणि नागरिकत्वाशी संबंधित हक्क व जबाबदाऱ्यांची समज विकसित व्हावी, यासाठी आम्ही प्रयत्नशील आहोत."
+        }
+      ]
+    },
+    {
+      id: "vision",
+      title: { en: "Our Vision", mr: "आमची दूरदृष्टी" },
+      paragraphs: [
+        {
+          en: "We envision a learning environment in which constitutional knowledge is accessible to people from different educational backgrounds and levels of familiarity with legal concepts.",
+          mr: "वेगवेगळ्या शैक्षणिक पार्श्वभूमीतील आणि कायदेशीर संकल्पनांची कमी-अधिक माहिती असलेल्या प्रत्येक व्यक्तीला संविधान समजून घेण्यासाठी सुलभ व्यासपीठ उपलब्ध व्हावे, अशी आमची दूरदृष्टी आहे."
+        },
+        {
+          en: "We want to make it easier for readers to discover constitutional topics, understand their significance, and continue learning at their own pace.",
+          mr: "वाचकांना घटनात्मक विषय शोधता यावेत, त्यांचे महत्त्व समजावे आणि स्वतःच्या गतीने अभ्यास करता यावा, यासाठी आम्ही प्रयत्न करतो."
+        },
+        {
+          en: "Through accessible educational content, we hope to contribute to greater public awareness of the Constitution and the principles that support democratic life.",
+          mr: "सुलभ शैक्षणिक सामग्रीच्या माध्यमातून संविधानाविषयी आणि लोकशाहीला आधार देणाऱ्या तत्त्वांविषयी जनजागृती वाढण्यास हातभार लावणे हा आमचा उद्देश आहे."
+        }
+      ]
+    },
+    {
+      id: "resources",
+      title: { en: "What You Will Find on Samvidhan", mr: "Samvidhan वर तुम्हाला काय मिळेल?" },
+      intro: {
+        en: "Samvidhan brings together educational information about different aspects of the Constitution of India.",
+        mr: "Samvidhan वर भारतीय संविधानाच्या विविध पैलूंविषयी शैक्षणिक आणि माहितीपर सामग्री उपलब्ध करून देण्याचा प्रयत्न केला जातो."
+      },
+      items: [
+        {
+          title: { en: "1. The Constitution of India", mr: "१. भारतीय संविधान" },
+          paragraphs: [{
+            en: "Explore general information about the Constitution, its purpose, its structure, and its importance in India’s democratic system.",
+            mr: "भारतीय संविधानाचा उद्देश, त्याची रचना आणि देशाच्या लोकशाही व्यवस्थेतील त्याचे महत्त्व याविषयी सामान्य माहिती जाणून घ्या."
+          }]
+        },
+        {
+          title: { en: "2. Constitutional Articles and Provisions", mr: "२. संविधानातील अनुच्छेद आणि तरतुदी" },
+          paragraphs: [{
+            en: "Learn about selected important Articles and constitutional provisions through organised explanations designed to make their basic meaning easier to understand.",
+            mr: "महत्त्वाचे अनुच्छेद आणि घटनात्मक तरतुदी यांचा मूलभूत अर्थ समजण्यास मदत करणारी व्यवस्थित माहिती वाचा."
+          }]
+        },
+        {
+          title: { en: "3. Fundamental Rights", mr: "३. मूलभूत हक्क" },
+          paragraphs: [{
+            en: "Understand the Fundamental Rights guaranteed by the Constitution, their significance, and their role in protecting individual freedoms and dignity.",
+            mr: "संविधानाने दिलेले मूलभूत हक्क, त्यांचे महत्त्व आणि व्यक्तिस्वातंत्र्य व मानवी प्रतिष्ठेच्या संरक्षणातील त्यांची भूमिका समजून घ्या."
+          }]
+        },
+        {
+          title: { en: "4. Fundamental Duties", mr: "४. मूलभूत कर्तव्ये" },
+          paragraphs: [{
+            en: "Explore the Fundamental Duties and learn about the responsibilities expected of citizens in supporting the values and principles expressed in the Constitution.",
+            mr: "मूलभूत कर्तव्यांविषयी जाणून घ्या आणि संविधानातील मूल्ये व तत्त्वे जपण्यासाठी नागरिकांकडून अपेक्षित असलेल्या जबाबदाऱ्या समजून घ्या."
+          }]
+        },
+        {
+          title: { en: "5. Directive Principles of State Policy", mr: "५. राज्याच्या धोरणाची मार्गदर्शक तत्त्वे" },
+          paragraphs: [{
+            en: "Learn about selected Directive Principles of State Policy and their role in guiding the State towards social and economic welfare.",
+            mr: "राज्याच्या धोरणाची मार्गदर्शक तत्त्वे आणि सामाजिक व आर्थिक कल्याणाच्या दिशेने शासनाला मार्गदर्शन करण्यात त्यांची भूमिका समजून घ्या."
+          }]
+        },
+        {
+          title: { en: "6. Constitutional Amendments", mr: "६. घटनादुरुस्त्या" },
+          paragraphs: [
+            {
+              en: "Read selected educational summaries about constitutional amendments and how changes to the Constitution can influence its interpretation and operation.",
+              mr: "निवडक घटनादुरुस्त्यांविषयी शैक्षणिक सारांश वाचा आणि संविधानातील बदलांचा त्याच्या अर्थावर व अंमलबजावणीवर कसा परिणाम होऊ शकतो, हे जाणून घ्या."
+            },
+            {
+              en: "For legal or official purposes, readers should verify the current constitutional text and relevant amendments using authoritative sources.",
+              mr: "कायदेशीर किंवा अधिकृत वापरासाठी संविधानाचा अद्ययावत मजकूर आणि संबंधित घटनादुरुस्त्या अधिकृत स्रोतांमधून तपासाव्यात."
+            }
+          ]
+        },
+        {
+          title: { en: "7. Schedules of the Constitution", mr: "७. संविधानाच्या अनुसूच्या" },
+          paragraphs: [{
+            en: "A dedicated educational guide to the Schedules is not currently available on this website. For information about the Schedules, consult the current official Constitution text and other authoritative sources.",
+            mr: "संविधानाच्या अनुसूच्यांसाठी स्वतंत्र शैक्षणिक मार्गदर्शक सध्या या संकेतस्थळावर उपलब्ध नाही. अनुसूच्यांबद्दल माहितीसाठी संविधानाचा अद्ययावत अधिकृत मजकूर आणि इतर प्रामाणिक स्रोतांचा संदर्भ घ्या."
+          }]
+        },
+        {
+          title: { en: "8. Educational Articles and Explanations", mr: "८. शैक्षणिक लेख आणि स्पष्टीकरणे" },
+          paragraphs: [{
+            en: "Read selected educational content that breaks down constitutional concepts into manageable topics and provides context for further learning.",
+            mr: "घटनात्मक संकल्पना लहान, समजण्यास सोप्या विषयांमध्ये विभागून समजावून सांगणारे निवडक लेख वाचा आणि पुढील अभ्यासासाठी आवश्यक संदर्भ मिळवा."
+          }]
+        },
+        {
+          title: { en: "9. Current Affairs and Constitutional Developments", mr: "९. चालू घडामोडी आणि घटनात्मक विकास" },
+          paragraphs: [{
+            en: "Where available, explore educational content about relevant current affairs, constitutional developments, and public institutions. Readers should verify time-sensitive information using current authoritative sources.",
+            mr: "वेबसाइटवर उपलब्ध असल्यास, संबंधित चालू घडामोडी, घटनात्मक बदल आणि सार्वजनिक संस्थांविषयी शैक्षणिक माहिती जाणून घ्या. कालानुसार बदलणारी माहिती अद्ययावत आणि अधिकृत स्रोतांमधून पडताळून पाहा."
+          }]
+        },
+        {
+          title: { en: "10. Quizzes and Learning Resources", mr: "१०. प्रश्नमंजुषा आणि अभ्याससाधने" },
+          paragraphs: [
+            {
+              en: "Use quizzes and other learning resources available on the website to revise concepts and test your understanding.",
+              mr: "वेबसाइटवर उपलब्ध असलेल्या प्रश्नमंजुषा आणि इतर अभ्याससाधनांचा वापर करून शिकलेल्या संकल्पनांची उजळणी करा आणि स्वतःची समज तपासा."
+            },
+            {
+              en: "These resources are intended to support learning and revision. They should be used alongside official syllabuses and other relevant study materials when preparing for examinations.",
+              mr: "ही साधने अभ्यास व उजळणीसाठी आहेत. परीक्षेची तयारी करताना अधिकृत अभ्यासक्रम आणि इतर संबंधित अभ्याससाहित्याचाही वापर करावा."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: "simple-language",
+      title: { en: "Learn the Constitution in Simple Language", mr: "संविधान सोप्या भाषेत शिकूया" },
+      paragraphs: [
+        {
+          en: "Constitutional texts may include specialised terminology, formal expressions, and provisions that require additional context.",
+          mr: "संविधानातील मजकुरामध्ये विशेष कायदेशीर संज्ञा, औपचारिक भाषा आणि अधिक संदर्भांची आवश्यकता असलेल्या तरतुदी असू शकतात."
+        },
+        {
+          en: "Samvidhan aims to explain these topics in a more approachable way without losing sight of their importance. Our educational approach focuses on introducing concepts clearly, organising related information together, and encouraging readers to consult original sources when more detail is needed.",
+          mr: "या विषयांचे महत्त्व कायम ठेवून ते अधिक सोप्या पद्धतीने समजावून सांगण्याचा Samvidhan चा प्रयत्न आहे. संकल्पना स्पष्टपणे मांडणे, संबंधित माहिती एकत्रित करणे आणि अधिक तपशीलासाठी मूळ स्रोतांचा संदर्भ घेण्यास प्रोत्साहन देणे, यावर आमचा भर आहे."
+        },
+        {
+          en: "Simplified explanations are a starting point for learning. They do not replace the official constitutional text, judicial decisions, or professional legal advice.",
+          mr: "सोप्या भाषेतील स्पष्टीकरण हा अभ्यासाचा प्रारंभबिंदू आहे. तो संविधानाचा अधिकृत मजकूर, न्यायालयीन निर्णय किंवा व्यावसायिक कायदेशीर सल्ला यांचा पर्याय नाही."
+        }
+      ]
+    },
+    {
+      id: "audience",
+      title: { en: "Who Can Benefit from Samvidhan?", mr: "Samvidhan चा उपयोग कोणाला होऊ शकतो?" },
+      intro: {
+        en: "Our educational content may be useful for:",
+        mr: "आमची शैक्षणिक सामग्री पुढील व्यक्तींसाठी उपयुक्त ठरू शकते:"
+      },
+      bullets: [
+        {
+          en: "Students: Build a foundation in constitutional concepts as part of general learning.",
+          mr: "विद्यार्थी: सामान्य अभ्यासाचा भाग म्हणून घटनात्मक संकल्पनांचा पाया मजबूत करू शकतात."
+        },
+        {
+          en: "Competitive Examination Aspirants: Revise constitutional topics and supplement preparation for relevant examinations.",
+          mr: "स्पर्धा परीक्षांचे परीक्षार्थी: घटनात्मक विषयांची उजळणी करू शकतात आणि संबंधित परीक्षांच्या तयारीसाठी पूरक माहिती मिळवू शकतात."
+        },
+        {
+          en: "Teachers and Educators: Explore organised explanations that may support classroom discussions and learning activities.",
+          mr: "शिक्षक आणि शिक्षण क्षेत्रातील व्यक्ती: वर्गातील चर्चा आणि शैक्षणिक उपक्रमांसाठी उपयुक्त ठरू शकणारी व्यवस्थित माहिती पाहू शकतात."
+        },
+        {
+          en: "Citizens: Improve general awareness of constitutional rights, duties, institutions, and democratic principles.",
+          mr: "नागरिक: घटनात्मक हक्क, कर्तव्ये, संस्था आणि लोकशाही तत्त्वांविषयी सामान्य जागरूकता वाढवू शकतात."
+        },
+        {
+          en: "Curious Learners: Explore the Constitution at their own pace and develop a better understanding of India’s constitutional framework.",
+          mr: "जिज्ञासू वाचक: स्वतःच्या गतीने संविधानाचा अभ्यास करून भारतीय घटनात्मक व्यवस्थेची अधिक चांगली समज विकसित करू शकतात."
+        }
+      ],
+      closing: {
+        en: "The usefulness of individual resources may vary according to the reader’s learning objectives and level of prior knowledge.",
+        mr: "प्रत्येक साधनाची उपयुक्तता वाचकाचे उद्दिष्ट आणि आधीपासून असलेले ज्ञान यांनुसार बदलू शकते."
+      }
+    },
+    {
+      id: "approach",
+      title: { en: "Our Approach to Content", mr: "सामग्री तयार करण्याची आमची पद्धत" },
+      intro: {
+        en: "We aim to make our content clear, useful, and easy to navigate. Our approach includes:",
+        mr: "आमची सामग्री स्पष्ट, उपयुक्त आणि सहज शोधता येण्याजोगी ठेवण्याचा आम्ही प्रयत्न करतो. आमच्या पद्धतीमध्ये पुढील बाबींचा समावेश आहे:"
+      },
+      bullets: [
+        { en: "Presenting educational information in a structured format.", mr: "शैक्षणिक माहिती व्यवस्थित स्वरूपात सादर करणे." },
+        { en: "Explaining constitutional concepts in accessible language.", mr: "घटनात्मक संकल्पना सोप्या भाषेत समजावून सांगणे." },
+        { en: "Organising related topics to support independent learning.", mr: "स्वतंत्र अभ्यासासाठी संबंधित विषयांची योग्य मांडणी करणे." },
+        { en: "Reviewing content for clarity and accuracy where reasonably possible.", mr: "शक्य तिथे सामग्रीची स्पष्टता आणि अचूकता तपासणे." },
+        { en: "Encouraging readers to consult original and authoritative sources for important information.", mr: "महत्त्वाच्या माहितीसाठी मूळ आणि अधिकृत स्रोतांचा संदर्भ घेण्यास प्रोत्साहन देणे." },
+        { en: "Updating content when corrections or relevant changes are identified.", mr: "चुका किंवा संबंधित बदल लक्षात आल्यास सामग्री अद्ययावत करण्याचा प्रयत्न करणे." }
+      ],
+      closing: {
+        en: "Although we make reasonable efforts to maintain useful information, we cannot guarantee that every page will always reflect the latest legal or constitutional developments.",
+        mr: "उपयुक्त आणि अचूक माहिती देण्यासाठी आम्ही वाजवी प्रयत्न करतो. तथापि, प्रत्येक पृष्ठावर कायदेशीर किंवा घटनात्मक क्षेत्रातील सर्वात नवीन बदल नेहमीच प्रतिबिंबित होतील याची हमी देता येत नाही."
+      }
+    },
+    {
+      id: "accuracy",
+      title: { en: "Accuracy and Responsible Learning", mr: "माहितीची अचूकता आणि जबाबदार अभ्यास" },
+      paragraphs: [
+        {
+          en: "Constitutional provisions, legislation, judicial interpretations, and official notifications may change over time.",
+          mr: "घटनात्मक तरतुदी, कायदे, न्यायालयीन स्पष्टीकरणे आणि अधिकृत अधिसूचनांमध्ये कालांतराने बदल होऊ शकतात."
+        },
+        {
+          en: "We encourage readers to verify important or time-sensitive information through authoritative sources, including the current Constitution of India, relevant legislation, official government publications, and applicable court judgments.",
+          mr: "महत्त्वाची किंवा कालानुसार बदलणारी माहिती भारतीय संविधानाचा अद्ययावत मजकूर, संबंधित कायदे, अधिकृत सरकारी प्रकाशने आणि लागू न्यायालयीन निर्णय अशा अधिकृत स्रोतांमधून पडताळून पाहण्याचे आम्ही सुचवतो."
+        },
+        {
+          en: "Content on Samvidhan is intended for educational and informational purposes only. It is not legal advice and should not be used as the sole basis for legal decisions.",
+          mr: "Samvidhan वरील सामग्री केवळ शैक्षणिक आणि माहितीपर उद्देशांसाठी आहे. ती कायदेशीर सल्ला नाही आणि कायदेशीर निर्णय घेण्यासाठी तिच्यावरच अवलंबून राहू नये."
+        }
+      ]
+    },
+    {
+      id: "languages",
+      title: { en: "English and Marathi Learning", mr: "इंग्रजी आणि मराठीमध्ये अभ्यास" },
+      paragraphs: [
+        {
+          en: "Samvidhan aims to make constitutional learning accessible to readers using English and Marathi.",
+          mr: "इंग्रजी आणि मराठी या दोन्ही भाषांमध्ये संविधानाचा अभ्यास करणे सुलभ व्हावे, यासाठी Samvidhan प्रयत्न करते."
+        },
+        {
+          en: "Language options help readers explore available content in a language they understand more comfortably. The wording of a translation may differ to preserve clarity and readability, but the intended educational meaning should remain consistent.",
+          mr: "भाषेचे पर्याय वाचकांना त्यांना अधिक सहज समजणाऱ्या भाषेत उपलब्ध सामग्री वाचण्यास मदत करतात. स्पष्टता आणि वाचनीयता राखण्यासाठी भाषांतरातील शब्दरचना वेगळी असू शकते; मात्र शैक्षणिक अर्थ सुसंगत ठेवण्याचा प्रयत्न केला जातो."
+        },
+        {
+          en: "For legal or official use, readers should refer to the applicable authoritative text rather than relying solely on a translated summary or simplified explanation.",
+          mr: "कायदेशीर किंवा अधिकृत वापरासाठी केवळ भाषांतरित सारांश किंवा सोप्या स्पष्टीकरणावर अवलंबून न राहता संबंधित अधिकृत मजकूर तपासावा."
+        }
+      ]
+    },
+    {
+      id: "independence",
+      title: { en: "Independence and Transparency", mr: "स्वायत्तता आणि पारदर्शकता" },
+      paragraphs: [
+        {
+          en: "Samvidhan is an independent educational and informational website. It is not affiliated with, endorsed by, or operated by the Government of India or any government authority unless explicitly stated and verified.",
+          mr: "Samvidhan हे स्वतंत्र शैक्षणिक आणि माहितीपर संकेतस्थळ आहे. स्पष्टपणे नमूद केलेले आणि पडताळलेले नसल्यास, या संकेतस्थळाचा भारत सरकार किंवा कोणत्याही सरकारी प्राधिकरणाशी अधिकृत संबंध, संलग्नता किंवा मान्यता असल्याचा दावा केला जात नाही."
+        },
+        {
+          en: "References to laws, public institutions, constitutional bodies, and official publications are provided for educational and informational purposes.",
+          mr: "कायदे, सार्वजनिक संस्था, घटनात्मक संस्था आणि अधिकृत प्रकाशनांचे संदर्भ शैक्षणिक आणि माहितीपर उद्देशाने दिले जातात."
+        },
+        {
+          en: "We aim to communicate the purpose and limitations of our content clearly. We do not promise examination success, legal outcomes, or any particular result from using this website.",
+          mr: "आमच्या सामग्रीचा उद्देश आणि मर्यादा स्पष्टपणे सांगण्याचा आम्ही प्रयत्न करतो. या संकेतस्थळाचा वापर केल्याने परीक्षेत यश, कायदेशीर निकाल किंवा कोणत्याही विशिष्ट परिणामाची हमी दिली जात नाही."
+        }
+      ]
+    },
+    {
+      id: "feedback",
+      title: { en: "Help Us Improve", mr: "वेबसाइट सुधारण्यासाठी आम्हाला मदत करा" },
+      paragraphs: [
+        {
+          en: "We value feedback that helps us improve the clarity, usefulness, and accuracy of our educational content.",
+          mr: "आमच्या शैक्षणिक सामग्रीची स्पष्टता, उपयुक्तता आणि अचूकता सुधारण्यासाठी मिळणाऱ्या सूचनांना आम्ही महत्त्व देतो."
+        },
+        {
+          en: "If you identify a factual error, outdated information, a broken link, or an area that could be explained more clearly, please contact us.",
+          mr: "तुम्हाला एखादी तथ्यात्मक चूक, जुनी माहिती, कार्यरत नसलेली लिंक किंवा अधिक स्पष्टपणे समजावून सांगता येईल असा विषय आढळल्यास आमच्याशी संपर्क साधा."
+        },
+        {
+          en: "When reporting a correction, it is helpful to mention the page or topic and provide a reliable reference where possible. This helps us understand and review the concern.",
+          mr: "चुकीची माहिती कळवताना संबंधित पृष्ठाचे किंवा विषयाचे नाव आणि शक्य असल्यास विश्वासार्ह संदर्भ दिल्यास त्या बाबीची तपासणी करण्यास मदत होते."
+        }
+      ],
+      contact: true
+    },
+    {
+      id: "closing",
+      title: { en: "Explore and Keep Learning", mr: "चला, शिकत राहूया!" },
+      paragraphs: [
+        {
+          en: "Understanding the Constitution is an ongoing learning process. Exploring constitutional Articles, rights, duties, institutions, and amendments can help readers build a more informed understanding of India’s democratic framework.",
+          mr: "संविधान समजून घेणे ही सतत चालणारी शिकण्याची प्रक्रिया आहे. घटनात्मक अनुच्छेद, हक्क, कर्तव्ये, संस्था आणि घटनादुरुस्त्यांचा अभ्यास केल्याने भारताच्या लोकशाही व्यवस्थेविषयी अधिक माहितीपूर्ण समज विकसित होऊ शकते."
+        },
+        {
+          en: "We invite you to explore the available learning resources, revisit topics when needed, and continue learning at your own pace.",
+          mr: "उपलब्ध अभ्याससाधने पाहा, आवश्यकतेनुसार विषयांची उजळणी करा आणि स्वतःच्या गतीने शिकत राहा."
+        },
+        {
+          en: "Thank you for visiting Samvidhan.",
+          mr: "Samvidhan ला भेट दिल्याबद्दल धन्यवाद!"
+        }
+      ],
+      tagline: { en: "Samvidhan — Know Your Constitution.", mr: "Samvidhan — आपले संविधान जाणून घ्या." }
+    },
+    {
+      id: "disclaimer",
+      title: { en: "Disclaimer", mr: "अस्वीकरण" },
+      paragraphs: [
+        {
+          en: "This website is created for educational and informational purposes only. It does not provide legal advice or an official interpretation of the Constitution or any law.",
+          mr: "हे संकेतस्थळ केवळ शैक्षणिक आणि माहितीपर उद्देशांसाठी तयार करण्यात आले आहे. येथे कायदेशीर सल्ला किंवा संविधानाचा अथवा कोणत्याही कायद्याचा अधिकृत अर्थ दिला जात नाही."
+        },
+        {
+          en: "Constitutional information and legal requirements may change. For legal or official purposes, consult current authoritative sources and seek advice from a qualified legal professional where appropriate.",
+          mr: "घटनात्मक माहिती आणि कायदेशीर आवश्यकता बदलू शकतात. कायदेशीर किंवा अधिकृत वापरासाठी अद्ययावत आणि अधिकृत स्रोतांचा संदर्भ घ्यावा आणि आवश्यकतेनुसार पात्र कायदेशीर व्यावसायिकाचा सल्ला घ्यावा."
+        }
+      ]
+    }
+  ],
+  email: "info@mysamvidhan.in"
+};
 function About() {
-  const { t, language } = useLanguage();
-  return /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-3xl px-4 sm:px-6 py-16 sm:py-20", children: [
+  const { language, pick } = useLanguage();
+  return /* @__PURE__ */ jsxs("main", { className: "reading-page mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20", children: [
     /* @__PURE__ */ jsx(ChakraMark, { className: "h-10 w-10 text-navy dark:text-saffron" }),
-    /* @__PURE__ */ jsx("h1", { lang: language, className: "font-display mt-6 text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl", children: t("about_title") }),
-    /* @__PURE__ */ jsx("p", { lang: language, className: "mt-5 text-base leading-relaxed text-ink/70 dark:text-ink-dark/70", children: t("about_intro") }),
-    /* @__PURE__ */ jsx("p", { lang: language, className: "mt-4 text-base leading-relaxed text-ink/70 dark:text-ink-dark/70", children: t("about_goal") }),
-    /* @__PURE__ */ jsxs("div", { className: "mt-10 rounded-2xl border border-navy/10 dark:border-ink-dark/10 bg-white/60 dark:bg-white/[0.04] p-6", children: [
-      /* @__PURE__ */ jsx("h2", { lang: language, className: "font-display text-lg font-semibold text-navy dark:text-ink-dark", children: t("about_mission_title") }),
-      /* @__PURE__ */ jsx("p", { lang: language, className: "mt-2 text-sm leading-relaxed text-ink/65 dark:text-ink-dark/65", children: t("about_mission_detail") }),
-      /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 text-sm leading-relaxed text-ink/65 dark:text-ink-dark/65", children: t("about_mission_detail_2") })
-    ] }),
-    /* @__PURE__ */ jsxs("div", { className: "mt-10 rounded-2xl border border-navy/10 dark:border-ink-dark/10 bg-white/60 dark:bg-white/[0.04] p-6", children: [
-      /* @__PURE__ */ jsx("h2", { lang: language, className: "font-display text-lg font-semibold text-navy dark:text-ink-dark", children: t("about_find_title") }),
-      /* @__PURE__ */ jsx("ul", { className: "mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-ink/65 dark:text-ink-dark/65", children: Array.from({ length: 9 }, (_, index) => /* @__PURE__ */ jsx("li", { lang: language, children: t(`about_find_${index + 1}`) }, index)) })
-    ] }),
-    /* @__PURE__ */ jsxs("div", { className: "mt-10 rounded-2xl border border-navy/10 dark:border-ink-dark/10 bg-white/60 dark:bg-white/[0.04] p-6", children: [
-      /* @__PURE__ */ jsx("h2", { lang: language, className: "font-display text-lg font-semibold text-navy dark:text-ink-dark", children: t("about_commitment_title") }),
-      /* @__PURE__ */ jsx("p", { lang: language, className: "mt-2 text-sm leading-relaxed text-ink/65 dark:text-ink-dark/65", children: t("about_commitment") }),
-      /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 text-sm leading-relaxed text-ink/65 dark:text-ink-dark/65", children: t("about_independent") }),
-      /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 text-sm leading-relaxed text-ink/65 dark:text-ink-dark/65", children: t("about_contact") }),
-      /* @__PURE__ */ jsxs("p", { className: "mt-3 text-sm text-ink/65 dark:text-ink-dark/65", children: [
-        /* @__PURE__ */ jsx("span", { lang: language, children: t("about_email") }),
-        " ",
-        /* @__PURE__ */ jsx("a", { href: "mailto:info@mysamvidhan.in", className: "text-saffron hover:underline", children: "info@mysamvidhan.in" })
-      ] }),
-      /* @__PURE__ */ jsx("p", { lang: language, className: "mt-5 text-sm leading-relaxed text-ink/65 dark:text-ink-dark/65", children: t("about_thanks") }),
-      /* @__PURE__ */ jsx("p", { lang: language, className: "mt-2 font-display text-base font-semibold text-navy dark:text-ink-dark", children: t("about_tagline") })
-    ] }),
-    /* @__PURE__ */ jsxs("div", { className: "mt-10 rounded-2xl border border-gold/30 bg-gold/[0.06] p-6", children: [
-      /* @__PURE__ */ jsx("h2", { lang: language, className: "text-sm font-semibold text-navy dark:text-ink-dark", children: t("footer_disclaimer_title") }),
-      /* @__PURE__ */ jsx("p", { lang: language, className: "mt-2 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70", children: t("footer_disclaimer") })
-    ] })
+    /* @__PURE__ */ jsx("h1", { lang: language, className: "font-display mt-6 text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl", children: pick(aboutContent.title) }),
+    /* @__PURE__ */ jsx("div", { className: "mt-5 space-y-4", children: aboutContent.sections[0].paragraphs.map((paragraph, index) => /* @__PURE__ */ jsx("p", { lang: language, className: "text-base leading-relaxed text-ink/70 dark:text-ink-dark/70", children: pick(paragraph) }, index)) }),
+    /* @__PURE__ */ jsx("div", { className: "mt-10 space-y-10", children: aboutContent.sections.slice(1).map((section) => {
+      var _a2;
+      return /* @__PURE__ */ jsxs(
+        "section",
+        {
+          "aria-labelledby": `about-${section.id}`,
+          className: "rounded-2xl border border-navy/10 bg-white/60 p-6 dark:border-ink-dark/10 dark:bg-white/[0.04]",
+          children: [
+            /* @__PURE__ */ jsx(
+              "h2",
+              {
+                id: `about-${section.id}`,
+                lang: language,
+                className: "font-display text-lg font-semibold text-navy dark:text-ink-dark sm:text-xl",
+                children: pick(section.title)
+              }
+            ),
+            section.intro && /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 text-sm leading-relaxed text-ink/65 dark:text-ink-dark/65 sm:text-base", children: pick(section.intro) }),
+            (_a2 = section.paragraphs) == null ? void 0 : _a2.map((paragraph, index) => /* @__PURE__ */ jsx(
+              "p",
+              {
+                lang: language,
+                className: "mt-3 break-words text-sm leading-relaxed text-ink/65 dark:text-ink-dark/65 sm:text-base",
+                children: pick(paragraph)
+              },
+              index
+            )),
+            section.items && /* @__PURE__ */ jsx("div", { className: "mt-5 space-y-5", children: section.items.map((item, index) => /* @__PURE__ */ jsxs("div", { children: [
+              /* @__PURE__ */ jsx("h3", { lang: language, className: "font-display text-base font-semibold text-navy dark:text-ink-dark", children: pick(item.title) }),
+              item.paragraphs.map((paragraph, paragraphIndex) => /* @__PURE__ */ jsx(
+                "p",
+                {
+                  lang: language,
+                  className: "mt-2 break-words text-sm leading-relaxed text-ink/65 dark:text-ink-dark/65 sm:text-base",
+                  children: pick(paragraph)
+                },
+                paragraphIndex
+              ))
+            ] }, index)) }),
+            section.bullets && /* @__PURE__ */ jsx("ul", { className: "mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-ink/65 dark:text-ink-dark/65 sm:text-base", children: section.bullets.map((bullet, index) => /* @__PURE__ */ jsx("li", { lang: language, className: "break-words", children: pick(bullet) }, index)) }),
+            section.closing && /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 text-sm leading-relaxed text-ink/65 dark:text-ink-dark/65 sm:text-base", children: pick(section.closing) }),
+            section.contact && /* @__PURE__ */ jsxs("p", { className: "mt-3 text-sm text-ink/65 dark:text-ink-dark/65 sm:text-base", children: [
+              /* @__PURE__ */ jsx("span", { lang: language, children: language === "mr" ? "ईमेल:" : "Email:" }),
+              " ",
+              /* @__PURE__ */ jsx(
+                "a",
+                {
+                  href: `mailto:${aboutContent.email}`,
+                  className: "break-all text-saffron underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy",
+                  children: aboutContent.email
+                }
+              )
+            ] }),
+            section.tagline && /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 font-display text-base font-semibold text-navy dark:text-ink-dark", children: pick(section.tagline) })
+          ]
+        },
+        section.id
+      );
+    }) })
   ] });
 }
 function NotFound() {
@@ -7688,7 +10321,7 @@ function Learn() {
 }
 function Contact() {
   const { t, language } = useLanguage();
-  return /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20", children: [
+  return /* @__PURE__ */ jsxs("div", { className: "reading-page mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20", children: [
     /* @__PURE__ */ jsx(ChakraMark, { className: "h-10 w-10 text-navy dark:text-saffron" }),
     /* @__PURE__ */ jsx("h1", { lang: language, className: "font-display mt-6 text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl", children: t("contact_title") }),
     /* @__PURE__ */ jsx("p", { lang: language, className: "mt-5 text-base leading-relaxed text-ink/70 dark:text-ink-dark/70", children: t("contact_intro") }),
@@ -7716,43 +10349,221 @@ function Contact() {
 const privacyPolicy = {
   title: { en: "Privacy Policy", mr: "गोपनीयता धोरण" },
   lastUpdated: { en: "Last Updated:", mr: "शेवटचे अद्यतन:" },
-  date: { en: "September 4, 2026", mr: "4 सप्टेंबर 2026" },
+  date: { en: "October 25, 2026", mr: "२५ ऑक्टोबर २०२६" },
   intro: {
-    en: "At Samvidhan, accessible from https://www.mysamvidhan.in/, we respect the privacy of our visitors. This Privacy Policy explains what information may be collected when you use our website and how that information may be used.",
-    mr: "Samvidhan वर येणाऱ्या वापरकर्त्यांच्या गोपनीयतेचा आम्ही आदर करतो. या गोपनीयता धोरणामध्ये आमच्या वेबसाइटचा वापर करताना कोणती माहिती गोळा केली जाऊ शकते आणि तिचा वापर कशासाठी केला जाऊ शकतो याची माहिती दिली आहे."
+    en: "This policy explains how information may be handled when you visit https://www.mysamvidhan.in/. The site uses Google Analytics and Google AdSense services, and stores a small number of learning preferences in your browser. The information described in this policy depends on the features you use and the third-party services that are active.",
+    mr: "https://www.mysamvidhan.in/ ला भेट दिल्यावर माहितीचा वापर कसा होऊ शकतो हे या धोरणात स्पष्ट केले आहे. संकेतस्थळावर Google Analytics आणि Google AdSense सेवा वापरल्या जातात आणि अभ्यासाशी संबंधित काही पसंती तुमच्या ब्राउझरमध्ये साठवल्या जातात. या धोरणात नमूद केलेली माहिती तुम्ही वापरत असलेल्या सुविधांवर आणि सक्रिय असलेल्या तृतीय-पक्ष सेवांवर अवलंबून असते."
   },
   sections: [
     {
-      title: { en: "Information We Collect", mr: "आम्ही कोणती माहिती गोळा करतो?" },
+      title: {
+        en: "Information You Send by Email",
+        mr: "ईमेलद्वारे तुम्ही पाठवलेली माहिती"
+      },
       paragraphs: [
-        { en: "We may collect information that you voluntarily provide to us, such as your name and email address, when you contact us through our website or email.", mr: "तुम्ही वेबसाइट किंवा ईमेलद्वारे आमच्याशी संपर्क साधताना स्वेच्छेने दिलेली माहिती, जसे की तुमचे नाव आणि ईमेल पत्ता, आम्ही गोळा करू शकतो." },
-        { en: "We may also automatically collect certain non-personally identifiable information, such as browser type, device information, pages visited, approximate location and general website usage information.", mr: "याशिवाय ब्राउझरचा प्रकार, डिव्हाइसची माहिती, भेट दिलेली पृष्ठे, अंदाजे स्थान आणि वेबसाइट वापरण्याशी संबंधित सामान्य माहिती यांसारखी काही वैयक्तिक ओळख न पटवणारी माहिती आपोआप गोळा केली जाऊ शकते." },
-        { en: "This information may be used to understand how visitors use our website and to improve our services and user experience.", mr: "ही माहिती वेबसाइटचा वापर समजून घेण्यासाठी आणि आमच्या सेवा व वापरकर्त्यांचा अनुभव सुधारण्यासाठी वापरली जाऊ शकते." }
+        {
+          en: "The Contact page provides an email link rather than an on-site contact form. If you email us, the information in your message and your email address are used to respond to your enquiry. Your email is handled through your and our email service providers.",
+          mr: "संपर्क पृष्ठावर संकेतस्थळावरील फॉर्मऐवजी ईमेलची लिंक दिली आहे. तुम्ही ईमेल पाठवल्यास, तुमच्या संदेशातील माहिती आणि ईमेल पत्ता तुमच्या प्रश्नाला उत्तर देण्यासाठी वापरला जातो. हा ईमेल तुमच्या आणि आमच्या ईमेल सेवा पुरवठादारांमार्फत हाताळला जातो."
+        },
+        {
+          en: "Please avoid including passwords, payment details, identity documents, or other sensitive personal information in an email unless it is necessary and you understand the risks of sharing it.",
+          mr: "ईमेल पाठवताना पासवर्ड, पेमेंटची माहिती, ओळखपत्रे किंवा इतर संवेदनशील वैयक्तिक माहिती देणे टाळा. अशी माहिती देणे आवश्यक असल्यास, ती शेअर करण्यातील जोखीम समजून घ्या."
+        }
       ]
     },
-    { title: { en: "Cookies", mr: "कुकीज" }, paragraphs: [{ en: "Samvidhan may use cookies and similar technologies to improve website functionality, understand website traffic and provide a better user experience.", mr: "Samvidhan वेबसाइटची कार्यक्षमता सुधारण्यासाठी, वेबसाइटवरील वाहतूक समजून घेण्यासाठी आणि चांगला वापरकर्ता अनुभव देण्यासाठी कुकीज आणि तत्सम तंत्रज्ञानाचा वापर करू शकते." }, { en: "Third-party services used on our website may also use cookies in accordance with their own privacy policies.", mr: "वेबसाइटवर वापरल्या जाणाऱ्या तृतीय-पक्ष सेवाही त्यांच्या स्वतःच्या गोपनीयता धोरणानुसार कुकीजचा वापर करू शकतात." }] },
-    { title: { en: "Google Analytics", mr: "Google Analytics" }, paragraphs: [{ en: "We may use Google Analytics or similar analytics services to understand website traffic and user interactions.", mr: "वेबसाइटवरील वाहतूक आणि वापरकर्त्यांच्या परस्परसंवादाचे विश्लेषण करण्यासाठी आम्ही Google Analytics किंवा तत्सम विश्लेषण सेवा वापरू शकतो." }, { en: "These services may collect information such as pages visited, approximate geographic location, device type and browser information.", mr: "या सेवांद्वारे भेट दिलेली पृष्ठे, अंदाजे भौगोलिक स्थान, डिव्हाइसचा प्रकार आणि ब्राउझरची माहिती यांसारखी माहिती गोळा केली जाऊ शकते." }] },
-    { title: { en: "Google AdSense and Advertising", mr: "Google AdSense आणि जाहिराती" }, paragraphs: [{ en: "We may display advertisements through third-party advertising services, including Google AdSense.", mr: "आमच्या वेबसाइटवर Google AdSense सारख्या तृतीय-पक्ष जाहिरात सेवांद्वारे जाहिराती प्रदर्शित केल्या जाऊ शकतात." }, { en: "Advertising providers may use cookies or similar technologies to display relevant advertisements and measure advertising performance.", mr: "जाहिरात सेवा पुरवठादार संबंधित जाहिराती दाखवण्यासाठी आणि जाहिरातींच्या कार्यक्षमतेचे मोजमाप करण्यासाठी कुकीज किंवा तत्सम तंत्रज्ञानाचा वापर करू शकतात." }, { en: "Google's use of advertising information is governed by its applicable policies and privacy practices.", mr: "Google द्वारे जाहिरातींसाठी माहितीचा वापर त्याच्या लागू धोरणे आणि गोपनीयता पद्धतीनुसार केला जातो." }] },
     {
-      title: { en: "How We Use Information", mr: "माहितीचा वापर कशासाठी केला जातो?" },
-      list: [
-        { en: "Operate and maintain the website", mr: "वेबसाइट चालवणे आणि देखभाल करणे" },
-        { en: "Improve website content and user experience", mr: "वेबसाइटवरील सामग्री आणि वापरकर्ता अनुभव सुधारणे" },
-        { en: "Understand website traffic and usage", mr: "वेबसाइटवरील वाहतूक आणि वापर समजून घेणे" },
-        { en: "Respond to enquiries and feedback", mr: "प्रश्न आणि अभिप्रायांना उत्तर देणे" },
-        { en: "Detect and prevent misuse or security issues", mr: "गैरवापर किंवा सुरक्षा समस्या ओळखणे आणि प्रतिबंध करणे" },
-        { en: "Display and measure relevant advertising", mr: "संबंधित जाहिराती दाखवणे आणि त्यांच्या कार्यक्षमतेचे मोजमाप करणे" }
+      title: {
+        en: "Preferences Stored in Your Browser",
+        mr: "तुमच्या ब्राउझरमध्ये साठवलेल्या पसंती"
+      },
+      paragraphs: [
+        {
+          en: "The website stores your selected language and bookmarked Article identifiers in local storage on the browser you are using. These preferences are used to provide the related website features; they are not an account-sync service and do not automatically follow you to another browser or device. Clearing this browser storage removes the saved preferences.",
+          mr: "संकेतस्थळ तुम्ही निवडलेली भाषा आणि जतन केलेल्या कलमांचे क्रमांक तुम्ही वापरत असलेल्या ब्राउझरच्या स्थानिक संचयात ठेवते. संबंधित सुविधा देण्यासाठी या पसंती वापरल्या जातात; ही खाते-सिंक सेवा नाही आणि त्या दुसऱ्या ब्राउझर किंवा उपकरणावर आपोआप उपलब्ध होत नाहीत. ब्राउझरचा हा संचय हटवल्यास जतन केलेल्या पसंतीही हटतात."
+        },
+        {
+          en: "These locally stored preferences are distinct from information that may be processed by third-party services such as analytics or advertising providers.",
+          mr: "ब्राउझरमध्ये स्थानिक पातळीवर साठवलेल्या या पसंती आणि विश्लेषण किंवा जाहिरात सेवा पुरवठादारांसारख्या तृतीय-पक्ष सेवांद्वारे प्रक्रिया केली जाऊ शकणारी माहिती या वेगवेगळ्या गोष्टी आहेत."
+        }
       ]
     },
-    { title: { en: "Third-Party Links", mr: "तृतीय-पक्ष वेबसाइटच्या लिंक" }, paragraphs: [{ en: "Our website may contain links to third-party websites. We are not responsible for the privacy practices, content or policies of external websites.", mr: "आमच्या वेबसाइटवर तृतीय-पक्ष वेबसाइटच्या लिंक असू शकतात. त्या वेबसाइटच्या गोपनीयता पद्धती, सामग्री किंवा धोरणांसाठी Samvidhan जबाबदार राहणार नाही." }] },
-    { title: { en: "Data Security", mr: "माहितीची सुरक्षितता" }, paragraphs: [{ en: "We take reasonable measures to protect information submitted through our website. However, no method of transmission or storage over the internet can be guaranteed to be completely secure.", mr: "वेबसाइटद्वारे सादर केलेल्या माहितीचे संरक्षण करण्यासाठी आम्ही वाजवी सुरक्षा उपाययोजना करतो. मात्र इंटरनेटवर माहिती पाठवण्याची किंवा साठवण्याची कोणतीही पद्धत पूर्णपणे सुरक्षित असल्याची हमी देता येत नाही." }] },
-    { title: { en: "Changes to This Privacy Policy", mr: "गोपनीयता धोरणातील बदल" }, paragraphs: [{ en: 'We may update this Privacy Policy from time to time. Any updates will be posted on this page with a revised "Last Updated" date.', mr: 'आमच्या वेबसाइट, सेवा किंवा लागू आवश्यकतांमध्ये बदल झाल्यास आम्ही हे गोपनीयता धोरण वेळोवेळी अपडेट करू शकतो. बदल झाल्यानंतर या पृष्ठावर सुधारित "शेवटचे अद्यतन" तारीख दिली जाईल.' }] }
+    {
+      title: {
+        en: "Quiz Answers and Learning Activity",
+        mr: "प्रश्नमंजुषेतील उत्तरे आणि अभ्यासाशी संबंधित क्रिया"
+      },
+      paragraphs: [
+        {
+          en: "When you use an interactive quiz, your answers may be processed temporarily to calculate your score and display feedback. The website may also use browser-based functionality to support learning features. Do not assume that quiz progress is saved to an online account unless the website explicitly provides that feature.",
+          mr: "परस्परसंवादी प्रश्नमंजुषा वापरताना तुमचे गुण मोजण्यासाठी आणि अभिप्राय दाखवण्यासाठी तुमच्या उत्तरांवर तात्पुरती प्रक्रिया केली जाऊ शकते. अभ्यासाशी संबंधित सुविधा उपलब्ध करून देण्यासाठी ब्राउझरमधील कार्यपद्धतीचाही वापर होऊ शकतो. वेबसाइटवर अशी सुविधा स्पष्टपणे उपलब्ध नसल्यास, प्रश्नमंजुषेतील प्रगती ऑनलाइन खात्यात साठवली जाते असे समजू नका."
+        },
+        {
+          en: "The information used by a quiz depends on how the relevant feature is implemented. Please check the website interface for the available saving and progress features.",
+          mr: "प्रश्नमंजुषेमध्ये वापरल्या जाणाऱ्या माहितीचे स्वरूप संबंधित सुविधा कशा प्रकारे तयार केली आहे यावर अवलंबून असते. उत्तरे किंवा प्रगती जतन करण्याच्या सुविधा उपलब्ध आहेत का हे वेबसाइटवर तपासा."
+        }
+      ]
+    },
+    {
+      title: {
+        en: "Google Analytics",
+        mr: "Google Analytics"
+      },
+      paragraphs: [
+        {
+          en: "The website loads Google Analytics to measure site visits and interactions. Google may process information such as pages viewed, browser or device details, and approximate location in accordance with its own policies. Google Analytics data handling and available controls are described in Google’s privacy materials.",
+          mr: "भेटी आणि वापरकर्त्यांचे संकेतस्थळावरील परस्परसंवाद मोजण्यासाठी येथे Google Analytics लोड केले जाते. Google स्वतःच्या धोरणांनुसार पाहिलेली पृष्ठे, ब्राउझर किंवा उपकरणाची माहिती आणि अंदाजे स्थान यांसारख्या माहितीवर प्रक्रिया करू शकते. Google Analytics मधील माहितीचा वापर आणि उपलब्ध नियंत्रणांची माहिती Google च्या गोपनीयता दस्तऐवजांत दिली आहे."
+        },
+        {
+          en: "Analytics information may help us understand general website usage and identify areas that may need improvement. The exact information collected depends on the analytics configuration and applicable settings.",
+          mr: "विश्लेषणातून मिळालेली माहिती वेबसाइटचा एकूण वापर समजून घेण्यासाठी आणि सुधारणा आवश्यक असलेली क्षेत्रे ओळखण्यासाठी मदत करू शकते. नेमकी कोणती माहिती गोळा होते हे Analytics च्या सेटिंग्ज आणि कॉन्फिगरेशनवर अवलंबून असते."
+        }
+      ],
+      links: [
+        {
+          title: {
+            en: "Google Privacy Policy",
+            mr: "Google गोपनीयता धोरण"
+          },
+          url: "https://policies.google.com/privacy"
+        },
+        {
+          title: {
+            en: "Google Analytics opt-out browser add-on",
+            mr: "Google Analytics मधून बाहेर पडण्यासाठी ब्राउझर अ‍ॅड-ऑन"
+          },
+          url: "https://tools.google.com/dlpage/gaoptout"
+        }
+      ]
+    },
+    {
+      title: {
+        en: "Google AdSense and Advertising",
+        mr: "Google AdSense आणि जाहिराती"
+      },
+      paragraphs: [
+        {
+          en: "The website loads Google AdSense to provide advertising. Google and its partners may use cookies or similar technologies to serve, measure, or personalise ads, subject to applicable settings, consent requirements, and their own policies. We do not control the information practices of these providers.",
+          mr: "जाहिराती दाखवण्यासाठी संकेतस्थळ Google AdSense लोड करते. लागू सेटिंग्ज, संमतीविषयक आवश्यकता आणि त्यांच्या स्वतःच्या धोरणांच्या अधीन राहून, Google आणि त्याचे भागीदार जाहिराती दाखवण्यासाठी, त्यांचे मोजमाप करण्यासाठी किंवा त्यांचे वैयक्तिकरण करण्यासाठी कुकीज किंवा तत्सम तंत्रज्ञान वापरू शकतात. या सेवा पुरवठादारांच्या माहितीविषयक पद्धतींवर आमचे नियंत्रण नाही."
+        },
+        {
+          en: "The advertisements displayed may vary depending on factors such as the page being viewed, advertising settings, available inventory, and applicable privacy choices. The presence of an advertisement does not mean that we endorse the advertised product or service.",
+          mr: "दाखवल्या जाणाऱ्या जाहिराती पृष्ठाचा प्रकार, जाहिरात सेटिंग्ज, उपलब्ध जाहिराती आणि लागू गोपनीयता पर्याय यांसारख्या घटकांनुसार बदलू शकतात. एखादी जाहिरात दिसणे म्हणजे त्या उत्पादनाला किंवा सेवेला आमची मान्यता आहे असे समजू नये."
+        }
+      ],
+      links: [
+        {
+          title: {
+            en: "Google information about advertising technologies",
+            mr: "जाहिरात तंत्रज्ञानाबद्दल Google ची माहिती"
+          },
+          url: "https://policies.google.com/technologies/ads"
+        },
+        {
+          title: {
+            en: "Google Ads Settings",
+            mr: "Google जाहिरात सेटिंग्ज"
+          },
+          url: "https://adssettings.google.com/"
+        }
+      ]
+    },
+    {
+      title: {
+        en: "Cookies and Your Choices",
+        mr: "कुकीज आणि तुमचे पर्याय"
+      },
+      paragraphs: [
+        {
+          en: "Google services on this site may use cookies or similar technologies. You can manage or delete cookies through your browser settings; blocking them may affect third-party features. Google’s linked settings provide additional controls for Google services. The choices available can depend on your location and the service.",
+          mr: "या संकेतस्थळावरील Google सेवा कुकीज किंवा तत्सम तंत्रज्ञान वापरू शकतात. ब्राउझर सेटिंग्जमधून तुम्ही कुकीज नियंत्रित किंवा हटवू शकता; त्या बंद केल्यास तृतीय-पक्ष सुविधांवर परिणाम होऊ शकतो. Google सेवांसाठी अतिरिक्त नियंत्रणांचे दुवे वर दिले आहेत. उपलब्ध पर्याय तुमचे स्थान आणि सेवेवर अवलंबून असू शकतात."
+        },
+        {
+          en: "Browser controls may allow you to restrict, block, or delete certain cookies. However, some website features or third-party services may not function as expected if cookies are disabled.",
+          mr: "ब्राउझरच्या सेटिंग्जमधून काही कुकीज मर्यादित करणे, बंद करणे किंवा हटवणे शक्य असू शकते. मात्र कुकीज बंद केल्यास वेबसाइटच्या काही सुविधा किंवा तृतीय-पक्ष सेवा अपेक्षेप्रमाणे कार्य करणार नाहीत."
+        }
+      ]
+    },
+    {
+      title: {
+        en: "Information Security and Retention",
+        mr: "माहितीची सुरक्षितता आणि साठवण"
+      },
+      paragraphs: [
+        {
+          en: "We aim to handle information responsibly and take reasonable steps to protect information under our control. However, no website, electronic transmission, or storage method can be guaranteed to be completely secure.",
+          mr: "माहिती जबाबदारीने हाताळण्याचा आणि आमच्या नियंत्रणाखालील माहितीचे संरक्षण करण्यासाठी वाजवी उपाय करण्याचा आम्ही प्रयत्न करतो. तथापि, कोणतीही वेबसाइट, इलेक्ट्रॉनिक माहिती पाठवण्याची पद्धत किंवा माहिती साठवण्याची पद्धत पूर्णपणे सुरक्षित असल्याची हमी देता येत नाही."
+        },
+        {
+          en: "Information is retained for as long as reasonably necessary for the purpose for which it was provided or collected, subject to applicable requirements. Retention practices may differ between our email provider, browser storage, and third-party services.",
+          mr: "माहिती ज्या उद्देशासाठी दिली किंवा गोळा केली आहे, त्या उद्देशासाठी वाजवीरीत्या आवश्यक असेपर्यंत ती साठवली जाऊ शकते. लागू आवश्यकतांचे पालन केले जाईल. आमचा ईमेल सेवा पुरवठादार, ब्राउझरमधील संचय आणि तृतीय-पक्ष सेवा यांच्यानुसार माहिती साठवण्याच्या पद्धती वेगवेगळ्या असू शकतात."
+        }
+      ]
+    },
+    {
+      title: {
+        en: "Your Privacy Choices and Requests",
+        mr: "तुमचे गोपनीयता पर्याय आणि विनंत्या"
+      },
+      paragraphs: [
+        {
+          en: "You can manage some information through your browser settings, including deleting locally stored preferences and managing cookies. You may also use the controls provided by Google for its services.",
+          mr: "ब्राउझर सेटिंग्जमधून स्थानिक पातळीवर साठवलेल्या पसंती हटवणे आणि कुकीज नियंत्रित करणे यांसारख्या काही गोष्टी तुम्ही करू शकता. Google च्या सेवांसाठी उपलब्ध असलेली नियंत्रणेही वापरू शकता."
+        },
+        {
+          en: "If you have a question or request concerning information you have sent to us by email, contact us at the address below. We will consider the request in accordance with applicable law and the information reasonably available to us.",
+          mr: "तुम्ही आम्हाला ईमेलद्वारे पाठवलेल्या माहितीबाबत काही प्रश्न किंवा विनंती असल्यास खाली दिलेल्या ईमेल पत्त्यावर संपर्क साधा. लागू कायदे आणि आमच्याकडे वाजवीरीत्या उपलब्ध असलेल्या माहितीच्या आधारे आम्ही तुमच्या विनंतीचा विचार करू."
+        }
+      ]
+    },
+    {
+      title: {
+        en: "Children’s Privacy",
+        mr: "लहान मुलांची गोपनीयता"
+      },
+      paragraphs: [
+        {
+          en: "The website provides general educational information about the Constitution of India. It is not intended to request personal information from children through dedicated collection forms. Parents and guardians should guide children when using online services and sharing personal information.",
+          mr: "या वेबसाइटवर भारतीय संविधानाविषयी सामान्य शैक्षणिक माहिती दिली जाते. विशेष माहिती-संकलन फॉर्मद्वारे मुलांकडून वैयक्तिक माहिती मागवणे हा वेबसाइटचा उद्देश नाही. मुलांनी ऑनलाइन सेवा वापरताना किंवा वैयक्तिक माहिती शेअर करताना पालकांनी किंवा संरक्षकांनी त्यांना मार्गदर्शन करावे."
+        }
+      ]
+    },
+    {
+      title: {
+        en: "Third-Party Websites",
+        mr: "तृतीय-पक्ष संकेतस्थळे"
+      },
+      paragraphs: [
+        {
+          en: "Pages on this website may link to external websites, including official government sources. Those sites have their own privacy policies and practices, which we do not control. Review their policies when you follow an external link.",
+          mr: "या संकेतस्थळावरील पृष्ठांवर अधिकृत सरकारी स्रोतांसह बाह्य संकेतस्थळांचे दुवे असू शकतात. त्या संकेतस्थळांची स्वतःची गोपनीयता धोरणे आणि पद्धती असतात; त्यांवर आमचे नियंत्रण नाही. बाह्य दुवा उघडल्यावर त्या संकेतस्थळाची धोरणे पाहा."
+        }
+      ]
+    },
+    {
+      title: {
+        en: "Changes to This Privacy Policy",
+        mr: "या गोपनीयता धोरणातील बदल"
+      },
+      paragraphs: [
+        {
+          en: "This policy may be updated when the website’s features, third-party services, or applicable requirements change. The date at the top of this page indicates the latest revision. We encourage visitors to review this page periodically.",
+          mr: "संकेतस्थळाच्या सुविधा, तृतीय-पक्ष सेवा किंवा लागू आवश्यकतांमध्ये बदल झाल्यास हे धोरण अद्ययावत केले जाऊ शकते. या पृष्ठाच्या सुरुवातीला दिलेली तारीख शेवटच्या बदलाची तारीख दर्शवते. वापरकर्त्यांनी वेळोवेळी हे पृष्ठ पाहावे."
+        }
+      ]
+    }
   ],
-  contact: { title: { en: "Contact Us", mr: "आमच्याशी संपर्क" }, body: { en: "If you have questions about this Privacy Policy, please contact us:", mr: "या गोपनीयता धोरणाबाबत काही प्रश्न असल्यास आमच्याशी संपर्क साधा:" }, email: { en: "Email:", mr: "ईमेल:" } }
+  contact: {
+    title: { en: "Contact Us", mr: "आमच्याशी संपर्क" },
+    body: {
+      en: "For questions about this Privacy Policy or information you have sent to us, email:",
+      mr: "या गोपनीयता धोरणाबाबत किंवा तुम्ही आम्हाला पाठवलेल्या माहितीबाबत प्रश्न असल्यास ईमेल करा:"
+    },
+    email: { en: "Email:", mr: "ईमेल:" }
+  }
 };
 function Privacy() {
   const { language, pick } = useLanguage();
-  return /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20", children: [
+  return /* @__PURE__ */ jsxs("div", { className: "reading-page mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20", children: [
     /* @__PURE__ */ jsx(ChakraMark, { className: "h-10 w-10 text-navy dark:text-saffron" }),
     /* @__PURE__ */ jsx("h1", { lang: language, className: "font-display mt-6 text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl", children: pick(privacyPolicy.title) }),
     /* @__PURE__ */ jsxs("p", { className: "mt-4 text-sm text-ink/55 dark:text-ink-dark/55", children: [
@@ -7762,11 +10573,22 @@ function Privacy() {
     ] }),
     /* @__PURE__ */ jsx("p", { lang: language, className: "mt-6 text-base leading-relaxed text-ink/70 dark:text-ink-dark/70", children: pick(privacyPolicy.intro) }),
     /* @__PURE__ */ jsx("div", { className: "mt-10 space-y-8", children: privacyPolicy.sections.map((section) => {
-      var _a;
+      var _a2;
       return /* @__PURE__ */ jsxs("section", { children: [
         /* @__PURE__ */ jsx("h2", { lang: language, className: "font-display text-xl font-semibold text-navy dark:text-ink-dark", children: pick(section.title) }),
-        (_a = section.paragraphs) == null ? void 0 : _a.map((paragraph, index) => /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70", children: pick(paragraph) }, index)),
-        section.list && /* @__PURE__ */ jsx("ul", { className: "mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70", children: section.list.map((item) => /* @__PURE__ */ jsx("li", { lang: language, children: pick(item) }, item.en)) })
+        (_a2 = section.paragraphs) == null ? void 0 : _a2.map((paragraph, index) => /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70", children: pick(paragraph) }, index)),
+        section.list && /* @__PURE__ */ jsx("ul", { className: "mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70", children: section.list.map((item) => /* @__PURE__ */ jsx("li", { lang: language, children: pick(item) }, item.en)) }),
+        section.links && /* @__PURE__ */ jsx("ul", { className: "mt-3 space-y-2 text-sm", children: section.links.map((link) => /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
+          "a",
+          {
+            href: link.url,
+            target: "_blank",
+            rel: "noopener noreferrer",
+            lang: language,
+            className: "text-navy underline decoration-gold/70 underline-offset-4 hover:text-saffron focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saffron dark:text-ink-dark",
+            children: pick(link.title)
+          }
+        ) }, link.url)) })
       ] }, section.title.en);
     }) }),
     /* @__PURE__ */ jsxs("section", { className: "mt-10 rounded-2xl border border-gold/30 bg-gold/[0.06] p-6", children: [
@@ -7781,58 +10603,583 @@ function Privacy() {
   ] });
 }
 const termsConditions = {
-  title: { en: "Terms & Conditions", mr: "नियम आणि अटी" },
+  title: { en: "Terms and Conditions", mr: "नियम आणि अटी" },
   lastUpdated: { en: "Last Updated:", mr: "शेवटचे अद्यतन:" },
-  date: { en: "September 4, 2026", mr: "4 सप्टेंबर 2026" },
+  date: { en: "25 October 2026", mr: "२५ ऑक्टोबर २०२६" },
   intro: {
-    en: "Welcome to Samvidhan. By accessing and using this website, you agree to comply with these Terms & Conditions. If you do not agree with any part of these terms, please discontinue use of the website.",
-    mr: "Samvidhan वेबसाइटवर आपले स्वागत आहे. या वेबसाइटचा वापर करून तुम्ही या नियम आणि अटींचे पालन करण्यास सहमती दर्शवता. या अटींच्या कोणत्याही भागाशी तुम्ही सहमत नसल्यास कृपया वेबसाइटचा वापर करू नका."
+    en: "Welcome to MySamvidhan. By accessing or using this website, you agree to comply with these Terms and Conditions. If you do not agree with any part of these terms, please discontinue using the website.",
+    mr: "MySamvidhan वेबसाइटवर आपले स्वागत आहे. या वेबसाइटचा वापर करून तुम्ही या नियम आणि अटींचे पालन करण्यास सहमती दर्शवता. या अटींच्या कोणत्याही भागाशी तुम्ही सहमत नसल्यास कृपया वेबसाइटचा वापर करू नका."
   },
   sections: [
-    { title: { en: "Website Purpose", mr: "वेबसाइटचा उद्देश" }, paragraphs: [{ en: "Samvidhan is an independent educational and informational website created to make information about the Constitution of India easier to understand and access.", mr: "Samvidhan ही भारताच्या संविधानाशी संबंधित माहिती सोप्या पद्धतीने समजून घेता यावी आणि सहज उपलब्ध व्हावी यासाठी तयार केलेली स्वतंत्र शैक्षणिक आणि माहितीपर वेबसाइट आहे." }, { en: "The content published on this website is intended for general educational and informational purposes only.", mr: "वेबसाइटवर प्रकाशित केलेली सामग्री केवळ सामान्य शैक्षणिक आणि माहितीपर उद्देशांसाठी आहे." }] },
-    { title: { en: "Accuracy of Information", mr: "माहितीची अचूकता" }, paragraphs: [{ en: "We make reasonable efforts to provide accurate and up-to-date information. However, we do not guarantee that all information published on the website is complete, accurate, current or free from errors.", mr: "अचूक आणि अद्ययावत माहिती देण्यासाठी आम्ही वाजवी प्रयत्न करतो. मात्र वेबसाइटवर प्रकाशित केलेली प्रत्येक माहिती पूर्णपणे अचूक, संपूर्ण, अद्ययावत किंवा त्रुटीविरहित असेल याची आम्ही हमी देत नाही." }, { en: "Constitutional, legal and government-related information may change over time. Visitors should verify important information using official government or authoritative sources where appropriate.", mr: "संविधान, कायदे आणि सरकारी माहितीमध्ये कालांतराने बदल होऊ शकतात. महत्त्वाच्या बाबींसाठी वापरकर्त्यांनी आवश्यकतेनुसार अधिकृत सरकारी किंवा विश्वसनीय स्रोतांमधून माहितीची पडताळणी करावी." }] },
-    { title: { en: "Not Legal Advice", mr: "कायदेशीर सल्ला नाही" }, paragraphs: [{ en: "The information available on Samvidhan is provided for educational and informational purposes and should not be considered legal advice.", mr: "Samvidhan वर उपलब्ध माहिती केवळ शैक्षणिक आणि माहितीपर उद्देशांसाठी आहे. ती कायदेशीर सल्ला म्हणून समजू नये." }, { en: "For specific legal matters or professional advice, please consult a qualified legal professional.", mr: "विशिष्ट कायदेशीर बाबींसाठी किंवा व्यावसायिक सल्ल्यासाठी पात्र कायदेशीर तज्ज्ञाचा सल्ला घ्यावा." }] },
-    { title: { en: "Intellectual Property", mr: "बौद्धिक संपदा" }, paragraphs: [{ en: "Unless otherwise stated, the original content, text, graphics, design and other materials created for Samvidhan are protected by applicable intellectual property laws.", mr: "वेगळे नमूद केले नसल्यास, Samvidhan साठी तयार केलेली मूळ सामग्री, मजकूर, ग्राफिक्स, डिझाइन आणि इतर साहित्य लागू बौद्धिक संपदा कायद्यांद्वारे संरक्षित आहे." }, { en: "You may access and use the website for personal, educational and non-commercial purposes.", mr: "तुम्ही वेबसाइटचा वैयक्तिक, शैक्षणिक आणि गैर-व्यावसायिक वापर करू शकता." }, { en: "You may not reproduce, republish, distribute, modify or commercially exploit our original content without prior written permission, except where permitted by applicable law.", mr: "लागू कायद्याने परवानगी दिलेली नसल्यास आमची मूळ सामग्री पूर्वपरवानगीशिवाय पुनर्प्रकाशित, वितरित, बदलणे किंवा व्यावसायिक वापरासाठी वापरणे अनुमत नाही." }] },
-    { title: { en: "Third-Party Content and Links", mr: "तृतीय-पक्ष सामग्री आणि लिंक" }, paragraphs: [{ en: "Our website may contain links to external websites or references to third-party information.", mr: "आमच्या वेबसाइटवर बाह्य वेबसाइटच्या लिंक किंवा तृतीय-पक्षाच्या माहितीचे संदर्भ असू शकतात." }, { en: "These links are provided for convenience and informational purposes. Samvidhan does not control and is not responsible for the content, availability or policies of third-party websites.", mr: "या लिंक केवळ सोयीसाठी आणि माहितीच्या उद्देशाने दिल्या जातात. तृतीय-पक्ष वेबसाइटवरील सामग्री, उपलब्धता किंवा धोरणांवर Samvidhan चे नियंत्रण नाही आणि त्यासाठी Samvidhan जबाबदार राहणार नाही." }] },
-    { title: { en: "Website Availability", mr: "वेबसाइटची उपलब्धता" }, paragraphs: [{ en: "We aim to keep the website available and functioning properly, but we do not guarantee uninterrupted, error-free or continuous availability.", mr: "वेबसाइट शक्य तितकी उपलब्ध आणि व्यवस्थित कार्यरत ठेवण्याचा आम्ही प्रयत्न करतो. मात्र वेबसाइट सतत, त्रुटीविरहित किंवा कोणत्याही व्यत्ययाशिवाय उपलब्ध राहील याची हमी देता येत नाही." }, { en: "We may modify, suspend or discontinue any part of the website without prior notice.", mr: "आम्ही कोणत्याही पूर्वसूचनेशिवाय वेबसाइटच्या कोणत्याही भागात बदल करू शकतो, तो तात्पुरता बंद करू शकतो किंवा सेवा थांबवू शकतो." }] },
-    { title: { en: "Limitation of Liability", mr: "दायित्वाची मर्यादा" }, paragraphs: [{ en: "Samvidhan and its owners or contributors shall not be liable for any direct or indirect loss or damage arising from the use of, or reliance on, information available on this website, to the extent permitted by applicable law.", mr: "लागू कायद्याने परवानगी दिलेल्या मर्यादेपर्यंत, या वेबसाइटवरील माहितीच्या वापरामुळे किंवा त्यावर अवलंबून राहिल्यामुळे होणाऱ्या कोणत्याही प्रत्यक्ष किंवा अप्रत्यक्ष नुकसानासाठी Samvidhan, त्याचे मालक किंवा योगदानकर्ते जबाबदार राहणार नाहीत." }] },
-    { title: { en: "Changes to These Terms", mr: "नियमांमधील बदल" }, paragraphs: [{ en: "We may update these Terms & Conditions from time to time. Changes will become effective when published on this page.", mr: "आम्ही वेळोवेळी या नियम आणि अटींमध्ये बदल करू शकतो. बदल या पृष्ठावर प्रकाशित केल्यापासून लागू होतील." }] }
+    {
+      title: { en: "1. Purpose of the Website", mr: "१. वेबसाइटचा उद्देश" },
+      paragraphs: [
+        {
+          en: "MySamvidhan is an independent educational and informational website designed to make information about the Constitution of India easier to understand and access.",
+          mr: "MySamvidhan ही भारताच्या संविधानाशी संबंधित माहिती सोप्या पद्धतीने समजून घेता यावी आणि सहज उपलब्ध व्हावी यासाठी तयार केलेली स्वतंत्र शैक्षणिक आणि माहितीपर वेबसाइट आहे."
+        },
+        {
+          en: "The website provides or may provide educational articles, constitutional provisions, fundamental rights and duties, current affairs, judicial decisions, study resources, quizzes, and other learning tools.",
+          mr: "वेबसाइटवर घटनात्मक तरतुदी, मूलभूत अधिकार आणि कर्तव्ये, चालू घडामोडी, न्यायालयीन निर्णय, शैक्षणिक लेख, अभ्यास साहित्य, प्रश्नमंजुषा आणि इतर शिकण्याची साधने उपलब्ध करून दिली जाऊ शकतात."
+        },
+        {
+          en: "All content published on this website is intended for general educational and informational purposes only.",
+          mr: "वेबसाइटवर प्रकाशित केलेली सर्व सामग्री केवळ सामान्य शैक्षणिक आणि माहितीपर उद्देशांसाठी आहे."
+        }
+      ]
+    },
+    {
+      title: { en: "2. Accuracy and Updates", mr: "२. माहितीची अचूकता आणि अद्ययावतपणा" },
+      paragraphs: [
+        {
+          en: "We make reasonable efforts to provide accurate and up-to-date information. However, we do not guarantee that all information on the website will always be accurate, complete, current, or free from errors.",
+          mr: "अचूक आणि अद्ययावत माहिती देण्यासाठी आम्ही वाजवी प्रयत्न करतो. मात्र वेबसाइटवरील सर्व माहिती नेहमीच अचूक, संपूर्ण, अद्ययावत किंवा त्रुटीविरहित असेल याची आम्ही हमी देत नाही."
+        },
+        {
+          en: "Constitutional provisions, laws, judicial decisions, and government information may change over time. Users should verify important information through official government sources or other reliable references where appropriate.",
+          mr: "संविधानातील तरतुदी, कायदे, न्यायालयीन निर्णय आणि सरकारी माहितीमध्ये कालांतराने बदल होऊ शकतात. महत्त्वाच्या बाबींसाठी वापरकर्त्यांनी आवश्यकतेनुसार अधिकृत सरकारी किंवा विश्वसनीय स्रोतांमधून माहितीची पडताळणी करावी."
+        },
+        {
+          en: "We may make reasonable efforts to correct errors or update outdated information when identified.",
+          mr: "माहितीमध्ये त्रुटी किंवा कालबाह्य तपशील आढळल्यास ते दुरुस्त करण्यासाठी आम्ही वाजवी प्रयत्न करू."
+        }
+      ]
+    },
+    {
+      title: { en: "3. No Legal Advice", mr: "३. कायदेशीर सल्ला नाही" },
+      paragraphs: [
+        {
+          en: "The information available on MySamvidhan is provided for educational and informational purposes only. It does not constitute legal advice, professional advice, or guidance for any specific legal matter.",
+          mr: "MySamvidhan वर उपलब्ध माहिती केवळ शैक्षणिक आणि माहितीपर उद्देशांसाठी आहे. ती कायदेशीर सल्ला, व्यावसायिक सल्ला किंवा विशिष्ट कायदेशीर प्रकरणासाठी मार्गदर्शन म्हणून समजू नये."
+        },
+        {
+          en: "For advice relating to a particular legal issue, users should consult a qualified legal professional.",
+          mr: "विशिष्ट कायदेशीर बाबींसाठी पात्र कायदेशीर तज्ज्ञाचा सल्ला घ्यावा."
+        }
+      ]
+    },
+    {
+      title: { en: "4. Educational Content and Exam Preparation", mr: "४. शैक्षणिक सामग्री आणि परीक्षेची तयारी" },
+      paragraphs: [
+        {
+          en: "Articles, study guides, quizzes, and other educational resources are intended to help users understand the Constitution and support their learning.",
+          mr: "लेख, अभ्यास मार्गदर्शक, प्रश्नमंजुषा आणि इतर शैक्षणिक साधने वापरकर्त्यांना भारतीय संविधान समजून घेण्यासाठी आणि अभ्यासात मदत करण्यासाठी तयार केली आहेत."
+        },
+        {
+          en: "We do not guarantee examination results, marks, eligibility, selection, or success in any competitive examination.",
+          mr: "कोणत्याही स्पर्धा परीक्षेत यश, विशिष्ट गुण, पात्रता किंवा निवड मिळण्याची हमी आम्ही देत नाही."
+        },
+        {
+          en: "Quiz answers and explanations are intended for learning purposes. Users preparing for examinations should consult the relevant official syllabus, notifications, and reference materials.",
+          mr: "प्रश्नमंजुषेतील उत्तरे आणि स्पष्टीकरणे अभ्यासासाठी आहेत. परीक्षेची तयारी करणाऱ्या वापरकर्त्यांनी संबंधित अधिकृत अभ्यासक्रम, अधिसूचना आणि संदर्भ साहित्य तपासावे."
+        }
+      ]
+    },
+    {
+      title: { en: "5. Acceptable Use", mr: "५. वेबसाइटचा योग्य वापर" },
+      paragraphs: [
+        {
+          en: "Users must use the website lawfully, responsibly, and in accordance with these terms.",
+          mr: "वापरकर्त्यांनी वेबसाइटचा वापर कायदेशीर, जबाबदार आणि या नियमांशी सुसंगत पद्धतीने करावा."
+        },
+        {
+          en: "Users must not:",
+          mr: "वापरकर्त्यांनी खालील कृती करू नयेत:"
+        }
+      ],
+      bullets: [
+        {
+          en: "Attempt to disrupt the website or compromise its security.",
+          mr: "वेबसाइटचे कार्य बिघडवण्याचा किंवा तिच्या सुरक्षिततेला धोका निर्माण करण्याचा प्रयत्न करणे."
+        },
+        {
+          en: "Attempt to gain unauthorized access to restricted areas or systems.",
+          mr: "प्रतिबंधित भागांमध्ये किंवा प्रणालींमध्ये परवानगीशिवाय प्रवेश मिळवण्याचा प्रयत्न करणे."
+        },
+        {
+          en: "Create misleading copies or fraudulent versions of the website.",
+          mr: "वेबसाइटच्या दिशाभूल करणाऱ्या किंवा बनावट प्रती तयार करणे."
+        },
+        {
+          en: "Perform activities that place unreasonable load on the website’s servers or interfere with its operation.",
+          mr: "वेबसाइटच्या सर्व्हरवर अनावश्यक भार टाकणे किंवा तिच्या कार्यात अडथळा आणणे."
+        },
+        {
+          en: "Use the website for activities that violate applicable laws.",
+          mr: "लागू कायद्यांचे उल्लंघन करणाऱ्या कृतींसाठी वेबसाइटचा वापर करणे."
+        },
+        {
+          en: "Copy or redistribute protected content in violation of applicable laws or the rights of its owners.",
+          mr: "लागू कायदे किंवा सामग्रीच्या हक्कधारकांचे अधिकार यांचे उल्लंघन करून संरक्षित सामग्रीची प्रत तयार करणे किंवा तिचे पुनर्वितरण करणे."
+        }
+      ],
+      closing: [
+        {
+          en: "Where appropriate and permitted by law, we may take reasonable measures to protect the website and its users against misuse.",
+          mr: "योग्य परिस्थितीत आणि लागू कायद्याच्या अधीन राहून, वेबसाइटचा गैरवापर रोखण्यासाठी आम्ही आवश्यक ती वाजवी पावले उचलू शकतो."
+        }
+      ]
+    },
+    {
+      title: { en: "6. Browser Preferences and Interactive Tools", mr: "६. ब्राउझरमधील पसंती आणि परस्परसंवादी साधने" },
+      paragraphs: [
+        {
+          en: "Language preferences and saved article bookmarks may be stored in the browser used to access the website. These features do not necessarily provide account-based synchronization and may be lost if browser storage is cleared.",
+          mr: "भाषा निवड आणि जतन केलेल्या लेखांच्या बुकमार्क्स वेबसाइट वापरण्यासाठी वापरलेल्या ब्राउझरमध्ये साठवल्या जाऊ शकतात. या सुविधांमध्ये खाते-आधारित सिंक्रोनायझेशन असेलच असे नाही. ब्राउझरमधील संचय हटवल्यास ही माहिती नष्ट होऊ शकते."
+        },
+        {
+          en: "Quiz answers may be used during the current session to display feedback and results. The availability and operation of these features may depend on the browser and website functionality.",
+          mr: "प्रश्नमंजुषेतील उत्तरे चालू सत्रात अभिप्राय आणि निकाल दाखवण्यासाठी वापरली जाऊ शकतात. या सुविधांची उपलब्धता ब्राउझर आणि वेबसाइटच्या कार्यपद्धतीवर अवलंबून असू शकते."
+        },
+        {
+          en: "Saved preferences and bookmarks may not remain available if browser data is cleared or a different browser or device is used.",
+          mr: "ब्राउझरमधील डेटा हटवल्यास किंवा दुसरा ब्राउझर अथवा डिव्हाइस वापरल्यास जतन केलेल्या पसंती आणि बुकमार्क्स उपलब्ध राहतीलच असे नाही."
+        }
+      ]
+    },
+    {
+      title: { en: "7. Intellectual Property and Use of Content", mr: "७. बौद्धिक संपदा आणि सामग्रीचा वापर" },
+      paragraphs: [
+        {
+          en: "Unless otherwise stated, original content created for MySamvidhan, including text, graphics, website design, and other materials, may be protected by applicable intellectual property laws.",
+          mr: "वेगळे नमूद केले नसल्यास, MySamvidhan साठी तयार केलेली मूळ सामग्री, मजकूर, ग्राफिक्स, वेबसाइट डिझाइन आणि इतर साहित्य लागू बौद्धिक संपदा कायद्यांद्वारे संरक्षित असू शकते."
+        },
+        {
+          en: "Users may access and use the website for personal, educational, and non-commercial purposes.",
+          mr: "वापरकर्ते वेबसाइटचा वैयक्तिक, शैक्षणिक आणि गैर-व्यावसायिक वापर करू शकतात."
+        },
+        {
+          en: "Unless permitted by applicable law or authorized in advance, original content must not be republished, redistributed, modified, or used commercially without the necessary permission.",
+          mr: "लागू कायद्याने परवानगी दिलेली नसल्यास किंवा आवश्यक पूर्वपरवानगी मिळालेली नसल्यास, मूळ सामग्रीचे पुनर्प्रकाशन, पुनर्वितरण, बदल किंवा व्यावसायिक वापर करू नये."
+        },
+        {
+          en: "The rights to official constitutional texts, legislation, public documents, and third-party materials may belong to their respective rights holders. Their use remains subject to applicable laws and licence terms.",
+          mr: "संविधानाचा अधिकृत मजकूर, कायदे, सार्वजनिक दस्तऐवज आणि तृतीय-पक्ष सामग्रीचे हक्क संबंधित हक्कधारकांकडे असू शकतात. अशा सामग्रीचा वापर करताना लागू कायदे आणि परवान्यांच्या अटींचे पालन करणे आवश्यक आहे."
+        }
+      ]
+    },
+    {
+      title: { en: "8. Third-Party Content and External Links", mr: "८. तृतीय-पक्ष सामग्री आणि बाह्य लिंक" },
+      paragraphs: [
+        {
+          en: "The website may contain links to external websites or references to third-party information.",
+          mr: "वेबसाइटवर बाह्य वेबसाइटच्या लिंक किंवा तृतीय-पक्षाच्या माहितीचे संदर्भ असू शकतात."
+        },
+        {
+          en: "These links are provided for convenience and informational purposes. MySamvidhan does not control external websites and is not responsible for their content, accuracy, availability, or policies.",
+          mr: "या लिंक सोयीसाठी आणि माहितीच्या उद्देशाने दिल्या जातात. बाह्य वेबसाइटवरील सामग्री, अचूकता, उपलब्धता किंवा धोरणांवर MySamvidhan चे नियंत्रण नाही."
+        },
+        {
+          en: "Users should review the applicable terms and privacy policies before using external websites.",
+          mr: "बाह्य वेबसाइट वापरण्यापूर्वी संबंधित अटी आणि गोपनीयता धोरण तपासण्याची जबाबदारी वापरकर्त्याची आहे."
+        }
+      ]
+    },
+    {
+      title: { en: "9. Advertisements and Third-Party Services", mr: "९. जाहिराती आणि तृतीय-पक्ष सेवा" },
+      paragraphs: [
+        {
+          en: "The website may use Google AdSense or other third-party advertising services.",
+          mr: "वेबसाइटवर Google AdSense किंवा इतर तृतीय-पक्ष जाहिरात सेवा वापरल्या जाऊ शकतात."
+        },
+        {
+          en: "Advertisements, their availability, and any related data processing may be governed by the policies of the relevant service providers.",
+          mr: "जाहिराती, त्यांची उपलब्धता आणि संबंधित डेटा प्रक्रिया या संबंधित सेवा प्रदात्यांच्या धोरणांनुसार होऊ शकतात."
+        },
+        {
+          en: "The appearance of an advertisement does not necessarily constitute an endorsement or guarantee by MySamvidhan of the advertised product, service, or advertiser.",
+          mr: "वेबसाइटवर एखादी जाहिरात दिसणे म्हणजे त्या उत्पादनाची, सेवेची किंवा जाहिरातदाराची MySamvidhan कडून शिफारस किंवा हमी दिली आहे असे समजू नये."
+        },
+        {
+          en: "For further information about advertising, cookies, personalized advertising, and data use, please refer to our Privacy Policy.",
+          mr: "जाहिराती, कुकीज, वैयक्तिकृत जाहिराती आणि डेटा वापराबद्दल अधिक माहितीसाठी आमचे गोपनीयता धोरण पहा."
+        }
+      ]
+    },
+    {
+      title: { en: "10. Privacy and Cookies", mr: "१०. गोपनीयता आणि कुकीज" },
+      paragraphs: [
+        {
+          en: "Certain information may be stored in your browser, or technical information may be processed to support the operation of the website.",
+          mr: "वेबसाइटच्या कार्यासाठी काही माहिती ब्राउझरमध्ये साठवली जाऊ शकते किंवा तांत्रिक माहितीवर प्रक्रिया केली जाऊ शकते."
+        },
+        {
+          en: "Where advertising, cookies, analytics tools, or third-party services are used, relevant information about them should be provided in our Privacy Policy.",
+          mr: "जाहिराती, कुकीज, विश्लेषण साधने किंवा तृतीय-पक्ष सेवा वापरल्या जात असल्यास, त्यासंबंधीची योग्य माहिती आमच्या गोपनीयता धोरणात दिली जावी."
+        },
+        {
+          en: "Users should review the Privacy Policy to understand how applicable information may be collected, used, or processed.",
+          mr: "संबंधित माहिती कशी गोळा, वापरली किंवा प्रक्रिया केली जाऊ शकते हे समजून घेण्यासाठी वापरकर्त्यांनी गोपनीयता धोरण वाचावे."
+        }
+      ]
+    },
+    {
+      title: { en: "11. Website Availability and Changes", mr: "११. वेबसाइटची उपलब्धता आणि बदल" },
+      paragraphs: [
+        {
+          en: "We make reasonable efforts to keep the website available and functioning properly. However, we do not guarantee uninterrupted, continuous, or error-free availability.",
+          mr: "वेबसाइट शक्य तितकी उपलब्ध आणि व्यवस्थित कार्यरत ठेवण्यासाठी आम्ही वाजवी प्रयत्न करतो. मात्र वेबसाइट सतत, विनाव्यत्यय किंवा त्रुटीविरहित उपलब्ध राहील याची हमी देता येत नाही."
+        },
+        {
+          en: "Some features may become temporarily unavailable because of maintenance, technical issues, security concerns, or other circumstances.",
+          mr: "देखभाल, तांत्रिक अडचणी, सुरक्षिततेशी संबंधित कारणे किंवा इतर परिस्थितींमुळे काही सुविधा तात्पुरत्या अनुपलब्ध होऊ शकतात."
+        },
+        {
+          en: "We may modify, suspend, or discontinue any part of the website when necessary, subject to applicable law.",
+          mr: "लागू कायद्याच्या अधीन राहून, आवश्यकतेनुसार आम्ही वेबसाइटच्या कोणत्याही भागात बदल करू शकतो, तो तात्पुरता बंद करू शकतो किंवा सेवा थांबवू शकतो."
+        }
+      ]
+    },
+    {
+      title: { en: "12. Limitation of Liability", mr: "१२. दायित्वाची मर्यादा" },
+      paragraphs: [
+        {
+          en: "To the extent permitted by applicable law, MySamvidhan does not accept liability for losses arising from the use of, or reliance on, information published on the website.",
+          mr: "लागू कायद्याने परवानगी दिलेल्या मर्यादेपर्यंत, वेबसाइटवरील माहितीचा वापर केल्यामुळे किंवा त्यावर अवलंबून राहिल्यामुळे होणाऱ्या नुकसानीसाठी MySamvidhan दायित्व स्वीकारत नाही."
+        },
+        {
+          en: "Liability relating to temporary website unavailability, technical errors, or third-party website content is limited to the extent permitted by applicable law.",
+          mr: "वेबसाइट तात्पुरती अनुपलब्ध असणे, तांत्रिक त्रुटी किंवा तृतीय-पक्ष वेबसाइटवरील सामग्री यांच्याशी संबंधित दायित्व लागू कायद्याने परवानगी दिलेल्या मर्यादेपर्यंत मर्यादित राहील."
+        },
+        {
+          en: "Nothing in these terms is intended to exclude or limit any rights or liabilities that cannot lawfully be excluded or limited.",
+          mr: "या अटींचा उद्देश लागू कायद्यानुसार वगळता किंवा मर्यादित करता न येणारे अधिकार अथवा दायित्वे वगळणे किंवा मर्यादित करणे हा नाही."
+        }
+      ]
+    },
+    {
+      title: { en: "13. Changes to These Terms", mr: "१३. नियम आणि अटींमधील बदल" },
+      paragraphs: [
+        {
+          en: "We may update these Terms and Conditions from time to time. The updated version will be published on this page with a revised last-updated date.",
+          mr: "आम्ही वेळोवेळी या नियम आणि अटींमध्ये बदल करू शकतो. अद्ययावत आवृत्ती या पृष्ठावर प्रकाशित केली जाईल आणि त्यावर शेवटच्या अद्यतनाची तारीख नमूद केली जाईल."
+        },
+        {
+          en: "Continued use of the website after updated terms are published will be subject to the revised terms to the extent permitted by applicable law.",
+          mr: "अद्ययावत अटी प्रकाशित झाल्यानंतर वेबसाइटचा वापर सुरू ठेवल्यास, लागू कायद्याने परवानगी दिलेल्या मर्यादेपर्यंत सुधारित अटी लागू होतील."
+        }
+      ]
+    },
+    {
+      title: { en: "14. Applicable Law", mr: "१४. लागू कायदे" },
+      paragraphs: [
+        {
+          en: "These Terms and Conditions shall be interpreted in accordance with applicable laws of India. Any dispute shall be addressed in accordance with applicable legal provisions.",
+          mr: "या नियम आणि अटींचे अर्थनिर्णयन भारतातील लागू कायद्यांनुसार केले जाईल. कोणताही वाद उद्भवल्यास त्याचे निराकरण लागू कायदेशीर तरतुदींनुसार केले जाईल."
+        }
+      ]
+    },
+    {
+      title: { en: "15. Contact Us", mr: "१५. आमच्याशी संपर्क" },
+      paragraphs: [
+        {
+          en: "If you have any questions, suggestions, or requests for corrections regarding these Terms and Conditions, please contact us.",
+          mr: "या नियम आणि अटींबाबत काही प्रश्न, सूचना किंवा दुरुस्तीची विनंती असल्यास आमच्याशी संपर्क साधा."
+        }
+      ],
+      contact: true
+    },
+    {
+      title: { en: "16. Independent Educational Website", mr: "१६. स्वतंत्र शैक्षणिक वेबसाइट" },
+      paragraphs: [
+        {
+          en: "MySamvidhan is an independent educational and informational website. It does not claim to be the official website of any government authority or court unless expressly stated in a specific context.",
+          mr: "MySamvidhan ही स्वतंत्र शैक्षणिक आणि माहितीपर वेबसाइट आहे. एखाद्या विशिष्ट ठिकाणी स्पष्टपणे नमूद केले नसल्यास, ही कोणत्याही सरकारी प्राधिकरणाची किंवा न्यायालयाची अधिकृत वेबसाइट असल्याचा दावा करत नाही."
+        },
+        {
+          en: "For authoritative constitutional or legal information, users should refer to the relevant official sources.",
+          mr: "अधिकृत घटनात्मक किंवा कायदेशीर माहितीसाठी वापरकर्त्यांनी संबंधित अधिकृत स्रोतांचा संदर्भ घ्यावा."
+        }
+      ]
+    }
   ],
-  contact: { title: { en: "Contact Us", mr: "आमच्याशी संपर्क" }, body: { en: "If you have any questions regarding these Terms & Conditions, please contact us:", mr: "या नियम आणि अटींबाबत काही प्रश्न असल्यास आमच्याशी संपर्क साधा:" }, email: { en: "Email:", mr: "ईमेल:" } }
+  email: "info@mysamvidhan.in"
 };
 function Terms() {
   const { language, pick } = useLanguage();
-  return /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20", children: [
-    /* @__PURE__ */ jsx(ChakraMark, { className: "h-10 w-10 text-navy dark:text-saffron" }),
-    /* @__PURE__ */ jsx("h1", { lang: language, className: "font-display mt-6 text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl", children: pick(termsConditions.title) }),
-    /* @__PURE__ */ jsxs("p", { className: "mt-4 text-sm text-ink/55 dark:text-ink-dark/55", children: [
+  return /* @__PURE__ */ jsxs("main", { className: "reading-page mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16", children: [
+    /* @__PURE__ */ jsx("h1", { lang: language, className: "font-display text-3xl font-semibold text-navy sm:text-4xl", children: pick(termsConditions.title) }),
+    /* @__PURE__ */ jsxs("p", { className: "mt-4 text-sm text-ink/60", children: [
       /* @__PURE__ */ jsx("span", { lang: language, children: pick(termsConditions.lastUpdated) }),
       " ",
-      pick(termsConditions.date)
+      /* @__PURE__ */ jsx("time", { dateTime: "2026-10-25", lang: language, children: pick(termsConditions.date) })
     ] }),
-    /* @__PURE__ */ jsx("p", { lang: language, className: "mt-6 text-base leading-relaxed text-ink/70 dark:text-ink-dark/70", children: pick(termsConditions.intro) }),
-    /* @__PURE__ */ jsx("div", { className: "mt-10 space-y-8", children: termsConditions.sections.map((section) => /* @__PURE__ */ jsxs("section", { children: [
-      /* @__PURE__ */ jsx("h2", { lang: language, className: "font-display text-xl font-semibold text-navy dark:text-ink-dark", children: pick(section.title) }),
-      section.paragraphs.map((paragraph, index) => /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70", children: pick(paragraph) }, index))
-    ] }, section.title.en)) }),
-    /* @__PURE__ */ jsxs("section", { className: "mt-10 rounded-2xl border border-gold/30 bg-gold/[0.06] p-6", children: [
-      /* @__PURE__ */ jsx("h2", { lang: language, className: "font-display text-xl font-semibold text-navy dark:text-ink-dark", children: pick(termsConditions.contact.title) }),
-      /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70", children: pick(termsConditions.contact.body) }),
-      /* @__PURE__ */ jsxs("p", { className: "mt-3 text-sm text-ink/70 dark:text-ink-dark/70", children: [
-        /* @__PURE__ */ jsx("span", { lang: language, children: pick(termsConditions.contact.email) }),
-        " ",
-        /* @__PURE__ */ jsx("a", { href: "mailto:info@mysamvidhan.in", className: "text-saffron hover:underline", children: "info@mysamvidhan.in" })
-      ] })
-    ] })
+    /* @__PURE__ */ jsx("p", { lang: language, className: "mt-6 text-base leading-relaxed text-ink/75", children: pick(termsConditions.intro) }),
+    /* @__PURE__ */ jsx("div", { className: "mt-10 divide-y divide-navy/10", children: termsConditions.sections.map((section, index) => {
+      var _a2;
+      return /* @__PURE__ */ jsxs(
+        "section",
+        {
+          "aria-labelledby": `terms-section-${index + 1}`,
+          className: "py-7 first:pt-0 last:pb-0",
+          children: [
+            /* @__PURE__ */ jsx(
+              "h2",
+              {
+                id: `terms-section-${index + 1}`,
+                lang: language,
+                className: "font-display text-xl font-semibold leading-snug text-navy sm:text-2xl",
+                children: pick(section.title)
+              }
+            ),
+            section.paragraphs.map((paragraph, paragraphIndex) => /* @__PURE__ */ jsx(
+              "p",
+              {
+                lang: language,
+                className: "mt-3 break-words text-sm leading-7 text-ink/75 sm:text-base",
+                children: pick(paragraph)
+              },
+              paragraphIndex
+            )),
+            section.bullets && /* @__PURE__ */ jsx("ul", { className: "mt-3 list-disc space-y-2 pl-6 text-sm leading-7 text-ink/75 sm:text-base", children: section.bullets.map((bullet, bulletIndex) => /* @__PURE__ */ jsx("li", { lang: language, className: "break-words", children: pick(bullet) }, bulletIndex)) }),
+            (_a2 = section.closing) == null ? void 0 : _a2.map((paragraph, paragraphIndex) => /* @__PURE__ */ jsx(
+              "p",
+              {
+                lang: language,
+                className: "mt-3 break-words text-sm leading-7 text-ink/75 sm:text-base",
+                children: pick(paragraph)
+              },
+              paragraphIndex
+            )),
+            section.contact && /* @__PURE__ */ jsxs("p", { className: "mt-3 text-sm leading-7 text-ink/75 sm:text-base", children: [
+              /* @__PURE__ */ jsx("span", { lang: language, children: language === "mr" ? "ईमेल:" : "Email:" }),
+              " ",
+              /* @__PURE__ */ jsx(
+                "a",
+                {
+                  href: `mailto:${termsConditions.email}`,
+                  className: "break-all font-medium text-saffron underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy",
+                  children: termsConditions.email
+                }
+              )
+            ] })
+          ]
+        },
+        section.title.en
+      );
+    }) })
   ] });
 }
+const disclaimerContent = {
+  title: { en: "Disclaimer", mr: "अस्वीकरण" },
+  introduction: [
+    {
+      en: "This website, MySamvidhan, is created for educational and informational purposes only. Its purpose is to help readers understand the Constitution of India, constitutional provisions, fundamental rights and duties, and related civic and legal concepts in accessible language.",
+      mr: "MySamvidhan हे संकेतस्थळ केवळ शैक्षणिक आणि माहितीपर उद्देशांसाठी तयार करण्यात आले आहे. भारतीय संविधान, घटनात्मक तरतुदी, मूलभूत हक्क आणि कर्तव्ये तसेच नागरिकत्वाशी आणि कायद्याशी संबंधित संकल्पना सोप्या भाषेत समजून घेण्यास वाचकांना मदत करणे हा या संकेतस्थळाचा उद्देश आहे."
+    },
+    {
+      en: "The information provided on this website is intended for general learning and awareness. It should not be considered legal advice, professional advice, or an official interpretation of any constitutional provision or law.",
+      mr: "या संकेतस्थळावरील माहिती सामान्य ज्ञान, अभ्यास आणि जनजागृतीसाठी आहे. ती कायदेशीर सल्ला, व्यावसायिक सल्ला किंवा कोणत्याही घटनात्मक तरतुदीचा अथवा कायद्याचा अधिकृत अर्थ समजू नये."
+    }
+  ],
+  sections: [
+    {
+      title: { en: "1. No Legal Advice", mr: "१. कायदेशीर सल्ला नाही" },
+      paragraphs: [
+        {
+          en: "The content published on MySamvidhan does not constitute legal advice and is not a substitute for advice from a qualified lawyer or other authorised legal professional.",
+          mr: "MySamvidhan वर प्रकाशित केलेली सामग्री कायदेशीर सल्ला नाही आणि ती पात्र वकिलाच्या किंवा अधिकृत कायदेशीर व्यावसायिकाच्या सल्ल्याचा पर्याय नाही."
+        },
+        {
+          en: "Every legal matter may involve different facts, circumstances, and applicable laws. If you require advice about a legal dispute, constitutional right, legal procedure, or any other specific matter, consult a qualified legal professional.",
+          mr: "प्रत्येक कायदेशीर प्रकरणातील तथ्ये, परिस्थिती आणि लागू कायदे वेगवेगळे असू शकतात. कायदेशीर वाद, घटनात्मक हक्क, कायदेशीर प्रक्रिया किंवा इतर कोणत्याही विशिष्ट बाबतीत मार्गदर्शन आवश्यक असल्यास पात्र कायदेशीर व्यावसायिकाचा सल्ला घ्यावा."
+        },
+        {
+          en: "Do not make legal decisions solely on the basis of information published on this website.",
+          mr: "या संकेतस्थळावरील माहितीवरच अवलंबून राहून कायदेशीर निर्णय घेऊ नयेत."
+        }
+      ]
+    },
+    {
+      title: { en: "2. Accuracy and Completeness of Information", mr: "२. माहितीची अचूकता आणि पूर्णता" },
+      paragraphs: [
+        {
+          en: "We make reasonable efforts to present information clearly and accurately. However, we do not guarantee that all content is complete, current, error-free, or suitable for every situation.",
+          mr: "माहिती स्पष्ट आणि अचूक पद्धतीने सादर करण्यासाठी आम्ही वाजवी प्रयत्न करतो. तथापि, संकेतस्थळावरील सर्व माहिती पूर्णपणे अचूक, अद्ययावत, त्रुटीविरहित किंवा प्रत्येक परिस्थितीसाठी योग्य असेल याची हमी देता येत नाही."
+        },
+        {
+          en: "Constitutional provisions, legislation, judicial interpretations, government notifications, and legal procedures may change over time. Some content may not immediately reflect the latest developments.",
+          mr: "घटनात्मक तरतुदी, कायदे, न्यायालयीन निर्णय, सरकारी अधिसूचना आणि कायदेशीर प्रक्रिया यांमध्ये कालांतराने बदल होऊ शकतात. काही सामग्रीमध्ये नवीनतम बदल लगेच प्रतिबिंबित होतीलच असे नाही."
+        },
+        {
+          en: "Readers should independently verify important information against current authoritative sources.",
+          mr: "महत्त्वाची माहिती वापरण्यापूर्वी वाचकांनी ती अद्ययावत आणि अधिकृत स्रोतांमधून स्वतंत्रपणे पडताळून पाहावी."
+        }
+      ]
+    },
+    {
+      title: { en: "3. Constitution and Legal Updates", mr: "३. संविधान आणि कायदेशीर अद्यतने" },
+      paragraphs: [
+        {
+          en: "Articles, amendments, constitutional provisions, court decisions, and other legal information are presented to support general understanding and learning.",
+          mr: "भारतीय संविधान, घटनादुरुस्त्या, घटनात्मक तरतुदी, न्यायालयीन निर्णय आणि इतर कायदेशीर माहिती सामान्य समज व अभ्यासासाठी सादर केली जाते."
+        },
+        {
+          en: "For official or legal use, consult the latest applicable text of the Constitution of India, relevant legislation, official government publications, and authoritative court judgments.",
+          mr: "अधिकृत किंवा कायदेशीर वापरासाठी भारतीय संविधानाचा लागू असलेला नवीनतम मजकूर, संबंधित कायदे, अधिकृत सरकारी प्रकाशने आणि प्रामाणिक न्यायालयीन निर्णय तपासावेत."
+        },
+        {
+          en: "Where appropriate, readers should check the original source rather than relying only on a summary or explanation published on this website.",
+          mr: "शक्य असेल तेथे, या संकेतस्थळावरील सारांश किंवा स्पष्टीकरणावरच अवलंबून न राहता मूळ अधिकृत स्रोताचा संदर्भ घ्यावा."
+        }
+      ]
+    },
+    {
+      title: { en: "4. Educational Content and Exam Preparation", mr: "४. शैक्षणिक सामग्री आणि परीक्षेची तयारी" },
+      paragraphs: [
+        {
+          en: "MySamvidhan may provide educational articles, explanations, quizzes, study resources, and current-affairs content related to the Indian Constitution and civic awareness.",
+          mr: "MySamvidhan वर भारतीय संविधान आणि नागरिक-जागृतीशी संबंधित शैक्षणिक लेख, स्पष्टीकरणे, प्रश्नमंजुषा, अभ्याससाहित्य आणि चालू घडामोडींवरील माहिती उपलब्ध असू शकते."
+        },
+        {
+          en: "These resources are intended to support learning and revision. They do not guarantee examination results, selection in any competitive examination, or the completeness of preparation for a particular syllabus.",
+          mr: "ही सामग्री अभ्यास आणि उजळणीसाठी मदत करण्याच्या उद्देशाने दिली जाते. या सामग्रीमुळे परीक्षेत यश, कोणत्याही स्पर्धा परीक्षेत निवड किंवा विशिष्ट अभ्यासक्रमाची संपूर्ण तयारी होण्याची हमी दिली जात नाही."
+        },
+        {
+          en: "Students and candidates should refer to the official syllabus, examination notifications, prescribed materials, and other relevant authoritative resources.",
+          mr: "विद्यार्थी आणि परीक्षार्थींनी अधिकृत अभ्यासक्रम, परीक्षा अधिसूचना, निर्धारित अभ्याससाहित्य आणि इतर संबंधित अधिकृत स्रोतांचा संदर्भ घ्यावा."
+        }
+      ]
+    },
+    {
+      title: { en: "5. Independent Educational Website", mr: "५. स्वतंत्र शैक्षणिक संकेतस्थळ" },
+      paragraphs: [
+        {
+          en: "MySamvidhan is an independent educational and informational website. Unless explicitly stated and verified, it is not affiliated with, endorsed by, or officially connected to the Government of India, any state government, court, statutory authority, or public institution.",
+          mr: "MySamvidhan हे स्वतंत्र शैक्षणिक आणि माहितीपर संकेतस्थळ आहे. स्पष्टपणे नमूद केलेले आणि पडताळलेले नसल्यास, या संकेतस्थळाचा भारत सरकार, कोणतेही राज्य सरकार, न्यायालय, वैधानिक प्राधिकरण किंवा सार्वजनिक संस्थेशी अधिकृत संबंध किंवा संलग्नता असल्याचा दावा केला जात नाही."
+        },
+        {
+          en: "References to public institutions, laws, constitutional bodies, or government publications are provided for educational and informational purposes.",
+          mr: "सार्वजनिक संस्था, कायदे, घटनात्मक संस्था किंवा सरकारी प्रकाशनांचे संदर्भ शैक्षणिक आणि माहितीपर उद्देशाने दिले जातात."
+        },
+        {
+          en: "The website name and its content should not be interpreted as an indication of official government status.",
+          mr: "संकेतस्थळाचे नाव किंवा त्यावरील सामग्री यावरून हे अधिकृत सरकारी संकेतस्थळ असल्याचा अर्थ काढू नये."
+        }
+      ]
+    },
+    {
+      title: { en: "6. External Links and Third-Party Content", mr: "६. बाह्य दुवे आणि तृतीय-पक्ष सामग्री" },
+      paragraphs: [
+        {
+          en: "This website may include links to external websites, official publications, government portals, educational resources, or other third-party sources.",
+          mr: "या संकेतस्थळावर बाह्य संकेतस्थळे, अधिकृत प्रकाशने, सरकारी पोर्टल्स, शैक्षणिक साधने किंवा इतर तृतीय-पक्ष स्रोतांचे दुवे असू शकतात."
+        },
+        {
+          en: "These links are provided for convenience and further reference. We do not control external websites and cannot guarantee the accuracy, availability, security, or completeness of their content.",
+          mr: "हे दुवे सोयीसाठी आणि अधिक माहिती मिळवण्यासाठी दिले जातात. बाह्य संकेतस्थळांवर आमचे नियंत्रण नसल्यामुळे तेथील माहितीची अचूकता, उपलब्धता, सुरक्षितता किंवा पूर्णता यांची हमी देता येत नाही."
+        },
+        {
+          en: "Visiting an external website is subject to that website’s own terms, policies, and practices. Users should verify information directly with the relevant source.",
+          mr: "बाह्य संकेतस्थळ वापरताना त्या संकेतस्थळाच्या स्वतःच्या अटी, धोरणे आणि कार्यपद्धती लागू होतात. वापरकर्त्यांनी संबंधित स्रोताकडून माहितीची पडताळणी करावी."
+        }
+      ]
+    },
+    {
+      title: { en: "7. Limitation of Liability", mr: "७. दायित्वाची मर्यादा" },
+      paragraphs: [
+        {
+          en: "To the extent permitted by applicable law, MySamvidhan and its contributors shall not be held responsible for loss, damage, or consequences arising from reliance on website content, errors or omissions, temporary unavailability, or changes in external resources.",
+          mr: "लागू कायद्याने परवानगी दिलेल्या मर्यादेपर्यंत, संकेतस्थळावरील माहितीवर अवलंबून राहणे, माहितीतील चुका किंवा त्रुटी, संकेतस्थळ तात्पुरते अनुपलब्ध असणे किंवा बाह्य स्रोतांमधील बदल यांमुळे होणाऱ्या नुकसानासाठी किंवा परिणामांसाठी MySamvidhan आणि त्यातील योगदानकर्ते जबाबदार धरले जाणार नाहीत."
+        },
+        {
+          en: "Users are responsible for independently evaluating the information and determining whether it is appropriate for their particular needs.",
+          mr: "माहितीचे स्वतंत्र मूल्यमापन करणे आणि ती आपल्या विशिष्ट गरजांसाठी योग्य आहे का हे ठरवणे ही वापरकर्त्याची जबाबदारी आहे."
+        },
+        {
+          en: "Nothing in this disclaimer is intended to exclude or limit any liability that cannot lawfully be excluded or limited under applicable law.",
+          mr: "लागू कायद्यानुसार वगळता किंवा मर्यादित करता येत नसलेले कोणतेही दायित्व या अस्वीकरणाद्वारे वगळण्याचा किंवा मर्यादित करण्याचा उद्देश नाही."
+        }
+      ]
+    },
+    {
+      title: { en: "8. Opinions and Interpretations", mr: "८. मते आणि स्पष्टीकरणे" },
+      paragraphs: [
+        {
+          en: "Some educational content may explain constitutional concepts, historical developments, judicial decisions, or public issues in simplified language.",
+          mr: "काही शैक्षणिक सामग्रीमध्ये घटनात्मक संकल्पना, ऐतिहासिक घडामोडी, न्यायालयीन निर्णय किंवा सार्वजनिक विषय सोप्या भाषेत स्पष्ट केलेले असू शकतात."
+        },
+        {
+          en: "Such explanations are intended to improve general understanding and should not be treated as an official legal interpretation, a substitute for the original legal text, or a statement representing any government institution.",
+          mr: "ही स्पष्टीकरणे सामान्य समज वाढवण्यासाठी आहेत. त्यांना अधिकृत कायदेशीर अर्थ, मूळ कायदेशीर मजकुराचा पर्याय किंवा कोणत्याही सरकारी संस्थेचे अधिकृत मत समजू नये."
+        },
+        {
+          en: "Where interpretation matters, readers should consult the relevant original documents and qualified professionals.",
+          mr: "कायदेशीर अर्थ लावण्याची आवश्यकता असल्यास संबंधित मूळ दस्तऐवज आणि पात्र व्यावसायिकांचा सल्ला घ्यावा."
+        }
+      ]
+    },
+    {
+      title: { en: "9. Changes to This Disclaimer", mr: "९. अस्वीकरणातील बदल" },
+      paragraphs: [
+        {
+          en: "This Disclaimer may be revised from time to time to reflect changes to website features, published content, or applicable requirements.",
+          mr: "संकेतस्थळाच्या सुविधा, प्रकाशित सामग्री किंवा लागू आवश्यकतांमध्ये बदल झाल्यास हे अस्वीकरण वेळोवेळी अद्ययावत केले जाऊ शकते."
+        },
+        {
+          en: "Any updated version will be published on this page. Readers are encouraged to review the Disclaimer periodically.",
+          mr: "अद्ययावत आवृत्ती याच पृष्ठावर प्रकाशित केली जाईल. वाचकांनी वेळोवेळी हे अस्वीकरण तपासावे."
+        }
+      ]
+    },
+    {
+      title: { en: "10. Contact Us", mr: "१०. आमच्याशी संपर्क" },
+      paragraphs: [
+        {
+          en: "If you have questions about this Disclaimer or wish to report a content-related concern, you may contact us at:",
+          mr: "या अस्वीकरणाबाबत काही प्रश्न असल्यास किंवा सामग्रीशी संबंधित समस्या कळवायची असल्यास खालील ईमेल पत्त्यावर संपर्क साधा."
+        }
+      ],
+      contact: true
+    }
+  ],
+  email: "info@mysamvidhan.in"
+};
 function Disclaimer() {
-  const { t, language } = useLanguage();
-  return /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20", children: [
-    /* @__PURE__ */ jsx(ChakraMark, { className: "h-10 w-10 text-navy dark:text-saffron" }),
-    /* @__PURE__ */ jsx("h1", { lang: language, className: "font-display mt-6 text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl", children: t("footer_disclaimer_title") }),
-    /* @__PURE__ */ jsx("p", { lang: language, className: "mt-6 text-base leading-relaxed text-ink/70 dark:text-ink-dark/70", children: t("footer_disclaimer") }),
-    /* @__PURE__ */ jsx("p", { lang: language, className: "mt-4 text-base leading-relaxed text-ink/70 dark:text-ink-dark/70", children: "Samvidhan is an independent educational and informational website. Constitutional information can change and should be checked against current authoritative sources for legal or official use." })
+  const { language, pick } = useLanguage();
+  return /* @__PURE__ */ jsxs("main", { className: "mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20", children: [
+    /* @__PURE__ */ jsx("h1", { lang: language, className: "font-display text-3xl font-semibold text-navy sm:text-4xl", children: pick(disclaimerContent.title) }),
+    /* @__PURE__ */ jsx("div", { className: "mt-6 space-y-4", children: disclaimerContent.introduction.map((paragraph, index) => /* @__PURE__ */ jsx(
+      "p",
+      {
+        lang: language,
+        className: "text-base leading-relaxed text-ink/70 dark:text-ink-dark/70",
+        children: pick(paragraph)
+      },
+      index
+    )) }),
+    /* @__PURE__ */ jsx("div", { className: "mt-10 space-y-8", children: disclaimerContent.sections.map((section, index) => /* @__PURE__ */ jsxs("section", { "aria-labelledby": `disclaimer-section-${index + 1}`, children: [
+      /* @__PURE__ */ jsx(
+        "h2",
+        {
+          id: `disclaimer-section-${index + 1}`,
+          lang: language,
+          className: "font-display text-xl font-semibold text-navy dark:text-ink-dark",
+          children: pick(section.title)
+        }
+      ),
+      section.paragraphs.map((paragraph, paragraphIndex) => /* @__PURE__ */ jsx(
+        "p",
+        {
+          lang: language,
+          className: "mt-3 break-words text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70 sm:text-base",
+          children: pick(paragraph)
+        },
+        paragraphIndex
+      )),
+      section.contact && /* @__PURE__ */ jsxs("p", { className: "mt-3 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70 sm:text-base", children: [
+        /* @__PURE__ */ jsx("span", { lang: language, children: language === "mr" ? "ईमेल:" : "Email:" }),
+        " ",
+        /* @__PURE__ */ jsx(
+          "a",
+          {
+            href: `mailto:${disclaimerContent.email}`,
+            className: "break-all text-saffron underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy",
+            children: disclaimerContent.email
+          }
+        )
+      ] })
+    ] }, section.title.en)) })
   ] });
 }
 const faqCategories = [
@@ -7896,11 +11243,6 @@ function FAQ() {
     });
   }, [category, language, pick, query]);
   return /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16", children: [
-    /* @__PURE__ */ jsxs("nav", { "aria-label": language === "mr" ? "मार्गक्रमण" : "Breadcrumb", className: "mb-8 text-sm text-ink/50 dark:text-ink-dark/50", children: [
-      /* @__PURE__ */ jsx(Link, { to: "/", className: "hover:text-saffron", children: language === "mr" ? "मुख्यपृष्ठ" : "Home" }),
-      /* @__PURE__ */ jsx("span", { className: "mx-2", "aria-hidden": "true", children: "→" }),
-      /* @__PURE__ */ jsx("span", { lang: language, children: language === "mr" ? "वारंवार विचारले जाणारे प्रश्न" : "FAQ" })
-    ] }),
     /* @__PURE__ */ jsx("p", { className: "text-xs font-semibold uppercase tracking-[0.2em] text-saffron", children: language === "mr" ? "माहिती केंद्र" : "Knowledge centre" }),
     /* @__PURE__ */ jsx("h1", { lang: language, className: "font-display mt-3 text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl", children: language === "mr" ? "वारंवार विचारले जाणारे प्रश्न" : "Frequently Asked Questions" }),
     /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 max-w-2xl text-ink/60 dark:text-ink-dark/60", children: language === "mr" ? "भारतीय संविधानाबद्दल सामान्य आणि परीक्षाभिमुख प्रश्नांची स्पष्ट उत्तरे शोधा." : "Find clear answers to common and exam-focused questions about the Constitution of India." }),
@@ -7933,8 +11275,153 @@ function FAQ() {
     visibleFaqs.length === 0 && /* @__PURE__ */ jsx("p", { lang: language, className: "mt-12 text-center text-sm text-ink/55 dark:text-ink-dark/55", children: language === "mr" ? "कोणतेही प्रश्न सापडले नाहीत. दुसरा शब्द वापरून शोधा." : "No FAQs found. Try a different search term." })
   ] });
 }
+const __vite_import_meta_env__ = {};
+const SITE_URL = ((__vite_import_meta_env__ == null ? void 0 : __vite_import_meta_env__.VITE_SITE_URL) || (typeof process !== "undefined" ? (_b = process.env) == null ? void 0 : _b.VITE_SITE_URL : "") || siteConfig.url).replace(/\/+$/, "");
+const LOGO_URL = `${SITE_URL}/images/mysamvidhan-logo.svg`;
+function localize(value, language) {
+  return language === "mr" ? (value == null ? void 0 : value.mr) || "" : (value == null ? void 0 : value.en) || "";
+}
+function getBreadcrumbSchema(pathname, search, language, pageUrl) {
+  const items = getBreadcrumbItems(pathname, search, {
+    language,
+    t: (key) => translateBreadcrumb(key, language),
+    pick: (value) => localize(value, language)
+  });
+  if (!items.length) return null;
+  return {
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.label,
+      ...item.to ? { item: getCanonicalUrl(item.to) } : {}
+    }))
+  };
+}
+function getVisiblePageType(pathname) {
+  if (pathname === "/about") return "AboutPage";
+  if (pathname === "/contact") return "ContactPage";
+  if (pathname === "/articles" || pathname === "/current-affairs") return "CollectionPage";
+  return "WebPage";
+}
+function getArticleList(pathname, language) {
+  const list = pathname === "/articles" ? articles : currentAffairs;
+  return {
+    "@type": "ItemList",
+    itemListElement: list.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: pathname === "/articles" ? `${SITE_URL}/article/${item.id}` : `${SITE_URL}/current-affairs/${item.slug}`,
+      name: pathname === "/articles" ? item.articleNumber : localize(item.title, language)
+    }))
+  };
+}
+function buildStructuredData(pathname, search = "", language = "en") {
+  var _a2, _b2;
+  const route = getSeoRoute(pathname);
+  const article = pathname.startsWith("/article/") ? getArticleById(pathname.split("/").pop()) : null;
+  const currentAffair = pathname.startsWith("/current-affairs/") ? getCurrentAffairBySlug(pathname.split("/").pop()) : null;
+  if (route.indexable === false || pathname === "/articles" && Boolean(search) || pathname.startsWith("/article/") && !article || pathname.startsWith("/current-affairs/") && !currentAffair || !route.title && !article && !currentAffair) {
+    return [];
+  }
+  const pageUrl = getCanonicalUrl(pathname);
+  const pick = (value) => localize(value, language);
+  const title = article ? `${article.articleNumber} — ${pick(article.title)} | ${siteConfig.name}` : currentAffair ? pick(currentAffair.seoTitle || currentAffair.title) : pick(route.title);
+  const description = article ? pick(article.simpleExplanation) : currentAffair ? pick(currentAffair.shortDescription) : pick(route.description);
+  const organizationId = `${SITE_URL}#organization`;
+  const websiteId = `${SITE_URL}#website`;
+  const pageId = `${pageUrl}#webpage`;
+  const breadcrumb = getBreadcrumbSchema(pathname, search, language, pageUrl);
+  const graph = [
+    {
+      "@type": "Organization",
+      "@id": organizationId,
+      name: siteConfig.name,
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: LOGO_URL
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": websiteId,
+      name: siteConfig.name,
+      url: SITE_URL,
+      publisher: { "@id": organizationId },
+      inLanguage: language === "mr" ? "mr-IN" : "en-IN",
+      potentialAction: {
+        "@type": "SearchAction",
+        target: `${SITE_URL}/articles?q={search_term_string}`,
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": getVisiblePageType(pathname),
+      "@id": pageId,
+      url: pageUrl,
+      name: title,
+      description,
+      isPartOf: { "@id": websiteId },
+      inLanguage: language === "mr" ? "mr-IN" : "en-IN",
+      ...breadcrumb ? { breadcrumb: { "@id": breadcrumb["@id"] } } : {},
+      ...article || currentAffair ? { mainEntity: { "@id": `${pageUrl}#article` } } : {},
+      ...pathname === "/articles" || pathname === "/current-affairs" ? { mainEntity: getArticleList(pathname, language) } : {}
+    }
+  ];
+  if (breadcrumb) graph.push(breadcrumb);
+  if (article) {
+    graph.push({
+      "@type": "Article",
+      "@id": `${pageUrl}#article`,
+      headline: pick(article.title),
+      description,
+      image: `${SITE_URL}/images/articles/article-${String(article.id).toLowerCase()}.webp`,
+      mainEntityOfPage: { "@id": pageId },
+      url: pageUrl,
+      inLanguage: language === "mr" ? "mr-IN" : "en-IN",
+      publisher: { "@id": organizationId },
+      ...article.articleNumber ? { articleSection: article.articleNumber } : {},
+      ...((_a2 = article.keywords) == null ? void 0 : _a2.length) ? { keywords: article.keywords.join(", ") } : {}
+    });
+  }
+  if (currentAffair) {
+    graph.push({
+      "@type": "Article",
+      "@id": `${pageUrl}#article`,
+      headline: pick(currentAffair.title),
+      description,
+      mainEntityOfPage: { "@id": pageId },
+      url: pageUrl,
+      inLanguage: language === "mr" ? "mr-IN" : "en-IN",
+      publisher: { "@id": organizationId },
+      ...currentAffair.date ? { datePublished: currentAffair.date } : {},
+      ...currentAffair.updatedAt ? { dateModified: currentAffair.updatedAt } : {},
+      ...currentAffair.category ? { articleSection: currentAffair.category } : {},
+      ...((_b2 = currentAffair.keywords) == null ? void 0 : _b2.length) ? { keywords: currentAffair.keywords.join(", ") } : {}
+    });
+  }
+  if (pathname === "/faq") {
+    graph.push({
+      "@type": "FAQPage",
+      "@id": `${pageUrl}#faq`,
+      url: pageUrl,
+      name: title,
+      inLanguage: language === "mr" ? "mr-IN" : "en-IN",
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: pick(faq.question),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: pick(faq.answer)
+        }
+      }))
+    });
+  }
+  return graph;
+}
 const SCHEMA_ID = "samvidhan-jsonld";
-const SITE_URL = siteConfig.url.replace(/\/$/, "");
 function upsertSchema(graph) {
   let script = document.head.querySelector(`#${SCHEMA_ID}`);
   if (!script) {
@@ -7946,266 +11433,21 @@ function upsertSchema(graph) {
   script.textContent = JSON.stringify({
     "@context": "https://schema.org",
     "@graph": graph
-  });
+  }).replace(/</g, "\\u003c");
 }
 function removeSchema() {
-  var _a;
-  (_a = document.head.querySelector(`#${SCHEMA_ID}`)) == null ? void 0 : _a.remove();
+  var _a2;
+  (_a2 = document.head.querySelector(`#${SCHEMA_ID}`)) == null ? void 0 : _a2.remove();
 }
 function SchemaJsonLd() {
-  const { pathname } = useLocation();
-  const { language, pick } = useLanguage();
+  const { pathname, search } = useLocation();
+  const { language } = useLanguage();
   useEffect(() => {
-    const config = getSeoRoute(pathname);
-    const article = pathname.startsWith("/article/") ? getArticleById(pathname.split("/").pop()) : null;
-    const currentAffair = pathname.startsWith("/current-affairs/") ? getCurrentAffairBySlug(pathname.split("/").pop()) : null;
-    if (config.indexable === false || pathname.startsWith("/article/") && !article || pathname.startsWith("/current-affairs/") && !currentAffair) {
-      removeSchema();
-      return;
-    }
-    const canonical = `${SITE_URL}${pathname}`;
-    const pageTitle = article ? `${article.articleNumber} — ${pick(article.title)} | Samvidhan` : currentAffair ? pick(currentAffair.seoTitle || currentAffair.title) : pick(config.title);
-    const pageDescription = article ? pick(article.simpleExplanation) : currentAffair ? pick(currentAffair.shortDescription) : pick(config.description);
-    const pageId = `${canonical}#webpage`;
-    const breadcrumbId = `${canonical}#breadcrumb`;
-    const articleId = article ? `${canonical}#article` : null;
-    const currentAffairId = currentAffair ? `${canonical}#current-affair` : null;
-    const faqPageId = `${canonical}#faq`;
-    const organizationDescription = language === "mr" ? "भारतीय संविधान समजून घेणे सोपे करणारे स्वतंत्र शैक्षणिक आणि माहितीपर व्यासपीठ." : "An independent educational and informational platform that makes the Constitution of India easy to understand.";
-    const graph = [
-      {
-        "@type": "Organization",
-        "@id": `${SITE_URL}#organization`,
-        name: siteConfig.name,
-        url: SITE_URL,
-        description: organizationDescription
-      },
-      {
-        "@type": "WebSite",
-        "@id": `${SITE_URL}#website`,
-        name: siteConfig.name,
-        url: SITE_URL,
-        description: organizationDescription,
-        publisher: {
-          "@id": `${SITE_URL}#organization`
-        },
-        inLanguage: language,
-        potentialAction: {
-          "@type": "SearchAction",
-          target: `${SITE_URL}/articles?q={search_term_string}`,
-          "query-input": "required name=search_term_string"
-        }
-      },
-      {
-        "@type": "WebPage",
-        "@id": pageId,
-        url: canonical,
-        name: pageTitle,
-        description: pageDescription,
-        isPartOf: {
-          "@id": `${SITE_URL}#website`
-        },
-        about: {
-          "@id": `${SITE_URL}#organization`
-        },
-        breadcrumb: {
-          "@id": breadcrumbId
-        },
-        inLanguage: language,
-        ...article || currentAffair ? {
-          mainEntity: {
-            "@id": articleId || currentAffairId
-          }
-        } : {},
-        ...pathname === "/faq" ? {
-          mainEntity: {
-            "@id": faqPageId
-          }
-        } : {}
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": breadcrumbId,
-        itemListElement: article ? [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: language === "mr" ? "मुख्यपृष्ठ" : "Home",
-            item: SITE_URL
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: language === "mr" ? "सर्व कलमे" : "Articles",
-            item: `${SITE_URL}/articles`
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: pick(article.title),
-            item: canonical
-          }
-        ] : currentAffair ? [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: language === "mr" ? "मुख्यपृष्ठ" : "Home",
-            item: SITE_URL
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: language === "mr" ? "चालू घडामोडी" : "Current Affairs",
-            item: `${SITE_URL}/current-affairs`
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: pick(currentAffair.title),
-            item: canonical
-          }
-        ] : [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: language === "mr" ? "मुख्यपृष्ठ" : "Home",
-            item: SITE_URL
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: pathname === "/faq" ? language === "mr" ? "वारंवार विचारले जाणारे प्रश्न" : "FAQ" : pageTitle,
-            item: canonical
-          }
-        ]
-      }
-    ];
-    if (article) {
-      const relatedArticles = getRelatedArticles(article, 6);
-      const articleSchema = {
-        "@type": "Article",
-        "@id": articleId,
-        headline: pick(article.title),
-        description: pageDescription,
-        mainEntityOfPage: {
-          "@id": pageId
-        },
-        url: canonical,
-        inLanguage: language,
-        isPartOf: {
-          "@id": `${SITE_URL}#website`
-        },
-        publisher: {
-          "@id": `${SITE_URL}#organization`
-        },
-        ...article.articleNumber ? {
-          articleSection: article.articleNumber
-        } : {},
-        ...article.categoryKey ? {
-          keywords: [
-            article.articleNumber,
-            article.categoryKey,
-            "Indian Constitution",
-            "भारतीय संविधान"
-          ].filter(Boolean).join(", ")
-        } : {},
-        ...article.lastVerified ? {
-          dateModified: article.lastVerified
-        } : {},
-        ...relatedArticles.length ? {
-          isBasedOn: relatedArticles.map(
-            (relatedArticle) => `${SITE_URL}/article/${relatedArticle.id}`
-          )
-        } : {}
-      };
-      graph.push(articleSchema);
-    }
-    if (currentAffair) {
-      graph.push({
-        "@type": "NewsArticle",
-        "@id": currentAffairId,
-        headline: pick(currentAffair.title),
-        description: pageDescription,
-        datePublished: currentAffair.date,
-        dateModified: currentAffair.date,
-        mainEntityOfPage: { "@id": pageId },
-        url: canonical,
-        inLanguage: language,
-        articleSection: currentAffair.category,
-        keywords: currentAffair.keywords.join(", "),
-        isPartOf: { "@id": `${SITE_URL}#website` },
-        publisher: { "@id": `${SITE_URL}#organization` }
-      });
-    }
-    if (pathname === "/faq") {
-      graph.push({
-        "@type": "FAQPage",
-        "@id": faqPageId,
-        url: canonical,
-        name: pageTitle,
-        inLanguage: language,
-        mainEntity: faqs.map((faq) => ({
-          "@type": "Question",
-          name: pick(faq.question),
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: pick(faq.answer)
-          }
-        }))
-      });
-    }
-    upsertSchema(graph);
-  }, [pathname, language, pick]);
+    const graph = buildStructuredData(pathname, search, language);
+    if (graph.length) upsertSchema(graph);
+    else removeSchema();
+  }, [pathname, search, language]);
   return null;
-}
-function CurrentAffairsCard({ article }) {
-  const { language, pick, t } = useLanguage();
-  const title = pick(article.title);
-  const category = language === "mr" ? article.categoryMr : article.category;
-  return /* @__PURE__ */ jsxs("article", { className: "group flex flex-col rounded-2xl border border-navy/10 dark:border-ink-dark/10 bg-white/60 dark:bg-white/[0.04] p-5 transition-colors hover:border-saffron/40", children: [
-    /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between gap-3 text-xs text-ink/50 dark:text-ink-dark/50", children: [
-      /* @__PURE__ */ jsx("span", { className: "text-leaf dark:text-leaf-light", children: category }),
-      /* @__PURE__ */ jsx("time", { dateTime: article.date, children: (/* @__PURE__ */ new Date(`${article.date}T00:00:00`)).toLocaleDateString(
-        language === "mr" ? "mr-IN" : "en-IN",
-        { day: "numeric", month: "short", year: "numeric" }
-      ) })
-    ] }),
-    /* @__PURE__ */ jsx(
-      "h2",
-      {
-        lang: language,
-        className: "mt-3 font-display text-lg font-semibold text-navy dark:text-ink-dark",
-        children: /* @__PURE__ */ jsx(
-          Link,
-          {
-            to: `/current-affairs/${article.slug}`,
-            className: "transition-colors hover:text-saffron focus:outline-none focus:text-saffron",
-            children: title
-          }
-        )
-      }
-    ),
-    /* @__PURE__ */ jsx(
-      "p",
-      {
-        lang: language,
-        className: "mt-2 line-clamp-3 text-sm leading-relaxed text-ink/60 dark:text-ink-dark/60",
-        children: pick(article.shortDescription)
-      }
-    ),
-    /* @__PURE__ */ jsxs(
-      Link,
-      {
-        to: `/current-affairs/${article.slug}`,
-        "aria-label": `${t("current_affairs_read_more")}: ${title}`,
-        className: "mt-4 inline-flex w-fit items-center gap-1 text-sm font-medium text-saffron transition-colors hover:text-saffron/80 hover:underline focus:outline-none focus:underline",
-        children: [
-          t("current_affairs_read_more"),
-          /* @__PURE__ */ jsx("span", { "aria-hidden": "true", children: "→" })
-        ]
-      }
-    )
-  ] });
 }
 function formatDate(date, language) {
   return (/* @__PURE__ */ new Date(`${date}T00:00:00`)).toLocaleDateString(
@@ -8246,7 +11488,7 @@ function CurrentAffairsList() {
   ] });
 }
 function CurrentAffairDetails() {
-  var _a, _b, _c, _d, _e;
+  var _a2, _b2, _c, _d, _e;
   const { slug } = useParams();
   const { language, pick } = useLanguage();
   const article = getCurrentAffairBySlug(slug || "");
@@ -8258,19 +11500,12 @@ function CurrentAffairDetails() {
     ] });
   }
   const category = language === "mr" ? article.categoryMr : article.category;
-  const seoSections = ((_a = article.seoSections) == null ? void 0 : _a[language]) || [];
-  const faqs2 = ((_b = article.faq) == null ? void 0 : _b[language]) || [];
+  const seoSections = ((_a2 = article.seoSections) == null ? void 0 : _a2[language]) || [];
+  const faqs2 = ((_b2 = article.faq) == null ? void 0 : _b2[language]) || [];
   const mcqs = ((_c = article.mcqs) == null ? void 0 : _c[language]) || [];
   const related = (article.relatedSlugs || []).map((relatedSlug) => getCurrentAffairBySlug(relatedSlug)).filter(Boolean);
   return /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16", children: [
     /* @__PURE__ */ jsx(PageMeta, {}),
-    /* @__PURE__ */ jsx("nav", { "aria-label": language === "mr" ? "पृष्ठ मार्गक्रमण" : "Breadcrumb", className: "mb-8", children: /* @__PURE__ */ jsxs("ol", { className: "flex flex-wrap items-center gap-1.5 text-sm text-ink/50 dark:text-ink-dark/50", children: [
-      /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "/", className: "hover:text-saffron", children: language === "mr" ? "मुख्यपृष्ठ" : "Home" }) }),
-      /* @__PURE__ */ jsx("li", { "aria-hidden": "true", children: "/" }),
-      /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "/current-affairs", className: "hover:text-saffron", children: language === "mr" ? "चालू घडामोडी" : "Current Affairs" }) }),
-      /* @__PURE__ */ jsx("li", { "aria-hidden": "true", children: "/" }),
-      /* @__PURE__ */ jsx("li", { "aria-current": "page", className: "font-medium text-navy dark:text-ink-dark", children: pick(article.title) })
-    ] }) }),
     /* @__PURE__ */ jsxs("header", { children: [
       /* @__PURE__ */ jsx("time", { dateTime: article.date, className: "text-sm font-medium text-saffron", children: formatDate(article.date, language) }),
       /* @__PURE__ */ jsx("h1", { lang: language, className: "mt-1 font-display text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl", children: pick(article.title) }),
@@ -8368,40 +11603,43 @@ function App() {
     /* @__PURE__ */ jsx(PageMeta, {}),
     /* @__PURE__ */ jsx(SchemaJsonLd, {}),
     /* @__PURE__ */ jsx(Navbar, {}),
-    /* @__PURE__ */ jsx("main", { id: "main-content", className: "flex-1", children: /* @__PURE__ */ jsxs(Routes, { children: [
-      /* @__PURE__ */ jsx(Route, { path: "/", element: /* @__PURE__ */ jsx(Home, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/articles", element: /* @__PURE__ */ jsx(Articles, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/current-affairs", element: /* @__PURE__ */ jsx(CurrentAffairsList, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/current-affairs/:slug", element: /* @__PURE__ */ jsx(CurrentAffairDetails, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/article/:id", element: /* @__PURE__ */ jsx(ArticleDetails, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/fundamental-rights", element: /* @__PURE__ */ jsx(FundamentalRights, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/fundamental-duties", element: /* @__PURE__ */ jsx(FundamentalDuties, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/directive-principles", element: /* @__PURE__ */ jsx(DirectivePrinciples, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/amendments", element: /* @__PURE__ */ jsx(Amendments, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/quiz", element: /* @__PURE__ */ jsx(Quiz, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/bookmarks", element: /* @__PURE__ */ jsx(Bookmarks, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/about", element: /* @__PURE__ */ jsx(About, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/contact", element: /* @__PURE__ */ jsx(Contact, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/privacy", element: /* @__PURE__ */ jsx(Privacy, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/privacy-policy", element: /* @__PURE__ */ jsx(Privacy, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/terms", element: /* @__PURE__ */ jsx(Terms, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/disclaimer", element: /* @__PURE__ */ jsx(Disclaimer, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/faq", element: /* @__PURE__ */ jsx(FAQ, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/premium", element: /* @__PURE__ */ jsx(Premium, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/exam-preparation", element: /* @__PURE__ */ jsx(ExamPreparation, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/premium-quiz", element: /* @__PURE__ */ jsx(PremiumQuiz, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/notes", element: /* @__PURE__ */ jsx(Notes, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/dashboard", element: /* @__PURE__ */ jsx(Dashboard, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/progress", element: /* @__PURE__ */ jsx(Progress, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/learn", element: /* @__PURE__ */ jsx(Learn, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "*", element: /* @__PURE__ */ jsx(NotFound, {}) })
-    ] }) }),
+    /* @__PURE__ */ jsxs("main", { id: "main-content", className: "app-main flex-1", children: [
+      /* @__PURE__ */ jsx(Breadcrumbs, {}),
+      /* @__PURE__ */ jsxs(Routes, { children: [
+        /* @__PURE__ */ jsx(Route, { path: "/", element: /* @__PURE__ */ jsx(Home, {}) }),
+        /* @__PURE__ */ jsx(Route, { path: "/articles", element: /* @__PURE__ */ jsx(Articles, {}) }),
+        /* @__PURE__ */ jsx(Route, { path: "/current-affairs", element: /* @__PURE__ */ jsx(CurrentAffairsList, {}) }),
+        /* @__PURE__ */ jsx(Route, { path: "/current-affairs/:slug", element: /* @__PURE__ */ jsx(CurrentAffairDetails, {}) }),
+        /* @__PURE__ */ jsx(Route, { path: "/article/:id", element: /* @__PURE__ */ jsx(ArticleDetails, {}) }),
+        /* @__PURE__ */ jsx(Route, { path: "/fundamental-rights", element: /* @__PURE__ */ jsx(FundamentalRights, {}) }),
+        /* @__PURE__ */ jsx(Route, { path: "/fundamental-duties", element: /* @__PURE__ */ jsx(FundamentalDuties, {}) }),
+        /* @__PURE__ */ jsx(Route, { path: "/directive-principles", element: /* @__PURE__ */ jsx(DirectivePrinciples, {}) }),
+        /* @__PURE__ */ jsx(Route, { path: "/amendments", element: /* @__PURE__ */ jsx(Amendments, {}) }),
+        /* @__PURE__ */ jsx(Route, { path: "/quiz", element: /* @__PURE__ */ jsx(Quiz, {}) }),
+        /* @__PURE__ */ jsx(Route, { path: "/bookmarks", element: /* @__PURE__ */ jsx(Bookmarks, {}) }),
+        /* @__PURE__ */ jsx(Route, { path: "/about", element: /* @__PURE__ */ jsx(About, {}) }),
+        /* @__PURE__ */ jsx(Route, { path: "/contact", element: /* @__PURE__ */ jsx(Contact, {}) }),
+        /* @__PURE__ */ jsx(Route, { path: "/privacy", element: /* @__PURE__ */ jsx(Privacy, {}) }),
+        /* @__PURE__ */ jsx(Route, { path: "/privacy-policy", element: /* @__PURE__ */ jsx(Privacy, {}) }),
+        /* @__PURE__ */ jsx(Route, { path: "/terms", element: /* @__PURE__ */ jsx(Terms, {}) }),
+        /* @__PURE__ */ jsx(Route, { path: "/disclaimer", element: /* @__PURE__ */ jsx(Disclaimer, {}) }),
+        /* @__PURE__ */ jsx(Route, { path: "/faq", element: /* @__PURE__ */ jsx(FAQ, {}) }),
+        /* @__PURE__ */ jsx(Route, { path: "/premium", element: /* @__PURE__ */ jsx(Premium, {}) }),
+        /* @__PURE__ */ jsx(Route, { path: "/exam-preparation", element: /* @__PURE__ */ jsx(ExamPreparation, {}) }),
+        /* @__PURE__ */ jsx(Route, { path: "/premium-quiz", element: /* @__PURE__ */ jsx(PremiumQuiz, {}) }),
+        /* @__PURE__ */ jsx(Route, { path: "/notes", element: /* @__PURE__ */ jsx(Notes, {}) }),
+        /* @__PURE__ */ jsx(Route, { path: "/dashboard", element: /* @__PURE__ */ jsx(Dashboard, {}) }),
+        /* @__PURE__ */ jsx(Route, { path: "/progress", element: /* @__PURE__ */ jsx(Progress, {}) }),
+        /* @__PURE__ */ jsx(Route, { path: "/learn", element: /* @__PURE__ */ jsx(Learn, {}) }),
+        /* @__PURE__ */ jsx(Route, { path: "*", element: /* @__PURE__ */ jsx(NotFound, {}) })
+      ] })
+    ] }),
     /* @__PURE__ */ jsx(Footer, {})
   ] });
 }
 function render(url) {
   return renderToString(
-    /* @__PURE__ */ jsx(React.StrictMode, { children: /* @__PURE__ */ jsx(StaticRouter, { location: url, children: /* @__PURE__ */ jsx(ThemeProvider, { children: /* @__PURE__ */ jsx(LanguageProvider, { children: /* @__PURE__ */ jsx(BookmarkProvider, { children: /* @__PURE__ */ jsx(AuthProvider, { children: /* @__PURE__ */ jsx(App, {}) }) }) }) }) }) })
+    /* @__PURE__ */ jsx(React.StrictMode, { children: /* @__PURE__ */ jsx(StaticRouter, { location: url, children: /* @__PURE__ */ jsx(LanguageProvider, { children: /* @__PURE__ */ jsx(BookmarkProvider, { children: /* @__PURE__ */ jsx(AuthProvider, { children: /* @__PURE__ */ jsx(App, {}) }) }) }) }) })
   );
 }
 export {

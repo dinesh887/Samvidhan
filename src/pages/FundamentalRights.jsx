@@ -4,6 +4,7 @@ import DynamicIcon from '../components/DynamicIcon'
 import { useLanguage } from '../context/LanguageContext'
 import { fundamentalRights } from '../data/rights'
 import { getArticleById } from '../data/articles'
+import OfficialSourceLink from '../components/OfficialSourceLink'
 
 export default function FundamentalRights() {
   const { t, pick, language } = useLanguage()
@@ -17,7 +18,13 @@ export default function FundamentalRights() {
         {t('rights_sub')}
       </p>
 
-      <div className="mt-10 space-y-4">
+      <p lang={language} className="mt-5 max-w-3xl text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70">
+        {language === 'mr'
+          ? 'खालील सहा गटांतील स्पष्टीकरणे निवडक कलमांचा अभ्यास करण्यासाठीची संक्षिप्त माहिती आहेत; ती संविधानाचा संपूर्ण किंवा शब्दशः मजकूर नाहीत. प्रत्येक अधिकाराची व्याप्ती आणि लागू अटी संबंधित कलमांनुसार बदलतात.'
+          : 'The six groups below are concise study guides to selected provisions, not the complete or verbatim text of the Constitution. The scope and applicable conditions of each right depend on the relevant Articles.'}
+      </p>
+
+      <div className="mt-8 space-y-4">
         {fundamentalRights.map((right) => {
           const relatedArticles = right.articleIds.map((id) => getArticleById(id)).filter(Boolean)
           return (
@@ -53,6 +60,7 @@ export default function FundamentalRights() {
           )
         })}
       </div>
+      <OfficialSourceLink />
     </div>
   )
 }

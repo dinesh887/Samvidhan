@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useLanguage } from '../context/LanguageContext'
 import { amendments } from '../data/amendments'
+import OfficialSourceLink from '../components/OfficialSourceLink'
 
 export default function Amendments() {
   const { t, pick, language } = useLanguage()
@@ -12,6 +13,11 @@ export default function Amendments() {
       </h1>
       <p lang={language} className="mt-2 max-w-2xl text-ink/60 dark:text-ink-dark/60">
         {t('amendments_sub')}
+      </p>
+      <p lang={language} className="mt-5 max-w-3xl text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70">
+        {language === 'mr'
+          ? 'खाली काही निवडक घटनादुरुस्त्यांचा परिचय दिला आहे; ही संपूर्ण यादी नाही. येथे दिलेली संक्षिप्त माहिती प्राथमिक अभ्यासासाठी असून, अचूक कायदेशीर मजकूर आणि परिणामांसाठी अधिकृत दुरुस्ती अधिनियम तपासा.'
+          : 'This page introduces a selection of constitutional amendments; it is not a complete list. These brief summaries are for initial study. Consult the official Amendment Acts for authoritative text and legal effect.'}
       </p>
 
       <div className="mt-10 space-y-4">
@@ -37,6 +43,7 @@ export default function Amendments() {
           </div>
         ))}
       </div>
+      <OfficialSourceLink />
     </div>
   )
 }

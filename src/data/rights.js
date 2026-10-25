@@ -18,10 +18,10 @@ export const fundamentalRights = [
     icon: 'Wind',
     title: { en: 'Right to Freedom', mr: 'स्वातंत्र्याचा अधिकार' },
     explanation: {
-      en: 'Covers freedoms such as speech and expression, peaceful assembly, movement, and the right to practise any profession, subject to reasonable restrictions.',
-      mr: 'भाषण व अभिव्यक्ती स्वातंत्र्य, शांततापूर्ण संमेलन, संचार आणि कोणताही व्यवसाय करण्याचा अधिकार यांचा समावेश करते, वाजवी निर्बंधांच्या अधीन राहून.',
+      en: 'Covers freedoms such as speech and expression, peaceful assembly, movement, and the right to practise any profession, subject to reasonable restrictions. Article 21A, also included among the selected provisions here, concerns free and compulsory education for children aged six to fourteen.',
+      mr: 'भाषण व अभिव्यक्ती स्वातंत्र्य, शांततापूर्ण संमेलन, संचार आणि कोणताही व्यवसाय करण्याचा अधिकार यांचा समावेश करते, वाजवी निर्बंधांच्या अधीन राहून. येथे समाविष्ट केलेले कलम २१अ सहा ते चौदा वर्षे वयोगटातील मुलांच्या मोफत व सक्तीच्या शिक्षणाशी संबंधित आहे.',
     },
-    articleIds: ['19', '21', '21a'],
+    articleIds: ['19', '21', '21A'],
   },
   {
     id: 'right-against-exploitation',
@@ -31,7 +31,7 @@ export const fundamentalRights = [
       en: 'Prohibits human trafficking, forced labour, and the employment of children in hazardous work.',
       mr: 'मानवी तस्करी, वेठबिगारी आणि बालकांना धोकादायक कामांवर नियुक्त करण्यास प्रतिबंध करते.',
     },
-    articleIds: [],
+    articleIds: ['23', '24'],
   },
   {
     id: 'right-to-freedom-of-religion',
@@ -51,7 +51,7 @@ export const fundamentalRights = [
       en: 'Protects the right of communities to preserve their language, script and culture, and to establish and administer educational institutions.',
       mr: 'समुदायांना त्यांची भाषा, लिपी आणि संस्कृती जपण्याचा तसेच शैक्षणिक संस्था स्थापन करून चालवण्याचा अधिकार देते.',
     },
-    articleIds: ['21a'],
+    articleIds: [],
   },
   {
     id: 'right-to-constitutional-remedies',

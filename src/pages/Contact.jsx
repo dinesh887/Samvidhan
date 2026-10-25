@@ -6,7 +6,7 @@ export default function Contact() {
   const { t, language } = useLanguage()
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
+    <div className="reading-page mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
       <ChakraMark className="h-10 w-10 text-navy dark:text-saffron" />
       <h1 lang={language} className="font-display mt-6 text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl">
         {t('contact_title')}

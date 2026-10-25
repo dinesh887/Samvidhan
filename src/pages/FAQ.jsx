@@ -23,7 +23,6 @@ export default function FAQ() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16">
-      <nav aria-label={language === 'mr' ? 'मार्गक्रमण' : 'Breadcrumb'} className="mb-8 text-sm text-ink/50 dark:text-ink-dark/50"><Link to="/" className="hover:text-saffron">{language === 'mr' ? 'मुख्यपृष्ठ' : 'Home'}</Link><span className="mx-2" aria-hidden="true">→</span><span lang={language}>{language === 'mr' ? 'वारंवार विचारले जाणारे प्रश्न' : 'FAQ'}</span></nav>
       <p className="text-xs font-semibold uppercase tracking-[0.2em] text-saffron">{language === 'mr' ? 'माहिती केंद्र' : 'Knowledge centre'}</p>
       <h1 lang={language} className="font-display mt-3 text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl">{language === 'mr' ? 'वारंवार विचारले जाणारे प्रश्न' : 'Frequently Asked Questions'}</h1>
       <p lang={language} className="mt-3 max-w-2xl text-ink/60 dark:text-ink-dark/60">{language === 'mr' ? 'भारतीय संविधानाबद्दल सामान्य आणि परीक्षाभिमुख प्रश्नांची स्पष्ट उत्तरे शोधा.' : 'Find clear answers to common and exam-focused questions about the Constitution of India.'}</p>

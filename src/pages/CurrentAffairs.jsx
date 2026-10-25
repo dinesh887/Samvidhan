@@ -80,16 +80,6 @@ export function CurrentAffairDetails() {
     <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16">
       <PageMeta />
 
-      <nav aria-label={language === 'mr' ? 'पृष्ठ मार्गक्रमण' : 'Breadcrumb'} className="mb-8">
-        <ol className="flex flex-wrap items-center gap-1.5 text-sm text-ink/50 dark:text-ink-dark/50">
-          <li><Link to="/" className="hover:text-saffron">{language === 'mr' ? 'मुख्यपृष्ठ' : 'Home'}</Link></li>
-          <li aria-hidden="true">/</li>
-          <li><Link to="/current-affairs" className="hover:text-saffron">{language === 'mr' ? 'चालू घडामोडी' : 'Current Affairs'}</Link></li>
-          <li aria-hidden="true">/</li>
-          <li aria-current="page" className="font-medium text-navy dark:text-ink-dark">{pick(article.title)}</li>
-        </ol>
-      </nav>
-
       <header>
         <time dateTime={article.date} className="text-sm font-medium text-saffron">
           {formatDate(article.date, language)}

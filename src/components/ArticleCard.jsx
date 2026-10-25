@@ -16,8 +16,25 @@ export default function ArticleCard({ article }) {
 
   return (
     <article
-      className="group flex rounded-2xl border border-navy/10 dark:border-ink-dark/10 bg-white/60 dark:bg-white/[0.04] overflow-hidden transition-colors hover:border-saffron/40"
+      className="article-card group flex rounded-2xl border border-navy/10 dark:border-ink-dark/10 bg-white/60 dark:bg-white/[0.04] overflow-hidden transition-colors hover:border-saffron/40"
     >
+      <Link
+        to={`/article/${article.id}`}
+        tabIndex={-1}
+        aria-hidden="true"
+        className="article-card-image hidden shrink-0 sm:block"
+      >
+        <img
+          src={`/images/articles/article-${article.id.toLowerCase()}.webp`}
+          alt=""
+          width="1200"
+          height="630"
+          loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover"
+        />
+      </Link>
+
       {/* Article number */}
       <div className="flex w-16 sm:w-20 shrink-0 flex-col items-center justify-center border-r border-navy/10 dark:border-ink-dark/10 bg-navy/[0.03] dark:bg-white/[0.02] px-2 py-4">
         <span className="text-[10px] tracking-wide text-ink/40 dark:text-ink-dark/40">

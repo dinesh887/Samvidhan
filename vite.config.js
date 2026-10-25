@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { seoRoutes } from './src/data/seoConfig.js'
 import { articles } from './src/data/articles.js'
+import { currentAffairs } from './src/data/currentAffairs.js'
 import { buildLlms, buildLlmsFull } from './api/llmsUtils.js'
 
 function siteUrl(request) {
@@ -29,13 +30,13 @@ function localSeoMiddleware() {
 
         if (request.url === '/sitemap.xml') {
           const baseUrl = siteUrl(request)
-          const lastmod = new Date().toISOString().slice(0, 10)
           const routes = Object.entries(seoRoutes).filter(([path, config]) => config.indexable !== false && !path.includes(':'))
-          const staticEntries = routes.map(([path, config]) => `<url><loc>${escapeXml(`${baseUrl}${path}`)}</loc><lastmod>${lastmod}</lastmod><changefreq>${config.changefreq || 'monthly'}</changefreq><priority>${config.priority || '0.5'}</priority></url>`)
-          const articleEntries = articles.map((article) => `<url><loc>${escapeXml(`${baseUrl}/article/${article.id}`)}</loc><lastmod>${lastmod}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`)
+          const staticEntries = routes.map(([path, config]) => `<url><loc>${escapeXml(`${baseUrl}${path}`)}</loc><changefreq>${config.changefreq || 'monthly'}</changefreq><priority>${config.priority || '0.5'}</priority></url>`)
+          const articleEntries = articles.map((article) => `<url><loc>${escapeXml(`${baseUrl}/article/${article.id}`)}</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>`)
+          const currentAffairEntries = currentAffairs.map((article) => `<url><loc>${escapeXml(`${baseUrl}/current-affairs/${article.slug}`)}</loc><changefreq>daily</changefreq><priority>0.7</priority></url>`)
           response.statusCode = 200
           response.setHeader('Content-Type', 'application/xml; charset=utf-8')
-          response.end(`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${[...staticEntries, ...articleEntries].join('')}</urlset>`)
+          response.end(`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${[...staticEntries, ...articleEntries, ...currentAffairEntries].join('')}</urlset>`)
           return
         }
 

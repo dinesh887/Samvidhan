@@ -39,12 +39,12 @@ this array automatically.
 ```
 src/
   components/   Navbar, Footer, Hero, SearchBar, ArticleCard, CategoryCard,
-                QuizCard, BookmarkButton, LanguageToggle, ThemeToggle,
+                QuizCard, BookmarkButton, LanguageToggle,
                 ChakraMark, DynamicIcon, ScrollToTop
   pages/        Home, Articles, ArticleDetails, FundamentalRights,
                 FundamentalDuties, DirectivePrinciples, Amendments, Quiz,
                 Bookmarks, About, NotFound
-  context/      LanguageContext, ThemeContext, BookmarkContext
+  context/      LanguageContext, BookmarkContext
   data/         articles.js, categories.js, rights.js, duties.js,
                 directivePrinciples.js, amendments.js, quizData.js, facts.js
   utils/        searchArticles.js
@@ -53,7 +53,7 @@ src/
 ## Features
 
 - English / Marathi language toggle (persisted to localStorage)
-- Light / dark mode (persisted to localStorage)
+- Consistent light theme across the application
 - Article search (number, title, keywords, category) with category filters
   and ascending/descending sort
 - Three-level explanation system per Article: Official Text → Simple
@@ -61,4 +61,4 @@ src/
 - Bookmark / save Articles via localStorage, with a dedicated Saved page
 - Interactive scored quiz with progress bar and retry
 - Date-rotating "Did You Know?" fact on the homepage
-- Fully responsive, keyboard-accessible, dark-mode-aware
+- Fully responsive and keyboard-accessible, with reduced-motion support
