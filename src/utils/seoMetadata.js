@@ -38,11 +38,11 @@ export function getSeoMetadata(pathname, language, overrides = {}) {
     const articleTitle = language === 'mr' ? article.title.mr : article.title.en
 
     title = language === 'mr'
-      ? `कलम ${number} – ${articleTitle} | MySamvidhan`
-      : `Article ${number} – ${articleTitle} | MySamvidhan`
+  ? `कलम ${number} : अर्थ, तरतुदी आणि MPSC-UPSC | MySamvidhan`
+  : `Article ${number}: Meaning and Provisions | MPSC UPSC`
     description = language === 'mr'
-      ? `भारतीय संविधानातील कलम ${number} सोप्या मराठीत आणि इंग्रजीत समजून घ्या. ${articleTitle}चा अर्थ, प्रमुख तरतुदी, उदाहरणे आणि महत्त्व जाणून घ्या.`
-      : `Learn about Article ${number} of the Indian Constitution in simple English and Marathi. Understand its meaning, key provisions, examples and importance.`
+  ? `भारतीय संविधानातील कलम ${number} सोप्या मराठी आणि English मध्ये समजून घ्या. ${articleTitle}चा अर्थ, घटनात्मक तरतुदी आणि MPSC-UPSC परीक्षेसाठी महत्त्वाचे मुद्दे वाचा.`
+  : `Understand Article ${number} of the Indian Constitution in English and Marathi. Learn its meaning, constitutional provisions and key points for UPSC and MPSC preparation.`
     image = `${SITE_URL}/images/articles/article-${String(article.id).toLowerCase()}.webp`
     imageAlt = `${article.articleNumber} — ${articleTitle}`
     ogType = 'article'
