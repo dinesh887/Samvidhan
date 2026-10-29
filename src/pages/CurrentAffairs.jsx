@@ -18,7 +18,7 @@ function renderArticleContent(content) {
   const text = String(content || '')
   const root = { children: [] }
   const stack = [root]
-  const supportedTags = new Set(['p', 'strong', 'em', 'br', 'ul', 'li', 'a'])
+  const supportedTags = new Set(['p', 'h2', 'strong', 'em', 'br', 'ul', 'li', 'a'])
   const tokens = text.split(/(<\/?[a-z][^>]*>)/gi)
 
   tokens.forEach((token) => {
@@ -67,6 +67,8 @@ function renderArticleContent(content) {
         props.className = 'mb-3 list-disc space-y-1 pl-6 last:mb-0'
       } else if (node.tag === 'p') {
         props.className = 'mb-3 last:mb-0'
+      } else if (node.tag === 'h2') {
+        props.className = 'mb-3 mt-6 font-display text-xl font-semibold text-navy first:mt-0 dark:text-ink-dark'
       }
 
       return createElement(node.tag, props, ...renderNodes(node.children))
@@ -135,6 +137,7 @@ export function CurrentAffairDetails() {
   const seoSections = article.seoSections?.[language] || []
   const faqs = article.faq?.[language] || []
   const mcqs = article.mcqs?.[language] || []
+  const sources = article.sources || (article.source ? [article.source] : [])
   const related = (article.relatedSlugs || [])
     .map((relatedSlug) => getCurrentAffairBySlug(relatedSlug))
     .filter(Boolean)
@@ -194,6 +197,12 @@ export function CurrentAffairDetails() {
           {renderArticleContent(pick(article.example))}
         </p>
       </section>
+
+      {article.articleBody && (
+        <section lang={language} className="mt-8 text-base leading-relaxed text-ink/80 dark:text-ink-dark/80">
+          {renderArticleContent(pick(article.articleBody))}
+        </section>
+      )}
 
       {seoSections.length > 0 && (
         <section className="mt-8 space-y-6">
@@ -267,18 +276,25 @@ export function CurrentAffairDetails() {
       <div className="mt-10 border-t border-navy/10 pt-6 text-xs text-ink/45 dark:border-ink-dark/10 dark:text-ink-dark/45">
   <span>
     {language === 'mr' ? 'स्रोत' : 'Source'}:{' '}
-    {article.source?.url ? (
-      <a
-        href={article.source.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="hover:text-saffron"
-      >
-        {article.source.title || 'The Indian Express'}
-      </a>
-    ) : (
-      article.source?.title || '—'
-    )}
+    {sources.length > 0
+      ? sources.map((source, index) => (
+          <span key={source.url || source.title}>
+            {index > 0 && ', '}
+            {source.url ? (
+              <a
+                href={source.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-saffron"
+              >
+                {source.title}
+              </a>
+            ) : (
+              source.title
+            )}
+          </span>
+        ))
+      : '—'}
   </span>
 </div>
     </div>
