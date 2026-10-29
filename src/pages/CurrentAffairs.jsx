@@ -1,3 +1,4 @@
+import { createElement } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { BookOpen, HelpCircle, Lightbulb, Link2, Sparkles } from 'lucide-react'
 import PageMeta from '../components/PageMeta'
@@ -10,6 +11,68 @@ function formatDate(date, language) {
     language === 'mr' ? 'mr-IN' : 'en-IN',
     { day: 'numeric', month: 'long', year: 'numeric' }
   )
+}
+
+
+function renderArticleContent(content) {
+  const text = String(content || '')
+  const root = { children: [] }
+  const stack = [root]
+  const supportedTags = new Set(['p', 'strong', 'em', 'br', 'ul', 'li', 'a'])
+  const tokens = text.split(/(<\/?[a-z][^>]*>)/gi)
+
+  tokens.forEach((token) => {
+    const tagMatch = token.match(/^<\s*(\/?)\s*([a-z]+)\b([^>]*)>$/i)
+
+    if (!tagMatch) {
+      stack[stack.length - 1].children.push(token)
+      return
+    }
+
+    const [, closing, tagName, attributes] = tagMatch
+    const tag = tagName.toLowerCase()
+
+    if (!supportedTags.has(tag)) {
+      stack[stack.length - 1].children.push(token)
+      return
+    }
+
+    if (closing) {
+      if (stack.length > 1 && stack[stack.length - 1].tag === tag) stack.pop()
+      return
+    }
+
+    const node = { tag, children: [] }
+    if (tag === 'a') {
+      const href = attributes.match(/\bhref=["']((?:https?:\/\/[^"']+|mailto:[^"'\s]+))["']/i)?.[1]
+      if (href) node.href = href
+    }
+    stack[stack.length - 1].children.push(node)
+    if (tag !== 'br' && !/\/\s*>$/.test(token)) stack.push(node)
+  })
+
+  const renderNodes = (nodes) =>
+    nodes.map((node, index) => {
+      if (typeof node === 'string') return node
+
+      const props = { key: index }
+      if (node.tag === 'a' && node.href) {
+        props.href = node.href
+        props.className = 'text-saffron underline decoration-saffron/40 underline-offset-2 hover:decoration-saffron'
+        if (!node.href.startsWith('mailto:')) {
+          props.target = '_blank'
+          props.rel = 'noopener noreferrer'
+        }
+      } else if (node.tag === 'ul') {
+        props.className = 'mb-3 list-disc space-y-1 pl-6 last:mb-0'
+      } else if (node.tag === 'p') {
+        props.className = 'mb-3 last:mb-0'
+      }
+
+      return createElement(node.tag, props, ...renderNodes(node.children))
+    })
+
+  return renderNodes(root.children)
 }
 
 export function CurrentAffairsList() {
@@ -98,7 +161,7 @@ export function CurrentAffairDetails() {
           {language === 'mr' ? 'परिचय' : 'Introduction'}
         </h2>
         <p lang={language} className="mt-3 text-base leading-relaxed text-ink/80 dark:text-ink-dark/80">
-          {pick(article.introduction || article.content)}
+          {renderArticleContent(pick(article.introduction || article.content))}
         </p>
       </section>
 
@@ -108,7 +171,7 @@ export function CurrentAffairDetails() {
           {language === 'mr' ? 'सोप्या भाषेत स्पष्टीकरण' : 'Simple Explanation'}
         </h2>
         <p lang={language} className="mt-3 text-base leading-relaxed text-ink/80 dark:text-ink-dark/80">
-          {pick(article.simpleExplanation)}
+          {renderArticleContent(pick(article.simpleExplanation))}
         </p>
       </section>
 
@@ -118,7 +181,7 @@ export function CurrentAffairDetails() {
           {language === 'mr' ? 'अगदी सोपे स्पष्टीकरण' : 'Very Simple Explanation'}
         </h2>
         <p lang={language} className="mt-3 rounded-xl bg-navy/[0.04] p-5 text-base leading-relaxed text-navy dark:bg-white/[0.05] dark:text-ink-dark">
-          {pick(article.verySimple)}
+          {renderArticleContent(pick(article.verySimple))}
         </p>
       </section>
 
@@ -128,7 +191,7 @@ export function CurrentAffairDetails() {
           {language === 'mr' ? 'उदाहरण' : 'Example'}
         </h2>
         <p lang={language} className="mt-3 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70">
-          {pick(article.example)}
+          {renderArticleContent(pick(article.example))}
         </p>
       </section>
 
@@ -137,11 +200,11 @@ export function CurrentAffairDetails() {
           {seoSections.map((section, index) => (
             <div key={index}>
               <h2 lang={language} className="font-display text-lg font-semibold text-navy dark:text-ink-dark">
-                {section.heading}
+                {section.title || section.heading}
               </h2>
-              <p lang={language} className="mt-3 text-base leading-relaxed text-ink/80 dark:text-ink-dark/80">
-                {section.content}
-              </p>
+              <div lang={language} className="mt-3 text-base leading-relaxed text-ink/80 dark:text-ink-dark/80">
+                {renderArticleContent(section.content)}
+              </div>
             </div>
           ))}
         </section>
@@ -157,7 +220,7 @@ export function CurrentAffairDetails() {
             {faqs.map((faq, index) => (
               <div key={index} className="rounded-xl border border-navy/10 bg-white/60 p-5 dark:border-ink-dark/10 dark:bg-white/[0.04]">
                 <h3 lang={language} className="font-semibold text-navy dark:text-ink-dark">{faq.question}</h3>
-                <p lang={language} className="mt-2 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70">{faq.answer}</p>
+                <p lang={language} className="mt-2 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70">{renderArticleContent(faq.answer)}</p>
               </div>
             ))}
           </div>
