@@ -2467,6 +2467,238 @@ shortDescription: {
     'पर्यावरण बातम्या'
   ]
 },
+{
+  id: 'two-child-norm-supreme-court-2026',
+  articleNumber: 'Current Affairs',
+  categoryKey: 'current-affairs',
+  slug: 'two-child-norm-supreme-court-larger-bench-2026',
+
+  title: {
+    en: 'Two-Child Norm and Indian Constitution: Supreme Court Seeks Reconsideration',
+    mr: 'दोन अपत्यांचा नियम आणि भारतीय संविधान: सर्वोच्च न्यायालयाचे महत्त्वपूर्ण निरीक्षण'
+  },
+
+  seoTitle: {
+    en: 'Two-Child Norm Supreme Court Decision 2026 | MySamvidhan',
+    mr: 'दोन अपत्यांचा नियम: सर्वोच्च न्यायालयाचा निर्णय २०२६ | MySamvidhan'
+  },
+
+  shortDescription: {
+    en: 'The Supreme Court has referred the 2003 Javed judgment on the two-child disqualification for local body elections to a larger bench for reconsideration in light of changing demographic conditions.',
+    mr: 'दोनपेक्षा अधिक अपत्ये असलेल्या व्यक्तींना स्थानिक स्वराज्य संस्थांच्या निवडणुका लढवण्यास अपात्र ठरवणाऱ्या नियमाबाबत सर्वोच्च न्यायालयाने महत्त्वपूर्ण निरीक्षण नोंदवले आहे. २००३ मधील Javed निर्णयाचा पुनर्विचार करण्यासाठी प्रकरण मोठ्या खंडपीठाकडे पाठवण्यात आले आहे.'
+  },
+
+  category: 'Polity and Constitution',
+  categoryMr: 'राज्यशास्त्र आणि भारतीय संविधान',
+  date: '2026-11-05',
+
+  introduction: {
+    en: 'On November 4, 2026, the Supreme Court of India made important observations regarding laws that disqualify individuals with more than two children from contesting local body elections. While hearing the case of Mangala Bhimrao Ingle, a former Sarpanch of Kakoda Gram Panchayat in Maharashtra, the Court observed that the demographic circumstances supporting such restrictions have changed significantly. The Court referred the 2003 judgment in Javed v. State of Haryana to a larger bench for reconsideration.',
+    mr: '४ नोव्हेंबर २०२६ रोजी भारताच्या सर्वोच्च न्यायालयाने दोनपेक्षा अधिक अपत्ये असलेल्या व्यक्तींना स्थानिक स्वराज्य संस्थांच्या निवडणुका लढवण्यास अपात्र ठरवणाऱ्या कायद्यांबाबत महत्त्वपूर्ण निरीक्षण नोंदवले. महाराष्ट्रातील काकोडा ग्रामपंचायतीच्या माजी सरपंच मंगला भीमराव इंगळे यांच्या प्रकरणाची सुनावणी करताना न्यायालयाने असे नमूद केले की, अशा निर्बंधांचा आधार असलेल्या लोकसंख्याविषयक परिस्थितीत मोठे बदल झाले आहेत. त्यामुळे २००३ मधील Javed v. State of Haryana या निर्णयाचा पुनर्विचार करण्यासाठी प्रकरण मोठ्या खंडपीठाकडे पाठवण्यात आले.'
+  },
+
+  simpleExplanation: {
+    en: 'Some Indian states have laws that disqualify candidates with more than two children from contesting local body elections. These restrictions were introduced with the objective of controlling population growth. The Supreme Court has now questioned whether the original reasoning remains relevant because India’s Total Fertility Rate has declined. The Court has referred the earlier Javed judgment to a larger bench. It has not yet declared all two-child disqualification laws unconstitutional.',
+    mr: 'भारतातील काही राज्यांमध्ये दोनपेक्षा अधिक अपत्ये असलेल्या व्यक्तींना स्थानिक स्वराज्य संस्थांच्या निवडणुका लढवण्यास अपात्र ठरवणारे कायदे आहेत. लोकसंख्या वाढीवर नियंत्रण ठेवण्याच्या उद्देशाने हे निर्बंध लागू करण्यात आले होते. मात्र, भारताचा एकूण प्रजनन दर कमी झाल्यामुळे या कायद्यांचा मूळ उद्देश आजही तितकाच लागू आहे का, असा प्रश्न सर्वोच्च न्यायालयाने उपस्थित केला आहे. न्यायालयाने यासंदर्भातील जुन्या Javed निर्णयाचा पुनर्विचार मोठ्या खंडपीठाकडे सोपवला आहे. मात्र, सर्व दोन अपत्यांचे नियम असंवैधानिक ठरवलेले नाहीत.'
+  },
+
+  verySimple: {
+    en: 'The Supreme Court has questioned the continued relevance of the two-child rule for local elections. It has sent an earlier judgment to a larger bench for reconsideration. The issue involves electoral rights, equality and reproductive autonomy.',
+    mr: 'दोनपेक्षा अधिक अपत्ये असलेल्या व्यक्तींना स्थानिक निवडणुका लढवण्यास अपात्र ठरवणाऱ्या नियमाच्या आजच्या काळातील उपयुक्ततेवर सर्वोच्च न्यायालयाने प्रश्न उपस्थित केला आहे. या नियमासंदर्भातील जुन्या निर्णयाचा पुनर्विचार मोठ्या खंडपीठाकडे पाठवण्यात आला आहे. या प्रकरणाचा संबंध निवडणुकीचा अधिकार, समानता आणि प्रजनन स्वातंत्र्याशी आहे.'
+  },
+
+  example: {
+    en: 'Suppose a person is elected as a Sarpanch but is later disqualified under a state law because they have more than two children. Such a restriction raises questions about electoral participation, equality and personal liberty. The Supreme Court is examining the continued relevance of the legal reasoning behind these restrictions.',
+    mr: 'समजा, एखादी व्यक्ती सरपंच म्हणून निवडून आली; परंतु दोनपेक्षा अधिक अपत्ये असल्यामुळे राज्यातील संबंधित कायद्यानुसार तिला अपात्र ठरवण्यात आले. अशा परिस्थितीत निवडणुकीत सहभागी होण्याचा अधिकार, समानता आणि वैयक्तिक स्वातंत्र्य यांसारखे प्रश्न निर्माण होतात. या निर्बंधांमागील कायदेशीर तर्क आजच्या परिस्थितीत कितपत योग्य आहे, याचा पुनर्विचार सर्वोच्च न्यायालयात सुरू आहे.'
+  },
+
+  content: {
+    en: 'The Supreme Court of India has made significant observations regarding the two-child norm applicable to elections to local self-government institutions. The matter came before the Court through an appeal filed by Mangala Bhimrao Ingle, whose election as Sarpanch of Kakoda Gram Panchayat in Maharashtra had been set aside on the ground that she had more than two children.\\n\\n**Background of the Case**\\n\\nThe dispute involved Section 14(1)(j-1) of the Maharashtra Village Panchayats Act, 1959. This provision disqualifies a person from being a member of a Gram Panchayat if they have more than two children, subject to the conditions specified in the law. Mangala Bhimrao Ingle challenged her disqualification after her election as Sarpanch.\\n\\n**What Did the Supreme Court Observe?**\\n\\nOn November 4, 2026, a bench comprising Justice P. S. Narasimha and Justice Alok Aradhe observed that laws penalising individuals for having more than two children may have lost their relevance due to changing demographic conditions. The Court noted that India’s Total Fertility Rate had declined from approximately 3.02 in 2003 to 1.9 in 2024. The replacement fertility level is generally considered to be 2.1.\\n\\nThe Court also highlighted that restrictions on having children can affect reproductive autonomy, which forms part of the right to personal liberty under Article 21 of the Constitution.\\n\\n**Javed v. State of Haryana (2003)**\\n\\nIn 2003, the Supreme Court delivered an important judgment in Javed v. State of Haryana. In this case, the Court upheld the constitutional validity of a provision under the Haryana Panchayati Raj Act, 1994, which disqualified individuals having more than two living children from contesting certain Panchayat elections.\\n\\nThe judgment considered the restriction in the context of Article 14 and the then-existing concerns regarding population growth. In the present matter, the Supreme Court questioned whether the reasoning behind that earlier judgment remains appropriate in light of current demographic realities.\\n\\n**Connection with Article 14 and Article 21**\\n\\nArticle 14 guarantees equality before the law and equal protection of the laws. Any legal restriction must satisfy constitutional standards of fairness and non-arbitrariness.\\n\\nArticle 21 protects life and personal liberty. The Supreme Court discussed reproductive autonomy as an important aspect of personal liberty. The Court considered whether disqualification from democratic participation on the basis of family size places an unreasonable burden on individual autonomy.\\n\\n**What Happens Next?**\\n\\nThe Supreme Court referred the 2003 Javed judgment to a larger bench for reconsideration. Importantly, the Court did not finally declare Section 14(1)(j-1) of the Maharashtra Village Panchayats Act unconstitutional because its validity was not directly challenged in the appeal. The interim protection allowing Mangala Bhimrao Ingle to continue as Sarpanch was continued until the appeal is finally decided.\\n\\n**Conclusion**\\n\\nThis case highlights the relationship between changing social conditions and constitutional interpretation. It raises important questions about equality, democratic participation and reproductive autonomy. The outcome of the larger bench proceedings will be important for understanding the future legal position of two-child disqualification provisions in local body elections.',
+
+    mr: 'स्थानिक स्वराज्य संस्थांच्या निवडणुकांमध्ये लागू असलेल्या दोन अपत्यांच्या नियमाबाबत भारताच्या सर्वोच्च न्यायालयाने महत्त्वपूर्ण निरीक्षण नोंदवले आहे. महाराष्ट्रातील काकोडा ग्रामपंचायतीच्या सरपंच मंगला भीमराव इंगळे यांची दोनपेक्षा अधिक अपत्ये असल्याच्या कारणावरून निवडणूक रद्द करण्यात आली होती. या निर्णयाला त्यांनी सर्वोच्च न्यायालयात आव्हान दिले.\\n\\n**प्रकरणाची पार्श्वभूमी**\\n\\nया प्रकरणाचा संबंध महाराष्ट्र ग्रामपंचायत अधिनियम, १९५९ मधील कलम १४(१)(j-1) शी आहे. या तरतुदीनुसार कायद्यात नमूद केलेल्या अटींनुसार दोनपेक्षा अधिक अपत्ये असलेल्या व्यक्तीला ग्रामपंचायत सदस्य किंवा सरपंच म्हणून राहण्यास अपात्र ठरवले जाऊ शकते. मंगला भीमराव इंगळे यांनी सरपंचपदी निवडून आल्यानंतर त्यांच्या अपात्रतेच्या निर्णयाला आव्हान दिले.\\n\\n**सर्वोच्च न्यायालयाने काय निरीक्षण नोंदवले?**\\n\\n४ नोव्हेंबर २०२६ रोजी न्यायमूर्ती पी. एस. नरसिम्हा आणि न्यायमूर्ती आलोक अराधे यांच्या खंडपीठाने दोनपेक्षा अधिक अपत्ये असल्याबद्दल व्यक्तींना दंडित करणारे कायदे बदललेल्या लोकसंख्याविषयक परिस्थितीमुळे कालबाह्य ठरू शकतात, असे महत्त्वपूर्ण निरीक्षण नोंदवले. न्यायालयाने नमूद केले की, भारताचा एकूण प्रजनन दर २००३ मधील सुमारे ३.०२ वरून २०२४ मध्ये १.९ पर्यंत खाली आला आहे. लोकसंख्येचा प्रतिस्थापन प्रजनन दर साधारणपणे २.१ मानला जातो.\\n\\nन्यायालयाने असेही अधोरेखित केले की, अपत्यसंख्येवर आधारित निर्बंध व्यक्तीच्या प्रजनन स्वातंत्र्यावर परिणाम करू शकतात. प्रजनन स्वातंत्र्य हा संविधानाच्या अनुच्छेद २१ अंतर्गत वैयक्तिक स्वातंत्र्याचा महत्त्वाचा भाग आहे.\\n\\n**Javed v. State of Haryana (२००३)**\\n\\n२००३ मध्ये सर्वोच्च न्यायालयाने Javed v. State of Haryana या महत्त्वपूर्ण प्रकरणात हरियाणा पंचायत राज अधिनियम, १९९४ मधील दोनपेक्षा अधिक जिवंत अपत्ये असलेल्या व्यक्तींना काही पंचायत निवडणुका लढवण्यास अपात्र ठरवणाऱ्या तरतुदीची घटनात्मक वैधता कायम ठेवली होती.\\n\\nत्या निर्णयात अनुच्छेद १४ च्या संदर्भात या निर्बंधांचा विचार करण्यात आला होता. त्यावेळी लोकसंख्या वाढीबाबत असलेल्या चिंतांनाही महत्त्व देण्यात आले होते. सध्याच्या प्रकरणात सर्वोच्च न्यायालयाने बदललेल्या लोकसंख्याविषयक परिस्थितीत जुन्या निर्णयामागील तर्क आजही लागू आहे का, असा प्रश्न उपस्थित केला.\\n\\n**अनुच्छेद १४ आणि अनुच्छेद २१ यांच्याशी संबंध**\\n\\nअनुच्छेद १४ प्रत्येक व्यक्तीला कायद्यापुढे समानता आणि कायद्याचे समान संरक्षण देतो. कोणताही कायदेशीर निर्बंध न्याय्य आणि घटनात्मक निकषांनुसार असणे आवश्यक आहे.\\n\\nअनुच्छेद २१ जीवन आणि व्यक्तिगत स्वातंत्र्याचे संरक्षण करतो. प्रजनन स्वातंत्र्य हे व्यक्तिगत स्वातंत्र्याचा महत्त्वाचा भाग असल्याचे सर्वोच्च न्यायालयाने स्पष्ट केले आहे. कुटुंबातील अपत्यसंख्येच्या आधारावर लोकशाही प्रक्रियेत सहभागी होण्यावर निर्बंध घातल्यास व्यक्तीच्या स्वायत्ततेवर परिणाम होतो का, याचा विचार न्यायालयाने केला.\\n\\n**आता पुढे काय होणार?**\\n\\nसर्वोच्च न्यायालयाने २००३ मधील Javed निर्णयाचा पुनर्विचार करण्यासाठी प्रकरण मोठ्या खंडपीठाकडे पाठवले आहे. महत्त्वाचे म्हणजे, महाराष्ट्र ग्रामपंचायत अधिनियमातील कलम १४(१)(j-1) असंवैधानिक असल्याचा अंतिम निर्णय न्यायालयाने दिलेला नाही, कारण या अपीलमध्ये त्या तरतुदीच्या वैधतेला थेट आव्हान देण्यात आले नव्हते. मंगला भीमराव इंगळे यांना सरपंचपदी कायम राहण्याची परवानगी देणारा अंतरिम आदेश अंतिम अपील निकाली निघेपर्यंत सुरू ठेवण्यात आला आहे.\\n\\n**निष्कर्ष**\\n\\nहे प्रकरण बदलत्या सामाजिक परिस्थितीचा घटनात्मक अर्थ लावताना कसा विचार केला जातो, हे स्पष्ट करते. समानता, लोकशाहीतील सहभाग आणि प्रजनन स्वातंत्र्य या महत्त्वाच्या घटनात्मक मुद्द्यांवर या प्रकरणामुळे चर्चा सुरू झाली आहे. मोठ्या खंडपीठाचा पुढील निर्णय स्थानिक स्वराज्य संस्थांच्या निवडणुकांमधील दोन अपत्यांच्या नियमाच्या भविष्यासाठी महत्त्वाचा ठरणार आहे.'
+  },
+
+  seoSections: {
+    en: [
+      {
+        heading: 'What is the two-child norm in local body elections?',
+        content: 'It is a legal restriction in certain states that disqualifies individuals with more than two children from contesting specified local body elections, subject to the applicable law.'
+      },
+      {
+        heading: 'What is the Javed v. State of Haryana case?',
+        content: 'In 2003, the Supreme Court upheld a two-child disqualification provision under the Haryana Panchayati Raj Act, 1994.'
+      },
+      {
+        heading: 'What did the Supreme Court decide in November 2026?',
+        content: 'The Court referred the 2003 Javed judgment to a larger bench for reconsideration in light of changing demographic conditions.'
+      },
+      {
+        heading: 'Which constitutional articles are relevant?',
+        content: 'Articles 14 and 21 are particularly relevant because the case concerns equality, personal liberty and reproductive autonomy.'
+      },
+      {
+        heading: 'Has the two-child rule been abolished in India?',
+        content: 'No. The Supreme Court has not declared all such provisions unconstitutional. The earlier judgment has been referred to a larger bench.'
+      }
+    ],
+
+    mr: [
+      {
+        heading: 'स्थानिक स्वराज्य संस्थांच्या निवडणुकांमधील दोन अपत्यांचा नियम म्हणजे काय?',
+        content: 'काही राज्यांमध्ये लागू असलेल्या कायद्यानुसार दोनपेक्षा अधिक अपत्ये असलेल्या व्यक्तींना विशिष्ट स्थानिक स्वराज्य संस्थांच्या निवडणुका लढवण्यास अपात्र ठरवले जाते.'
+      },
+      {
+        heading: 'Javed v. State of Haryana हे प्रकरण काय आहे?',
+        content: '२००३ मध्ये सर्वोच्च न्यायालयाने हरियाणा पंचायत राज अधिनियम, १९९४ मधील दोन अपत्यांच्या निर्बंधाची घटनात्मक वैधता कायम ठेवली होती.'
+      },
+      {
+        heading: 'नोव्हेंबर २०२६ मध्ये सर्वोच्च न्यायालयाने काय निर्णय दिला?',
+        content: 'बदललेल्या लोकसंख्याविषयक परिस्थितीच्या पार्श्वभूमीवर न्यायालयाने २००३ मधील Javed निर्णयाचा पुनर्विचार करण्यासाठी प्रकरण मोठ्या खंडपीठाकडे पाठवले.'
+      },
+      {
+        heading: 'या प्रकरणाशी कोणते घटनात्मक अनुच्छेद संबंधित आहेत?',
+        content: 'अनुच्छेद १४ आणि २१ महत्त्वाचे आहेत. या प्रकरणात समानता, व्यक्तिगत स्वातंत्र्य आणि प्रजनन स्वातंत्र्य या मुद्द्यांचा विचार करण्यात आला आहे.'
+      },
+      {
+        heading: 'भारतातील दोन अपत्यांचा नियम रद्द झाला आहे का?',
+        content: 'नाही. सर्वोच्च न्यायालयाने सर्व संबंधित कायदे असंवैधानिक ठरवलेले नाहीत. जुन्या निर्णयाचा पुनर्विचार मोठ्या खंडपीठाकडे पाठवण्यात आला आहे.'
+      }
+    ]
+  },
+
+  faq: {
+    en: [
+      {
+        question: 'Which case led to the Supreme Court observations on the two-child norm in 2026?',
+        answer: 'The case was Mangala Bhimrao Ingle v. The Additional Commissioner, Amravati Division & Others.'
+      },
+      {
+        question: 'Which provision of Maharashtra law was involved?',
+        answer: 'Section 14(1)(j-1) of the Maharashtra Village Panchayats Act, 1959.'
+      },
+      {
+        question: 'What was decided in Javed v. State of Haryana (2003)?',
+        answer: 'The Supreme Court upheld the constitutional validity of a two-child disqualification provision under the Haryana Panchayati Raj Act, 1994.'
+      },
+      {
+        question: 'Which constitutional article protects reproductive autonomy?',
+        answer: 'Article 21, which protects life and personal liberty.'
+      },
+      {
+        question: 'Has the Supreme Court abolished the two-child norm?',
+        answer: 'No. It has referred the earlier Javed judgment to a larger bench for reconsideration.'
+      }
+    ],
+
+    mr: [
+      {
+        question: '२०२६ मध्ये दोन अपत्यांच्या नियमाबाबत सर्वोच्च न्यायालयात कोणते प्रकरण होते?',
+        answer: 'मंगला भीमराव इंगळे विरुद्ध अतिरिक्त आयुक्त, अमरावती विभाग व इतर हे प्रकरण होते.'
+      },
+      {
+        question: 'महाराष्ट्रातील कोणत्या कायद्याच्या तरतुदीचा या प्रकरणात विचार झाला?',
+        answer: 'महाराष्ट्र ग्रामपंचायत अधिनियम, १९५९ मधील कलम १४(१)(j-1).'
+      },
+      {
+        question: 'Javed v. State of Haryana (२००३) प्रकरणात काय निर्णय देण्यात आला होता?',
+        answer: 'हरियाणा पंचायत राज अधिनियम, १९९४ मधील दोन अपत्यांच्या निर्बंधाची घटनात्मक वैधता सर्वोच्च न्यायालयाने कायम ठेवली होती.'
+      },
+      {
+        question: 'प्रजनन स्वातंत्र्य कोणत्या घटनात्मक अनुच्छेदाशी संबंधित आहे?',
+        answer: 'अनुच्छेद २१, जो जीवन आणि व्यक्तिगत स्वातंत्र्याचे संरक्षण करतो.'
+      },
+      {
+        question: 'सर्वोच्च न्यायालयाने दोन अपत्यांचा नियम रद्द केला आहे का?',
+        answer: 'नाही. जुन्या Javed निर्णयाचा पुनर्विचार करण्यासाठी प्रकरण मोठ्या खंडपीठाकडे पाठवण्यात आले आहे.'
+      }
+    ]
+  },
+
+  mcqs: {
+    en: [
+      {
+        question: 'Which Article of the Indian Constitution protects life and personal liberty?',
+        options: ['Article 14', 'Article 19', 'Article 21', 'Article 32'],
+        answer: 'Article 21'
+      },
+      {
+        question: 'Which case upheld the two-child disqualification provision in 2003?',
+        options: ['Kesavananda Bharati', 'Javed v. State of Haryana', 'Maneka Gandhi', 'Minerva Mills'],
+        answer: 'Javed v. State of Haryana'
+      },
+      {
+        question: 'Which provision of Maharashtra law was involved in the 2026 case?',
+        options: ['Section 14(1)(j-1)', 'Section 21', 'Section 32', 'Section 243'],
+        answer: 'Section 14(1)(j-1)'
+      },
+      {
+        question: 'Which Article guarantees equality before the law?',
+        options: ['Article 12', 'Article 14', 'Article 21', 'Article 25'],
+        answer: 'Article 14'
+      },
+      {
+        question: 'What did the Supreme Court do with the Javed judgment in November 2026?',
+        options: ['Declared it void', 'Referred it to a larger bench', 'Transferred it to Parliament', 'Dismissed the matter'],
+        answer: 'Referred it to a larger bench'
+      }
+    ],
+
+    mr: [
+      {
+        question: 'भारतीय संविधानातील कोणता अनुच्छेद जीवन आणि व्यक्तिगत स्वातंत्र्याचे संरक्षण करतो?',
+        options: ['अनुच्छेद १४', 'अनुच्छेद १९', 'अनुच्छेद २१', 'अनुच्छेद ३२'],
+        answer: 'अनुच्छेद २१'
+      },
+      {
+        question: '२००३ मध्ये दोन अपत्यांच्या निर्बंधाची वैधता कोणत्या प्रकरणात कायम ठेवण्यात आली?',
+        options: ['केशवानंद भारती', 'Javed v. State of Haryana', 'मनेका गांधी', 'मिनर्वा मिल्स'],
+        answer: 'Javed v. State of Haryana'
+      },
+      {
+        question: '२०२६ च्या प्रकरणात महाराष्ट्रातील कोणत्या कायद्याच्या तरतुदीचा विचार झाला?',
+        options: ['कलम १४(१)(j-1)', 'कलम २१', 'कलम ३२', 'कलम २४३'],
+        answer: 'कलम १४(१)(j-1)'
+      },
+      {
+        question: 'कायद्यापुढे समानतेची हमी कोणता अनुच्छेद देतो?',
+        options: ['अनुच्छेद १२', 'अनुच्छेद १४', 'अनुच्छेद २१', 'अनुच्छेद २५'],
+        answer: 'अनुच्छेद १४'
+      },
+      {
+        question: 'नोव्हेंबर २०२६ मध्ये सर्वोच्च न्यायालयाने Javed निर्णयाबाबत काय केले?',
+        options: ['निर्णय रद्द केला', 'मोठ्या खंडपीठाकडे पुनर्विचारासाठी पाठवला', 'संसदेकडे पाठवला', 'प्रकरण फेटाळले'],
+        answer: 'मोठ्या खंडपीठाकडे पुनर्विचारासाठी पाठवला'
+      }
+    ]
+  },
+
+  source: {
+    name: 'The Indian Express',
+    url: 'https://indianexpress.com/article/legal-news/supreme-court-two-child-norm-local-body-elections-10950267/'
+  },
+
+  relatedSlugs: [],
+
+  keywords: [
+    'Two child norm India',
+    'Supreme Court two child rule 2026',
+    'Javed vs State of Haryana',
+    'Mangala Bhimrao Ingle case',
+    'Maharashtra Village Panchayats Act 1959',
+    'Article 14 Indian Constitution',
+    'Article 21 Indian Constitution',
+    'Reproductive autonomy India',
+    'Local body elections India',
+    'दोन अपत्यांचा नियम',
+    'सर्वोच्च न्यायालय निर्णय २०२६',
+    'मंगला भीमराव इंगळे',
+    'Javed विरुद्ध हरियाणा',
+    'अनुच्छेद १४',
+    'अनुच्छेद २१',
+    'प्रजनन स्वातंत्र्य',
+    'महाराष्ट्र ग्रामपंचायत अधिनियम'
+  ]
+},
 
 
 
