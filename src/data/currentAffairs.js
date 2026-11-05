@@ -2699,7 +2699,321 @@ shortDescription: {
     'महाराष्ट्र ग्रामपंचायत अधिनियम'
   ]
 },
+{
+  id: 'malad-appapada-krantinagar-dp-road-2026',
+  articleNumber: 'Current Affairs',
+  categoryKey: 'current-affairs',
+  slug: 'malad-appapada-krantinagar-120-feet-dp-road-rehabilitation',
 
+  title: {
+    en: 'Malad Appapada-Krantinagar 120-Foot DP Road Project: Rehabilitation Concerns',
+    mr: 'मालाड आप्पापाडा–क्रांतीनगर १२० फूट डी.पी. रोड प्रकल्प: पुनर्वसनाचा प्रश्न ऐरणीवर'
+  },
+
+  seoTitle: {
+    en: 'Malad DP Road Project 2026: Appapada-Krantinagar Rehabilitation Issue',
+    mr: 'मालाड DP रोड प्रकल्प २०२६: आप्पापाडा–क्रांतीनगर पुनर्वसनाचा प्रश्न'
+  },
+
+  shortDescription: {
+    en: 'The proposed 120-foot Development Plan road in Malad may affect over 1,700 residents of Appapada and Krantinagar. Residents have raised objections regarding rehabilitation and the proposed 225-square-foot homes.',
+    mr: 'मालाड पूर्वेतील आप्पापाडा आणि क्रांतीनगर परिसरातून जाणाऱ्या प्रस्तावित १२० फूट डी.पी. रोडमुळे १,७०० हून अधिक नागरिक बाधित होण्याची शक्यता आहे. पुनर्वसन आणि प्रस्तावित २२५ चौरस फुटांच्या घरांबाबत स्थानिक नागरिकांनी आक्षेप नोंदवले आहेत.'
+  },
+
+  category: 'Local News and Civic Issues',
+  categoryMr: 'स्थानिक बातम्या आणि नागरी प्रश्न',
+  date: '2026-11-03',
+
+  introduction: {
+    en: 'A proposed 120-foot Development Plan (DP) road connecting Dahisar to Goregaon has brought rehabilitation concerns to the forefront in Malad East. The project is expected to affect more than 1,700 residents of Appapada and Krantinagar. Residents have raised objections regarding the proposed rehabilitation arrangements, the size of the replacement homes and the lottery process for allotment.',
+    mr: 'दहिसर ते गोरेगावदरम्यान प्रस्तावित असलेल्या १२० फूट विकास आराखडा (डी.पी.) रस्त्यामुळे मालाड पूर्वेतील आप्पापाडा आणि क्रांतीनगर परिसरातील नागरिकांच्या पुनर्वसनाचा प्रश्न ऐरणीवर आला आहे. या प्रकल्पामुळे १,७०० हून अधिक नागरिक बाधित होण्याची शक्यता आहे. प्रस्तावित पुनर्वसन व्यवस्था, घरांचे क्षेत्रफळ आणि घरवाटपासाठी राबवण्यात येणाऱ्या लॉटरी प्रक्रियेबाबत स्थानिक नागरिकांनी आक्षेप नोंदवले आहेत.'
+  },
+
+  simpleExplanation: {
+    en: 'The proposed road project may require the relocation of residents living along its route. According to the report, 140 residents received notices in the first phase. The proposed rehabilitation includes 225-square-foot homes. Residents have questioned this arrangement and are demanding consideration of their objections before the allotment process.',
+    mr: 'प्रस्तावित रस्ता प्रकल्पाच्या मार्गात येणाऱ्या रहिवाशांचे पुनर्वसन करावे लागणार आहे. प्रसिद्ध वृत्तानुसार, पहिल्या टप्प्यात १४० नागरिकांना नोटिसा देण्यात आल्या आहेत. पुनर्वसनासाठी २२५ चौरस फुटांची घरे देण्याचा प्रस्ताव आहे. मात्र, घरांच्या क्षेत्रफळाबाबत आणि घरवाटप प्रक्रियेबाबत नागरिकांनी प्रश्न उपस्थित केले आहेत.'
+  },
+
+  verySimple: {
+    en: 'A road project in Malad may affect more than 1,700 residents. Residents of Appapada and Krantinagar have raised concerns about the size and location of their rehabilitation homes.',
+    mr: 'मालाडमध्ये प्रस्तावित रस्त्यामुळे १,७०० हून अधिक नागरिक बाधित होण्याची शक्यता आहे. आप्पापाडा आणि क्रांतीनगरमधील नागरिकांनी पुनर्वसनासाठी मिळणाऱ्या घरांच्या आकाराबाबत आणि ठिकाणाबाबत आक्षेप घेतले आहेत.'
+  },
+
+  example: {
+    en: 'Suppose a family living along the proposed DP road is required to relocate because of road widening. The family would need clarity about the eligibility criteria, size and location of the rehabilitation home, and the process through which it will be allotted.',
+    mr: 'समजा, प्रस्तावित डी.पी. रोडच्या मार्गात एखाद्या कुटुंबाचे घर येत असल्यामुळे त्यांना स्थलांतरित व्हावे लागणार आहे. अशा वेळी त्या कुटुंबाला पुनर्वसनासाठी मिळणाऱ्या घराची पात्रता, क्षेत्रफळ, ठिकाण आणि घरवाटपाची प्रक्रिया याबाबत स्पष्ट माहिती मिळणे आवश्यक आहे.'
+  },
+
+  content: {
+    en: `A proposed 120-foot Development Plan (DP) road project connecting Dahisar to Goregaon has raised concerns among residents of Appapada and Krantinagar in Malad East, Mumbai. According to a report published on November 3, 2026, the project is expected to affect more than 1,700 residents.
+
+**Background of the DP Road Project**
+
+The proposed road connects the area near Lokhandwala with the Ratnagiri-Sindhudurg Hotel area. The route includes parts of Krantinagar and Appapada in Malad.
+
+The project is reportedly planned to be implemented in three to four phases. The first phase involves road work for which notices have been issued to affected residents.
+
+**Notices Issued to 140 Residents**
+
+According to the published report, the Brihanmumbai Municipal Corporation (BMC) has issued notices to 140 residents in the first phase.
+
+The notices reportedly mention rehabilitation homes measuring 225 square feet at locations including Lokhandwala and Mahadev Apartment in Thakur Village.
+
+**Why Are Residents Raising Objections?**
+
+Residents have questioned the proposal to provide 225-square-foot homes instead of 300-square-foot homes.
+
+According to the residents, eligible affected families should receive 300-square-foot homes under a 2018 Government Resolution. This is a claim made by residents and requires verification against the applicable official Government Resolution.
+
+Residents have also raised concerns about the information provided before the lottery process and have demanded that their objections and suggestions be considered.
+
+**Rehabilitation Lottery Process**
+
+The report states that a lottery was conducted on October 29 for residents willing to accept 225-square-foot homes at Mahadev Apartment, Thakur Village. The names of approximately 40 to 50 residents were reportedly announced for allotment.
+
+However, other affected residents have continued to demand larger homes and have questioned the rehabilitation arrangements.
+
+**Concerns About the Rehabilitation Location**
+
+Some affected residents have reportedly expressed reluctance to move into Mahadev Apartment, stating that the building is old. Some residents have also demanded rehabilitation within or near their existing locality.
+
+**What Happens Next?**
+
+The issue raises important questions about rehabilitation, transparency in allotment procedures and the concerns of people affected by urban infrastructure projects.
+
+Residents are seeking consideration of their objections and a fair rehabilitation process. The official response of the BMC and the further steps in the project remain important developments to follow.
+
+**Conclusion**
+
+The proposed 120-foot DP road project in Malad highlights the challenges of balancing urban infrastructure development with the rehabilitation concerns of affected residents. The next steps taken by the civic administration will be important for the families living in Appapada and Krantinagar.`,
+
+    mr: `मुंबईतील मालाड पूर्व येथील आप्पापाडा आणि क्रांतीनगर परिसरातील नागरिकांच्या पुनर्वसनाचा प्रश्न प्रस्तावित १२० फूट विकास आराखडा (डी.पी.) रस्त्यामुळे चर्चेत आला आहे. ३ नोव्हेंबर २०२६ रोजी प्रसिद्ध झालेल्या वृत्तानुसार, या प्रकल्पामुळे १,७०० हून अधिक नागरिक बाधित होण्याची शक्यता आहे.
+
+**डी.पी. रोड प्रकल्पाची पार्श्वभूमी**
+
+दहिसर ते गोरेगावदरम्यान प्रस्तावित असलेला हा रस्ता लोखंडवाला परिसराला रत्नागिरी-सिंधुदुर्ग हॉटेल परिसराशी जोडणार आहे. या मार्गामध्ये मालाडमधील क्रांतीनगर आणि आप्पापाडा परिसराचा समावेश आहे.
+
+या प्रकल्पाचे काम तीन ते चार टप्प्यांत करण्यात येणार असल्याचे वृत्तात नमूद करण्यात आले आहे. पहिल्या टप्प्यातील रस्त्याच्या कामासाठी बाधित नागरिकांना नोटिसा देण्यात आल्या आहेत.
+
+**१४० नागरिकांना नोटिसा**
+
+प्रसिद्ध वृत्तानुसार, पहिल्या टप्प्यात मुंबई महानगरपालिकेकडून १४० नागरिकांना नोटिसा बजावण्यात आल्या आहेत.
+
+या नोटिसांमध्ये बाधित नागरिकांना लोखंडवाला परिसरात तसेच ठाकूर व्हिलेज येथील महादेव अपार्टमेंटमध्ये २२५ चौरस फुटांची घरे देण्याचा उल्लेख असल्याचे वृत्तात म्हटले आहे.
+
+**नागरिकांचा २२५ चौरस फुटांच्या घरांना आक्षेप**
+
+पुनर्वसनासाठी २२५ चौरस फुटांची घरे देण्याच्या प्रस्तावावर स्थानिक नागरिकांनी आक्षेप घेतला आहे. नागरिकांच्या म्हणण्यानुसार, २०१८ च्या शासन निर्णयानुसार पात्र बाधित नागरिकांना ३०० चौरस फुटांचे घर मिळणे अपेक्षित आहे.
+
+मात्र, २२५ चौरस फुटांची घरे देण्याचा प्रस्ताव का मांडण्यात आला आहे, असा सवाल नागरिकांनी उपस्थित केला आहे. हा शासन निर्णयाबाबतचा नागरिकांचा दावा असून, त्याची अधिकृत GR मधील तरतुदींशी पडताळणी होणे आवश्यक आहे.
+
+घरवाटपाच्या लॉटरी प्रक्रियेपूर्वी नागरिकांच्या हरकती आणि मागण्यांचा विचार करावा, अशीही स्थानिकांची मागणी आहे.
+
+**घरवाटपासाठी लॉटरी प्रक्रिया**
+
+वृत्तानुसार, ठाकूर व्हिलेज येथील महादेव अपार्टमेंटमध्ये २२५ चौरस फुटांची घरे स्वीकारण्यास इच्छुक असलेल्या नागरिकांसाठी २९ ऑक्टोबर रोजी लकी ड्रॉ घेण्यात आला. या प्रक्रियेत सुमारे ४० ते ५० नागरिकांची नावे घरवाटपासाठी जाहीर करण्यात आल्याचे वृत्तात नमूद आहे.
+
+मात्र, उर्वरित बाधित नागरिकांनी मोठ्या क्षेत्रफळाच्या घरांची मागणी कायम ठेवली आहे. त्यामुळे पुनर्वसनाच्या प्रक्रियेबाबत नागरिकांमध्ये नाराजी असल्याचे वृत्तात म्हटले आहे.
+
+**पुनर्वसनाच्या ठिकाणाबाबतही प्रश्न**
+
+ठाकूर व्हिलेज येथील महादेव अपार्टमेंटमध्ये स्थलांतरित होण्याबाबत काही बाधित नागरिकांनी अनिच्छा व्यक्त केली आहे. संबंधित इमारत जुनी असल्याचे कारण देत काही नागरिकांनी तेथे स्थलांतर करण्यास नकार दर्शवला आहे.
+
+तसेच आपल्याला सध्याच्या परिसरात किंवा जवळच्या भागातच पुनर्वसनाची घरे मिळावीत, अशी मागणी काही स्थानिक नागरिकांकडून करण्यात येत आहे.
+
+**पुढे काय होणार?**
+
+या प्रकरणामुळे शहरातील पायाभूत सुविधा प्रकल्प आणि त्यामध्ये बाधित होणाऱ्या नागरिकांचे पुनर्वसन हे मुद्दे पुन्हा चर्चेत आले आहेत.
+
+घरांचे क्षेत्रफळ, पुनर्वसनाचे ठिकाण, पात्रता आणि घरवाटप प्रक्रियेतील पारदर्शकता याबाबत नागरिकांनी उपस्थित केलेल्या आक्षेपांचा विचार होणे महत्त्वाचे आहे. या प्रकरणात मुंबई महानगरपालिका प्रशासनाची अधिकृत भूमिका आणि पुढील कार्यवाही काय असेल, याकडे परिसरातील नागरिकांचे लक्ष लागले आहे.
+
+**निष्कर्ष**
+
+मालाडमधील प्रस्तावित १२० फूट डी.पी. रोड प्रकल्पामुळे आप्पापाडा आणि क्रांतीनगर परिसरातील नागरिकांच्या पुनर्वसनाचा प्रश्न महत्त्वाचा ठरला आहे. शहराच्या विकासाबरोबरच प्रकल्पामुळे बाधित होणाऱ्या नागरिकांच्या मागण्या, पुनर्वसनाची व्यवस्था आणि घरवाटपातील पारदर्शकता यांचाही विचार होणे आवश्यक आहे.`
+  },
+
+  seoSections: {
+    en: [
+      {
+        heading: 'What is the Malad 120-foot DP road project?',
+        content: 'It is a proposed Development Plan road connecting the Dahisar and Goregaon areas, with a route passing through parts of Appapada and Krantinagar in Malad.'
+      },
+      {
+        heading: 'How many residents may be affected?',
+        content: 'According to the November 3, 2026 report, more than 1,700 residents may be affected by the proposed project.'
+      },
+      {
+        heading: 'How many residents received notices?',
+        content: 'The report states that 140 residents received notices in the first phase of the project.'
+      },
+      {
+        heading: 'Why are residents objecting to the rehabilitation proposal?',
+        content: 'Residents have raised objections regarding the proposed 225-square-foot homes, rehabilitation locations and the allotment process.'
+      },
+      {
+        heading: 'Has the BMC announced a final rehabilitation decision?',
+        content: 'The cited report describes the residents’ objections and the proposed arrangements. Readers should check official BMC announcements for subsequent decisions.'
+      }
+    ],
+
+    mr: [
+      {
+        heading: 'मालाडमधील १२० फूट डी.पी. रोड प्रकल्प काय आहे?',
+        content: 'दहिसर ते गोरेगावदरम्यान प्रस्तावित असलेला हा विकास आराखडा रस्ता मालाडमधील आप्पापाडा आणि क्रांतीनगर परिसरातून जाणार आहे.'
+      },
+      {
+        heading: 'या प्रकल्पामुळे किती नागरिक बाधित होण्याची शक्यता आहे?',
+        content: '३ नोव्हेंबर २०२६ रोजी प्रसिद्ध झालेल्या वृत्तानुसार, या प्रकल्पामुळे १,७०० हून अधिक नागरिक बाधित होण्याची शक्यता आहे.'
+      },
+      {
+        heading: 'पहिल्या टप्प्यात किती नागरिकांना नोटिसा देण्यात आल्या?',
+        content: 'प्रसिद्ध वृत्तानुसार, पहिल्या टप्प्यात १४० नागरिकांना नोटिसा देण्यात आल्या आहेत.'
+      },
+      {
+        heading: 'पुनर्वसनाच्या प्रस्तावाला नागरिकांचा विरोध का आहे?',
+        content: 'प्रस्तावित २२५ चौरस फुटांची घरे, पुनर्वसनाचे ठिकाण आणि घरवाटपाची प्रक्रिया याबाबत नागरिकांनी आक्षेप नोंदवले आहेत.'
+      },
+      {
+        heading: 'पुनर्वसनाबाबत महापालिकेचा अंतिम निर्णय झाला आहे का?',
+        content: 'उपलब्ध वृत्तात नागरिकांचे आक्षेप आणि प्रस्तावित व्यवस्था नमूद आहे. पुढील निर्णयांसाठी मुंबई महानगरपालिकेच्या अधिकृत घोषणांची पडताळणी करणे आवश्यक आहे.'
+      }
+    ]
+  },
+
+  faq: {
+    en: [
+      {
+        question: 'Where is the proposed 120-foot DP road located?',
+        answer: 'The proposed road passes through parts of Appapada and Krantinagar in Malad, Mumbai.'
+      },
+      {
+        question: 'How many residents may be affected by the project?',
+        answer: 'According to the published report, more than 1,700 residents may be affected.'
+      },
+      {
+        question: 'How many residents received notices in the first phase?',
+        answer: 'The report states that 140 residents received notices.'
+      },
+      {
+        question: 'What is the main objection raised by residents?',
+        answer: 'Residents have questioned the proposed 225-square-foot rehabilitation homes and have raised concerns about the allotment process and location.'
+      },
+      {
+        question: 'Which authority is involved in the project?',
+        answer: 'The Brihanmumbai Municipal Corporation (BMC) is mentioned in the report in connection with the notices and rehabilitation process.'
+      }
+    ],
+
+    mr: [
+      {
+        question: 'प्रस्तावित १२० फूट डी.पी. रोड कुठे आहे?',
+        answer: 'हा प्रस्तावित रस्ता मुंबईतील मालाड परिसरातील आप्पापाडा आणि क्रांतीनगर भागातून जाणार आहे.'
+      },
+      {
+        question: 'या प्रकल्पामुळे किती नागरिक बाधित होऊ शकतात?',
+        answer: 'प्रसिद्ध वृत्तानुसार, या प्रकल्पामुळे १,७०० हून अधिक नागरिक बाधित होण्याची शक्यता आहे.'
+      },
+      {
+        question: 'पहिल्या टप्प्यात किती नागरिकांना नोटिसा देण्यात आल्या?',
+        answer: 'वृत्तानुसार, पहिल्या टप्प्यात १४० नागरिकांना नोटिसा देण्यात आल्या आहेत.'
+      },
+      {
+        question: 'स्थानिक नागरिकांचा मुख्य आक्षेप काय आहे?',
+        answer: 'पुनर्वसनासाठी प्रस्तावित २२५ चौरस फुटांची घरे, घरवाटपाची प्रक्रिया आणि पुनर्वसनाचे ठिकाण याबाबत नागरिकांनी आक्षेप घेतले आहेत.'
+      },
+      {
+        question: 'या प्रकल्पाशी कोणती प्रशासकीय संस्था संबंधित आहे?',
+        answer: 'या प्रकरणात मुंबई महानगरपालिका (BMC) नोटिसा आणि पुनर्वसन प्रक्रियेशी संबंधित असल्याचे वृत्तात नमूद आहे.'
+      }
+    ]
+  },
+
+  mcqs: {
+    en: [
+      {
+        question: 'Which area is associated with the proposed 120-foot DP road project in Malad?',
+        options: ['Appapada and Krantinagar', 'Dadar and Parel', 'Bandra and Khar', 'Colaba and Fort'],
+        answer: 'Appapada and Krantinagar'
+      },
+      {
+        question: 'Which civic body is mentioned in the rehabilitation process?',
+        options: ['Pune Municipal Corporation', 'Brihanmumbai Municipal Corporation', 'Nashik Municipal Corporation', 'Thane Municipal Corporation'],
+        answer: 'Brihanmumbai Municipal Corporation'
+      },
+      {
+        question: 'How many residents reportedly received notices in the first phase?',
+        options: ['40', '100', '140', '300'],
+        answer: '140'
+      },
+      {
+        question: 'What is the proposed size of the rehabilitation homes mentioned in the report?',
+        options: ['150 square feet', '200 square feet', '225 square feet', '500 square feet'],
+        answer: '225 square feet'
+      },
+      {
+        question: 'What is the main issue raised by residents?',
+        options: ['School admission', 'Rehabilitation and home allotment', 'Water tax', 'Electricity tariff'],
+        answer: 'Rehabilitation and home allotment'
+      }
+    ],
+
+    mr: [
+      {
+        question: 'मालाडमधील प्रस्तावित १२० फूट डी.पी. रोड कोणत्या परिसरातून जाणार आहे?',
+        options: ['आप्पापाडा आणि क्रांतीनगर', 'दादर आणि परळ', 'वांद्रे आणि खार', 'कुलाबा आणि फोर्ट'],
+        answer: 'आप्पापाडा आणि क्रांतीनगर'
+      },
+      {
+        question: 'पुनर्वसन प्रक्रियेशी संबंधित कोणत्या नागरी संस्थेचा उल्लेख वृत्तात आहे?',
+        options: ['पुणे महानगरपालिका', 'बृहन्मुंबई महानगरपालिका', 'नाशिक महानगरपालिका', 'ठाणे महानगरपालिका'],
+        answer: 'बृहन्मुंबई महानगरपालिका'
+      },
+      {
+        question: 'पहिल्या टप्प्यात किती नागरिकांना नोटिसा देण्यात आल्याचे वृत्तात म्हटले आहे?',
+        options: ['४०', '१००', '१४०', '३००'],
+        answer: '१४०'
+      },
+      {
+        question: 'पुनर्वसनासाठी किती चौरस फुटांच्या घरांचा प्रस्ताव असल्याचे वृत्तात नमूद आहे?',
+        options: ['१५० चौरस फूट', '२०० चौरस फूट', '२२५ चौरस फूट', '५०० चौरस फूट'],
+        answer: '२२५ चौरस फूट'
+      },
+      {
+        question: 'स्थानिक नागरिकांचा मुख्य प्रश्न कोणता आहे?',
+        options: ['शाळेतील प्रवेश', 'पुनर्वसन आणि घरवाटप', 'पाणीपट्टी', 'वीजदर'],
+        answer: 'पुनर्वसन आणि घरवाटप'
+      }
+    ]
+  },
+
+  source: {
+    name: 'Pudhari',
+    url: 'https://pudhari.news/maharashtra/mumbai/malad-120-foot-dp-road-project-to-affect-over-1700-residents-in-krantinagar-and-appa-pada-sb97'
+  },
+
+  relatedSlugs: [],
+
+  keywords: [
+    'Malad DP Road Project 2026',
+    'Appapada Krantinagar news',
+    'Malad East 120 feet DP road',
+    'Appapada rehabilitation issue',
+    'Krantinagar rehabilitation',
+    'BMC road project Malad',
+    'Malad local news',
+    'Mumbai civic issues',
+    'आप्पापाडा बातम्या',
+    'क्रांतीनगर बातम्या',
+    'मालाड पूर्व डीपी रोड',
+    'मालाड १२० फूट रस्ता',
+    'आप्पापाडा पुनर्वसन',
+    'क्रांतीनगर पुनर्वसन',
+    'मुंबई महानगरपालिका',
+    'मालाड स्थानिक बातम्या',
+    'नागरिकांचे पुनर्वसन',
+    'घरवाटप लॉटरी'
+  ]
+},
 
 
 ]
