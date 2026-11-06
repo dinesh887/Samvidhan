@@ -24,8 +24,8 @@ export const currentAffairs = [
       mr: 'मुख्य निवडणूक आयुक्त आणि इतर निवडणूक आयुक्त (नियुक्ती, सेवाशर्ती आणि कार्यकाळ) कायदा, 2023 मुळे भारत निवडणूक आयोगातील नियुक्त्यांची वैधानिक चौकट बदलली. या प्रकरणामुळे कार्यकारी अधिकार आणि संस्थात्मक स्वायत्तता यांच्यातील संतुलनाबाबत प्रश्न उपस्थित झाले.',
     },
     simpleExplanation: {
-      en: 'The case concerns how Election Commissioners are appointed and whether the statutory appointment process adequately protects the independence of the Election Commission under Article 324 of the Constitution.',
-      mr: 'या प्रकरणाचा संबंध निवडणूक आयुक्तांची नियुक्ती कशी केली जाते आणि संविधानाच्या कलम 324 अंतर्गत निवडणूक आयोगाच्या स्वायत्ततेचे पुरेसे संरक्षण नियुक्ती प्रक्रिया करते का, याच्याशी आहे.',
+      en: 'The case concerns how Election Commissioners are appointed and whether the statutory appointment process adequately protects the independence of the Election Commission under Article 324 of the Constitution. The two-judge bench disagreed on whether to refer the challenge to a five-judge Constitution Bench: Justice Dipankar Datta rejected the reference request, while Justice S. C. Sharma supported it. The papers were placed before the Chief Justice of India for the next step. This split was about referral to a larger bench, not a final ruling on the 2023 Act’s constitutionality.',
+      mr: 'या प्रकरणाचा संबंध निवडणूक आयुक्तांची नियुक्ती कशी केली जाते आणि संविधानाच्या कलम 324 अंतर्गत निवडणूक आयोगाच्या स्वायत्ततेचे पुरेसे संरक्षण नियुक्ती प्रक्रिया करते का, याच्याशी आहे. आव्हान पाच न्यायाधीशांच्या घटनापीठाकडे पाठवावे का, यावर दोन न्यायाधीशांच्या खंडपीठात मतभेद झाले: न्यायमूर्ती दीपंकर दत्ता यांनी संदर्भाची मागणी फेटाळली, तर न्यायमूर्ती एस. सी. शर्मा यांनी ती मान्य करण्याच्या बाजूने मत दिले. पुढील निर्णयासाठी कागदपत्रे भारताच्या सरन्यायाधीशांकडे ठेवण्याचे निर्देश देण्यात आले. हा मतभेद मोठ्या पीठाकडे संदर्भ देण्याबाबत होता; 2023 च्या कायद्याच्या घटनात्मक वैधतेवरील अंतिम निर्णय नव्हता.',
     },
     verySimple: {
       en: 'The case is about who appoints Election Commissioners and how to protect the independence of the Election Commission.',
@@ -110,9 +110,11 @@ export const currentAffairs = [
       ],
     },
     source: {
-      name: 'Supreme Court of India and Legislative Department, Ministry of Law and Justice',
-      url: 'https://www.legislative.gov.in/',
+      name: 'The Indian Express',
+      url: 'https://indianexpress.com/article/legal-news/supreme-court-split-verdict-petition-election-commission-sir-chief-appointment-constitution-bench-10890533/',
     },
+    lastVerified: '2026-11-06',
+    verified: true,
     relatedSlugs: [],
     keywords: [
       'CEC appointment law 2023',
@@ -840,7 +842,7 @@ This is why the draft stage is important: the government considers objections an
   source: {
     title:
       'Ministry of Environment, Forest and Climate Change — Draft Notification of Western Ghats Ecologically Sensitive Area dated 27 July 2026',
-    url: 'https://moef.gov.in/index.php/orders/update',
+    url: 'https://moef.gov.in/storage/tender/1785309786.pdf',
   },
 
   lastVerified: '2026-09-25',
@@ -1424,9 +1426,11 @@ shortDescription: {
       ],
     },
     source: {
-      name: 'The Indian Express; The New Indian Express; Supreme Court of India',
-      url: 'https://indianexpress.com/article/legal-news/supreme-court-seeks-response-of-centre-delhi-police-on-plea-challenging-removal-of-jantar-mantar-as-protest-site-10922726/',
+      name: 'The New Indian Express',
+      url: 'https://www.newindianexpress.com/india/2026/Oct/15/sc-issues-notice-to-eci-on-rahul-gandhi-india-bloc-plea-against-sir-voter-deletions',
     },
+    lastVerified: '2026-11-06',
+    verified: true,
     relatedSlugs: [],
     keywords: [
       'Supreme Court voter list news',

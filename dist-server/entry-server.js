@@ -1,11 +1,10 @@
 var _a, _b;
 import { jsx, jsxs, Fragment } from "react/jsx-runtime";
-import React, { createContext, useState, useEffect, useContext, useRef, useMemo } from "react";
+import React, { createContext, useState, useEffect, useContext, useRef, Suspense, useMemo, createElement } from "react";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server.mjs";
-import { useNavigate, Link, NavLink, useLocation, useSearchParams, useParams, Routes, Route } from "react-router-dom";
-import * as Icons from "lucide-react";
-import { Search, X, Menu, ArrowRight, Star, ExternalLink, ChevronDown, BookOpenCheck, Lightbulb, ArrowUpDown, BookOpen, ShieldAlert, ScrollText, Sparkles, HelpCircle, Link2, ChevronLeft, ChevronRight, Trophy, RotateCcw, Check, Lock } from "lucide-react";
+import { useNavigate, Link, NavLink, useLocation, Routes, Route, useSearchParams, useParams } from "react-router-dom";
+import { Search, X, Menu, Wind, Users, ShieldOff, ScrollText, Scale, PenLine, Newspaper, Landmark, HeartHandshake, Gavel, Building2, BookOpen, AlertTriangle, ArrowRight, Star, ExternalLink, ChevronDown, BookOpenCheck, Lightbulb, ArrowUpDown, ShieldAlert, Sparkles, HelpCircle, Link2, ChevronLeft, ChevronRight, Trophy, RotateCcw, Check, Lock } from "lucide-react";
 function ChakraMark({ className = "", spokes = 24 }) {
   const lines = Array.from({ length: spokes }, (_, i) => {
     const angle = 360 / spokes * i;
@@ -673,8 +672,9 @@ function Navbar() {
           value: query,
           onChange: (e) => setQuery(e.target.value),
           placeholder: t("search_placeholder"),
+          "aria-label": t("search_placeholder"),
           lang: language,
-          className: "flex-1 rounded-full border border-navy/15 dark:border-ink-dark/20 bg-white dark:bg-white/5 px-4 py-2 text-sm text-ink dark:text-ink-dark placeholder:text-ink/40 dark:placeholder:text-ink-dark/40 focus:outline-none"
+          className: "flex-1 rounded-full border border-navy/15 dark:border-ink-dark/20 bg-white dark:bg-white/5 px-4 py-2 text-base text-ink dark:text-ink-dark placeholder:text-ink/40 dark:placeholder:text-ink-dark/40 focus:outline-none"
         }
       ),
       /* @__PURE__ */ jsx(
@@ -728,8 +728,9 @@ function Navbar() {
             value: query,
             onChange: (e) => setQuery(e.target.value),
             placeholder: t("search_placeholder"),
+            "aria-label": t("search_placeholder"),
             lang: language,
-            className: "flex-1 rounded-full border border-navy/15 dark:border-ink-dark/20 bg-white dark:bg-white/5 px-4 py-2 text-sm"
+            className: "flex-1 rounded-full border border-navy/15 dark:border-ink-dark/20 bg-white dark:bg-white/5 px-4 py-2 text-base"
           }
         ),
         /* @__PURE__ */ jsx(
@@ -5188,8 +5189,8 @@ const currentAffairs = [
       mr: "मुख्य निवडणूक आयुक्त आणि इतर निवडणूक आयुक्त (नियुक्ती, सेवाशर्ती आणि कार्यकाळ) कायदा, 2023 मुळे भारत निवडणूक आयोगातील नियुक्त्यांची वैधानिक चौकट बदलली. या प्रकरणामुळे कार्यकारी अधिकार आणि संस्थात्मक स्वायत्तता यांच्यातील संतुलनाबाबत प्रश्न उपस्थित झाले."
     },
     simpleExplanation: {
-      en: "The case concerns how Election Commissioners are appointed and whether the statutory appointment process adequately protects the independence of the Election Commission under Article 324 of the Constitution.",
-      mr: "या प्रकरणाचा संबंध निवडणूक आयुक्तांची नियुक्ती कशी केली जाते आणि संविधानाच्या कलम 324 अंतर्गत निवडणूक आयोगाच्या स्वायत्ततेचे पुरेसे संरक्षण नियुक्ती प्रक्रिया करते का, याच्याशी आहे."
+      en: "The case concerns how Election Commissioners are appointed and whether the statutory appointment process adequately protects the independence of the Election Commission under Article 324 of the Constitution. The two-judge bench disagreed on whether to refer the challenge to a five-judge Constitution Bench: Justice Dipankar Datta rejected the reference request, while Justice S. C. Sharma supported it. The papers were placed before the Chief Justice of India for the next step. This split was about referral to a larger bench, not a final ruling on the 2023 Act’s constitutionality.",
+      mr: "या प्रकरणाचा संबंध निवडणूक आयुक्तांची नियुक्ती कशी केली जाते आणि संविधानाच्या कलम 324 अंतर्गत निवडणूक आयोगाच्या स्वायत्ततेचे पुरेसे संरक्षण नियुक्ती प्रक्रिया करते का, याच्याशी आहे. आव्हान पाच न्यायाधीशांच्या घटनापीठाकडे पाठवावे का, यावर दोन न्यायाधीशांच्या खंडपीठात मतभेद झाले: न्यायमूर्ती दीपंकर दत्ता यांनी संदर्भाची मागणी फेटाळली, तर न्यायमूर्ती एस. सी. शर्मा यांनी ती मान्य करण्याच्या बाजूने मत दिले. पुढील निर्णयासाठी कागदपत्रे भारताच्या सरन्यायाधीशांकडे ठेवण्याचे निर्देश देण्यात आले. हा मतभेद मोठ्या पीठाकडे संदर्भ देण्याबाबत होता; 2023 च्या कायद्याच्या घटनात्मक वैधतेवरील अंतिम निर्णय नव्हता."
     },
     verySimple: {
       en: "The case is about who appoints Election Commissioners and how to protect the independence of the Election Commission.",
@@ -5274,9 +5275,11 @@ const currentAffairs = [
       ]
     },
     source: {
-      name: "Supreme Court of India and Legislative Department, Ministry of Law and Justice",
-      url: "https://www.legislative.gov.in/"
+      name: "The Indian Express",
+      url: "https://indianexpress.com/article/legal-news/supreme-court-split-verdict-petition-election-commission-sir-chief-appointment-constitution-bench-10890533/"
     },
+    lastVerified: "2026-11-06",
+    verified: true,
     relatedSlugs: [],
     keywords: [
       "CEC appointment law 2023",
@@ -5897,7 +5900,7 @@ This is why the draft stage is important: the government considers objections an
     },
     source: {
       title: "Ministry of Environment, Forest and Climate Change — Draft Notification of Western Ghats Ecologically Sensitive Area dated 27 July 2026",
-      url: "https://moef.gov.in/index.php/orders/update"
+      url: "https://moef.gov.in/storage/tender/1785309786.pdf"
     },
     lastVerified: "2026-09-25",
     verified: false,
@@ -6417,9 +6420,11 @@ The final regulatory framework, if introduced, would determine the precise requi
       ]
     },
     source: {
-      name: "The Indian Express; The New Indian Express; Supreme Court of India",
-      url: "https://indianexpress.com/article/legal-news/supreme-court-seeks-response-of-centre-delhi-police-on-plea-challenging-removal-of-jantar-mantar-as-protest-site-10922726/"
+      name: "The New Indian Express",
+      url: "https://www.newindianexpress.com/india/2026/Oct/15/sc-issues-notice-to-eci-on-rahul-gandhi-india-bloc-plea-against-sir-voter-deletions"
     },
+    lastVerified: "2026-11-06",
+    verified: true,
     relatedSlugs: [],
     keywords: [
       "Supreme Court voter list news",
@@ -6667,6 +6672,1226 @@ The final regulatory framework, if introduced, would determine the precise requi
       "जंतर मंतर प्रकरण",
       "मूलभूत अधिकार",
       "भारतीय संविधान"
+    ]
+  },
+  {
+    id: "save-bhimashankar-saidongar-tree-felling-2026",
+    articleNumber: "Current Affairs",
+    categoryKey: "current-affairs",
+    slug: "save-bhimashankar-saidongar-karjat-tree-felling-2026",
+    title: {
+      en: "Save Bhimashankar: 32,490 Trees at the Centre of the Karjat Hydropower Project Debate",
+      mr: "भीमाशंकर वाचवा: कर्जत जलविद्युत प्रकल्प आणि ३२,४९० झाडांचा मुद्दा"
+    },
+    seoTitle: {
+      en: "Save Bhimashankar: Karjat Tree Felling Controversy 2026 | MySamvidhan",
+      mr: "भीमाशंकर वाचवा: कर्जत वृक्षतोड प्रकरण २०२६ | MySamvidhan"
+    },
+    shortDescription: {
+      en: "Learn about the proposed Saidongar-I Karjat pumped-storage project, the reported plan to fell 32,490 trees, environmental concerns and the Forest Department’s clarification.",
+      mr: "साईडोंगर-१ कर्जत ऊर्जा-साठवण प्रकल्प, ३२,४९० झाडे तोडण्याचा मुद्दा, पर्यावरणविषयक चिंता आणि वन विभागाचे स्पष्टीकरण याबद्दल जाणून घ्या."
+    },
+    category: "Environment",
+    categoryMr: "पर्यावरण",
+    date: "2026-10-25",
+    introduction: {
+      en: "A debate over forest conservation has intensified in Maharashtra following reports that 32,490 trees are proposed to be felled for the Saidongar-I Karjat pumped-storage hydropower project in Raigad district. The proposed 3,000 MW project has raised concerns among local residents and environmental advocates about forest cover, wildlife habitats and biodiversity. The Forest Department has clarified that the reported tree felling is not taking place inside Bhimashankar Wildlife Sanctuary. The distinction between the protected sanctuary and the adjoining forest areas is important for understanding the issue accurately.",
+      mr: "रायगड जिल्ह्यातील साईडोंगर-१ कर्जत पंप्ड-स्टोरेज जलविद्युत प्रकल्पासाठी ३२,४९० झाडे तोडण्याच्या वृत्तांनंतर महाराष्ट्रात वनसंवर्धनाबाबत चर्चा तीव्र झाली आहे. प्रस्तावित ३,००० मेगावॅट क्षमतेच्या या प्रकल्पामुळे जंगलाचे क्षेत्र, वन्यजीवांचे अधिवास आणि जैवविविधतेवर होणाऱ्या संभाव्य परिणामांबद्दल स्थानिक नागरिक आणि पर्यावरणप्रेमींनी चिंता व्यक्त केली आहे. वन विभागाने संबंधित वृक्षतोड भीमाशंकर वन्यजीव अभयारण्याच्या आत होत नसल्याचे स्पष्ट केले आहे. हा विषय समजून घेताना संरक्षित अभयारण्य आणि लगतच्या वनक्षेत्रातील फरक लक्षात घेणे महत्त्वाचे आहे."
+    },
+    simpleExplanation: {
+      en: "The issue concerns a proposed energy-storage project in the Karjat region and the reported removal of thousands of trees. Local residents and environmental advocates have raised questions about the possible effects on forests and wildlife. The Forest Department has separately clarified that the reported tree felling is not inside Bhimashankar Wildlife Sanctuary.",
+      mr: "हा मुद्दा कर्जत परिसरातील प्रस्तावित ऊर्जा-साठवण प्रकल्प आणि हजारो झाडे तोडण्याच्या वृत्ताशी संबंधित आहे. जंगल आणि वन्यजीवांवर होणाऱ्या संभाव्य परिणामांबद्दल स्थानिक नागरिक व पर्यावरणप्रेमींनी प्रश्न उपस्थित केले आहेत. संबंधित वृक्षतोड भीमाशंकर वन्यजीव अभयारण्याच्या आत होत नसल्याचे वन विभागाने स्वतंत्रपणे स्पष्ट केले आहे."
+    },
+    verySimple: {
+      en: "A proposed power project in Karjat has raised concerns about the reported felling of 32,490 trees and its possible environmental impact.",
+      mr: "कर्जतमधील प्रस्तावित ऊर्जा प्रकल्पासाठी ३२,४९० झाडे तोडण्याच्या वृत्तामुळे पर्यावरणावर होणाऱ्या संभाव्य परिणामांबद्दल चिंता निर्माण झाली आहे."
+    },
+    example: {
+      en: "Before a major infrastructure project proceeds, decision-makers must consider its energy benefits alongside forest conservation, wildlife protection, local community concerns and applicable environmental clearances.",
+      mr: "मोठा पायाभूत सुविधा प्रकल्प राबवण्यापूर्वी त्यापासून मिळणाऱ्या ऊर्जा-लाभांसोबत वनसंवर्धन, वन्यजीवांचे संरक्षण, स्थानिक नागरिकांच्या चिंता आणि लागू पर्यावरणीय परवानग्यांचा विचार करणे आवश्यक असते."
+    },
+    content: {
+      en: "The controversy concerns the proposed Saidongar-I Karjat Off-Stream Open Loop Pumped Storage Project associated with Torrent Power. News reports published on 25 October 2026 stated that 32,490 trees were covered by the reported tree-felling permission for the project. The reports also referred to the proposed diversion of approximately 233 hectares of forest land. Local residents and environmental advocates have expressed concern about the potential effects on biodiversity and wildlife habitats. The Forest Department, however, has clarified that the reported tree felling is not occurring inside Bhimashankar Wildlife Sanctuary. The environmental concerns about adjoining forest areas and the official clarification about the sanctuary should therefore be understood separately. The project’s approvals, the precise areas affected and the implementation of environmental safeguards are important parts of the wider public discussion.",
+      mr: "या वादाचा संबंध टोरंट पॉवरशी संबंधित प्रस्तावित साईडोंगर-१ कर्जत ऑफ-स्ट्रीम ओपन-लूप पंप्ड-स्टोरेज प्रकल्पाशी आहे. २५ ऑक्टोबर २०२६ रोजी प्रसिद्ध झालेल्या वृत्तांनुसार, या प्रकल्पासाठी ३२,४९० झाडांच्या वृक्षतोडीची परवानगी देण्यात आल्याचा उल्लेख आहे. या वृत्तांमध्ये सुमारे २३३ हेक्टर वनजमीन वळवण्याचाही उल्लेख करण्यात आला आहे. जैवविविधता आणि वन्यजीवांच्या अधिवासावर होणाऱ्या संभाव्य परिणामांबद्दल स्थानिक नागरिक आणि पर्यावरणप्रेमींनी चिंता व्यक्त केली आहे. मात्र, संबंधित वृक्षतोड भीमाशंकर वन्यजीव अभयारण्याच्या आत होत नसल्याचे वन विभागाने स्पष्ट केले आहे. त्यामुळे लगतच्या वनक्षेत्राबाबत व्यक्त होणाऱ्या पर्यावरणीय चिंता आणि अभयारण्याबाबतचे अधिकृत स्पष्टीकरण हे स्वतंत्रपणे समजून घेणे आवश्यक आहे. प्रकल्पाच्या परवानग्या, प्रत्यक्ष प्रभावित होणारे क्षेत्र आणि पर्यावरण संरक्षणाच्या उपाययोजनांची अंमलबजावणी हे या व्यापक सार्वजनिक चर्चेतील महत्त्वाचे मुद्दे आहेत."
+    },
+    seoSections: {
+      en: [
+        {
+          heading: "What is the Saidongar-I Karjat project?",
+          content: "It is a proposed 3,000 MW pumped-storage hydropower project in the Karjat region of Raigad district. Pumped-storage facilities generally store energy by moving water between reservoirs at different elevations and generating electricity when needed."
+        },
+        {
+          heading: "Why are 32,490 trees being discussed?",
+          content: "News reports published on 25 October 2026 referred to permission for the felling of 32,490 trees associated with the proposed project. The reported scale of tree removal has prompted concerns about forest cover, wildlife habitats and biodiversity."
+        },
+        {
+          heading: "What has the Forest Department clarified?",
+          content: "The Forest Department has stated that the reported tree felling associated with the Karjat project is not taking place inside Bhimashankar Wildlife Sanctuary. The controversy also concerns adjoining forest areas, which should not be confused with the notified sanctuary itself."
+        },
+        {
+          heading: "Why does forest conservation matter?",
+          content: "Forests support biodiversity, provide habitats for wildlife, help regulate water flows and contribute to ecological stability. Infrastructure projects should be assessed with due attention to environmental safeguards and the interests of local communities."
+        },
+        {
+          heading: "What should citizens look for?",
+          content: "Citizens can follow official project documents, forest-clearance conditions, environmental assessments and updates from relevant authorities. Reliable reporting should distinguish confirmed official information from allegations, concerns and predictions about potential impacts."
+        }
+      ],
+      mr: [
+        {
+          heading: "साईडोंगर-१ कर्जत प्रकल्प काय आहे?",
+          content: "हा रायगड जिल्ह्यातील कर्जत परिसरातील प्रस्तावित ३,००० मेगावॅट क्षमतेचा पंप्ड-स्टोरेज जलविद्युत प्रकल्प आहे. अशा प्रकल्पांमध्ये सामान्यतः वेगवेगळ्या उंचीवरील जलाशयांदरम्यान पाणी हलवून ऊर्जा साठवली जाते आणि गरजेनुसार वीज निर्माण केली जाते."
+        },
+        {
+          heading: "३२,४९० झाडांचा मुद्दा का चर्चेत आहे?",
+          content: "२५ ऑक्टोबर २०२६ रोजी प्रसिद्ध झालेल्या वृत्तांमध्ये प्रस्तावित प्रकल्पाशी संबंधित ३२,४९० झाडे तोडण्याच्या परवानगीचा उल्लेख आहे. वृक्षतोडीच्या या प्रमाणामुळे जंगलाचे क्षेत्र, वन्यजीवांचे अधिवास आणि जैवविविधतेवर होणाऱ्या संभाव्य परिणामांबद्दल चिंता व्यक्त केली जात आहे."
+        },
+        {
+          heading: "वन विभागाने काय स्पष्टीकरण दिले?",
+          content: "कर्जत प्रकल्पाशी संबंधित वृक्षतोड भीमाशंकर वन्यजीव अभयारण्याच्या आत होत नसल्याचे वन विभागाने स्पष्ट केले आहे. हा वाद लगतच्या वनक्षेत्राशीही संबंधित असल्याने त्या क्षेत्राची आणि अधिसूचित अभयारण्याची गल्लत करू नये."
+        },
+        {
+          heading: "वनसंवर्धन महत्त्वाचे का आहे?",
+          content: "जंगले जैवविविधतेला आधार देतात, वन्यजीवांना अधिवास पुरवतात, नैसर्गिक जलप्रवाहांचे नियमन करण्यास मदत करतात आणि पर्यावरणीय स्थैर्य टिकवतात. पायाभूत सुविधा प्रकल्पांचे मूल्यमापन करताना पर्यावरण संरक्षणाच्या उपाययोजना आणि स्थानिक समुदायांच्या हितांचा विचार करणे आवश्यक आहे."
+        },
+        {
+          heading: "नागरिकांनी कोणत्या गोष्टींकडे लक्ष द्यावे?",
+          content: "नागरिकांनी प्रकल्पाची अधिकृत कागदपत्रे, वनजमीन वळवण्याच्या मंजुरीतील अटी, पर्यावरणीय मूल्यमापन आणि संबंधित सरकारी विभागांच्या अद्ययावत माहितीकडे लक्ष द्यावे. बातम्यांमध्ये अधिकृतरीत्या पुष्टी झालेली माहिती, आरोप आणि संभाव्य परिणामांबाबतच्या चिंता यांतील फरक स्पष्ट असणे महत्त्वाचे आहे."
+        }
+      ]
+    },
+    faq: {
+      en: [
+        {
+          question: "Where is the proposed Saidongar-I Karjat project located?",
+          answer: "It is associated with the Karjat region of Raigad district, Maharashtra."
+        },
+        {
+          question: "How many trees are mentioned in the reports?",
+          answer: "Reports published on 25 October 2026 referred to 32,490 trees in connection with the proposed project."
+        },
+        {
+          question: "Is the reported tree felling taking place inside Bhimashankar Wildlife Sanctuary?",
+          answer: "The Forest Department has clarified that the reported tree felling associated with the Karjat project is not taking place inside Bhimashankar Wildlife Sanctuary."
+        },
+        {
+          question: "What is a pumped-storage hydropower project?",
+          answer: "It is an energy-storage system that generally uses electricity to pump water to an upper reservoir and later generates electricity as the water flows back down."
+        },
+        {
+          question: "Why is this issue important?",
+          answer: "It raises questions about balancing energy infrastructure, forest conservation, biodiversity, wildlife habitats and the concerns of local communities."
+        }
+      ],
+      mr: [
+        {
+          question: "प्रस्तावित साईडोंगर-१ कर्जत प्रकल्प कुठे आहे?",
+          answer: "हा प्रकल्प महाराष्ट्रातील रायगड जिल्ह्यातील कर्जत परिसराशी संबंधित आहे."
+        },
+        {
+          question: "वृत्तांमध्ये किती झाडांचा उल्लेख आहे?",
+          answer: "२५ ऑक्टोबर २०२६ रोजी प्रसिद्ध झालेल्या वृत्तांमध्ये प्रस्तावित प्रकल्पाशी संबंधित ३२,४९० झाडांचा उल्लेख करण्यात आला आहे."
+        },
+        {
+          question: "संबंधित वृक्षतोड भीमाशंकर वन्यजीव अभयारण्याच्या आत होत आहे का?",
+          answer: "कर्जत प्रकल्पाशी संबंधित वृक्षतोड भीमाशंकर वन्यजीव अभयारण्याच्या आत होत नसल्याचे वन विभागाने स्पष्ट केले आहे."
+        },
+        {
+          question: "पंप्ड-स्टोरेज जलविद्युत प्रकल्प म्हणजे काय?",
+          answer: "ही ऊर्जा साठवण्याची एक पद्धत आहे. सामान्यतः वीज वापरून पाणी वरच्या जलाशयात पंप केले जाते आणि नंतर ते खाली सोडून वीज निर्माण केली जाते."
+        },
+        {
+          question: "हा मुद्दा महत्त्वाचा का आहे?",
+          answer: "ऊर्जा प्रकल्प, वनसंवर्धन, जैवविविधता, वन्यजीवांचे अधिवास आणि स्थानिक नागरिकांच्या चिंता यांच्यात संतुलन राखण्याचा प्रश्न या मुद्द्यातून समोर येतो."
+        }
+      ]
+    },
+    mcqs: {
+      en: [
+        {
+          question: "In which district is the proposed Saidongar-I Karjat project located?",
+          options: ["Pune", "Raigad", "Nashik", "Satara"],
+          answer: "Raigad"
+        },
+        {
+          question: "What capacity is reported for the proposed project?",
+          options: ["300 MW", "1,000 MW", "3,000 MW", "5,000 MW"],
+          answer: "3,000 MW"
+        },
+        {
+          question: "Which authority clarified that the reported tree felling was not inside Bhimashankar Wildlife Sanctuary?",
+          options: ["Election Commission", "Forest Department", "Reserve Bank of India", "University Grants Commission"],
+          answer: "Forest Department"
+        },
+        {
+          question: "What is a main purpose of pumped-storage hydropower?",
+          options: ["Storing energy", "Producing fertiliser", "Purifying seawater only", "Mining minerals"],
+          answer: "Storing energy"
+        }
+      ],
+      mr: [
+        {
+          question: "प्रस्तावित साईडोंगर-१ कर्जत प्रकल्प कोणत्या जिल्ह्यात आहे?",
+          options: ["पुणे", "रायगड", "नाशिक", "सातारा"],
+          answer: "रायगड"
+        },
+        {
+          question: "प्रस्तावित प्रकल्पाची वृत्तांमध्ये नमूद केलेली क्षमता किती आहे?",
+          options: ["३०० मेगावॅट", "१,००० मेगावॅट", "३,००० मेगावॅट", "५,००० मेगावॅट"],
+          answer: "३,००० मेगावॅट"
+        },
+        {
+          question: "संबंधित वृक्षतोड अभयारण्याच्या आत होत नसल्याचे स्पष्टीकरण कोणत्या विभागाने दिले?",
+          options: ["निवडणूक आयोग", "वन विभाग", "भारतीय रिझर्व्ह बँक", "विद्यापीठ अनुदान आयोग"],
+          answer: "वन विभाग"
+        },
+        {
+          question: "पंप्ड-स्टोरेज जलविद्युत प्रकल्पाचा प्रमुख उद्देश कोणता?",
+          options: ["ऊर्जा साठवणे", "खते तयार करणे", "फक्त समुद्राचे पाणी शुद्ध करणे", "खनिज उत्खनन"],
+          answer: "ऊर्जा साठवणे"
+        }
+      ]
+    },
+    source: {
+      name: "Mid-day and eSakal",
+      url: "https://www.mid-day.com/amp/mumbai/mumbai-news/article/karjat-tree-felling-32490-trees-to-be-cut-for-3000-mw-pumped-storage-project-in-maharashtra-23656793"
+    },
+    relatedSlugs: [],
+    keywords: [
+      "Save Bhimashankar",
+      "भीमाशंकर वाचवा",
+      "Saidongar Karjat project",
+      "साईडोंगर कर्जत प्रकल्प",
+      "Karjat tree felling 2026",
+      "३२,४९० झाडे",
+      "Bhimashankar Wildlife Sanctuary",
+      "Forest conservation Maharashtra",
+      "Pumped storage hydropower",
+      "Environmental conservation",
+      "वनसंवर्धन",
+      "जैवविविधता"
+    ]
+  },
+  {
+    id: "belapur-tree-damage-2026",
+    articleNumber: "Current Affairs",
+    categoryKey: "current-affairs",
+    slug: "belapur-tree-damage-investigation",
+    title: {
+      en: "Belapur Tree Damage: Maharashtra Asked to Investigate",
+      mr: "बेलापूरमधील २५ हून अधिक झाडांच्या नुकसानीची चौकशी होणार"
+    },
+    seoTitle: {
+      en: "Belapur Tree Damage Investigation | MySamvidhan",
+      mr: "बेलापूर झाडांचे नुकसान: चौकशीचे निर्देश | MySamvidhan"
+    },
+    shortDescription: {
+      en: "The Union Environment Ministry has directed Maharashtra’s Forest Department to investigate suspected damage to more than 25 mature trees in CBD Belapur, Navi Mumbai.",
+      mr: "नवी मुंबईतील सीबीडी बेलापूर येथे २५ हून अधिक मोठ्या झाडांना संशयास्पदरीत्या नुकसान झाल्याच्या प्रकरणाची चौकशी करण्याचे निर्देश केंद्रीय पर्यावरण मंत्रालयाने महाराष्ट्राच्या वन विभागाला दिले आहेत."
+    },
+    category: "Environment",
+    categoryMr: "पर्यावरण",
+    date: "2026-10-24",
+    introduction: {
+      en: "More than 25 mature trees in Kille Gaothan, CBD Belapur, Navi Mumbai, have reportedly suffered suspicious damage. Environmental activists alleged that the trees were harmed through drilled holes, cuts to their bark and suspected chemical injections. The Union Ministry of Environment, Forest and Climate Change has directed the Maharashtra Forest Department to investigate the matter and submit an action-taken report. The actual cause of the damage remains to be established through investigation.",
+      mr: "नवी मुंबईतील सीबीडी बेलापूरच्या किल्ले गावठाण परिसरातील २५ हून अधिक मोठ्या झाडांना संशयास्पद नुकसान झाल्याचे वृत्त आहे. पर्यावरण कार्यकर्त्यांनी झाडांच्या खोडांना छिद्रे पाडणे, साल कापणे आणि रसायने टोचल्याचा आरोप केला आहे. केंद्रीय पर्यावरण, वन आणि हवामान बदल मंत्रालयाने या प्रकरणाची चौकशी करून अहवाल सादर करण्याचे निर्देश महाराष्ट्राच्या वन विभागाला दिले आहेत. या नुकसानीचे नेमके कारण चौकशीतून स्पष्ट होईल."
+    },
+    simpleExplanation: {
+      en: "Trees provide shade, support biodiversity, absorb carbon dioxide and help improve urban environments. Damage to mature trees can affect local wildlife and reduce green cover. In the Belapur case, the central ministry has asked Maharashtra’s Forest Department to investigate allegations concerning more than 25 trees. The allegations are not the same as a proven finding; the investigation is expected to establish the facts and determine whether action is required under applicable laws.",
+      mr: "झाडांमुळे सावली मिळते, जैवविविधतेला आधार मिळतो, कार्बन डायऑक्साइड शोषला जातो आणि शहरातील पर्यावरण सुधारण्यास मदत होते. मोठ्या झाडांचे नुकसान झाल्यास स्थानिक जीवसृष्टी आणि हिरवळ प्रभावित होऊ शकते. बेलापूर प्रकरणात २५ हून अधिक झाडांबाबत करण्यात आलेल्या आरोपांची चौकशी करण्यास केंद्राने महाराष्ट्राच्या वन विभागाला सांगितले आहे. आरोप म्हणजे सिद्ध झालेली बाब नव्हे. चौकशीत तथ्ये स्पष्ट होतील आणि लागू कायद्यांनुसार पुढील कारवाईची गरज आहे का, हे ठरवता येईल."
+    },
+    verySimple: {
+      en: "More than 25 trees in Belapur have reportedly been damaged. The Union Environment Ministry has asked Maharashtra’s Forest Department to investigate. The cause of the damage has not yet been established.",
+      mr: "बेलापूरमध्ये २५ हून अधिक झाडांचे नुकसान झाल्याचे वृत्त आहे. केंद्रीय पर्यावरण मंत्रालयाने महाराष्ट्राच्या वन विभागाला चौकशी करण्यास सांगितले आहे. झाडांचे नुकसान नेमके कशामुळे झाले, हे अद्याप निश्चित झालेले नाही."
+    },
+    example: {
+      en: "If a resident notices a tree with unexplained holes or damaged bark, they can document the location and condition safely and report it to the relevant municipal body or forest authorities. Experts should assess the tree before any treatment is attempted. An investigation can help establish the cause and identify any action required under the law.",
+      mr: "एखाद्या नागरिकाला झाडाच्या खोडावर अनोळखी छिद्रे किंवा साल खराब झालेली दिसल्यास तो सुरक्षितपणे ठिकाण आणि नुकसानीची नोंद करून संबंधित महापालिका किंवा वन विभागाला कळवू शकतो. कोणताही उपचार करण्यापूर्वी तज्ज्ञांनी झाडाची तपासणी करणे आवश्यक आहे. चौकशीमुळे नुकसानीचे कारण आणि कायद्यानुसार आवश्यक कारवाई निश्चित करण्यास मदत होऊ शकते."
+    },
+    content: {
+      en: "The suspected damage to more than 25 mature trees in Kille Gaothan, CBD Belapur, Navi Mumbai, has drawn attention to urban tree protection. According to a report published by The Times of India on October 24, 2026, the Union Ministry of Environment, Forest and Climate Change directed the Maharashtra Forest Department to investigate the matter and submit an action-taken report.\\n\\nEnvironmental activists alleged that some trees had holes drilled into them, cuts on their bark and suspected chemical injections. These are allegations that require investigation; the cause and responsibility have not been conclusively established in the reported information.\\n\\nThe ministry asked the state Forest Department to examine the matter under applicable laws and regulations. The request also called for a report to be sent to the ministry and the complainant.\\n\\nMature trees are important to urban ecosystems. They provide shade and habitat, help regulate local temperatures and contribute to the quality of public spaces. Protecting existing trees is important because newly planted saplings can take years to provide similar benefits.\\n\\nThe investigation will be important in establishing what happened and whether any legal action is warranted. The case also highlights the role of citizens, environmental groups and public authorities in reporting and addressing suspected damage to trees.",
+      mr: "नवी मुंबईतील सीबीडी बेलापूरच्या किल्ले गावठाण परिसरातील २५ हून अधिक मोठ्या झाडांना संशयास्पद नुकसान झाल्याच्या प्रकरणामुळे शहरी झाडांच्या संरक्षणाचा प्रश्न पुन्हा चर्चेत आला आहे. २४ ऑक्टोबर २०२६ रोजी प्रसिद्ध झालेल्या द टाइम्स ऑफ इंडियाच्या वृत्तानुसार, केंद्रीय पर्यावरण, वन आणि हवामान बदल मंत्रालयाने महाराष्ट्राच्या वन विभागाला या प्रकरणाची चौकशी करून कारवाईचा अहवाल सादर करण्याचे निर्देश दिले.\\n\\nपर्यावरण कार्यकर्त्यांनी काही झाडांच्या खोडांना छिद्रे पाडण्यात आली, साल कापण्यात आली आणि रसायने टोचण्यात आल्याचा आरोप केला आहे. हे आरोप आहेत; उपलब्ध वृत्तानुसार नुकसानीचे कारण आणि त्यासाठी जबाबदार व्यक्ती याबाबत अंतिम निष्कर्ष निघालेला नाही.\\n\\nमंत्रालयाने राज्याच्या वन विभागाला लागू कायदे आणि नियमांनुसार या प्रकरणाची तपासणी करण्यास सांगितले आहे. चौकशीचा अहवाल मंत्रालयाला आणि तक्रारदाराला पाठवण्याचीही सूचना करण्यात आली आहे.\\n\\nमोठी झाडे शहरी पर्यावरणासाठी महत्त्वाची असतात. ती सावली देतात, पक्षी आणि इतर जीवांना अधिवास पुरवतात, स्थानिक तापमान नियंत्रित करण्यास मदत करतात आणि सार्वजनिक जागांचा दर्जा सुधारतात. अस्तित्वात असलेल्या झाडांचे संरक्षण महत्त्वाचे आहे, कारण नवीन रोपांना मोठ्या झाडांसारखे फायदे देण्यासाठी अनेक वर्षे लागू शकतात.\\n\\nया प्रकरणातील चौकशीमुळे नेमके काय घडले आणि कायदेशीर कारवाईची गरज आहे का, हे स्पष्ट होऊ शकते. झाडांचे नुकसान झाल्याचा संशय आल्यास नागरिक, पर्यावरण संस्था आणि संबंधित सरकारी यंत्रणा यांनी जबाबदारीने त्याची नोंद घेणे आणि योग्य अधिकाऱ्यांपर्यंत माहिती पोहोचवणे महत्त्वाचे आहे."
+    },
+    seoSections: {
+      en: [
+        {
+          heading: "What happened to the trees in Belapur?",
+          content: "More than 25 mature trees in Kille Gaothan, CBD Belapur, were reported to have suffered suspicious damage. Activists alleged drilling, bark cuts and possible chemical injections. The cause remains subject to investigation."
+        },
+        {
+          heading: "Why has the Forest Department been asked to investigate?",
+          content: "The Union Environment Ministry directed Maharashtra’s Forest Department to examine the complaint under applicable laws and submit an action-taken report."
+        },
+        {
+          heading: "Why are mature trees important in cities?",
+          content: "Mature trees provide shade, habitat and environmental benefits. Protecting existing trees helps maintain urban green cover and supports local biodiversity."
+        },
+        {
+          heading: "What happens next in the Belapur tree case?",
+          content: "The investigation is expected to examine the reported damage and establish the facts. Any further action will depend on the findings and applicable laws."
+        }
+      ],
+      mr: [
+        {
+          heading: "बेलापूरमधील झाडांचे काय झाले?",
+          content: "सीबीडी बेलापूरच्या किल्ले गावठाण परिसरातील २५ हून अधिक मोठ्या झाडांना संशयास्पद नुकसान झाल्याचे वृत्त आहे. छिद्रे पाडणे, साल कापणे आणि रसायने टोचल्याचा आरोप करण्यात आला आहे. या प्रकरणाची चौकशी सुरू आहे."
+        },
+        {
+          heading: "वन विभागाला चौकशीचे निर्देश का देण्यात आले?",
+          content: "केंद्रीय पर्यावरण मंत्रालयाने तक्रारीची लागू कायद्यांनुसार तपासणी करून कारवाईचा अहवाल सादर करण्याचे निर्देश महाराष्ट्राच्या वन विभागाला दिले आहेत."
+        },
+        {
+          heading: "शहरांमध्ये मोठी झाडे महत्त्वाची का आहेत?",
+          content: "मोठी झाडे सावली, अधिवास आणि पर्यावरणीय फायदे देतात. अस्तित्वात असलेल्या झाडांचे संरक्षण केल्याने शहरी हिरवळ आणि स्थानिक जैवविविधता टिकवण्यास मदत होते."
+        },
+        {
+          heading: "बेलापूर झाडांच्या प्रकरणात पुढे काय होईल?",
+          content: "चौकशीत झाडांचे नुकसान कसे झाले याचा तपास करून तथ्ये निश्चित केली जातील. पुढील कारवाई चौकशीतील निष्कर्ष आणि लागू कायद्यांवर अवलंबून असेल."
+        }
+      ]
+    },
+    faq: {
+      en: [
+        {
+          question: "Where were the trees reportedly damaged?",
+          answer: "The reported incident concerns mature trees in Kille Gaothan, CBD Belapur, Navi Mumbai."
+        },
+        {
+          question: "How many trees were reportedly affected?",
+          answer: "Reports refer to more than 25 mature trees."
+        },
+        {
+          question: "Has chemical poisoning been officially proven?",
+          answer: "No final finding is established in the cited report. Chemical injection is an allegation, and the cause of the damage requires investigation."
+        },
+        {
+          question: "Which authority was asked to investigate?",
+          answer: "The Union Environment Ministry directed the Maharashtra Forest Department to investigate and submit an action-taken report."
+        }
+      ],
+      mr: [
+        {
+          question: "झाडांचे नुकसान झाल्याचे ठिकाण कोणते?",
+          answer: "नवी मुंबईतील सीबीडी बेलापूरच्या किल्ले गावठाण परिसरातील झाडांबाबत हे वृत्त आहे."
+        },
+        {
+          question: "किती झाडे प्रभावित झाल्याचे सांगितले आहे?",
+          answer: "वृत्तानुसार २५ हून अधिक मोठ्या झाडांचे नुकसान झाल्याचा संशय आहे."
+        },
+        {
+          question: "झाडांना रासायनिक विषबाधा झाल्याचे सिद्ध झाले आहे का?",
+          answer: "नाही. उद्धृत वृत्तात अंतिम निष्कर्ष दिलेला नाही. रसायने टोचल्याचा आरोप असून नुकसानीचे कारण चौकशीतून स्पष्ट होणे आवश्यक आहे."
+        },
+        {
+          question: "चौकशी करण्यास कोणत्या यंत्रणेला सांगितले आहे?",
+          answer: "केंद्रीय पर्यावरण मंत्रालयाने महाराष्ट्राच्या वन विभागाला चौकशी करून कारवाईचा अहवाल सादर करण्यास सांगितले आहे."
+        }
+      ]
+    },
+    mcqs: {
+      en: [
+        {
+          question: "Where is the reported tree-damage case located?",
+          options: ["CBD Belapur", "Nagpur", "Nashik", "Kolhapur"],
+          answer: "CBD Belapur"
+        },
+        {
+          question: "Which department was directed to investigate the case?",
+          options: ["Health Department", "Maharashtra Forest Department", "Education Department", "Transport Department"],
+          answer: "Maharashtra Forest Department"
+        },
+        {
+          question: "Has the cause of the reported damage been conclusively established?",
+          options: ["Yes, conclusively", "No, it requires investigation", "The trees were not damaged", "The investigation is unnecessary"],
+          answer: "No, it requires investigation"
+        }
+      ],
+      mr: [
+        {
+          question: "झाडांच्या नुकसानीचे प्रकरण कोणत्या ठिकाणाशी संबंधित आहे?",
+          options: ["सीबीडी बेलापूर", "नागपूर", "नाशिक", "कोल्हापूर"],
+          answer: "सीबीडी बेलापूर"
+        },
+        {
+          question: "या प्रकरणाची चौकशी करण्याचे निर्देश कोणत्या विभागाला देण्यात आले?",
+          options: ["आरोग्य विभाग", "महाराष्ट्र वन विभाग", "शिक्षण विभाग", "परिवहन विभाग"],
+          answer: "महाराष्ट्र वन विभाग"
+        },
+        {
+          question: "झाडांच्या नुकसानीचे कारण निश्चित झाले आहे का?",
+          options: ["होय, पूर्णपणे निश्चित झाले आहे", "नाही, चौकशी आवश्यक आहे", "झाडांचे नुकसान झालेले नाही", "चौकशीची गरज नाही"],
+          answer: "नाही, चौकशी आवश्यक आहे"
+        }
+      ]
+    },
+    source: {
+      name: "The Times of India",
+      url: "https://timesofindia.indiatimes.com/city/mumbai/centre-cracks-whip-on-belapur-tree-poisoning-directs-maharashtra-to-act/articleshow/135175951.cms"
+    },
+    relatedSlugs: [],
+    keywords: [
+      "Belapur tree damage",
+      "Navi Mumbai environment news",
+      "Maharashtra Forest Department",
+      "Tree protection India",
+      "Urban green cover",
+      "बेलापूर झाडांचे नुकसान",
+      "नवी मुंबई पर्यावरण बातमी",
+      "महाराष्ट्र वन विभाग",
+      "झाडांचे संरक्षण",
+      "शहरी हिरवळ",
+      "पर्यावरण बातम्या"
+    ]
+  },
+  {
+    id: "maharashtra-weather-2026",
+    articleNumber: "Current Affairs",
+    categoryKey: "current-affairs",
+    slug: "maharashtra-weather-water-availability",
+    title: {
+      en: "Maharashtra Weather: Humidity, Heat and Water Concerns",
+      mr: "महाराष्ट्रातील हवामान बदल: दमटपणा, उष्णता आणि पाण्याची चिंता"
+    },
+    seoTitle: {
+      en: "Maharashtra Weather and Water Concerns | MySamvidhan",
+      mr: "महाराष्ट्र हवामान आणि पाणीटंचाईची चिंता | MySamvidhan"
+    },
+    shortDescription: {
+      en: "A report on Maharashtra’s varying weather conditions highlights humidity in Konkan, hotter and drier conditions in parts of Marathwada and western Vidarbha, and concerns about water availability.",
+      mr: "महाराष्ट्रातील हवामान विभागानुसार बदलत असून कोकणातील दमटपणा, मराठवाडा व पश्चिम विदर्भातील उष्ण आणि कोरडे वातावरण तसेच पाण्याच्या उपलब्धतेबाबतची चिंता या मुद्द्यांकडे लक्ष वेधले गेले आहे."
+    },
+    category: "Climate & Environment",
+    categoryMr: "हवामान आणि पर्यावरण",
+    date: "2026-10-24",
+    introduction: {
+      en: "Weather conditions can differ significantly across Maharashtra because of regional geography and seasonal patterns. A Maharashtra Times report published on October 24, 2026, described increased humidity in Konkan and hotter, drier conditions in parts of Marathwada and western Vidarbha. The report also raised concerns about water availability. Weather conditions and water supply are related but are not determined by a single factor; local rainfall, reservoir levels, groundwater and demand all matter.",
+      mr: "महाराष्ट्रातील भौगोलिक रचना आणि ऋतुमानामुळे वेगवेगळ्या भागांत हवामानात मोठा फरक दिसू शकतो. २४ ऑक्टोबर २०२६ रोजी प्रसिद्ध झालेल्या महाराष्ट्र टाइम्सच्या वृत्तात कोकणातील वाढलेला दमटपणा आणि मराठवाडा व पश्चिम विदर्भातील काही भागांतील अधिक उष्ण व कोरड्या परिस्थितीचा उल्लेख करण्यात आला. पाण्याच्या उपलब्धतेबाबतही चिंता व्यक्त करण्यात आली. हवामान आणि पाणीपुरवठा यांचा संबंध असला, तरी पावसाचे प्रमाण, धरणांतील साठा, भूजल आणि पाण्याची मागणी अशा अनेक घटकांचा त्यावर परिणाम होतो."
+    },
+    simpleExplanation: {
+      en: "Maharashtra does not experience the same weather everywhere. Coastal areas such as Konkan can feel humid, while inland areas may experience hotter and drier conditions. These differences can affect comfort, agriculture and water demand. However, a weather report alone cannot establish the amount of water available in a particular city or district. For that, official reservoir, rainfall and water-supply data should also be checked.",
+      mr: "महाराष्ट्रातील सर्व भागांत एकसारखे हवामान नसते. कोकणासारख्या किनारपट्टीच्या भागात दमटपणा जाणवू शकतो, तर अंतर्गत भागांत अधिक उष्ण आणि कोरडे वातावरण असू शकते. या फरकांचा नागरिकांच्या दैनंदिन जीवनावर, शेतीवर आणि पाण्याच्या मागणीवर परिणाम होऊ शकतो. मात्र, केवळ हवामानाच्या वृत्तावरून एखाद्या शहरात किंवा जिल्ह्यात किती पाणी उपलब्ध आहे हे ठरवता येत नाही. त्यासाठी अधिकृत पर्जन्यमान, धरणसाठा आणि पाणीपुरवठ्याची माहिती तपासणे आवश्यक आहे."
+    },
+    verySimple: {
+      en: "Different parts of Maharashtra can experience different weather. Humidity may be higher in Konkan, while some inland areas may be hotter and drier. Water availability depends on rainfall, storage, groundwater and demand.",
+      mr: "महाराष्ट्राच्या वेगवेगळ्या भागांत वेगवेगळे हवामान असू शकते. कोकणात दमटपणा जास्त जाणवू शकतो, तर काही अंतर्गत भाग अधिक उष्ण व कोरडे असू शकतात. पाण्याची उपलब्धता पाऊस, साठा, भूजल आणि मागणीवर अवलंबून असते."
+    },
+    example: {
+      en: "A household in a hot, dry area may need to use water carefully during periods of high demand. Residents can follow local authority updates, repair leaking taps and avoid unnecessary water use. Actual restrictions, if any, should be confirmed through official municipal or district announcements.",
+      mr: "उष्ण आणि कोरड्या भागातील एखाद्या कुटुंबाला पाण्याची मागणी वाढलेल्या काळात पाणी जपून वापरण्याची गरज भासू शकते. नागरिक स्थानिक प्रशासनाच्या सूचना तपासू शकतात, गळणारे नळ दुरुस्त करू शकतात आणि अनावश्यक पाणीवापर टाळू शकतात. पाणीकपात लागू असल्यास तिची खात्री अधिकृत महापालिका किंवा जिल्हा प्रशासनाच्या घोषणेतून करावी."
+    },
+    content: {
+      en: "Maharashtra’s weather varies across its coastal, central and eastern regions. Geography, seasonal winds, humidity and rainfall patterns contribute to these differences. A Maharashtra Times report dated October 24, 2026, discussed increased humidity in Konkan and hotter, drier conditions in parts of Marathwada and western Vidarbha. It also raised concerns about the possible effect of dry conditions on water availability.\\n\\nHumidity describes the amount of water vapour in the air. High humidity can make warm weather feel more uncomfortable because sweat evaporates less efficiently. Hot and dry conditions can increase water demand and put pressure on local water resources, depending on the amount of water stored and the needs of the population.\\n\\nWater availability cannot be assessed through temperature or humidity alone. Rainfall over a season, reservoir storage, groundwater levels, water distribution systems and agricultural and household demand all influence local conditions. Different districts may therefore face different situations at the same time.\\n\\nResidents should rely on current information from the India Meteorological Department for weather forecasts and from relevant local authorities for reservoir levels, supply schedules or any water restrictions. Reports about possible shortages should be distinguished from formally announced restrictions.\\n\\nUsing water carefully, fixing leaks and following official updates are practical steps that households can take. Longer-term planning also requires reliable data, efficient distribution and protection of water resources.",
+      mr: "महाराष्ट्रातील किनारपट्टी, मध्य भाग आणि पूर्वेकडील प्रदेशांत हवामान वेगवेगळे असते. भौगोलिक रचना, हंगामी वारे, हवेतील आर्द्रता आणि पावसाचे स्वरूप यांमुळे हे फरक दिसतात. २४ ऑक्टोबर २०२६ रोजीच्या महाराष्ट्र टाइम्सच्या वृत्तात कोकणातील वाढलेला दमटपणा आणि मराठवाडा व पश्चिम विदर्भातील काही भागांतील अधिक उष्ण व कोरड्या परिस्थितीचा उल्लेख करण्यात आला. कोरड्या हवामानाचा पाण्याच्या उपलब्धतेवर होऊ शकणारा परिणाम याबाबतही चिंता व्यक्त करण्यात आली.\\n\\nहवेतील आर्द्रता म्हणजे हवेत असलेल्या पाण्याच्या वाफेचे प्रमाण. आर्द्रता जास्त असल्यास घामाचे बाष्पीभवन कमी प्रभावीपणे होते, त्यामुळे उष्ण हवामान अधिक त्रासदायक वाटू शकते. उष्ण आणि कोरड्या परिस्थितीत पाण्याची मागणी वाढू शकते; मात्र स्थानिक जलसाठा आणि लोकसंख्येच्या गरजांवरही त्याचा परिणाम अवलंबून असतो.\\n\\nकेवळ तापमान किंवा आर्द्रतेवरून पाण्याची उपलब्धता ठरवता येत नाही. हंगामातील पाऊस, धरणांतील पाणीसाठा, भूजलाची पातळी, पाणी वितरण व्यवस्था आणि शेती व घरगुती वापरासाठीची मागणी हे सर्व घटक महत्त्वाचे आहेत. त्यामुळे एकाच वेळी वेगवेगळ्या जिल्ह्यांमध्ये परिस्थिती वेगळी असू शकते.\\n\\nहवामानाच्या अंदाजासाठी भारतीय हवामान विभागाची अद्ययावत माहिती पाहावी. धरणसाठा, पाणीपुरवठ्याचे वेळापत्रक किंवा पाणीकपात याबाबत संबंधित स्थानिक प्रशासनाच्या सूचनांवर अवलंबून राहावे. संभाव्य पाणीटंचाईबाबतचे वृत्त आणि अधिकृतरीत्या जाहीर केलेली पाणीकपात यांत फरक लक्षात घ्यावा.\\n\\nपाणी जपून वापरणे, गळती दुरुस्त करणे आणि अधिकृत सूचना तपासणे ही कुटुंबांना करता येण्यासारखी व्यावहारिक पावले आहेत. दीर्घकालीन नियोजनासाठी विश्वासार्ह माहिती, कार्यक्षम वितरण व्यवस्था आणि जलस्रोतांचे संरक्षण आवश्यक आहे."
+    },
+    seoSections: {
+      en: [
+        {
+          heading: "Why does weather differ across Maharashtra?",
+          content: "Coastal geography, inland conditions, seasonal winds and rainfall patterns contribute to differences in humidity and temperature between regions."
+        },
+        {
+          heading: "How can hot and dry weather affect water demand?",
+          content: "Hot conditions may increase water needs for households, people and agriculture. The actual impact depends on available supplies, storage and local demand."
+        },
+        {
+          heading: "Does high humidity mean there will be more rain?",
+          content: "Not necessarily. Humidity alone does not determine whether rain will occur. Forecasts from the India Meteorological Department should be consulted for local conditions."
+        },
+        {
+          heading: "Where can residents check water-supply updates?",
+          content: "Residents should check announcements from their municipal corporation, district administration or relevant water-supply authority for local schedules and restrictions."
+        }
+      ],
+      mr: [
+        {
+          heading: "महाराष्ट्रात वेगवेगळ्या भागांत हवामान वेगळे का असते?",
+          content: "किनारपट्टीची भौगोलिक रचना, अंतर्गत भागातील परिस्थिती, हंगामी वारे आणि पावसाचे स्वरूप यांमुळे आर्द्रता व तापमानात फरक दिसतो."
+        },
+        {
+          heading: "उष्ण आणि कोरड्या हवामानाचा पाण्याच्या मागणीवर काय परिणाम होऊ शकतो?",
+          content: "उष्णतेमुळे घरगुती वापरासाठी आणि शेतीसाठी पाण्याची गरज वाढू शकते. प्रत्यक्ष परिणाम उपलब्ध पाणी, साठा आणि स्थानिक मागणीवर अवलंबून असतो."
+        },
+        {
+          heading: "दमटपणा जास्त म्हणजे पाऊस पडणारच का?",
+          content: "नाही. केवळ आर्द्रतेवरून पाऊस पडेल की नाही हे ठरवता येत नाही. स्थानिक हवामानाच्या अंदाजासाठी भारतीय हवामान विभागाची माहिती तपासावी."
+        },
+        {
+          heading: "पाणीपुरवठ्याची माहिती कुठे तपासावी?",
+          content: "स्थानिक वेळापत्रक आणि निर्बंधांसाठी महापालिका, जिल्हा प्रशासन किंवा संबंधित पाणीपुरवठा प्राधिकरणाच्या अधिकृत सूचना तपासाव्यात."
+        }
+      ]
+    },
+    faq: {
+      en: [
+        {
+          question: "Which parts of Maharashtra were mentioned in the weather report?",
+          answer: "The report highlighted humidity in Konkan and hotter, drier conditions in parts of Marathwada and western Vidarbha."
+        },
+        {
+          question: "Does hot weather automatically mean a water shortage?",
+          answer: "No. Water availability depends on rainfall, reservoir storage, groundwater, distribution and demand. Local official data is needed to assess the situation."
+        },
+        {
+          question: "Where can I check official weather forecasts?",
+          answer: "Check current forecasts and warnings issued by the India Meteorological Department."
+        },
+        {
+          question: "How can households conserve water?",
+          answer: "Households can fix leaks, avoid unnecessary water use and follow local authority guidance on water supply."
+        }
+      ],
+      mr: [
+        {
+          question: "हवामानाच्या वृत्तात महाराष्ट्रातील कोणत्या भागांचा उल्लेख आहे?",
+          answer: "वृत्तात कोकणातील दमटपणा आणि मराठवाडा व पश्चिम विदर्भातील काही भागांतील उष्ण व कोरड्या परिस्थितीचा उल्लेख आहे."
+        },
+        {
+          question: "उष्ण हवामान म्हणजे पाणीटंचाई निश्चित आहे का?",
+          answer: "नाही. पाण्याची उपलब्धता पाऊस, धरणसाठा, भूजल, वितरण व्यवस्था आणि मागणीवर अवलंबून असते. परिस्थिती समजण्यासाठी स्थानिक अधिकृत माहिती आवश्यक आहे."
+        },
+        {
+          question: "अधिकृत हवामानाचा अंदाज कुठे पाहावा?",
+          answer: "भारतीय हवामान विभागाने जारी केलेले अद्ययावत अंदाज आणि इशारे तपासावेत."
+        },
+        {
+          question: "घरगुती पाणी बचतीसाठी काय करता येईल?",
+          answer: "गळणारे नळ दुरुस्त करणे, अनावश्यक पाणीवापर टाळणे आणि स्थानिक प्रशासनाच्या सूचनांचे पालन करणे उपयुक्त ठरते."
+        }
+      ]
+    },
+    mcqs: {
+      en: [
+        {
+          question: "Which region was described as experiencing increased humidity?",
+          options: ["Konkan", "Marathwada only", "Western Vidarbha only", "No region"],
+          answer: "Konkan"
+        },
+        {
+          question: "Which organisation issues official weather forecasts in India?",
+          options: ["India Meteorological Department", "Election Commission of India", "NITI Aayog", "Supreme Court of India"],
+          answer: "India Meteorological Department"
+        },
+        {
+          question: "Which factor affects water availability?",
+          options: ["Reservoir storage", "Groundwater levels", "Water demand", "All of the above"],
+          answer: "All of the above"
+        }
+      ],
+      mr: [
+        {
+          question: "कोणत्या भागात वाढलेल्या दमटपणाचा उल्लेख करण्यात आला?",
+          options: ["कोकण", "फक्त मराठवाडा", "फक्त पश्चिम विदर्भ", "कोणताही भाग नाही"],
+          answer: "कोकण"
+        },
+        {
+          question: "भारतात अधिकृत हवामानाचे अंदाज कोणती संस्था देते?",
+          options: ["भारतीय हवामान विभाग", "भारतीय निवडणूक आयोग", "नीती आयोग", "भारताचे सर्वोच्च न्यायालय"],
+          answer: "भारतीय हवामान विभाग"
+        },
+        {
+          question: "पाण्याच्या उपलब्धतेवर कोणत्या घटकांचा परिणाम होतो?",
+          options: ["धरणांतील साठा", "भूजलाची पातळी", "पाण्याची मागणी", "वरील सर्व"],
+          answer: "वरील सर्व"
+        }
+      ]
+    },
+    source: {
+      name: "Maharashtra Times",
+      url: "https://maharashtratimes.com/maharashtra/mumbai-news/maharashtra-weather-update-24-october-konkan-humidity-increased-marathwada-western-vidarbha-hot-climate-water-shortage-in-pune/articleshow/135160814.cms"
+    },
+    relatedSlugs: [],
+    keywords: [
+      "Maharashtra weather October 2026",
+      "Konkan humidity",
+      "Marathwada hot weather",
+      "Western Vidarbha weather",
+      "Water availability Maharashtra",
+      "महाराष्ट्र हवामान",
+      "कोकणातील दमटपणा",
+      "मराठवाडा उष्ण हवामान",
+      "पश्चिम विदर्भ हवामान",
+      "महाराष्ट्र पाणी उपलब्धता",
+      "हवामान आणि पर्यावरण"
+    ]
+  },
+  {
+    id: "mumbai-tree-conservation-2026",
+    articleNumber: "Current Affairs",
+    categoryKey: "current-affairs",
+    slug: "mumbai-tree-removal-approvals-2026",
+    title: {
+      en: "Mumbai Tree Removal: 7,633 Trees Approved for Removal or Transplantation",
+      mr: "मुंबईत ५ महिन्यांत ७,६३३ झाडे हटवण्यास किंवा पुनर्लागवडीस मंजुरी"
+    },
+    seoTitle: {
+      en: "Mumbai Tree Removal Approvals: 7,633 Trees | MySamvidhan",
+      mr: "मुंबई झाडे हटवण्यास मंजुरी: ७,६३३ झाडे | MySamvidhan"
+    },
+    shortDescription: {
+      en: "The Brihanmumbai Municipal Corporation reportedly approved removal or transplantation of 7,633 trees over five months, renewing questions about urban green cover and development.",
+      mr: "बृहन्मुंबई महानगरपालिकेने पाच महिन्यांत ७,६३३ झाडे हटवणे किंवा पुनर्लागवड करण्यास मंजुरी दिल्याचे वृत्त आहे. या आकडेवारीमुळे शहरी हिरवळीचे संरक्षण आणि विकासकामांमधील समतोलाचा प्रश्न पुन्हा चर्चेत आला आहे."
+    },
+    category: "Environment",
+    categoryMr: "पर्यावरण",
+    date: "2026-10-23",
+    introduction: {
+      en: "A report published by The Indian Express states that Mumbai’s Brihanmumbai Municipal Corporation (BMC) approved the removal or transplantation of 7,633 trees over a five-month period. Of these, 3,502 were approved for permanent felling and 4,131 were listed for felling and transplantation. The permissions were linked to civic infrastructure and private redevelopment projects. The figures have prompted renewed discussion about how cities can accommodate development while protecting mature trees and urban green cover.",
+      mr: "द इंडियन एक्सप्रेसच्या वृत्तानुसार, मुंबई महानगरपालिकेने पाच महिन्यांच्या कालावधीत ७,६३३ झाडे हटवणे किंवा पुनर्लागवड करण्यास मंजुरी दिली. त्यापैकी ३,५०२ झाडे कायमस्वरूपी तोडण्यासाठी, तर ४,१३१ झाडे हटवून पुनर्लागवड करण्यासाठी मंजूर करण्यात आली. या परवानग्या नागरी पायाभूत सुविधा आणि खासगी पुनर्विकास प्रकल्पांशी संबंधित होत्या. या आकडेवारीमुळे शहराचा विकास करताना मोठ्या झाडांचे आणि शहरी हिरवळीचे संरक्षण कसे करावे, यावर पुन्हा चर्चा सुरू झाली आहे."
+    },
+    simpleExplanation: {
+      en: "Cities need infrastructure, housing and redevelopment, but trees also provide important environmental benefits. The reported approvals distinguish between permanent felling and transplantation. Transplantation is not a guarantee that every tree will survive; the outcome depends on the tree, its condition, the method used and aftercare. Understanding the number of trees approved for removal, the reasons for each project and the survival of transplanted trees helps the public assess how development decisions affect urban greenery.",
+      mr: "शहरांना पायाभूत सुविधा, घरे आणि पुनर्विकासाची गरज असते; परंतु झाडांमुळेही महत्त्वाचे पर्यावरणीय फायदे मिळतात. वृत्तातील आकडेवारीत कायमस्वरूपी वृक्षतोड आणि पुनर्लागवड यांत फरक करण्यात आला आहे. पुनर्लागवड केली म्हणजे प्रत्येक झाड जगेलच, याची हमी नसते. झाडाची स्थिती, पुनर्लागवडीची पद्धत आणि त्यानंतरची निगा यांवर त्याचे यश अवलंबून असते. कोणत्या प्रकल्पासाठी किती झाडांना मंजुरी दिली, त्यामागची कारणे आणि पुनर्लागवड केलेल्या झाडांचे जगण्याचे प्रमाण यांची माहिती घेतल्यास विकासाचा शहरी हिरवळीवर होणारा परिणाम समजण्यास मदत होते."
+    },
+    verySimple: {
+      en: "Mumbai reportedly approved the removal or transplantation of 7,633 trees over five months. The report lists 3,502 for permanent felling and 4,131 for transplantation-related work. The figures raise questions about how the city can protect green cover while developing infrastructure.",
+      mr: "मुंबईत पाच महिन्यांत ७,६३३ झाडे हटवणे किंवा पुनर्लागवड करण्यास मंजुरी दिल्याचे वृत्त आहे. त्यापैकी ३,५०२ झाडे कायमस्वरूपी तोडण्यासाठी आणि ४,१३१ झाडे पुनर्लागवडीसाठी संबंधित प्रक्रियेत होती. विकासकामांसोबत शहरातील हिरवळ कशी जपायची, हा महत्त्वाचा प्रश्न आहे."
+    },
+    example: {
+      en: "Before a proposed road or building project affects trees, residents can review the publicly available permissions and project information, where available. They can also check whether transplantation is planned, what aftercare is proposed and whether progress reports are published. Questions should be directed to the relevant civic authority using the applicable public information and grievance channels.",
+      mr: "एखाद्या प्रस्तावित रस्ता किंवा इमारत प्रकल्पामुळे झाडांवर परिणाम होणार असल्यास नागरिक उपलब्ध असलेली परवानगी आणि प्रकल्पाची माहिती तपासू शकतात. पुनर्लागवड प्रस्तावित आहे का, त्यानंतर झाडांची निगा कशी राखली जाणार आहे आणि प्रगतीचे अहवाल उपलब्ध आहेत का, हेही पाहता येते. याबाबतचे प्रश्न संबंधित नागरी प्रशासनाच्या अधिकृत माहिती किंवा तक्रार निवारण माध्यमातून विचारता येतात."
+    },
+    content: {
+      en: "Mumbai’s urban greenery has come under renewed attention following a report that the Brihanmumbai Municipal Corporation approved the removal or transplantation of 7,633 trees over five months. The Indian Express reported the figures in October 2026, noting that 3,502 trees were approved for permanent felling and 4,131 for felling and transplantation. The approvals were linked to civic infrastructure projects and private redevelopment works.\\n\\nThe BMC’s Tree Authority is responsible for considering permissions related to tree removal and transplantation under the applicable framework. Such permissions raise questions about the reasons for each proposal, the alternatives considered and the measures planned to protect trees.\\n\\nTrees provide shade, habitat for birds and other organisms, and help reduce the effects of heat in built-up areas. They also contribute to rainwater absorption and the quality of public spaces. Mature trees may take many years to replace, so preserving existing trees can be important for urban environmental planning.\\n\\nTransplantation is sometimes proposed as an alternative to permanent felling. However, moving a tree does not guarantee survival. Results depend on factors such as the species, size, root condition, season, transplantation method and ongoing care. Monitoring survival after transplantation is therefore important.\\n\\nThe reported figures do not, on their own, establish whether every permission was necessary or whether every transplantation will succeed. A fuller assessment would consider the reasons for each approval, the trees affected, alternatives evaluated, compliance with applicable rules and the survival of transplanted trees.\\n\\nThe wider challenge for Mumbai is to plan infrastructure and redevelopment while maintaining healthy urban green cover. Transparent information, careful project planning and follow-up monitoring can help the public understand how that balance is being managed.",
+      mr: "मुंबईतील शहरी हिरवळीबाबत पुन्हा चर्चा सुरू झाली आहे. द इंडियन एक्सप्रेसच्या ऑक्टोबर २०२६ मधील वृत्तानुसार, बृहन्मुंबई महानगरपालिकेने पाच महिन्यांत ७,६३३ झाडे हटवणे किंवा पुनर्लागवड करण्यास मंजुरी दिली. त्यापैकी ३,५०२ झाडे कायमस्वरूपी तोडण्यासाठी आणि ४,१३१ झाडे तोडून पुनर्लागवड करण्याच्या प्रक्रियेसाठी मंजूर करण्यात आली. या परवानग्या नागरी पायाभूत सुविधा आणि खासगी पुनर्विकास प्रकल्पांशी संबंधित होत्या.\\n\\nलागू नियमांनुसार वृक्षतोड आणि पुनर्लागवडीशी संबंधित परवानग्यांचा विचार करण्याची जबाबदारी महापालिकेच्या वृक्ष प्राधिकरणाकडे असते. अशा परवानग्यांमुळे प्रत्येक प्रस्तावामागचे कारण, इतर पर्यायांचा विचार झाला का आणि झाडांचे संरक्षण करण्यासाठी कोणती उपाययोजना नियोजित आहे, असे प्रश्न महत्त्वाचे ठरतात.\\n\\nझाडे सावली देतात, पक्षी आणि इतर जीवांना अधिवास पुरवतात आणि बांधकामांनी व्यापलेल्या भागांत उष्णतेचा परिणाम कमी करण्यास मदत करतात. ती पावसाचे पाणी जमिनीत मुरण्यास आणि सार्वजनिक जागांचा दर्जा सुधारण्यासही हातभार लावतात. मोठ्या झाडांची जागा घेण्यासाठी अनेक वर्षे लागू शकतात, त्यामुळे अस्तित्वातील झाडांचे जतन शहरी पर्यावरण नियोजनासाठी महत्त्वाचे आहे.\\n\\nकायमस्वरूपी वृक्षतोडीऐवजी काही वेळा पुनर्लागवडीचा पर्याय सुचवला जातो. मात्र, झाड दुसरीकडे हलवले म्हणजे ते नक्की जगेल याची हमी नसते. झाडाची जात, आकार, मुळांची स्थिती, ऋतू, पुनर्लागवडीची पद्धत आणि पुढील काळातील निगा यांवर परिणाम अवलंबून असतो. त्यामुळे पुनर्लागवडीनंतर झाडे जगली की नाहीत, याचे निरीक्षण करणे महत्त्वाचे आहे.\\n\\nवृत्तातील आकडेवारीवरून प्रत्येक परवानगी आवश्यक होती किंवा प्रत्येक पुनर्लागवड यशस्वी होईल, असा निष्कर्ष काढता येत नाही. अधिक सखोल आढाव्यासाठी प्रत्येक परवानगीचे कारण, प्रभावित झाडे, तपासलेले पर्याय, लागू नियमांचे पालन आणि पुनर्लागवड केलेल्या झाडांचे जगण्याचे प्रमाण यांची माहिती आवश्यक आहे.\\n\\nमुंबईसमोरील व्यापक आव्हान म्हणजे पायाभूत सुविधा आणि पुनर्विकास करताना निरोगी शहरी हिरवळ टिकवणे. पारदर्शक माहिती, काळजीपूर्वक प्रकल्प नियोजन आणि कामानंतरचे निरीक्षण यांमुळे हा समतोल कसा राखला जात आहे, हे नागरिकांना समजू शकते."
+    },
+    seoSections: {
+      en: [
+        {
+          heading: "How many trees were approved for removal or transplantation in Mumbai?",
+          content: "The Indian Express reported that 7,633 trees were approved for removal or transplantation over five months: 3,502 for permanent felling and 4,131 for felling and transplantation."
+        },
+        {
+          heading: "Why are trees important for Mumbai?",
+          content: "Trees provide shade, support biodiversity, help moderate local temperatures and improve urban public spaces. Mature trees can take many years to replace."
+        },
+        {
+          heading: "Does transplantation guarantee that a tree will survive?",
+          content: "No. Survival depends on the species, size, root condition, transplantation method and ongoing care. Monitoring after transplantation is important."
+        },
+        {
+          heading: "How can citizens follow tree-related permissions?",
+          content: "Residents can look for available civic permissions, project information and monitoring updates, and raise questions through the relevant municipal authority."
+        }
+      ],
+      mr: [
+        {
+          heading: "मुंबईत किती झाडांना हटवणे किंवा पुनर्लागवडीसाठी मंजुरी मिळाली?",
+          content: "द इंडियन एक्सप्रेसच्या वृत्तानुसार, पाच महिन्यांत ७,६३३ झाडांना मंजुरी मिळाली. त्यापैकी ३,५०२ झाडे कायमस्वरूपी तोडण्यासाठी आणि ४,१३१ झाडे पुनर्लागवडीशी संबंधित प्रक्रियेसाठी होती."
+        },
+        {
+          heading: "मुंबईसाठी झाडे महत्त्वाची का आहेत?",
+          content: "झाडे सावली देतात, जैवविविधतेला आधार देतात, स्थानिक तापमान नियंत्रित करण्यास मदत करतात आणि सार्वजनिक जागांचा दर्जा सुधारतात. मोठ्या झाडांची जागा घेण्यासाठी अनेक वर्षे लागू शकतात."
+        },
+        {
+          heading: "पुनर्लागवड केल्याने झाड जगण्याची हमी मिळते का?",
+          content: "नाही. झाडाची जात, आकार, मुळांची स्थिती, पुनर्लागवडीची पद्धत आणि पुढील निगा यांवर त्याचे जगणे अवलंबून असते. पुनर्लागवडीनंतर निरीक्षण करणे महत्त्वाचे आहे."
+        },
+        {
+          heading: "नागरिक झाडांशी संबंधित परवानग्यांची माहिती कशी घेऊ शकतात?",
+          content: "उपलब्ध नागरी परवानग्या, प्रकल्पाची माहिती आणि निरीक्षणाचे अहवाल तपासता येतात. प्रश्न संबंधित महापालिका किंवा नागरी प्रशासनाकडे मांडता येतात."
+        }
+      ]
+    },
+    faq: {
+      en: [
+        {
+          question: "How many trees were included in the reported Mumbai approvals?",
+          answer: "The report states that 7,633 trees were approved for removal or transplantation over five months."
+        },
+        {
+          question: "How many trees were approved for permanent felling?",
+          answer: "The report lists 3,502 trees for permanent felling."
+        },
+        {
+          question: "Does transplantation mean a tree will definitely survive?",
+          answer: "No. Survival depends on the tree and the transplantation process, including aftercare and monitoring."
+        },
+        {
+          question: "Why is urban tree cover important?",
+          answer: "Urban trees provide shade, habitat, environmental benefits and help make built-up areas more comfortable."
+        }
+      ],
+      mr: [
+        {
+          question: "मुंबईतील किती झाडांना मंजुरी मिळाल्याचे वृत्त आहे?",
+          answer: "वृत्तानुसार, पाच महिन्यांत ७,६३३ झाडे हटवणे किंवा पुनर्लागवड करण्यास मंजुरी देण्यात आली."
+        },
+        {
+          question: "किती झाडे कायमस्वरूपी तोडण्यासाठी मंजूर झाली?",
+          answer: "वृत्तात ३,५०२ झाडे कायमस्वरूपी तोडण्यासाठी मंजूर झाल्याचे नमूद आहे."
+        },
+        {
+          question: "पुनर्लागवड म्हणजे झाड नक्की जगेल का?",
+          answer: "नाही. झाडाचे जगणे त्याची स्थिती, पुनर्लागवडीची पद्धत, त्यानंतरची निगा आणि निरीक्षण यांवर अवलंबून असते."
+        },
+        {
+          question: "शहरातील हिरवळ महत्त्वाची का आहे?",
+          answer: "शहरी झाडे सावली देतात, जीवांना अधिवास पुरवतात, पर्यावरणीय फायदे देतात आणि बांधकामांनी व्यापलेल्या भागांत राहण्याची परिस्थिती सुधारण्यास मदत करतात."
+        }
+      ]
+    },
+    mcqs: {
+      en: [
+        {
+          question: "How many trees were included in the reported approvals?",
+          options: ["3,502", "4,131", "7,633", "10,000"],
+          answer: "7,633"
+        },
+        {
+          question: "How many trees were listed for permanent felling?",
+          options: ["3,502", "4,131", "7,633", "2,000"],
+          answer: "3,502"
+        },
+        {
+          question: "Which statement about tree transplantation is correct?",
+          options: ["Every transplanted tree survives", "Survival depends on several factors", "Aftercare is never needed", "Transplantation has no risks"],
+          answer: "Survival depends on several factors"
+        }
+      ],
+      mr: [
+        {
+          question: "वृत्तानुसार किती झाडांना मंजुरी देण्यात आली?",
+          options: ["३,५०२", "४,१३१", "७,६३३", "१०,०००"],
+          answer: "७,६३३"
+        },
+        {
+          question: "किती झाडे कायमस्वरूपी तोडण्यासाठी मंजूर झाली?",
+          options: ["३,५०२", "४,१३१", "७,६३३", "२,०००"],
+          answer: "३,५०२"
+        },
+        {
+          question: "झाडांच्या पुनर्लागवडीबाबत कोणते विधान योग्य आहे?",
+          options: ["प्रत्येक झाड जगते", "झाडाचे जगणे अनेक घटकांवर अवलंबून असते", "पुनर्लागवडीनंतर निगेची गरज नसते", "पुनर्लागवडीमध्ये कोणताही धोका नसतो"],
+          answer: "झाडाचे जगणे अनेक घटकांवर अवलंबून असते"
+        }
+      ]
+    },
+    source: {
+      name: "The Indian Express",
+      url: "https://indianexpress.com/article/cities/mumbai/smog-mumbai-removal-of-trees-five-months-10932866/"
+    },
+    relatedSlugs: [],
+    keywords: [
+      "Mumbai tree removal",
+      "BMC Tree Authority",
+      "Mumbai tree transplantation",
+      "Urban green cover Mumbai",
+      "Tree conservation India",
+      "मुंबई वृक्षतोड",
+      "मुंबई वृक्ष प्राधिकरण",
+      "झाडांची पुनर्लागवड",
+      "शहरी हिरवळ",
+      "झाडांचे संवर्धन",
+      "पर्यावरण बातम्या"
+    ]
+  },
+  {
+    id: "two-child-norm-supreme-court-2026",
+    articleNumber: "Current Affairs",
+    categoryKey: "current-affairs",
+    slug: "two-child-norm-supreme-court-larger-bench-2026",
+    title: {
+      en: "Two-Child Norm and Indian Constitution: Supreme Court Seeks Reconsideration",
+      mr: "दोन अपत्यांचा नियम आणि भारतीय संविधान: सर्वोच्च न्यायालयाचे महत्त्वपूर्ण निरीक्षण"
+    },
+    seoTitle: {
+      en: "Two-Child Norm Supreme Court Decision 2026 | MySamvidhan",
+      mr: "दोन अपत्यांचा नियम: सर्वोच्च न्यायालयाचा निर्णय २०२६ | MySamvidhan"
+    },
+    shortDescription: {
+      en: "The Supreme Court has referred the 2003 Javed judgment on the two-child disqualification for local body elections to a larger bench for reconsideration in light of changing demographic conditions.",
+      mr: "दोनपेक्षा अधिक अपत्ये असलेल्या व्यक्तींना स्थानिक स्वराज्य संस्थांच्या निवडणुका लढवण्यास अपात्र ठरवणाऱ्या नियमाबाबत सर्वोच्च न्यायालयाने महत्त्वपूर्ण निरीक्षण नोंदवले आहे. २००३ मधील Javed निर्णयाचा पुनर्विचार करण्यासाठी प्रकरण मोठ्या खंडपीठाकडे पाठवण्यात आले आहे."
+    },
+    category: "Polity and Constitution",
+    categoryMr: "राज्यशास्त्र आणि भारतीय संविधान",
+    date: "2026-11-05",
+    introduction: {
+      en: "On November 4, 2026, the Supreme Court of India made important observations regarding laws that disqualify individuals with more than two children from contesting local body elections. While hearing the case of Mangala Bhimrao Ingle, a former Sarpanch of Kakoda Gram Panchayat in Maharashtra, the Court observed that the demographic circumstances supporting such restrictions have changed significantly. The Court referred the 2003 judgment in Javed v. State of Haryana to a larger bench for reconsideration.",
+      mr: "४ नोव्हेंबर २०२६ रोजी भारताच्या सर्वोच्च न्यायालयाने दोनपेक्षा अधिक अपत्ये असलेल्या व्यक्तींना स्थानिक स्वराज्य संस्थांच्या निवडणुका लढवण्यास अपात्र ठरवणाऱ्या कायद्यांबाबत महत्त्वपूर्ण निरीक्षण नोंदवले. महाराष्ट्रातील काकोडा ग्रामपंचायतीच्या माजी सरपंच मंगला भीमराव इंगळे यांच्या प्रकरणाची सुनावणी करताना न्यायालयाने असे नमूद केले की, अशा निर्बंधांचा आधार असलेल्या लोकसंख्याविषयक परिस्थितीत मोठे बदल झाले आहेत. त्यामुळे २००३ मधील Javed v. State of Haryana या निर्णयाचा पुनर्विचार करण्यासाठी प्रकरण मोठ्या खंडपीठाकडे पाठवण्यात आले."
+    },
+    simpleExplanation: {
+      en: "Some Indian states have laws that disqualify candidates with more than two children from contesting local body elections. These restrictions were introduced with the objective of controlling population growth. The Supreme Court has now questioned whether the original reasoning remains relevant because India’s Total Fertility Rate has declined. The Court has referred the earlier Javed judgment to a larger bench. It has not yet declared all two-child disqualification laws unconstitutional.",
+      mr: "भारतातील काही राज्यांमध्ये दोनपेक्षा अधिक अपत्ये असलेल्या व्यक्तींना स्थानिक स्वराज्य संस्थांच्या निवडणुका लढवण्यास अपात्र ठरवणारे कायदे आहेत. लोकसंख्या वाढीवर नियंत्रण ठेवण्याच्या उद्देशाने हे निर्बंध लागू करण्यात आले होते. मात्र, भारताचा एकूण प्रजनन दर कमी झाल्यामुळे या कायद्यांचा मूळ उद्देश आजही तितकाच लागू आहे का, असा प्रश्न सर्वोच्च न्यायालयाने उपस्थित केला आहे. न्यायालयाने यासंदर्भातील जुन्या Javed निर्णयाचा पुनर्विचार मोठ्या खंडपीठाकडे सोपवला आहे. मात्र, सर्व दोन अपत्यांचे नियम असंवैधानिक ठरवलेले नाहीत."
+    },
+    verySimple: {
+      en: "The Supreme Court has questioned the continued relevance of the two-child rule for local elections. It has sent an earlier judgment to a larger bench for reconsideration. The issue involves electoral rights, equality and reproductive autonomy.",
+      mr: "दोनपेक्षा अधिक अपत्ये असलेल्या व्यक्तींना स्थानिक निवडणुका लढवण्यास अपात्र ठरवणाऱ्या नियमाच्या आजच्या काळातील उपयुक्ततेवर सर्वोच्च न्यायालयाने प्रश्न उपस्थित केला आहे. या नियमासंदर्भातील जुन्या निर्णयाचा पुनर्विचार मोठ्या खंडपीठाकडे पाठवण्यात आला आहे. या प्रकरणाचा संबंध निवडणुकीचा अधिकार, समानता आणि प्रजनन स्वातंत्र्याशी आहे."
+    },
+    example: {
+      en: "Suppose a person is elected as a Sarpanch but is later disqualified under a state law because they have more than two children. Such a restriction raises questions about electoral participation, equality and personal liberty. The Supreme Court is examining the continued relevance of the legal reasoning behind these restrictions.",
+      mr: "समजा, एखादी व्यक्ती सरपंच म्हणून निवडून आली; परंतु दोनपेक्षा अधिक अपत्ये असल्यामुळे राज्यातील संबंधित कायद्यानुसार तिला अपात्र ठरवण्यात आले. अशा परिस्थितीत निवडणुकीत सहभागी होण्याचा अधिकार, समानता आणि वैयक्तिक स्वातंत्र्य यांसारखे प्रश्न निर्माण होतात. या निर्बंधांमागील कायदेशीर तर्क आजच्या परिस्थितीत कितपत योग्य आहे, याचा पुनर्विचार सर्वोच्च न्यायालयात सुरू आहे."
+    },
+    content: {
+      en: "The Supreme Court of India has made significant observations regarding the two-child norm applicable to elections to local self-government institutions. The matter came before the Court through an appeal filed by Mangala Bhimrao Ingle, whose election as Sarpanch of Kakoda Gram Panchayat in Maharashtra had been set aside on the ground that she had more than two children.\\n\\n**Background of the Case**\\n\\nThe dispute involved Section 14(1)(j-1) of the Maharashtra Village Panchayats Act, 1959. This provision disqualifies a person from being a member of a Gram Panchayat if they have more than two children, subject to the conditions specified in the law. Mangala Bhimrao Ingle challenged her disqualification after her election as Sarpanch.\\n\\n**What Did the Supreme Court Observe?**\\n\\nOn November 4, 2026, a bench comprising Justice P. S. Narasimha and Justice Alok Aradhe observed that laws penalising individuals for having more than two children may have lost their relevance due to changing demographic conditions. The Court noted that India’s Total Fertility Rate had declined from approximately 3.02 in 2003 to 1.9 in 2024. The replacement fertility level is generally considered to be 2.1.\\n\\nThe Court also highlighted that restrictions on having children can affect reproductive autonomy, which forms part of the right to personal liberty under Article 21 of the Constitution.\\n\\n**Javed v. State of Haryana (2003)**\\n\\nIn 2003, the Supreme Court delivered an important judgment in Javed v. State of Haryana. In this case, the Court upheld the constitutional validity of a provision under the Haryana Panchayati Raj Act, 1994, which disqualified individuals having more than two living children from contesting certain Panchayat elections.\\n\\nThe judgment considered the restriction in the context of Article 14 and the then-existing concerns regarding population growth. In the present matter, the Supreme Court questioned whether the reasoning behind that earlier judgment remains appropriate in light of current demographic realities.\\n\\n**Connection with Article 14 and Article 21**\\n\\nArticle 14 guarantees equality before the law and equal protection of the laws. Any legal restriction must satisfy constitutional standards of fairness and non-arbitrariness.\\n\\nArticle 21 protects life and personal liberty. The Supreme Court discussed reproductive autonomy as an important aspect of personal liberty. The Court considered whether disqualification from democratic participation on the basis of family size places an unreasonable burden on individual autonomy.\\n\\n**What Happens Next?**\\n\\nThe Supreme Court referred the 2003 Javed judgment to a larger bench for reconsideration. Importantly, the Court did not finally declare Section 14(1)(j-1) of the Maharashtra Village Panchayats Act unconstitutional because its validity was not directly challenged in the appeal. The interim protection allowing Mangala Bhimrao Ingle to continue as Sarpanch was continued until the appeal is finally decided.\\n\\n**Conclusion**\\n\\nThis case highlights the relationship between changing social conditions and constitutional interpretation. It raises important questions about equality, democratic participation and reproductive autonomy. The outcome of the larger bench proceedings will be important for understanding the future legal position of two-child disqualification provisions in local body elections.",
+      mr: "स्थानिक स्वराज्य संस्थांच्या निवडणुकांमध्ये लागू असलेल्या दोन अपत्यांच्या नियमाबाबत भारताच्या सर्वोच्च न्यायालयाने महत्त्वपूर्ण निरीक्षण नोंदवले आहे. महाराष्ट्रातील काकोडा ग्रामपंचायतीच्या सरपंच मंगला भीमराव इंगळे यांची दोनपेक्षा अधिक अपत्ये असल्याच्या कारणावरून निवडणूक रद्द करण्यात आली होती. या निर्णयाला त्यांनी सर्वोच्च न्यायालयात आव्हान दिले.\\n\\n**प्रकरणाची पार्श्वभूमी**\\n\\nया प्रकरणाचा संबंध महाराष्ट्र ग्रामपंचायत अधिनियम, १९५९ मधील कलम १४(१)(j-1) शी आहे. या तरतुदीनुसार कायद्यात नमूद केलेल्या अटींनुसार दोनपेक्षा अधिक अपत्ये असलेल्या व्यक्तीला ग्रामपंचायत सदस्य किंवा सरपंच म्हणून राहण्यास अपात्र ठरवले जाऊ शकते. मंगला भीमराव इंगळे यांनी सरपंचपदी निवडून आल्यानंतर त्यांच्या अपात्रतेच्या निर्णयाला आव्हान दिले.\\n\\n**सर्वोच्च न्यायालयाने काय निरीक्षण नोंदवले?**\\n\\n४ नोव्हेंबर २०२६ रोजी न्यायमूर्ती पी. एस. नरसिम्हा आणि न्यायमूर्ती आलोक अराधे यांच्या खंडपीठाने दोनपेक्षा अधिक अपत्ये असल्याबद्दल व्यक्तींना दंडित करणारे कायदे बदललेल्या लोकसंख्याविषयक परिस्थितीमुळे कालबाह्य ठरू शकतात, असे महत्त्वपूर्ण निरीक्षण नोंदवले. न्यायालयाने नमूद केले की, भारताचा एकूण प्रजनन दर २००३ मधील सुमारे ३.०२ वरून २०२४ मध्ये १.९ पर्यंत खाली आला आहे. लोकसंख्येचा प्रतिस्थापन प्रजनन दर साधारणपणे २.१ मानला जातो.\\n\\nन्यायालयाने असेही अधोरेखित केले की, अपत्यसंख्येवर आधारित निर्बंध व्यक्तीच्या प्रजनन स्वातंत्र्यावर परिणाम करू शकतात. प्रजनन स्वातंत्र्य हा संविधानाच्या अनुच्छेद २१ अंतर्गत वैयक्तिक स्वातंत्र्याचा महत्त्वाचा भाग आहे.\\n\\n**Javed v. State of Haryana (२००३)**\\n\\n२००३ मध्ये सर्वोच्च न्यायालयाने Javed v. State of Haryana या महत्त्वपूर्ण प्रकरणात हरियाणा पंचायत राज अधिनियम, १९९४ मधील दोनपेक्षा अधिक जिवंत अपत्ये असलेल्या व्यक्तींना काही पंचायत निवडणुका लढवण्यास अपात्र ठरवणाऱ्या तरतुदीची घटनात्मक वैधता कायम ठेवली होती.\\n\\nत्या निर्णयात अनुच्छेद १४ च्या संदर्भात या निर्बंधांचा विचार करण्यात आला होता. त्यावेळी लोकसंख्या वाढीबाबत असलेल्या चिंतांनाही महत्त्व देण्यात आले होते. सध्याच्या प्रकरणात सर्वोच्च न्यायालयाने बदललेल्या लोकसंख्याविषयक परिस्थितीत जुन्या निर्णयामागील तर्क आजही लागू आहे का, असा प्रश्न उपस्थित केला.\\n\\n**अनुच्छेद १४ आणि अनुच्छेद २१ यांच्याशी संबंध**\\n\\nअनुच्छेद १४ प्रत्येक व्यक्तीला कायद्यापुढे समानता आणि कायद्याचे समान संरक्षण देतो. कोणताही कायदेशीर निर्बंध न्याय्य आणि घटनात्मक निकषांनुसार असणे आवश्यक आहे.\\n\\nअनुच्छेद २१ जीवन आणि व्यक्तिगत स्वातंत्र्याचे संरक्षण करतो. प्रजनन स्वातंत्र्य हे व्यक्तिगत स्वातंत्र्याचा महत्त्वाचा भाग असल्याचे सर्वोच्च न्यायालयाने स्पष्ट केले आहे. कुटुंबातील अपत्यसंख्येच्या आधारावर लोकशाही प्रक्रियेत सहभागी होण्यावर निर्बंध घातल्यास व्यक्तीच्या स्वायत्ततेवर परिणाम होतो का, याचा विचार न्यायालयाने केला.\\n\\n**आता पुढे काय होणार?**\\n\\nसर्वोच्च न्यायालयाने २००३ मधील Javed निर्णयाचा पुनर्विचार करण्यासाठी प्रकरण मोठ्या खंडपीठाकडे पाठवले आहे. महत्त्वाचे म्हणजे, महाराष्ट्र ग्रामपंचायत अधिनियमातील कलम १४(१)(j-1) असंवैधानिक असल्याचा अंतिम निर्णय न्यायालयाने दिलेला नाही, कारण या अपीलमध्ये त्या तरतुदीच्या वैधतेला थेट आव्हान देण्यात आले नव्हते. मंगला भीमराव इंगळे यांना सरपंचपदी कायम राहण्याची परवानगी देणारा अंतरिम आदेश अंतिम अपील निकाली निघेपर्यंत सुरू ठेवण्यात आला आहे.\\n\\n**निष्कर्ष**\\n\\nहे प्रकरण बदलत्या सामाजिक परिस्थितीचा घटनात्मक अर्थ लावताना कसा विचार केला जातो, हे स्पष्ट करते. समानता, लोकशाहीतील सहभाग आणि प्रजनन स्वातंत्र्य या महत्त्वाच्या घटनात्मक मुद्द्यांवर या प्रकरणामुळे चर्चा सुरू झाली आहे. मोठ्या खंडपीठाचा पुढील निर्णय स्थानिक स्वराज्य संस्थांच्या निवडणुकांमधील दोन अपत्यांच्या नियमाच्या भविष्यासाठी महत्त्वाचा ठरणार आहे."
+    },
+    seoSections: {
+      en: [
+        {
+          heading: "What is the two-child norm in local body elections?",
+          content: "It is a legal restriction in certain states that disqualifies individuals with more than two children from contesting specified local body elections, subject to the applicable law."
+        },
+        {
+          heading: "What is the Javed v. State of Haryana case?",
+          content: "In 2003, the Supreme Court upheld a two-child disqualification provision under the Haryana Panchayati Raj Act, 1994."
+        },
+        {
+          heading: "What did the Supreme Court decide in November 2026?",
+          content: "The Court referred the 2003 Javed judgment to a larger bench for reconsideration in light of changing demographic conditions."
+        },
+        {
+          heading: "Which constitutional articles are relevant?",
+          content: "Articles 14 and 21 are particularly relevant because the case concerns equality, personal liberty and reproductive autonomy."
+        },
+        {
+          heading: "Has the two-child rule been abolished in India?",
+          content: "No. The Supreme Court has not declared all such provisions unconstitutional. The earlier judgment has been referred to a larger bench."
+        }
+      ],
+      mr: [
+        {
+          heading: "स्थानिक स्वराज्य संस्थांच्या निवडणुकांमधील दोन अपत्यांचा नियम म्हणजे काय?",
+          content: "काही राज्यांमध्ये लागू असलेल्या कायद्यानुसार दोनपेक्षा अधिक अपत्ये असलेल्या व्यक्तींना विशिष्ट स्थानिक स्वराज्य संस्थांच्या निवडणुका लढवण्यास अपात्र ठरवले जाते."
+        },
+        {
+          heading: "Javed v. State of Haryana हे प्रकरण काय आहे?",
+          content: "२००३ मध्ये सर्वोच्च न्यायालयाने हरियाणा पंचायत राज अधिनियम, १९९४ मधील दोन अपत्यांच्या निर्बंधाची घटनात्मक वैधता कायम ठेवली होती."
+        },
+        {
+          heading: "नोव्हेंबर २०२६ मध्ये सर्वोच्च न्यायालयाने काय निर्णय दिला?",
+          content: "बदललेल्या लोकसंख्याविषयक परिस्थितीच्या पार्श्वभूमीवर न्यायालयाने २००३ मधील Javed निर्णयाचा पुनर्विचार करण्यासाठी प्रकरण मोठ्या खंडपीठाकडे पाठवले."
+        },
+        {
+          heading: "या प्रकरणाशी कोणते घटनात्मक अनुच्छेद संबंधित आहेत?",
+          content: "अनुच्छेद १४ आणि २१ महत्त्वाचे आहेत. या प्रकरणात समानता, व्यक्तिगत स्वातंत्र्य आणि प्रजनन स्वातंत्र्य या मुद्द्यांचा विचार करण्यात आला आहे."
+        },
+        {
+          heading: "भारतातील दोन अपत्यांचा नियम रद्द झाला आहे का?",
+          content: "नाही. सर्वोच्च न्यायालयाने सर्व संबंधित कायदे असंवैधानिक ठरवलेले नाहीत. जुन्या निर्णयाचा पुनर्विचार मोठ्या खंडपीठाकडे पाठवण्यात आला आहे."
+        }
+      ]
+    },
+    faq: {
+      en: [
+        {
+          question: "Which case led to the Supreme Court observations on the two-child norm in 2026?",
+          answer: "The case was Mangala Bhimrao Ingle v. The Additional Commissioner, Amravati Division & Others."
+        },
+        {
+          question: "Which provision of Maharashtra law was involved?",
+          answer: "Section 14(1)(j-1) of the Maharashtra Village Panchayats Act, 1959."
+        },
+        {
+          question: "What was decided in Javed v. State of Haryana (2003)?",
+          answer: "The Supreme Court upheld the constitutional validity of a two-child disqualification provision under the Haryana Panchayati Raj Act, 1994."
+        },
+        {
+          question: "Which constitutional article protects reproductive autonomy?",
+          answer: "Article 21, which protects life and personal liberty."
+        },
+        {
+          question: "Has the Supreme Court abolished the two-child norm?",
+          answer: "No. It has referred the earlier Javed judgment to a larger bench for reconsideration."
+        }
+      ],
+      mr: [
+        {
+          question: "२०२६ मध्ये दोन अपत्यांच्या नियमाबाबत सर्वोच्च न्यायालयात कोणते प्रकरण होते?",
+          answer: "मंगला भीमराव इंगळे विरुद्ध अतिरिक्त आयुक्त, अमरावती विभाग व इतर हे प्रकरण होते."
+        },
+        {
+          question: "महाराष्ट्रातील कोणत्या कायद्याच्या तरतुदीचा या प्रकरणात विचार झाला?",
+          answer: "महाराष्ट्र ग्रामपंचायत अधिनियम, १९५९ मधील कलम १४(१)(j-1)."
+        },
+        {
+          question: "Javed v. State of Haryana (२००३) प्रकरणात काय निर्णय देण्यात आला होता?",
+          answer: "हरियाणा पंचायत राज अधिनियम, १९९४ मधील दोन अपत्यांच्या निर्बंधाची घटनात्मक वैधता सर्वोच्च न्यायालयाने कायम ठेवली होती."
+        },
+        {
+          question: "प्रजनन स्वातंत्र्य कोणत्या घटनात्मक अनुच्छेदाशी संबंधित आहे?",
+          answer: "अनुच्छेद २१, जो जीवन आणि व्यक्तिगत स्वातंत्र्याचे संरक्षण करतो."
+        },
+        {
+          question: "सर्वोच्च न्यायालयाने दोन अपत्यांचा नियम रद्द केला आहे का?",
+          answer: "नाही. जुन्या Javed निर्णयाचा पुनर्विचार करण्यासाठी प्रकरण मोठ्या खंडपीठाकडे पाठवण्यात आले आहे."
+        }
+      ]
+    },
+    mcqs: {
+      en: [
+        {
+          question: "Which Article of the Indian Constitution protects life and personal liberty?",
+          options: ["Article 14", "Article 19", "Article 21", "Article 32"],
+          answer: "Article 21"
+        },
+        {
+          question: "Which case upheld the two-child disqualification provision in 2003?",
+          options: ["Kesavananda Bharati", "Javed v. State of Haryana", "Maneka Gandhi", "Minerva Mills"],
+          answer: "Javed v. State of Haryana"
+        },
+        {
+          question: "Which provision of Maharashtra law was involved in the 2026 case?",
+          options: ["Section 14(1)(j-1)", "Section 21", "Section 32", "Section 243"],
+          answer: "Section 14(1)(j-1)"
+        },
+        {
+          question: "Which Article guarantees equality before the law?",
+          options: ["Article 12", "Article 14", "Article 21", "Article 25"],
+          answer: "Article 14"
+        },
+        {
+          question: "What did the Supreme Court do with the Javed judgment in November 2026?",
+          options: ["Declared it void", "Referred it to a larger bench", "Transferred it to Parliament", "Dismissed the matter"],
+          answer: "Referred it to a larger bench"
+        }
+      ],
+      mr: [
+        {
+          question: "भारतीय संविधानातील कोणता अनुच्छेद जीवन आणि व्यक्तिगत स्वातंत्र्याचे संरक्षण करतो?",
+          options: ["अनुच्छेद १४", "अनुच्छेद १९", "अनुच्छेद २१", "अनुच्छेद ३२"],
+          answer: "अनुच्छेद २१"
+        },
+        {
+          question: "२००३ मध्ये दोन अपत्यांच्या निर्बंधाची वैधता कोणत्या प्रकरणात कायम ठेवण्यात आली?",
+          options: ["केशवानंद भारती", "Javed v. State of Haryana", "मनेका गांधी", "मिनर्वा मिल्स"],
+          answer: "Javed v. State of Haryana"
+        },
+        {
+          question: "२०२६ च्या प्रकरणात महाराष्ट्रातील कोणत्या कायद्याच्या तरतुदीचा विचार झाला?",
+          options: ["कलम १४(१)(j-1)", "कलम २१", "कलम ३२", "कलम २४३"],
+          answer: "कलम १४(१)(j-1)"
+        },
+        {
+          question: "कायद्यापुढे समानतेची हमी कोणता अनुच्छेद देतो?",
+          options: ["अनुच्छेद १२", "अनुच्छेद १४", "अनुच्छेद २१", "अनुच्छेद २५"],
+          answer: "अनुच्छेद १४"
+        },
+        {
+          question: "नोव्हेंबर २०२६ मध्ये सर्वोच्च न्यायालयाने Javed निर्णयाबाबत काय केले?",
+          options: ["निर्णय रद्द केला", "मोठ्या खंडपीठाकडे पुनर्विचारासाठी पाठवला", "संसदेकडे पाठवला", "प्रकरण फेटाळले"],
+          answer: "मोठ्या खंडपीठाकडे पुनर्विचारासाठी पाठवला"
+        }
+      ]
+    },
+    source: {
+      name: "The Indian Express",
+      url: "https://indianexpress.com/article/legal-news/supreme-court-two-child-norm-local-body-elections-10950267/"
+    },
+    relatedSlugs: [],
+    keywords: [
+      "Two child norm India",
+      "Supreme Court two child rule 2026",
+      "Javed vs State of Haryana",
+      "Mangala Bhimrao Ingle case",
+      "Maharashtra Village Panchayats Act 1959",
+      "Article 14 Indian Constitution",
+      "Article 21 Indian Constitution",
+      "Reproductive autonomy India",
+      "Local body elections India",
+      "दोन अपत्यांचा नियम",
+      "सर्वोच्च न्यायालय निर्णय २०२६",
+      "मंगला भीमराव इंगळे",
+      "Javed विरुद्ध हरियाणा",
+      "अनुच्छेद १४",
+      "अनुच्छेद २१",
+      "प्रजनन स्वातंत्र्य",
+      "महाराष्ट्र ग्रामपंचायत अधिनियम"
+    ]
+  },
+  {
+    id: "malad-appapada-krantinagar-dp-road-2026",
+    articleNumber: "Current Affairs",
+    categoryKey: "current-affairs",
+    slug: "malad-appapada-krantinagar-120-feet-dp-road-rehabilitation",
+    title: {
+      en: "Malad Appapada-Krantinagar 120-Foot DP Road Project: Rehabilitation Concerns",
+      mr: "मालाड आप्पापाडा–क्रांतीनगर १२० फूट डी.पी. रोड प्रकल्प: पुनर्वसनाचा प्रश्न ऐरणीवर"
+    },
+    seoTitle: {
+      en: "Malad DP Road Project 2026: Appapada-Krantinagar Rehabilitation Issue",
+      mr: "मालाड DP रोड प्रकल्प २०२६: आप्पापाडा–क्रांतीनगर पुनर्वसनाचा प्रश्न"
+    },
+    shortDescription: {
+      en: "The proposed 120-foot Development Plan road in Malad may affect over 1,700 residents of Appapada and Krantinagar. Residents have raised objections regarding rehabilitation and the proposed 225-square-foot homes.",
+      mr: "मालाड पूर्वेतील आप्पापाडा आणि क्रांतीनगर परिसरातून जाणाऱ्या प्रस्तावित १२० फूट डी.पी. रोडमुळे १,७०० हून अधिक नागरिक बाधित होण्याची शक्यता आहे. पुनर्वसन आणि प्रस्तावित २२५ चौरस फुटांच्या घरांबाबत स्थानिक नागरिकांनी आक्षेप नोंदवले आहेत."
+    },
+    category: "Local News and Civic Issues",
+    categoryMr: "स्थानिक बातम्या आणि नागरी प्रश्न",
+    date: "2026-11-03",
+    introduction: {
+      en: "A proposed 120-foot Development Plan (DP) road connecting Dahisar to Goregaon has brought rehabilitation concerns to the forefront in Malad East. The project is expected to affect more than 1,700 residents of Appapada and Krantinagar. Residents have raised objections regarding the proposed rehabilitation arrangements, the size of the replacement homes and the lottery process for allotment.",
+      mr: "दहिसर ते गोरेगावदरम्यान प्रस्तावित असलेल्या १२० फूट विकास आराखडा (डी.पी.) रस्त्यामुळे मालाड पूर्वेतील आप्पापाडा आणि क्रांतीनगर परिसरातील नागरिकांच्या पुनर्वसनाचा प्रश्न ऐरणीवर आला आहे. या प्रकल्पामुळे १,७०० हून अधिक नागरिक बाधित होण्याची शक्यता आहे. प्रस्तावित पुनर्वसन व्यवस्था, घरांचे क्षेत्रफळ आणि घरवाटपासाठी राबवण्यात येणाऱ्या लॉटरी प्रक्रियेबाबत स्थानिक नागरिकांनी आक्षेप नोंदवले आहेत."
+    },
+    simpleExplanation: {
+      en: "The proposed road project may require the relocation of residents living along its route. According to the report, 140 residents received notices in the first phase. The proposed rehabilitation includes 225-square-foot homes. Residents have questioned this arrangement and are demanding consideration of their objections before the allotment process.",
+      mr: "प्रस्तावित रस्ता प्रकल्पाच्या मार्गात येणाऱ्या रहिवाशांचे पुनर्वसन करावे लागणार आहे. प्रसिद्ध वृत्तानुसार, पहिल्या टप्प्यात १४० नागरिकांना नोटिसा देण्यात आल्या आहेत. पुनर्वसनासाठी २२५ चौरस फुटांची घरे देण्याचा प्रस्ताव आहे. मात्र, घरांच्या क्षेत्रफळाबाबत आणि घरवाटप प्रक्रियेबाबत नागरिकांनी प्रश्न उपस्थित केले आहेत."
+    },
+    verySimple: {
+      en: "A road project in Malad may affect more than 1,700 residents. Residents of Appapada and Krantinagar have raised concerns about the size and location of their rehabilitation homes.",
+      mr: "मालाडमध्ये प्रस्तावित रस्त्यामुळे १,७०० हून अधिक नागरिक बाधित होण्याची शक्यता आहे. आप्पापाडा आणि क्रांतीनगरमधील नागरिकांनी पुनर्वसनासाठी मिळणाऱ्या घरांच्या आकाराबाबत आणि ठिकाणाबाबत आक्षेप घेतले आहेत."
+    },
+    example: {
+      en: "Suppose a family living along the proposed DP road is required to relocate because of road widening. The family would need clarity about the eligibility criteria, size and location of the rehabilitation home, and the process through which it will be allotted.",
+      mr: "समजा, प्रस्तावित डी.पी. रोडच्या मार्गात एखाद्या कुटुंबाचे घर येत असल्यामुळे त्यांना स्थलांतरित व्हावे लागणार आहे. अशा वेळी त्या कुटुंबाला पुनर्वसनासाठी मिळणाऱ्या घराची पात्रता, क्षेत्रफळ, ठिकाण आणि घरवाटपाची प्रक्रिया याबाबत स्पष्ट माहिती मिळणे आवश्यक आहे."
+    },
+    content: {
+      en: `A proposed 120-foot Development Plan (DP) road project connecting Dahisar to Goregaon has raised concerns among residents of Appapada and Krantinagar in Malad East, Mumbai. According to a report published on November 3, 2026, the project is expected to affect more than 1,700 residents.
+
+**Background of the DP Road Project**
+
+The proposed road connects the area near Lokhandwala with the Ratnagiri-Sindhudurg Hotel area. The route includes parts of Krantinagar and Appapada in Malad.
+
+The project is reportedly planned to be implemented in three to four phases. The first phase involves road work for which notices have been issued to affected residents.
+
+**Notices Issued to 140 Residents**
+
+According to the published report, the Brihanmumbai Municipal Corporation (BMC) has issued notices to 140 residents in the first phase.
+
+The notices reportedly mention rehabilitation homes measuring 225 square feet at locations including Lokhandwala and Mahadev Apartment in Thakur Village.
+
+**Why Are Residents Raising Objections?**
+
+Residents have questioned the proposal to provide 225-square-foot homes instead of 300-square-foot homes.
+
+According to the residents, eligible affected families should receive 300-square-foot homes under a 2018 Government Resolution. This is a claim made by residents and requires verification against the applicable official Government Resolution.
+
+Residents have also raised concerns about the information provided before the lottery process and have demanded that their objections and suggestions be considered.
+
+**Rehabilitation Lottery Process**
+
+The report states that a lottery was conducted on October 29 for residents willing to accept 225-square-foot homes at Mahadev Apartment, Thakur Village. The names of approximately 40 to 50 residents were reportedly announced for allotment.
+
+However, other affected residents have continued to demand larger homes and have questioned the rehabilitation arrangements.
+
+**Concerns About the Rehabilitation Location**
+
+Some affected residents have reportedly expressed reluctance to move into Mahadev Apartment, stating that the building is old. Some residents have also demanded rehabilitation within or near their existing locality.
+
+**What Happens Next?**
+
+The issue raises important questions about rehabilitation, transparency in allotment procedures and the concerns of people affected by urban infrastructure projects.
+
+Residents are seeking consideration of their objections and a fair rehabilitation process. The official response of the BMC and the further steps in the project remain important developments to follow.
+
+**Conclusion**
+
+The proposed 120-foot DP road project in Malad highlights the challenges of balancing urban infrastructure development with the rehabilitation concerns of affected residents. The next steps taken by the civic administration will be important for the families living in Appapada and Krantinagar.`,
+      mr: `मुंबईतील मालाड पूर्व येथील आप्पापाडा आणि क्रांतीनगर परिसरातील नागरिकांच्या पुनर्वसनाचा प्रश्न प्रस्तावित १२० फूट विकास आराखडा (डी.पी.) रस्त्यामुळे चर्चेत आला आहे. ३ नोव्हेंबर २०२६ रोजी प्रसिद्ध झालेल्या वृत्तानुसार, या प्रकल्पामुळे १,७०० हून अधिक नागरिक बाधित होण्याची शक्यता आहे.
+
+**डी.पी. रोड प्रकल्पाची पार्श्वभूमी**
+
+दहिसर ते गोरेगावदरम्यान प्रस्तावित असलेला हा रस्ता लोखंडवाला परिसराला रत्नागिरी-सिंधुदुर्ग हॉटेल परिसराशी जोडणार आहे. या मार्गामध्ये मालाडमधील क्रांतीनगर आणि आप्पापाडा परिसराचा समावेश आहे.
+
+या प्रकल्पाचे काम तीन ते चार टप्प्यांत करण्यात येणार असल्याचे वृत्तात नमूद करण्यात आले आहे. पहिल्या टप्प्यातील रस्त्याच्या कामासाठी बाधित नागरिकांना नोटिसा देण्यात आल्या आहेत.
+
+**१४० नागरिकांना नोटिसा**
+
+प्रसिद्ध वृत्तानुसार, पहिल्या टप्प्यात मुंबई महानगरपालिकेकडून १४० नागरिकांना नोटिसा बजावण्यात आल्या आहेत.
+
+या नोटिसांमध्ये बाधित नागरिकांना लोखंडवाला परिसरात तसेच ठाकूर व्हिलेज येथील महादेव अपार्टमेंटमध्ये २२५ चौरस फुटांची घरे देण्याचा उल्लेख असल्याचे वृत्तात म्हटले आहे.
+
+**नागरिकांचा २२५ चौरस फुटांच्या घरांना आक्षेप**
+
+पुनर्वसनासाठी २२५ चौरस फुटांची घरे देण्याच्या प्रस्तावावर स्थानिक नागरिकांनी आक्षेप घेतला आहे. नागरिकांच्या म्हणण्यानुसार, २०१८ च्या शासन निर्णयानुसार पात्र बाधित नागरिकांना ३०० चौरस फुटांचे घर मिळणे अपेक्षित आहे.
+
+मात्र, २२५ चौरस फुटांची घरे देण्याचा प्रस्ताव का मांडण्यात आला आहे, असा सवाल नागरिकांनी उपस्थित केला आहे. हा शासन निर्णयाबाबतचा नागरिकांचा दावा असून, त्याची अधिकृत GR मधील तरतुदींशी पडताळणी होणे आवश्यक आहे.
+
+घरवाटपाच्या लॉटरी प्रक्रियेपूर्वी नागरिकांच्या हरकती आणि मागण्यांचा विचार करावा, अशीही स्थानिकांची मागणी आहे.
+
+**घरवाटपासाठी लॉटरी प्रक्रिया**
+
+वृत्तानुसार, ठाकूर व्हिलेज येथील महादेव अपार्टमेंटमध्ये २२५ चौरस फुटांची घरे स्वीकारण्यास इच्छुक असलेल्या नागरिकांसाठी २९ ऑक्टोबर रोजी लकी ड्रॉ घेण्यात आला. या प्रक्रियेत सुमारे ४० ते ५० नागरिकांची नावे घरवाटपासाठी जाहीर करण्यात आल्याचे वृत्तात नमूद आहे.
+
+मात्र, उर्वरित बाधित नागरिकांनी मोठ्या क्षेत्रफळाच्या घरांची मागणी कायम ठेवली आहे. त्यामुळे पुनर्वसनाच्या प्रक्रियेबाबत नागरिकांमध्ये नाराजी असल्याचे वृत्तात म्हटले आहे.
+
+**पुनर्वसनाच्या ठिकाणाबाबतही प्रश्न**
+
+ठाकूर व्हिलेज येथील महादेव अपार्टमेंटमध्ये स्थलांतरित होण्याबाबत काही बाधित नागरिकांनी अनिच्छा व्यक्त केली आहे. संबंधित इमारत जुनी असल्याचे कारण देत काही नागरिकांनी तेथे स्थलांतर करण्यास नकार दर्शवला आहे.
+
+तसेच आपल्याला सध्याच्या परिसरात किंवा जवळच्या भागातच पुनर्वसनाची घरे मिळावीत, अशी मागणी काही स्थानिक नागरिकांकडून करण्यात येत आहे.
+
+**पुढे काय होणार?**
+
+या प्रकरणामुळे शहरातील पायाभूत सुविधा प्रकल्प आणि त्यामध्ये बाधित होणाऱ्या नागरिकांचे पुनर्वसन हे मुद्दे पुन्हा चर्चेत आले आहेत.
+
+घरांचे क्षेत्रफळ, पुनर्वसनाचे ठिकाण, पात्रता आणि घरवाटप प्रक्रियेतील पारदर्शकता याबाबत नागरिकांनी उपस्थित केलेल्या आक्षेपांचा विचार होणे महत्त्वाचे आहे. या प्रकरणात मुंबई महानगरपालिका प्रशासनाची अधिकृत भूमिका आणि पुढील कार्यवाही काय असेल, याकडे परिसरातील नागरिकांचे लक्ष लागले आहे.
+
+**निष्कर्ष**
+
+मालाडमधील प्रस्तावित १२० फूट डी.पी. रोड प्रकल्पामुळे आप्पापाडा आणि क्रांतीनगर परिसरातील नागरिकांच्या पुनर्वसनाचा प्रश्न महत्त्वाचा ठरला आहे. शहराच्या विकासाबरोबरच प्रकल्पामुळे बाधित होणाऱ्या नागरिकांच्या मागण्या, पुनर्वसनाची व्यवस्था आणि घरवाटपातील पारदर्शकता यांचाही विचार होणे आवश्यक आहे.`
+    },
+    seoSections: {
+      en: [
+        {
+          heading: "What is the Malad 120-foot DP road project?",
+          content: "It is a proposed Development Plan road connecting the Dahisar and Goregaon areas, with a route passing through parts of Appapada and Krantinagar in Malad."
+        },
+        {
+          heading: "How many residents may be affected?",
+          content: "According to the November 3, 2026 report, more than 1,700 residents may be affected by the proposed project."
+        },
+        {
+          heading: "How many residents received notices?",
+          content: "The report states that 140 residents received notices in the first phase of the project."
+        },
+        {
+          heading: "Why are residents objecting to the rehabilitation proposal?",
+          content: "Residents have raised objections regarding the proposed 225-square-foot homes, rehabilitation locations and the allotment process."
+        },
+        {
+          heading: "Has the BMC announced a final rehabilitation decision?",
+          content: "The cited report describes the residents’ objections and the proposed arrangements. Readers should check official BMC announcements for subsequent decisions."
+        }
+      ],
+      mr: [
+        {
+          heading: "मालाडमधील १२० फूट डी.पी. रोड प्रकल्प काय आहे?",
+          content: "दहिसर ते गोरेगावदरम्यान प्रस्तावित असलेला हा विकास आराखडा रस्ता मालाडमधील आप्पापाडा आणि क्रांतीनगर परिसरातून जाणार आहे."
+        },
+        {
+          heading: "या प्रकल्पामुळे किती नागरिक बाधित होण्याची शक्यता आहे?",
+          content: "३ नोव्हेंबर २०२६ रोजी प्रसिद्ध झालेल्या वृत्तानुसार, या प्रकल्पामुळे १,७०० हून अधिक नागरिक बाधित होण्याची शक्यता आहे."
+        },
+        {
+          heading: "पहिल्या टप्प्यात किती नागरिकांना नोटिसा देण्यात आल्या?",
+          content: "प्रसिद्ध वृत्तानुसार, पहिल्या टप्प्यात १४० नागरिकांना नोटिसा देण्यात आल्या आहेत."
+        },
+        {
+          heading: "पुनर्वसनाच्या प्रस्तावाला नागरिकांचा विरोध का आहे?",
+          content: "प्रस्तावित २२५ चौरस फुटांची घरे, पुनर्वसनाचे ठिकाण आणि घरवाटपाची प्रक्रिया याबाबत नागरिकांनी आक्षेप नोंदवले आहेत."
+        },
+        {
+          heading: "पुनर्वसनाबाबत महापालिकेचा अंतिम निर्णय झाला आहे का?",
+          content: "उपलब्ध वृत्तात नागरिकांचे आक्षेप आणि प्रस्तावित व्यवस्था नमूद आहे. पुढील निर्णयांसाठी मुंबई महानगरपालिकेच्या अधिकृत घोषणांची पडताळणी करणे आवश्यक आहे."
+        }
+      ]
+    },
+    faq: {
+      en: [
+        {
+          question: "Where is the proposed 120-foot DP road located?",
+          answer: "The proposed road passes through parts of Appapada and Krantinagar in Malad, Mumbai."
+        },
+        {
+          question: "How many residents may be affected by the project?",
+          answer: "According to the published report, more than 1,700 residents may be affected."
+        },
+        {
+          question: "How many residents received notices in the first phase?",
+          answer: "The report states that 140 residents received notices."
+        },
+        {
+          question: "What is the main objection raised by residents?",
+          answer: "Residents have questioned the proposed 225-square-foot rehabilitation homes and have raised concerns about the allotment process and location."
+        },
+        {
+          question: "Which authority is involved in the project?",
+          answer: "The Brihanmumbai Municipal Corporation (BMC) is mentioned in the report in connection with the notices and rehabilitation process."
+        }
+      ],
+      mr: [
+        {
+          question: "प्रस्तावित १२० फूट डी.पी. रोड कुठे आहे?",
+          answer: "हा प्रस्तावित रस्ता मुंबईतील मालाड परिसरातील आप्पापाडा आणि क्रांतीनगर भागातून जाणार आहे."
+        },
+        {
+          question: "या प्रकल्पामुळे किती नागरिक बाधित होऊ शकतात?",
+          answer: "प्रसिद्ध वृत्तानुसार, या प्रकल्पामुळे १,७०० हून अधिक नागरिक बाधित होण्याची शक्यता आहे."
+        },
+        {
+          question: "पहिल्या टप्प्यात किती नागरिकांना नोटिसा देण्यात आल्या?",
+          answer: "वृत्तानुसार, पहिल्या टप्प्यात १४० नागरिकांना नोटिसा देण्यात आल्या आहेत."
+        },
+        {
+          question: "स्थानिक नागरिकांचा मुख्य आक्षेप काय आहे?",
+          answer: "पुनर्वसनासाठी प्रस्तावित २२५ चौरस फुटांची घरे, घरवाटपाची प्रक्रिया आणि पुनर्वसनाचे ठिकाण याबाबत नागरिकांनी आक्षेप घेतले आहेत."
+        },
+        {
+          question: "या प्रकल्पाशी कोणती प्रशासकीय संस्था संबंधित आहे?",
+          answer: "या प्रकरणात मुंबई महानगरपालिका (BMC) नोटिसा आणि पुनर्वसन प्रक्रियेशी संबंधित असल्याचे वृत्तात नमूद आहे."
+        }
+      ]
+    },
+    mcqs: {
+      en: [
+        {
+          question: "Which area is associated with the proposed 120-foot DP road project in Malad?",
+          options: ["Appapada and Krantinagar", "Dadar and Parel", "Bandra and Khar", "Colaba and Fort"],
+          answer: "Appapada and Krantinagar"
+        },
+        {
+          question: "Which civic body is mentioned in the rehabilitation process?",
+          options: ["Pune Municipal Corporation", "Brihanmumbai Municipal Corporation", "Nashik Municipal Corporation", "Thane Municipal Corporation"],
+          answer: "Brihanmumbai Municipal Corporation"
+        },
+        {
+          question: "How many residents reportedly received notices in the first phase?",
+          options: ["40", "100", "140", "300"],
+          answer: "140"
+        },
+        {
+          question: "What is the proposed size of the rehabilitation homes mentioned in the report?",
+          options: ["150 square feet", "200 square feet", "225 square feet", "500 square feet"],
+          answer: "225 square feet"
+        },
+        {
+          question: "What is the main issue raised by residents?",
+          options: ["School admission", "Rehabilitation and home allotment", "Water tax", "Electricity tariff"],
+          answer: "Rehabilitation and home allotment"
+        }
+      ],
+      mr: [
+        {
+          question: "मालाडमधील प्रस्तावित १२० फूट डी.पी. रोड कोणत्या परिसरातून जाणार आहे?",
+          options: ["आप्पापाडा आणि क्रांतीनगर", "दादर आणि परळ", "वांद्रे आणि खार", "कुलाबा आणि फोर्ट"],
+          answer: "आप्पापाडा आणि क्रांतीनगर"
+        },
+        {
+          question: "पुनर्वसन प्रक्रियेशी संबंधित कोणत्या नागरी संस्थेचा उल्लेख वृत्तात आहे?",
+          options: ["पुणे महानगरपालिका", "बृहन्मुंबई महानगरपालिका", "नाशिक महानगरपालिका", "ठाणे महानगरपालिका"],
+          answer: "बृहन्मुंबई महानगरपालिका"
+        },
+        {
+          question: "पहिल्या टप्प्यात किती नागरिकांना नोटिसा देण्यात आल्याचे वृत्तात म्हटले आहे?",
+          options: ["४०", "१००", "१४०", "३००"],
+          answer: "१४०"
+        },
+        {
+          question: "पुनर्वसनासाठी किती चौरस फुटांच्या घरांचा प्रस्ताव असल्याचे वृत्तात नमूद आहे?",
+          options: ["१५० चौरस फूट", "२०० चौरस फूट", "२२५ चौरस फूट", "५०० चौरस फूट"],
+          answer: "२२५ चौरस फूट"
+        },
+        {
+          question: "स्थानिक नागरिकांचा मुख्य प्रश्न कोणता आहे?",
+          options: ["शाळेतील प्रवेश", "पुनर्वसन आणि घरवाटप", "पाणीपट्टी", "वीजदर"],
+          answer: "पुनर्वसन आणि घरवाटप"
+        }
+      ]
+    },
+    source: {
+      name: "Pudhari",
+      url: "https://pudhari.news/maharashtra/mumbai/malad-120-foot-dp-road-project-to-affect-over-1700-residents-in-krantinagar-and-appa-pada-sb97"
+    },
+    relatedSlugs: [],
+    keywords: [
+      "Malad DP Road Project 2026",
+      "Appapada Krantinagar news",
+      "Malad East 120 feet DP road",
+      "Appapada rehabilitation issue",
+      "Krantinagar rehabilitation",
+      "BMC road project Malad",
+      "Malad local news",
+      "Mumbai civic issues",
+      "आप्पापाडा बातम्या",
+      "क्रांतीनगर बातम्या",
+      "मालाड पूर्व डीपी रोड",
+      "मालाड १२० फूट रस्ता",
+      "आप्पापाडा पुनर्वसन",
+      "क्रांतीनगर पुनर्वसन",
+      "मुंबई महानगरपालिका",
+      "मालाड स्थानिक बातम्या",
+      "नागरिकांचे पुनर्वसन",
+      "घरवाटप लॉटरी"
     ]
   }
 ];
@@ -7000,6 +8225,449 @@ function ScrollToTop() {
   }, [pathname]);
   return null;
 }
+const siteConfig = {
+  name: "Samvidhan",
+  url: "https://www.mysamvidhan.in",
+  defaultTitle: "Samvidhan | Understand the Constitution of India",
+  defaultDescription: "Understand the Constitution of India with simple explanations in English and Marathi."
+};
+const seoRoutes = {
+  "/": { title: { en: siteConfig.defaultTitle, mr: "संविधान | भारताचे संविधान समजून घ्या" }, description: { en: siteConfig.defaultDescription, mr: "भारतीय संविधान, कलमे, मूलभूत अधिकार, कर्तव्ये आणि दुरुस्त्या सोप्या भाषेत समजून घ्या." }, priority: "1.0", changefreq: "weekly" },
+  "/articles": { title: { en: "Selected Constitutional Article Explanations | Samvidhan", mr: "निवडक संवैधानिक कलमांची स्पष्टीकरणे | संविधान" }, description: { en: "Search a selection of Indian Constitution Articles and read clear, simplified explanations in English and Marathi.", mr: "भारतीय संविधानातील निवडक कलमे शोधा आणि मराठी व इंग्रजीत सोपी स्पष्टीकरणे वाचा." }, priority: "0.9", changefreq: "weekly" },
+  "/current-affairs": { title: { en: "Current Affairs | Indian Constitution & Polity | MySamvidhan", mr: "चालू घडामोडी | भारतीय संविधान आणि राज्यशास्त्र | MySamvidhan" }, description: { en: "Read current affairs and important developments related to the Indian Constitution, polity and Supreme Court in simple language.", mr: "भारतीय संविधान, राज्यशास्त्र आणि सर्वोच्च न्यायालयाशी संबंधित चालू घडामोडी सोप्या भाषेत वाचा." }, priority: "0.9", changefreq: "daily" },
+  "/fundamental-rights": { title: { en: "Fundamental Rights | Samvidhan", mr: "मूलभूत अधिकार | संविधान" }, description: { en: "Understand the Fundamental Rights guaranteed by the Constitution of India.", mr: "भारतीय संविधानाने दिलेले मूलभूत अधिकार समजून घ्या." }, priority: "0.8", changefreq: "monthly" },
+  "/fundamental-duties": { title: { en: "Fundamental Duties | Samvidhan", mr: "मूलभूत कर्तव्ये | संविधान" }, description: { en: "Learn the Fundamental Duties of citizens of India.", mr: "भारताच्या नागरिकांची मूलभूत कर्तव्ये जाणून घ्या." }, priority: "0.8", changefreq: "monthly" },
+  "/directive-principles": { title: { en: "Directive Principles of State Policy | Samvidhan", mr: "राज्याच्या धोरणाची मार्गदर्शक तत्त्वे | संविधान" }, description: { en: "Explore the Directive Principles that guide governance and public policy.", mr: "शासन आणि सार्वजनिक धोरणाला दिशा देणारी मार्गदर्शक तत्त्वे जाणून घ्या." }, priority: "0.8", changefreq: "monthly" },
+  "/amendments": { title: { en: "Constitutional Amendments | Samvidhan", mr: "संविधान दुरुस्त्या | संविधान" }, description: { en: "Study important Constitutional Amendments and how India's Constitution has evolved.", mr: "महत्त्वाच्या संविधान दुरुस्त्या आणि संविधानातील बदलांचा अभ्यास करा." }, priority: "0.8", changefreq: "monthly" },
+  "/quiz": { title: { en: "Constitution Quiz | Samvidhan", mr: "संविधान प्रश्नमंजुषा | संविधान" }, description: { en: "Test your knowledge of the Constitution of India with a free quiz.", mr: "मोफत प्रश्नमंजुषेद्वारे भारतीय संविधानाचे तुमचे ज्ञान तपासा." }, priority: "0.7", changefreq: "monthly" },
+  "/faq": { title: { en: "Indian Constitution FAQs | Frequently Asked Questions – Samvidhan", mr: "भारतीय संविधान FAQ | वारंवार विचारले जाणारे प्रश्न – Samvidhan" }, description: { en: "Find answers to frequently asked questions about the Constitution of India, Fundamental Rights, Duties, Articles, Amendments, Preamble and more.", mr: "भारतीय संविधान, मूलभूत अधिकार, कर्तव्ये, कलमे, उद्देशिका, घटनादुरुस्ती आणि इतर महत्त्वाच्या विषयांवरील वारंवार विचारले जाणारे प्रश्न व उत्तरे जाणून घ्या." }, priority: "0.8", changefreq: "monthly" },
+  "/about": { title: { en: "About Samvidhan", mr: "संविधान विषयी" }, description: { en: "Learn about Samvidhan, an independent educational platform for constitutional knowledge.", mr: "संविधान या स्वतंत्र शैक्षणिक व्यासपीठाविषयी जाणून घ्या." }, priority: "0.5", changefreq: "yearly" },
+  "/contact": { title: { en: "Contact Samvidhan", mr: "संविधानशी संपर्क साधा" }, description: { en: "Contact Samvidhan with questions, suggestions, feedback or corrections.", mr: "प्रश्न, सूचना, अभिप्राय किंवा दुरुस्त्यांसाठी संविधानशी संपर्क साधा." }, priority: "0.4", changefreq: "yearly" },
+  "/privacy": { title: { en: "Privacy Policy | Samvidhan", mr: "गोपनीयता धोरण | संविधान" }, description: { en: "Read the Samvidhan Privacy Policy covering information, cookies, analytics and advertising.", mr: "माहिती, कुकीज, विश्लेषण आणि जाहिरातींसंबंधी संविधानचे गोपनीयता धोरण वाचा." }, priority: "0.3", changefreq: "yearly" },
+  "/privacy-policy": { title: { en: "Privacy Policy | Samvidhan", mr: "गोपनीयता धोरण | संविधान" }, description: { en: "Read the Samvidhan Privacy Policy covering information, cookies, analytics and advertising.", mr: "माहिती, कुकीज, विश्लेषण आणि जाहिरातींसंबंधी संविधानचे गोपनीयता धोरण वाचा." }, indexable: false },
+  "/terms": { title: { en: "Terms & Conditions | Samvidhan", mr: "नियम आणि अटी | संविधान" }, description: { en: "Read the Samvidhan Terms and Conditions for using this educational website.", mr: "या शैक्षणिक वेबसाइटच्या वापरासाठी संविधानचे नियम आणि अटी वाचा." }, priority: "0.3", changefreq: "yearly" },
+  "/disclaimer": { title: { en: "Disclaimer | Samvidhan", mr: "अस्वीकरण | संविधान" }, description: { en: "Read the Samvidhan educational and informational content disclaimer.", mr: "संविधानच्या शैक्षणिक आणि माहितीपर सामग्रीचे अस्वीकरण वाचा." }, priority: "0.3", changefreq: "yearly" },
+  "/learn": { title: { en: "Learn Indian Constitution | Samvidhan", mr: "भारतीय संविधान शिका | संविधान" }, description: { en: "Learn the Indian Constitution through guided Articles, Rights and exam preparation paths.", mr: "मार्गदर्शित कलमे, अधिकार आणि परीक्षा तयारीच्या माध्यमातून भारतीय संविधान शिका." }, priority: "0.8", changefreq: "monthly" },
+  "/exam-preparation": { title: { en: "Exam Preparation | Samvidhan", mr: "परीक्षा तयारी | संविधान" }, description: { en: "Prepare for MPSC and UPSC Constitution and polity examinations.", mr: "MPSC आणि UPSC संविधान व राज्यशास्त्र परीक्षांची तयारी करा." }, priority: "0.7", changefreq: "monthly" },
+  "/premium": { title: { en: "Samvidhan Premium | Learn Better", mr: "संविधान प्रीमियम | अधिक चांगले शिका" }, description: { en: "Explore structured constitutional revision, advanced practice and exam preparation.", mr: "संरचित संविधान उजळणी, प्रगत सराव आणि परीक्षा तयारीचा अनुभव घ्या." }, indexable: false },
+  "/article/:id": { indexable: true, changefreq: "monthly", priority: "0.7" },
+  "/dashboard": { title: { en: "Learning Dashboard | Samvidhan", mr: "अध्ययन डॅशबोर्ड | संविधान" }, description: { en: "Review saved Articles and the learning dashboard features available on Samvidhan.", mr: "Samvidhan वरील जतन केलेली कलमे आणि अध्ययन डॅशबोर्डची उपलब्ध वैशिष्ट्ये पाहा." }, indexable: false },
+  "/progress": { title: { en: "Learning Progress | Samvidhan", mr: "अध्ययन प्रगती | संविधान" }, description: { en: "View the learning progress indicators and practice summaries available on Samvidhan.", mr: "Samvidhan वरील अध्ययन प्रगती निर्देशक आणि सराव सारांश पाहा." }, indexable: false },
+  "/premium-quiz": { title: { en: "Advanced Quiz | Samvidhan", mr: "प्रगत प्रश्नमंजुषा | संविधान" }, description: { en: "Explore the advanced quiz interface and its topic and difficulty controls.", mr: "प्रगत प्रश्नमंजुषेचा इंटरफेस आणि विषय व कठीणता निवडीचे पर्याय पाहा." }, indexable: false },
+  "/notes": { title: { en: "Revision Notes | Samvidhan", mr: "उजळणीच्या नोंदी | संविधान" }, description: { en: "Browse the revision note cards currently available on Samvidhan.", mr: "Samvidhan वर सध्या उपलब्ध असलेल्या उजळणीच्या नोंदी पहा." }, indexable: false },
+  "/bookmarks": { title: { en: "Saved Articles | Samvidhan", mr: "जतन केलेली कलमे | संविधान" }, description: { en: "View the Constitution Articles saved in this browser.", mr: "या ब्राउझरमध्ये जतन केलेली संविधानातील कलमे पाहा." }, indexable: false }
+};
+function getSeoRoute(pathname) {
+  if (seoRoutes[pathname]) return seoRoutes[pathname];
+  if (pathname.startsWith("/article/")) return seoRoutes["/article/:id"];
+  if (pathname.startsWith("/current-affairs/")) return { indexable: true, changefreq: "daily", priority: "0.7" };
+  return { title: { en: siteConfig.defaultTitle, mr: "संविधान | भारताचे संविधान समजून घ्या" }, description: { en: siteConfig.defaultDescription, mr: "भारतीय संविधानाबद्दल सोप्या भाषेत जाणून घ्या." }, indexable: false };
+}
+const __vite_import_meta_env__$1 = {};
+const SITE_URL$1 = ((__vite_import_meta_env__$1 == null ? void 0 : __vite_import_meta_env__$1.VITE_SITE_URL) || (typeof process !== "undefined" ? (_a = process.env) == null ? void 0 : _a.VITE_SITE_URL : "") || siteConfig.url).replace(/\/+$/, "");
+function getCanonicalUrl(pathname) {
+  const cleanPath = pathname === "/" ? "/" : pathname.replace(/\/+$/, "");
+  return `${SITE_URL$1}${cleanPath}`;
+}
+function getSeoMetadata(pathname, language, overrides = {}) {
+  var _a2, _b2, _c, _d;
+  const route = getSeoRoute(pathname);
+  const article = pathname.startsWith("/article/") ? getArticleById(pathname.split("/").pop()) : null;
+  const currentAffair = pathname.startsWith("/current-affairs/") ? getCurrentAffairBySlug(pathname.split("/").pop()) : null;
+  const cleanPath = pathname === "/" ? "/" : pathname.replace(/\/+$/, "");
+  const isFilteredArticleList = cleanPath === "/articles" && Boolean(overrides.search);
+  let title = "";
+  let description = "";
+  let ogType = "website";
+  let image = `${SITE_URL$1}/images/mysamvidhan-logo.svg`;
+  let imageAlt = siteConfig.name;
+  if (article) {
+    const number = String(article.articleNumber || "").replace(/^article\s*/i, "").replace(/^कलम\s*/i, "").trim();
+    const articleTitle = language === "mr" ? article.title.mr : article.title.en;
+    title = language === "mr" ? `कलम ${number} : अर्थ, तरतुदी आणि MPSC-UPSC | MySamvidhan` : `Article ${number}: Meaning and Provisions | MPSC UPSC`;
+    description = language === "mr" ? `भारतीय संविधानातील कलम ${number} सोप्या मराठी आणि English मध्ये समजून घ्या. ${articleTitle}चा अर्थ, घटनात्मक तरतुदी आणि MPSC-UPSC परीक्षेसाठी महत्त्वाचे मुद्दे वाचा.` : `Understand Article ${number} of the Indian Constitution in English and Marathi. Learn its meaning, constitutional provisions and key points for UPSC and MPSC preparation.`;
+    image = `${SITE_URL$1}/images/articles/article-${String(article.id).toLowerCase()}.webp`;
+    imageAlt = `${article.articleNumber} — ${articleTitle}`;
+    ogType = "article";
+  } else if (currentAffair) {
+    title = language === "mr" ? ((_a2 = currentAffair.seoTitle) == null ? void 0 : _a2.mr) || currentAffair.title.mr : ((_b2 = currentAffair.seoTitle) == null ? void 0 : _b2.en) || currentAffair.title.en;
+    description = language === "mr" ? currentAffair.shortDescription.mr : currentAffair.shortDescription.en;
+    ogType = "article";
+  } else if (((_c = seoRoutes[cleanPath]) == null ? void 0 : _c.title) && ((_d = seoRoutes[cleanPath]) == null ? void 0 : _d.description)) {
+    title = language === "mr" ? route.title.mr : route.title.en;
+    description = language === "mr" ? route.description.mr : route.description.en;
+  } else {
+    title = language === "mr" ? "पृष्ठ सापडले नाही | MySamvidhan" : "Page Not Found | MySamvidhan";
+    description = language === "mr" ? "विनंती केलेले पृष्ठ सापडले नाही." : "The requested page could not be found.";
+  }
+  const canonicalUrl = getCanonicalUrl(pathname);
+  const isUnknownDetail = pathname.startsWith("/article/") && !article || pathname.startsWith("/current-affairs/") && !currentAffair;
+  const robots = overrides.robots || (isUnknownDetail || route.indexable === false || isFilteredArticleList ? "noindex, follow" : "index, follow");
+  return {
+    title: overrides.title || title,
+    description: overrides.description || description,
+    canonicalUrl: overrides.canonical ? getCanonicalUrl(overrides.canonical) : canonicalUrl,
+    robots,
+    ogType,
+    image,
+    imageAlt,
+    language,
+    indexable: robots.startsWith("index"),
+    article,
+    currentAffair
+  };
+}
+function setMeta(attribute, value, content) {
+  let element = document.head.querySelector(`meta[${attribute}="${value}"]`);
+  if (!element) {
+    element = document.createElement("meta");
+    element.setAttribute(attribute, value);
+    document.head.appendChild(element);
+  }
+  element.setAttribute("content", content);
+}
+function setLink(rel, href) {
+  let element = document.head.querySelector(`link[rel="${rel}"]`);
+  if (!element) {
+    element = document.createElement("link");
+    element.setAttribute("rel", rel);
+    document.head.appendChild(element);
+  }
+  element.setAttribute("href", href);
+}
+function PageMeta(overrides = {}) {
+  const { pathname, search } = useLocation();
+  const { language } = useLanguage();
+  useEffect(() => {
+    var _a2, _b2, _c;
+    const metadata = getSeoMetadata(pathname, language, { ...overrides, search });
+    const lang = language === "mr" ? "mr-IN" : "en-IN";
+    document.title = metadata.title;
+    document.documentElement.lang = lang;
+    setMeta("name", "description", metadata.description);
+    setMeta("name", "robots", metadata.robots);
+    setMeta("property", "og:title", metadata.title);
+    setMeta("property", "og:description", metadata.description);
+    setMeta("property", "og:type", metadata.ogType);
+    setMeta("property", "og:url", metadata.canonicalUrl);
+    setMeta("property", "og:site_name", "Samvidhan");
+    setMeta("property", "og:image", metadata.image);
+    setMeta("property", "og:image:alt", metadata.imageAlt);
+    setMeta("property", "og:locale", lang.replace("-", "_"));
+    setMeta("name", "twitter:card", metadata.ogType === "article" ? "summary_large_image" : "summary");
+    setMeta("name", "twitter:title", metadata.title);
+    setMeta("name", "twitter:description", metadata.description);
+    setMeta("name", "twitter:image", metadata.image);
+    setMeta("name", "twitter:image:alt", metadata.imageAlt);
+    setLink("canonical", metadata.canonicalUrl);
+    if ((_b2 = (_a2 = metadata.article) == null ? void 0 : _a2.keywords) == null ? void 0 : _b2.length) {
+      setMeta("name", "keywords", metadata.article.keywords.join(", "));
+    } else {
+      (_c = document.head.querySelector('meta[name="keywords"]')) == null ? void 0 : _c.remove();
+    }
+  }, [pathname, search, language, overrides.title, overrides.description, overrides.canonical, overrides.robots]);
+  return null;
+}
+const faqCategories = [
+  { key: "general", title: { en: "General", mr: "सामान्य प्रश्न" } },
+  { key: "preamble", title: { en: "Preamble", mr: "उद्देशिका" } },
+  { key: "rights", title: { en: "Fundamental Rights", mr: "मूलभूत अधिकार" } },
+  { key: "duties", title: { en: "Fundamental Duties", mr: "मूलभूत कर्तव्ये" } },
+  { key: "directive", title: { en: "Directive Principles", mr: "राज्याच्या मार्गदर्शक तत्त्वे" } },
+  { key: "government", title: { en: "Parliament & Government", mr: "संसद व शासन" } },
+  { key: "judiciary", title: { en: "Judiciary", mr: "न्यायव्यवस्था" } },
+  { key: "amendments", title: { en: "Amendments", mr: "घटनादुरुस्ती" } },
+  { key: "important", title: { en: "Other Important Questions", mr: "इतर महत्त्वाचे प्रश्न" } }
+];
+const faqs$1 = [
+  { id: "what-is-constitution", category: "general", question: { en: "What is the Constitution of India?", mr: "भारताचे संविधान म्हणजे काय?" }, answer: { en: "The Constitution of India is the supreme law of the country. It establishes the structure, powers and responsibilities of government and protects the rights of people.", mr: "भारताचे संविधान हा देशाचा सर्वोच्च कायदा आहे. ते शासनाची रचना, अधिकार आणि जबाबदाऱ्या निश्चित करते तसेच लोकांच्या अधिकारांचे संरक्षण करते." } },
+  { id: "when-adopted", category: "general", question: { en: "When was the Constitution of India adopted?", mr: "भारताचे संविधान कधी स्वीकारले गेले?" }, answer: { en: "The Constituent Assembly adopted the Constitution on 26 November 1949. It came into force on 26 January 1950, which is celebrated as Republic Day.", mr: "संविधान सभेने २६ नोव्हेंबर १९४९ रोजी संविधान स्वीकारले. ते २६ जानेवारी १९५० रोजी लागू झाले आणि हा दिवस प्रजासत्ताक दिन म्हणून साजरा केला जातो." } },
+  { id: "longest-written", category: "general", question: { en: "Why is the Indian Constitution considered a detailed written Constitution?", mr: "भारतीय संविधान सविस्तर लिखित संविधान का मानले जाते?" }, answer: { en: "It describes institutions of government, powers, procedures, rights, duties and relations between different levels of government in considerable detail. This detail supports a large and diverse democracy.", mr: "यामध्ये शासनसंस्था, अधिकार, प्रक्रिया, अधिकार व कर्तव्ये तसेच शासनाच्या विविध स्तरांमधील संबंध यांचे सविस्तर वर्णन आहे. ही सविस्तरता मोठ्या आणि विविधतापूर्ण लोकशाहीला आधार देते." } },
+  { id: "constituent-assembly", category: "general", question: { en: "What was the Constituent Assembly?", mr: "संविधान सभा म्हणजे काय?" }, answer: { en: "The Constituent Assembly was the representative body that discussed and drafted the Constitution of India. It worked through committees and debates before adopting the final document.", mr: "संविधान सभा ही भारताचे संविधान तयार करणारी प्रतिनिधी संस्था होती. अंतिम दस्तऐवज स्वीकारण्यापूर्वी तिने समित्या आणि चर्चांद्वारे काम केले." } },
+  { id: "ambedkar-role", category: "general", question: { en: "What was Dr. B. R. Ambedkar’s role in making the Constitution?", mr: "संविधान निर्मितीत डॉ. बाबासाहेब आंबेडकरांची भूमिका काय होती?" }, answer: { en: "Dr. B. R. Ambedkar chaired the Drafting Committee of the Constituent Assembly. He played a major role in shaping and presenting the draft Constitution for discussion.", mr: "डॉ. बाबासाहेब आंबेडकर संविधान सभेच्या मसुदा समितीचे अध्यक्ष होते. संविधानाचा मसुदा तयार करून तो चर्चेसाठी मांडण्यात त्यांची महत्त्वाची भूमिका होती." } },
+  { id: "preamble-purpose", category: "preamble", question: { en: "What is the purpose of the Preamble?", mr: "उद्देशिकेचा उद्देश काय आहे?" }, answer: { en: "The Preamble states the constitutional vision and the broad ideals that guide the Republic. It describes India as sovereign, socialist, secular, democratic and republican, and promises justice, liberty, equality and fraternity.", mr: "उद्देशिका संविधानाची दृष्टी आणि प्रजासत्ताकाला मार्गदर्शन करणारी व्यापक मूल्ये सांगते. ती भारताला सार्वभौम, समाजवादी, धर्मनिरपेक्ष, लोकशाहीवादी आणि प्रजासत्ताक म्हणून वर्णन करते तसेच न्याय, स्वातंत्र्य, समता आणि बंधुता यांचे आश्वासन देते." } },
+  { id: "preamble-part", category: "preamble", question: { en: "Is the Preamble a part of the Constitution?", mr: "उद्देशिका संविधानाचा भाग आहे का?" }, answer: { en: "Yes. The Supreme Court held in the Kesavananda Bharati case that the Preamble is part of the Constitution. It helps explain the Constitution’s objectives, though it does not by itself grant a separate legal power.", mr: "होय. केशवानंद भारती प्रकरणात सर्वोच्च न्यायालयाने उद्देशिका संविधानाचा भाग असल्याचे स्पष्ट केले. ती संविधानाची उद्दिष्टे समजून घेण्यास मदत करते, मात्र स्वतःहून स्वतंत्र कायदेशीर अधिकार देत नाही." } },
+  { id: "fundamental-rights", category: "rights", question: { en: "What are Fundamental Rights?", mr: "मूलभूत अधिकार म्हणजे काय?" }, answer: { en: "Fundamental Rights are constitutional guarantees that protect important freedoms and equality. They are mainly contained in Part III of the Constitution.", mr: "मूलभूत अधिकार हे महत्त्वाचे स्वातंत्र्य आणि समानतेचे संरक्षण करणारे संवैधानिक अधिकार आहेत. ते प्रामुख्याने संविधानाच्या भाग III मध्ये दिले आहेत." }, link: "/fundamental-rights", linkLabel: { en: "Explore Fundamental Rights", mr: "मूलभूत अधिकार पहा" } },
+  { id: "right-to-equality", category: "rights", question: { en: "Which Article deals with equality before law?", mr: "कायद्यासमोर समानतेशी संबंधित कलम कोणते?" }, answer: { en: "Article 14 guarantees equality before the law and equal protection of the laws. It requires the State to treat people fairly under the constitutional framework.", mr: "कलम १४ कायद्यासमोर समानता आणि कायद्यांचे समान संरक्षण यांची हमी देते. संवैधानिक चौकटीत राज्याने लोकांशी न्याय्य वागणे आवश्यक आहे." }, link: "/article/14", linkLabel: { en: "Read Article 14", mr: "कलम १४ वाचा" } },
+  { id: "article-21", category: "rights", question: { en: "Why is Article 21 important?", mr: "कलम २१ महत्त्वाचे का आहे?" }, answer: { en: "Article 21 protects life and personal liberty according to procedure established by law. Judicial decisions have interpreted its protection broadly over time.", mr: "कलम २१ कायद्याने स्थापित केलेल्या प्रक्रियेनुसार जीवन आणि व्यक्तिगत स्वातंत्र्याचे संरक्षण करते. न्यायालयीन निर्णयांनी कालांतराने या संरक्षणाचा व्यापक अर्थ लावला आहे." }, link: "/article/21", linkLabel: { en: "Read Article 21", mr: "कलम २१ वाचा" } },
+  { id: "constitutional-remedies", category: "rights", question: { en: "What is the Right to Constitutional Remedies?", mr: "संवैधानिक उपायांचा अधिकार म्हणजे काय?" }, answer: { en: "It allows a person to approach the Supreme Court for enforcement of Fundamental Rights under Article 32. High Courts also have important writ jurisdiction under Article 226.", mr: "कलम ३२ अंतर्गत मूलभूत अधिकारांच्या अंमलबजावणीसाठी व्यक्तीला सर्वोच्च न्यायालयात जाण्याचा अधिकार मिळतो. कलम २२६ अंतर्गत उच्च न्यायालयांनाही महत्त्वाचे लेखी अधिकारक्षेत्र आहे." }, link: "/article/32", linkLabel: { en: "Read Article 32", mr: "कलम ३२ वाचा" } },
+  { id: "duties-number", category: "duties", question: { en: "How many Fundamental Duties are there?", mr: "मूलभूत कर्तव्ये किती आहेत?" }, answer: { en: "The Constitution currently lists eleven Fundamental Duties for citizens in Article 51A. They encourage respect for constitutional values, the nation, the environment and public responsibility.", mr: "संविधानाच्या कलम ५१अ मध्ये नागरिकांसाठी सध्या अकरा मूलभूत कर्तव्ये दिली आहेत. ती संवैधानिक मूल्ये, राष्ट्र, पर्यावरण आणि सार्वजनिक जबाबदारीचा आदर करण्यास प्रोत्साहन देतात." }, link: "/fundamental-duties", linkLabel: { en: "Explore Fundamental Duties", mr: "मूलभूत कर्तव्ये पहा" } },
+  { id: "duties-added", category: "duties", question: { en: "Which Amendment added the Fundamental Duties?", mr: "मूलभूत कर्तव्ये कोणत्या दुरुस्तीने समाविष्ट झाली?" }, answer: { en: "The 42nd Constitutional Amendment added the Fundamental Duties in 1976. The duty relating to providing educational opportunities to children was added later by the 86th Amendment.", mr: "१९७६ मध्ये ४२व्या संविधान दुरुस्तीने मूलभूत कर्तव्ये समाविष्ट केली. मुलांना शैक्षणिक संधी देण्याशी संबंधित कर्तव्य नंतर ८६व्या दुरुस्तीने जोडले गेले." } },
+  { id: "directive-principles", category: "directive", question: { en: "What are the Directive Principles of State Policy?", mr: "राज्याच्या धोरणाची मार्गदर्शक तत्त्वे म्हणजे काय?" }, answer: { en: "They are principles in Part IV that guide the State in making laws and policies for social and economic welfare. They are not enforceable by courts, but are fundamental to governance.", mr: "ही भाग IV मधील तत्त्वे आहेत जी सामाजिक आणि आर्थिक कल्याणासाठी कायदे व धोरणे बनवताना राज्याला मार्गदर्शन करतात. त्यांची न्यायालयाद्वारे अंमलबजावणी करता येत नाही, परंतु ती शासनासाठी मूलभूत आहेत." }, link: "/directive-principles", linkLabel: { en: "Explore Directive Principles", mr: "मार्गदर्शक तत्त्वे पहा" } },
+  { id: "rights-directives-difference", category: "directive", question: { en: "How are Fundamental Rights different from Directive Principles?", mr: "मूलभूत अधिकार आणि मार्गदर्शक तत्त्वांमध्ये काय फरक आहे?" }, answer: { en: "Fundamental Rights are generally enforceable through courts and protect individual freedoms. Directive Principles guide governance and welfare policy but are not directly enforceable by courts.", mr: "मूलभूत अधिकारांची साधारणपणे न्यायालयामार्फत अंमलबजावणी करता येते आणि ते व्यक्तिस्वातंत्र्याचे संरक्षण करतात. मार्गदर्शक तत्त्वे शासन व कल्याणकारी धोरणांना दिशा देतात, परंतु त्यांची थेट न्यायालयीन अंमलबजावणी करता येत नाही." } },
+  { id: "parliament-parts", category: "government", question: { en: "What are the two Houses of Parliament?", mr: "संसदेची दोन सभागृहे कोणती?" }, answer: { en: "The Parliament of India consists of the President and two Houses: the Rajya Sabha, or Council of States, and the Lok Sabha, or House of the People.", mr: "भारताची संसद राष्ट्रपती आणि दोन सभागृहांनी बनलेली आहे: राज्यसभा आणि लोकसभा." } },
+  { id: "lok-sabha-term", category: "government", question: { en: "What is the normal term of the Lok Sabha?", mr: "लोकसभेचा सामान्य कार्यकाळ किती असतो?" }, answer: { en: "The normal term of the Lok Sabha is five years from the date appointed for its first meeting, unless it is dissolved earlier. The Constitution provides special rules during a Proclamation of Emergency.", mr: "लोकसभेचा सामान्य कार्यकाळ तिच्या पहिल्या बैठकीसाठी ठरवलेल्या तारखेपासून पाच वर्षांचा असतो, जोपर्यंत ती आधी विसर्जित होत नाही. आणीबाणीच्या घोषणेदरम्यान संविधानात विशेष तरतुदी आहेत." } },
+  { id: "president-election", category: "government", question: { en: "How is the President of India elected?", mr: "भारताच्या राष्ट्रपतींची निवड कशी होते?" }, answer: { en: "The President is elected indirectly by an electoral college consisting of elected members of both Houses of Parliament and elected members of the Legislative Assemblies of the States and eligible Union Territories.", mr: "राष्ट्रपतींची अप्रत्यक्ष निवड संसदच्या दोन्ही सभागृहांतील निवडून आलेले सदस्य आणि राज्ये व पात्र केंद्रशासित प्रदेशांच्या विधानसभांतील निवडून आलेले सदस्य असलेल्या निर्वाचक मंडळाद्वारे केली जाते." } },
+  { id: "council-ministers", category: "government", question: { en: "Who aids and advises the President?", mr: "राष्ट्रपतींना कोण मदत आणि सल्ला देते?" }, answer: { en: "The Council of Ministers, with the Prime Minister at its head, aids and advises the President. The President generally acts in accordance with that advice under the constitutional system.", mr: "पंतप्रधानांच्या नेतृत्वाखालील मंत्रिपरिषद राष्ट्रपतींना मदत आणि सल्ला देते. संवैधानिक व्यवस्थेनुसार राष्ट्रपती सामान्यतः त्या सल्ल्यानुसार कार्य करतात." } },
+  { id: "supreme-court", category: "judiciary", question: { en: "What is the role of the Supreme Court?", mr: "सर्वोच्च न्यायालयाची भूमिका काय आहे?" }, answer: { en: "The Supreme Court is the highest court in India. It settles certain constitutional and legal disputes, protects constitutional rights through its jurisdiction and provides authoritative interpretations of law.", mr: "सर्वोच्च न्यायालय हे भारतातील सर्वोच्च न्यायालय आहे. ते संवैधानिक आणि कायदेशीर वाद सोडवते, आपल्या अधिकारक्षेत्रातून संवैधानिक अधिकारांचे संरक्षण करते आणि कायद्याचा अधिकृत अर्थ स्पष्ट करते." } },
+  { id: "judicial-review", category: "judiciary", question: { en: "What is judicial review?", mr: "न्यायालयीन पुनरावलोकन म्हणजे काय?" }, answer: { en: "Judicial review is the power of courts to examine whether laws and executive actions comply with the Constitution. A measure that violates the Constitution may be invalidated to the extent of the violation.", mr: "न्यायालयीन पुनरावलोकन म्हणजे कायदे आणि कार्यकारी कृती संविधानाशी सुसंगत आहेत का हे तपासण्याचा न्यायालयांचा अधिकार. संविधानाचे उल्लंघन करणारी तरतूद उल्लंघनाच्या मर्यादेपर्यंत अवैध ठरवली जाऊ शकते." } },
+  { id: "independent-judiciary", category: "judiciary", question: { en: "Why is an independent judiciary important?", mr: "स्वतंत्र न्यायव्यवस्था महत्त्वाची का आहे?" }, answer: { en: "An independent judiciary can decide disputes impartially, interpret the Constitution and protect rights without improper pressure. Judicial independence supports the rule of law and separation of powers.", mr: "स्वतंत्र न्यायव्यवस्था वादांचा निष्पक्ष निर्णय घेऊ शकते, संविधानाचा अर्थ स्पष्ट करू शकते आणि अनुचित दबावाशिवाय अधिकारांचे संरक्षण करू शकते. न्यायालयीन स्वातंत्र्य कायद्याचे राज्य आणि सत्ताविभाजनाला आधार देते." } },
+  { id: "amendment-meaning", category: "amendments", question: { en: "What is a Constitutional Amendment?", mr: "संविधान दुरुस्ती म्हणजे काय?" }, answer: { en: "A Constitutional Amendment is a formal change to the text or operation of the Constitution made through the procedure prescribed by Article 368 and other applicable provisions.", mr: "संविधान दुरुस्ती म्हणजे कलम ३६८ आणि इतर लागू तरतुदींमध्ये सांगितलेल्या प्रक्रियेनुसार संविधानाच्या मजकुरात किंवा कार्यपद्धतीत केला जाणारा औपचारिक बदल." }, link: "/amendments", linkLabel: { en: "Explore Amendments", mr: "दुरुस्त्या पहा" } },
+  { id: "amendment-procedure", category: "amendments", question: { en: "How is the Constitution amended?", mr: "संविधानात दुरुस्ती कशी केली जाते?" }, answer: { en: "The procedure varies according to the provision being changed. Many amendments require a special majority in Parliament, while some also require ratification by at least half of the State Legislatures.", mr: "बदलल्या जाणाऱ्या तरतुदीनुसार प्रक्रिया वेगवेगळी असते. अनेक दुरुस्त्यांसाठी संसदेत विशेष बहुमत आवश्यक असते, तर काही दुरुस्त्यांना किमान निम्म्या राज्यांच्या विधानमंडळांची मान्यता देखील आवश्यक असते." } },
+  { id: "basic-structure", category: "amendments", question: { en: "What is the basic structure doctrine?", mr: "मूलभूत रचना सिद्धांत म्हणजे काय?" }, answer: { en: "The basic structure doctrine means that Parliament’s power to amend the Constitution cannot be used to destroy its basic features. The Supreme Court developed this doctrine in the Kesavananda Bharati decision.", mr: "मूलभूत रचना सिद्धांतानुसार संविधानात दुरुस्ती करण्याचा संसदेचा अधिकार संविधानाची मूलभूत वैशिष्ट्ये नष्ट करण्यासाठी वापरता येत नाही. सर्वोच्च न्यायालयाने केशवानंद भारती निकालात हा सिद्धांत विकसित केला." } },
+  { id: "citizenship", category: "important", question: { en: "Where are citizenship provisions found in the Constitution?", mr: "नागरिकत्वाच्या तरतुदी संविधानाच्या कोणत्या भागात आहेत?" }, answer: { en: "Citizenship provisions are found in Part II of the Constitution, covering Articles 5 to 11. Parliament has power to make laws on citizenship subject to the constitutional framework.", mr: "नागरिकत्वाच्या तरतुदी संविधानाच्या भाग II मध्ये, कलम ५ ते ११ मध्ये आहेत. संवैधानिक चौकटीच्या अधीन राहून नागरिकत्वाबाबत कायदे करण्याचा अधिकार संसदेला आहे." } },
+  { id: "emergency-types", category: "important", question: { en: "What are the constitutional types of Emergency?", mr: "संविधानातील आणीबाणीचे प्रकार कोणते?" }, answer: { en: "The Constitution provides for National Emergency under Article 352, President’s Rule in a State under Article 356 and Financial Emergency under Article 360. Each has distinct constitutional conditions and effects.", mr: "संविधानात कलम ३५२ अंतर्गत राष्ट्रीय आणीबाणी, कलम ३५६ अंतर्गत राज्यातील राष्ट्रपती राजवट आणि कलम ३६० अंतर्गत आर्थिक आणीबाणीची तरतूद आहे. प्रत्येकासाठी वेगळ्या संवैधानिक अटी आणि परिणाम आहेत." } },
+  { id: "federal-system", category: "important", question: { en: "Is India a federal or unitary country?", mr: "भारत संघराज्यात्मक आहे की एकात्मक?" }, answer: { en: "India has a constitutional system with federal features, including governments at the Union and State levels, while also giving the Union important powers. It is often described as a federation with a strong Union.", mr: "भारताच्या व्यवस्थेत संघ आणि राज्य पातळीवरील सरकारांसह संघराज्यात्मक वैशिष्ट्ये आहेत, परंतु संघाला महत्त्वाचे अधिकारही दिले आहेत. म्हणून भारताचे वर्णन मजबूत संघ असलेले संघराज्य असे केले जाते." } },
+  { id: "schedules", category: "important", question: { en: "What are Schedules in the Constitution?", mr: "संविधानातील अनुसूच्या म्हणजे काय?" }, answer: { en: "Schedules contain supplementary details connected with constitutional provisions, such as allocation of subjects, forms, administration of certain areas and recognised languages. They support the operation of the main constitutional text.", mr: "अनुसूच्यांमध्ये संवैधानिक तरतुदींशी संबंधित पूरक तपशील, जसे विषयांचे वाटप, नमुने, काही क्षेत्रांचे प्रशासन आणि मान्यताप्राप्त भाषा दिल्या आहेत. त्या संविधानाच्या मुख्य मजकुराच्या अंमलबजावणीला मदत करतात." } },
+  { id: "rule-of-law", category: "important", question: { en: "What does the rule of law mean?", mr: "कायद्याचे राज्य म्हणजे काय?" }, answer: { en: "The rule of law means that public power must operate within the law and that everyone is subject to the law. It rejects arbitrary exercise of power and supports equality before law.", mr: "कायद्याचे राज्य म्हणजे सार्वजनिक सत्ता कायद्याच्या चौकटीत चालली पाहिजे आणि प्रत्येकजण कायद्याच्या अधीन असला पाहिजे. हे मनमानी सत्तावापराला नाकारते आणि कायद्यासमोर समानतेला आधार देते." } },
+  { id: "separation-powers", category: "important", question: { en: "What is separation of powers?", mr: "सत्ताविभाजन म्हणजे काय?" }, answer: { en: "Separation of powers distributes public functions among the legislature, executive and judiciary. In India, these institutions have distinct roles with constitutional checks and interaction rather than a completely rigid separation.", mr: "सत्ताविभाजनात सार्वजनिक कार्ये विधिमंडळ, कार्यपालिका आणि न्यायपालिका यांच्यात विभागली जातात. भारतात या संस्थांची भूमिका वेगळी असली तरी त्यांच्यात संवैधानिक नियंत्रण आणि परस्परसंवाद आहे; पूर्णपणे कठोर विभाजन नाही." } }
+];
+const __vite_import_meta_env__ = {};
+const SITE_URL = ((__vite_import_meta_env__ == null ? void 0 : __vite_import_meta_env__.VITE_SITE_URL) || (typeof process !== "undefined" ? (_b = process.env) == null ? void 0 : _b.VITE_SITE_URL : "") || siteConfig.url).replace(/\/+$/, "");
+const LOGO_URL = `${SITE_URL}/images/mysamvidhan-logo.svg`;
+function localize(value, language) {
+  return language === "mr" ? (value == null ? void 0 : value.mr) || "" : (value == null ? void 0 : value.en) || "";
+}
+function getBreadcrumbSchema(pathname, search, language, pageUrl) {
+  const items = getBreadcrumbItems(pathname, search, {
+    language,
+    t: (key) => translateBreadcrumb(key, language),
+    pick: (value) => localize(value, language)
+  });
+  if (!items.length) return null;
+  return {
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.label,
+      ...item.to ? { item: getCanonicalUrl(item.to) } : {}
+    }))
+  };
+}
+function getVisiblePageType(pathname) {
+  if (pathname === "/about") return "AboutPage";
+  if (pathname === "/contact") return "ContactPage";
+  if (pathname === "/articles" || pathname === "/current-affairs") return "CollectionPage";
+  return "WebPage";
+}
+function getArticleList(pathname, language) {
+  const list = pathname === "/articles" ? articles : currentAffairs;
+  return {
+    "@type": "ItemList",
+    itemListElement: list.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: pathname === "/articles" ? `${SITE_URL}/article/${item.id}` : `${SITE_URL}/current-affairs/${item.slug}`,
+      name: pathname === "/articles" ? item.articleNumber : localize(item.title, language)
+    }))
+  };
+}
+function buildStructuredData(pathname, search = "", language = "en") {
+  var _a2, _b2;
+  const route = getSeoRoute(pathname);
+  const article = pathname.startsWith("/article/") ? getArticleById(pathname.split("/").pop()) : null;
+  const currentAffair = pathname.startsWith("/current-affairs/") ? getCurrentAffairBySlug(pathname.split("/").pop()) : null;
+  if (route.indexable === false || pathname === "/articles" && Boolean(search) || pathname.startsWith("/article/") && !article || pathname.startsWith("/current-affairs/") && !currentAffair || !route.title && !article && !currentAffair) {
+    return [];
+  }
+  const pageUrl = getCanonicalUrl(pathname);
+  const pick = (value) => localize(value, language);
+  const title = article ? `${article.articleNumber} — ${pick(article.title)} | ${siteConfig.name}` : currentAffair ? pick(currentAffair.seoTitle || currentAffair.title) : pick(route.title);
+  const description = article ? pick(article.simpleExplanation) : currentAffair ? pick(currentAffair.shortDescription) : pick(route.description);
+  const organizationId = `${SITE_URL}#organization`;
+  const websiteId = `${SITE_URL}#website`;
+  const pageId = `${pageUrl}#webpage`;
+  const breadcrumb = getBreadcrumbSchema(pathname, search, language, pageUrl);
+  const graph = [
+    {
+      "@type": "Organization",
+      "@id": organizationId,
+      name: siteConfig.name,
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: LOGO_URL
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": websiteId,
+      name: siteConfig.name,
+      url: SITE_URL,
+      publisher: { "@id": organizationId },
+      inLanguage: language === "mr" ? "mr-IN" : "en-IN",
+      potentialAction: {
+        "@type": "SearchAction",
+        target: `${SITE_URL}/articles?q={search_term_string}`,
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": getVisiblePageType(pathname),
+      "@id": pageId,
+      url: pageUrl,
+      name: title,
+      description,
+      isPartOf: { "@id": websiteId },
+      inLanguage: language === "mr" ? "mr-IN" : "en-IN",
+      ...breadcrumb ? { breadcrumb: { "@id": breadcrumb["@id"] } } : {},
+      ...article || currentAffair ? { mainEntity: { "@id": `${pageUrl}#article` } } : {},
+      ...pathname === "/articles" || pathname === "/current-affairs" ? { mainEntity: getArticleList(pathname, language) } : {}
+    }
+  ];
+  if (breadcrumb) graph.push(breadcrumb);
+  if (article) {
+    graph.push({
+      "@type": "Article",
+      "@id": `${pageUrl}#article`,
+      headline: pick(article.title),
+      description,
+      image: `${SITE_URL}/images/articles/article-${String(article.id).toLowerCase()}.webp`,
+      mainEntityOfPage: { "@id": pageId },
+      url: pageUrl,
+      inLanguage: language === "mr" ? "mr-IN" : "en-IN",
+      publisher: { "@id": organizationId },
+      ...article.articleNumber ? { articleSection: article.articleNumber } : {},
+      ...((_a2 = article.keywords) == null ? void 0 : _a2.length) ? { keywords: article.keywords.join(", ") } : {}
+    });
+  }
+  if (currentAffair) {
+    graph.push({
+      "@type": "Article",
+      "@id": `${pageUrl}#article`,
+      headline: pick(currentAffair.title),
+      description,
+      mainEntityOfPage: { "@id": pageId },
+      url: pageUrl,
+      inLanguage: language === "mr" ? "mr-IN" : "en-IN",
+      publisher: { "@id": organizationId },
+      ...currentAffair.date ? { datePublished: currentAffair.date } : {},
+      ...currentAffair.updatedAt ? { dateModified: currentAffair.updatedAt } : {},
+      ...currentAffair.category ? { articleSection: currentAffair.category } : {},
+      ...((_b2 = currentAffair.keywords) == null ? void 0 : _b2.length) ? { keywords: currentAffair.keywords.join(", ") } : {}
+    });
+  }
+  if (pathname === "/faq") {
+    graph.push({
+      "@type": "FAQPage",
+      "@id": `${pageUrl}#faq`,
+      url: pageUrl,
+      name: title,
+      inLanguage: language === "mr" ? "mr-IN" : "en-IN",
+      mainEntity: faqs$1.map((faq) => ({
+        "@type": "Question",
+        name: pick(faq.question),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: pick(faq.answer)
+        }
+      }))
+    });
+  }
+  return graph;
+}
+const SCHEMA_ID = "samvidhan-jsonld";
+function upsertSchema(graph) {
+  let script = document.head.querySelector(`#${SCHEMA_ID}`);
+  if (!script) {
+    script = document.createElement("script");
+    script.id = SCHEMA_ID;
+    script.type = "application/ld+json";
+    document.head.appendChild(script);
+  }
+  script.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": graph
+  }).replace(/</g, "\\u003c");
+}
+function removeSchema() {
+  var _a2;
+  (_a2 = document.head.querySelector(`#${SCHEMA_ID}`)) == null ? void 0 : _a2.remove();
+}
+function SchemaJsonLd() {
+  const { pathname, search } = useLocation();
+  const { language } = useLanguage();
+  useEffect(() => {
+    const graph = buildStructuredData(pathname, search, language);
+    if (graph.length) upsertSchema(graph);
+    else removeSchema();
+  }, [pathname, search, language]);
+  return null;
+}
+function AppRoutes({ pages }) {
+  const { language } = useLanguage();
+  const {
+    Home: Home2,
+    Articles: Articles2,
+    ArticleDetails: ArticleDetails2,
+    FundamentalRights: FundamentalRights2,
+    FundamentalDuties: FundamentalDuties2,
+    DirectivePrinciples: DirectivePrinciples2,
+    Amendments: Amendments2,
+    Quiz: Quiz2,
+    Bookmarks: Bookmarks2,
+    About: About2,
+    NotFound: NotFound2,
+    Premium: Premium2,
+    ExamPreparation: ExamPreparation2,
+    PremiumQuiz: PremiumQuiz2,
+    Notes: Notes2,
+    Dashboard: Dashboard2,
+    Progress: Progress2,
+    Learn: Learn2,
+    Contact: Contact2,
+    Privacy: Privacy2,
+    Terms: Terms2,
+    Disclaimer: Disclaimer2,
+    FAQ: FAQ2,
+    CurrentAffairs,
+    CurrentAffairDetails: CurrentAffairDetails2
+  } = pages;
+  return /* @__PURE__ */ jsxs("div", { className: "flex min-h-screen flex-col", children: [
+    /* @__PURE__ */ jsx(
+      "a",
+      {
+        href: "#main-content",
+        className: "sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-navy focus:px-4 focus:py-2 focus:text-paper",
+        children: "Skip to content"
+      }
+    ),
+    /* @__PURE__ */ jsx(ScrollToTop, {}),
+    /* @__PURE__ */ jsx(PageMeta, {}),
+    /* @__PURE__ */ jsx(SchemaJsonLd, {}),
+    /* @__PURE__ */ jsx(Navbar, {}),
+    /* @__PURE__ */ jsxs("main", { id: "main-content", className: "app-main flex-1", children: [
+      /* @__PURE__ */ jsx(Breadcrumbs, {}),
+      /* @__PURE__ */ jsx(
+        Suspense,
+        {
+          fallback: /* @__PURE__ */ jsx("div", { className: "mx-auto max-w-7xl px-4 py-16 text-sm text-ink/60", role: "status", "aria-live": "polite", children: language === "mr" ? "पृष्ठ लोड होत आहे…" : "Loading page…" }),
+          children: /* @__PURE__ */ jsxs(Routes, { children: [
+            /* @__PURE__ */ jsx(Route, { path: "/", element: /* @__PURE__ */ jsx(Home2, {}) }),
+            /* @__PURE__ */ jsx(Route, { path: "/articles", element: /* @__PURE__ */ jsx(Articles2, {}) }),
+            /* @__PURE__ */ jsx(Route, { path: "/current-affairs", element: /* @__PURE__ */ jsx(CurrentAffairs, {}) }),
+            /* @__PURE__ */ jsx(Route, { path: "/current-affairs/:slug", element: /* @__PURE__ */ jsx(CurrentAffairDetails2, {}) }),
+            /* @__PURE__ */ jsx(Route, { path: "/article/:id", element: /* @__PURE__ */ jsx(ArticleDetails2, {}) }),
+            /* @__PURE__ */ jsx(Route, { path: "/fundamental-rights", element: /* @__PURE__ */ jsx(FundamentalRights2, {}) }),
+            /* @__PURE__ */ jsx(Route, { path: "/fundamental-duties", element: /* @__PURE__ */ jsx(FundamentalDuties2, {}) }),
+            /* @__PURE__ */ jsx(Route, { path: "/directive-principles", element: /* @__PURE__ */ jsx(DirectivePrinciples2, {}) }),
+            /* @__PURE__ */ jsx(Route, { path: "/amendments", element: /* @__PURE__ */ jsx(Amendments2, {}) }),
+            /* @__PURE__ */ jsx(Route, { path: "/quiz", element: /* @__PURE__ */ jsx(Quiz2, {}) }),
+            /* @__PURE__ */ jsx(Route, { path: "/bookmarks", element: /* @__PURE__ */ jsx(Bookmarks2, {}) }),
+            /* @__PURE__ */ jsx(Route, { path: "/about", element: /* @__PURE__ */ jsx(About2, {}) }),
+            /* @__PURE__ */ jsx(Route, { path: "/contact", element: /* @__PURE__ */ jsx(Contact2, {}) }),
+            /* @__PURE__ */ jsx(Route, { path: "/privacy", element: /* @__PURE__ */ jsx(Privacy2, {}) }),
+            /* @__PURE__ */ jsx(Route, { path: "/privacy-policy", element: /* @__PURE__ */ jsx(Privacy2, {}) }),
+            /* @__PURE__ */ jsx(Route, { path: "/terms", element: /* @__PURE__ */ jsx(Terms2, {}) }),
+            /* @__PURE__ */ jsx(Route, { path: "/disclaimer", element: /* @__PURE__ */ jsx(Disclaimer2, {}) }),
+            /* @__PURE__ */ jsx(Route, { path: "/faq", element: /* @__PURE__ */ jsx(FAQ2, {}) }),
+            /* @__PURE__ */ jsx(Route, { path: "/premium", element: /* @__PURE__ */ jsx(Premium2, {}) }),
+            /* @__PURE__ */ jsx(Route, { path: "/exam-preparation", element: /* @__PURE__ */ jsx(ExamPreparation2, {}) }),
+            /* @__PURE__ */ jsx(Route, { path: "/premium-quiz", element: /* @__PURE__ */ jsx(PremiumQuiz2, {}) }),
+            /* @__PURE__ */ jsx(Route, { path: "/notes", element: /* @__PURE__ */ jsx(Notes2, {}) }),
+            /* @__PURE__ */ jsx(Route, { path: "/dashboard", element: /* @__PURE__ */ jsx(Dashboard2, {}) }),
+            /* @__PURE__ */ jsx(Route, { path: "/progress", element: /* @__PURE__ */ jsx(Progress2, {}) }),
+            /* @__PURE__ */ jsx(Route, { path: "/learn", element: /* @__PURE__ */ jsx(Learn2, {}) }),
+            /* @__PURE__ */ jsx(Route, { path: "*", element: /* @__PURE__ */ jsx(NotFound2, {}) })
+          ] })
+        }
+      )
+    ] }),
+    /* @__PURE__ */ jsx(Footer, {})
+  ] });
+}
 const popularKeys = ["Article 14", "Article 19", "Article 21", "Article 32"];
 function SearchBar({ large = false }) {
   const { t, language } = useLanguage();
@@ -7029,8 +8697,9 @@ function SearchBar({ large = false }) {
                 value: query,
                 onChange: (e) => setQuery(e.target.value),
                 placeholder: t("search_placeholder"),
+                "aria-label": t("search_placeholder"),
                 lang: language,
-                className: "w-full bg-transparent py-3 text-sm sm:text-base text-ink dark:text-ink-dark placeholder:text-ink/40 dark:placeholder:text-ink-dark/40 focus:outline-none"
+                className: "w-full bg-transparent py-3 text-base text-ink dark:text-ink-dark placeholder:text-ink/40 dark:placeholder:text-ink-dark/40 focus:outline-none"
               }
             )
           ] }),
@@ -7193,8 +8862,23 @@ function Hero() {
     ] }) })
   ] });
 }
+const icons = {
+  AlertTriangle,
+  BookOpen,
+  Building2,
+  Gavel,
+  HeartHandshake,
+  Landmark,
+  Newspaper,
+  PenLine,
+  Scale,
+  ScrollText,
+  ShieldOff,
+  Users,
+  Wind
+};
 function DynamicIcon({ name, className, size, strokeWidth }) {
-  const IconComponent = Icons[name] || Icons.BookOpen;
+  const IconComponent = icons[name] || BookOpen;
   return /* @__PURE__ */ jsx(IconComponent, { className, size, strokeWidth });
 }
 function CategoryCard({ icon, title, description, path }) {
@@ -7623,6 +9307,10 @@ function getTodaysFact() {
   const dayOfYear = Math.floor(diff / (1e3 * 60 * 60 * 24));
   return facts[dayOfYear % facts.length];
 }
+function AffiliateDisclosure() {
+  const { language } = useLanguage();
+  return /* @__PURE__ */ jsx("p", { lang: language, className: "text-xs leading-relaxed text-ink/50 dark:text-ink-dark/50", children: language === "mr" ? "या पेजवरील काही लिंक Affiliate Links असू शकतात. तुमच्यावर कोणताही अतिरिक्त खर्च न होता आम्हाला कमिशन मिळू शकते." : "Some links on this page may be affiliate links. We may earn a commission at no additional cost to you." });
+}
 function RecommendedBooks({ books: books2 }) {
   const { pick } = useLanguage();
   return /* @__PURE__ */ jsxs("section", { className: "mx-auto max-w-7xl px-4 py-12 sm:px-6", children: [
@@ -7680,10 +9368,11 @@ function RecommendedBooks({ books: books2 }) {
         ]
       },
       book.id
-    )) })
+    )) }),
+    /* @__PURE__ */ jsx("div", { className: "mt-5", children: /* @__PURE__ */ jsx(AffiliateDisclosure, {}) })
   ] });
 }
-const faqs$1 = [
+const faqs = [
   {
     id: 1,
     question: {
@@ -7772,7 +9461,7 @@ function FAQSection() {
         mr: "भारतीय संविधानाबद्दलच्या सामान्य प्रश्नांची सोप्या भाषेत उत्तरे."
       }) })
     ] }),
-    /* @__PURE__ */ jsx("div", { className: "mt-8 space-y-3", children: faqs$1.map((faq) => {
+    /* @__PURE__ */ jsx("div", { className: "mt-8 space-y-3", children: faqs.map((faq) => {
       const isOpen = openId === faq.id;
       return /* @__PURE__ */ jsxs(
         "div",
@@ -7967,149 +9656,6 @@ function Home() {
     ] }) })
   ] });
 }
-const siteConfig = {
-  name: "Samvidhan",
-  url: "https://www.mysamvidhan.in",
-  defaultTitle: "Samvidhan | Understand the Constitution of India",
-  defaultDescription: "Understand the Constitution of India with simple explanations in English and Marathi."
-};
-const seoRoutes = {
-  "/": { title: { en: siteConfig.defaultTitle, mr: "संविधान | भारताचे संविधान समजून घ्या" }, description: { en: siteConfig.defaultDescription, mr: "भारतीय संविधान, कलमे, मूलभूत अधिकार, कर्तव्ये आणि दुरुस्त्या सोप्या भाषेत समजून घ्या." }, priority: "1.0", changefreq: "weekly" },
-  "/articles": { title: { en: "Selected Constitutional Article Explanations | Samvidhan", mr: "निवडक संवैधानिक कलमांची स्पष्टीकरणे | संविधान" }, description: { en: "Search a selection of Indian Constitution Articles and read clear, simplified explanations in English and Marathi.", mr: "भारतीय संविधानातील निवडक कलमे शोधा आणि मराठी व इंग्रजीत सोपी स्पष्टीकरणे वाचा." }, priority: "0.9", changefreq: "weekly" },
-  "/current-affairs": { title: { en: "Current Affairs | Indian Constitution & Polity | MySamvidhan", mr: "चालू घडामोडी | भारतीय संविधान आणि राज्यशास्त्र | MySamvidhan" }, description: { en: "Read current affairs and important developments related to the Indian Constitution, polity and Supreme Court in simple language.", mr: "भारतीय संविधान, राज्यशास्त्र आणि सर्वोच्च न्यायालयाशी संबंधित चालू घडामोडी सोप्या भाषेत वाचा." }, priority: "0.9", changefreq: "daily" },
-  "/fundamental-rights": { title: { en: "Fundamental Rights | Samvidhan", mr: "मूलभूत अधिकार | संविधान" }, description: { en: "Understand the Fundamental Rights guaranteed by the Constitution of India.", mr: "भारतीय संविधानाने दिलेले मूलभूत अधिकार समजून घ्या." }, priority: "0.8", changefreq: "monthly" },
-  "/fundamental-duties": { title: { en: "Fundamental Duties | Samvidhan", mr: "मूलभूत कर्तव्ये | संविधान" }, description: { en: "Learn the Fundamental Duties of citizens of India.", mr: "भारताच्या नागरिकांची मूलभूत कर्तव्ये जाणून घ्या." }, priority: "0.8", changefreq: "monthly" },
-  "/directive-principles": { title: { en: "Directive Principles of State Policy | Samvidhan", mr: "राज्याच्या धोरणाची मार्गदर्शक तत्त्वे | संविधान" }, description: { en: "Explore the Directive Principles that guide governance and public policy.", mr: "शासन आणि सार्वजनिक धोरणाला दिशा देणारी मार्गदर्शक तत्त्वे जाणून घ्या." }, priority: "0.8", changefreq: "monthly" },
-  "/amendments": { title: { en: "Constitutional Amendments | Samvidhan", mr: "संविधान दुरुस्त्या | संविधान" }, description: { en: "Study important Constitutional Amendments and how India's Constitution has evolved.", mr: "महत्त्वाच्या संविधान दुरुस्त्या आणि संविधानातील बदलांचा अभ्यास करा." }, priority: "0.8", changefreq: "monthly" },
-  "/quiz": { title: { en: "Constitution Quiz | Samvidhan", mr: "संविधान प्रश्नमंजुषा | संविधान" }, description: { en: "Test your knowledge of the Constitution of India with a free quiz.", mr: "मोफत प्रश्नमंजुषेद्वारे भारतीय संविधानाचे तुमचे ज्ञान तपासा." }, priority: "0.7", changefreq: "monthly" },
-  "/faq": { title: { en: "Indian Constitution FAQs | Frequently Asked Questions – Samvidhan", mr: "भारतीय संविधान FAQ | वारंवार विचारले जाणारे प्रश्न – Samvidhan" }, description: { en: "Find answers to frequently asked questions about the Constitution of India, Fundamental Rights, Duties, Articles, Amendments, Preamble and more.", mr: "भारतीय संविधान, मूलभूत अधिकार, कर्तव्ये, कलमे, उद्देशिका, घटनादुरुस्ती आणि इतर महत्त्वाच्या विषयांवरील वारंवार विचारले जाणारे प्रश्न व उत्तरे जाणून घ्या." }, priority: "0.8", changefreq: "monthly" },
-  "/about": { title: { en: "About Samvidhan", mr: "संविधान विषयी" }, description: { en: "Learn about Samvidhan, an independent educational platform for constitutional knowledge.", mr: "संविधान या स्वतंत्र शैक्षणिक व्यासपीठाविषयी जाणून घ्या." }, priority: "0.5", changefreq: "yearly" },
-  "/contact": { title: { en: "Contact Samvidhan", mr: "संविधानशी संपर्क साधा" }, description: { en: "Contact Samvidhan with questions, suggestions, feedback or corrections.", mr: "प्रश्न, सूचना, अभिप्राय किंवा दुरुस्त्यांसाठी संविधानशी संपर्क साधा." }, priority: "0.4", changefreq: "yearly" },
-  "/privacy": { title: { en: "Privacy Policy | Samvidhan", mr: "गोपनीयता धोरण | संविधान" }, description: { en: "Read the Samvidhan Privacy Policy covering information, cookies, analytics and advertising.", mr: "माहिती, कुकीज, विश्लेषण आणि जाहिरातींसंबंधी संविधानचे गोपनीयता धोरण वाचा." }, priority: "0.3", changefreq: "yearly" },
-  "/privacy-policy": { title: { en: "Privacy Policy | Samvidhan", mr: "गोपनीयता धोरण | संविधान" }, description: { en: "Read the Samvidhan Privacy Policy covering information, cookies, analytics and advertising.", mr: "माहिती, कुकीज, विश्लेषण आणि जाहिरातींसंबंधी संविधानचे गोपनीयता धोरण वाचा." }, indexable: false },
-  "/terms": { title: { en: "Terms & Conditions | Samvidhan", mr: "नियम आणि अटी | संविधान" }, description: { en: "Read the Samvidhan Terms and Conditions for using this educational website.", mr: "या शैक्षणिक वेबसाइटच्या वापरासाठी संविधानचे नियम आणि अटी वाचा." }, priority: "0.3", changefreq: "yearly" },
-  "/disclaimer": { title: { en: "Disclaimer | Samvidhan", mr: "अस्वीकरण | संविधान" }, description: { en: "Read the Samvidhan educational and informational content disclaimer.", mr: "संविधानच्या शैक्षणिक आणि माहितीपर सामग्रीचे अस्वीकरण वाचा." }, priority: "0.3", changefreq: "yearly" },
-  "/learn": { title: { en: "Learn Indian Constitution | Samvidhan", mr: "भारतीय संविधान शिका | संविधान" }, description: { en: "Learn the Indian Constitution through guided Articles, Rights and exam preparation paths.", mr: "मार्गदर्शित कलमे, अधिकार आणि परीक्षा तयारीच्या माध्यमातून भारतीय संविधान शिका." }, priority: "0.8", changefreq: "monthly" },
-  "/exam-preparation": { title: { en: "Exam Preparation | Samvidhan", mr: "परीक्षा तयारी | संविधान" }, description: { en: "Prepare for MPSC and UPSC Constitution and polity examinations.", mr: "MPSC आणि UPSC संविधान व राज्यशास्त्र परीक्षांची तयारी करा." }, priority: "0.7", changefreq: "monthly" },
-  "/premium": { title: { en: "Samvidhan Premium | Learn Better", mr: "संविधान प्रीमियम | अधिक चांगले शिका" }, description: { en: "Explore structured constitutional revision, advanced practice and exam preparation.", mr: "संरचित संविधान उजळणी, प्रगत सराव आणि परीक्षा तयारीचा अनुभव घ्या." }, indexable: false },
-  "/article/:id": { indexable: true, changefreq: "monthly", priority: "0.7" },
-  "/dashboard": { title: { en: "Learning Dashboard | Samvidhan", mr: "अध्ययन डॅशबोर्ड | संविधान" }, description: { en: "Review saved Articles and the learning dashboard features available on Samvidhan.", mr: "Samvidhan वरील जतन केलेली कलमे आणि अध्ययन डॅशबोर्डची उपलब्ध वैशिष्ट्ये पाहा." }, indexable: false },
-  "/progress": { title: { en: "Learning Progress | Samvidhan", mr: "अध्ययन प्रगती | संविधान" }, description: { en: "View the learning progress indicators and practice summaries available on Samvidhan.", mr: "Samvidhan वरील अध्ययन प्रगती निर्देशक आणि सराव सारांश पाहा." }, indexable: false },
-  "/premium-quiz": { title: { en: "Advanced Quiz | Samvidhan", mr: "प्रगत प्रश्नमंजुषा | संविधान" }, description: { en: "Explore the advanced quiz interface and its topic and difficulty controls.", mr: "प्रगत प्रश्नमंजुषेचा इंटरफेस आणि विषय व कठीणता निवडीचे पर्याय पाहा." }, indexable: false },
-  "/notes": { title: { en: "Revision Notes | Samvidhan", mr: "उजळणीच्या नोंदी | संविधान" }, description: { en: "Browse the revision note cards currently available on Samvidhan.", mr: "Samvidhan वर सध्या उपलब्ध असलेल्या उजळणीच्या नोंदी पहा." }, indexable: false },
-  "/bookmarks": { title: { en: "Saved Articles | Samvidhan", mr: "जतन केलेली कलमे | संविधान" }, description: { en: "View the Constitution Articles saved in this browser.", mr: "या ब्राउझरमध्ये जतन केलेली संविधानातील कलमे पाहा." }, indexable: false }
-};
-function getSeoRoute(pathname) {
-  if (seoRoutes[pathname]) return seoRoutes[pathname];
-  if (pathname.startsWith("/article/")) return seoRoutes["/article/:id"];
-  if (pathname.startsWith("/current-affairs/")) return { indexable: true, changefreq: "daily", priority: "0.7" };
-  return { title: { en: siteConfig.defaultTitle, mr: "संविधान | भारताचे संविधान समजून घ्या" }, description: { en: siteConfig.defaultDescription, mr: "भारतीय संविधानाबद्दल सोप्या भाषेत जाणून घ्या." }, indexable: false };
-}
-const __vite_import_meta_env__$1 = {};
-const SITE_URL$1 = ((__vite_import_meta_env__$1 == null ? void 0 : __vite_import_meta_env__$1.VITE_SITE_URL) || (typeof process !== "undefined" ? (_a = process.env) == null ? void 0 : _a.VITE_SITE_URL : "") || siteConfig.url).replace(/\/+$/, "");
-function getCanonicalUrl(pathname) {
-  const cleanPath = pathname === "/" ? "/" : pathname.replace(/\/+$/, "");
-  return `${SITE_URL$1}${cleanPath}`;
-}
-function getSeoMetadata(pathname, language, overrides = {}) {
-  var _a2, _b2, _c, _d;
-  const route = getSeoRoute(pathname);
-  const article = pathname.startsWith("/article/") ? getArticleById(pathname.split("/").pop()) : null;
-  const currentAffair = pathname.startsWith("/current-affairs/") ? getCurrentAffairBySlug(pathname.split("/").pop()) : null;
-  const cleanPath = pathname === "/" ? "/" : pathname.replace(/\/+$/, "");
-  const isFilteredArticleList = cleanPath === "/articles" && Boolean(overrides.search);
-  let title = "";
-  let description = "";
-  let ogType = "website";
-  let image = `${SITE_URL$1}/images/mysamvidhan-logo.svg`;
-  let imageAlt = siteConfig.name;
-  if (article) {
-    const number = String(article.articleNumber || "").replace(/^article\s*/i, "").replace(/^कलम\s*/i, "").trim();
-    const articleTitle = language === "mr" ? article.title.mr : article.title.en;
-    title = language === "mr" ? `कलम ${number} – ${articleTitle} | MySamvidhan` : `Article ${number} – ${articleTitle} | MySamvidhan`;
-    description = language === "mr" ? `भारतीय संविधानातील कलम ${number} सोप्या मराठीत आणि इंग्रजीत समजून घ्या. ${articleTitle}चा अर्थ, प्रमुख तरतुदी, उदाहरणे आणि महत्त्व जाणून घ्या.` : `Learn about Article ${number} of the Indian Constitution in simple English and Marathi. Understand its meaning, key provisions, examples and importance.`;
-    image = `${SITE_URL$1}/images/articles/article-${String(article.id).toLowerCase()}.webp`;
-    imageAlt = `${article.articleNumber} — ${articleTitle}`;
-    ogType = "article";
-  } else if (currentAffair) {
-    title = language === "mr" ? ((_a2 = currentAffair.seoTitle) == null ? void 0 : _a2.mr) || currentAffair.title.mr : ((_b2 = currentAffair.seoTitle) == null ? void 0 : _b2.en) || currentAffair.title.en;
-    description = language === "mr" ? currentAffair.shortDescription.mr : currentAffair.shortDescription.en;
-    ogType = "article";
-  } else if (((_c = seoRoutes[cleanPath]) == null ? void 0 : _c.title) && ((_d = seoRoutes[cleanPath]) == null ? void 0 : _d.description)) {
-    title = language === "mr" ? route.title.mr : route.title.en;
-    description = language === "mr" ? route.description.mr : route.description.en;
-  } else {
-    title = language === "mr" ? "पृष्ठ सापडले नाही | MySamvidhan" : "Page Not Found | MySamvidhan";
-    description = language === "mr" ? "विनंती केलेले पृष्ठ सापडले नाही." : "The requested page could not be found.";
-  }
-  const canonicalUrl = getCanonicalUrl(pathname);
-  const isUnknownDetail = pathname.startsWith("/article/") && !article || pathname.startsWith("/current-affairs/") && !currentAffair;
-  const robots = overrides.robots || (isUnknownDetail || route.indexable === false || isFilteredArticleList ? "noindex, follow" : "index, follow");
-  return {
-    title: overrides.title || title,
-    description: overrides.description || description,
-    canonicalUrl: overrides.canonical ? getCanonicalUrl(overrides.canonical) : canonicalUrl,
-    robots,
-    ogType,
-    image,
-    imageAlt,
-    language,
-    indexable: robots.startsWith("index"),
-    article,
-    currentAffair
-  };
-}
-function setMeta(attribute, value, content) {
-  let element = document.head.querySelector(`meta[${attribute}="${value}"]`);
-  if (!element) {
-    element = document.createElement("meta");
-    element.setAttribute(attribute, value);
-    document.head.appendChild(element);
-  }
-  element.setAttribute("content", content);
-}
-function setLink(rel, href) {
-  let element = document.head.querySelector(`link[rel="${rel}"]`);
-  if (!element) {
-    element = document.createElement("link");
-    element.setAttribute("rel", rel);
-    document.head.appendChild(element);
-  }
-  element.setAttribute("href", href);
-}
-function PageMeta(overrides = {}) {
-  const { pathname, search } = useLocation();
-  const { language } = useLanguage();
-  useEffect(() => {
-    var _a2, _b2, _c;
-    const metadata = getSeoMetadata(pathname, language, { ...overrides, search });
-    const lang = language === "mr" ? "mr-IN" : "en-IN";
-    document.title = metadata.title;
-    document.documentElement.lang = lang;
-    setMeta("name", "description", metadata.description);
-    setMeta("name", "robots", metadata.robots);
-    setMeta("property", "og:title", metadata.title);
-    setMeta("property", "og:description", metadata.description);
-    setMeta("property", "og:type", metadata.ogType);
-    setMeta("property", "og:url", metadata.canonicalUrl);
-    setMeta("property", "og:site_name", "Samvidhan");
-    setMeta("property", "og:image", metadata.image);
-    setMeta("property", "og:image:alt", metadata.imageAlt);
-    setMeta("property", "og:locale", lang.replace("-", "_"));
-    setMeta("name", "twitter:card", metadata.ogType === "article" ? "summary_large_image" : "summary");
-    setMeta("name", "twitter:title", metadata.title);
-    setMeta("name", "twitter:description", metadata.description);
-    setMeta("name", "twitter:image", metadata.image);
-    setMeta("name", "twitter:image:alt", metadata.imageAlt);
-    setLink("canonical", metadata.canonicalUrl);
-    if ((_b2 = (_a2 = metadata.article) == null ? void 0 : _a2.keywords) == null ? void 0 : _b2.length) {
-      setMeta("name", "keywords", metadata.article.keywords.join(", "));
-    } else {
-      (_c = document.head.querySelector('meta[name="keywords"]')) == null ? void 0 : _c.remove();
-    }
-  }, [pathname, search, language, overrides.title, overrides.description, overrides.canonical, overrides.robots]);
-  return null;
-}
 const constitutionSource = {
   url: "https://www.legislative.gov.in/documents",
   title: {
@@ -8246,8 +9792,9 @@ function Articles() {
               updateParams({ q: e.target.value });
             },
             placeholder: t("search_placeholder"),
+            "aria-label": t("search_placeholder"),
             lang: language,
-            className: "flex-1 rounded-full border border-navy/15 dark:border-ink-dark/20 bg-white dark:bg-white/5 px-4 py-2.5 text-sm text-ink dark:text-ink-dark placeholder:text-ink/40 dark:placeholder:text-ink-dark/40 focus:outline-none"
+            className: "flex-1 rounded-full border border-navy/15 dark:border-ink-dark/20 bg-white dark:bg-white/5 px-4 py-2.5 text-base sm:text-sm text-ink dark:text-ink-dark placeholder:text-ink/40 dark:placeholder:text-ink-dark/40 focus:outline-none"
           }
         ),
         query && /* @__PURE__ */ jsxs(
@@ -8587,6 +10134,7 @@ function ArticleDetails() {
           alt: language === "mr" ? `${marathiArticle} - ${pick(article.title)}` : `${englishArticle} - ${pick(article.title)}`,
           width: "1200",
           height: "630",
+          fetchpriority: "high",
           loading: "eager",
           decoding: "async",
           className: "h-auto w-full object-cover"
@@ -9232,7 +10780,8 @@ const amendments = [
       en: "Added grounds for reasonable restrictions on free speech and shielded land reform laws from certain court challenges.",
       mr: "भाषण स्वातंत्र्यावरील वाजवी निर्बंधांसाठी नवीन कारणे जोडली आणि जमीन सुधारणा कायद्यांना काही न्यायालयीन आव्हानांपासून संरक्षण दिले."
     },
-    verified: false
+    source: "https://www.legislative.gov.in/static/uploads/2025/07/f3789482ad0dfee795e54fb88c0401e6.pdf",
+    verified: true
   },
   {
     id: "42",
@@ -9243,7 +10792,8 @@ const amendments = [
       en: 'Made wide-ranging changes, including adding the words "Socialist" and "Secular" to the Preamble and introducing Fundamental Duties.',
       mr: 'प्रस्तावनेत "समाजवादी" आणि "धर्मनिरपेक्ष" हे शब्द जोडणे आणि मूलभूत कर्तव्ये समाविष्ट करणे यांसह अनेक व्यापक बदल केले.'
     },
-    verified: false
+    source: "https://www.legislative.gov.in/static/uploads/2025/07/9f820a53b6e6840a459bde27eb5d24e5.pdf",
+    verified: true
   },
   {
     id: "44",
@@ -9254,7 +10804,8 @@ const amendments = [
       en: "Reversed several changes made by the 42nd Amendment and reinstated safeguards, including making the right to property a legal (not fundamental) right.",
       mr: "४२व्या दुरुस्तीतील अनेक बदल रद्द केले आणि सुरक्षा उपाय पुनर्स्थापित केले, तसेच मालमत्तेचा अधिकार मूलभूत ऐवजी कायदेशीर अधिकार बनवला."
     },
-    verified: false
+    source: "https://www.legislative.gov.in/static/uploads/2025/07/376b37bf0ae18f1d9276ce226d0e67a1.pdf",
+    verified: true
   },
   {
     id: "73",
@@ -9265,7 +10816,8 @@ const amendments = [
       en: "Gave constitutional status to rural local self-government institutions (Panchayati Raj).",
       mr: "ग्रामीण स्थानिक स्वराज्य संस्थांना (पंचायती राज) संवैधानिक दर्जा दिला."
     },
-    verified: false
+    source: "https://www.legislative.gov.in/static/uploads/2025/07/d6e04624ef8b6b869af003909507cfe6.pdf",
+    verified: true
   },
   {
     id: "86",
@@ -9276,7 +10828,8 @@ const amendments = [
       en: "Inserted Article 21A, making free and compulsory education a fundamental right for children in a defined age group.",
       mr: "कलम २१अ समाविष्ट केले, ज्यामुळे ठराविक वयोगटातील मुलांसाठी मोफत व सक्तीचे शिक्षण मूलभूत अधिकार बनले."
     },
-    verified: false
+    source: "https://www.legislative.gov.in/static/uploads/2025/07/16970eb1a68d4fe46ac40acd783a6c34.pdf",
+    verified: true
   },
   {
     id: "101",
@@ -9287,7 +10840,8 @@ const amendments = [
       en: "Introduced a unified Goods and Services Tax framework across the country.",
       mr: "संपूर्ण देशभर एकसंध वस्तू व सेवा कर प्रणाली लागू केली."
     },
-    verified: false
+    source: "https://www.legislative.gov.in/static/uploads/2025/07/a4250c5ad613af2f4f9347ef45add1db.pdf",
+    verified: true
   }
 ];
 function Amendments() {
@@ -9307,7 +10861,17 @@ function Amendments() {
           ] }),
           /* @__PURE__ */ jsxs("div", { children: [
             /* @__PURE__ */ jsx("h2", { lang: language, className: "text-base font-semibold text-navy dark:text-ink-dark", children: pick(a.title) }),
-            /* @__PURE__ */ jsx("p", { lang: language, className: "mt-1.5 text-sm leading-relaxed text-ink/65 dark:text-ink-dark/65", children: pick(a.explanation) })
+            /* @__PURE__ */ jsx("p", { lang: language, className: "mt-1.5 text-sm leading-relaxed text-ink/65 dark:text-ink-dark/65", children: pick(a.explanation) }),
+            a.source && /* @__PURE__ */ jsx(
+              "a",
+              {
+                href: a.source,
+                target: "_blank",
+                rel: "noopener noreferrer",
+                className: "mt-3 inline-flex text-sm font-medium text-saffron underline underline-offset-4",
+                children: "Official Amendment Act (Legislative Department)"
+              }
+            )
           ] })
         ]
       },
@@ -9359,7 +10923,19 @@ function QuizCard({ question, index, total, selected, onSelect, showResult }) {
         },
         i
       );
-    }) })
+    }) }),
+    showResult && question.resource && /* @__PURE__ */ jsxs(
+      Link,
+      {
+        to: question.resource.to,
+        lang: language,
+        className: "mt-5 inline-flex text-sm font-medium text-saffron underline underline-offset-4 hover:text-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saffron dark:hover:text-ink-dark",
+        children: [
+          language === "mr" ? question.resource.mr : question.resource.en,
+          " →"
+        ]
+      }
+    )
   ] });
 }
 const quizData = [
@@ -9375,7 +10951,8 @@ const quizData = [
       { en: "Article 21", mr: "कलम २१" },
       { en: "Article 32", mr: "कलम ३२" }
     ],
-    correctIndex: 0
+    correctIndex: 0,
+    resource: { to: "/article/14", en: "Review Article 14", mr: "कलम १४ चा अभ्यास करा" }
   },
   {
     id: "q2",
@@ -9389,7 +10966,8 @@ const quizData = [
       { en: "Article 14", mr: "कलम १४" },
       { en: "Article 356", mr: "कलम ३५६" }
     ],
-    correctIndex: 1
+    correctIndex: 1,
+    resource: { to: "/article/32", en: "Review Article 32", mr: "कलम ३२ चा अभ्यास करा" }
   },
   {
     id: "q3",
@@ -9403,7 +10981,8 @@ const quizData = [
       { en: "Article 29", mr: "कलम २९" },
       { en: "Article 45", mr: "कलम ४५" }
     ],
-    correctIndex: 1
+    correctIndex: 1,
+    resource: { to: "/article/21A", en: "Review Article 21A", mr: "कलम २१अ चा अभ्यास करा" }
   },
   {
     id: "q4",
@@ -9417,7 +10996,8 @@ const quizData = [
       { en: "44th Amendment", mr: "४४वी दुरुस्ती" },
       { en: "73rd Amendment", mr: "७३वी दुरुस्ती" }
     ],
-    correctIndex: 1
+    correctIndex: 1,
+    resource: { to: "/article/51A", en: "Review Article 51A", mr: "कलम ५१अ चा अभ्यास करा" }
   },
   {
     id: "q5",
@@ -9431,7 +11011,8 @@ const quizData = [
       { en: "Part V", mr: "भाग ५" },
       { en: "Part IV-A", mr: "भाग ४-अ" }
     ],
-    correctIndex: 1
+    correctIndex: 1,
+    resource: { to: "/directive-principles", en: "Review the Directive Principles guide", mr: "मार्गदर्शक तत्त्वांचे मार्गदर्शन वाचा" }
   },
   {
     id: "q6",
@@ -9459,7 +11040,8 @@ const quizData = [
       { en: "Wealth Tax", mr: "संपत्ती कर" },
       { en: "Service Tax", mr: "सेवा कर" }
     ],
-    correctIndex: 1
+    correctIndex: 1,
+    resource: { to: "/amendments", en: "Review the selected amendments", mr: "निवडक घटनादुरुस्त्या पाहा" }
   },
   {
     id: "q8",
@@ -9473,7 +11055,8 @@ const quizData = [
       { en: "Article 360", mr: "कलम ३६०" },
       { en: "Article 370", mr: "कलम ३७०" }
     ],
-    correctIndex: 0
+    correctIndex: 0,
+    resource: { to: "/article/352", en: "Review Article 352", mr: "कलम ३५२ चा अभ्यास करा" }
   }
 ];
 function Quiz() {
@@ -11182,50 +12765,6 @@ function Disclaimer() {
     ] }, section.title.en)) })
   ] });
 }
-const faqCategories = [
-  { key: "general", title: { en: "General", mr: "सामान्य प्रश्न" } },
-  { key: "preamble", title: { en: "Preamble", mr: "उद्देशिका" } },
-  { key: "rights", title: { en: "Fundamental Rights", mr: "मूलभूत अधिकार" } },
-  { key: "duties", title: { en: "Fundamental Duties", mr: "मूलभूत कर्तव्ये" } },
-  { key: "directive", title: { en: "Directive Principles", mr: "राज्याच्या मार्गदर्शक तत्त्वे" } },
-  { key: "government", title: { en: "Parliament & Government", mr: "संसद व शासन" } },
-  { key: "judiciary", title: { en: "Judiciary", mr: "न्यायव्यवस्था" } },
-  { key: "amendments", title: { en: "Amendments", mr: "घटनादुरुस्ती" } },
-  { key: "important", title: { en: "Other Important Questions", mr: "इतर महत्त्वाचे प्रश्न" } }
-];
-const faqs = [
-  { id: "what-is-constitution", category: "general", question: { en: "What is the Constitution of India?", mr: "भारताचे संविधान म्हणजे काय?" }, answer: { en: "The Constitution of India is the supreme law of the country. It establishes the structure, powers and responsibilities of government and protects the rights of people.", mr: "भारताचे संविधान हा देशाचा सर्वोच्च कायदा आहे. ते शासनाची रचना, अधिकार आणि जबाबदाऱ्या निश्चित करते तसेच लोकांच्या अधिकारांचे संरक्षण करते." } },
-  { id: "when-adopted", category: "general", question: { en: "When was the Constitution of India adopted?", mr: "भारताचे संविधान कधी स्वीकारले गेले?" }, answer: { en: "The Constituent Assembly adopted the Constitution on 26 November 1949. It came into force on 26 January 1950, which is celebrated as Republic Day.", mr: "संविधान सभेने २६ नोव्हेंबर १९४९ रोजी संविधान स्वीकारले. ते २६ जानेवारी १९५० रोजी लागू झाले आणि हा दिवस प्रजासत्ताक दिन म्हणून साजरा केला जातो." } },
-  { id: "longest-written", category: "general", question: { en: "Why is the Indian Constitution considered a detailed written Constitution?", mr: "भारतीय संविधान सविस्तर लिखित संविधान का मानले जाते?" }, answer: { en: "It describes institutions of government, powers, procedures, rights, duties and relations between different levels of government in considerable detail. This detail supports a large and diverse democracy.", mr: "यामध्ये शासनसंस्था, अधिकार, प्रक्रिया, अधिकार व कर्तव्ये तसेच शासनाच्या विविध स्तरांमधील संबंध यांचे सविस्तर वर्णन आहे. ही सविस्तरता मोठ्या आणि विविधतापूर्ण लोकशाहीला आधार देते." } },
-  { id: "constituent-assembly", category: "general", question: { en: "What was the Constituent Assembly?", mr: "संविधान सभा म्हणजे काय?" }, answer: { en: "The Constituent Assembly was the representative body that discussed and drafted the Constitution of India. It worked through committees and debates before adopting the final document.", mr: "संविधान सभा ही भारताचे संविधान तयार करणारी प्रतिनिधी संस्था होती. अंतिम दस्तऐवज स्वीकारण्यापूर्वी तिने समित्या आणि चर्चांद्वारे काम केले." } },
-  { id: "ambedkar-role", category: "general", question: { en: "What was Dr. B. R. Ambedkar’s role in making the Constitution?", mr: "संविधान निर्मितीत डॉ. बाबासाहेब आंबेडकरांची भूमिका काय होती?" }, answer: { en: "Dr. B. R. Ambedkar chaired the Drafting Committee of the Constituent Assembly. He played a major role in shaping and presenting the draft Constitution for discussion.", mr: "डॉ. बाबासाहेब आंबेडकर संविधान सभेच्या मसुदा समितीचे अध्यक्ष होते. संविधानाचा मसुदा तयार करून तो चर्चेसाठी मांडण्यात त्यांची महत्त्वाची भूमिका होती." } },
-  { id: "preamble-purpose", category: "preamble", question: { en: "What is the purpose of the Preamble?", mr: "उद्देशिकेचा उद्देश काय आहे?" }, answer: { en: "The Preamble states the constitutional vision and the broad ideals that guide the Republic. It describes India as sovereign, socialist, secular, democratic and republican, and promises justice, liberty, equality and fraternity.", mr: "उद्देशिका संविधानाची दृष्टी आणि प्रजासत्ताकाला मार्गदर्शन करणारी व्यापक मूल्ये सांगते. ती भारताला सार्वभौम, समाजवादी, धर्मनिरपेक्ष, लोकशाहीवादी आणि प्रजासत्ताक म्हणून वर्णन करते तसेच न्याय, स्वातंत्र्य, समता आणि बंधुता यांचे आश्वासन देते." } },
-  { id: "preamble-part", category: "preamble", question: { en: "Is the Preamble a part of the Constitution?", mr: "उद्देशिका संविधानाचा भाग आहे का?" }, answer: { en: "Yes. The Supreme Court held in the Kesavananda Bharati case that the Preamble is part of the Constitution. It helps explain the Constitution’s objectives, though it does not by itself grant a separate legal power.", mr: "होय. केशवानंद भारती प्रकरणात सर्वोच्च न्यायालयाने उद्देशिका संविधानाचा भाग असल्याचे स्पष्ट केले. ती संविधानाची उद्दिष्टे समजून घेण्यास मदत करते, मात्र स्वतःहून स्वतंत्र कायदेशीर अधिकार देत नाही." } },
-  { id: "fundamental-rights", category: "rights", question: { en: "What are Fundamental Rights?", mr: "मूलभूत अधिकार म्हणजे काय?" }, answer: { en: "Fundamental Rights are constitutional guarantees that protect important freedoms and equality. They are mainly contained in Part III of the Constitution.", mr: "मूलभूत अधिकार हे महत्त्वाचे स्वातंत्र्य आणि समानतेचे संरक्षण करणारे संवैधानिक अधिकार आहेत. ते प्रामुख्याने संविधानाच्या भाग III मध्ये दिले आहेत." }, link: "/fundamental-rights", linkLabel: { en: "Explore Fundamental Rights", mr: "मूलभूत अधिकार पहा" } },
-  { id: "right-to-equality", category: "rights", question: { en: "Which Article deals with equality before law?", mr: "कायद्यासमोर समानतेशी संबंधित कलम कोणते?" }, answer: { en: "Article 14 guarantees equality before the law and equal protection of the laws. It requires the State to treat people fairly under the constitutional framework.", mr: "कलम १४ कायद्यासमोर समानता आणि कायद्यांचे समान संरक्षण यांची हमी देते. संवैधानिक चौकटीत राज्याने लोकांशी न्याय्य वागणे आवश्यक आहे." }, link: "/article/14", linkLabel: { en: "Read Article 14", mr: "कलम १४ वाचा" } },
-  { id: "article-21", category: "rights", question: { en: "Why is Article 21 important?", mr: "कलम २१ महत्त्वाचे का आहे?" }, answer: { en: "Article 21 protects life and personal liberty according to procedure established by law. Judicial decisions have interpreted its protection broadly over time.", mr: "कलम २१ कायद्याने स्थापित केलेल्या प्रक्रियेनुसार जीवन आणि व्यक्तिगत स्वातंत्र्याचे संरक्षण करते. न्यायालयीन निर्णयांनी कालांतराने या संरक्षणाचा व्यापक अर्थ लावला आहे." }, link: "/article/21", linkLabel: { en: "Read Article 21", mr: "कलम २१ वाचा" } },
-  { id: "constitutional-remedies", category: "rights", question: { en: "What is the Right to Constitutional Remedies?", mr: "संवैधानिक उपायांचा अधिकार म्हणजे काय?" }, answer: { en: "It allows a person to approach the Supreme Court for enforcement of Fundamental Rights under Article 32. High Courts also have important writ jurisdiction under Article 226.", mr: "कलम ३२ अंतर्गत मूलभूत अधिकारांच्या अंमलबजावणीसाठी व्यक्तीला सर्वोच्च न्यायालयात जाण्याचा अधिकार मिळतो. कलम २२६ अंतर्गत उच्च न्यायालयांनाही महत्त्वाचे लेखी अधिकारक्षेत्र आहे." }, link: "/article/32", linkLabel: { en: "Read Article 32", mr: "कलम ३२ वाचा" } },
-  { id: "duties-number", category: "duties", question: { en: "How many Fundamental Duties are there?", mr: "मूलभूत कर्तव्ये किती आहेत?" }, answer: { en: "The Constitution currently lists eleven Fundamental Duties for citizens in Article 51A. They encourage respect for constitutional values, the nation, the environment and public responsibility.", mr: "संविधानाच्या कलम ५१अ मध्ये नागरिकांसाठी सध्या अकरा मूलभूत कर्तव्ये दिली आहेत. ती संवैधानिक मूल्ये, राष्ट्र, पर्यावरण आणि सार्वजनिक जबाबदारीचा आदर करण्यास प्रोत्साहन देतात." }, link: "/fundamental-duties", linkLabel: { en: "Explore Fundamental Duties", mr: "मूलभूत कर्तव्ये पहा" } },
-  { id: "duties-added", category: "duties", question: { en: "Which Amendment added the Fundamental Duties?", mr: "मूलभूत कर्तव्ये कोणत्या दुरुस्तीने समाविष्ट झाली?" }, answer: { en: "The 42nd Constitutional Amendment added the Fundamental Duties in 1976. The duty relating to providing educational opportunities to children was added later by the 86th Amendment.", mr: "१९७६ मध्ये ४२व्या संविधान दुरुस्तीने मूलभूत कर्तव्ये समाविष्ट केली. मुलांना शैक्षणिक संधी देण्याशी संबंधित कर्तव्य नंतर ८६व्या दुरुस्तीने जोडले गेले." } },
-  { id: "directive-principles", category: "directive", question: { en: "What are the Directive Principles of State Policy?", mr: "राज्याच्या धोरणाची मार्गदर्शक तत्त्वे म्हणजे काय?" }, answer: { en: "They are principles in Part IV that guide the State in making laws and policies for social and economic welfare. They are not enforceable by courts, but are fundamental to governance.", mr: "ही भाग IV मधील तत्त्वे आहेत जी सामाजिक आणि आर्थिक कल्याणासाठी कायदे व धोरणे बनवताना राज्याला मार्गदर्शन करतात. त्यांची न्यायालयाद्वारे अंमलबजावणी करता येत नाही, परंतु ती शासनासाठी मूलभूत आहेत." }, link: "/directive-principles", linkLabel: { en: "Explore Directive Principles", mr: "मार्गदर्शक तत्त्वे पहा" } },
-  { id: "rights-directives-difference", category: "directive", question: { en: "How are Fundamental Rights different from Directive Principles?", mr: "मूलभूत अधिकार आणि मार्गदर्शक तत्त्वांमध्ये काय फरक आहे?" }, answer: { en: "Fundamental Rights are generally enforceable through courts and protect individual freedoms. Directive Principles guide governance and welfare policy but are not directly enforceable by courts.", mr: "मूलभूत अधिकारांची साधारणपणे न्यायालयामार्फत अंमलबजावणी करता येते आणि ते व्यक्तिस्वातंत्र्याचे संरक्षण करतात. मार्गदर्शक तत्त्वे शासन व कल्याणकारी धोरणांना दिशा देतात, परंतु त्यांची थेट न्यायालयीन अंमलबजावणी करता येत नाही." } },
-  { id: "parliament-parts", category: "government", question: { en: "What are the two Houses of Parliament?", mr: "संसदेची दोन सभागृहे कोणती?" }, answer: { en: "The Parliament of India consists of the President and two Houses: the Rajya Sabha, or Council of States, and the Lok Sabha, or House of the People.", mr: "भारताची संसद राष्ट्रपती आणि दोन सभागृहांनी बनलेली आहे: राज्यसभा आणि लोकसभा." } },
-  { id: "lok-sabha-term", category: "government", question: { en: "What is the normal term of the Lok Sabha?", mr: "लोकसभेचा सामान्य कार्यकाळ किती असतो?" }, answer: { en: "The normal term of the Lok Sabha is five years from the date appointed for its first meeting, unless it is dissolved earlier. The Constitution provides special rules during a Proclamation of Emergency.", mr: "लोकसभेचा सामान्य कार्यकाळ तिच्या पहिल्या बैठकीसाठी ठरवलेल्या तारखेपासून पाच वर्षांचा असतो, जोपर्यंत ती आधी विसर्जित होत नाही. आणीबाणीच्या घोषणेदरम्यान संविधानात विशेष तरतुदी आहेत." } },
-  { id: "president-election", category: "government", question: { en: "How is the President of India elected?", mr: "भारताच्या राष्ट्रपतींची निवड कशी होते?" }, answer: { en: "The President is elected indirectly by an electoral college consisting of elected members of both Houses of Parliament and elected members of the Legislative Assemblies of the States and eligible Union Territories.", mr: "राष्ट्रपतींची अप्रत्यक्ष निवड संसदच्या दोन्ही सभागृहांतील निवडून आलेले सदस्य आणि राज्ये व पात्र केंद्रशासित प्रदेशांच्या विधानसभांतील निवडून आलेले सदस्य असलेल्या निर्वाचक मंडळाद्वारे केली जाते." } },
-  { id: "council-ministers", category: "government", question: { en: "Who aids and advises the President?", mr: "राष्ट्रपतींना कोण मदत आणि सल्ला देते?" }, answer: { en: "The Council of Ministers, with the Prime Minister at its head, aids and advises the President. The President generally acts in accordance with that advice under the constitutional system.", mr: "पंतप्रधानांच्या नेतृत्वाखालील मंत्रिपरिषद राष्ट्रपतींना मदत आणि सल्ला देते. संवैधानिक व्यवस्थेनुसार राष्ट्रपती सामान्यतः त्या सल्ल्यानुसार कार्य करतात." } },
-  { id: "supreme-court", category: "judiciary", question: { en: "What is the role of the Supreme Court?", mr: "सर्वोच्च न्यायालयाची भूमिका काय आहे?" }, answer: { en: "The Supreme Court is the highest court in India. It settles certain constitutional and legal disputes, protects constitutional rights through its jurisdiction and provides authoritative interpretations of law.", mr: "सर्वोच्च न्यायालय हे भारतातील सर्वोच्च न्यायालय आहे. ते संवैधानिक आणि कायदेशीर वाद सोडवते, आपल्या अधिकारक्षेत्रातून संवैधानिक अधिकारांचे संरक्षण करते आणि कायद्याचा अधिकृत अर्थ स्पष्ट करते." } },
-  { id: "judicial-review", category: "judiciary", question: { en: "What is judicial review?", mr: "न्यायालयीन पुनरावलोकन म्हणजे काय?" }, answer: { en: "Judicial review is the power of courts to examine whether laws and executive actions comply with the Constitution. A measure that violates the Constitution may be invalidated to the extent of the violation.", mr: "न्यायालयीन पुनरावलोकन म्हणजे कायदे आणि कार्यकारी कृती संविधानाशी सुसंगत आहेत का हे तपासण्याचा न्यायालयांचा अधिकार. संविधानाचे उल्लंघन करणारी तरतूद उल्लंघनाच्या मर्यादेपर्यंत अवैध ठरवली जाऊ शकते." } },
-  { id: "independent-judiciary", category: "judiciary", question: { en: "Why is an independent judiciary important?", mr: "स्वतंत्र न्यायव्यवस्था महत्त्वाची का आहे?" }, answer: { en: "An independent judiciary can decide disputes impartially, interpret the Constitution and protect rights without improper pressure. Judicial independence supports the rule of law and separation of powers.", mr: "स्वतंत्र न्यायव्यवस्था वादांचा निष्पक्ष निर्णय घेऊ शकते, संविधानाचा अर्थ स्पष्ट करू शकते आणि अनुचित दबावाशिवाय अधिकारांचे संरक्षण करू शकते. न्यायालयीन स्वातंत्र्य कायद्याचे राज्य आणि सत्ताविभाजनाला आधार देते." } },
-  { id: "amendment-meaning", category: "amendments", question: { en: "What is a Constitutional Amendment?", mr: "संविधान दुरुस्ती म्हणजे काय?" }, answer: { en: "A Constitutional Amendment is a formal change to the text or operation of the Constitution made through the procedure prescribed by Article 368 and other applicable provisions.", mr: "संविधान दुरुस्ती म्हणजे कलम ३६८ आणि इतर लागू तरतुदींमध्ये सांगितलेल्या प्रक्रियेनुसार संविधानाच्या मजकुरात किंवा कार्यपद्धतीत केला जाणारा औपचारिक बदल." }, link: "/amendments", linkLabel: { en: "Explore Amendments", mr: "दुरुस्त्या पहा" } },
-  { id: "amendment-procedure", category: "amendments", question: { en: "How is the Constitution amended?", mr: "संविधानात दुरुस्ती कशी केली जाते?" }, answer: { en: "The procedure varies according to the provision being changed. Many amendments require a special majority in Parliament, while some also require ratification by at least half of the State Legislatures.", mr: "बदलल्या जाणाऱ्या तरतुदीनुसार प्रक्रिया वेगवेगळी असते. अनेक दुरुस्त्यांसाठी संसदेत विशेष बहुमत आवश्यक असते, तर काही दुरुस्त्यांना किमान निम्म्या राज्यांच्या विधानमंडळांची मान्यता देखील आवश्यक असते." } },
-  { id: "basic-structure", category: "amendments", question: { en: "What is the basic structure doctrine?", mr: "मूलभूत रचना सिद्धांत म्हणजे काय?" }, answer: { en: "The basic structure doctrine means that Parliament’s power to amend the Constitution cannot be used to destroy its basic features. The Supreme Court developed this doctrine in the Kesavananda Bharati decision.", mr: "मूलभूत रचना सिद्धांतानुसार संविधानात दुरुस्ती करण्याचा संसदेचा अधिकार संविधानाची मूलभूत वैशिष्ट्ये नष्ट करण्यासाठी वापरता येत नाही. सर्वोच्च न्यायालयाने केशवानंद भारती निकालात हा सिद्धांत विकसित केला." } },
-  { id: "citizenship", category: "important", question: { en: "Where are citizenship provisions found in the Constitution?", mr: "नागरिकत्वाच्या तरतुदी संविधानाच्या कोणत्या भागात आहेत?" }, answer: { en: "Citizenship provisions are found in Part II of the Constitution, covering Articles 5 to 11. Parliament has power to make laws on citizenship subject to the constitutional framework.", mr: "नागरिकत्वाच्या तरतुदी संविधानाच्या भाग II मध्ये, कलम ५ ते ११ मध्ये आहेत. संवैधानिक चौकटीच्या अधीन राहून नागरिकत्वाबाबत कायदे करण्याचा अधिकार संसदेला आहे." } },
-  { id: "emergency-types", category: "important", question: { en: "What are the constitutional types of Emergency?", mr: "संविधानातील आणीबाणीचे प्रकार कोणते?" }, answer: { en: "The Constitution provides for National Emergency under Article 352, President’s Rule in a State under Article 356 and Financial Emergency under Article 360. Each has distinct constitutional conditions and effects.", mr: "संविधानात कलम ३५२ अंतर्गत राष्ट्रीय आणीबाणी, कलम ३५६ अंतर्गत राज्यातील राष्ट्रपती राजवट आणि कलम ३६० अंतर्गत आर्थिक आणीबाणीची तरतूद आहे. प्रत्येकासाठी वेगळ्या संवैधानिक अटी आणि परिणाम आहेत." } },
-  { id: "federal-system", category: "important", question: { en: "Is India a federal or unitary country?", mr: "भारत संघराज्यात्मक आहे की एकात्मक?" }, answer: { en: "India has a constitutional system with federal features, including governments at the Union and State levels, while also giving the Union important powers. It is often described as a federation with a strong Union.", mr: "भारताच्या व्यवस्थेत संघ आणि राज्य पातळीवरील सरकारांसह संघराज्यात्मक वैशिष्ट्ये आहेत, परंतु संघाला महत्त्वाचे अधिकारही दिले आहेत. म्हणून भारताचे वर्णन मजबूत संघ असलेले संघराज्य असे केले जाते." } },
-  { id: "schedules", category: "important", question: { en: "What are Schedules in the Constitution?", mr: "संविधानातील अनुसूच्या म्हणजे काय?" }, answer: { en: "Schedules contain supplementary details connected with constitutional provisions, such as allocation of subjects, forms, administration of certain areas and recognised languages. They support the operation of the main constitutional text.", mr: "अनुसूच्यांमध्ये संवैधानिक तरतुदींशी संबंधित पूरक तपशील, जसे विषयांचे वाटप, नमुने, काही क्षेत्रांचे प्रशासन आणि मान्यताप्राप्त भाषा दिल्या आहेत. त्या संविधानाच्या मुख्य मजकुराच्या अंमलबजावणीला मदत करतात." } },
-  { id: "rule-of-law", category: "important", question: { en: "What does the rule of law mean?", mr: "कायद्याचे राज्य म्हणजे काय?" }, answer: { en: "The rule of law means that public power must operate within the law and that everyone is subject to the law. It rejects arbitrary exercise of power and supports equality before law.", mr: "कायद्याचे राज्य म्हणजे सार्वजनिक सत्ता कायद्याच्या चौकटीत चालली पाहिजे आणि प्रत्येकजण कायद्याच्या अधीन असला पाहिजे. हे मनमानी सत्तावापराला नाकारते आणि कायद्यासमोर समानतेला आधार देते." } },
-  { id: "separation-powers", category: "important", question: { en: "What is separation of powers?", mr: "सत्ताविभाजन म्हणजे काय?" }, answer: { en: "Separation of powers distributes public functions among the legislature, executive and judiciary. In India, these institutions have distinct roles with constitutional checks and interaction rather than a completely rigid separation.", mr: "सत्ताविभाजनात सार्वजनिक कार्ये विधिमंडळ, कार्यपालिका आणि न्यायपालिका यांच्यात विभागली जातात. भारतात या संस्थांची भूमिका वेगळी असली तरी त्यांच्यात संवैधानिक नियंत्रण आणि परस्परसंवाद आहे; पूर्णपणे कठोर विभाजन नाही." } }
-];
 function FAQ() {
   const { language, pick } = useLanguage();
   const [query, setQuery] = useState("");
@@ -11236,7 +12775,7 @@ function FAQ() {
   }, [language, category, query]);
   const visibleFaqs = useMemo(() => {
     const normalizedQuery = query.trim().toLocaleLowerCase(language);
-    return faqs.filter((faq) => {
+    return faqs$1.filter((faq) => {
       const matchesCategory = category === "all" || faq.category === category;
       const searchable = `${pick(faq.question)} ${pick(faq.answer)}`.toLocaleLowerCase(language);
       return matchesCategory && (!normalizedQuery || searchable.includes(normalizedQuery));
@@ -11275,185 +12814,67 @@ function FAQ() {
     visibleFaqs.length === 0 && /* @__PURE__ */ jsx("p", { lang: language, className: "mt-12 text-center text-sm text-ink/55 dark:text-ink-dark/55", children: language === "mr" ? "कोणतेही प्रश्न सापडले नाहीत. दुसरा शब्द वापरून शोधा." : "No FAQs found. Try a different search term." })
   ] });
 }
-const __vite_import_meta_env__ = {};
-const SITE_URL = ((__vite_import_meta_env__ == null ? void 0 : __vite_import_meta_env__.VITE_SITE_URL) || (typeof process !== "undefined" ? (_b = process.env) == null ? void 0 : _b.VITE_SITE_URL : "") || siteConfig.url).replace(/\/+$/, "");
-const LOGO_URL = `${SITE_URL}/images/mysamvidhan-logo.svg`;
-function localize(value, language) {
-  return language === "mr" ? (value == null ? void 0 : value.mr) || "" : (value == null ? void 0 : value.en) || "";
-}
-function getBreadcrumbSchema(pathname, search, language, pageUrl) {
-  const items = getBreadcrumbItems(pathname, search, {
-    language,
-    t: (key) => translateBreadcrumb(key, language),
-    pick: (value) => localize(value, language)
-  });
-  if (!items.length) return null;
-  return {
-    "@type": "BreadcrumbList",
-    "@id": `${pageUrl}#breadcrumb`,
-    itemListElement: items.map((item, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: item.label,
-      ...item.to ? { item: getCanonicalUrl(item.to) } : {}
-    }))
-  };
-}
-function getVisiblePageType(pathname) {
-  if (pathname === "/about") return "AboutPage";
-  if (pathname === "/contact") return "ContactPage";
-  if (pathname === "/articles" || pathname === "/current-affairs") return "CollectionPage";
-  return "WebPage";
-}
-function getArticleList(pathname, language) {
-  const list = pathname === "/articles" ? articles : currentAffairs;
-  return {
-    "@type": "ItemList",
-    itemListElement: list.map((item, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      url: pathname === "/articles" ? `${SITE_URL}/article/${item.id}` : `${SITE_URL}/current-affairs/${item.slug}`,
-      name: pathname === "/articles" ? item.articleNumber : localize(item.title, language)
-    }))
-  };
-}
-function buildStructuredData(pathname, search = "", language = "en") {
-  var _a2, _b2;
-  const route = getSeoRoute(pathname);
-  const article = pathname.startsWith("/article/") ? getArticleById(pathname.split("/").pop()) : null;
-  const currentAffair = pathname.startsWith("/current-affairs/") ? getCurrentAffairBySlug(pathname.split("/").pop()) : null;
-  if (route.indexable === false || pathname === "/articles" && Boolean(search) || pathname.startsWith("/article/") && !article || pathname.startsWith("/current-affairs/") && !currentAffair || !route.title && !article && !currentAffair) {
-    return [];
-  }
-  const pageUrl = getCanonicalUrl(pathname);
-  const pick = (value) => localize(value, language);
-  const title = article ? `${article.articleNumber} — ${pick(article.title)} | ${siteConfig.name}` : currentAffair ? pick(currentAffair.seoTitle || currentAffair.title) : pick(route.title);
-  const description = article ? pick(article.simpleExplanation) : currentAffair ? pick(currentAffair.shortDescription) : pick(route.description);
-  const organizationId = `${SITE_URL}#organization`;
-  const websiteId = `${SITE_URL}#website`;
-  const pageId = `${pageUrl}#webpage`;
-  const breadcrumb = getBreadcrumbSchema(pathname, search, language, pageUrl);
-  const graph = [
-    {
-      "@type": "Organization",
-      "@id": organizationId,
-      name: siteConfig.name,
-      url: SITE_URL,
-      logo: {
-        "@type": "ImageObject",
-        url: LOGO_URL
-      }
-    },
-    {
-      "@type": "WebSite",
-      "@id": websiteId,
-      name: siteConfig.name,
-      url: SITE_URL,
-      publisher: { "@id": organizationId },
-      inLanguage: language === "mr" ? "mr-IN" : "en-IN",
-      potentialAction: {
-        "@type": "SearchAction",
-        target: `${SITE_URL}/articles?q={search_term_string}`,
-        "query-input": "required name=search_term_string"
-      }
-    },
-    {
-      "@type": getVisiblePageType(pathname),
-      "@id": pageId,
-      url: pageUrl,
-      name: title,
-      description,
-      isPartOf: { "@id": websiteId },
-      inLanguage: language === "mr" ? "mr-IN" : "en-IN",
-      ...breadcrumb ? { breadcrumb: { "@id": breadcrumb["@id"] } } : {},
-      ...article || currentAffair ? { mainEntity: { "@id": `${pageUrl}#article` } } : {},
-      ...pathname === "/articles" || pathname === "/current-affairs" ? { mainEntity: getArticleList(pathname, language) } : {}
-    }
-  ];
-  if (breadcrumb) graph.push(breadcrumb);
-  if (article) {
-    graph.push({
-      "@type": "Article",
-      "@id": `${pageUrl}#article`,
-      headline: pick(article.title),
-      description,
-      image: `${SITE_URL}/images/articles/article-${String(article.id).toLowerCase()}.webp`,
-      mainEntityOfPage: { "@id": pageId },
-      url: pageUrl,
-      inLanguage: language === "mr" ? "mr-IN" : "en-IN",
-      publisher: { "@id": organizationId },
-      ...article.articleNumber ? { articleSection: article.articleNumber } : {},
-      ...((_a2 = article.keywords) == null ? void 0 : _a2.length) ? { keywords: article.keywords.join(", ") } : {}
-    });
-  }
-  if (currentAffair) {
-    graph.push({
-      "@type": "Article",
-      "@id": `${pageUrl}#article`,
-      headline: pick(currentAffair.title),
-      description,
-      mainEntityOfPage: { "@id": pageId },
-      url: pageUrl,
-      inLanguage: language === "mr" ? "mr-IN" : "en-IN",
-      publisher: { "@id": organizationId },
-      ...currentAffair.date ? { datePublished: currentAffair.date } : {},
-      ...currentAffair.updatedAt ? { dateModified: currentAffair.updatedAt } : {},
-      ...currentAffair.category ? { articleSection: currentAffair.category } : {},
-      ...((_b2 = currentAffair.keywords) == null ? void 0 : _b2.length) ? { keywords: currentAffair.keywords.join(", ") } : {}
-    });
-  }
-  if (pathname === "/faq") {
-    graph.push({
-      "@type": "FAQPage",
-      "@id": `${pageUrl}#faq`,
-      url: pageUrl,
-      name: title,
-      inLanguage: language === "mr" ? "mr-IN" : "en-IN",
-      mainEntity: faqs.map((faq) => ({
-        "@type": "Question",
-        name: pick(faq.question),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: pick(faq.answer)
-        }
-      }))
-    });
-  }
-  return graph;
-}
-const SCHEMA_ID = "samvidhan-jsonld";
-function upsertSchema(graph) {
-  let script = document.head.querySelector(`#${SCHEMA_ID}`);
-  if (!script) {
-    script = document.createElement("script");
-    script.id = SCHEMA_ID;
-    script.type = "application/ld+json";
-    document.head.appendChild(script);
-  }
-  script.textContent = JSON.stringify({
-    "@context": "https://schema.org",
-    "@graph": graph
-  }).replace(/</g, "\\u003c");
-}
-function removeSchema() {
-  var _a2;
-  (_a2 = document.head.querySelector(`#${SCHEMA_ID}`)) == null ? void 0 : _a2.remove();
-}
-function SchemaJsonLd() {
-  const { pathname, search } = useLocation();
-  const { language } = useLanguage();
-  useEffect(() => {
-    const graph = buildStructuredData(pathname, search, language);
-    if (graph.length) upsertSchema(graph);
-    else removeSchema();
-  }, [pathname, search, language]);
-  return null;
-}
 function formatDate(date, language) {
   return (/* @__PURE__ */ new Date(`${date}T00:00:00`)).toLocaleDateString(
     language === "mr" ? "mr-IN" : "en-IN",
     { day: "numeric", month: "long", year: "numeric" }
   );
+}
+function renderArticleContent(content) {
+  const text = String(content || "");
+  const root = { children: [] };
+  const stack = [root];
+  const supportedTags = /* @__PURE__ */ new Set(["p", "h2", "strong", "em", "br", "ul", "li", "a"]);
+  const tokens = text.split(/(<\/?[a-z][^>]*>)/gi);
+  tokens.forEach((token) => {
+    var _a2;
+    const tagMatch = token.match(/^<\s*(\/?)\s*([a-z]+)\b([^>]*)>$/i);
+    if (!tagMatch) {
+      stack[stack.length - 1].children.push(token);
+      return;
+    }
+    const [, closing, tagName, attributes] = tagMatch;
+    const tag = tagName.toLowerCase();
+    if (!supportedTags.has(tag)) {
+      stack[stack.length - 1].children.push(token);
+      return;
+    }
+    if (closing) {
+      if (stack.length > 1 && stack[stack.length - 1].tag === tag) {
+        stack.pop();
+      }
+      return;
+    }
+    const node = { tag, children: [] };
+    if (tag === "a") {
+      const href = (_a2 = attributes.match(/\bhref=["'](https?:\/\/[^"']+|mailto:[^"'\s]+)["']/i)) == null ? void 0 : _a2[1];
+      if (href) node.href = href;
+    }
+    stack[stack.length - 1].children.push(node);
+    if (tag !== "br" && !/\/\s*>$/.test(token)) {
+      stack.push(node);
+    }
+  });
+  const renderNodes = (nodes) => nodes.map((node, index) => {
+    if (typeof node === "string") return node;
+    const props = { key: index };
+    if (node.tag === "a" && node.href) {
+      props.href = node.href;
+      props.className = "text-saffron underline decoration-saffron/40 underline-offset-2 hover:decoration-saffron";
+      if (!node.href.startsWith("mailto:")) {
+        props.target = "_blank";
+        props.rel = "noopener noreferrer";
+      }
+    } else if (node.tag === "ul") {
+      props.className = "mb-3 list-disc space-y-1 pl-6 last:mb-0";
+    } else if (node.tag === "p") {
+      props.className = "mb-3 last:mb-0";
+    } else if (node.tag === "h2") {
+      props.className = "mb-3 mt-6 font-display text-xl font-semibold text-navy first:mt-0 dark:text-ink-dark";
+    }
+    return createElement(node.tag, props, ...renderNodes(node.children));
+  });
+  return renderNodes(root.children);
 }
 function CurrentAffairsList() {
   const { language } = useLanguage();
@@ -11488,7 +12909,7 @@ function CurrentAffairsList() {
   ] });
 }
 function CurrentAffairDetails() {
-  var _a2, _b2, _c, _d, _e;
+  var _a2, _b2, _c;
   const { slug } = useParams();
   const { language, pick } = useLanguage();
   const article = getCurrentAffairBySlug(slug || "");
@@ -11503,143 +12924,256 @@ function CurrentAffairDetails() {
   const seoSections = ((_a2 = article.seoSections) == null ? void 0 : _a2[language]) || [];
   const faqs2 = ((_b2 = article.faq) == null ? void 0 : _b2[language]) || [];
   const mcqs = ((_c = article.mcqs) == null ? void 0 : _c[language]) || [];
+  const sources = article.sources || (article.source ? [article.source] : []);
   const related = (article.relatedSlugs || []).map((relatedSlug) => getCurrentAffairBySlug(relatedSlug)).filter(Boolean);
   return /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16", children: [
     /* @__PURE__ */ jsx(PageMeta, {}),
     /* @__PURE__ */ jsxs("header", { children: [
       /* @__PURE__ */ jsx("time", { dateTime: article.date, className: "text-sm font-medium text-saffron", children: formatDate(article.date, language) }),
-      /* @__PURE__ */ jsx("h1", { lang: language, className: "mt-1 font-display text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl", children: pick(article.title) }),
-      /* @__PURE__ */ jsx("span", { lang: language, className: "mt-3 inline-block rounded-full bg-leaf/10 px-3 py-1 text-xs font-medium text-leaf dark:text-leaf-light", children: category })
+      /* @__PURE__ */ jsx(
+        "h1",
+        {
+          lang: language,
+          className: "mt-1 font-display text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl",
+          children: pick(article.title)
+        }
+      ),
+      /* @__PURE__ */ jsx(
+        "span",
+        {
+          lang: language,
+          className: "mt-3 inline-block rounded-full bg-leaf/10 px-3 py-1 text-xs font-medium text-leaf dark:text-leaf-light",
+          children: category
+        }
+      )
     ] }),
     /* @__PURE__ */ jsxs("section", { className: "mt-8", children: [
-      /* @__PURE__ */ jsxs("h2", { lang: language, className: "flex items-center gap-2 font-display text-xl font-semibold text-navy dark:text-ink-dark", children: [
-        /* @__PURE__ */ jsx(BookOpen, { size: 20, className: "text-saffron" }),
-        language === "mr" ? "परिचय" : "Introduction"
-      ] }),
-      /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 text-base leading-relaxed text-ink/80 dark:text-ink-dark/80", children: pick(article.introduction || article.content) })
+      /* @__PURE__ */ jsxs(
+        "h2",
+        {
+          lang: language,
+          className: "flex items-center gap-2 font-display text-xl font-semibold text-navy dark:text-ink-dark",
+          children: [
+            /* @__PURE__ */ jsx(BookOpen, { size: 20, className: "text-saffron" }),
+            language === "mr" ? "परिचय" : "Introduction"
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsx("p", { className: "mt-3 text-base leading-relaxed text-ink/80 dark:text-ink-dark/80", lang: language, children: renderArticleContent(pick(article.introduction || article.content)) })
     ] }),
     /* @__PURE__ */ jsxs("section", { className: "mt-8", children: [
-      /* @__PURE__ */ jsxs("h2", { lang: language, className: "flex items-center gap-2 font-display text-lg font-semibold text-navy dark:text-ink-dark", children: [
-        /* @__PURE__ */ jsx(BookOpen, { size: 18, className: "text-saffron" }),
-        language === "mr" ? "सोप्या भाषेत स्पष्टीकरण" : "Simple Explanation"
-      ] }),
-      /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 text-base leading-relaxed text-ink/80 dark:text-ink-dark/80", children: pick(article.simpleExplanation) })
+      /* @__PURE__ */ jsxs(
+        "h2",
+        {
+          lang: language,
+          className: "flex items-center gap-2 font-display text-lg font-semibold text-navy dark:text-ink-dark",
+          children: [
+            /* @__PURE__ */ jsx(BookOpen, { size: 18, className: "text-saffron" }),
+            language === "mr" ? "सोप्या भाषेत स्पष्टीकरण" : "Simple Explanation"
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsx("p", { className: "mt-3 text-base leading-relaxed text-ink/80 dark:text-ink-dark/80", lang: language, children: renderArticleContent(pick(article.simpleExplanation)) })
     ] }),
     /* @__PURE__ */ jsxs("section", { className: "mt-8", children: [
-      /* @__PURE__ */ jsxs("h2", { lang: language, className: "flex items-center gap-2 font-display text-lg font-semibold text-navy dark:text-ink-dark", children: [
-        /* @__PURE__ */ jsx(Sparkles, { size: 18, className: "text-saffron" }),
-        language === "mr" ? "अगदी सोपे स्पष्टीकरण" : "Very Simple Explanation"
-      ] }),
-      /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 rounded-xl bg-navy/[0.04] p-5 text-base leading-relaxed text-navy dark:bg-white/[0.05] dark:text-ink-dark", children: pick(article.verySimple) })
+      /* @__PURE__ */ jsxs(
+        "h2",
+        {
+          lang: language,
+          className: "flex items-center gap-2 font-display text-lg font-semibold text-navy dark:text-ink-dark",
+          children: [
+            /* @__PURE__ */ jsx(Sparkles, { size: 18, className: "text-saffron" }),
+            language === "mr" ? "अगदी सोपे स्पष्टीकरण" : "Very Simple Explanation"
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsx(
+        "p",
+        {
+          lang: language,
+          className: "mt-3 rounded-xl bg-navy/[0.04] p-5 text-base leading-relaxed text-navy dark:bg-white/[0.05] dark:text-ink-dark",
+          children: renderArticleContent(pick(article.verySimple))
+        }
+      )
     ] }),
     /* @__PURE__ */ jsxs("section", { className: "mt-8", children: [
-      /* @__PURE__ */ jsxs("h2", { lang: language, className: "flex items-center gap-2 font-display text-lg font-semibold text-navy dark:text-ink-dark", children: [
-        /* @__PURE__ */ jsx(Lightbulb, { size: 18, className: "text-saffron" }),
-        language === "mr" ? "उदाहरण" : "Example"
-      ] }),
-      /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70", children: pick(article.example) })
+      /* @__PURE__ */ jsxs(
+        "h2",
+        {
+          lang: language,
+          className: "flex items-center gap-2 font-display text-lg font-semibold text-navy dark:text-ink-dark",
+          children: [
+            /* @__PURE__ */ jsx(Lightbulb, { size: 18, className: "text-saffron" }),
+            language === "mr" ? "उदाहरण" : "Example"
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsx("p", { className: "mt-3 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70", lang: language, children: renderArticleContent(pick(article.example)) })
     ] }),
+    article.articleBody && /* @__PURE__ */ jsx(
+      "section",
+      {
+        lang: language,
+        className: "mt-8 text-base leading-relaxed text-ink/80 dark:text-ink-dark/80",
+        children: renderArticleContent(pick(article.articleBody))
+      }
+    ),
     seoSections.length > 0 && /* @__PURE__ */ jsx("section", { className: "mt-8 space-y-6", children: seoSections.map((section, index) => /* @__PURE__ */ jsxs("div", { children: [
-      /* @__PURE__ */ jsx("h2", { lang: language, className: "font-display text-lg font-semibold text-navy dark:text-ink-dark", children: section.heading }),
-      /* @__PURE__ */ jsx("p", { lang: language, className: "mt-3 text-base leading-relaxed text-ink/80 dark:text-ink-dark/80", children: section.content })
+      /* @__PURE__ */ jsx(
+        "h2",
+        {
+          lang: language,
+          className: "font-display text-lg font-semibold text-navy dark:text-ink-dark",
+          children: section.title || section.heading
+        }
+      ),
+      /* @__PURE__ */ jsx(
+        "div",
+        {
+          lang: language,
+          className: "mt-3 text-base leading-relaxed text-ink/80 dark:text-ink-dark/80",
+          children: renderArticleContent(section.content)
+        }
+      )
     ] }, index)) }),
     faqs2.length > 0 && /* @__PURE__ */ jsxs("section", { className: "mt-10", children: [
-      /* @__PURE__ */ jsxs("h2", { lang: language, className: "flex items-center gap-2 font-display text-xl font-semibold text-navy dark:text-ink-dark", children: [
-        /* @__PURE__ */ jsx(HelpCircle, { size: 20, className: "text-saffron" }),
-        language === "mr" ? "वारंवार विचारले जाणारे प्रश्न" : "Frequently Asked Questions"
-      ] }),
-      /* @__PURE__ */ jsx("div", { className: "mt-4 space-y-4", children: faqs2.map((faq, index) => /* @__PURE__ */ jsxs("div", { className: "rounded-xl border border-navy/10 bg-white/60 p-5 dark:border-ink-dark/10 dark:bg-white/[0.04]", children: [
-        /* @__PURE__ */ jsx("h3", { lang: language, className: "font-semibold text-navy dark:text-ink-dark", children: faq.question }),
-        /* @__PURE__ */ jsx("p", { lang: language, className: "mt-2 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70", children: faq.answer })
-      ] }, index)) })
+      /* @__PURE__ */ jsxs(
+        "h2",
+        {
+          lang: language,
+          className: "flex items-center gap-2 font-display text-xl font-semibold text-navy dark:text-ink-dark",
+          children: [
+            /* @__PURE__ */ jsx(HelpCircle, { size: 20, className: "text-saffron" }),
+            language === "mr" ? "वारंवार विचारले जाणारे प्रश्न" : "Frequently Asked Questions"
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsx("div", { className: "mt-4 space-y-4", children: faqs2.map((faq, index) => /* @__PURE__ */ jsxs(
+        "div",
+        {
+          className: "rounded-xl border border-navy/10 bg-white/60 p-5 dark:border-ink-dark/10 dark:bg-white/[0.04]",
+          children: [
+            /* @__PURE__ */ jsx("h3", { lang: language, className: "font-semibold text-navy dark:text-ink-dark", children: faq.question }),
+            /* @__PURE__ */ jsx(
+              "p",
+              {
+                lang: language,
+                className: "mt-2 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70",
+                children: renderArticleContent(faq.answer)
+              }
+            )
+          ]
+        },
+        index
+      )) })
     ] }),
     mcqs.length > 0 && /* @__PURE__ */ jsxs("section", { className: "mt-10", children: [
       /* @__PURE__ */ jsx("h2", { lang: language, className: "font-display text-xl font-semibold text-navy dark:text-ink-dark", children: language === "mr" ? "बहुपर्यायी प्रश्न" : "Multiple Choice Questions" }),
-      /* @__PURE__ */ jsx("div", { className: "mt-4 space-y-4", children: mcqs.map((mcq, index) => /* @__PURE__ */ jsxs("div", { className: "rounded-xl border border-navy/10 bg-white/60 p-5 dark:border-ink-dark/10 dark:bg-white/[0.04]", children: [
-        /* @__PURE__ */ jsx("h3", { lang: language, className: "font-semibold text-navy dark:text-ink-dark", children: mcq.question }),
-        /* @__PURE__ */ jsx("ul", { className: "mt-3 grid gap-2 text-sm text-ink/70 dark:text-ink-dark/70 sm:grid-cols-2", children: mcq.options.map((option) => /* @__PURE__ */ jsx("li", { children: option }, option)) }),
-        /* @__PURE__ */ jsxs("p", { lang: language, className: "mt-3 text-sm font-medium text-leaf dark:text-leaf-light", children: [
-          language === "mr" ? "योग्य उत्तर" : "Correct answer",
-          ": ",
-          mcq.answer
-        ] })
-      ] }, index)) })
+      /* @__PURE__ */ jsx("div", { className: "mt-4 space-y-4", children: mcqs.map((mcq, index) => /* @__PURE__ */ jsxs(
+        "div",
+        {
+          className: "rounded-xl border border-navy/10 bg-white/60 p-5 dark:border-ink-dark/10 dark:bg-white/[0.04]",
+          children: [
+            /* @__PURE__ */ jsx("h3", { lang: language, className: "font-semibold text-navy dark:text-ink-dark", children: mcq.question }),
+            /* @__PURE__ */ jsx("ul", { className: "mt-3 grid gap-2 text-sm text-ink/70 dark:text-ink-dark/70 sm:grid-cols-2", children: mcq.options.map((option) => /* @__PURE__ */ jsx("li", { children: option }, option)) }),
+            /* @__PURE__ */ jsxs(
+              "p",
+              {
+                lang: language,
+                className: "mt-3 text-sm font-medium text-leaf dark:text-leaf-light",
+                children: [
+                  language === "mr" ? "योग्य उत्तर" : "Correct answer",
+                  ": ",
+                  mcq.answer
+                ]
+              }
+            )
+          ]
+        },
+        index
+      )) })
     ] }),
     related.length > 0 && /* @__PURE__ */ jsxs("section", { className: "mt-10", children: [
-      /* @__PURE__ */ jsxs("h2", { lang: language, className: "flex items-center gap-2 font-display text-lg font-semibold text-navy dark:text-ink-dark", children: [
-        /* @__PURE__ */ jsx(Link2, { size: 18, className: "text-saffron" }),
-        language === "mr" ? "संबंधित चालू घडामोडी" : "Related Current Affairs"
-      ] }),
-      /* @__PURE__ */ jsx("div", { className: "mt-3 flex flex-wrap gap-2", children: related.map((relatedArticle) => /* @__PURE__ */ jsx(Link, { to: `/current-affairs/${relatedArticle.slug}`, className: "rounded-full border border-navy/15 px-4 py-2 text-sm text-navy transition-colors hover:border-saffron/50 hover:text-saffron dark:border-ink-dark/20 dark:text-ink-dark", children: pick(relatedArticle.title) }, relatedArticle.id)) })
-    ] }),
-    /* @__PURE__ */ jsx("div", { className: "mt-10 border-t border-navy/10 pt-6 text-xs text-ink/45 dark:border-ink-dark/10 dark:text-ink-dark/45", children: /* @__PURE__ */ jsxs("span", { children: [
-      language === "mr" ? "स्रोत" : "Source",
-      ":",
-      " ",
-      ((_d = article.source) == null ? void 0 : _d.url) ? /* @__PURE__ */ jsx(
-        "a",
+      /* @__PURE__ */ jsxs(
+        "h2",
         {
-          href: article.source.url,
-          target: "_blank",
-          rel: "noopener noreferrer",
-          className: "hover:text-saffron",
-          children: article.source.title || "The Indian Express"
+          lang: language,
+          className: "flex items-center gap-2 font-display text-lg font-semibold text-navy dark:text-ink-dark",
+          children: [
+            /* @__PURE__ */ jsx(Link2, { size: 18, className: "text-saffron" }),
+            language === "mr" ? "संबंधित चालू घडामोडी" : "Related Current Affairs"
+          ]
         }
-      ) : ((_e = article.source) == null ? void 0 : _e.title) || "—"
-    ] }) })
+      ),
+      /* @__PURE__ */ jsx("div", { className: "mt-3 flex flex-wrap gap-2", children: related.map((relatedArticle) => /* @__PURE__ */ jsx(
+        Link,
+        {
+          to: `/current-affairs/${relatedArticle.slug}`,
+          className: "rounded-full border border-navy/15 px-4 py-2 text-sm text-navy transition-colors hover:border-saffron/50 hover:text-saffron dark:border-ink-dark/20 dark:text-ink-dark",
+          children: pick(relatedArticle.title)
+        },
+        relatedArticle.id
+      )) })
+    ] }),
+    sources.length > 0 && /* @__PURE__ */ jsxs("section", { className: "mt-10 border-t border-navy/10 pt-6 dark:border-ink-dark/10", children: [
+      /* @__PURE__ */ jsx("h2", { className: "mb-3 font-display text-base font-semibold text-navy dark:text-ink-dark", children: language === "mr" ? "स्रोत" : "Sources" }),
+      /* @__PURE__ */ jsx("ul", { className: "space-y-2", children: sources.map((source, index) => {
+        const sourceName = source.name || source.title || source.publisher || "Source";
+        const sourceUrl = source.url || source.link;
+        return /* @__PURE__ */ jsx("li", { children: sourceUrl ? /* @__PURE__ */ jsxs(
+          "a",
+          {
+            href: sourceUrl,
+            target: "_blank",
+            rel: "noopener noreferrer",
+            className: "inline-flex items-center gap-2 text-sm text-saffron hover:underline",
+            children: [
+              /* @__PURE__ */ jsx(Link2, { size: 15 }),
+              sourceName
+            ]
+          }
+        ) : /* @__PURE__ */ jsx("span", { className: "text-sm text-ink/60 dark:text-ink-dark/60", children: sourceName }) }, sourceUrl || sourceName);
+      }) })
+    ] })
   ] });
 }
-function App() {
-  return /* @__PURE__ */ jsxs("div", { className: "flex min-h-screen flex-col", children: [
-    /* @__PURE__ */ jsx(
-      "a",
-      {
-        href: "#main-content",
-        className: "sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-navy focus:px-4 focus:py-2 focus:text-paper",
-        children: "Skip to content"
+function AppServer() {
+  return /* @__PURE__ */ jsx(
+    AppRoutes,
+    {
+      pages: {
+        Home,
+        Articles,
+        ArticleDetails,
+        FundamentalRights,
+        FundamentalDuties,
+        DirectivePrinciples,
+        Amendments,
+        Quiz,
+        Bookmarks,
+        About,
+        NotFound,
+        Premium,
+        ExamPreparation,
+        PremiumQuiz,
+        Notes,
+        Dashboard,
+        Progress,
+        Learn,
+        Contact,
+        Privacy,
+        Terms,
+        Disclaimer,
+        FAQ,
+        CurrentAffairs: CurrentAffairsList,
+        CurrentAffairDetails
       }
-    ),
-    /* @__PURE__ */ jsx(ScrollToTop, {}),
-    /* @__PURE__ */ jsx(PageMeta, {}),
-    /* @__PURE__ */ jsx(SchemaJsonLd, {}),
-    /* @__PURE__ */ jsx(Navbar, {}),
-    /* @__PURE__ */ jsxs("main", { id: "main-content", className: "app-main flex-1", children: [
-      /* @__PURE__ */ jsx(Breadcrumbs, {}),
-      /* @__PURE__ */ jsxs(Routes, { children: [
-        /* @__PURE__ */ jsx(Route, { path: "/", element: /* @__PURE__ */ jsx(Home, {}) }),
-        /* @__PURE__ */ jsx(Route, { path: "/articles", element: /* @__PURE__ */ jsx(Articles, {}) }),
-        /* @__PURE__ */ jsx(Route, { path: "/current-affairs", element: /* @__PURE__ */ jsx(CurrentAffairsList, {}) }),
-        /* @__PURE__ */ jsx(Route, { path: "/current-affairs/:slug", element: /* @__PURE__ */ jsx(CurrentAffairDetails, {}) }),
-        /* @__PURE__ */ jsx(Route, { path: "/article/:id", element: /* @__PURE__ */ jsx(ArticleDetails, {}) }),
-        /* @__PURE__ */ jsx(Route, { path: "/fundamental-rights", element: /* @__PURE__ */ jsx(FundamentalRights, {}) }),
-        /* @__PURE__ */ jsx(Route, { path: "/fundamental-duties", element: /* @__PURE__ */ jsx(FundamentalDuties, {}) }),
-        /* @__PURE__ */ jsx(Route, { path: "/directive-principles", element: /* @__PURE__ */ jsx(DirectivePrinciples, {}) }),
-        /* @__PURE__ */ jsx(Route, { path: "/amendments", element: /* @__PURE__ */ jsx(Amendments, {}) }),
-        /* @__PURE__ */ jsx(Route, { path: "/quiz", element: /* @__PURE__ */ jsx(Quiz, {}) }),
-        /* @__PURE__ */ jsx(Route, { path: "/bookmarks", element: /* @__PURE__ */ jsx(Bookmarks, {}) }),
-        /* @__PURE__ */ jsx(Route, { path: "/about", element: /* @__PURE__ */ jsx(About, {}) }),
-        /* @__PURE__ */ jsx(Route, { path: "/contact", element: /* @__PURE__ */ jsx(Contact, {}) }),
-        /* @__PURE__ */ jsx(Route, { path: "/privacy", element: /* @__PURE__ */ jsx(Privacy, {}) }),
-        /* @__PURE__ */ jsx(Route, { path: "/privacy-policy", element: /* @__PURE__ */ jsx(Privacy, {}) }),
-        /* @__PURE__ */ jsx(Route, { path: "/terms", element: /* @__PURE__ */ jsx(Terms, {}) }),
-        /* @__PURE__ */ jsx(Route, { path: "/disclaimer", element: /* @__PURE__ */ jsx(Disclaimer, {}) }),
-        /* @__PURE__ */ jsx(Route, { path: "/faq", element: /* @__PURE__ */ jsx(FAQ, {}) }),
-        /* @__PURE__ */ jsx(Route, { path: "/premium", element: /* @__PURE__ */ jsx(Premium, {}) }),
-        /* @__PURE__ */ jsx(Route, { path: "/exam-preparation", element: /* @__PURE__ */ jsx(ExamPreparation, {}) }),
-        /* @__PURE__ */ jsx(Route, { path: "/premium-quiz", element: /* @__PURE__ */ jsx(PremiumQuiz, {}) }),
-        /* @__PURE__ */ jsx(Route, { path: "/notes", element: /* @__PURE__ */ jsx(Notes, {}) }),
-        /* @__PURE__ */ jsx(Route, { path: "/dashboard", element: /* @__PURE__ */ jsx(Dashboard, {}) }),
-        /* @__PURE__ */ jsx(Route, { path: "/progress", element: /* @__PURE__ */ jsx(Progress, {}) }),
-        /* @__PURE__ */ jsx(Route, { path: "/learn", element: /* @__PURE__ */ jsx(Learn, {}) }),
-        /* @__PURE__ */ jsx(Route, { path: "*", element: /* @__PURE__ */ jsx(NotFound, {}) })
-      ] })
-    ] }),
-    /* @__PURE__ */ jsx(Footer, {})
-  ] });
+    }
+  );
 }
 function render(url) {
   return renderToString(
-    /* @__PURE__ */ jsx(React.StrictMode, { children: /* @__PURE__ */ jsx(StaticRouter, { location: url, children: /* @__PURE__ */ jsx(LanguageProvider, { children: /* @__PURE__ */ jsx(BookmarkProvider, { children: /* @__PURE__ */ jsx(AuthProvider, { children: /* @__PURE__ */ jsx(App, {}) }) }) }) }) })
+    /* @__PURE__ */ jsx(React.StrictMode, { children: /* @__PURE__ */ jsx(StaticRouter, { location: url, children: /* @__PURE__ */ jsx(LanguageProvider, { children: /* @__PURE__ */ jsx(BookmarkProvider, { children: /* @__PURE__ */ jsx(AuthProvider, { children: /* @__PURE__ */ jsx(AppServer, {}) }) }) }) }) })
   );
 }
 export {

@@ -15,6 +15,7 @@ export const quizData = [
       { en: 'Article 32', mr: 'कलम ३२' },
     ],
     correctIndex: 0,
+    resource: { to: '/article/14', en: 'Review Article 14', mr: 'कलम १४ चा अभ्यास करा' },
   },
   {
     id: 'q2',
@@ -29,6 +30,7 @@ export const quizData = [
       { en: 'Article 356', mr: 'कलम ३५६' },
     ],
     correctIndex: 1,
+    resource: { to: '/article/32', en: 'Review Article 32', mr: 'कलम ३२ चा अभ्यास करा' },
   },
   {
     id: 'q3',
@@ -43,6 +45,7 @@ export const quizData = [
       { en: 'Article 45', mr: 'कलम ४५' },
     ],
     correctIndex: 1,
+    resource: { to: '/article/21A', en: 'Review Article 21A', mr: 'कलम २१अ चा अभ्यास करा' },
   },
   {
     id: 'q4',
@@ -57,6 +60,7 @@ export const quizData = [
       { en: '73rd Amendment', mr: '७३वी दुरुस्ती' },
     ],
     correctIndex: 1,
+    resource: { to: '/article/51A', en: 'Review Article 51A', mr: 'कलम ५१अ चा अभ्यास करा' },
   },
   {
     id: 'q5',
@@ -71,6 +75,7 @@ export const quizData = [
       { en: 'Part IV-A', mr: 'भाग ४-अ' },
     ],
     correctIndex: 1,
+    resource: { to: '/directive-principles', en: 'Review the Directive Principles guide', mr: 'मार्गदर्शक तत्त्वांचे मार्गदर्शन वाचा' },
   },
   {
     id: 'q6',
@@ -99,6 +104,7 @@ export const quizData = [
       { en: 'Service Tax', mr: 'सेवा कर' },
     ],
     correctIndex: 1,
+    resource: { to: '/amendments', en: 'Review the selected amendments', mr: 'निवडक घटनादुरुस्त्या पाहा' },
   },
   {
     id: 'q8',
@@ -113,5 +119,6 @@ export const quizData = [
       { en: 'Article 370', mr: 'कलम ३७०' },
     ],
     correctIndex: 0,
+    resource: { to: '/article/352', en: 'Review Article 352', mr: 'कलम ३५२ चा अभ्यास करा' },
   },
 ]

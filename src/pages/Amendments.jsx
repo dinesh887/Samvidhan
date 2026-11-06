@@ -39,6 +39,16 @@ export default function Amendments() {
               <p lang={language} className="mt-1.5 text-sm leading-relaxed text-ink/65 dark:text-ink-dark/65">
                 {pick(a.explanation)}
               </p>
+              {a.source && (
+                <a
+                  href={a.source}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-flex text-sm font-medium text-saffron underline underline-offset-4"
+                >
+                  Official Amendment Act (Legislative Department)
+                </a>
+              )}
             </div>
           </div>
         ))}

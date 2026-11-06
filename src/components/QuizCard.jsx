@@ -1,4 +1,5 @@
 import { useLanguage } from '../context/LanguageContext'
+import { Link } from 'react-router-dom'
 
 export default function QuizCard({ question, index, total, selected, onSelect, showResult }) {
   const { pick, t, language } = useLanguage()
@@ -50,6 +51,16 @@ export default function QuizCard({ question, index, total, selected, onSelect, s
           )
         })}
       </div>
+
+      {showResult && question.resource && (
+        <Link
+          to={question.resource.to}
+          lang={language}
+          className="mt-5 inline-flex text-sm font-medium text-saffron underline underline-offset-4 hover:text-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saffron dark:hover:text-ink-dark"
+        >
+          {language === 'mr' ? question.resource.mr : question.resource.en} →
+        </Link>
+      )}
     </div>
   )
 }

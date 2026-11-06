@@ -251,6 +251,7 @@ const articleImage = `/images/articles/article-${String(article.id).toLowerCase(
     }
     width="1200"
     height="630"
+    fetchpriority="high"
     loading="eager"
     decoding="async"
     className="h-auto w-full object-cover"

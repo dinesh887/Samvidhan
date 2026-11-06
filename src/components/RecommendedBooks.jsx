@@ -109,10 +109,10 @@ export default function RecommendedBooks({ books }) {
         ))}
       </div>
 
-      {/* Affiliate Disclosure */}
-      {/* <div className="mt-5">
+      {/* Affiliate disclosure appears with the recommendations and links. */}
+      <div className="mt-5">
         <AffiliateDisclosure />
-      </div> */}
+      </div>
     </section>
   );
 }

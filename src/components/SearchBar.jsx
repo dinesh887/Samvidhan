@@ -35,8 +35,9 @@ export default function SearchBar({ large = false }) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={t('search_placeholder')}
+            aria-label={t('search_placeholder')}
             lang={language}
-            className="w-full bg-transparent py-3 text-sm sm:text-base text-ink dark:text-ink-dark placeholder:text-ink/40 dark:placeholder:text-ink-dark/40 focus:outline-none"
+            className="w-full bg-transparent py-3 text-base text-ink dark:text-ink-dark placeholder:text-ink/40 dark:placeholder:text-ink-dark/40 focus:outline-none"
           />
         </div>
         <button
