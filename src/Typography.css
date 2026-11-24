@@ -1,0 +1,104 @@
+:root {
+  --type-body: 1rem;
+  --type-body-line: 1.72;
+  --type-small: 0.8125rem;
+  --type-h1: clamp(1.875rem, 4.2vw, 3.5rem);
+  --type-h2: clamp(1.4rem, 2.45vw, 2rem);
+  --type-h3: clamp(1.125rem, 1.6vw, 1.4rem);
+}
+
+html { font-size: 100%; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { font-size: var(--type-body); line-height: var(--type-body-line); }
+
+/* Keep page titles and section headings on one readable, responsive scale. */
+body main h1 { font-size: var(--type-h1) !important; line-height: 1.22 !important; }
+body main h2 { font-size: var(--type-h2) !important; line-height: 1.38 !important; }
+body main h3 { font-size: var(--type-h3) !important; line-height: 1.45 !important; }
+
+/* Keep explanatory copy comfortable across every page and content type. */
+body main p:not(.eyebrow):not(.ca-category):not(.rights-eyebrow):not(.rights-section-label):not(.study-eyebrow),
+body main li,
+body main dd,
+body main blockquote,
+body main figcaption {
+  font-size: var(--type-body) !important;
+  line-height: var(--type-body-line) !important;
+}
+
+/* Labels, metadata and secondary copy stay legible without competing with body text. */
+body main small,
+body main time,
+body main label,
+body main .eyebrow,
+body main .ca-category,
+body main .rights-eyebrow,
+body main .rights-section-label,
+body main .study-eyebrow,
+body main .faq-category,
+body main .update-meta,
+body main .article-meta,
+body main .ca-byline,
+body main .ca-story-meta {
+  font-size: var(--type-small) !important;
+  line-height: 1.55 !important;
+}
+
+body main button,
+body main input,
+body main select,
+body main textarea,
+body main summary {
+  font-size: 0.9375rem;
+}
+
+body .site-header .nav a,
+body .article-header .nav a { font-size: 0.8125rem; }
+body .footer-column a,
+body .footer-about > p,
+body .footer-column > p,
+body .footer-bottom { font-size: 0.8125rem; }
+body .brand small { font-size: 0.6875rem; }
+
+html[lang="mr"] {
+  font-family: 'Noto Sans Devanagari', 'DM Sans', Arial, sans-serif;
+  --type-body: 1.0625rem;
+  --type-body-line: 1.82;
+}
+
+html[lang="mr"] body main h1,
+html[lang="mr"] body main h2,
+html[lang="mr"] body main h3 {
+  font-family: 'Noto Serif Devanagari', Georgia, serif !important;
+  letter-spacing: 0 !important;
+}
+
+html[lang="mr"] body main :is(p, li, dd, blockquote, figcaption, a, button, label, summary, small, time) {
+  font-family: 'Noto Sans Devanagari', 'DM Sans', Arial, sans-serif;
+  letter-spacing: 0 !important;
+}
+
+@media (max-width: 760px) {
+  :root {
+    --type-h1: clamp(1.75rem, 7vw, 2.5rem);
+    --type-h2: clamp(1.3rem, 5vw, 1.75rem);
+    --type-h3: clamp(1.1rem, 4vw, 1.35rem);
+  }
+
+  body main p:not(.eyebrow):not(.ca-category):not(.rights-eyebrow):not(.rights-section-label):not(.study-eyebrow),
+  body main li,
+  body main dd,
+  body main blockquote,
+  body main figcaption {
+    line-height: 1.75 !important;
+  }
+
+  body main button,
+  body main input,
+  body main select,
+  body main textarea { font-size: 1rem; }
+
+  body .footer-column a,
+  body .footer-about > p,
+  body .footer-column > p,
+  body .footer-bottom { font-size: 0.8125rem; }
+}
