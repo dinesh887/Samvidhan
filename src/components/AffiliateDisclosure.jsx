@@ -1,0 +1,2 @@
+import { useLanguage } from '../context/LanguageContext'
+export default function AffiliateDisclosure() { const { language } = useLanguage(); return <p lang={language} className="text-xs leading-relaxed text-ink/50 dark:text-ink-dark/50">{language === 'mr' ? 'या पेजवरील काही लिंक Affiliate Links असू शकतात. तुमच्यावर कोणताही अतिरिक्त खर्च न होता आम्हाला कमिशन मिळू शकते.' : 'Some links on this page may be affiliate links. We may earn a commission at no additional cost to you.'}</p> }

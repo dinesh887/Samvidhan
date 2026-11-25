@@ -1,0 +1,23 @@
+import React from 'react'
+import { renderToString } from 'react-dom/server'
+import { StaticRouter } from 'react-router-dom/server'
+import App from './AppServer.jsx'
+import { LanguageProvider } from './context/LanguageContext.jsx'
+import { BookmarkProvider } from './context/BookmarkContext.jsx'
+import { AuthProvider } from './context/AuthContext.jsx'
+
+export function render(url) {
+  return renderToString(
+    <React.StrictMode>
+      <StaticRouter location={url}>
+        <LanguageProvider>
+          <BookmarkProvider>
+            <AuthProvider>
+              <App />
+            </AuthProvider>
+          </BookmarkProvider>
+        </LanguageProvider>
+      </StaticRouter>
+    </React.StrictMode>
+  )
+}

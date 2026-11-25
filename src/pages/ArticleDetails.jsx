@@ -1,0 +1,653 @@
+import { useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import {
+  ScrollText,
+  BookOpen,
+  Sparkles,
+  Lightbulb,
+  Link2,
+  ShieldAlert,
+  ChevronLeft,
+  ChevronRight,
+  HelpCircle,
+} from 'lucide-react'
+
+import BookmarkButton from '../components/BookmarkButton'
+import { useLanguage } from '../context/LanguageContext'
+import {
+  getArticleById,
+  getRelatedArticles,
+} from '../data/articles'
+import { getCategoryByKey } from '../data/categories'
+import Advertisement from '../components/Advertisement'
+import PageMeta from '../components/PageMeta'
+import { generateArticleSEO } from '../utils/seoUtils'
+
+export default function ArticleDetails() {
+  const { id } = useParams()
+  const { t, pick, language } = useLanguage()
+
+  const [openFAQ, setOpenFAQ] = useState(null)
+
+  const article = getArticleById(id || '')
+
+  if (!article) {
+    return (
+      <div className="mx-auto max-w-3xl px-4 py-24 text-center">
+        <PageMeta
+          title="Article Not Found | MySamvidhan"
+          description="The requested article could not be found on MySamvidhan."
+          robots="noindex, follow"
+        />
+
+        <h1 className="font-display text-2xl font-semibold text-navy dark:text-ink-dark">
+          Article not found
+        </h1>
+
+        <Link
+          to="/articles"
+          className="mt-4 inline-block text-saffron"
+        >
+          ← Back to Articles
+        </Link>
+      </div>
+    )
+  }
+
+  const category = getCategoryByKey(article.categoryKey)
+  const related = getRelatedArticles(article)
+
+  // -----------------------------------------
+  // GLOBAL SEO
+  // -----------------------------------------
+
+ const seo = generateArticleSEO(article)
+
+// -----------------------------------------
+// ARTICLE NUMBER
+// -----------------------------------------
+
+const rawNumber = String(article.articleNumber || '')
+
+const articleNumber = rawNumber
+  .replace(/^article\s*/i, '')
+  .replace(/^कलम\s*/i, '')
+  .trim()
+
+const englishArticle = `Article ${articleNumber}`
+const marathiArticle = `कलम ${articleNumber}`
+
+const articleImage = `/images/articles/article-${String(article.id).toLowerCase()}.webp`
+
+  // -----------------------------------------
+  // SEO FRIENDLY FAQ
+  // -----------------------------------------
+
+  const englishFAQs = [
+    {
+      question: `What is ${englishArticle} of the Indian Constitution?`,
+      answer:
+        article.simpleExplanation?.en ||
+        article.verySimple?.en ||
+        '',
+    },
+    {
+      question: `What does ${englishArticle} mean?`,
+      answer:
+        article.verySimple?.en ||
+        article.simpleExplanation?.en ||
+        '',
+    },
+    {
+      question: `Why is ${englishArticle} important?`,
+      answer:
+        article.simpleExplanation?.en ||
+        article.example?.en ||
+        '',
+    },
+  ]
+
+  const marathiFAQs = [
+    {
+      question: `${marathiArticle} म्हणजे काय?`,
+      answer:
+        article.simpleExplanation?.mr ||
+        article.verySimple?.mr ||
+        '',
+    },
+    {
+      question: `${marathiArticle} चा अर्थ काय आहे?`,
+      answer:
+        article.verySimple?.mr ||
+        article.simpleExplanation?.mr ||
+        '',
+    },
+    {
+      question: `${marathiArticle} चे महत्त्व काय आहे?`,
+      answer:
+        article.simpleExplanation?.mr ||
+        article.example?.mr ||
+        '',
+    },
+  ]
+
+  const faqs =
+    language === 'mr'
+      ? marathiFAQs
+      : englishFAQs
+
+  // -----------------------------------------
+  // ARTICLE LIST FOR PREVIOUS / NEXT
+  // -----------------------------------------
+
+  const articleNumberValue = Number(
+    articleNumber.replace(/\D/g, '')
+  )
+
+  const allArticles = Array.isArray(
+    article.allArticles
+  )
+    ? article.allArticles
+    : []
+
+  let previousArticle = null
+  let nextArticle = null
+
+  if (allArticles.length > 0) {
+    const sortedArticles = [...allArticles]
+      .filter(Boolean)
+      .sort((a, b) => {
+        const aNum = Number(
+          String(a.articleNumber || '')
+            .replace(/\D/g, '')
+        )
+
+        const bNum = Number(
+          String(b.articleNumber || '')
+            .replace(/\D/g, '')
+        )
+
+        return aNum - bNum
+      })
+
+    const currentIndex = sortedArticles.findIndex(
+      (item) => item.id === article.id
+    )
+
+    if (currentIndex > 0) {
+      previousArticle =
+        sortedArticles[currentIndex - 1]
+    }
+
+    if (
+      currentIndex >= 0 &&
+      currentIndex < sortedArticles.length - 1
+    ) {
+      nextArticle =
+        sortedArticles[currentIndex + 1]
+    }
+  }
+
+  return (
+    <>
+      {/* =========================================
+          GLOBAL SEO
+      ========================================= */}
+
+      <PageMeta
+        title={
+          language === 'mr'
+            ? seo.titleMr
+            : seo.titleEn
+        }
+        description={
+          language === 'mr'
+            ? seo.descriptionMr
+            : seo.descriptionEn
+        }
+        canonical={seo.canonicalPath}
+        robots={seo.robots}
+      />
+
+      <div className="article-reading mx-auto max-w-4xl px-4 sm:px-6 py-12 sm:py-16">
+        {/* =========================================
+            ARTICLE HEADER
+        ========================================= */}
+
+        <header>
+          <span className="text-sm font-medium text-saffron">
+            {language === 'mr'
+              ? marathiArticle
+              : englishArticle}
+          </span>
+
+          <h1
+            lang={language}
+            className="font-display mt-1 text-3xl font-semibold text-navy dark:text-ink-dark sm:text-4xl"
+          >
+            {pick(article.title)}
+          </h1>
+
+          {category && (
+            <span
+              lang={language}
+              className="mt-3 inline-block rounded-full bg-leaf/10 px-3 py-1 text-xs font-medium text-leaf dark:text-leaf-light"
+            >
+              {t('category')}: {pick(category.title)}
+            </span>
+          )}
+        </header>
+                {/* =========================================
+            ARTICLE BANNER IMAGE
+        ========================================= */}
+
+        <div className="mt-8 overflow-hidden rounded-2xl border border-navy/10 dark:border-ink-dark/10 bg-white/60 dark:bg-white/[0.04] shadow-sm">
+  <img
+    src={articleImage}
+    alt={
+      language === 'mr'
+        ? `${marathiArticle} - ${pick(article.title)}`
+        : `${englishArticle} - ${pick(article.title)}`
+    }
+    width="1200"
+    height="630"
+    fetchpriority="high"
+    loading="eager"
+    decoding="async"
+    className="h-auto w-full object-cover"
+  />
+</div>
+
+        {/* =========================================
+            INTRODUCTION
+        ========================================= */}
+
+        <section className="mt-8">
+          <h2
+            lang={language}
+            className="font-display text-xl font-semibold text-navy dark:text-ink-dark"
+          >
+            {language === 'mr'
+              ? `${marathiArticle} म्हणजे काय?`
+              : `What is ${englishArticle}?`}
+          </h2>
+
+          <p
+            lang={language}
+            className="mt-3 text-base leading-relaxed text-ink/80 dark:text-ink-dark/80"
+          >
+            {pick(article.simpleExplanation)}
+          </p>
+        </section>
+
+        {/* =========================================
+            VERIFICATION NOTICE
+        ========================================= */}
+
+        <div className="mt-6 flex items-start gap-2 rounded-xl border border-gold/30 bg-gold/[0.06] p-4 text-xs leading-relaxed text-ink/70 dark:text-ink-dark/70">
+
+          <ShieldAlert
+            size={16}
+            className="mt-0.5 shrink-0 text-gold"
+          />
+
+          <p lang={language}>
+            {t('verify_notice')}
+          </p>
+
+        </div>
+
+        <Advertisement placement="article" />
+
+        {/* =========================================
+            OFFICIAL TEXT
+        ========================================= */}
+
+        <section className="mt-8">
+
+          <h2
+            lang={language}
+            className="flex items-center gap-2 font-display text-lg font-semibold text-navy dark:text-ink-dark"
+          >
+            <ScrollText
+              size={18}
+              className="text-saffron"
+            />
+
+            {t('official_text')}
+          </h2>
+
+          <p
+            lang={language}
+            className="mt-3 rounded-xl border border-navy/10 dark:border-ink-dark/10 bg-white/60 dark:bg-white/[0.04] p-5 text-sm italic leading-relaxed text-ink/70 dark:text-ink-dark/70"
+          >
+            {pick(article.officialText)}
+          </p>
+
+        </section>
+
+        {/* =========================================
+            SIMPLE EXPLANATION
+        ========================================= */}
+
+        <section className="mt-8">
+
+          <h2
+            lang={language}
+            className="flex items-center gap-2 font-display text-lg font-semibold text-navy dark:text-ink-dark"
+          >
+            <BookOpen
+              size={18}
+              className="text-saffron"
+            />
+
+            {language === 'mr'
+              ? 'सोप्या भाषेत स्पष्टीकरण'
+              : `${englishArticle} Explained in Simple Words`}
+          </h2>
+
+          <p
+            lang={language}
+            className="mt-3 text-base leading-relaxed text-ink/80 dark:text-ink-dark/80"
+          >
+            {pick(article.simpleExplanation)}
+          </p>
+
+        </section>
+
+        {/* =========================================
+            VERY SIMPLE
+        ========================================= */}
+
+        <section className="mt-8">
+
+          <h2
+            lang={language}
+            className="flex items-center gap-2 font-display text-lg font-semibold text-navy dark:text-ink-dark"
+          >
+            <Sparkles
+              size={18}
+              className="text-saffron"
+            />
+
+            {language === 'mr'
+              ? `${marathiArticle} सोप्या भाषेत`
+              : `${englishArticle} in Simple Words`}
+          </h2>
+
+          <p
+            lang={language}
+            className="mt-3 rounded-xl bg-navy/[0.04] dark:bg-white/[0.05] p-5 text-base leading-relaxed text-navy dark:text-ink-dark"
+          >
+            {pick(article.verySimple)}
+          </p>
+
+        </section>
+
+        {/* =========================================
+            EXAMPLE
+        ========================================= */}
+
+        <section className="mt-8">
+
+          <h2
+            lang={language}
+            className="flex items-center gap-2 font-display text-lg font-semibold text-navy dark:text-ink-dark"
+          >
+            <Lightbulb
+              size={18}
+              className="text-saffron"
+            />
+
+            {language === 'mr'
+              ? `${marathiArticle} चे उदाहरण`
+              : `${englishArticle} Example`}
+          </h2>
+
+          <p
+            lang={language}
+            className="mt-3 text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70"
+          >
+            {pick(article.example)}
+          </p>
+
+        </section>
+                {/* =========================================
+            DYNAMIC SEO CONTENT SECTIONS
+        ========================================= */}
+
+        {Array.isArray(article.seoSections?.[language]) &&
+          article.seoSections[language].length > 0 && (
+            <section className="mt-8">
+              <div className="space-y-6">
+
+                {article.seoSections[language].map(
+                  (section, index) => (
+                    <div key={index}>
+
+                      <h2
+                        lang={language}
+                        className="font-display text-lg font-semibold text-navy dark:text-ink-dark"
+                      >
+                        {section.heading}
+                      </h2>
+
+                      <p
+                        lang={language}
+                        className="mt-3 text-base leading-relaxed text-ink/80 dark:text-ink-dark/80"
+                      >
+                        {section.content}
+                      </p>
+
+                    </div>
+                  )
+                )}
+
+              </div>
+            </section>
+          )}
+
+        {/* =========================================
+            FAQ
+        ========================================= */}
+
+        {/* =========================================
+    FAQ ACCORDION
+========================================= */}
+
+<section className="mt-10">
+
+  <h2
+    lang={language}
+    className="flex items-center gap-2 font-display text-xl font-semibold text-navy dark:text-ink-dark"
+  >
+    <HelpCircle
+      size={20}
+      className="text-saffron"
+    />
+
+    {language === 'mr'
+      ? 'वारंवार विचारले जाणारे प्रश्न'
+      : 'Frequently Asked Questions'}
+  </h2>
+
+  <div className="mt-4 space-y-3">
+
+    {faqs.map((faq, index) => {
+      const isOpen = openFAQ === index
+
+      return (
+        <div
+          key={index}
+          className="overflow-hidden rounded-xl border border-navy/10 dark:border-ink-dark/10 bg-white/60 dark:bg-white/[0.04]"
+        >
+
+          {/* Question */}
+          <button
+            type="button"
+            onClick={() =>
+              setOpenFAQ(isOpen ? null : index)
+            }
+            aria-expanded={isOpen}
+            aria-controls={`faq-answer-${index}`}
+            className="flex w-full items-center justify-between gap-4 p-5 text-left transition-colors hover:bg-navy/[0.03] dark:hover:bg-white/[0.03]"
+          >
+
+            <span
+              lang={language}
+              className="font-semibold text-navy dark:text-ink-dark"
+            >
+              {faq.question}
+            </span>
+
+            <span
+              aria-hidden="true"
+              className="shrink-0 text-xl font-medium text-saffron"
+            >
+              {isOpen ? '−' : '+'}
+            </span>
+
+          </button>
+
+          {/* Answer */}
+          {isOpen && faq.answer && (
+            <div
+              id={`faq-answer-${index}`}
+              className="border-t border-navy/10 dark:border-ink-dark/10 px-5 pb-5 pt-4"
+            >
+              <p
+                lang={language}
+                className="text-sm leading-relaxed text-ink/70 dark:text-ink-dark/70"
+              >
+                {faq.answer}
+              </p>
+            </div>
+          )}
+
+        </div>
+      )
+    })}
+
+  </div>
+
+</section>
+
+        {/* =========================================
+            RELATED ARTICLES
+        ========================================= */}
+
+        {related.length > 0 && (
+          <section className="mt-10">
+
+            <h2
+              lang={language}
+              className="flex items-center gap-2 font-display text-lg font-semibold text-navy dark:text-ink-dark"
+            >
+              <Link2
+                size={18}
+                className="text-saffron"
+              />
+
+              {t('related_articles')}
+            </h2>
+
+            <div className="mt-3 flex flex-wrap gap-2">
+
+              {related.map((r) => (
+                <Link
+                  key={r.id}
+                  to={`/article/${r.id}`}
+                  className="rounded-full border border-navy/15 dark:border-ink-dark/20 px-4 py-2 text-sm text-navy dark:text-ink-dark hover:border-saffron/50 hover:text-saffron transition-colors"
+                >
+                  {r.articleNumber} · {pick(r.title)}
+                </Link>
+              ))}
+
+            </div>
+
+          </section>
+        )}
+
+        {/* =========================================
+            PREVIOUS / NEXT
+        ========================================= */}
+
+        {(previousArticle || nextArticle) && (
+          <nav
+            aria-label="Article navigation"
+            className="mt-10 grid gap-4 sm:grid-cols-2"
+          >
+
+            {previousArticle ? (
+              <Link
+                to={`/article/${previousArticle.id}`}
+                className="rounded-xl border border-navy/10 dark:border-ink-dark/10 p-4 transition hover:border-saffron/50"
+              >
+                <div className="flex items-center gap-2 text-xs text-ink/50 dark:text-ink-dark/50">
+                  <ChevronLeft size={16} />
+
+                  {language === 'mr'
+                    ? 'मागील कलम'
+                    : 'Previous Article'}
+                </div>
+
+                <div className="mt-1 font-medium text-navy dark:text-ink-dark">
+                  {previousArticle.articleNumber}
+                  {' – '}
+                  {pick(previousArticle.title)}
+                </div>
+              </Link>
+            ) : (
+              <div />
+            )}
+
+            {nextArticle && (
+              <Link
+                to={`/article/${nextArticle.id}`}
+                className="rounded-xl border border-navy/10 dark:border-ink-dark/10 p-4 text-right transition hover:border-saffron/50"
+              >
+                <div className="flex items-center justify-end gap-2 text-xs text-ink/50 dark:text-ink-dark/50">
+
+                  {language === 'mr'
+                    ? 'पुढील कलम'
+                    : 'Next Article'}
+
+                  <ChevronRight size={16} />
+
+                </div>
+
+                <div className="mt-1 font-medium text-navy dark:text-ink-dark">
+                  {nextArticle.articleNumber}
+                  {' – '}
+                  {pick(nextArticle.title)}
+                </div>
+
+              </Link>
+            )}
+
+          </nav>
+        )}
+
+        {/* =========================================
+            SOURCE + BOOKMARK
+        ========================================= */}
+
+        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-navy/10 dark:border-ink-dark/10 pt-6 text-xs text-ink/45 dark:text-ink-dark/45">
+
+          <span>
+            {t('source_label')}:{' '}
+            {article.source?.name || '—'}
+          </span>
+
+          <BookmarkButton
+            articleId={article.id}
+          />
+
+        </div>
+
+        <Advertisement placement="article" />
+
+      </div>
+    </>
+  )
+}

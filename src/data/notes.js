@@ -1,0 +1,5 @@
+export const notes = [
+  { id: 'rights-revision', title: { en: 'Fundamental Rights: Quick Revision', mr: 'मूलभूत अधिकार: जलद उजळणी' }, category: 'Fundamental Rights', description: { en: 'A concise map of Part III, remedies and landmark Articles.', mr: 'भाग III, उपाय आणि महत्त्वाच्या कलमांचा संक्षिप्त नकाशा.' }, language: 'English + Marathi' },
+  { id: 'amendments-revision', title: { en: 'Important Amendments', mr: 'महत्त्वाच्या दुरुस्त्या' }, category: 'Important Amendments', description: { en: 'Revision prompts for amendments frequently asked in exams.', mr: 'परीक्षेत वारंवार विचारल्या जाणाऱ्या दुरुस्त्यांसाठी उजळणी.' }, language: 'English + Marathi' },
+  { id: 'mpsc-revision', title: { en: 'MPSC Constitution Revision', mr: 'MPSC संविधान उजळणी' }, category: 'MPSC Revision', description: { en: 'A focused checklist for Maharashtra public service preparation.', mr: 'महाराष्ट्र लोकसेवा परीक्षेच्या तयारीसाठी केंद्रित यादी.' }, language: 'Marathi' },
+]

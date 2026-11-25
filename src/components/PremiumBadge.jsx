@@ -1,0 +1,2 @@
+import { useLanguage } from '../context/LanguageContext'
+export default function PremiumBadge() { const { t } = useLanguage(); return <span className="inline-flex items-center rounded-full bg-saffron/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-saffron">{t('premium_title')}</span> }

@@ -1,16 +1,27 @@
-# React + Vite
+# MySamvidhan
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An English and Marathi educational website for exploring the Constitution of India through Articles, Fundamental Rights, Fundamental Duties, Directive Principles, Amendments, current affairs, FAQs, quizzes and study guides.
 
-Currently, two official plugins are available:
+## Development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```sh
+npm install
+npm run dev
+```
 
-## React Compiler
+## Production build
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```sh
+npm run build
+npm run preview
+```
 
-## Expanding the ESLint configuration
+The build uses Vite and writes the static website to `dist/`. It also generates `public/sitemap.xml` from the supported local content routes before building. The project uses React and Vite; the deployed site does not depend on the separate server-rendered application files retained from the former `main` branch.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Deployment
+
+The GitHub `main` branch is intended for the Vercel project. Vercel should use the `npm run build` command and the `dist` output directory. Public content is bilingual and the language selector stores the selected language in the browser.
+
+## Content and sources
+
+The site is for educational information and is not legal advice. Article and current-affairs explanations include sources where available. Review source links and verification dates before publishing updates.
