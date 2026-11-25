@@ -15,6 +15,9 @@ body main h1 { font-size: var(--type-h1) !important; line-height: 1.22 !importan
 body main h2 { font-size: var(--type-h2) !important; line-height: 1.38 !important; }
 body main h3 { font-size: var(--type-h3) !important; line-height: 1.45 !important; }
 
+/* Match Current Affairs section headings to the smaller Article Details scale. */
+body main .ca-article h2 { font-size: 23px !important; line-height: 1.25 !important; }
+
 /* Keep explanatory copy comfortable across every page and content type. */
 body main p:not(.eyebrow):not(.ca-category):not(.rights-eyebrow):not(.rights-section-label):not(.study-eyebrow),
 body main li,
