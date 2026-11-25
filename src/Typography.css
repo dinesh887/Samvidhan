@@ -76,7 +76,10 @@ html[lang="mr"] body main :is(p, li, dd, blockquote, figcaption, a, button, labe
   font-family: 'Noto Sans Devanagari', 'DM Sans', Arial, sans-serif;
   letter-spacing: 0 !important;
 }
-
+body main .ca-article h2 {
+    font-size: 23px !important;
+    line-height: 1.25 !important;
+}
 @media (max-width: 760px) {
   :root {
     --type-h1: clamp(1.75rem, 7vw, 2.5rem);
