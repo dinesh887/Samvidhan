@@ -1546,6 +1546,7 @@ export const articles = existingArticles.map((source) => {
     example: migrated.example?.en || '',
     migrationSections: migrated.seoSections?.en || [],
     migrationFaq: migrated.faq?.en || [],
+    migrationMcqs: migrated.mcqs?.en || [],
     constitutionalText: migrated.officialText?.verified ? migrated.officialText.en : undefined,
     sources: migrated.source?.url ? [{ label: migrated.source.name || 'Source', url: migrated.source.url }] : article.sources,
     keywords: `${article.keywords || ''} ${typeof migrated.keywords === 'string' ? migrated.keywords : ''}`.trim(),

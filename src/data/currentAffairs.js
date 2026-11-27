@@ -528,9 +528,212 @@ const curatedCurrentAffairs = [
     "Environmental Concerns"
   ]
 },
+{
+  "id": "yavatmal-reliance-50000-tree-felling-proposal-2026",
+  "articleNumber": "Current Affairs",
+  "categoryKey": "current-affairs",
+  "slug": "yavatmal-reliance-cement-50000-tree-felling-proposal",
+  "title": {
+    "en": "Yavatmal: Proposal to Cut 50,000 Additional Trees for Cement Project Raises Environmental Concerns",
+    "mr": "यवतमाळमध्ये सिमेंट प्रकल्पासाठी 50 हजार अतिरिक्त झाडे तोडण्याचा प्रस्ताव; पर्यावरणाचा प्रश्न ऐरणीवर"
+  },
+  "seoTitle": {
+    "en": "Yavatmal 50,000 Tree Cutting Proposal for Reliance Cement Project | MySamvidhan",
+    "mr": "यवतमाळ 50 हजार झाडांची वृक्षतोड प्रस्ताव | रिलायन्स सिमेंट प्रकल्प | MySamvidhan"
+  },
+  "shortDescription": {
+    "en": "A proposal to cut approximately 50,000 additional trees for the Reliance Cementation project in Zari-Jamni, Yavatmal, has raised concerns about forests, wildlife and ecological conservation.",
+    "mr": "यवतमाळच्या झरी-जामणी तालुक्यात रिलायन्स सिमेंटेशन प्रकल्पासाठी सुमारे 50 हजार अतिरिक्त झाडे तोडण्याच्या प्रस्तावामुळे वनसंवर्धन, वन्यजीव आणि पर्यावरणाबाबत चिंता व्यक्त केली जात आहे."
+  },
+  "category": "Environment",
+  "categoryMr": "पर्यावरण",
+  "date": "2026-11-27",
+  "introduction": {
+    "en": "A proposal involving the cutting of approximately 50,000 additional trees for the Reliance Cementation project in Zari-Jamni taluka of Yavatmal district has brought forest conservation and environmental concerns into focus. The proposal reportedly involves 467.45 hectares of forest land and is scheduled for discussion before the Forest Advisory Committee.",
+    "mr": "यवतमाळ जिल्ह्यातील झरी-जामणी तालुक्यात रिलायन्स सिमेंटेशन प्रकल्पासाठी सुमारे 50 हजार अतिरिक्त झाडे तोडण्याच्या प्रस्तावामुळे वनसंवर्धन आणि पर्यावरणाचा मुद्दा पुन्हा चर्चेत आला आहे. या प्रस्तावाचा संबंध 467.45 हेक्टर वनक्षेत्राशी असून, केंद्रीय वन सल्लागार समितीच्या बैठकीत यावर चर्चा होणार असल्याचे वृत्त समोर आले आहे."
+  },
+  "simpleExplanation": {
+    "en": "The proposal concerns additional forest land and tree removal for a cement-related project in Yavatmal. The area includes forest land associated with villages such as Pimparadwadi, Hirapur and Govindpur in Zari-Jamni. Reports indicate that the forest area is connected to a wildlife corridor associated with the Tadoba region and Tipeshwar Wildlife Sanctuary. The proposal has raised concerns among wildlife and environmental advocates. The committee discussion does not itself mean that the additional tree felling has received final approval.",
+    "mr": "हा प्रस्ताव यवतमाळमधील सिमेंट प्रकल्पासाठी अतिरिक्त वनजमीन आणि वृक्षतोडीशी संबंधित आहे. झरी-जामणी तालुक्यातील पिंपरडवाड, हिरापूर आणि गोविंदपूर या गावांच्या परिसरातील वनक्षेत्राचा यामध्ये उल्लेख करण्यात आला आहे. या वनक्षेत्राचा संबंध ताडोबा परिसर आणि टिपेश्वर वन्यजीव अभयारण्याशी जोडल्या जाणाऱ्या वन्यजीव मार्गाशी असल्याचे वृत्तांत नमूद करण्यात आले आहे. त्यामुळे पर्यावरणप्रेमी आणि वन्यजीव संरक्षणाशी संबंधित व्यक्तींमध्ये चिंता व्यक्त होत आहे. समितीच्या बैठकीत प्रस्तावावर चर्चा होणे म्हणजे अतिरिक्त वृक्षतोडीला अंतिम मंजुरी मिळाली आहे, असे समजणे योग्य नाही."
+  },
+  "verySimple": {
+    "en": "A proposal to cut around 50,000 additional trees for a cement project in Yavatmal has raised concerns about forests and wildlife. The proposal is expected to be discussed by the Forest Advisory Committee.",
+    "mr": "यवतमाळमध्ये सिमेंट प्रकल्पासाठी सुमारे 50 हजार अतिरिक्त झाडे तोडण्याच्या प्रस्तावामुळे पर्यावरण आणि वन्यजीव संरक्षणाचा प्रश्न निर्माण झाला आहे. या प्रस्तावावर वन सल्लागार समितीत चर्चा होणार आहे."
+  },
+  "example": {
+    "en": "When a large industrial project requires forest land, authorities must consider the impact on biodiversity, wildlife movement, forest ecosystems and the conditions attached to forest diversion. Development decisions therefore involve both economic considerations and environmental safeguards.",
+    "mr": "एखाद्या मोठ्या औद्योगिक प्रकल्पासाठी वनजमीन आवश्यक असल्यास जैवविविधता, वन्यजीवांच्या हालचाली, वन परिसंस्था आणि वनजमीन वळवण्याशी संबंधित अटींचा विचार करणे आवश्यक असते. त्यामुळे विकासाशी संबंधित निर्णय घेताना आर्थिक गरजांसोबत पर्यावरणीय संरक्षणाचाही विचार महत्त्वाचा ठरतो."
+  },
+  "content": {
+    "en": "A proposal to cut approximately 50,000 additional trees for the Reliance Cementation project in Zari-Jamni taluka of Yavatmal district has raised environmental concerns. According to media reports published on November 26 and 27, 2026, the proposal concerns approximately 467.45 hectares of forest land and is scheduled for discussion before the Forest Advisory Committee of the Union Ministry of Environment, Forest and Climate Change. The forest area mentioned in the reports includes locations associated with Pimparadwadi, Hirapur and Govindpur villages. The region has been discussed in connection with wildlife movement and the forest corridor linking the broader Tadoba landscape with Tipeshwar Wildlife Sanctuary. Environmental and wildlife conservation advocates have expressed concern over the potential impact of additional tree removal. The proposal raises questions about forest protection, biodiversity, wildlife habitat and the environmental conditions required for industrial projects. The committee's consideration of the proposal should not be interpreted as confirmation of final approval for the additional tree felling. The outcome of the meeting and any subsequent official decision will determine the next steps in the process.",
+    "mr": "यवतमाळ जिल्ह्यातील झरी-जामणी तालुक्यात रिलायन्स सिमेंटेशन प्रकल्पासाठी सुमारे 50 हजार अतिरिक्त झाडे तोडण्याच्या प्रस्तावामुळे पर्यावरण संरक्षणाचा मुद्दा चर्चेत आला आहे. 26 आणि 27 नोव्हेंबर 2026 रोजी प्रकाशित झालेल्या वृत्तांनुसार, या प्रस्तावाचा संबंध सुमारे 467.45 हेक्टर वनक्षेत्राशी असून, केंद्रीय पर्यावरण, वन आणि हवामान बदल मंत्रालयाच्या वन सल्लागार समितीसमोर हा प्रस्ताव चर्चेसाठी ठेवण्यात येणार आहे. या वनक्षेत्राशी पिंपरडवाड, हिरापूर आणि गोविंदपूर या गावांचा संबंध असल्याचे वृत्तांत नमूद करण्यात आले आहे. हा परिसर ताडोबा वनक्षेत्र आणि टिपेश्वर वन्यजीव अभयारण्याशी संबंधित वन्यजीवांच्या हालचालींच्या दृष्टीने महत्त्वाचा असल्याचे सांगितले जात आहे. प्रस्तावित अतिरिक्त वृक्षतोडीमुळे वन्यजीवांचे अधिवास, जैवविविधता आणि नैसर्गिक वनसंपत्तीवर परिणाम होण्याची शक्यता व्यक्त करून पर्यावरणप्रेमी चिंता व्यक्त करत आहेत. मोठ्या औद्योगिक प्रकल्पांसाठी वनजमीन वळवताना पर्यावरणीय परिणाम, वन्यजीव संरक्षण आणि संबंधित कायदेशीर अटींचा विचार करणे महत्त्वाचे असते. वन सल्लागार समितीसमोर प्रस्तावाची चर्चा होणे म्हणजे वृक्षतोडीला अंतिम मंजुरी मिळाली आहे, असे नाही. बैठकीतील निर्णय आणि त्यानंतरच्या अधिकृत प्रक्रियेनुसार पुढील स्थिती स्पष्ट होईल."
+  },
+  "seoSections": {
+    "en": [
+      {
+        "heading": "What is the Yavatmal tree cutting proposal?",
+        "content": "The proposal reportedly involves cutting approximately 50,000 additional trees for the Reliance Cementation project in Zari-Jamni taluka of Yavatmal district. It is associated with approximately 467.45 hectares of forest land and is scheduled for consideration by the Forest Advisory Committee."
+      },
+      {
+        "heading": "Where is the proposed forest land located?",
+        "content": "Media reports identify the forest area associated with Pimparadwadi, Hirapur and Govindpur villages in Zari-Jamni taluka of Yavatmal district, Maharashtra."
+      },
+      {
+        "heading": "Why has the proposal raised environmental concerns?",
+        "content": "The proposal has raised concerns about forest loss, biodiversity, wildlife habitat and the movement of wildlife through forest corridors associated with the broader Tadoba and Tipeshwar landscape."
+      },
+      {
+        "heading": "Has the additional tree cutting received final approval?",
+        "content": "The proposal was reported to be scheduled for discussion before the Forest Advisory Committee. The scheduled discussion alone does not establish that the additional tree cutting has received final approval."
+      }
+    ],
+    "mr": [
+      {
+        "heading": "यवतमाळमधील वृक्षतोडीचा प्रस्ताव काय आहे?",
+        "content": "यवतमाळ जिल्ह्यातील झरी-जामणी तालुक्यात रिलायन्स सिमेंटेशन प्रकल्पासाठी सुमारे 50 हजार अतिरिक्त झाडे तोडण्याचा प्रस्ताव चर्चेत आहे. या प्रस्तावाचा संबंध सुमारे 467.45 हेक्टर वनक्षेत्राशी असून, तो वन सल्लागार समितीसमोर विचारार्थ ठेवण्यात येणार असल्याचे वृत्त आहे."
+      },
+      {
+        "heading": "प्रस्तावित वनक्षेत्र कुठे आहे?",
+        "content": "मीडिया वृत्तांनुसार, झरी-जामणी तालुक्यातील पिंपरडवाड, हिरापूर आणि गोविंदपूर या गावांच्या परिसरातील वनक्षेत्राचा या प्रस्तावाशी संबंध आहे."
+      },
+      {
+        "heading": "या प्रस्तावामुळे पर्यावरणीय चिंता का व्यक्त होत आहेत?",
+        "content": "अतिरिक्त वृक्षतोडीमुळे वनक्षेत्राचे नुकसान, जैवविविधता, वन्यजीवांचे अधिवास आणि ताडोबा व टिपेश्वर परिसराशी संबंधित वन्यजीवांच्या हालचालींवर परिणाम होण्याची शक्यता असल्याने चिंता व्यक्त होत आहे."
+      },
+      {
+        "heading": "50 हजार अतिरिक्त झाडे तोडण्याला अंतिम मंजुरी मिळाली आहे का?",
+        "content": "वृत्तांनुसार, हा प्रस्ताव वन सल्लागार समितीच्या बैठकीत चर्चेसाठी ठेवण्यात येणार आहे. बैठकीत प्रस्तावाची चर्चा होणार असल्याने वृक्षतोडीला अंतिम मंजुरी मिळाली आहे, असा निष्कर्ष काढता येत नाही."
+      }
+    ]
+  },
+  "faq": {
+    "en": [
+      {
+        "question": "Where is the proposed tree cutting taking place?",
+        "answer": "The proposal concerns the Zari-Jamni taluka of Yavatmal district in Maharashtra, including forest areas associated with Pimparadwadi, Hirapur and Govindpur."
+      },
+      {
+        "question": "How many additional trees are proposed to be cut?",
+        "answer": "Media reports refer to approximately 50,000 additional trees in the proposal."
+      },
+      {
+        "question": "How much forest land is associated with the proposal?",
+        "answer": "The reports refer to approximately 467.45 hectares of forest land."
+      },
+      {
+        "question": "Has the proposal been finally approved?",
+        "answer": "The reported committee discussion is not, by itself, confirmation of final approval for the additional tree felling."
+      }
+    ],
+    "mr": [
+      {
+        "question": "प्रस्तावित वृक्षतोड कुठे होणार आहे?",
+        "answer": "हा प्रस्ताव यवतमाळ जिल्ह्यातील झरी-जामणी तालुक्यातील वनक्षेत्राशी संबंधित आहे. पिंपरडवाड, हिरापूर आणि गोविंदपूर या गावांच्या परिसराचा वृत्तांत उल्लेख आहे."
+      },
+      {
+        "question": "प्रस्तावात किती अतिरिक्त झाडे तोडण्याचा उल्लेख आहे?",
+        "answer": "मीडिया वृत्तांनुसार, सुमारे 50 हजार अतिरिक्त झाडे तोडण्याचा प्रस्ताव आहे."
+      },
+      {
+        "question": "या प्रस्तावाचा संबंध किती वनजमिनीशी आहे?",
+        "answer": "या प्रस्तावाच्या वृत्तांत सुमारे 467.45 हेक्टर वनक्षेत्राचा उल्लेख करण्यात आला आहे."
+      },
+      {
+        "question": "या वृक्षतोडीला अंतिम मंजुरी मिळाली आहे का?",
+        "answer": "बैठकीत प्रस्तावावर चर्चा होणार असल्याचे वृत्त आहे. मात्र, चर्चेची माहिती ही अतिरिक्त वृक्षतोडीला अंतिम मंजुरी मिळाल्याची पुष्टी नाही."
+      }
+    ]
+  },
+  "mcqs": {
+    "en": [
+      {
+        "question": "In which district is the proposed tree cutting related to the cement project?",
+        "options": [
+          "Nagpur",
+          "Yavatmal",
+          "Amravati",
+          "Wardha"
+        ],
+        "answer": "Yavatmal"
+      },
+      {
+        "question": "Approximately how many additional trees are mentioned in the proposal?",
+        "options": [
+          "10,000",
+          "25,000",
+          "50,000",
+          "1,50,000"
+        ],
+        "answer": "50,000"
+      },
+      {
+        "question": "Which taluka is associated with the proposal?",
+        "options": [
+          "Zari-Jamni",
+          "Digras",
+          "Pusad",
+          "Darwha"
+        ],
+        "answer": "Zari-Jamni"
+      }
+    ],
+    "mr": [
+      {
+        "question": "सिमेंट प्रकल्पाशी संबंधित प्रस्तावित वृक्षतोड कोणत्या जिल्ह्यात आहे?",
+        "options": [
+          "नागपूर",
+          "यवतमाळ",
+          "अमरावती",
+          "वर्धा"
+        ],
+        "answer": "यवतमाळ"
+      },
+      {
+        "question": "प्रस्तावात अंदाजे किती अतिरिक्त झाडे तोडण्याचा उल्लेख आहे?",
+        "options": [
+          "10 हजार",
+          "25 हजार",
+          "50 हजार",
+          "1 लाख 50 हजार"
+        ],
+        "answer": "50 हजार"
+      },
+      {
+        "question": "या प्रस्तावाशी कोणत्या तालुक्याचा संबंध आहे?",
+        "options": [
+          "झरी-जामणी",
+          "दिग्रस",
+          "पुसद",
+          "दारव्हा"
+        ],
+        "answer": "झरी-जामणी"
+      }
+    ]
+  },
+  "source": {
+    "name": "ABP माझा",
+    "url": "https://marathi.abplive.com/news/maharashtra/yavatmal-tree-cutting-issue-50000-trees-face-the-axe-due-to-proposal-for-additional-tree-felling-for-a-reliance-cementation-project-marathi-news-1446421"
+  },
+  "lastVerified": "2026-11-27",
+  "verified": true,
+  "relatedSlugs": [],
+  "keywords": [
+    "Yavatmal tree cutting",
+    "Yavatmal 50000 trees",
+    "Reliance Cementation Yavatmal",
+    "Zari Jamni",
+    "467.45 hectares forest land",
+    "Tipeshwar Wildlife Sanctuary",
+    "forest conservation Maharashtra",
+    "यवतमाळ वृक्षतोड",
+    "यवतमाळ 50 हजार झाडे",
+    "झरी जामणी",
+    "वनसंवर्धन"
+  ]
+},
 ]
 
-const cleanSourceText = (value) => String(value || '').replace(/<br\s*\/?\s*>/gi, '\n').replace(/<\/p\s*>/gi, '\n\n').replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").trim()
+const cleanSourceText = (value) => String(value || '').replace(/<br\s*\/?\s*>/gi, '\n').replace(/<li\b[^>]*>/gi, '• ').replace(/<\/li\s*>/gi, '\n').replace(/<\/p\s*>/gi, '\n\n').replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").trim()
 const localizedSections = (record, language) => {
   const sections = []
   const addText = (heading, field) => {
@@ -548,9 +751,9 @@ const localizedSections = (record, language) => {
     if (text) sections.push({ heading: item.heading, paragraphs: text.split(/\n\s*\n/).filter(Boolean) })
   }
   const faq = record.faq?.[language] || []
-  if (faq.length) sections.push({ heading: language === 'mr' ? 'वारंवार विचारले जाणारे प्रश्न' : 'Frequently asked questions', items: faq.map((item) => `${item.question} ${item.answer}`) })
+  if (faq.length) sections.push({ heading: language === 'mr' ? 'वारंवार विचारले जाणारे प्रश्न' : 'Frequently asked questions', faqs: faq })
   const mcqs = record.mcqs?.[language] || []
-  if (mcqs.length) sections.push({ heading: language === 'mr' ? 'ज्ञान तपासा' : 'Knowledge check', items: mcqs.map((item) => `${item.question} ${item.options?.join(' · ') || ''} ${item.answer || ''}`) })
+  if (mcqs.length) sections.push({ heading: language === 'mr' ? 'ज्ञान तपासा' : 'Knowledge check', mcqs })
   return sections
 }
 

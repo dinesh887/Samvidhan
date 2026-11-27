@@ -1,0 +1,100 @@
+.detail-content :is(ul, ol),
+.ca-article :is(ul, ol) {
+  list-style-position: outside;
+  padding-inline-start: 1.6rem;
+}
+
+.detail-content li,
+.ca-article li {
+  padding-inline-start: .3rem;
+  margin-block: .4rem;
+}
+
+.detail-content li::marker,
+.ca-article li::marker {
+  color: #1d5a46;
+  font-weight: 700;
+}
+
+.detail-content .article-faq > ol,
+.detail-content .article-mcqs,
+.ca-article .ca-faq-list,
+.ca-article .ca-mcq-list {
+  display: grid;
+  gap: .85rem;
+  margin-block: 1rem 1.4rem;
+  padding-inline-start: 1.7rem;
+  list-style: decimal outside;
+}
+
+.detail-content .article-faq > ol > li,
+.detail-content .article-mcqs > li,
+.ca-article .ca-faq-list > li,
+.ca-article .ca-mcq-list > li {
+  padding: 1rem 1.1rem;
+  border: 1px solid #e7e1d6;
+  border-radius: .75rem;
+  background: #fffdf9;
+}
+
+.detail-content .article-faq > ol > li::marker,
+.detail-content .article-mcqs > li::marker,
+.ca-article .ca-faq-list > li::marker,
+.ca-article .ca-mcq-list > li::marker {
+  color: #e87920;
+  font-size: 1.05em;
+}
+
+.detail-content .article-faq h3,
+.detail-content .article-mcqs h3,
+.ca-article .ca-faq-list h3,
+.ca-article .ca-mcq-list h3 {
+  margin: 0 0 .5rem;
+  color: #123c32;
+  font: 650 1rem/1.55 'DM Sans', 'Noto Sans Devanagari', Arial, sans-serif;
+}
+
+.detail-content .article-faq p,
+.ca-article .ca-faq-list p {
+  margin: 0;
+  color: #53615b;
+}
+
+.detail-content .article-mcq-options,
+.ca-article .ca-mcq-options {
+  margin-block: .65rem .35rem;
+  padding-inline-start: 1.8rem;
+  list-style: upper-alpha outside;
+}
+
+.detail-content .article-mcq-options li,
+.ca-article .ca-mcq-options li {
+  margin-block: .35rem;
+  padding: .4rem .65rem;
+  border: 1px solid #e7e1d6;
+  border-radius: .5rem;
+  background: #fff;
+}
+
+.detail-content .article-mcq-answer,
+.ca-article .ca-mcq-answer {
+  margin: .75rem 0 0;
+  padding: .6rem .75rem;
+  border-radius: .5rem;
+  background: #edf3e5;
+  color: #1d5a46;
+}
+
+html[lang="mr"] .detail-content .article-faq h3,
+html[lang="mr"] .detail-content .article-mcqs h3,
+html[lang="mr"] .ca-article .ca-faq-list h3,
+html[lang="mr"] .ca-article .ca-mcq-list h3 {
+  font-family: 'Noto Sans Devanagari', 'DM Sans', Arial, sans-serif;
+}
+
+@media (max-width: 600px) {
+  .detail-content .article-faq > ol > li,
+  .detail-content .article-mcqs > li,
+  .ca-article .ca-faq-list > li,
+  .ca-article .ca-mcq-list > li { padding: .85rem; }
+}

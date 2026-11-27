@@ -10,5 +10,12 @@
 .faq-answer{padding:0 32px 20px 2px;color:#53615b;font-size:15px;line-height:1.75}.faq-answer p{margin:0}.faq-answer nav{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:13px}.faq-answer nav a{color:#c9570c;text-decoration:none;font-size:14px;font-weight:650}.faq-answer nav a:hover{text-decoration:underline}.faq-answer nav a span{margin-left:3px}
 .faq-empty{padding:38px 0;color:#53615b}.faq-empty h3{margin:0 0 7px;color:#123c32;font-family:Georgia,'Times New Roman',serif;font-size:22px}.faq-empty p{margin:0 0 14px}.faq-empty button{padding:8px 13px;border:1px solid #d9ded7;border-radius:4px;background:#fff;color:#1d5a46;font:inherit;cursor:pointer}
 .faq-bottom{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-top:54px;padding:25px 28px;background:#faf7f0}.faq-bottom h2{margin:0 0 7px;color:#123c32;font-family:Georgia,'Times New Roman',serif;font-size:26px}.faq-bottom p:not(.faq-eyebrow){margin:0;color:#59655f;line-height:1.6}.faq-bottom>a{display:inline-flex;align-items:center;gap:10px;flex:none;color:#c9570c;text-decoration:none;font-size:14px;font-weight:700}.faq-bottom>a:hover{text-decoration:underline}
+
+.faq-accordion-item h3 button{justify-content:flex-start}
+.faq-question-number{display:grid;place-items:center;width:1.85rem;height:1.85rem;flex:none;border-radius:50%;background:#f7eee2;color:#b6530e;font-size:.82rem;font-weight:750;line-height:1}
+.faq-question-text{flex:1;min-width:0}
+.faq-toggle{margin-left:auto}
+.faq-answer{padding-left:calc(1.85rem + 12px)}
+@media(max-width:500px){.faq-question-number{width:1.65rem;height:1.65rem}.faq-accordion-item h3 button{gap:12px}.faq-answer{padding-left:calc(1.65rem + 12px)}}
 @media(max-width:760px){.faq-page{padding:18px 18px 48px}.faq-breadcrumb{margin-bottom:28px}.faq-content{grid-template-columns:1fr;gap:18px}.faq-categories{position:static;display:flex;gap:7px;overflow-x:auto;padding:0 0 7px;scrollbar-width:thin}.faq-categories button{flex:none;white-space:nowrap;border:1px solid #e4e5df}.faq-categories button span{display:none}.faq-results-heading{align-items:center}.faq-results-heading h2{font-size:21px}.faq-bottom{align-items:flex-start;flex-direction:column;margin-top:38px;padding:22px}.faq-hero>p:last-child{font-size:15px}}
 @media(prefers-reduced-motion:reduce){.faq-toggle:before,.faq-toggle:after{transition:none}}

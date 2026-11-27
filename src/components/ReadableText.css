@@ -1,0 +1,10 @@
+.readable-list {
+  margin: 0 0 1rem;
+  padding-inline-start: 1.65rem;
+  text-align: start;
+}
+
+.readable-list-bulleted { list-style: disc outside; }
+.readable-list-ordered { list-style: decimal outside; }
+.readable-list li { padding-inline-start: .35rem; margin-block: .35rem; }
+.readable-list li::marker { color: var(--orange, #e87920); font-weight: 700; }

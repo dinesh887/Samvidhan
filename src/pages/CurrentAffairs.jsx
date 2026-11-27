@@ -322,9 +322,11 @@ export function CurrentAffairDetails() {
                   {mcq.question}
                 </h3>
 
-                <ul className="mt-3 grid gap-2 text-sm text-ink/70 dark:text-ink-dark/70 sm:grid-cols-2">
+                <ul className="mt-3 grid list-disc gap-2 pl-5 text-sm marker:text-saffron dark:text-ink-dark/70 sm:grid-cols-2">
                   {mcq.options.map((option) => (
-                    <li key={option}>{option}</li>
+                    <li key={option} className="rounded-lg border border-navy/10 bg-white/70 px-3 py-2 dark:border-ink-dark/10 dark:bg-white/[0.03]">
+                      {option}
+                    </li>
                   ))}
                 </ul>
 

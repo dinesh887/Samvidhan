@@ -51,6 +51,7 @@ export const localizedArticle = (article, language) => {
     constitutionalText: migrated.officialText?.verified ? migrated.officialText.mr : article.constitutionalText,
     migrationSections: migrated.seoSections?.mr || [],
     migrationFaq: migrated.faq?.mr || [],
+    migrationMcqs: migrated.mcqs?.mr || [],
     migrationImage: article.image,
     sources: migrated.source?.url ? [{ label: migrated.source.name || 'Source', url: migrated.source.url }] : article.sources,
   }

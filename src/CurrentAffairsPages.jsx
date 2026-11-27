@@ -6,6 +6,8 @@ import { localizedArticle } from './data/marathiArticles.js'
 import { useLanguage } from './LanguageContext.jsx'
 import { languageLabels } from './data/languageLabels.js'
 import { localizedCurrentAffairs } from './data/marathiCurrentAffairs.js'
+import ReadableText from './components/ReadableText.jsx'
+import './ArticleContent.css'
 import './CurrentAffairsPages.css'
 
 const origin = 'https://www.mysamvidhan.in'
@@ -108,14 +110,16 @@ export function CurrentAffairsListingPage() {
   </>
 }
 
-function ContentSection({ section, id, relatedArticles }) {
+function ContentSection({ section, id, relatedArticles, language }) {
   const isConnection = /constitutional connection|constitutional context|घटनात्मक संबंध|घटनात्मक संदर्भ/i.test(section.heading || '')
   return <section id={id}>
     {section.heading && <h2>{section.heading}</h2>}
-    {section.paragraphs?.map((paragraph, index) => <p key={`p-${index}`}>{paragraph}</p>)}
+    {section.paragraphs?.map((paragraph, index) => <ReadableText key={`p-${index}`} text={paragraph}/>)}
     {section.quote && <blockquote>{typeof section.quote === 'string' ? <p>{section.quote}</p> : <><p>{section.quote.text}</p>{section.quote.citation && <cite>{section.quote.citation}</cite>}</>}</blockquote>}
     {section.bullets?.length > 0 && <ul>{section.bullets.map((bullet, index) => <li key={`b-${index}`}>{bullet}</li>)}</ul>}
     {section.items?.length > 0 && <ol>{section.items.map((entry, index) => <li key={`i-${index}`}>{entry}</li>)}</ol>}
+    {section.faqs?.length > 0 && <ol className="ca-faq-list">{section.faqs.map((faq, index) => <li key={`faq-${index}`}><div><h3>{faq.question}</h3><ReadableText text={faq.answer}/></div></li>)}</ol>}
+    {section.mcqs?.length > 0 && <ol className="ca-mcq-list">{section.mcqs.map((mcq, index) => <li key={`mcq-${index}`}><h3>{mcq.question}</h3><ol className="ca-mcq-options" type="A">{mcq.options?.map((option, optionIndex) => <li key={`option-${optionIndex}`}>{option}</li>)}</ol>{mcq.answer && <p className="ca-mcq-answer"><strong>✓ {language === 'mr' ? 'योग्य उत्तर' : 'Correct answer'}:</strong> {mcq.answer}</p>}</li>)}</ol>}
     {section.image?.src && <figure><img src={section.image.src} alt={section.image.alt || ''} loading="lazy"/>{section.image.caption && <figcaption>{section.image.caption}</figcaption>}</figure>}
     {isConnection && relatedArticles.length > 0 && <ul className="ca-connection-links">{relatedArticles.map((article) => <li key={article.number}><a href={articlePath(article.number)}>Article {article.number}: {article.title}</a></li>)}</ul>}
   </section>
@@ -218,7 +222,7 @@ export function CurrentAffairsDetailPage({ slug }) {
         </aside>
         <article className="ca-article">
           {item.introduction && <p className="ca-introduction">{item.introduction}</p>}
-          {sections.map(({ section, id }) => <ContentSection key={id} section={section} id={id} relatedArticles={articleLinks}/>)}
+          {sections.map(({ section, id }) => <ContentSection key={id} section={section} id={id} relatedArticles={articleLinks} language={language}/>)}
           {(item.constitutionalConnection?.length > 0 || articleLinks.length > 0) && !sections.some(({ section }) => /constitutional connection|constitutional context|घटनात्मक संबंध|घटनात्मक संदर्भ/i.test(section.heading || '')) && <section id="constitutional-connection" className="ca-connections"><h2>{labels.connection}</h2>{item.constitutionalConnection?.map((entry, index) => <p key={index}>{entry}</p>)}{articleLinks.length > 0 && <ul className="ca-connection-links">{articleLinks.map((article) => <li key={article.number}><a href={articlePath(article.number)}>{language === 'mr' ? `कलम ${article.number}: ${article.title}` : `Article ${article.number}: ${article.title}`}</a></li>)}</ul>}</section>}
           <SourceList sources={item.sources || []} labels={labels}/>
           <nav className="ca-prev-next" aria-label={languageLabels[language].currentAffairs}>{previous ? <a href={currentAffairsPath(previous.slug)}><small>{labels.previous}</small><span>{allLocalized.find((entry) => entry.slug === previous.slug)?.title || previous.title}</span></a> : <span/>}{next ? <a href={currentAffairsPath(next.slug)}><small>{labels.next}</small><span>{allLocalized.find((entry) => entry.slug === next.slug)?.title || next.title}</span></a> : <span/>}</nav>
